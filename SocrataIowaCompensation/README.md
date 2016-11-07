@@ -7,7 +7,7 @@ Country Living - Analyzing Financial Compensation in Iowa using Socrata Open Dat
 ----------------
 
 Pigs. Fields of corn. Open prairie. Small towns. These are some of the first things that come to mind when thinking about life in Iowa. While many may see this as a simpleton and
-boring way of life, Iowa is one of the most financially diverse and stable states in America and often voted as one of the top states to live in. According to
+boring way of life, Iowa is one of the most financially diverse and stable states in America and often voted as one of the top states to live in. According to 
 
 In order to better analyze datasets such as employee financial compensation by industry in Iowa, the US government in 2009 established a data collection website, 
 [data.gov](https://www.data.gov/). Datasets are available online to conduct research, develop web applications, and design data visualizations, on a variety of topics ranging 
