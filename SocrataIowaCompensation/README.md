@@ -24,7 +24,7 @@ Federal government, 25 US states, 300+ US cities, and contains 4,000+ datasets f
 
 Let us take a look at a dataset from [data.gov](https://www.data.gov/) which looks at employee compensation by industry in Iowa.
 
-From 1998 to the present day, the State of Iowa has compiled total state wide employee compensation estimates in thousands of dollars, seasonally adjusted at annual rates. All dollar 
+From 1998 to the present year, the State of Iowa has compiled total state wide employee compensation estimates in thousands of dollars, seasonally adjusted at annual rates. All dollar 
 estimates are in current dollars (not adjusted for inflation). Compensation is the total remuneration, both monetary and in kind, payable by employers to employees in return for 
 their work during the period. Data is published for each of the following 3 industries:
   
@@ -120,12 +120,52 @@ education, health, and the environment, among many more fields. Let us begin by 
 2. On the home page, select the **Employment** tab.
 3. As shown in the figure below, in the **Employment** tab, scroll to the bottom of the page and click on the **Topics** drop down. Select **Employment**.
 
-![Figure 4](Images/Figure4.png)
+   ![Figure 4](Images/Figure4.png)
 
 4. Select the dataset titled **Iowa Seasonally Adjusted Non-Farm Employment by Month and Industry**. This link can be found [here](https://data.iowa.gov/Economy/Iowa-Seasonally-Adjusted-Non-Farm-Employment-by-Mo/sxz8-4swt). 
-5. As shown in the image below, click on **Download -> JSON**, which provides the datasert in the Socrata format, which can be easily processed using ATSD.
+5. As shown in the image below, click on **Download -> JSON**, which provides the dataset in the Socrata format, which can be easily processed using ATSD.
 
-![Figure 5](Images/Figure5.png)
+   ![Figure 5](Images/Figure5.png)
+   
+Below is an image of the dataset **Iowa Seasonally Adjusted Non-Farm Employment by Month and Industry**. Data has been compiled from 1990 to the present year. The metric shown is 
+the total number of employees (in thousands) per industry. 
+
+![Figure 6](Images/Figure6.png)
+
+Data is published for each of the following industry types: **Goods producing**, **Government**, and **Service providing**.  
+
+In turn, each of these industries is broken down into the following subcategories:
+
+**Goods producing**<br>
+Construction<br>
+Manufacturing<br>
+Mining and Logging<br>
+
+**Government**<br>
+Federal Government<br>
+Local Government<br>
+State Government<br>
+
+**Service providing**<br>
+Education and Health Services<br>
+Financial Activities<br>
+Information<br>
+Leisure and Hospitality<br>
+Professional and Business Services<br>
+Retail Trade<br>
+Transportation and Utilities<br>
+Wholesale Trade<br>
+
+Other Services
+
+The following three filters are applied to the default portal:
+
+* First filter: allows the user to sort by employee type. In the default portal, the only current option is to filter by thousands of employees. 
+* Second filter: allows the user to filter between 3 industry types. In the case above, all industry groups are selected. 
+* Third filter: allows the user to filter by a specific industry. In the default instance, all industries are selected.
+
+
+
 
 
 
