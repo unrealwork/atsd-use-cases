@@ -105,7 +105,7 @@ comparing different scenarios. The next 2 figures show outputs for the private n
 
 Here, you can explore the complete dataset for employee compensation by industry in Iowa:
 
-[![](Images/button.png)(https://apps.axibase.com/chartlab/f5eae012) 
+[![](Images/button.png)](https://apps.axibase.com/chartlab/f5eae012) 
 
 ### A Deeper Look at Iowa's Economy
 -----------------------------------
