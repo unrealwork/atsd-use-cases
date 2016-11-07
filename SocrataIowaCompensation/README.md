@@ -215,6 +215,38 @@ are readily available in Chart Lab.
 | rigx-2vau | [Unemployment insurance initial claims by county](https://data.iowa.gov/Economy/Unemployment-Insurance-Initial-Claims-by-County/rigx-2vau)|
 | aeyn-twxp | [Unemployment insurance recipients and unemployment insurance benefit payments by county (monthly)](https://data.iowa.gov/Economy/Unemployment-Insurance-Recipients-and-UI-Benefit-P/aeyn-twxp)|
 
+Let us change the entity in the default portal to **Unemployment insurance benefit payments by industry**. Follow the below steps to change the entity:
+
+1. Open the default portal: [(https://apps.axibase.com/chartlab/1ac33603](https://apps.axibase.com/chartlab/1ac33603). 
+2. Delete the default entity name **sxz8-4swt**, as shown in the image below.
+
+   ![Figure 14](Images/Figure14.png)
+
+3. Enter in the new entity name, in our instance **b38f-jgn3**. 
+4. Run!
+
+Below is an image showing the output of the graph. 
+
+![Figure 13](Images/Figure13.png)
+
+As marked below for the **Construction**, **Manufacturing**, and **Administration and Support of Waste Management and Remediation Services**
+metrics, we can see that insurance benefit payments tend to follow a yearly pattern. The payments tend to peak at the very beginning of the year in January, and generally fall throughout
+the rest of the year. This makes sense because for a state with harsh winters like Iowa, these services can tend to slow down in the winter months, leading to companies laying off a
+portion of their workforce, with these affected employees collecting unemployment insurance payments. This particular dataset however only goes back to 2010, so we cannot tell from it
+whether or not there is a correlation between it and the gross number of employee and the gross employee compensation. Let us navigate to a different dataset showing unemployment
+benefits to see if there is a correlation or not.
+
+Let us navigate **Unemployment insurance claims and payments (statewide - monthly)** with the entity **jpje-kkb9**. Below is an image showing the output of this graph. 
+
+![Figure 12](Images/Figure12.png)
+
+As with the previous figure, we can see that this dataset follows the same general trend, with the payments tending to peak in January of a given year and continue to fall throughout
+the rest of the year. However, we can see that in the late 2000's, the series shifted up as marked in the above figure. To summarize, the "Great Recession" seems to have had the
+following effects on each of the datasets:
+
+* Decrease in total state employee compensation
+* Decrease in total number of state employees
+* Increase in total of unemployment insurance benefit payments
 
 
 
