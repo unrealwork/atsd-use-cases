@@ -64,8 +64,7 @@ Other Services (except public administration)
 
 The dataset from data.gov can be found here: [http://catalog.data.gov/dataset/employee-compensation-by-industry-in-iowa](http://catalog.data.gov/dataset/employee-compensation-by-industry-in-iowa)
 
-On the data.gov website, datasets can be downloaded as a CSV, RDF, JSON, or a XML file. To help interpret this data, the user is given the option of opening the CSV file with either [CartoDB](https://carto.com/)
-or [plotly](https://plot.ly/).
+On the data.gov website, datasets can be downloaded as a CSV, RDF, JSON, or a XML file. This dataset can easily be parsed into ATSD using the JSON file format.
 
 ### Axibase Time Series Database
 --------------------------------
@@ -97,11 +96,32 @@ The following three filters are applied to the default portal:
 * Third filter: allows the user to filter by industry groups (far, government and government enterprise, and private nonfarm). In the above case, all groups have been selected.
 
 The dataset can be sorted by industry group (farm, government and government enterprises, and private non-farm) or specific industry, and the user can easily toggle through 
-comparing different scenarios. The next 2 figures show outputs for the private non-farm industry group and construction, respectively.
+comparing different scenarios. 
 
-![Figure 2](Images/Figure2.png) 
+The below figure shows the output when **farm** is selected as the **[industry_type]** from the third filter. We can see that the total compensation for farming can fluctuates quite
+often. There does not seem to be a single pattern that repeats year over year, such as low amount of work in the winter (leading to low figures) and a high amount of work in the fall
+(leading to high figures). Rather, we can see that the farming industry is very sensitive to extraneous factors (such as bad weather), which can plunge the industry's overall numbers.      
+ 
+![Figure 7](Images/Figure7.png)
 
+The next figure shows the output when **government and government enterprises** is selected as the **[industry_type]** from the third filter. We can see that the 
+**federal, civilian** and **military** metrics are nearly constant and that **state and local** is experiencing steady growth. Unlike with the farming industry, we can see that 
+government institutions are less sensitive to extraneous factors (such as bead weather, a poor economy, or civil unrest).  
+
+![Figure 8](Images/Figure8.png)
+
+The below figure shows the output for the private non-farm industry group as a whole.
+
+![Figure 2](Images/Figure2.png)
+
+It appears that most of these metrics are on an upward trend, but it is somewhat difficult to tell. Let us sort for the metrics **Construction** and **Manufacturing**. These images 
+for these 2 outputs are shown below, respectively. We can see that both metrics were experiencing steady, upward growth until the late 2000's, where each both metric experienced a 
+sharp decline (as marked by the red boxes in the figures below). An extraneous factor at this time that may have contributed to this change was the poor world-wide economy, otherwise
+known as the "Great Recession".  
+ 
 ![Figure 3](Images/Figure3.png)
+
+![Figure 9](Images/Figure9.png)
 
 Here, you can explore the complete dataset for employee compensation by industry in Iowa:
 
@@ -110,8 +130,8 @@ Here, you can explore the complete dataset for employee compensation by industry
 ### A Deeper Look at Iowa's Economy
 -----------------------------------
 
-In order to provide context to the above dataset for employee compensation by industry in Iowa, we will now walk through adding additional datasets. By adding additional information, 
-we can see how the rise and fall of employee compensation corresponds to other metrics. For example, is the rise of employee compensation corresponds to a rise of the gross number 
+In order to provide context to the above dataset, we will now walk through adding additional datasets. By looking at additional information, 
+we can see how the rise and fall of employee compensation corresponds to other metrics. For example, does the rise of employee compensation correspond to a rise of the gross number 
 of employees in the sate, or is there another factor at play? With a decrease in employee compensation, will unemployment rates and benefits rise as a result? To look into these 
 questions, let us navigate to [https://data.iowa.gov](https://data.iowa.gov/). This site contains publicly available information pertaining to Iowa for fields such as the economy,
 education, health, and the environment, among many more fields. Let us begin by finding a dataset which provides information on the gross number of employees working in the state.
@@ -131,6 +151,10 @@ Below is an image of the dataset **Iowa Seasonally Adjusted Non-Farm Employment 
 the total number of employees (in thousands) per industry. 
 
 ![Figure 6](Images/Figure6.png)
+
+Here, you can explore the complete dataset for employee compensation by industry in Iowa:
+
+[![](Images/button.png)](https://apps.axibase.com/chartlab/1ac33603)
 
 Data is published for each of the following industry types: **Goods producing**, **Government**, and **Service providing**.  
 
@@ -163,6 +187,18 @@ The following three filters are applied to the default portal:
 * First filter: allows the user to sort by employee type. In the default portal, the only current option is to filter by thousands of employees. 
 * Second filter: allows the user to filter between 3 industry types. In the case above, all industry groups are selected. 
 * Third filter: allows the user to filter by a specific industry. In the default instance, all industries are selected.
+
+
+
+* ytnz-cckp - seasonally adjusted non-farm employment by month
+* n74v-z6ct - average monthly non-farm employment by year and category
+* jpje-kkb9 - unemployment insurance claims and payments (statewide - monthly)
+* njph-rx66 - unemployment insurance claims (statewide - weekly)
+* b38f-jgn3 - unemployment insurance benefit payments by industry 
+* yhbr-3t8a - unemployment insurance recipients and unemployment insurance benefit payments by county (Annual)
+* rmcb-sifx - benefits 
+* rigx-2vau - unemployment insurance initial claims by county
+* aeyn-twxp - unemployment insurance recipients and unemployment insurance benefit payments by county (Monthly)
 
 
 
