@@ -1,7 +1,7 @@
 ![TitlePhoto](Images/TitlePhoto.png)
 
-Country Living - Analyzing Financial Compensation in Iowa using Socrata Open Data
-=================================================================================
+Country Living - Analyzing Employee Compensation in Iowa
+================================================================================
 
 ### Introduction
 ----------------
@@ -111,7 +111,24 @@ Here, you can explore the complete dataset for employee compensation by industry
 -----------------------------------
 
 In order to provide context to the above dataset for employee compensation by industry in Iowa, we will now walk through adding additional datasets. By adding additional information, 
-we can what effect the rise and fall 
+we can see how the rise and fall of employee compensation corresponds to other metrics. For example, is the rise of employee compensation corresponds to a rise of the gross number 
+of employees in the sate, or is there another factor at play? With a decrease in employee compensation, will unemployment rates and benefits rise as a result? To look into these 
+questions, let us navigate to [https://data.iowa.gov](https://data.iowa.gov/). This site contains publicly available information pertaining to Iowa for fields such as the economy,
+education, health, and the environment, among many more fields. Let us begin by finding a dataset which provides information on the gross number of employees working in the state.
+
+1. Navigate to [https://data.iowa.gov](https://data.iowa.gov).
+2. On the home page, select the **Employment** tab.
+3. As shown in the figure below, in the **Employment** tab, scroll to the bottom of the page and click on the **Topics** drop down. Select **Employment**.
+
+![Figure 4](Images/Figure4.png)
+
+4. Select the dataset titled **Iowa Seasonally Adjusted Non-Farm Employment by Month and Industry**. This link can be found [here](https://data.iowa.gov/Economy/Iowa-Seasonally-Adjusted-Non-Farm-Employment-by-Mo/sxz8-4swt). 
+5. As shown in the image below, click on **Download -> JSON**, which provides the datasert in the Socrata format, which can be easily processed using ATSD.
+
+![Figure 5](Images/Figure5.png)
+
+
+
 
 
 
