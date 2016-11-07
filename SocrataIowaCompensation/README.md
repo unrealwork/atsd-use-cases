@@ -117,7 +117,7 @@ The below figure shows the output for the private non-farm industry group as a w
 It appears that most of these metrics are on an upward trend, but it is somewhat difficult to tell. Let us sort for the metrics **Construction** and **Manufacturing**. These images 
 for these 2 outputs are shown below, respectively. We can see that both metrics were experiencing steady, upward growth until the late 2000's, where each both metric experienced a 
 sharp decline (as marked by the red boxes in the figures below). An extraneous factor at this time that may have contributed to this change was the poor world-wide economy, otherwise
-known as the "Great Recession".  
+known as the "Great Recession."
  
 ![Figure 3](Images/Figure3.png)
 
@@ -131,8 +131,8 @@ Here, you can explore the complete dataset for employee compensation by industry
 -----------------------------------
 
 In order to provide context to the above dataset, we will now walk through adding additional datasets. By looking at additional information, 
-we can see how the rise and fall of employee compensation corresponds to other metrics. For example, does the rise of employee compensation correspond to a rise of the gross number 
-of employees in the sate, or is there another factor at play? With a decrease in employee compensation, will unemployment rates and benefits rise as a result? To look into these 
+we can see how the rise and fall of employee compensation corresponds to other metrics. For example, does the rise or fall of employee compensation correspond to a rise or fall of the gross number 
+of employees in the state, or is there another factor at play? With a decrease in employee compensation, will unemployment rates and benefits rise as a result? To look into these 
 questions, let us navigate to [https://data.iowa.gov](https://data.iowa.gov/). This site contains publicly available information pertaining to Iowa for fields such as the economy,
 education, health, and the environment, among many more fields. Let us begin by finding a dataset which provides information on the gross number of employees working in the state.
 
@@ -151,10 +151,6 @@ Below is an image of the dataset **Iowa Seasonally Adjusted Non-Farm Employment 
 the total number of employees (in thousands) per industry. 
 
 ![Figure 6](Images/Figure6.png)
-
-Here, you can explore the complete dataset for employee compensation by industry in Iowa:
-
-[![](Images/button.png)](https://apps.axibase.com/chartlab/1ac33603)
 
 Data is published for each of the following industry types: **Goods producing**, **Government**, and **Service providing**.  
 
@@ -188,17 +184,36 @@ The following three filters are applied to the default portal:
 * Second filter: allows the user to filter between 3 industry types. In the case above, all industry groups are selected. 
 * Third filter: allows the user to filter by a specific industry. In the default instance, all industries are selected.
 
+Here, you can explore the complete dataset for employee compensation by industry in Iowa:
 
+[![](Images/button.png)](https://apps.axibase.com/chartlab/1ac33603)
 
-* ytnz-cckp - seasonally adjusted non-farm employment by month
-* n74v-z6ct - average monthly non-farm employment by year and category
-* jpje-kkb9 - unemployment insurance claims and payments (statewide - monthly)
-* njph-rx66 - unemployment insurance claims (statewide - weekly)
-* b38f-jgn3 - unemployment insurance benefit payments by industry 
-* yhbr-3t8a - unemployment insurance recipients and unemployment insurance benefit payments by county (Annual)
-* rmcb-sifx - benefits 
-* rigx-2vau - unemployment insurance initial claims by county
-* aeyn-twxp - unemployment insurance recipients and unemployment insurance benefit payments by county (Monthly)
+Let us know take a look at specific metrics in the **Iowa Seasonally Adjusted Non-Farm Employment by Month and Industry** dataset. As with the employee compensation dataset that
+we looked at earlier, let us filter for the **Construction** and **Manufacturing** metrics and see how the behaviors of the 2 datasets compare. Below are images of the
+**Construction** and **Manufacturing** metrics, respectively.   
+
+![Figure 10](Images/Figure10.png)
+
+![Figure 11](Images/Figure11.png)
+
+As with the employee compensation dataset, we can see that these metrics were experiencing steady, upward growth until the late 2000's, where each both metric experienced a sharp 
+decline (as marked by the red boxes in the figures above). We can see that both the total employee compensation and the gross number of employees decreased in the late 2000's, likely
+as a result of the "Great Recession."
+
+Next, let us look at another dataset to see if there is any relation with its behavior compared to the two we just analyzed. Below is a table of datasets from data.iowa.gov, that
+are readily available in Chart Lab. 
+
+|Entity     |data.iowa.gov dataset     |
+|-----------|--------------------------|
+| ytnz-cckp | [Gross seasonally adjusted non-farm employment by month](https://data.iowa.gov/Economy/Iowa-Seasonally-Adjusted-Non-Farm-Employment-by-Mo/sxz8-4swt)|
+| n74v-z6ct | [Average monthly non-farm employment by year and category](https://data.iowa.gov/Economy/Iowa-Seasonally-Adjusted-Non-Farm-Employment-by-Mo/sxz8-4swt)|
+| jpje-kkb9 | [Unemployment insurance claims and payments (statewide - monthly)](https://data.iowa.gov/Economy/Unemployment-Insurance-Claims-And-Payments-Statewi/jpje-kkb9)|
+| njph-rx66 | [Unemployment insurance claims (statewide - weekly)](https://data.iowa.gov/Economy/Unemployment-Insurance-Claims-Statewide-Weekly-/njph-rx66)|
+| b38f-jgn3 | [Unemployment insurance benefit payments by industry](https://data.iowa.gov/Economy/Unemployment-Insurance-Benefit-Payments-by-Industr/b38f-jgn3)|
+| yhbr-3t8a | [Unemployment insurance recipients and unemployment insurance benefit payments by county (annual)](https://data.iowa.gov/Economy/Unemployment-Insurance-Recipients-and-UI-Benefit-P/yhbr-3t8a)|
+| rmcb-sifx | Benefits|
+| rigx-2vau | [Unemployment insurance initial claims by county](https://data.iowa.gov/Economy/Unemployment-Insurance-Initial-Claims-by-County/rigx-2vau)|
+| aeyn-twxp | [Unemployment insurance recipients and unemployment insurance benefit payments by county (monthly)](https://data.iowa.gov/Economy/Unemployment-Insurance-Recipients-and-UI-Benefit-P/aeyn-twxp)|
 
 
 
