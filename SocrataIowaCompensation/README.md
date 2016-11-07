@@ -99,7 +99,7 @@ The following three filters are applied to the default portal:
 The dataset can be sorted by industry group (farm, government and government enterprises, and private non-farm) or specific industry, and the user can easily toggle through 
 comparing different scenarios. The next 2 figures show outputs for the private non-farm industry group and construction, respectively.
 
-![Figure 2](Images/Figure2.png)
+![Figure 2](Images/Figure2.png) 
 
 ![Figure 3](Images/Figure3.png)
 
