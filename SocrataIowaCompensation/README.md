@@ -30,33 +30,33 @@ their work during the period. Data is published for each of the following 3 indu
 
 In turn, each of these industries is broken down into the following subcategories:
 
-**Farm**: 
+**Farm**:<br> 
 Farm
 
-**Government and government enterprises**:
-Federal, civilian
-Military
-State and local
+**Government and government enterprises**:<br> 
+Federal, civilian<br> 
+Military<br> 
+State and local<br> 
 
-**Private non-farm**: 
-Administrative and support of waste management and remediation services
-Accommodation and food services
-Arts, entertainment, and recreation
-Construction
-Educational services
-Finance and insurance
-Forestry, fishing, and related activities
-Health care and social assistance
-Information
-Management of companies and enterprises
-Manufacturing
-Mining, quarrying, and oil and gas extraction
-Professional, scientific, and technical services
-Real estate and rental and leasing
-Retail trade
-Transportation and warehousing
-Wholesale trade
-Utilities
+**Private non-farm**:<br> 
+Administrative and support of waste management and remediation services<br> 
+Accommodation and food services<br> 
+Arts, entertainment, and recreation<br> 
+Construction<br> 
+Educational services<br> 
+Finance and insurance<br> 
+Forestry, fishing, and related activities<br> 
+Health care and social assistance<br> 
+Information<br> 
+Management of companies and enterprises<br> 
+Manufacturing<br> 
+Mining, quarrying, and oil and gas extraction<br> 
+Professional, scientific, and technical services<br> 
+Real estate and rental and leasing<br> 
+Retail trade<br> 
+Transportation and warehousing<br> 
+Wholesale trade<br> 
+Utilities<br> 
 
 Other Services (except public administration)
 
