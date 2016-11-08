@@ -23,7 +23,7 @@ Federal government, 25 US states, 300+ US cities, and contains 4,000+ datasets f
 ### Iowa Employee Compensation Dataset
 --------------------------------------
 
-Let us take a look at the dataset **Employee Financial Compensation by Industry in Iowa** from [data.gov](https://www.data.gov/) which looks at employee compensation by industry in Iowa.
+Let us take a look at the dataset **Employee Financial Compensation by Industry in Iowa** from [data.gov](https://www.data.gov/), which looks at employee compensation by industry in Iowa.
 
 From 1998 to the present year, the State of Iowa has compiled total state wide employee compensation estimates in thousands of dollars, seasonally adjusted at annual rates. All dollar 
 estimates are in current dollars (not adjusted for inflation). Compensation is the total remuneration, both monetary and in kind, payable by employers to employees in return for 
@@ -98,13 +98,14 @@ The following three filters are applied to the default portal:
 
 The below figure shows the output when **farm** is selected as the **[industry_type]** from the third filter. We can see that the total employee compensation for farming can fluctuates quite
 often. There does not seem to be a single pattern that repeats year over year, such as low amount of work in the winter (leading to low figures) and a high amount of work in the fall
-(leading to high figures). Rather, we can see that the farming industry is very sensitive to extraneous factors (such as bad weather), which can plunge the industry's overall numbers.      
+(leading to high figures). Rather, we can see that the farming industry is very sensitive to extraneous factors (such as weather), which can plunge or skyrocket the industry's overall numbers in any 
+given year.      
  
 ![Figure 7](Images/Figure7.png)
 
 The next figure shows the output when **government and government enterprises** is selected as the **[industry_type]** from the third filter. We can see that the 
 **federal, civilian** and **military** metrics are nearly constant and that **state and local** is experiencing steady growth. Unlike with the farming industry, we can see that 
-government institutions are less sensitive to extraneous factors (such as bead weather, a poor economy, or civil unrest etc).  
+government institutions are less sensitive to extraneous factors (such as poor weather, a struggling economy, or civil unrest).  
 
 ![Figure 8](Images/Figure8.png)
 
@@ -112,8 +113,8 @@ The below figure shows the output for the **private non-farm** is selected as th
 
 ![Figure 2](Images/Figure2.png)
 
-It appears that most of these metrics are on an upward trend, but there is a lot of information displayed so it is somewhat difficult to tell. Let us sort for the metrics **Construction** and **Manufacturing**. The images 
-for these 2 outputs are shown below, respectively. We can see that both metrics were experiencing steady, upward growth until the late 2000's, where each both metric experienced a 
+It appears that most of these metrics are on an upward trend, but there is a lot of information displayed, so it is somewhat difficult to tell. Let us sort for the metrics **Construction** and **Manufacturing**. The images 
+for these 2 outputs are shown below, respectively. We can see that both metrics were generally experiencing steady, upward growth until the late 2000's, where each both metric experienced a 
 sharp decline (as marked by the red boxes in the figures below). An extraneous factor at this time that may have contributed to this change was the poor world-wide economy, otherwise
 known as the "Great Recession."
  
@@ -132,7 +133,7 @@ In order to provide context to the above dataset, we will quickly now walk throu
 we can see how the rise and fall of total statewide employee compensation corresponds to other metrics. For example, does the rise or fall of total statewide employee compensation correspond to a rise or fall of the gross number 
 of employees in the state, or is there another factor at play? With a decrease in total statewide employee compensation, will unemployment rates and benefits rise as a result? To look into these 
 questions, let us navigate to [https://data.iowa.gov](https://data.iowa.gov/). This site contains publicly available information pertaining to Iowa for fields such as the economy,
-education, health, and the environment, among many more fields. Let us begin by finding a dataset which provides information on the gross number of employees working in the state.
+education, health, and the environment, among many more. Let us begin by finding a dataset which provides information on the gross number of employees working in the state.
 
 1. Navigate to [https://data.iowa.gov](https://data.iowa.gov).
 2. On the home page, select the **Employment** tab.
@@ -194,10 +195,10 @@ we looked at earlier, let us filter for the **Construction** and **Manufacturing
 
 ![Figure 11](Images/Figure11.png)
 
-As with the employee compensation dataset, we can see that these metrics were generally experiencing steady, upward growth until the late 2000's, where each both metric experienced a sharp 
+As with the employee compensation dataset, we can see that these metrics were generally experiencing steady, upward growth until the late 2000's, where each metric experienced a sharp 
 decline (as marked by the red boxes in the figures above). We can see that both the total employee compensation and the gross number of employees decreased in the late 2000's, likely
 as a result of the "Great Recession." Additionally, we can see there there was a significant decline in employment numbers for manufacturing between approximately 2001 and 2004. Looking
-back at the total statweide employee compensation dataset, we can see that there was also a significant decline for this data around this same period. Construction, however, did not seem to
+back at the total statewide employee compensation dataset, we can see that there was also a significant decline for this data around this same period. Construction, however, did not seem to
 be effected nearly as much. This decline may be attributed to a economic recession (slightly less sever than the one beginning in 2008) brought on by the September 11th terrorist attacks. For
 this period, it appears that the manufacturing field was greatly affected, while the construction industry was only slightly affected. 
 
