@@ -216,6 +216,8 @@ with one from the table below.
 | rigx-2vau | [Unemployment insurance initial claims by county](https://data.iowa.gov/Economy/Unemployment-Insurance-Initial-Claims-by-County/rigx-2vau)|
 | aeyn-twxp | [Unemployment insurance recipients and unemployment insurance benefit payments by county (monthly)](https://data.iowa.gov/Economy/Unemployment-Insurance-Recipients-and-UI-Benefit-P/aeyn-twxp)|
 
+(Note: If you would like to view a data.gov dataset without installing the ATSD software, please contact us and we would be happy to add it to this table!)
+
 Let us change the entity in the default portal to **Unemployment insurance benefit payments by industry** (the 5th entry in the above table). Follow the below steps to change the entity:
 
 1. Open the default portal: [https://apps.axibase.com/chartlab/1ac33603](https://apps.axibase.com/chartlab/1ac33603). 
@@ -248,6 +250,19 @@ following effects on each of the datasets:
 * Decrease in total state employee compensation
 * Decrease in total number of state employees
 * Increase in total of unemployment insurance benefit payments
+
+### Action Items
+----------------
+
+Below are the steps to follow to install ATSD and create figures for Iowa employment metrics:
+
+1. [Install the database](https://github.com/axibase/atsd-docs/tree/master/installation#installation) on a virtual machine or in a Linux container.
+2. [Install Axibase Collector](https://github.com/axibase/axibase-collector-docs/blob/master/installation.md#axibase-collector-installation) and configure it to write data into your ATSD instance.
+3. Import [JSON Socrata Job](json_socrata_job.xml) into Axibase Collector.
+4. Add your desired data.gov dataset to the job to enable data collection. Click on [Run] to collect data for the first time.
+5. Login into ATSD and open a sample Socrata portal to explore the data.
+
+If you require assistance in installing this software or have any questions, please feel free to [contact us](https://axibase.com/feedback/) and we would be happy to be of assistance!
 
 
 
