@@ -1,6 +1,6 @@
 ![TitlePhoto](Images/TitlePhoto.png)
 
-Country Living - Analyzing Employee Compensation in Iowa using Socrata Open 
+Country Living - Analyzing Employment Statistics in Iowa using Socrata Open 
 ===========================================================================
 
 ### Introduction
