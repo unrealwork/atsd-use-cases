@@ -9,7 +9,8 @@ Country Living - Analyzing Employee Compensation in Iowa using Socrata Open
 Pigs. Fields of corn. Open prairie. Small towns. These are some of the first things that come to mind when thinking about life in Iowa. While many may see this as a simpleton and
 boring way of life, Iowa is one of the most financially diverse and stable states in America. According to the [US Bureau of Labor Statistics](http://www.bls.gov/news.release/laus.nr0.htm),
 as of September 2016, Iowa's unemployment rate of 4.2% is lower than then US average of 5.0%. Additionally, from September of 2015 to September 2016, the state of Iowa added 29,600
-jobs, which amounted to a growth rate of 1.9%. 
+jobs, which amounted to a growth rate of 1.9%. According to [CNBC's America's Top States for Business 2016](http://www.cnbc.com/2016/07/12/top-states-for-business-9-iowa.html), Iowa was ranked as the 9th best state in the country. The state was ranked as #2 for the
+cost of doing business, #12 for cost of living, #15 for business friendliness, and #17 for education. 
 
 In order to better analyze datasets such as **Employee Financial Compensation by Industry in Iowa**, the US government in 2009 established a data collection website, 
 [data.gov](https://www.data.gov/). Datasets are available online to conduct research, develop web applications, and design data visualizations, on a variety of topics ranging 
