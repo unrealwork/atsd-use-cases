@@ -9,9 +9,9 @@ Country Living - Analyzing Employee Compensation in Iowa using Socrata Open
 Pigs. Fields of corn. Open prairie. Small towns. These are some of the first things that come to mind when thinking about life in Iowa. While many may see this as a simpleton and
 boring way of life, Iowa is one of the most financially diverse and stable states in America. According to the [US Bureau of Labor Statistics](http://www.bls.gov/news.release/laus.nr0.htm),
 as of September 2016, Iowa's unemployment rate of 4.2% is lower than then US average of 5.0%. Additionally, from September of 2015 to September 2016, the state of Iowa added 29,600
-jobs, which amounted to a growth rate 1.9%. 
+jobs, which amounted to a growth rate of 1.9%. 
 
-In order to better analyze datasets such as employee financial compensation by industry in Iowa, the US government in 2009 established a data collection website, 
+In order to better analyze datasets such as **Employee Financial Compensation by Industry in Iowa**, the US government in 2009 established a data collection website, 
 [data.gov](https://www.data.gov/). Datasets are available online to conduct research, develop web applications, and design data visualizations, on a variety of topics ranging 
 from agriculture, to manufacturing, to health, among  many other.
   
@@ -22,7 +22,7 @@ Federal government, 25 US states, 300+ US cities, and contains 4,000+ datasets f
 ### Iowa Employee Compensation Dataset
 --------------------------------------
 
-Let us take a look at a dataset from [data.gov](https://www.data.gov/) which looks at employee compensation by industry in Iowa.
+Let us take a look at the dataset **Employee Financial Compensation by Industry in Iowa** from [data.gov](https://www.data.gov/) which looks at employee compensation by industry in Iowa.
 
 From 1998 to the present year, the State of Iowa has compiled total state wide employee compensation estimates in thousands of dollars, seasonally adjusted at annual rates. All dollar 
 estimates are in current dollars (not adjusted for inflation). Compensation is the total remuneration, both monetary and in kind, payable by employers to employees in return for 
@@ -62,7 +62,7 @@ Utilities<br>
 
 Other Services (except public administration)
 
-The dataset from data.gov can be found here: [http://catalog.data.gov/dataset/employee-compensation-by-industry-in-iowa](http://catalog.data.gov/dataset/employee-compensation-by-industry-in-iowa)
+This dataset from data.gov can be found here: [http://catalog.data.gov/dataset/employee-compensation-by-industry-in-iowa](http://catalog.data.gov/dataset/employee-compensation-by-industry-in-iowa)
 
 On the data.gov website, datasets can be downloaded as a CSV, RDF, JSON, or a XML file. This dataset can easily be parsed into ATSD using the JSON file format.
 
@@ -83,22 +83,19 @@ sources as well as mixed and matched across different datasets. Once you install
 Rather, you can configure a scheduled job to retrieve the file from the specified endpoint and have ATSD parse it according to pre-defined rules. Once you
 have raw data in ATSD, creating and sharing reports with built-in widgets is fairly trivial. The reports will be continuously updated as new data comes in.
 
-With ATSD, the user is able display the dataset in an easily understandable manner. The below figure shows employee compensation for each of the 23 industries.
+With ATSD, the user is able display the dataset in an easily understandable manner. The below figure shows total statewide employee compensation for each of the above mentioned 23 industries.
 
 ![Figure 1](Images/Figure1.png)
   
-Using the ATSD default portal for this particular data.gov dataset, the user has the ability to filter for employee compensation by industry in Iowa to their liking. 
+Using the ATSD default portal for this particular data.gov dataset, the user has the ability to filter the data to their liking. 
 
 The following three filters are applied to the default portal:
 
 * First filter: allows the user to sort by compensation type. In the default portal, the only current option is to filter by thousand of US dollars. 
 * Second filter: allows the user to filter between 23 industries. In the case above, all industries have been selected. 
-* Third filter: allows the user to filter by industry groups (far, government and government enterprise, and private nonfarm). In the above case, all groups have been selected.
+* Third filter: allows the user to filter by industry groups (farm, government and government enterprise, and private nonfarm). In the above case, all groups have been selected.
 
-The dataset can be sorted by industry group (farm, government and government enterprises, and private non-farm) or specific industry, and the user can easily toggle through 
-comparing different scenarios. 
-
-The below figure shows the output when **farm** is selected as the **[industry_type]** from the third filter. We can see that the total compensation for farming can fluctuates quite
+The below figure shows the output when **farm** is selected as the **[industry_type]** from the third filter. We can see that the total employee compensation for farming can fluctuates quite
 often. There does not seem to be a single pattern that repeats year over year, such as low amount of work in the winter (leading to low figures) and a high amount of work in the fall
 (leading to high figures). Rather, we can see that the farming industry is very sensitive to extraneous factors (such as bad weather), which can plunge the industry's overall numbers.      
  
@@ -106,15 +103,15 @@ often. There does not seem to be a single pattern that repeats year over year, s
 
 The next figure shows the output when **government and government enterprises** is selected as the **[industry_type]** from the third filter. We can see that the 
 **federal, civilian** and **military** metrics are nearly constant and that **state and local** is experiencing steady growth. Unlike with the farming industry, we can see that 
-government institutions are less sensitive to extraneous factors (such as bead weather, a poor economy, or civil unrest).  
+government institutions are less sensitive to extraneous factors (such as bead weather, a poor economy, or civil unrest etc).  
 
 ![Figure 8](Images/Figure8.png)
 
-The below figure shows the output for the private non-farm industry group as a whole.
+The below figure shows the output for the **private non-farm** is selected as the **[industry_type]** from the third filter.
 
 ![Figure 2](Images/Figure2.png)
 
-It appears that most of these metrics are on an upward trend, but it is somewhat difficult to tell. Let us sort for the metrics **Construction** and **Manufacturing**. These images 
+It appears that most of these metrics are on an upward trend, but there is a lot of information displayed so it is somewhat difficult to tell. Let us sort for the metrics **Construction** and **Manufacturing**. The images 
 for these 2 outputs are shown below, respectively. We can see that both metrics were experiencing steady, upward growth until the late 2000's, where each both metric experienced a 
 sharp decline (as marked by the red boxes in the figures below). An extraneous factor at this time that may have contributed to this change was the poor world-wide economy, otherwise
 known as the "Great Recession."
@@ -130,9 +127,9 @@ Here, you can explore the complete dataset for employee compensation by industry
 ### A Deeper Look at Iowa's Economy
 -----------------------------------
 
-In order to provide context to the above dataset, we will now walk through adding additional datasets. By looking at additional information, 
-we can see how the rise and fall of employee compensation corresponds to other metrics. For example, does the rise or fall of employee compensation correspond to a rise or fall of the gross number 
-of employees in the state, or is there another factor at play? With a decrease in employee compensation, will unemployment rates and benefits rise as a result? To look into these 
+In order to provide context to the above dataset, we will quickly now walk through adding additional datasets to ATSD. By looking at additional information, 
+we can see how the rise and fall of total statewide employee compensation corresponds to other metrics. For example, does the rise or fall of total statewide employee compensation correspond to a rise or fall of the gross number 
+of employees in the state, or is there another factor at play? With a decrease in total statewide employee compensation, will unemployment rates and benefits rise as a result? To look into these 
 questions, let us navigate to [https://data.iowa.gov](https://data.iowa.gov/). This site contains publicly available information pertaining to Iowa for fields such as the economy,
 education, health, and the environment, among many more fields. Let us begin by finding a dataset which provides information on the gross number of employees working in the state.
 
@@ -143,7 +140,7 @@ education, health, and the environment, among many more fields. Let us begin by 
    ![Figure 4](Images/Figure4.png)
 
 4. Select the dataset titled **Iowa Seasonally Adjusted Non-Farm Employment by Month and Industry**. This link can be found [here](https://data.iowa.gov/Economy/Iowa-Seasonally-Adjusted-Non-Farm-Employment-by-Mo/sxz8-4swt). 
-5. As shown in the image below, click on **Download -> JSON**, which provides the dataset in the Socrata format, which can be easily processed using ATSD.
+5. As shown in the image below, click on **Download -> JSON**, which provides the dataset in the Socrata format, which can be easily processed into ATSD.
 
    ![Figure 5](Images/Figure5.png)
    
@@ -181,14 +178,14 @@ Other Services
 The following three filters are applied to the default portal:
 
 * First filter: allows the user to sort by employee type. In the default portal, the only current option is to filter by thousands of employees. 
-* Second filter: allows the user to filter between 3 industry types. In the case above, all industry groups are selected. 
+* Second filter: allows the user to filter between the 3 industry types. In the case above, all industry groups are selected. 
 * Third filter: allows the user to filter by a specific industry. In the default instance, all industries are selected.
 
-Here, you can explore the complete dataset for employee compensation by industry in Iowa:
+Here, you can explore the complete dataset for employment by industry in Iowa:
 
 [![](Images/button.png)](https://apps.axibase.com/chartlab/1ac33603)
 
-Let us know take a look at specific metrics in the **Iowa Seasonally Adjusted Non-Farm Employment by Month and Industry** dataset. As with the employee compensation dataset that
+Let us know take a look at specific metrics in the **Iowa Seasonally Adjusted Non-Farm Employment by Month and Industry** dataset. As with the total statewide employee compensation dataset that
 we looked at earlier, let us filter for the **Construction** and **Manufacturing** metrics and see how the behaviors of the 2 datasets compare. Below are images of the
 **Construction** and **Manufacturing** metrics, respectively.   
 
@@ -196,12 +193,16 @@ we looked at earlier, let us filter for the **Construction** and **Manufacturing
 
 ![Figure 11](Images/Figure11.png)
 
-As with the employee compensation dataset, we can see that these metrics were experiencing steady, upward growth until the late 2000's, where each both metric experienced a sharp 
+As with the employee compensation dataset, we can see that these metrics were generally experiencing steady, upward growth until the late 2000's, where each both metric experienced a sharp 
 decline (as marked by the red boxes in the figures above). We can see that both the total employee compensation and the gross number of employees decreased in the late 2000's, likely
-as a result of the "Great Recession."
+as a result of the "Great Recession." Additionally, we can see there there was a significant decline in employment numbers for manufacturing between approximately 2001 and 2004. Looking
+back at the total statweide employee compensation dataset, we can see that there was also a significant decline for this data around this same period. Construction, however, did not seem to
+be effected nearly as much. This decline may be attributed to a economic recession (slightly less sever than the one beginning in 2008) brought on by the September 11th terrorist attacks. For
+this period, it appears that the manufacturing field was greatly affected, while the construction industry was only slightly affected. 
 
-Next, let us look at another dataset to see if there is any relation with its behavior compared to the two we just analyzed. Below is a table of datasets from data.iowa.gov, that
-are readily available in Chart Lab. 
+Next, let us look at another dataset to see if there is any relation with its behavior compared to the two we just analyzed. Below is a table of datasets from data.iowa.gov that
+are readily available in Chart Lab. These dataset can be loaded in Chart Lab by replacing the entity name in the default portal (Iowa Seasonally Adjusted Non-Farm Employment by Month and Industry)
+with one from the table below.  
 
 |Entity     |data.iowa.gov dataset     |
 |-----------|--------------------------|
@@ -211,13 +212,13 @@ are readily available in Chart Lab.
 | njph-rx66 | [Unemployment insurance claims (statewide - weekly)](https://data.iowa.gov/Economy/Unemployment-Insurance-Claims-Statewide-Weekly-/njph-rx66)|
 | b38f-jgn3 | [Unemployment insurance benefit payments by industry](https://data.iowa.gov/Economy/Unemployment-Insurance-Benefit-Payments-by-Industr/b38f-jgn3)|
 | yhbr-3t8a | [Unemployment insurance recipients and unemployment insurance benefit payments by county (annual)](https://data.iowa.gov/Economy/Unemployment-Insurance-Recipients-and-UI-Benefit-P/yhbr-3t8a)|
-| rmcb-sifx | Benefits|
+| rmcb-sifx | [Unemployment insurance payments (statewide - yearly](https://data.iowa.gov/Economy/Unemployment-Insurance-Recipients-and-UI-Benefit-P/yhbr-3t8a)|
 | rigx-2vau | [Unemployment insurance initial claims by county](https://data.iowa.gov/Economy/Unemployment-Insurance-Initial-Claims-by-County/rigx-2vau)|
 | aeyn-twxp | [Unemployment insurance recipients and unemployment insurance benefit payments by county (monthly)](https://data.iowa.gov/Economy/Unemployment-Insurance-Recipients-and-UI-Benefit-P/aeyn-twxp)|
 
-Let us change the entity in the default portal to **Unemployment insurance benefit payments by industry**. Follow the below steps to change the entity:
+Let us change the entity in the default portal to **Unemployment insurance benefit payments by industry** (the 5th entry in the above table). Follow the below steps to change the entity:
 
-1. Open the default portal: [(https://apps.axibase.com/chartlab/1ac33603](https://apps.axibase.com/chartlab/1ac33603). 
+1. Open the default portal: [https://apps.axibase.com/chartlab/1ac33603](https://apps.axibase.com/chartlab/1ac33603). 
 2. Delete the default entity name **sxz8-4swt**, as shown in the image below.
 
    ![Figure 14](Images/Figure14.png)
@@ -229,11 +230,11 @@ Below is an image showing the output of the graph.
 
 ![Figure 13](Images/Figure13.png)
 
-As marked below for the **Construction**, **Manufacturing**, and **Administration and Support of Waste Management and Remediation Services**
+As marked with red boxes in the image above for the **Construction**, **Manufacturing**, and **Administration and Support of Waste Management and Remediation Services**
 metrics, we can see that insurance benefit payments tend to follow a yearly pattern. The payments tend to peak at the very beginning of the year in January, and generally fall throughout
 the rest of the year. This makes sense because for a state with harsh winters like Iowa, these services can tend to slow down in the winter months, leading to companies laying off a
 portion of their workforce, with these affected employees collecting unemployment insurance payments. This particular dataset however only goes back to 2010, so we cannot tell from it
-whether or not there is a correlation between it and the gross number of employee and the gross employee compensation. Let us navigate to a different dataset showing unemployment
+whether or not there is a correlation between it and the gross number of employees in the state and the total statewide employee compensation. Let us navigate to a different dataset showing unemployment
 benefits to see if there is a correlation or not.
 
 Let us navigate **Unemployment insurance claims and payments (statewide - monthly)** with the entity **jpje-kkb9**. Below is an image showing the output of this graph. 
