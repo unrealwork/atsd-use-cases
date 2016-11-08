@@ -116,7 +116,7 @@ The below figure shows the output for the **private non-farm** is selected as th
 It appears that most of these metrics are on an upward trend, but there is a lot of information displayed, so it is somewhat difficult to tell. Let us sort for the metrics **Construction** and **Manufacturing**. The images 
 for these 2 outputs are shown below, respectively. We can see that both metrics were generally experiencing steady, upward growth until the late 2000's, where each both metric experienced a 
 sharp decline (as marked by the red boxes in the figures below). An extraneous factor at this time that may have contributed to this change was the poor world-wide economy, otherwise
-known as the "Great Recession."
+known as the [Great Recession](http://stateofworkingamerica.org/great-recession/). 
  
 ![Figure 3](Images/Figure3.png)
 
@@ -197,7 +197,7 @@ we looked at earlier, let us filter for the **Construction** and **Manufacturing
 
 As with the employee compensation dataset, we can see that these metrics were generally experiencing steady, upward growth until the late 2000's, where each metric experienced a sharp 
 decline (as marked by the red boxes in the figures above). We can see that both the total employee compensation and the gross number of employees decreased in the late 2000's, likely
-as a result of the "Great Recession." Additionally, we can see there there was a significant decline in employment numbers for manufacturing between approximately 2001 and 2004. Looking
+as a result of the **Great Recession**. Additionally, we can see there there was a significant decline in employment numbers for manufacturing between approximately 2001 and 2004. Looking
 back at the total statewide employee compensation dataset, we can see that there was also a significant decline for this data around this same period. Construction, however, did not seem to
 be effected nearly as much. This decline may be attributed to a economic recession (slightly less sever than the one beginning in 2008) brought on by the September 11th terrorist attacks. For
 this period, it appears that the manufacturing field was greatly affected, while the construction industry was only slightly affected. 
@@ -246,7 +246,7 @@ Let us navigate **Unemployment insurance claims and payments (statewide - monthl
 ![Figure 12](Images/Figure12.png)
 
 As with the previous figure, we can see that this dataset follows the same general trend, with the payments tending to peak in January of a given year and continue to fall throughout
-the rest of the year. However, we can see that in the late 2000's, the series shifted up as marked in the above figure. To summarize, the "Great Recession" seems to have had the
+the rest of the year. However, we can see that in the late 2000's, the series shifted up as marked in the above figure. To summarize, the **Great Recession** seems to have had the
 following effects on each of the datasets:
 
 * Decrease in total state employee compensation
