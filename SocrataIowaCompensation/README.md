@@ -14,7 +14,7 @@ cost of doing business, #12 for cost of living, #15 for business friendliness, a
 
 In order to better analyze datasets such as **Employee Financial Compensation by Industry in Iowa**, the US government in 2009 established a data collection website, 
 [data.gov](https://www.data.gov/). Datasets are available online to conduct research, develop web applications, and design data visualizations, on a variety of topics ranging 
-from agriculture, to manufacturing, to health, among  many other.
+from agriculture, to manufacturing, to health, among  many others.
   
 These datasets are published using the Socrata Open Data Format. [Socrata](https://socrata.com/) is a Seattle based company that develops software for
 government agencies to publish and manage their data in an open format. According to their website, the Socrata Open Data Format is used by the US
