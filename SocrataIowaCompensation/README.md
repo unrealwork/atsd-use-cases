@@ -9,7 +9,7 @@ Country Living - Analyzing Employment Statistics in Iowa using Socrata Open
 Pigs. Fields of corn. Open prairie. Small towns. These are some of the first things that come to mind when thinking about life in Iowa. While many may see this as a simpleton and
 boring way of life, Iowa is one of the most financially diverse and stable states in America. Below are some quick facts on the Iowa economy: 
 
-* From [2005 to 2015](http://www.deptofnumbers.com/gdp/iowa/), the Iowa per capita GDP grew 8.1%, compared to 3.6% for the US as a whole. 
+* From [2005 to 2015](http://www.deptofnumbers.com/gdp/iowa/), the Iowa GDP per capita grew 8.1%, compared to 3.6% for the US as a whole. 
 * According to [CNBC's America's Top States for Business 2016](http://www.cnbc.com/2016/07/12/top-states-for-business-9-iowa.html), 
 Iowa was ranked as the 9th best state for business in the country. The state was ranked as #2 for the cost of doing business, #12 for cost of 
 living, #15 for business friendliness, and #17 for education.
