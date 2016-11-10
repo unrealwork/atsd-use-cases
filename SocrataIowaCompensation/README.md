@@ -114,7 +114,7 @@ The below figure shows the output for the **private non-farm** is selected as th
 ![Figure 2](Images/Figure2.png)
 
 It appears that most of these metrics are on an upward trend, but there is a lot of information displayed, so it is somewhat difficult to tell. Let us sort for the metrics **Construction** and **Manufacturing**. The images 
-for these 2 outputs are shown below, respectively. We can see that both metrics were generally experiencing steady, upward growth until the late 2000's, where each both metric experienced a 
+for these 2 outputs are shown below, respectively. We can see that both metrics were generally experiencing steady, upward growth until the late 2000's, when each metric experienced a 
 sharp decline (as marked by the red boxes in the figures below). An extraneous factor at this time that may have contributed to this change was the poor world-wide economy, otherwise
 known as the [Great Recession](http://stateofworkingamerica.org/great-recession/). 
  
