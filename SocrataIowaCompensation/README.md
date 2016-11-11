@@ -111,7 +111,9 @@ given year.
 
 ![Figure 7](Images/Figure7.png)
 
-You can explore the **farm** industry portal here: [![](Images/button.png)](https://apps.axibase.com/chartlab/131b7670)
+You can explore the **farm** industry portal here: 
+
+[![](Images/button.png)](https://apps.axibase.com/chartlab/131b7670)
  
 The next figure shows the output when **government and government enterprises** is selected as the **[industry_type]** from the third filter. We can see that the 
 **federal, civilian** and **military** metrics are nearly constant and that **state and local** is experiencing steady growth. Unlike with the farming industry, we can see that 
@@ -119,13 +121,17 @@ government institutions are less sensitive to extraneous factors (such as poor w
 
 ![Figure 8](Images/Figure8.png)
 
-You can explore the **government and government enterprises** industry portal here: [![](Images/button.png)](https://apps.axibase.com/chartlab/cb62aab7)
+You can explore the **government and government enterprises** industry portal here: 
+
+[![](Images/button.png)](https://apps.axibase.com/chartlab/cb62aab7)
 
 The below figure shows the output for the **private non-farm** is selected as the **[industry_type]** from the third filter. 
 
 ![Figure 2](Images/Figure2.png)
 
-You can explore the **private non-farm** industry portal here: [![](Images/button.png)](https://apps.axibase.com/chartlab/0c459d5f)
+You can explore the **private non-farm** industry portal here: 
+
+[![](Images/button.png)](https://apps.axibase.com/chartlab/0c459d5f)
 
 It appears that most of these metrics are on an upward trend, but there is a lot of information displayed, so it is somewhat difficult to tell. Let us sort for the metrics **Construction** and **Manufacturing**. The images 
 for these 2 outputs are shown below, respectively. We can see that both metrics were generally experiencing steady, upward growth until the late 2000's, when each metric experienced a 
