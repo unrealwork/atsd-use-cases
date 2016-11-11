@@ -63,7 +63,7 @@ Real estate and rental and leasing<br>
 Retail trade<br> 
 Transportation and warehousing<br> 
 Wholesale trade<br> 
-Utilities<br> 
+Utilities<br>
 
 Other Services (except public administration)
 
@@ -91,6 +91,10 @@ have raw data in ATSD, creating and sharing reports with built-in widgets is fai
 With ATSD, the user is able display the dataset in an easily understandable manner. The below figure shows total statewide employee compensation for each of the above mentioned 23 industries.
 
 ![Figure 1](Images/Figure1.png)
+
+Here, you can explore the complete dataset for employee compensation by industry in Iowa:
+
+[![](Images/button.png)](https://apps.axibase.com/chartlab/f5eae012)
   
 Using the ATSD default portal for this particular data.gov dataset, the user has the ability to filter the data to their liking. 
 
@@ -103,17 +107,23 @@ The following three filters are applied to the default portal:
 The below figure shows the output when **farm** is selected as the **[industry_type]** from the third filter. We can see that the total employee compensation for farming can fluctuates quite
 often. There does not seem to be a single pattern that repeats year over year, such as low amount of work in the winter (leading to low figures) and a high amount of work in the fall
 (leading to high figures). Rather, we can see that the farming industry is very sensitive to extraneous factors (such as weather), which can plunge or skyrocket the industry's overall numbers in any 
-given year.      
+given year. You can explore this portal here:
+
+[![](Images/button.png)](https://apps.axibase.com/chartlab/131b7670)
  
 ![Figure 7](Images/Figure7.png)
 
 The next figure shows the output when **government and government enterprises** is selected as the **[industry_type]** from the third filter. We can see that the 
 **federal, civilian** and **military** metrics are nearly constant and that **state and local** is experiencing steady growth. Unlike with the farming industry, we can see that 
-government institutions are less sensitive to extraneous factors (such as poor weather, a struggling economy, or civil unrest).  
+government institutions are less sensitive to extraneous factors (such as poor weather, a struggling economy, or civil unrest).  You can explore this portal here:
+
+[![](Images/button.png)](https://apps.axibase.com/chartlab/cb62aab7)
 
 ![Figure 8](Images/Figure8.png)
 
-The below figure shows the output for the **private non-farm** is selected as the **[industry_type]** from the third filter.
+The below figure shows the output for the **private non-farm** is selected as the **[industry_type]** from the third filter. You can explore this portal here:
+
+[![](Images/button.png)](https://apps.axibase.com/chartlab/0c459d5f)
 
 ![Figure 2](Images/Figure2.png)
 
@@ -126,9 +136,6 @@ known as the [Great Recession](http://stateofworkingamerica.org/great-recession/
 
 ![Figure 9](Images/Figure9.png)
 
-Here, you can explore the complete dataset for employee compensation by industry in Iowa:
-
-[![](Images/button.png)](https://apps.axibase.com/chartlab/f5eae012) 
 
 ### A Deeper Look at Iowa's Economy
 -----------------------------------
