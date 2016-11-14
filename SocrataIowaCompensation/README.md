@@ -24,7 +24,7 @@ These datasets are published using the Socrata Open Data Format. [Socrata](https
 government agencies to publish and manage their data in an open format. According to their website, the Socrata Open Data Format is used by the US
 Federal government, 25 US states, 300+ US cities, and contains 4,000+ datasets for numerous US counties.
 
-A powerful capability of ATSD is the ability to combine datasets in one ATSD portal. We will begin by looking several general state of Iowa datasets. With a few simple, straightforward steps, we will 
+A powerful capability of ATSD is the **ability to combine datasets** in one ATSD portal. We will begin by looking several general state of Iowa datasets. With a few simple, straightforward steps, we will 
 then show you how to compute supplementary metrics to create additional, more in depth layers of analytics. 
 
 ### Iowa Employee Compensation Dataset
@@ -278,7 +278,7 @@ following effects on each of the datasets:
 
 We just looked at the datasets **Employee Financial Compensation by Industry in Iowa** and **Iowa Seasonally Adjusted Non-Farm Employment by Month and Industry**, which provided insightful information
 into the general state of the economic situation in the state of Iowa over time. A powerful capability of ATSD is the ability to combine datasets in one ATSD portal. We can take these 2 datasets and, 
-with a few simple, straightforward steps, compute additional metrics to create an additional, more in depth layer of analytics. This following section will delve into the compensation per employee, 
+with a few simple, straightforward steps, compute additional metrics to create an additional, more in depth layer of analytics. This section will delve into the compensation per employee, 
 adjusted with consumer price index (CPI) statistics to account for inflation, for employees in the federal government industry in the state of Iowa.
  
 Let us a take a closer look at the **government and government enterprises** industry in Iowa.
@@ -292,6 +292,45 @@ years, we can see that as a whole over this time period the growth has been quit
 You can explore the year-over-year growth for the **government and government enterprises** industry in Iowa here:
  
 [![](Images/button.png)](https://apps.axibase.com/chartlab/f5eae012/3/)
+
+What does this tremendous growth mean for your average government worker in Iowa? Are wages increasing for the average government employee? Are the elites in this industry only getting richer? Or is 
+there another factor at play? For the government industry in Iowa, we will now walk through adding total employee compensation, the total number of employees, and compute an average
+wage for this industry as our new metric. We will be able to get then gain a clear understanding of the situation over time, available all in one portal.
+
+Let us begin by displaying the metrics for total employee compensation and total number of employees in the state. Below is an image of the configuration in Chart Lab: 
+
+![Figure 17](Images/Figure17.png)
+
+This configuration is relatively straightforward. First, we display the **[series]** for both fields by specifying their respective entity and metric names. Next, using the **[tags]** command, we are
+able to display only the pertinent information. Finally, by specifying **axis=right** (at the bottom of the configuration), we are able to display axises for employment (in thousands, on the left hand
+side) and for total compensation (in thousand, on the right hand side). Below is an image of the output in Chart Lab:
+
+![Figure 16](Images/Figure16.png)
+
+Interestingly enough, we can see that over time, as total employee compensation in the state has increased for the federal government industry, the total number of employees has gone down. Let us now
+move to computing the average federal government compensation per employee. Below is an image of the configuration in Chart Lab:
+
+![Figure 18](Images/Figure18.png)
+
+Our next step is similar to our first step. First, we begin by specifying the **[series}** and **[tags}** we would like to be shown. Since we are looking to display the average employee compensation,
+we specify **display = false** for both of these series. Next, we specify **alias** names to be used in order to create our custom metric. Finally, we specify the **value** we would like to be displayed.
+This line in the configuration is shown below:
+
+```
+value = (value('comp')/value('emp'))==0 ? null : value('comp')/value('emp')
+```
+
+Since we are looking for the average compensation per employee, we simply need to divide the the total employee compensation in the state (comp) by the total number of employees in the state (emp).
+Since the star times of these two series differ, the beginning of the equation serves to set any non-real numbers values equal to 'null.' Time intervals containing both series will be computed as displayed,
+per the second part of the equation. Below is an image of the average employee compensation for the federal government industry in the state of Iowa. 
+
+![Figure 19](Images/Figure19.png)
+
+You can explore this portal here:
+
+[![](Images/button.png)](https://apps.axibase.com/chartlab/202133dd)
+
+You can explore additional computed metrics developed by Axibase by clicking [here](https://axibase.com/products/axibase-time-series-database/visualization/widgets/computed-metrics/).
 
 ### Action Items
 ----------------
