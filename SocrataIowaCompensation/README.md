@@ -273,7 +273,7 @@ following effects on each of the datasets:
 * Decrease in total number of non-farm employees in the state of Iowa
 * Increase in total of unemployment insurance benefit payments for the state of Iowa
 
-### A Deeper look at Iowa's Economy
+### A Closer look at Iowa's Economy
 -----------------------------------
 
 We just looked at the datasets **Employee Financial Compensation by Industry in Iowa** and **Iowa Seasonally Adjusted Non-Farm Employment by Month and Industry**, which provided insightful information
@@ -307,8 +307,8 @@ side) and for total compensation (in thousand, on the right hand side). Below is
 
 ![Figure 16](Images/Figure16.png)
 
-Interestingly enough, we can see that over time, as total employee compensation in the state has increased for the federal government industry, the total number of employees has gone down. We can see 
-that in this time frame, the number of federal government employees in the state decreased from 20,300 to 17,700 persons but the total compensation in the state increased from $999,528,000 to 
+Interestingly enough, we can see that over time, in spite the fact that the total number of employees has gone down, the total employee compensation in the state has drastically increased for the federal government industry. We can see 
+that the number of federal government employees in the state decreased from 20,300 to 17,700 persons but the total compensation in the state increased from $999,528,000 to 
 $1,629,778,000. Let us now move to computing the average federal government compensation per employee. Below is an image of the configuration in Chart Lab:
 
 ![Figure 18](Images/Figure18.png)
@@ -333,7 +333,7 @@ Based off of our output, the average salary for a federal government employee in
 
 Below is another example exploring average salary in the state of Iowa. This instance shows the average salary for local and state employee in Iowa. Based off of our output, the average salary increased 
 from $32,711 in March 1998 to $59,196 in September 2016. In this time frame, the number of employees in Iowa for local and state government increased from 155,000 to 174,000 and 61,000 to 66,000 persons,
-respectively. In this instance, it both the number of employees and the total compensation in the state went up in the specified time frame, and therefore the average salary increased.  
+respectively. 
 
 ![Figure 20](Images/Figure20.png)
 
