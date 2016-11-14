@@ -1,7 +1,7 @@
 ![TitlePhoto](Images/TitlePhoto.png)
 
-Country Living - Analyzing Employment Statistics in Iowa using Socrata Open 
-===========================================================================
+Country Living - Analyzing Employment Statistics in Iowa using Socrata Open Data
+================================================================================
 
 ### Introduction
 ----------------
@@ -23,6 +23,9 @@ from agriculture, to manufacturing, to health, among  many others.
 These datasets are published using the Socrata Open Data Format. [Socrata](https://socrata.com/) is a Seattle based company that develops software for
 government agencies to publish and manage their data in an open format. According to their website, the Socrata Open Data Format is used by the US
 Federal government, 25 US states, 300+ US cities, and contains 4,000+ datasets for numerous US counties.
+
+A powerful capability of ATSD is the ability to combine datasets in one ATSD portal. We begin by looking several general state of Iowa datasets. With a few simple, straightforward steps, we will 
+then show you how to compute supplementary metrics to create an additional, more in depth layer of analytics. 
 
 ### Iowa Employee Compensation Dataset
 --------------------------------------
@@ -111,7 +114,7 @@ given year.
 
 ![Figure 7](Images/Figure7.png)
 
-You can explore the **farm** industry portal here: 
+You can explore the filtered **farm** industry portal here: 
 
 [![](Images/button.png)](https://apps.axibase.com/chartlab/131b7670)
  
@@ -121,7 +124,7 @@ government institutions are less sensitive to extraneous factors (such as poor w
 
 ![Figure 8](Images/Figure8.png)
 
-You can explore the **government and government enterprises** industry portal here: 
+You can explore the filtered **government and government enterprises** industry portal here: 
 
 [![](Images/button.png)](https://apps.axibase.com/chartlab/cb62aab7)
 
@@ -129,7 +132,7 @@ The below figure shows the output for the **private non-farm** is selected as th
 
 ![Figure 2](Images/Figure2.png)
 
-You can explore the **private non-farm** industry portal here: 
+You can explore the filtered **private non-farm** industry portal here: 
 
 [![](Images/button.png)](https://apps.axibase.com/chartlab/0c459d5f)
 
@@ -143,10 +146,10 @@ known as the [Great Recession](http://stateofworkingamerica.org/great-recession/
 ![Figure 9](Images/Figure9.png)
 
 
-### A Deeper Look at Iowa's Economy
------------------------------------
+### Additional Iowa Datasets - State of Iowa Employment by Month and Industry
+-----------------------------------------------------------------------------
 
-In order to provide context to the above dataset, we will quickly now walk through adding additional datasets to ATSD. By looking at additional information, 
+In order to provide context to the above dataset, we will quickly look at adding additional datasets to ATSD. By looking at additional information, 
 we can see how the rise and fall of total statewide employee compensation corresponds to other metrics. For example, does the rise or fall of total statewide employee compensation correspond to a rise or fall of the gross number 
 of employees in the state, or is there another factor at play? With a decrease in total statewide employee compensation, will unemployment rates and benefits rise as a result? To look into these 
 questions, let us navigate to [https://data.iowa.gov](https://data.iowa.gov/). This site contains publicly available information pertaining to Iowa for fields such as the economy,
@@ -266,9 +269,29 @@ As with the previous figure, we can see that this dataset follows the same gener
 the rest of the year. However, we can see that in the late 2000's, the series shifted up as marked in the above figure. To summarize, the **Great Recession** seems to have had the
 following effects on each of the datasets:
 
-* Decrease in total state employee compensation
-* Decrease in total number of state employees
-* Increase in total of unemployment insurance benefit payments
+* Decrease in total compensation for the state of Iowa 
+* Decrease in total number of non-farm employees in the state of Iowa
+* Increase in total of unemployment insurance benefit payments for the state of Iowa
+
+### A Deeper look at Iowa's Economy
+-----------------------------------
+
+We just looked at the datasets **Employee Financial Compensation by Industry in Iowa** and **Iowa Seasonally Adjusted Non-Farm Employment by Month and Industry**, which provided insightful information
+into the general state of the economic situation in the state of Iowa over time. A powerful capability of ATSD is the ability to combine datasets in one ATSD portal. We can take these 2 datasets and, 
+with a few simple, straightforward steps, compute additional metrics to create an additional, more in depth layer of analytics. This following section will delve into the compensation per employee, 
+adjusted with consumer price index (CPI) statistics to account for inflation, for employees in the federal government industry in the state of Iowa.
+ 
+Let us a take a closer look at the **government and government enterprises** industry in Iowa.
+
+Looking back on an [earlier section](https://apps.axibase.com/chartlab/cb62aab7) from this article, we can recall that this industry experienced significant growth in terms total employee compensation 
+for the industry as a whole. Below is an image of the year-over-year growth experienced by the **government and government enterprises** industry in Iowa. While growth has slowed slightly over recent
+years, we can see that as a whole over this time period the growth has been quite significant.
+
+![Figure 15](Images/Figure15.png)
+ 
+You can explore the year-ver-year growth **government and government enterprises** industry in Iowa here:
+ 
+[![](Images/button.png)](https://apps.axibase.com/chartlab/f5eae012/3/)
 
 ### Action Items
 ----------------
