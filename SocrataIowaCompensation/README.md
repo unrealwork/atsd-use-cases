@@ -7,7 +7,7 @@ Country Living - Analyzing Employment Statistics in Iowa using Socrata Open Data
 ----------------
 
 Pigs. Fields of corn. Open prairie. Small towns. These are some of the first things that come to mind when thinking about life in Iowa. While many may see this as a simpleton and
-boring way of life, Iowa is one of the most financially diverse and stable states in America. Below are some quick facts on the Iowa economy: 
+boring way of life, Iowa is one of the most financially diverse and stable states in America. Below are some quick facts on the Iowa economy:
 
 * From [2005 to 2015](http://www.deptofnumbers.com/gdp/iowa/), the Iowa GDP per capita grew 8.1%, compared to 3.6% for the US as a whole. 
 * According to [CNBC's America's Top States for Business 2016](http://www.cnbc.com/2016/07/12/top-states-for-business-9-iowa.html), 
@@ -327,9 +327,7 @@ per the second part of the equation. Below is an image of the average employee c
 
 ![Figure 19](Images/Figure19.png)
 
-Based off of our output, the average salary for a federal government employee in the state increased from $50,211 in March of 1998 to $92,078 in September of 2016.
- 
-You can explore this portal here:
+Based off of our output, the average salary for a federal government employee in the state increased from $50,211 in March of 1998 to $92,078 in September of 2016. You can explore this portal here:
 
 [![](Images/button.png)](https://apps.axibase.com/chartlab/202133dd)
 
@@ -356,5 +354,3 @@ Below are the steps to follow to install ATSD and create figures for Iowa employ
 5. Login into ATSD and open a sample Socrata portal to explore the data.
 
 If you require assistance in installing this software or have any questions, please feel free to [contact us](https://axibase.com/feedback/) and we would be happy to be of assistance!
-
-
