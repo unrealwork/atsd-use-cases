@@ -24,8 +24,8 @@ These datasets are published using the Socrata Open Data Format. [Socrata](https
 government agencies to publish and manage their data in an open format. According to their website, the Socrata Open Data Format is used by the US
 Federal government, 25 US states, 300+ US cities, and contains 4,000+ datasets for numerous US counties.
 
-A powerful capability of ATSD is the ability to combine datasets in one ATSD portal. We begin by looking several general state of Iowa datasets. With a few simple, straightforward steps, we will 
-then show you how to compute supplementary metrics to create an additional, more in depth layer of analytics. 
+A powerful capability of ATSD is the ability to combine datasets in one ATSD portal. We will begin by looking several general state of Iowa datasets. With a few simple, straightforward steps, we will 
+then show you how to compute supplementary metrics to create additional, more in depth layers of analytics. 
 
 ### Iowa Employee Compensation Dataset
 --------------------------------------
@@ -289,7 +289,7 @@ years, we can see that as a whole over this time period the growth has been quit
 
 ![Figure 15](Images/Figure15.png)
  
-You can explore the year-ver-year growth **government and government enterprises** industry in Iowa here:
+You can explore the year-over-year growth for the **government and government enterprises** industry in Iowa here:
  
 [![](Images/button.png)](https://apps.axibase.com/chartlab/f5eae012/3/)
 
