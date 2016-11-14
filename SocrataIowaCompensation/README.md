@@ -24,15 +24,15 @@ These datasets are published using the Socrata Open Data Format. [Socrata](https
 government agencies to publish and manage their data in an open format. According to their website, the Socrata Open Data Format is used by the US
 Federal government, 25 US states, 300+ US cities, and contains 4,000+ datasets for numerous US counties.
 
-A powerful capability of ATSD is the **ability to combine datasets** in one ATSD portal. We will begin by looking several general state of Iowa datasets. With a few simple, straightforward steps, we will 
-then show you how to compute supplementary metrics to create additional, more in depth layers of analytics. 
+A powerful capability of ATSD is the **ability to combine datasets** in one ATSD portal. We will begin by looking at several general state of Iowa datasets. With a few simple, straightforward steps, we will 
+then show you how to compute supplementary metrics to create additional, more in depth layers of analytics.
 
 ### Iowa Employee Compensation Dataset
 --------------------------------------
 
 Let us take a look at the dataset **Employee Financial Compensation by Industry in Iowa** from [data.gov](https://www.data.gov/), which looks at employee compensation by industry in Iowa.
 
-From 1998 to the present year, the State of Iowa has compiled total state wide employee compensation estimates in thousands of dollars, seasonally adjusted at annual rates. All dollar 
+From 1998 to the present year, the state of Iowa has compiled total state wide employee compensation estimates in thousands of dollars, seasonally adjusted at annual rates. All dollar 
 estimates are in current dollars (not adjusted for inflation). Compensation is the total remuneration, both monetary and in kind, payable by employers to employees in return for 
 their work during the period. Data is published for each of the following 3 industries:
   
@@ -119,7 +119,7 @@ You can explore the filtered **farm** industry portal here:
 [![](Images/button.png)](https://apps.axibase.com/chartlab/131b7670)
  
 The next figure shows the output when **government and government enterprises** is selected as the **[industry_type]** from the third filter. We can see that the 
-**federal, civilian** and **military** metrics are nearly constant and that **state and local** is experiencing steady growth. Unlike with the farming industry, we can see that 
+**federal, civilian** and **military** metrics slightly increase over time and that **state and local** is experiencing steady growth. Unlike with the farming industry, we can see that 
 government institutions are less sensitive to extraneous factors (such as poor weather, a struggling economy, or civil unrest).
 
 ![Figure 8](Images/Figure8.png)
@@ -261,7 +261,7 @@ portion of their workforce, with these affected employees collecting unemploymen
 whether or not there is a correlation between it and the gross number of employees in the state and the total statewide employee compensation. Let us navigate to a different dataset showing unemployment
 benefits to see if there is a correlation or not.
 
-Let us navigate **Unemployment insurance claims and payments (statewide - monthly)** with the entity **jpje-kkb9**. Below is an image showing the output of this graph.  
+Let us navigate to **Unemployment insurance claims and payments (statewide - monthly)** with the entity **jpje-kkb9**. Below is an image showing the output of this graph.  
 
 ![Figure 12](Images/Figure12.png)
 
@@ -283,37 +283,37 @@ adjusted with consumer price index (CPI) statistics to account for inflation, fo
  
 Let us a take a closer look at the **government and government enterprises** industry in Iowa.
 
-Looking back on an [earlier section](https://apps.axibase.com/chartlab/cb62aab7) from this article, we can recall that this industry experienced significant growth in terms total employee compensation 
+Looking back on an [earlier Chart Lab example](https://apps.axibase.com/chartlab/cb62aab7) from this article, we can recall that this industry experienced significant growth in terms total employee compensation 
 for the industry as a whole. Below is an image of the year-over-year growth experienced by the **government and government enterprises** industry in Iowa. While growth has slowed slightly over recent
 years, we can see that as a whole over this time period the growth has been quite significant.
 
 ![Figure 15](Images/Figure15.png)
  
-You can explore the year-over-year growth for the **government and government enterprises** industry in Iowa here:
+You can explore the year-over-year growth for the **government and government enterprises** industry in Iowa in the below portal:
  
 [![](Images/button.png)](https://apps.axibase.com/chartlab/f5eae012/3/)
 
 What does this tremendous growth mean for your average government worker in Iowa? Are wages increasing for the average government employee? Are the elites in this industry only getting richer? Or is 
 there another factor at play? For the government industry in Iowa, we will now walk through adding total employee compensation, the total number of employees, and compute an average
-wage for this industry as our new metric. We will be able to get then gain a clear understanding of the situation over time, available all in one portal.
+wage (adjusted with CPI values) for this industry as our new metric. We will be able to get then gain a clear understanding of the situation over time, available all in one portal.
 
-Let us begin by displaying the metrics for total employee compensation and total number of employees in the state. Below is an image of the configuration in Chart Lab: 
+Let us begin by displaying the metrics for total employee compensation and total number of employees in the state. Below is an image of the initial part of the configuration in Chart Lab: 
 
 ![Figure 17](Images/Figure17.png)
 
 This configuration is relatively straightforward. First, we display the **[series]** for both fields by specifying their respective entity and metric names. Next, using the **[tags]** command, we are
-able to display only the pertinent information. Finally, by specifying **axis=right** (at the bottom of the configuration), we are able to display axises for employment (in thousands, on the left hand
+able to display only the pertinent information, in this case data on the federal government. Finally, by specifying **axis=right** (at the bottom of the configuration), we are able to display axises for employment (in thousands, on the left hand
 side) and for total compensation (in thousand, on the right hand side). Below is an image of the output in Chart Lab:
 
 ![Figure 16](Images/Figure16.png)
 
-Interestingly enough, we can see that over time, in spite the fact that the total number of employees has gone down, the total employee compensation in the state has drastically increased for the federal government industry. We can see 
+Interestingly enough, we can see that over time, in spite the fact that the total number of employees (the blue series) has gone down, the total employee compensation (the yellow series) in the state has drastically increased for the federal government industry. We can see 
 that the number of federal government employees in the state decreased from 20,300 to 17,700 persons but the total compensation in the state increased from $999,528,000 to 
 $1,629,778,000. Let us now move to computing the average federal government compensation per employee. Below is an image of the configuration in Chart Lab:
 
 ![Figure 18](Images/Figure18.png)
 
-Our next step is similar to our first step. First, we begin by specifying the **[series}** and **[tags}** we would like to be shown. Since we are looking to display the average employee compensation,
+Our next step is similar to our first step. First, we begin by specifying the **[series}** and **[tags]** we would like to be shown. Since we are looking to only display the average employee compensation in this output,
 we specify **display = false** for both of these series. Next, we specify **alias** names to be used in order to create our custom metric. Finally, we specify the **value** we would like to be displayed.
 This line in the configuration is shown below:
 
@@ -322,7 +322,7 @@ value = (value('comp')/value('emp'))==0 ? null : value('comp')/value('emp')
 ```
 
 Since we are looking for the average compensation per employee, we simply need to divide the the total employee compensation in the state (comp) by the total number of employees in the state (emp).
-Since the star times of these two series differ, the beginning of the equation serves to set any non-real numbers values equal to 'null.' Time intervals containing both series will be computed as displayed,
+Since the star times of these two series differ, the beginning of the equation serves to set any non-real values (when the series do not intersect) equal to 'null.' Time intervals containing both series will be computed as displayed,
 per the second part of the equation. Below is an image of the average employee compensation for the federal government industry in the state of Iowa. 
 
 ![Figure 19](Images/Figure19.png)
@@ -340,6 +340,18 @@ respectively.
 You can explore this portal here:
 
 [![](Images/button.png)](https://apps.axibase.com/chartlab/1ac33603/3/)
+
+The initial dataset looking at total employee compensation was not adjusted for inflation. We will now add another dataset to this analysis: consumer price index (CPI) statistics. 
+
+According to the [Bureau of Labor Statistics (BSL)](http://www.bls.gov/cpi/cpifaq.htm), CPI is a measure of the average change over time in the prices
+paid by urban consumers for a market basket of goods and services. This market basket includes a wide variety of market items such as chicken, bedroom furniture, jewelry, eyeglasses, college tuiton, 
+tobbaco, and many more items. CPI can be used to index the real value of, in our case, average employee salaries change over time using current dollars. The adjusted dollar amount is calculated by
+multiplying your adjusted value by the current CPI over the CPI at the beginning of your time period. 
+
+Let us now pull a dataset from the BLS website for CPI. A CPI dataset is available for download here: [http://data.bls.gov/cgi-bin/surveymost](http://data.bls.gov/cgi-bin/surveymost). The data is only
+available, however, in XLSX format. As a result, we will need to create a file job in Axibase collector to download tabular data from the Bureau of Labor Statistics file format and then upload it into
+ATSD. Because the file format is nonstandard, ATSD needs to be told how to parse the data. This configuration, which describes the rules for parsing, is called a CSV parser configuration. Specific rules 
+need to be written for custom BLS ouputs.   
 
 You can explore additional computed metrics developed by Axibase by clicking [here](https://axibase.com/products/axibase-time-series-database/visualization/widgets/computed-metrics/).
 
