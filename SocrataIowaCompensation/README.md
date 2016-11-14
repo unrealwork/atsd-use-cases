@@ -332,7 +332,8 @@ Based off of our output, the average salary for a federal government employee in
 [![](Images/button.png)](https://apps.axibase.com/chartlab/202133dd)
 
 Below is another example exploring average salary in the state of Iowa. This instance shows the average salary for local and state employee in Iowa. Based off of our output, the average salary increased 
-from $32,711 in March 1998 to $59,196 in September 2016.
+from $32,711 in March 1998 to $59,196 in September 2016. In this time frame, the number of employees in Iowa for local and state government increased from 155,000 to 174,000 and 61,000 to 66,000 persons,
+respectively. In this instance, it both the number of employees and the total compensation in the state went up in the specified time frame, and therefore the average salary increased.  
 
 ![Figure 20](Images/Figure20.png)
 
