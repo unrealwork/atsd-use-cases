@@ -130,7 +130,7 @@ You can explore the filtered **government and government enterprises** industry 
 
 The below figure shows the output for the **private non-farm** is selected as the **[industry_type]** from the third filter. 
 
-![Figure 2](Images/Figure2.png)
+![Figure 2](Images/Figure2.png) 
 
 You can explore the filtered **private non-farm** industry portal here: 
 
