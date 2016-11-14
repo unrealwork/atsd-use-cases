@@ -261,7 +261,7 @@ portion of their workforce, with these affected employees collecting unemploymen
 whether or not there is a correlation between it and the gross number of employees in the state and the total statewide employee compensation. Let us navigate to a different dataset showing unemployment
 benefits to see if there is a correlation or not.
 
-Let us navigate **Unemployment insurance claims and payments (statewide - monthly)** with the entity **jpje-kkb9**. Below is an image showing the output of this graph. 
+Let us navigate **Unemployment insurance claims and payments (statewide - monthly)** with the entity **jpje-kkb9**. Below is an image showing the output of this graph.  
 
 ![Figure 12](Images/Figure12.png)
 
@@ -307,8 +307,9 @@ side) and for total compensation (in thousand, on the right hand side). Below is
 
 ![Figure 16](Images/Figure16.png)
 
-Interestingly enough, we can see that over time, as total employee compensation in the state has increased for the federal government industry, the total number of employees has gone down. Let us now
-move to computing the average federal government compensation per employee. Below is an image of the configuration in Chart Lab:
+Interestingly enough, we can see that over time, as total employee compensation in the state has increased for the federal government industry, the total number of employees has gone down. We can see 
+that in this time frame, the number of federal government employees in the state decreased from 20,300 to 17,700 persons but the total compensation in the state increased from $999,528,000 to 
+$1,629,778,000. Let us now move to computing the average federal government compensation per employee. Below is an image of the configuration in Chart Lab:
 
 ![Figure 18](Images/Figure18.png)
 
@@ -326,9 +327,20 @@ per the second part of the equation. Below is an image of the average employee c
 
 ![Figure 19](Images/Figure19.png)
 
+Based off of our output, the average salary for a federal government employee in the state increased from $50,211 in March of 1998 to $92,078 in September of 2016.
+ 
 You can explore this portal here:
 
 [![](Images/button.png)](https://apps.axibase.com/chartlab/202133dd)
+
+Below is another example exploring average salary in the state of Iowa. This instance shows the average salary for local and state employee in Iowa. Based off of our output, the average salary increased 
+from $32,711 in March 1998 to $59,196 in September 2016.
+
+![Figure 20](Images/Figure20.png)
+
+You can explore this portal here:
+
+[![](Images/button.png)](https://apps.axibase.com/chartlab/1ac33603/3/)
 
 You can explore additional computed metrics developed by Axibase by clicking [here](https://axibase.com/products/axibase-time-series-database/visualization/widgets/computed-metrics/).
 
@@ -344,11 +356,5 @@ Below are the steps to follow to install ATSD and create figures for Iowa employ
 5. Login into ATSD and open a sample Socrata portal to explore the data.
 
 If you require assistance in installing this software or have any questions, please feel free to [contact us](https://axibase.com/feedback/) and we would be happy to be of assistance!
-
-
-
-
-
-
 
 
