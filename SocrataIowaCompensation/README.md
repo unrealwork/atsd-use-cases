@@ -33,7 +33,7 @@ from the [Bureau of Labor Statistics (BLS)](http://www.bls.gov/home.htm). With a
 Let us take a look at the dataset **Employee Financial Compensation by Industry in Iowa** from [data.gov](https://www.data.gov/), which looks at employee compensation by industry in Iowa.
 
 From 1998 to the present year, the state of Iowa has compiled total state wide employee compensation estimates in thousands of dollars, seasonally adjusted at annual rates. All dollar 
-estimates are in current dollars (not adjusted for inflation). Compensation is the total remuneration, both monetary and in kind, payable by employers to employees in return for 
+estimates are in current dollars (**not adjusted for inflation**). Compensation is the total remuneration, both monetary and in kind, payable by employers to employees in return for 
 their work during the period. Data is published for each of the following 3 industries:
   
 **Farm**, **Government and government enterprises**, **Private non-farm**
@@ -258,10 +258,10 @@ As marked with red boxes in the image above for the **Construction**, **Manufact
 metrics, we can see that insurance benefit payments tend to follow a yearly pattern. The payments tend to peak at the very beginning of the year in January, and generally fall throughout
 the rest of the year. This makes sense because for a state with harsh winters like Iowa, these services can tend to slow down in the winter months, leading to companies laying off a
 portion of their workforce, with these affected employees collecting unemployment insurance payments. This particular dataset however only goes back to 2010, so we cannot tell from it
-whether or not there is a correlation between it and the gross number of employees in the state and the total statewide employee compensation. Let us navigate to a different dataset showing unemployment
-benefits to see if there is a correlation or not.
+whether or not there is any kind of relation between it and the gross number of employees in the state and the total statewide employee compensation. Let's check out a different dataset showing unemployment
+benefits to see if there is a relation or not.
 
-Let us navigate to **Unemployment insurance claims and payments (statewide - monthly)** with the entity **jpje-kkb9**. Below is an image showing the output of this graph.  
+Navigate to **Unemployment insurance claims and payments (statewide - monthly)** with the entity **jpje-kkb9**. Below is an image showing the output of this graph.  
 
 ![Figure 12](Images/Figure12.png)
 
@@ -276,8 +276,8 @@ following effects on each of the datasets:
 ### A Closer look at Iowa's Economy
 -----------------------------------
 
-We just looked at the datasets **Employee Financial Compensation by Industry in Iowa** and **Iowa Seasonally Adjusted Non-Farm Employment by Month and Industry**, which provided insightful information
-into the general state of the economic situation in the state of Iowa over time. A powerful capability of ATSD is the ability to combine datasets in one ATSD portal. We can take these 2 datasets and, 
+We just looked at the datasets **Employee Financial Compensation by Industry in Iowa** and **Iowa Seasonally Adjusted Non-Farm Employment by Month and Industry**, which provided some insightful information
+into the general state of the economic situation in the state of Iowa over time. However, what does all of this information mean for your average worker in Iowa? A powerful capability of ATSD is the ability to combine datasets in one ATSD portal. We can take these 2 datasets and, 
 with a few simple, straightforward steps, compute additional metrics to create an additional, more in depth layer of analytics. This section will delve into the compensation per employee, 
 adjusted with consumer price index (CPI) statistics to account for inflation, for employees in the federal government industry in the state of Iowa.
  
@@ -314,7 +314,7 @@ $1,629,778,000. Let us now move to computing the average federal government comp
 ![Figure 18](Images/Figure18.png)
 
 Our next step is similar to our first step. First, we begin by specifying the **[series}** and **[tags]** we would like to be shown. Since we are looking to only display the average employee compensation in this output,
-we specify **display = false** for both of these series. Next, we specify **alias** names to be used in order to create our custom metric. Finally, we specify the **value** we would like to be displayed.
+we specify **display = false** for both of these series. Next, we specify **alias** names to be used in order to create our custom series. Finally, we specify the **value** we would like to be displayed.
 This line in the configuration is shown below:
 
 ```
@@ -322,7 +322,7 @@ value = (value('comp')/value('emp'))==0 ? null : value('comp')/value('emp')
 ```
 
 Since we are looking for the average compensation per employee, we simply need to divide the the total employee compensation in the state (comp) by the total number of employees in the state (emp).
-Since the star times of these two series differ, the beginning of the equation serves to set any non-real values (when the series do not intersect) equal to 'null.' Time intervals containing both series will be computed as displayed,
+Since the star times of these two series differ, the beginning of the equation serves to set any non-real values (when the series do not intersect) equal to 'null.' Time intervals containing both series will be computed and displayed,
 per the second part of the equation. Below is an image of the average employee compensation for the federal government industry in the state of Iowa. 
 
 ![Figure 19](Images/Figure19.png)
@@ -331,15 +331,15 @@ Based off of our output, the average salary for a federal government employee in
 
 [![](Images/button.png)](https://apps.axibase.com/chartlab/202133dd)
 
-Below is another example exploring average salary in the state of Iowa. This instance shows the average salary for local and state employee in Iowa. Based off of our output, the average salary increased 
+Below is another example exploring average government salary in the state of Iowa. This instance shows the average salary for local and state government employees in Iowa. Based off of our output, the average salary increased 
 from $32,711 in March 1998 to $59,196 in September 2016. In this time frame, the number of employees in Iowa for local and state government increased from 155,000 to 174,000 and 61,000 to 66,000 persons,
 respectively. 
 
 ![Figure 20](Images/Figure20.png)
 
-The setup for this example is almost exactly thr same as the previous example, except for the fact that we are simultaneously looking at 2 metrics (local and state government) versus only 1 (federal)
-from the previous example. To calculate our the compensation per employee value, we cponsidered 'local' and 'state' employees to be one and the same. Consequently, we simply divided the total compensation
-by the average of 'emps' (alias for state government employees) and 'empl' (alias for local governemnt employees). This line in the configuration is shown below:
+The setup for this example is almost exactly the same as the previous example, except for the fact that we are simultaneously looking at 2 metrics (local and state government) versus only 1 (federal)
+from the previous example. To calculate our the compensation per employee value, we considered 'local' and 'state' employees to be one and the same. Consequently, we simply divided the total compensation
+by the average of 'emps' (alias for state government employees) and 'empl' (alias for local government employees). This line in the configuration is shown below:
 
 ```
 value = (value('comp')/(value('emps')+value('empl')))==0 ? null : (value('comp')/(value('emps')+value('empl')))
@@ -355,12 +355,12 @@ You can explore this portal here:
 The initial dataset looking at total employee compensation was not adjusted for inflation. We will now add another dataset to this analysis: consumer price index (CPI) statistics. 
 
 According to the [Bureau of Labor Statistics (BSL)](http://www.bls.gov/cpi/cpifaq.htm), CPI is a measure of the average change over time in the prices
-paid by urban consumers for a market basket of goods and services. This market basket includes a wide variety of market items such as chicken, bedroom furniture, jewelry, eyeglasses, college tuiton, 
-tobbaco, and many more items. CPI can be used to index the real value of, in our case, average employee salaries change over time using current dollars. The adjusted dollar amount is calculated by
-multiplying your adjusted value by the current CPI over the CPI at the at any specified time period to project the amount in current dollars. 
+paid by urban consumers for a market basket of goods and services. This market basket includes a wide variety of consumer items such as chicken, bedroom furniture, jewelry, eyeglasses, college tuition, 
+tobacco, and many more items. CPI can be used to index the real value of, in our case, average employee salaries change over time using current dollars. The adjusted dollar amount is calculated by
+multiplying your unadjusted value by the current CPI over the CPI at any specified time period to project that amount in current dollars. 
 
 Let us now pull a dataset from the BLS website for CPI. A CPI dataset is available for download here: [http://data.bls.gov/cgi-bin/surveymost](http://data.bls.gov/cgi-bin/surveymost). The data is only
-available, however, in XLSX format. As a result, we will need to create a file job in Axibase collector to download tabular data from the Bureau of Labor Statistics file format and then upload it into
+available, however, in XLSX format. As a result, we needed to create a file job in Axibase collector to download the tabular data from the Bureau of Labor Statistics file format and then upload it into
 ATSD. Because the file format is nonstandard, ATSD needs to be told how to parse the data. This configuration, which describes the rules for parsing, is called a CSV parser configuration. Specific rules 
 need to be written for custom BLS ouputs.
 
@@ -382,7 +382,7 @@ In our portal, we now have the following outputs:
 * CPI - all urban customers
 * Federal government compensation per employee, inflation adjusted in current dollars
 
-This example showcases a powerful capability of ATSD: the **ability to combine datasets** in one ATSD portal. In this example we combined 3 datasets, which we used to create 4 seperate outputs.
+This example showcases a powerful capability of ATSD: the **ability to combine datasets** in one ATSD portal. In this example we combined 3 datasets, which we used to create 4 separate outputs.
 Taking our original datasets, we were able to compute additional, more in depth layers of analytics with only a few simple, straightforward steps. Below is a screen shot of the complete
 portal for the federal government dataset. 
 
@@ -407,15 +407,15 @@ In conclusion, we can see drawing the following form our outputs:
 * Unadjusted state and local government compensation per employee: **S32,711** in March of 1998 to **$59,196** in September of 2016
 * Adjusted state and local government compensation per employee: **$48,605** in March of 1998 to **$59,196** in  September of 2016
 
-We can see that the change in the change over time in the adjusted values are not as great as the unadjusted. With our adjusted compensation per employee values, we have data that has some real 
-value. Comparing our the trends of the unadjusted to the adjusted values over time, we can see the adjusted trend line is not as steady as the unadjusted line. That, in fact, even the government
+With our adjusted compensation per employee values, we have data that has some real value. We can see that the change over time in the adjusted values are not as great as the unadjusted. Comparing 
+the trends of the unadjusted to the adjusted values over time, we can see that the adjusted trend line is not as steady as the unadjusted line. That, in fact, even the government
 industry can go through volatility as other fields (such as farming, construction, and manufacturing) experience. Axibase's ability to easily combine multiple datasets, regardless of standard
-or non-standard formats, into one instance makes comparing employee avergae compensation simple and straightforward, and provides outputs that are easy to interpret. 
+or non-standard formats, into one instance makes comparing employee average compensation simple and straightforward, and provides outputs that are easy to interpret. 
 
 ### Action Items
 ----------------
 
-Here is a link to our article on [Hawaii gas prices](https://github.com/axibase/atsd-use-cases/blob/master/HawaiiGasPrices/hawaii_gas_prices.md). The [action items](https://github.com/axibase/atsd-use-cases/blob/master/HawaiiGasPrices/hawaii_gas_prices.md#action-items) in this article show the steps for installing ATSD. 
+Here is a link to our article on [Hawaii gas prices](https://github.com/axibase/atsd-use-cases/blob/master/HawaiiGasPrices/hawaii_gas_prices.md). The [action items](https://github.com/axibase/atsd-use-cases/blob/master/HawaiiGasPrices/hawaii_gas_prices.md#action-items) in that article show the steps for installing ATSD. 
 
 Below are the steps to follow and create figures for Iowa employment metrics:
 
