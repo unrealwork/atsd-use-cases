@@ -24,7 +24,7 @@ These datasets are published using the Socrata Open Data Format. [Socrata](https
 government agencies to publish and manage their data in an open format. According to their website, the Socrata Open Data Format is used by the US
 Federal government, 25 US states, 300+ US cities, and contains 4,000+ datasets for numerous US counties.
 
-A powerful capability of ATSD is the **ability to combine datasets** in one ATSD portal. We will begin by looking at several general state of Iowa datasets. Next, we will look at inflation statistics
+A powerful capability of the Axibase Time Series Database (ATSD) is the **ability to combine multiple datasets** in one ATSD portal. We will begin by looking at several general state of Iowa datasets. Next, we will look at inflation statistics
 from the [Bureau of Labor Statistics (BLS)](http://www.bls.gov/home.htm). With a few simple, straightforward steps, we will then show you how combine these different datasets and compute supplementary metrics to create additional, more in depth layers of analytics.
 
 ### Iowa Employee Compensation Dataset
@@ -107,7 +107,7 @@ The following three filters are applied to the default portal:
 * Second filter: allows the user to filter between 23 industries. In the case above, all industries have been selected. 
 * Third filter: allows the user to filter by industry groups (farm, government and government enterprise, and private nonfarm). In the above case, all groups have been selected.
 
-The below figure shows the output when **farm** is selected as the **[industry_type]** from the third filter. We can see that the total employee compensation for farming can fluctuates quite
+The below figure shows the output when **farm** is selected as the **[industry_type]** from the third filter. We can see that the total employee compensation for farming fluctuates quite
 often. There does not seem to be a single pattern that repeats year over year, such as low amount of work in the winter (leading to low figures) and a high amount of work in the fall
 (leading to high figures). Rather, we can see that the farming industry is very sensitive to extraneous factors (such as weather), which can plunge or skyrocket the industry's overall numbers in any 
 given year. 
@@ -128,7 +128,7 @@ You can explore the filtered **government and government enterprises** industry 
 
 [![](Images/button.png)](https://apps.axibase.com/chartlab/cb62aab7)
 
-The below figure shows the output for the **private non-farm** is selected as the **[industry_type]** from the third filter. 
+The below figure shows the output when the **private non-farm** is selected as the **[industry_type]** from the third filter. 
 
 ![Figure 2](Images/Figure2.png) 
 
@@ -219,7 +219,7 @@ As with the employee compensation dataset, we can see that these metrics were ge
 decline (as marked by the red boxes in the figures above). We can see that both the total employee compensation and the gross number of employees decreased in the late 2000's, likely
 as a result of the **Great Recession**. Additionally, we can see there there was a significant decline in employment numbers for manufacturing between approximately 2001 and 2004. Looking
 back at the total statewide employee compensation dataset, we can see that there was also a significant decline for this data around this same period. Construction, however, did not seem to
-be effected nearly as much. This decline may be attributed to a economic recession (slightly less sever than the one beginning in 2008) brought on by the September 11th terrorist attacks. For
+be effected nearly as much. This decline may be attributed to a economic recession (slightly less severe than the one beginning in 2008) brought on by the September 11th terrorist attacks. For
 this period, it appears that the manufacturing field was greatly affected, while the construction industry was only slightly affected. 
 
 Next, let us look at another dataset to see if there is any relation with its behavior compared to the two we just analyzed. Below is a table of datasets from data.iowa.gov that
@@ -278,7 +278,7 @@ following effects on each of the datasets:
 
 We just looked at the datasets **Employee Financial Compensation by Industry in Iowa** and **Iowa Seasonally Adjusted Non-Farm Employment by Month and Industry**, which provided some insightful information
 into the general state of the economic situation in the state of Iowa over time. However, what does all of this information mean for your average worker in Iowa? A powerful capability of ATSD is the ability to combine datasets in one ATSD portal. We can take these 2 datasets and, 
-with a few simple, straightforward steps, compute additional metrics to create an additional, more in depth layer of analytics. This section will delve into the compensation per employee, 
+with a few simple, straightforward steps, compute additional metrics to create an additional, more in depth layer of analytics. The following sections will delve into the compensation per employee, 
 adjusted with consumer price index (CPI) statistics to account for inflation, for employees in the federal government industry in the state of Iowa.
  
 Let us a take a closer look at the **government and government enterprises** industry in Iowa.
@@ -322,16 +322,16 @@ value = (value('comp')/value('emp'))==0 ? null : value('comp')/value('emp')
 ```
 
 Since we are looking for the average compensation per employee, we simply need to divide the the total employee compensation in the state (comp) by the total number of employees in the state (emp).
-Since the star times of these two series differ, the beginning of the equation serves to set any non-real values (when the series do not intersect) equal to 'null.' Time intervals containing both series will be computed and displayed,
+Since the start times of these two series differ, the beginning of the equation serves to set any non-real values (when the series do not intersect) equal to 'null.' Time intervals containing both series will be computed and displayed,
 per the second part of the equation. Below is an image of the average employee compensation for the federal government industry in the state of Iowa. 
 
 ![Figure 19](Images/Figure19.png)
 
-Based off of our output, the average salary for a federal government employee in the state increased from $50,211 in March of 1998 to $92,078 in September of 2016. You can explore this portal here:
+Based off of our output, the unadjusted average salary for a federal government employee in the state increased from $50,211 in March of 1998 to $92,078 in September of 2016. You can explore this portal here:
 
 [![](Images/button.png)](https://apps.axibase.com/chartlab/202133dd)
 
-Below is another example exploring average government salary in the state of Iowa. This instance shows the average salary for local and state government employees in Iowa. Based off of our output, the average salary increased 
+Below is another example exploring average government salary in the state of Iowa. This instance shows the average salary for local and state government employees in Iowa. Based off of our output, the unadjusted average salary increased 
 from $32,711 in March 1998 to $59,196 in September 2016. In this time frame, the number of employees in Iowa for local and state government increased from 155,000 to 174,000 and 61,000 to 66,000 persons,
 respectively. 
 
@@ -354,7 +354,7 @@ You can explore this portal here:
 
 The initial dataset looking at total employee compensation was not adjusted for inflation. We will now add another dataset to this analysis: consumer price index (CPI) statistics. 
 
-According to the [Bureau of Labor Statistics (BSL)](http://www.bls.gov/cpi/cpifaq.htm), CPI is a measure of the average change over time in the prices
+According to the [Bureau of Labor Statistics (BLS)](http://www.bls.gov/cpi/cpifaq.htm), CPI is a measure of the average change over time in the prices
 paid by urban consumers for a market basket of goods and services. This market basket includes a wide variety of consumer items such as chicken, bedroom furniture, jewelry, eyeglasses, college tuition, 
 tobacco, and many more items. CPI can be used to index the real value of, in our case, average employee salaries change over time using current dollars. The adjusted dollar amount is calculated by
 multiplying your unadjusted value by the current CPI over the CPI at any specified time period to project that amount in current dollars. 
@@ -382,7 +382,7 @@ In our portal, we now have the following outputs:
 * CPI - all urban customers
 * Federal government compensation per employee, inflation adjusted in current dollars
 
-This example showcases a powerful capability of ATSD: the **ability to combine datasets** in one ATSD portal. In this example we combined 3 datasets, which we used to create 4 separate outputs.
+This example showcases a powerful capability of ATSD: the **ability to combine multiple datasets** in one ATSD portal. In this example we combined 3 datasets, which we used to create 4 separate outputs.
 Taking our original datasets, we were able to compute additional, more in depth layers of analytics with only a few simple, straightforward steps. Below is a screen shot of the complete
 portal for the federal government dataset. 
 
@@ -400,7 +400,7 @@ You can explore this portal here:
 
 [![](Images/button.png)](https://apps.axibase.com/chartlab/6019ae9c)
 
-In conclusion, we can see drawing the following form our outputs: 
+In conclusion, we can draw the following from our outputs: 
 
 * Unadjusted federal government compensation per employee: **$50,211** in March of 1998 to **$92,078** in September of 2016
 * Adjusted federal government compensation per employee: **$74,608** in March of 1998 to **$92,078** in September of 2016
