@@ -1,7 +1,7 @@
 ![TitlePhoto](Images/TitlePhoto.png)
 
-Country Living - Analyzing Employment Statistics in Iowa using Socrata Open Data
-================================================================================
+Country Living - Analyzing and Combining Iowa Employment and Consumer Price Index Datasets
+==========================================================================================
 
 ### Introduction
 ----------------
@@ -24,8 +24,8 @@ These datasets are published using the Socrata Open Data Format. [Socrata](https
 government agencies to publish and manage their data in an open format. According to their website, the Socrata Open Data Format is used by the US
 Federal government, 25 US states, 300+ US cities, and contains 4,000+ datasets for numerous US counties.
 
-A powerful capability of ATSD is the **ability to combine datasets** in one ATSD portal. We will begin by looking at several general state of Iowa datasets. With a few simple, straightforward steps, we will 
-then show you how to compute supplementary metrics to create additional, more in depth layers of analytics.
+A powerful capability of ATSD is the **ability to combine datasets** in one ATSD portal. We will begin by looking at several general state of Iowa datasets. Next, we will look at inflation statistics
+from the [Bureau of Labor Statistics (BLS)](http://www.bls.gov/home.htm). With a few simple, straightforward steps, we will then show you how combine these different datasets and compute supplementary metrics to create additional, more in depth layers of analytics.
 
 ### Iowa Employee Compensation Dataset
 --------------------------------------
