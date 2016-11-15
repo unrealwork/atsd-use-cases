@@ -354,7 +354,7 @@ The initial dataset looking at total employee compensation was not adjusted for 
 According to the [Bureau of Labor Statistics (BSL)](http://www.bls.gov/cpi/cpifaq.htm), CPI is a measure of the average change over time in the prices
 paid by urban consumers for a market basket of goods and services. This market basket includes a wide variety of market items such as chicken, bedroom furniture, jewelry, eyeglasses, college tuiton, 
 tobbaco, and many more items. CPI can be used to index the real value of, in our case, average employee salaries change over time using current dollars. The adjusted dollar amount is calculated by
-multiplying your adjusted value by the current CPI over the CPI at the beginning of your time period. 
+multiplying your adjusted value by the current CPI over the CPI at the at any specified time period to project the amount in current dollars. 
 
 Let us now pull a dataset from the BLS website for CPI. A CPI dataset is available for download here: [http://data.bls.gov/cgi-bin/surveymost](http://data.bls.gov/cgi-bin/surveymost). The data is only
 available, however, in XLSX format. As a result, we will need to create a file job in Axibase collector to download tabular data from the Bureau of Labor Statistics file format and then upload it into
@@ -363,17 +363,50 @@ need to be written for custom BLS ouputs.
 
 The BLS file job can be found [here](jobs.xml). The CSV parser can be found [here](csv-configs.xml). 
 
-You can explore additional computed metrics developed by Axibase by clicking [here](https://axibase.com/products/axibase-time-series-database/visualization/widgets/computed-metrics/).
+Once the data has been downloaded and parsed, we can then add it to our Chart Lab configuration. Below is an image of a CPI for urban customers output.
+
+![Figure 21](Images/Figure21.png)
+
+Once we have our CPI data added into our ATSD instance, we can adjust our compensation per employee values to account for inflation. Below is a screenshot of this configuration. We can see that
+it is basically the same configuration as with the unadjusted compensation for employee portal. The only difference is that we are multiplying the original values by the appropriate CPI adjuster.
+
+![Figure 22](Images/Figure22.png)
+
+In our portal, we now have the following outputs:
+
+* Federal government headcount and total compensation
+* Federal government compensation per employee
+* CPI - all urban customers
+* Federal government compensation per employee, inflation adjusted in current dollars
+
+This example showcases a powerful capability of ATSD: the **ability to combine datasets** in one ATSD portal. In this example we combined 3 datasets, which we used to create 4 seperate outputs.
+Taking our original datasets, we were able to compute custom additional, more in depth layers of analytics with only a few simple, straightforward steps. Below is a screen shot of the complete
+portal for the federal government dataset. 
+
+![Figure 23](Images/Figure23.png)
+
+You can explore this portal here:
+
+[![](Images/button.png)](https://apps.axibase.com/chartlab/1ac33603/6/)
+
+Below is a screen shot of the complete portal for the local and state government dataset.
+ 
+![Figure 24](Images/Figure24.png)
+
+You can explore this portal here:
+
+[![](Images/button.png)](https://apps.axibase.com/chartlab/6019ae9c)
 
 ### Action Items
 ----------------
 
-Below are the steps to follow to install ATSD and create figures for Iowa employment metrics:
+Here is a link to our article on [Hawaii gas prices](https://github.com/axibase/atsd-use-cases/blob/master/HawaiiGasPrices/hawaii_gas_prices.md). The [action items](https://github.com/axibase/atsd-use-cases/blob/master/HawaiiGasPrices/hawaii_gas_prices.md#action-items) in this article show the steps for installing ATSD. 
 
-1. [Install the database](https://github.com/axibase/atsd-docs/tree/master/installation#installation) on a virtual machine or in a Linux container.
-2. [Install Axibase Collector](https://github.com/axibase/axibase-collector-docs/blob/master/installation.md#axibase-collector-installation) and configure it to write data into your ATSD instance.
-3. Import [JSON Socrata Job](json_socrata_job.xml) into Axibase Collector.
-4. Add your desired data.gov dataset to the job to enable data collection. Click on [Run] to collect data for the first time.
-5. Login into ATSD and open a sample Socrata portal to explore the data.
+Below are the steps to follow and create figures for Iowa employment metrics:
+
+1. Follow the action items in the Hawaii Gas Prices article for installing ATSD.
+2. Import the [BLS file job](jobs.xml) and [CSV parser](csv-configs.xml) into Axibase Collector to collect CPI datasets.
+3. Add your desired data.gov or iowa.data.gov dataset to enable data collection. Click on [Run] to collect data for the first time.
+4. Login into ATSD and open a sample Socrata portal to explore the data.
 
 If you require assistance in installing this software or have any questions, please feel free to [contact us](https://axibase.com/feedback/) and we would be happy to be of assistance!
