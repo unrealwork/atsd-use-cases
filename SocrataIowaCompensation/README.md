@@ -349,6 +349,9 @@ You can explore this portal here:
 
 [![](Images/button.png)](https://apps.axibase.com/chartlab/1ac33603/3/)
 
+### Consumer Price Index (CPI) Dataset  
+--------------------------------------
+
 The initial dataset looking at total employee compensation was not adjusted for inflation. We will now add another dataset to this analysis: consumer price index (CPI) statistics. 
 
 According to the [Bureau of Labor Statistics (BSL)](http://www.bls.gov/cpi/cpifaq.htm), CPI is a measure of the average change over time in the prices
