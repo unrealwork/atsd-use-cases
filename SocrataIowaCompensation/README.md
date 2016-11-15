@@ -18,10 +18,8 @@ living, #15 for business friendliness, and #17 for education.
 
 In order to better analyze datasets such as **Employee Financial Compensation by Industry in Iowa**, the US government in 2009 established a data collection website, 
 [data.gov](https://www.data.gov/). Datasets are available online to conduct research, develop web applications, and design data visualizations, on a variety of topics ranging 
-from agriculture, to manufacturing, to health, among  many others./) 
-  
-These datasets are published using the Socrata Open Data Format. The [Socrata](https://socrata.com) Open Data Format is used by the US Federal government, 25 US states, 300+ US cities, and 
-contains 4,000+ datasets for numerous US counties.
+from agriculture, to manufacturing, to health, among  many others. These datasets are published using the Socrata Open Data Format. The [Socrata](https://socrata.com) Open Data Format is used 
+by the US Federal government, 25 US states, 300+ US cities, and contains 4,000+ datasets for numerous US counties.
 
 A powerful capability of the Axibase Time Series Database (ATSD) is the **ability to combine multiple datasets** in one ATSD portal. We will begin by looking at several foundational state of Iowa datasets. Next, we will look at inflation statistics
 from the [Bureau of Labor Statistics (BLS)](http://www.bls.gov/home.htm). With a few simple, straightforward steps, we will then show you how combine these different datasets and compute supplementary metrics to create additional, more in depth layers of analytics.
@@ -68,8 +66,7 @@ In turn, each of these industries is broken down into the following subcategorie
 * Transportation and warehousing
 * Wholesale trade
 * Utilities
-
-Other Services (except public administration)
+* Other Services (except public administration)
 
 On the data.gov website, datasets can be downloaded as a CSV, RDF, JSON, or a XML file. This dataset can easily be parsed using the JSON job in Axibase. 
 
