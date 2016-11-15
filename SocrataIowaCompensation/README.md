@@ -337,6 +337,14 @@ respectively.
 
 ![Figure 20](Images/Figure20.png)
 
+The setup for this example is almost exactly thr same as the previous example, except for the fact that we are simultaneously looking at 2 metrics (local and state government) versus only 1 (federal)
+from the previous example. To calculate our the compensation per employee value, we cponsidered 'local' and 'state' employees to be one and the same. Consequently, we simply divided the total compensation
+by the average of 'emps' (alias for state government employees) and 'empl' (alias for local governemnt employees). This line in the configuration is shown below:
+
+```
+value = (value('comp')/(value('emps')+value('empl')))==0 ? null : (value('comp')/(value('emps')+value('empl')))
+```
+
 You can explore this portal here:
 
 [![](Images/button.png)](https://apps.axibase.com/chartlab/1ac33603/3/)
@@ -351,7 +359,9 @@ multiplying your adjusted value by the current CPI over the CPI at the beginning
 Let us now pull a dataset from the BLS website for CPI. A CPI dataset is available for download here: [http://data.bls.gov/cgi-bin/surveymost](http://data.bls.gov/cgi-bin/surveymost). The data is only
 available, however, in XLSX format. As a result, we will need to create a file job in Axibase collector to download tabular data from the Bureau of Labor Statistics file format and then upload it into
 ATSD. Because the file format is nonstandard, ATSD needs to be told how to parse the data. This configuration, which describes the rules for parsing, is called a CSV parser configuration. Specific rules 
-need to be written for custom BLS ouputs.   
+need to be written for custom BLS ouputs.
+
+The BLS file job can be found [here](jobs.xml). The CSV parser can be found [here](csv-configs.xml). 
 
 You can explore additional computed metrics developed by Axibase by clicking [here](https://axibase.com/products/axibase-time-series-database/visualization/widgets/computed-metrics/).
 

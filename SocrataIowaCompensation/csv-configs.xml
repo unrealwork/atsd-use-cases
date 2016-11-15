@@ -1,0 +1,40 @@
+<list>
+  <com.axibase.tsd.model.csv.CsvConfiguration>
+    <name>us-labor</name>
+    <putType>METRIC</putType>
+    <delimiter>	</delimiter>
+    <recordDelimiter>&#xd;</recordDelimiter>
+    <padding> </padding>
+    <comment></comment>
+    <textQualifier>&quot;</textQualifier>
+    <entityColumn/>
+    <defaultEntity>bls</defaultEntity>
+    <timestampColumn class="java.util.Arrays$ArrayList">
+      <a class="string-array">
+        <string>year</string>
+        <string>period</string>
+      </a>
+    </timestampColumn>
+    <timestampFormat>yyyy-&apos;M&apos;MM</timestampFormat>
+    <metricNameColumn>series_id</metricNameColumn>
+    <metricValueColumn>value</metricValueColumn>
+    <timestampType>PATTERN</timestampType>
+    <filter>row[&apos;series_id&apos;] = &apos;CUSR0000SA0&apos;</filter>
+    <processEvents>false</processEvents>
+    <writeProperty>false</writeProperty>
+    <enabled>true</enabled>
+    <discardNan>true</discardNan>
+    <ignoreParseErrors>true</ignoreParseErrors>
+    <tagColumns class="linked-hash-set"/>
+    <excludedColumns class="linked-hash-set"/>
+    <propertyColumns class="linked-hash-set"/>
+    <propertyKeyColumns class="linked-hash-set"/>
+    <entityTags class="linked-hash-set"/>
+    <metricTags class="linked-hash-set"/>
+    <defaultTags class="linked-hash-map"/>
+    <renamedColumns class="linked-hash-map"/>
+    <header/>
+    <decimalSeparator>.</decimalSeparator>
+    <groupingSeparator>�</groupingSeparator>
+  </com.axibase.tsd.model.csv.CsvConfiguration>
+</list>
