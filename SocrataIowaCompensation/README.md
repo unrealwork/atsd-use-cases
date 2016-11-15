@@ -18,19 +18,20 @@ living, #15 for business friendliness, and #17 for education.
 
 In order to better analyze datasets such as **Employee Financial Compensation by Industry in Iowa**, the US government in 2009 established a data collection website, 
 [data.gov](https://www.data.gov/). Datasets are available online to conduct research, develop web applications, and design data visualizations, on a variety of topics ranging 
-from agriculture, to manufacturing, to health, among  many others.
+from agriculture, to manufacturing, to health, among  many others./) 
   
-These datasets are published using the Socrata Open Data Format. [Socrata](https://socrata.com/) is a Seattle based company that develops software for
-government agencies to publish and manage their data in an open format. According to their website, the Socrata Open Data Format is used by the US
-Federal government, 25 US states, 300+ US cities, and contains 4,000+ datasets for numerous US counties.
+These datasets are published using the Socrata Open Data Format. The [Socrata](https://socrata.com) Open Data Format is used by the US Federal government, 25 US states, 300+ US cities, and 
+contains 4,000+ datasets for numerous US counties.
 
-A powerful capability of the Axibase Time Series Database (ATSD) is the **ability to combine multiple datasets** in one ATSD portal. We will begin by looking at several general state of Iowa datasets. Next, we will look at inflation statistics
+A powerful capability of the Axibase Time Series Database (ATSD) is the **ability to combine multiple datasets** in one ATSD portal. We will begin by looking at several foundational state of Iowa datasets. Next, we will look at inflation statistics
 from the [Bureau of Labor Statistics (BLS)](http://www.bls.gov/home.htm). With a few simple, straightforward steps, we will then show you how combine these different datasets and compute supplementary metrics to create additional, more in depth layers of analytics.
 
 ### Iowa Employee Compensation Dataset
 --------------------------------------
 
-Let us take a look at the dataset **Employee Financial Compensation by Industry in Iowa** from [data.gov](https://www.data.gov/), which looks at employee compensation by industry in Iowa.
+Let us take a look at the dataset **Employee Financial Compensation by Industry in Iowa** from data.gov, which looks at employee compensation by industry in Iowa.
+
+This dataset can be found here: [http://catalog.data.gov/dataset/employee-compensation-by-industry-in-iowa](http://catalog.data.gov/dataset/employee-compensation-by-industry-in-iowa)
 
 From 1998 to the present year, the state of Iowa has compiled total state wide employee compensation estimates in thousands of dollars, seasonally adjusted at annual rates. All dollar 
 estimates are in current dollars (**not adjusted for inflation**). Compensation is the total remuneration, both monetary and in kind, payable by employers to employees in return for 
@@ -40,39 +41,37 @@ their work during the period. Data is published for each of the following 3 indu
 
 In turn, each of these industries is broken down into the following subcategories:
 
-**Farm**:<br> 
-Farm
+**Farm**: 
+* Farm
 
-**Government and government enterprises**:<br> 
-Federal, civilian<br> 
-Military<br> 
-State and local<br> 
+**Government and government enterprises**:
+* Federal, civilian
+* Military
+* State and local
 
-**Private non-farm**:<br> 
-Administrative and support of waste management and remediation services<br> 
-Accommodation and food services<br> 
-Arts, entertainment, and recreation<br> 
-Construction<br> 
-Educational services<br> 
-Finance and insurance<br> 
-Forestry, fishing, and related activities<br> 
-Health care and social assistance<br> 
-Information<br> 
-Management of companies and enterprises<br> 
-Manufacturing<br> 
-Mining, quarrying, and oil and gas extraction<br> 
-Professional, scientific, and technical services<br> 
-Real estate and rental and leasing<br> 
-Retail trade<br> 
-Transportation and warehousing<br> 
-Wholesale trade<br> 
-Utilities<br>
+**Private non-farm**:
+* Administrative and support of waste management and remediation services
+* Accommodation and food services
+* Arts, entertainment, and recreation
+* Construction
+* Educational services
+* Finance and insurance
+* Forestry, fishing, and related activities
+* Health care and social assistance
+* Information
+* Management of companies and enterprises
+* Manufacturing
+* Mining, quarrying, and oil and gas extraction
+* Professional, scientific, and technical services
+* Real estate and rental and leasing
+* Retail trade
+* Transportation and warehousing
+* Wholesale trade
+* Utilities
 
 Other Services (except public administration)
 
-This dataset from data.gov can be found here: [http://catalog.data.gov/dataset/employee-compensation-by-industry-in-iowa](http://catalog.data.gov/dataset/employee-compensation-by-industry-in-iowa)
-
-On the data.gov website, datasets can be downloaded as a CSV, RDF, JSON, or a XML file. This dataset can easily be parsed into ATSD using the JSON file format.
+On the data.gov website, datasets can be downloaded as a CSV, RDF, JSON, or a XML file. This dataset can easily be parsed using the JSON job in Axibase. 
 
 ### Axibase Time Series Database
 --------------------------------
@@ -89,9 +88,9 @@ sources as well as mixed and matched across different datasets. Once you install
 * Write programs to parse and digest these types of files.
 
 Rather, you can configure a scheduled job to retrieve the file from the specified endpoint and have ATSD parse it according to pre-defined rules. Once you
-have raw data in ATSD, creating and sharing reports with built-in widgets is fairly trivial. The reports will be continuously updated as new data comes in.
+have raw data in ATSD, creating and sharing reports with built-in widgets is fairly trivial using examples from [axibase.com](http://axibase.com/products/axibase-time-series-database/visualization/widgets/). The reports will be continuously updated as new data is published by the state of Iowa.
 
-With ATSD, the user is able display the dataset in an easily understandable manner. The below figure shows total statewide employee compensation for each of the above mentioned 23 industries.
+With ATSD, the user is able to display the dataset in an easily understandable manner. The below figure shows total statewide employee compensation for each of the above mentioned 23 industries.
 
 ![Figure 1](Images/Figure1.png)
 
@@ -103,13 +102,13 @@ Using the ATSD default portal for this particular data.gov dataset, the user has
 
 The following three filters are applied to the default portal:
 
-* First filter: allows the user to sort by compensation type. In the default portal, the only current option is to filter by thousand of US dollars. 
-* Second filter: allows the user to filter between 23 industries. In the case above, all industries have been selected. 
-* Third filter: allows the user to filter by industry groups (farm, government and government enterprise, and private nonfarm). In the above case, all groups have been selected.
+* First dropdown: allows the user to view data by the specified metric. In the default portal, the only current option is to filter by thousands of US dollars. 
+* Second dropdown: allows the user to filter between 23 industries. In the case above, all industries have been selected. 
+* Third dropdown: allows the user to filter by industry groups (farm, government and government enterprise, and private nonfarm). In the above case, all groups have been selected.
 
 The below figure shows the output when **farm** is selected as the **[industry_type]** from the third filter. We can see that the total employee compensation for farming fluctuates quite
-often. There does not seem to be a single pattern that repeats year over year, such as low amount of work in the winter (leading to low figures) and a high amount of work in the fall
-(leading to high figures). Rather, we can see that the farming industry is very sensitive to extraneous factors (such as weather), which can plunge or skyrocket the industry's overall numbers in any 
+often. There does not seem to be a single pattern that repeats year over year, such as low amount of work in the winter (leading to low values) and a high amount of work in the fall
+(leading to high values). Rather, we can see that the farming industry is very sensitive to extraneous factors (such as weather), which can plunge or skyrocket the industry's overall compensation numbers in any 
 given year. 
 
 ![Figure 7](Images/Figure7.png)
@@ -118,11 +117,17 @@ You can explore the filtered **farm** industry portal here:
 
 [![](Images/button.png)](https://apps.axibase.com/chartlab/131b7670)
  
-The next figure shows the output when **government and government enterprises** is selected as the **[industry_type]** from the third filter. We can see that the 
-**federal, civilian** and **military** metrics slightly increase over time and that **state and local** is experiencing steady growth. Unlike with the farming industry, we can see that 
+The next figure shows the output when **government and government enterprises** is selected as the **[industry_type]** from the third filter. We can see that the compensation for
+**federal, civilian** and **military** appears to be slightly increasing over time and that **state and local** is experiencing steady growth. Unlike with the farming industry, we can see that 
 government institutions are less sensitive to extraneous factors (such as poor weather, a struggling economy, or civil unrest).
 
 ![Figure 8](Images/Figure8.png)
+
+We also have the ability to exclude certain series from this filtered view by clicking on the series legend. The image below shows when the **state and local** series is unselected. We can see
+that the **federal, civilian** and **military** series actually experienced pretty significant growth in this period. This was simply overshadowed by the very monstrous growth in the
+**state and local** series.
+
+![Figure 25](Images/Figure25.png)
 
 You can explore the filtered **government and government enterprises** industry portal here: 
 
@@ -162,7 +167,7 @@ education, health, and the environment, among many more. Let us begin by finding
    ![Figure 4](Images/Figure4.png)
 
 4. Select the dataset titled **Iowa Seasonally Adjusted Non-Farm Employment by Month and Industry**. This link can be found [here](https://data.iowa.gov/Economy/Iowa-Seasonally-Adjusted-Non-Farm-Employment-by-Mo/sxz8-4swt). 
-5. As shown in the image below, click on **Download -> JSON**, which provides the dataset in the Socrata format, which can be easily processed into ATSD.
+5. As shown in the image below, click on **Download -> JSON**, which provides the dataset in the Socrata format, which can be easily processed into ATSD using the JSON job in Axibase collector.
 
    ![Figure 5](Images/Figure5.png)
    
@@ -175,39 +180,39 @@ Data is published for each of the following industry types: **Goods producing**,
 
 In turn, each of these industries is broken down into the following subcategories:
 
-**Goods producing**<br>
-Construction<br>
-Manufacturing<br>
-Mining and Logging<br>
+**Goods producing**:
+* Construction
+* Manufacturing
+* Mining and Logging
 
-**Government**<br>
-Federal Government<br>
-Local Government<br>
-State Government<br>
+**Government**:
+* Federal Government
+* Local Government
+* State Government
 
-**Service providing**<br>
-Education and Health Services<br>
-Financial Activities<br>
-Information<br>
-Leisure and Hospitality<br>
-Professional and Business Services<br>
-Retail Trade<br>
-Transportation and Utilities<br>
-Wholesale Trade<br>
+**Service providing**:
+* Education and Health Services
+* Financial Activities
+* Information
+* Leisure and Hospitality
+* Professional and Business Services
+* Retail Trade
+* Transportation and Utilities
+* Wholesale Trade
 
 Other Services
 
 The following three filters are applied to the default portal:
 
-* First filter: allows the user to sort by employee type. In the default portal, the only current option is to filter by thousands of employees. 
-* Second filter: allows the user to filter between the 3 industry types. In the case above, all industry groups are selected. 
-* Third filter: allows the user to filter by a specific industry. In the default instance, all industries are selected.
+* First dropdown: allows the user to view data by the specified metric. In the default portal, the only current option is to filter by thousands of employees. 
+* Second dropdown: allows the user to filter between the 3 industry types. In the case above, all industry groups are selected. 
+* Third dropdown: allows the user to filter by a specific industry. In the default instance, all industries are selected.
 
 Here, you can explore the complete dataset for employment by industry in Iowa:
 
 [![](Images/button.png)](https://apps.axibase.com/chartlab/1ac33603)
 
-Let us know take a look at specific metrics in the **Iowa Seasonally Adjusted Non-Farm Employment by Month and Industry** dataset. As with the total statewide employee compensation dataset that
+Let us now take a look at specific metrics in the **Iowa Seasonally Adjusted Non-Farm Employment by Month and Industry** dataset. As with the total statewide employee compensation dataset that
 we looked at earlier, let us filter for the **Construction** and **Manufacturing** metrics and see how the behaviors of the 2 datasets compare. Below are images of the
 **Construction** and **Manufacturing** metrics, respectively.   
 
@@ -266,8 +271,23 @@ Navigate to **Unemployment insurance claims and payments (statewide - monthly)**
 ![Figure 12](Images/Figure12.png)
 
 As with the previous figure, we can see that this dataset follows the same general trend, with the payments tending to peak in January of a given year and continue to fall throughout
-the rest of the year. However, we can see that in the late 2000's, the series shifted up as marked in the above figure. To summarize, the **Great Recession** seems to have had the
-following effects on each of the datasets:
+the rest of the year. However, we can see that in the late 2000's, the series shifted up as marked in the above figure. We can also add a 'shifted' duplicate of this series.
+```
+     [series]
+       time-offset = 1 year
+       color = silver
+```
+
+An image of this output is shown below. The current year is the blue series and the previous year is the silver series. As marked by the red box in the figure below, we can see how drastically
+benefits increased for 2008 versus the overlaid data from 2007. 
+
+![Figure 26](Images/Figure26.png)
+
+You can explore this portal here:
+
+[![](Images/button.png)](https://apps.axibase.com/chartlab/08e6e6f0)
+
+To summarize, the **Great Recession** seems to have had the following effects on each of the datasets:
 
 * Decrease in total compensation for the state of Iowa 
 * Decrease in total number of non-farm employees in the state of Iowa
@@ -425,3 +445,8 @@ Below are the steps to follow and create figures for Iowa employment metrics:
 4. Login into ATSD and open a sample Socrata portal to explore the data.
 
 If you require assistance in installing this software or have any questions, please feel free to [contact us](https://axibase.com/feedback/) and we would be happy to be of assistance!
+
+### References
+--------------
+
+Article Title Photo Source: [http://kids.nationalgeographic.com/explore/states/iowa/#iowa-corn.jpg](http://kids.nationalgeographic.com/explore/states/iowa/#iowa-corn.jpg)
