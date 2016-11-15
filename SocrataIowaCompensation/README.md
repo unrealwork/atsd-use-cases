@@ -383,7 +383,7 @@ In our portal, we now have the following outputs:
 * Federal government compensation per employee, inflation adjusted in current dollars
 
 This example showcases a powerful capability of ATSD: the **ability to combine datasets** in one ATSD portal. In this example we combined 3 datasets, which we used to create 4 seperate outputs.
-Taking our original datasets, we were able to compute custom additional, more in depth layers of analytics with only a few simple, straightforward steps. Below is a screen shot of the complete
+Taking our original datasets, we were able to compute additional, more in depth layers of analytics with only a few simple, straightforward steps. Below is a screen shot of the complete
 portal for the federal government dataset. 
 
 ![Figure 23](Images/Figure23.png)
@@ -400,6 +400,18 @@ You can explore this portal here:
 
 [![](Images/button.png)](https://apps.axibase.com/chartlab/6019ae9c)
 
+In conclusion, we can see drawing the following form our outputs: 
+
+* Unadjusted federal government compensation per employee: **$50,211** in March of 1998 to **$92,078** in September of 2016
+* Adjusted federal government compensation per employee: **$74,608** in March of 1998 to **$92,078** in September of 2016
+* Unadjusted state and local government compensation per employee: **S32,711** in March of 1998 to **$59,196** in September of 2016
+* Adjusted state and local government compensation per employee: **$48,605** in March of 1998 to **$59,196** in  September of 2016
+
+We can see that the change in the change over time in the adjusted values are not as great as the unadjusted. With our adjusted compensation per employee values, we have data that has some real 
+value. Comparing our the trends of the unadjusted to the adjusted values over time, we can see the adjusted trend line is not as steady as the unadjusted line. That, in fact, even the government
+industry can go through volatility as other fields (such as farming, construction, and manufacturing) experience. Axibase's ability to easily combine multiple datasets, regardless of standard
+or non-standard formats, into one instance makes comparing employee avergae compensation simple and straightforward, and provides outputs that are easy to interpret. 
+
 ### Action Items
 ----------------
 
@@ -409,7 +421,7 @@ Below are the steps to follow and create figures for Iowa employment metrics:
 
 1. Follow the action items in the Hawaii Gas Prices article for installing ATSD.
 2. Import the [BLS file job](jobs.xml) and [CSV parser](csv-configs.xml) into Axibase Collector to collect CPI datasets.
-3. Add your desired data.gov or iowa.data.gov dataset to enable data collection. Click on [Run] to collect data for the first time.
+3. Add your desired data.gov, iowa.data.gov, or Bureau of Labor Statistics dataset to enable data collection. Click on [Run] to collect data for the first time.
 4. Login into ATSD and open a sample Socrata portal to explore the data.
 
 If you require assistance in installing this software or have any questions, please feel free to [contact us](https://axibase.com/feedback/) and we would be happy to be of assistance!
