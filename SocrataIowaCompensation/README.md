@@ -147,6 +147,14 @@ known as the [Great Recession](http://stateofworkingamerica.org/great-recession/
 
 ![Figure 9](Images/Figure9.png)
 
+Below is a portal which explores total compensation change per industry in Iowa since 2008 and 2000. Here is a link to the [widgets page on axibase.com](https://axibase.com/products/axibase-time-series-database/visualization/widgets/),
+where you can explore various widget and portal configurations.
+
+![Figure 27](Images/Figure27.png)
+
+You can explore this portal here:
+
+[![](Images/button.png)](https://apps.axibase.com/chartlab/8323be2f/5/)
 
 ### Additional Iowa Datasets - State of Iowa Employment by Month and Industry
 -----------------------------------------------------------------------------
@@ -421,13 +429,13 @@ In conclusion, we can draw the following from our outputs:
 
 * Unadjusted federal government compensation per employee: **$50,211** in March of 1998 to **$92,078** in September of 2016
 * Adjusted federal government compensation per employee: **$74,608** in March of 1998 to **$92,078** in September of 2016
-* Unadjusted state and local government compensation per employee: **S32,711** in March of 1998 to **$59,196** in September of 2016
+* Unadjusted state and local government compensation per employee: **$32,711** in March of 1998 to **$59,196** in September of 2016
 * Adjusted state and local government compensation per employee: **$48,605** in March of 1998 to **$59,196** in  September of 2016
 
 With our adjusted compensation per employee values, we have data that has some real value. We can see that the change over time in the adjusted values are not as great as the unadjusted. Comparing 
 the trends of the unadjusted to the adjusted values over time, we can see that the adjusted trend line is not as steady as the unadjusted line. That, in fact, even the government
 industry can go through volatility as other fields (such as farming, construction, and manufacturing) experience. Axibase's ability to easily combine multiple datasets, regardless of standard
-or non-standard formats, into one instance makes comparing employee average compensation simple and straightforward, and provides outputs that are easy to interpret. 
+or non-standard formats, into one instance makes comparing employee average compensation simple and straightforward, and provides outputs that are easy to interpret.
 
 ### Action Items
 ----------------
