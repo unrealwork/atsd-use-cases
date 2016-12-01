@@ -8,7 +8,7 @@ Knockin on Heaven's Door - Computing U.S. Mortality Statistics
 
 Death. Along with taxes, it is one of the few certainties in life. While we all will meet our end some day, the end is becoming farther and farther away and the risk of death is decreasing.
 According to [infoplease.com](http://www.infoplease.com/ipa/A0005148.html), life expectancy from 1935 to 2010 for both sexes in the U.S. increased from 61.7 to 78.7 years. 
-According to the [Center for Disease Control and Prevention (CDC)](http://www.cdc.gov/nchs/data/databriefs/db88.htm#x2013;2010%3C/a%3E>), the crude death rate in the United States fell from 1,094.5 to 798.7 deaths per 100,000 people from 1935 to 2010, translating to 
+As reported by the [Center for Disease Control and Prevention (CDC)](http://www.cdc.gov/nchs/data/databriefs/db88.htm#x2013;2010%3C/a%3E>), the crude death rate in the United States fell from 1,094.5 to 798.7 deaths per 100,000 people from 1935 to 2010, translating to 
 a 27% decrease. However, the population of the U.S. as a whole was getting older during this time period. When this affect of aging was removed from calculation, the CDC estimates that the age
 adjusted **risk of dying dropped by 60 percent from 1935 to 2010**. 
  
@@ -42,7 +42,7 @@ or contributing cause of death by age group. Deaths from under the age of 1 year
 * All deaths
 * Pneumonia and influenza deaths
 
-In the Appendix of this article, you can can find a complete list of the cities (with their corresponding state) included in this dataset.
+In the [Appendix](https://github.com/axibase/atsd-use-cases/blob/master/USMortality/README.md#appendix-death-statistics-city-list) of this article, you can can find a complete list of the cities (with their corresponding state) included in this dataset.
 
 Deaths can be sorted by geographic region, all of which are shown below.  
 
