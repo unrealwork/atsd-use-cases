@@ -46,140 +46,140 @@ In the Appendix of this article, you can can find a complete list of the cities 
 
 Deaths can be sorted by geographic region, all of which are shown below.  
 
-1 - Connecticut (CT), Massachusetts (MA), Rhode Island (RI)
-2 - Pennsylvania (PA), New Jersey (NJ), New York (NY)
-3 - Illinois (IL), Indian (IN), Michigan (MI), Ohio (OH), Wisconsin (WI)
-4 - Iowa (IA), Kansas (KS), Minnesota (MN), Missouri (MO), Nebraska (NE)
-5 - Delaware (DE), District of Columbia (DC), Florida (FL), Georgia (GA), Maryland (MD), North Carolina (NC), Virginia (VA)
-6 - Alabama (AL), Kentucky (KY), Tennessee (TN)
-7 - Arkansas (AR), Louisiana (LA), Oklahoma (OK), Texas (TX)
-8 - Arizona (AZ), Colorado (CO), Idaho (ID), New Mexico (NM), Nevada (NV), Utah (UT)
-9 - California (CA), Hawaii (HI), Oregon (OR), Washington (WA)
+1 - Connecticut (CT), Massachusetts (MA), Rhode Island (RI)<br />
+2 - Pennsylvania (PA), New Jersey (NJ), New York (NY)<br />
+3 - Illinois (IL), Indian (IN), Michigan (MI), Ohio (OH), Wisconsin (WI)<br />
+4 - Iowa (IA), Kansas (KS), Minnesota (MN), Missouri (MO), Nebraska (NE)<br />
+5 - Delaware (DE), District of Columbia (DC), Florida (FL), Georgia (GA), Maryland (MD), North Carolina (NC), Virginia (VA)<br />
+6 - Alabama (AL), Kentucky (KY), Tennessee (TN)<br />
+7 - Arkansas (AR), Louisiana (LA), Oklahoma (OK), Texas (TX)<br />
+8 - Arizona (AZ), Colorado (CO), Idaho (ID), New Mexico (NM), Nevada (NV), Utah (UT)<br />
+9 - California (CA), Hawaii (HI), Oregon (OR), Washington (WA)<br />
 
-### Appendix 
----------
+### Appendix: Death Statistics City List 
+----------------------------------------
 
-Akron (OH)
-Albany (NY)
-Albuquerque	(NM)
-Allentown (PA)
-Atlanta (GA)
-Austin (TX)
-Baltimore (MD)
-Baton Rouge	LA
-Berkeley (CA)
-Birmingham (AL)
-Boise (ID)
-Boston (MA)
-Bridgeport (CT)
-Buffalo (NY)
-Cambridge (MA)
-Camden (NJ)
-Canton (OH)
-Charlotte (NC)
-Chattanooga (TN)
-Chicago (IL)
-Cincinnati (OH)
-Cleveland (OH)
-Colorado Springs (CO)
-Columbus (OH)
-Corpus Christi (TX)
-Dallas (TX)
-Dayton (OH)
-Denver (CO)
-Des Moines (IA)
-Detroit (MI)
-Duluth (MN)
-El Paso (TX)
-Elizabeth (NJ)
-Erie (PA)
-Evansville (IN)
-Fall River (MA)
-Fort Wayne (IN)
-Fort Worth (TX)
-Fresno (CA)
-Gary (IN)
-Glendale (CA)
-Grand Rapids (MI)
-Hartford (CT)
-Honolulu (HI)
-Houston (TX)
-Indianapolis (IN)
-Jacksonville (FL)
-Jersey City (NJ)
-Kansas City (KS)
-Kansas City	(MO)
-Knoxville (TN)
-Lansing (MI)
-Las Vegas (NV)
-Lexington (KY)
-Lincoln (NE)
-Little Rock	(AR)
-Long Beach (CA)
-Los Angeles	(CA)
-Lowell (MA)
-Lynn (MA)
-Memphis (TN)
-Miami (FL)
-Milwaukee (WI)
-Minneapolis (MN)
-Mobile (AL)
-Montgomery (AL)
-Nashville (TN)
-New Bedford (MA)
-New Haven (CT)
-New Orleans (LA)
-New York (NY)
-Newark (NJ)
-Norfolk	(VA)
-Ogden (UT)
-Omaha (NE)
-Pasadena (CA)
-Paterson (NJ)
-Peoria (IL)
-Philadelphia (PA)
-Phoenix	(AZ)
-Pittsburgh (PA)
-Portland (OR)
-Providence (RI)
-Pueblo (CO)
-Reading	(PA)
-Richmond (VA)
-Rochester (NY)
-Rockford (IL)
-Sacramento (CA)
-Saint Louis (MO)
-Saint Paul (MN)
-Saint Petersburg (FL)
-Salt Lake City (UT)
-San Antonio	(TX)
-San Diego (CA)
-San Francisco (CA)
-San Jose (CA)
-Santa Cruz (CA)
-Savannah (GA)
-Schenectady (NY)
-Scranton (PA)
-Seattle	(WA)
-Shreveport (LA)
-Somerville (MA)
-South Bend (IN)
-Spokane	(WA)
-Springfield	(MA)
-Syracuse (NY)
-Tacoma (WA)
-Tampa (FL)
-Toledo (OH)
-Trenton (NJ)
-Tucson (AZ)
-Tulsa (OK)
-Utica (NY)
-Washington (DC)
-Waterbury (CT)
-Wichita (KS)
-Wilmington (DE)
-Worcester (MA)
-Yonkers (NY)
-Youngstown (OH)
+Akron (OH)<br />
+Albany (NY)<br />
+Albuquerque	(NM)<br />
+Allentown (PA)<br />
+Atlanta (GA)<br />
+Austin (TX)<br />
+Baltimore (MD)<br />
+Baton Rouge	(LA)<br />
+Berkeley (CA)<br />
+Birmingham (AL)<br />
+Boise (ID)<br />
+Boston (MA)<br />
+Bridgeport (CT)<br />
+Buffalo (NY)<br />
+Cambridge (MA)<br />
+Camden (NJ)<br />
+Canton (OH)<br />
+Charlotte (NC)<br />
+Chattanooga (TN)<br />
+Chicago (IL)<br />
+Cincinnati (OH)<br />
+Cleveland (OH)<br />
+Colorado Springs (CO)<br />
+Columbus (OH)<br />
+Corpus Christi (TX)<br />
+Dallas (TX)<br />
+Dayton (OH)<br />
+Denver (CO)<br />
+Des Moines (IA)<br />
+Detroit (MI)<br />
+Duluth (MN)<br />
+El Paso (TX)<br />
+Elizabeth (NJ)<br />
+Erie (PA)<br />
+Evansville (IN)<br />
+Fall River (MA)<br />
+Fort Wayne (IN)<br />
+Fort Worth (TX)<br />
+Fresno (CA)<br />
+Gary (IN)<br />
+Glendale (CA)<br />
+Grand Rapids (MI)<br />
+Hartford (CT)<br />
+Honolulu (HI)<br />
+Houston (TX)<br />
+Indianapolis (IN)<br />
+Jacksonville (FL)<br />
+Jersey City (NJ)<br />
+Kansas City (KS)<br />
+Kansas City	(MO)<br />
+Knoxville (TN)<br />
+Lansing (MI)<br />
+Las Vegas (NV)<br />
+Lexington (KY)<br />
+Lincoln (NE)<br />
+Little Rock	(AR)<br />
+Long Beach (CA)<br />
+Los Angeles	(CA)<br />
+Lowell (MA)<br />
+Lynn (MA)<br />
+Memphis (TN)<br />
+Miami (FL)<br />
+Milwaukee (WI)<br />
+Minneapolis (MN)<br />
+Mobile (AL)<br />
+Montgomery (AL)<br />
+Nashville (TN)<br />
+New Bedford (MA)<br />
+New Haven (CT)<br />
+New Orleans (LA)<br />
+New York (NY)<br />
+Newark (NJ)<br />
+Norfolk	(VA)<br />
+Ogden (UT)<br />
+Omaha (NE)<br />
+Pasadena (CA)<br />
+Paterson (NJ)<br />
+Peoria (IL)<br />
+Philadelphia (PA)<br />
+Phoenix	(AZ)<br />
+Pittsburgh (PA)<br />
+Portland (OR)<br />
+Providence (RI)<br />
+Pueblo (CO)<br />
+Reading	(PA)<br />
+Richmond (VA)<br />
+Rochester (NY)<br />
+Rockford (IL)<br />
+Sacramento (CA)<br />
+Saint Louis (MO)<br />
+Saint Paul (MN)<br />
+Saint Petersburg (FL)<br />
+Salt Lake City (UT)<br />
+San Antonio	(TX)<br />
+San Diego (CA)<br />
+San Francisco (CA)<br />
+San Jose (CA)<br />
+Santa Cruz (CA)<br />
+Savannah (GA)<br />
+Schenectady (NY)<br />
+Scranton (PA)<br />
+Seattle	(WA)<br />
+Shreveport (LA)<br />
+Somerville (MA)<br />
+South Bend (IN)<br />
+Spokane	(WA)<br />
+Springfield	(MA)<br />
+Syracuse (NY)<br />
+Tacoma (WA)<br />
+Tampa (FL)<br />
+Toledo (OH)<br />
+Trenton (NJ)<br />
+Tucson (AZ)<br />
+Tulsa (OK)<br />
+Utica (NY)<br />
+Washington (DC)<br />
+Waterbury (CT)<br />
+Wichita (KS)<br />
+Wilmington (DE)<br />
+Worcester (MA)<br />
+Yonkers (NY)<br />
+Youngstown (OH)<br />
 
 
