@@ -1,6 +1,6 @@
 ![TitlePhoto](Images/TitlePhoto.png)
 
-Knocking on Heaven's Door - Computing U.S. Mortality Statistics 
+Knocking on Heaven's Door - Computing U.S. Mortality Statistics
 ===============================================================
 
 ### Introduction
@@ -10,19 +10,19 @@ Death. Along with taxes, it is one of the few certainties in life. While we all 
 According to [infoplease.com](http://www.infoplease.com/ipa/A0005148.html), life expectancy from 1935 to 2010 for both sexes in the U.S. increased from 61.7 to 78.7 years. 
 As reported by the [Center for Disease Control and Prevention (CDC)](http://www.cdc.gov/nchs/data/databriefs/db88.htm#x2013;2010%3C/a%3E>), the crude death rate in the United States fell from 1,094.5 to 798.7 deaths per 100,000 people from 1935 to 2010, translating to 
 a 27% decrease. However, the population of the U.S. as a whole was getting older during this time period. When this affect of aging was removed from calculation, the CDC estimates that the age
-adjusted **risk of dying dropped by 60 percent from 1935 to 2010**. 
+adjusted **risk of dying dropped by 60 percent from 1935 to 2010**.
  
 The death rate for the 1 to 4 years of age group dropped by **94 percent** from 1935 to 2010.
- 
-The death rate for the 65 to 74 years of age group dropped by **62 percent** from 1935 yo 2010.  
+
+The death rate for the 65 to 74 years of age group dropped by **62 percent** from 1935 to 2010.
 
 Below is an image showcasing the percent change form 1935 to 2010 in death rates by age in the U.S. from the [CDC](http://www.cdc.gov/nchs/data/databriefs/db88_fig3.png):
 
 ![Figure 1](Images/Figure1.png)
 
-In this article we will look at weekly death total statistics collected for over 100 cities for over 50 years. We will next incorporate population figures to calculate mortality rates for each
-individual city. We also will explore additional datasets to see if there are any correlations between their behavior and that of our computed mortality rates. As the icing on the cake, we will
-walk through Axibase's powerful SQL capabilities to help make sense and digest all of this information on death in the United States.  
+In this article we will look at weekly death total statistics collected for over 100 cities for over 50 years. We will begin by walking through Axibase's SQL query language capabilities to help make sense 
+and digest all of this information on death in the United States. We will next incorporate population figures to calculate mortality rates for each individual city. As icing on the cake, we 
+will explore additional datasets to see if there are any correlations between their behavior and that of our computed mortality rates.  
 
 ### Death Statistics for 122 U.S. Cities
 ----------------------------------------
@@ -61,6 +61,20 @@ On the data.gov website, datasets can be downloaded as a CSV, RDF, JSON, or a XM
 ### Axibase Time Series Database
 --------------------------------
 
+The processing of datasets using Axibase Time Series Database (ATSD) is straight forward.  Processing the same data with ATSD is less time consuming
+because its collection tool has built-in heuristics to handle the format in which data.gov datasets are published, namely the Socrata Open Data Format.
+When loading data for a particular dataset the collector uses Socrata metadata to understand the meaning of columns and automatically extract dates, times,
+and categories from the data files. Besides, ATSD stores the data in the user's own database so that this public data can be combined with internal data
+sources as well as mixed and matched across different datasets. Once you install ATSD, you **don't** have to:
+
+* Add additional datasets from data.gov
+* Manipulate and design table schema
+* Provision an application server
+* Write programs to parse and digest these types of files.
+
+Rather, you can configure a scheduled job to retrieve the file from the specified endpoint and have ATSD parse it according to pre-defined rules. Once you
+have raw data in ATSD, creating and sharing reports with built-in widgets is fairly trivial using examples from [axibase.com](http://axibase.com/products/axibase-time-series-database/visualization/widgets/). 
+
 Below is an output of the default configuration with all 122 U.S. cities parsed into the Axibase Time Series Database (ATSD).
 
 ![Figure 2](Images/Figure2.png)
@@ -79,6 +93,33 @@ The following four filters are applied to the default portal:
 * Second dropdown: allows the user to filter between 122 U.S. cities. Again, the list of available cities is shown in the [Appendix](https://github.com/axibase/atsd-use-cases/blob/master/USMortality/README.md#appendix-death-statistics-city-list) . In the case above, all cities have been selected. 
 * Third dropdown: allows the user to filter by geographic region (1,2,3,4,5,6,7,8,9 as mentioned above). In the above case, all regions have been selected.
 * Fourth dropdown: allows the user to filter by state. In the above case, all states have been selected.
+
+Below is an image when a city is selected from the the second dropdown. In this instance, Chicago (IL) has been selected for the 1 - 24 years age group. We can see that there was a quite 
+the spike in the number of deaths in the city from March 2nd, 1991, to June 3, 1995.
+
+![Figure 3](Images/Figure3.png)
+
+The next image is again for Chicago, but this time filtered for the 25 - 44 years age group. Again, we can see that the was quite the spike in the number of deaths in the city, exactly matching
+the period from the previous image, March 2nd, 1991, to June 3, 1995.  
+
+![Figure 4](Images/Figure4.png)
+
+Let us know filter for the remaining age groups (45 - 64 years, 65 + years, all deaths, and pneumonia and influenza deaths). If we filter for the remaining age groups, we can see that these
+groups do not have the same spike in deaths as the previous groups, as shown below.
+ 
+![Figure 5](Images/Figure5.png)
+
+![Figure 6](Images/Figure6.png)
+
+![Figure 7](Images/Figure7.png)
+
+You can observe this filtered portal for Chicago here:
+
+[![](Images/button.png)](https://apps.axibase.com/chartlab/6cf6fe70)
+
+We can see that there is an unbelievable amount of data in this ATSD instance. The high quantity of cities, the frequent collection intervals of the data, and the highly variable nature of the 
+death totals make it difficult to wrap our heads around all of this. How can we make sense of all of it? Using Axibase's SQL query language capabilities allows you to easily search for specific
+information within this portal. 
 
 ### Appendix: Death Statistics City List 
 ----------------------------------------
