@@ -44,7 +44,7 @@ or contributing cause of death by age group. Deaths from under the age of 1 year
 
 In the [Appendix](https://github.com/axibase/atsd-use-cases/blob/master/USMortality/README.md#appendix-death-statistics-city-list) of this article, you can can find a complete list of the cities (with their corresponding state) included in this dataset.
 
-Deaths can be grouped by geographic region, all of which are shown below.  
+Deaths can be grouped by geographic region, all of which are shown below.
 
 1 - Connecticut (CT), Massachusetts (MA), Rhode Island (RI)<br />
 2 - Pennsylvania (PA), New Jersey (NJ), New York (NY)<br />
