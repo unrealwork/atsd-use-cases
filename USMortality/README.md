@@ -125,15 +125,15 @@ Using the third dropdown, we are able to sort by geographic region. Theses regio
 to visualize deaths according to geographic distribution. The regions were provided only with numbers and without any names. Below is how we chose to name these regions. This list will come
 in handy later in the article when we delve into Axibase's SQL query language capabilities. 
 
-1 = New-England
-2 = Mid-Atlantic
-3 = Midwest
-4 = Great-Plains
-5 = South-East
-6 = Appalachia
-7 = South-Central
-8 = Mountain
-9 = Pacific
+1 = New-England<br />
+2 = Mid-Atlantic<br />
+3 = Midwest<br />
+4 = Great-Plains<br />
+5 = South-East<br />
+6 = Appalachia<br />
+7 = South-Central<br />
+8 = Mountain<br />
+9 = Pacific<br />
 
 Let us sort by region 9 (pacific). Below is an output for this filtered instance. We can see that cities for California (CA), Hawaii (HI), Oregon (OR), Washington (WA) are all included in
 this output. We can observe that up until the early to mid 2000's, the deaths in Los Angeles greatly outnumber those of any other city in the region. Recently, however, the deaths in Los Angeles
@@ -147,7 +147,9 @@ You can explore the filtered portal for the Pacific region here:
 
 Finally, using the fourth dropdown, we are able to sort by state. It is worth noting that all not states are represented in this dataset. 39 states plus the District of Columbia are included
 in this dataset. States that are not included are: Alaska (AK), Maine (ME), Mississippi (MS), Montana (MT), New Hampshire (NH), North Dakota (ND), South Carolina (SC), South Dakota (SD), 
-Vermont (VT), West Virginia (WV), and Wyoming (WY). Below is an image of New Jersey (NJ) filtered for all deaths.
+Vermont (VT), West Virginia (WV), and Wyoming (WY). 
+
+Below is an image of New Jersey (NJ) filtered for all deaths.
 
 ![Figure 10](Images/Figure10.png)
 
