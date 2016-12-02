@@ -107,9 +107,7 @@ the period from the previous image, March 2nd, 1991, to June 3, 1995.
 Let us know filter for the remaining age groups (45 - 64 years, 65 + years, all deaths, and pneumonia and influenza deaths). We can see that these groups **do not** have the same spike in deaths 
 as the previous groups, as shown below.
  
-![Figure 5](Images/Figure5.png)
-
-<img src="Images/Figure5.png" width="48">
+<img src="Images/Figure5.png" width="400">
 
 ![Figure 6](Images/Figure6.png)
 
