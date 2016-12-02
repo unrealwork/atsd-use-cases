@@ -107,9 +107,12 @@ the period from the previous image, March 2nd, 1991, to June 3, 1995.
 Let us know filter for the remaining age groups (45 - 64 years, 65 + years, all deaths, and pneumonia and influenza deaths). We can see that these groups **do not** have the same spike in deaths 
 as the previous groups, as shown below.
 
-|  |  | 
+| 45 - 64 Years | 65 + Years  | 
 | --- | --- |
 | ![Figure 5](Images/Figure5.png) | ![Figure 6](Images/Figure6.png) |
+
+| All Deaths | Pneumonia and Influenza Deaths | 
+| --- | --- |
 | ![Figure 7](Images/Figure7.png) | ![Figure 8](Images/Figure8.png) |
 
 What was the reason for this drastic rise in deaths for people under the age of 44 between 1991 to 1995? 
