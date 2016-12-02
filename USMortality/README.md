@@ -109,7 +109,7 @@ as the previous groups, as shown below.
  
 <img src="Images/Figure5.png" width="400">
 
-![Figure 6](Images/Figure6.png)
+<img src="Images/Figure6.png" width="400">
 
 ![Figure 7](Images/Figure7.png)
 
