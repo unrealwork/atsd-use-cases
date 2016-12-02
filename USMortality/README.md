@@ -109,6 +109,8 @@ as the previous groups, as shown below.
  
 ![Figure 5](Images/Figure5.png)
 
+<img src="Images/Figure5.png" width="48">
+
 ![Figure 6](Images/Figure6.png)
 
 ![Figure 7](Images/Figure7.png)
