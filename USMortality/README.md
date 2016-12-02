@@ -16,7 +16,7 @@ The death rate for the 1 to 4 years of age group dropped by **94 percent** from 
 
 The death rate for the 65 to 74 years of age group dropped by **62 percent** from 1935 to 2010.
 
-Below is an image showcasing the percent change form 1935 to 2010 in death rates by age in the U.S. from the [CDC](http://www.cdc.gov/nchs/data/databriefs/db88_fig3.png):
+Below is an image showcasing the percent change form 1935 to 2010 in death rates by age in the U.S. from the [CDC](http://www.cdc.gov/nchs/data/databriefs/db88_fig3.png).
 
 ![Figure 1](Images/Figure1.png)
 
@@ -48,7 +48,7 @@ Deaths can be grouped by geographic region, all of which are shown below.
 
 1 - Connecticut (CT), Massachusetts (MA), Rhode Island (RI)<br />
 2 - Pennsylvania (PA), New Jersey (NJ), New York (NY)<br />
-3 - Illinois (IL), Indian (IN), Michigan (MI), Ohio (OH), Wisconsin (WI)<br />
+3 - Illinois (IL), Indiana (IN), Michigan (MI), Ohio (OH), Wisconsin (WI)<br />
 4 - Iowa (IA), Kansas (KS), Minnesota (MN), Missouri (MO), Nebraska (NE)<br />
 5 - Delaware (DE), District of Columbia (DC), Florida (FL), Georgia (GA), Maryland (MD), North Carolina (NC), Virginia (VA)<br />
 6 - Alabama (AL), Kentucky (KY), Tennessee (TN)<br />
@@ -91,7 +91,7 @@ The following four filters are applied to the default portal:
   25 - 44 years (all causes of death), 45 - 64 years (all causes of death), 65 + years (all causes of death), all deaths, and pneumonia and influenza deaths. In the default instance above,
   1 - 24 years (all causes of death) is selected.
 * Second dropdown: allows the user to filter between 122 U.S. cities. Again, the list of available cities is shown in the [Appendix](https://github.com/axibase/atsd-use-cases/blob/master/USMortality/README.md#appendix-death-statistics-city-list) . In the case above, all cities have been selected. 
-* Third dropdown: allows the user to filter by geographic region (1,2,3,4,5,6,7,8,9 as mentioned above). In the above case, all regions have been selected.
+* Third dropdown: allows the user to filter by geographic region (1,2,3,4,5,6,7,8, and 9 as mentioned above). In the above case, all regions have been selected.
 * Fourth dropdown: allows the user to filter by state. In the above case, all states have been selected.
 
 Below is an image when a city is selected from the the second dropdown. In this instance, Chicago (IL) has been selected for the 1 - 24 years age group. We can see that there was a quite 
@@ -104,8 +104,8 @@ the period from the previous image, March 2nd, 1991, to June 3, 1995.
 
 ![Figure 4](Images/Figure4.png)
 
-Let us know filter for the remaining age groups (45 - 64 years, 65 + years, all deaths, and pneumonia and influenza deaths). If we filter for the remaining age groups, we can see that these
-groups do not have the same spike in deaths as the previous groups, as shown below.
+Let us know filter for the remaining age groups (45 - 64 years, 65 + years, all deaths, and pneumonia and influenza deaths). We can see that these groups **do not** have the same spike in deaths 
+as the previous groups, as shown below.
  
 ![Figure 5](Images/Figure5.png)
 
@@ -113,9 +113,47 @@ groups do not have the same spike in deaths as the previous groups, as shown bel
 
 ![Figure 7](Images/Figure7.png)
 
+![Figure 8](Images/Figure8.png)
+
+What was the reason for this drastic rise in deaths for people under the age of 44 between 1991 to 1995? 
+
 You can observe this filtered portal for Chicago here:
 
 [![](Images/button.png)](https://apps.axibase.com/chartlab/6cf6fe70)
+
+Using the third dropdown, we are able to sort by geographic region. Theses regions are not part of any established system; the states were merely grouped together for this dataset to abe able
+to visualize deaths according to geographic distribution. The regions were provided only with numbers and without any names. Below is how we chose to name these regions. This list will come
+in handy later in the article when we delve into Axibase's SQL query language capabilities. 
+
+1 = New-England
+2 = Mid-Atlantic
+3 = Midwest
+4 = Great-Plains
+5 = South-East
+6 = Appalachia
+7 = South-Central
+8 = Mountain
+9 = Pacific
+
+Let us sort by region 9 (pacific). Below is an output for this filtered instance. We can see that cities for California (CA), Hawaii (HI), Oregon (OR), Washington (WA) are all included in
+this output. We can observe that up until the early to mid 2000's, the deaths in Los Angeles greatly outnumber those of any other city in the region. Recently, however, the deaths in Los Angeles
+have drastically dropped off, and now seem to generally be on par with several other cities in the region. Why has there been such a drastic drop off in deaths recently in Los Angeles? 
+
+![Figure 9](Images/Figure9.png)
+
+You can explore the filtered portal for the Pacific region here:
+
+[![](Images/button.png)](https://apps.axibase.com/chartlab/c284427c)
+
+Finally, using the fourth dropdown, we are able to sort by state. It is worth noting that all not states are represented in this dataset. 39 states plus the District of Columbia are included
+in this dataset. States that are not included are: Alaska (AK), Maine (ME), Mississippi (MS), Montana (MT), New Hampshire (NH), North Dakota (ND), South Carolina (SC), South Dakota (SD), 
+Vermont (VT), West Virginia (WV), and Wyoming (WY). Below is an image of New Jersey (NJ) filtered for all deaths.
+
+![Figure 10](Images/Figure10.png)
+
+You can explore the filtered portal for the state of New Jersey here:
+
+[![](Images/button.png)](https://apps.axibase.com/chartlab/3d07088c)
 
 We can see that there is an unbelievable amount of data in this ATSD instance. The high quantity of cities, the frequent collection intervals of the data, and the highly variable nature of the 
 death totals make it difficult to wrap our heads around all of this. How can we make sense of all of it? Using Axibase's SQL query language capabilities allows you to easily search for specific
