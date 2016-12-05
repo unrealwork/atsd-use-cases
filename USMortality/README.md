@@ -207,6 +207,262 @@ ORDER BY value desc
   OPTION (ROW_MEMORY_THRESHOLD 500000)  
 ```
 
+The deadliest week due to pneumonia and influenza by city:
+
+```sql
+SELECT date_format(time, 'yyyy-MM-dd') as 'date', 
+  tags.city as 'city', tags.state as 'state', 
+  ISNULL(LOOKUP('us-region', tags.region), tags.region) AS 'region', 
+  value as 'pneumonia_influenza_deaths',
+  LOOKUP('city-size', concat(tags.city, ',', tags.state)) AS 'population'
+FROM cdc.pneumonia_and_influenza_deaths t1
+  WHERE entity = 'mr8w-325u' and tags.city IS NOT NULL
+  WITH row_number(tags ORDER BY value desc, time desc) <= 1
+ORDER BY value desc
+  OPTION (ROW_MEMORY_THRESHOLD 500000)
+```
+
+The deadliest pneumonia and influenza week as a percentage of all deaths:
+
+```sql
+SELECT date_format(tot.time, 'yyyy-MM-dd') as 'date', 
+  tot.tags.city as 'city', tot.tags.state as 'state', 
+  LOOKUP('us-region', tot.tags.region) AS 'region',  
+  tot.value as 'all_deaths',
+  pni.value as 'pneumonia_influenza_deaths',
+  pni.value/tot.value*100 as 'pneumonia_influenza_deaths, %',
+  LOOKUP('city-size', CONCAT(tot.tags.city, ',', tot.tags.state)) AS 'population'
+FROM cdc.all_deaths tot
+  JOIN cdc.pneumonia_and_influenza_deaths pni
+  WHERE tot.entity = 'mr8w-325u' AND tot.tags.city IS NOT NULL
+  AND pni.value > 1
+  WITH row_number(tot.tags ORDER BY pni.value/tot.value DESC, tot.time DESC) <= 1
+  ORDER BY 'pneumonia_influenza_deaths, %' DESC, pni.value DESC
+  OPTION (ROW_MEMORY_THRESHOLD 500000)
+```
+
+`OUTER JOIN` can help find all instances when a city failed to report `pneumonia_and_influenza_deaths` (no data).
+
+```sql
+SELECT tot.datetime, tot.value AS 'total',
+  ISNULL(pni.value, 'N/A') AS 'pneumonia/influenza'
+FROM cdc.all_deaths tot
+  OUTER JOIN cdc.pneumonia_and_influenza_deaths pni
+WHERE tot.entity = 'mr8w-325u'
+  AND tot.tags.city = 'Baton Rouge'
+  AND pni.value IS NULL
+```
+
+Top 10 cities by all deaths in the current year (year to date):
+
+```sql
+SELECT tags.city as 'city', tags.state as 'state', 
+  ISNULL(LOOKUP('us-region', tags.region), tags.region) AS 'region', 
+  sum(value) as 'all_deaths',
+  LOOKUP('city-size', concat(tags.city, ',', tags.state)) AS 'population'
+FROM cdc.all_deaths
+  WHERE entity = 'mr8w-325u' and tags.city IS NOT NULL
+  AND datetime > current_year
+GROUP BY tags
+ORDER BY 'all_deaths' DESC
+  LIMIT 10
+  OPTION (ROW_MEMORY_THRESHOLD 500000)
+```
+
+Top 10 cities by pneumonia and influenza deaths:
+
+```sql
+SELECT tags.city as 'city', tags.state as 'state', 
+  ISNULL(LOOKUP('us-region', tags.region), tags.region) AS 'region', 
+  sum(value) as 'pneumonia_influenza_deaths',
+  LOOKUP('city-size', concat(tags.city, ',', tags.state)) AS 'population'
+FROM cdc.pneumonia_and_influenza_deaths
+  WHERE entity = 'mr8w-325u' and tags.city IS NOT NULL
+  AND datetime > current_year
+GROUP BY tags
+ORDER BY 'pneumonia_influenza_deaths' DESC
+  LIMIT 10
+  OPTION (ROW_MEMORY_THRESHOLD 500000)
+```
+
+Top 10 cities with the highest percentage of deaths caused by pneumonia and influenza, year-to-date:
+
+```sql
+SELECT tot.tags.city as 'city', tot.tags.state as 'state', 
+  LOOKUP('us-region', tot.tags.region) AS 'region',  
+  sum(tot.value) AS 'all_deaths',
+  sum(pni.value) AS 'pneumonia_influenza_deaths',
+  sum(pni.value)/sum(tot.value)*100 AS 'pneumonia_influenza_deaths, %',
+  LOOKUP('city-size', CONCAT(tot.tags.city, ',', tot.tags.state)) AS 'population'
+FROM cdc.all_deaths tot
+  JOIN cdc.pneumonia_and_influenza_deaths pni
+WHERE tot.entity = 'mr8w-325u' AND tot.tags.city IS NOT NULL
+  AND tot.datetime > current_year AND tot.value > 0
+GROUP BY tot.tags
+  ORDER BY 'pneumonia_influenza_deaths, %' DESC, 'pneumonia_influenza_deaths' DESC
+  OPTION (ROW_MEMORY_THRESHOLD 500000)
+```
+
+Top 10 cities with the highest percentage of deaths caused by pneumonia and influenza, for the last 12 months (trailing):
+
+```sql
+SELECT tot.tags.city as 'city', tot.tags.state as 'state', 
+  LOOKUP('us-region', tot.tags.region) AS 'region',  
+  sum(tot.value) AS 'all_deaths',
+  sum(pni.value) AS 'pneumonia_influenza_deaths',
+  sum(pni.value)/sum(tot.value)*100 AS 'pneumonia_influenza_deaths, %',
+  LOOKUP('city-size', CONCAT(tot.tags.city, ',', tot.tags.state)) AS 'population'
+FROM cdc.all_deaths tot
+  JOIN cdc.pneumonia_and_influenza_deaths pni
+WHERE tot.entity = 'mr8w-325u' AND tot.tags.city IS NOT NULL
+  AND tot.datetime > now-1*YEAR AND tot.value > 0
+GROUP BY tot.tags
+  ORDER BY 'pneumonia_influenza_deaths, %' DESC, 'pneumonia_influenza_deaths' DESC
+  OPTION (ROW_MEMORY_THRESHOLD 500000)
+```
+
+Top 10 cities with the highest percentage of deaths caused by pneumonia and influenza, but for the entire period since 1970:
+
+```sql
+SELECT tot.tags.city as 'city', tot.tags.state as 'state', 
+  LOOKUP('us-region', tot.tags.region) AS 'region',  
+  sum(tot.value) AS 'all_deaths',
+  sum(pni.value) AS 'pneumonia_influenza_deaths',
+  sum(pni.value)/sum(tot.value)*100 AS 'pneumonia_influenza_deaths, %',
+  LOOKUP('city-size', CONCAT(tot.tags.city, ',', tot.tags.state)) AS 'population'
+FROM cdc.all_deaths tot
+  JOIN cdc.pneumonia_and_influenza_deaths pni
+WHERE tot.entity = 'mr8w-325u' AND tot.tags.city IS NOT NULL
+  AND tot.value > 0
+GROUP BY tot.tags
+  ORDER BY 'pneumonia_influenza_deaths, %' DESC, 'pneumonia_influenza_deaths' DESC
+  OPTION (ROW_MEMORY_THRESHOLD 500000)
+```
+
+Number of pneumonia and influenza deaths per month, in Midwest:
+
+```sql
+SELECT date_format(time, 'yyyy MMM') as 'date',
+  LOOKUP('us-region', tags.region) AS 'region', 
+  sum(value) as 'pneumonia_influenza_deaths'
+FROM cdc.pneumonia_and_influenza_deaths
+  WHERE entity = 'mr8w-325u' and tags.city IS NOT NULL
+  AND tags.region = '3'
+  AND datetime > now-5*year AND datetime < '2016-10-01T00:00:00Z'
+GROUP BY tags.region, period(1 MONTH)
+ORDER BY datetime desc, tags.region
+  OPTION (ROW_MEMORY_THRESHOLD 500000)+
+```
+
+Total pneumonia and influenza deaths in January for region 3:
+
+```sql
+SELECT date_format(time, 'yyyy MMM') as 'date',
+  LOOKUP('us-region', tags.region) AS 'region', 
+  sum(value) as 'pneumonia_influenza_deaths'
+FROM cdc.pneumonia_and_influenza_deaths
+  WHERE entity = 'mr8w-325u' and tags.city IS NOT NULL
+  AND tags.region = '3'
+  AND date_format(time, 'MMM') = 'Jan'
+GROUP BY tags.region, period(1 MONTH)
+ORDER BY datetime, tags.region
+  OPTION (ROW_MEMORY_THRESHOLD 500000)
+```
+
+Top 3 deadliest pneumonia and influenza Januaries in region 3:
+
+```sql
+SELECT date_format(time, 'yyyy MMM') as 'date',
+  LOOKUP('us-region', tags.region) AS 'region', 
+  sum(value) as 'pneumonia_influenza_deaths'
+FROM cdc.pneumonia_and_influenza_deaths
+  WHERE entity = 'mr8w-325u' and tags.city IS NOT NULL
+  AND tags.region = '3'
+  AND date_format(time, 'MMM') = 'Jan'
+GROUP BY tags.region, period(1 MONTH)
+ORDER BY sum(value) desc
+  LIMIT 3
+  OPTION (ROW_MEMORY_THRESHOLD 500000)
+```  
+
+Deadliest pneumonia and influenza month by region:
+
+```sql
+SELECT date_format(time, 'MMM') AS 'Month',
+  LOOKUP('us-region', tags.region) AS 'region', 
+  sum(value) as 'pneumonia_influenza_deaths'
+FROM cdc.pneumonia_and_influenza_deaths
+  WHERE entity = 'mr8w-325u' and tags.city IS NOT NULL
+GROUP BY tags.region, date_format(time, 'MMM')
+  ORDER BY sum(value) DESC
+  OPTION (ROW_MEMORY_THRESHOLD 500000)
+```
+
+Latest weekly pneumonia and influenza readings for Boston:
+
+```sql
+SELECT datetime, value, tags.*
+  FROM cdc.pneumonia_and_influenza_deaths
+WHERE tags.city = 'Boston'
+  ORDER BY datetime DESC
+LIMIT 10
+```
+
+Latest pneumonia and influenza and total readings for Boston, using JOIN:
+
+```sql
+SELECT *
+  FROM cdc.pneumonia_and_influenza_deaths pni
+    JOIN cdc.all_deaths tot
+WHERE pni.tags.city = 'Boston'
+  ORDER BY pni.datetime DESC
+LIMIT 10
+```
+
+Latest pneumonia and influenza and total readings for Boston, with specific tags:
+
+```sql
+SELECT datetime, value, tags.city, tags.state, tags.region
+  FROM cdc.pneumonia_and_influenza_deaths
+WHERE tags.city = 'Boston'
+  ORDER BY datetime DESC
+LIMIT 10
+```
+
+Latest pneumonia and influenza and total readings for Boston, with region code translated to region name using a Replacement Table:
+
+```sql
+SELECT datetime, value, tags.city, tags.state, 
+   LOOKUP('us-region', tags.region) AS 'region'
+  FROM cdc.pneumonia_and_influenza_deaths
+WHERE tags.city = 'Boston'
+  ORDER BY datetime DESC
+LIMIT 10
+```
+
+Same as above, except for total for all cities in a given region:
+
+```sql
+SELECT datetime, sum(value),  
+  LOOKUP('us-region', tags.region) AS 'region'
+  FROM cdc.pneumonia_and_influenza_deaths
+WHERE tags.region = '2'
+  GROUP BY tags.region, datetime
+  ORDER BY datetime DESC
+LIMIT 10
+```
+
+Monthly totals for all cities in region, for a given time-range:
+
+```sql
+SELECT datetime, sum(value),  
+  LOOKUP('us-region', tags.region) AS 'region'
+  FROM cdc.pneumonia_and_influenza_deaths
+WHERE tags.region = '2'
+  AND datetime >= '2016-01-01T00:00:00Z' AND datetime < '2016-10-01T00:00:00Z'
+  GROUP BY tags.region, period(1 MONTH)
+  ORDER BY datetime DESC
+```
 
 ### Appendix: Death Statistics City List 
 ----------------------------------------
