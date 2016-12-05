@@ -20,7 +20,7 @@ Below is an image showcasing the percent change form 1935 to 2010 in death rates
 
 ![Figure 1](Images/Figure1.png)
 
-In this article we will look at weekly death total statistics collected for over 100 cities for over 50 years. We will begin by walking through Axibase's SQL query language capabilities to help make sense 
+In this article we will look at weekly death total statistics collected for over 100 U.S. cities for over 50 years. We will begin by walking through Axibase's SQL query language capabilities to help make sense 
 and digest all of this information on death in the United States. We will next incorporate population figures to calculate mortality rates for each individual city. As icing on the cake, we 
 will explore additional datasets to see if there are any correlations between their behavior and that of our computed mortality rates.  
 
@@ -70,7 +70,7 @@ sources as well as mixed and matched across different datasets. Once you install
 * Add additional datasets from data.gov
 * Manipulate and design table schema
 * Provision an application server
-* Write programs to parse and digest these types of files.
+* Write programs to parse and digest these types of files
 
 Rather, you can configure a scheduled job to retrieve the file from the specified endpoint and have ATSD parse it according to pre-defined rules. Once you
 have raw data in ATSD, creating and sharing reports with built-in widgets is fairly trivial using examples from [axibase.com](http://axibase.com/products/axibase-time-series-database/visualization/widgets/). 
@@ -159,7 +159,54 @@ You can explore the filtered portal for the state of New Jersey here:
 
 We can see that there is an unbelievable amount of data in this ATSD instance. The high quantity of cities, the frequent collection intervals of the data, and the highly variable nature of the 
 death totals make it difficult to wrap our heads around all of this. How can we make sense of all of it? Using Axibase's SQL query language capabilities allows you to easily search for specific
-information within this portal. 
+information within this portal.
+
+### Axibase SQL Query Language
+------------------------------
+
+According to [techopedia.com](https://www.techopedia.com/definition/1245/structured-query-language-sql), structured query language (SQL) is a standard computer language used for relational
+database management and data manipulation. SQL is used to query, insert, update, and modify data. Initially developed by IBM in the 1970's and released by Oracle Corporation in 1979, SQL allows
+you to maneuver through large amounts of data and specify exactly the information you are looking for.
+
+Let us begin by walking through some SQL examples for examining our dataset. Looking at an output for an individual city or even all of the cities combined, it is relatively easy to recognize the general
+trend of deaths in the U.S. over time. However, in many instances, since there is so much information, it is difficult to tell what the number of deaths was for a certain time. So let us take
+a closer look at determining the **least deadly** and **deadliest** week for each city from 1970 to 2016.
+
+* `SELECT` - returns a result set of records from one or more tables.
+* `FROM` - indicates the table(s) to retrieve data from.
+* `WHERE` - specifies which rows to retrieve.
+* `ORDER BY` - specifies the order in which to return the rows.
+
+The least deadly week by city:
+
+```sql
+SELECT date_format(time, 'yyyy-MM-dd') AS 'date', 
+  tags.city AS 'city', tags.state AS 'state', 
+  ISNULL(LOOKUP('us-region', tags.region), tags.region) AS 'region', 
+  value AS 'all_deaths',
+  LOOKUP('city-size', concat(tags.city, ',', tags.state)) AS 'population'
+FROM cdc.all_deaths
+  WHERE entity = 'mr8w-325u' and tags.city IS NOT NULL AND value > 0
+  WITH row_number(tags ORDER BY value, time DESC) <= 1
+ORDER BY 'date' DESC
+  OPTION (ROW_MEMORY_THRESHOLD 500000)
+```
+
+The deadliest week by city:
+
+```sql
+SELECT date_format(time, 'yyyy-MM-dd') as 'date', 
+  tags.city as 'city', tags.state as 'state', 
+  ISNULL(LOOKUP('us-region', tags.region), tags.region) AS 'region', 
+  value as 'all_deaths',
+  LOOKUP('city-size', concat(tags.city, ',', tags.state)) AS 'population'
+FROM cdc.all_deaths
+  WHERE entity = 'mr8w-325u' and tags.city IS NOT NULL
+  WITH row_number(tags ORDER BY value desc, time desc) <= 1
+ORDER BY value desc
+  OPTION (ROW_MEMORY_THRESHOLD 500000)  
+```
+
 
 ### Appendix: Death Statistics City List 
 ----------------------------------------
