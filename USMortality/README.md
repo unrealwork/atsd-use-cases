@@ -172,6 +172,48 @@ Let us begin by walking through some SQL examples for examining our dataset. Loo
 trend of deaths in the U.S. over time. However, in many instances, since there is so much information, it is difficult to tell what the number of deaths was for a certain time. So let us take
 a closer look at determining the **least deadly** and **deadliest** week for each city from 1970 to 2016.
 
+1. Install Docker (Xenial Version 16.04). A link for how to install Docker can be found [here](https://docs.docker.com/engine/installation/linux/ubuntulinux/). 
+2. Create `the docker-compose.yml` file from our [GitHub](https://github.com/axibase/axibase-collector-docs/blob/master/docker-bundle.md) page. 
+3. In Terminal, launch containers with the below command:
+
+   ```sql
+   `export` USER=myuser; `export` PASSWORD=mypassword; docker-compose up -d 
+   ```
+4. Access the ATSD user interface by navigating to the address shown in the image below. Create a username and password.
+
+   ![Figure 11](Images/Figure11.png)
+
+5. Login to ATSD, as shown in the image below.
+
+   ![Figure 12](Images/Figure12.png)
+   
+6. Axcess Axibase Collector by navigating to `https://localhost:9443/register.xhtml`, and populate the username and password fields as shown in the image below.
+
+   ![Figure 13](Images/Figure13.png)
+   
+7. Import the Socrata `job.xml` file into Axibase Collector, as shown in the image below.
+ 
+   ![Figure 14](Images/Figure14.png)
+    
+8. Now click on the `Jobs` tab. Only jobs that are 'Enabled' are shown as the default. After importing, all jobs are automatically set to disabled. Select 'ALL' as shown in the first image 
+   below. Next, the actual name of the file that will show up in Collector is `socrata-cdc`. Click on this job, check the 'Enabled' checkbox, and hit 'Save' as shown in the second figure.
+   
+   ![Figure 18](Images/Figure18.png)
+      
+   ![Figure 15](Images/Figure15.png)
+   
+9. Navigate back to the main page, select the `Jobs` tab. Since we set `socrata-cdc` to 'Enabled', it shows up by default. Hit 'Run'. 
+
+   ![Figure 16](Images/Figure16.png)
+   
+   After a few seconds, refresh your browser, and you should see an output as shown below.
+   
+   ![Figure 17](Images/Figure17.png)
+   
+10. Now, navigate to back to the 'Entities' tab in ATSD. 
+   
+   ![Figure 19](Images/Figure19.png)
+   
 * `SELECT` - returns a result set of records from one or more tables.
 * `FROM` - indicates the table(s) to retrieve data from.
 * `WHERE` - specifies which rows to retrieve.
