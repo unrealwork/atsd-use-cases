@@ -16,11 +16,11 @@ The death rate for the 1 to 4 years of age group dropped by **94 percent** from 
 
 The death rate for the 65 to 74 years of age group dropped by **62 percent** from 1935 to 2010.
 
-Below is an image showcasing the percent change form 1935 to 2010 in death rates by age in the U.S. from the [CDC](http://www.cdc.gov/nchs/data/databriefs/db88_fig3.png).
+Below is an image showcasing the percent change from 1935 to 2010 in death rates by age in the U.S. from the [CDC](http://www.cdc.gov/nchs/data/databriefs/db88_fig3.png).
 
 ![Figure 1](Images/Figure1.png)
 
-In this article we will look at weekly death total statistics collected for over 100 U.S. cities for over 50 years. We will begin by walking through Axibase's SQL query language capabilities to help make sense 
+In this article we will look at weekly death total statistics collected for over 100 U.S. cities for over 50 years. We will begin by walking through the Axibase's SQL query language capabilities to help make sense 
 and digest all of this information on death in the United States. We will then look at incorporating population figures to calculate mortality rates for each individual city. As icing on the cake, we 
 will explore additional datasets to see if there are any correlations between their behavior and that of our computed mortality rates.  
 
@@ -42,7 +42,7 @@ or contributing cause of death by age group. Deaths from under the age of 1 year
 * All deaths
 * Pneumonia and influenza deaths
 
-In the [Appendix](https://github.com/axibase/atsd-use-cases/blob/master/USMortality/README.md#appendix-death-statistics-city-list) of this article, you can can find a complete list of the cities (with their corresponding state) included in this dataset.
+In the [Appendix](https://github.com/axibase/atsd-use-cases/blob/master/USMortality/README.md#appendix-death-statistics-city-list) of this article, you can find a complete list of the cities (with their corresponding state) included in this dataset.
 
 Deaths can be grouped by geographic region, all of which are shown below.
 
@@ -121,7 +121,7 @@ You can observe this filtered portal for Chicago here:
 
 [![](Images/button.png)](https://apps.axibase.com/chartlab/6cf6fe70)
 
-Using the third dropdown, we are able to sort by geographic region. Theses regions are not part of any established system; the states were merely grouped together for this dataset to abe able
+Using the third dropdown, we are able to sort by geographic region. These regions are not part of any established system; the states were merely grouped together for this dataset to abe able
 to visualize deaths according to geographic distribution. The regions were provided only with numbers and without any names. Below is how we chose to name these regions. This list will come
 in handy later in the article when we delve into Axibase's SQL query language capabilities. 
 
@@ -167,25 +167,31 @@ information within this portal. We will begin by walking through installing loca
 Below is a step-by-step walk through for setting up local configurations of ATSD and Axibase Collector. We will use Docker as our host. You can learn more about Docker [on our website](https://axibase.com/docker-monitoring/).   
 
 1. Install Docker (Xenial Version 16.04). A link for how to install Docker can be found [here](https://docs.docker.com/engine/installation/linux/ubuntulinux/). 
-2. Create the `docker-compose.yml` file from our [GitHub](https://github.com/axibase/axibase-collector-docs/blob/master/docker-bundle.md) page. 
+2. Copy the `docker-compose.yml` file from our [GitHub](https://github.com/axibase/axibase-collector-docs/blob/master/docker-bundle.md) page. Save this file to whichever directory you are using
+   in Terminal (i.e. Desktop, Documents).
 3. In Terminal, launch containers with the below command:
 
    ```sql
-   `export` USER=myuser; `export` PASSWORD=mypassword; docker-compose up -d 
+   export USER=myuser; export PASSWORD=mypassword; docker-compose up -d 
    ```
 4. Access the ATSD user interface by navigating to the address shown in the image below. Create a username and password. 
 
    <img src="Images/Figure11.png" width="600" >
 
-5. Login to ATSD, as shown in the image below.
+5. After completing Step 4, you will be redirected to the page shown below. Login to ATSD with the username and password you just created.
 
     <img src="Images/Figure12.png" width="500" >
    
-6. Axcess Axibase Collector by navigating to `https://localhost:9443/register.xhtml`, and populate the username and password fields as shown in the image below.
+6. Access Axibase Collector by navigating to `https://localhost:9443.xhtml`, and populate the username and password fields. After creating your username and password, you will be prompted to
+   login. Enter in your your username and password.
 
     <img src="Images/Figure13.png" width="500" >
    
-7. Import the Socrata `job.xml` file into Axibase Collector, as shown in the image below.
+7. We now want to import a `.xml` parser file, which contains rules for how our data will be digested. In Axibase Collector, click on the 'Jobs' tab in the upper left hand corner.
+
+   ![Figure 32](Images/Figure32.png)
+   
+   Upload the file titled `job.xml`, which can be found here. Press 'Import'.
  
    ![Figure 14](Images/Figure14.png)
     
