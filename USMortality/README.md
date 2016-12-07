@@ -216,11 +216,11 @@ Below is a step-by-step walk through for setting up local configurations of ATSD
    
    ![Figure 17](Images/Figure17.png)
    
-10. Now, navigate to back to the 'Entities' tab in ATSD.
+10. Now, navigate to the 'Entities' tab in ATSD. We can see that the job has created a new entity in ATSD, with the name `mr8w-325u`.  
    
    ![Figure 19](Images/Figure19.png)
    
-11. Next, navigate to the `Configuration -> Replacement Table`.
+11. Next, click on the `Configuration -> Replacement Table`.
    
    ![Figure 20](Images/Figure20.png)
    
@@ -236,7 +236,8 @@ Below is a step-by-step walk through for setting up local configurations of ATSD
    
    ![Figure 24](Images/Figure24.png)
    
-14. After the parser has been added, we will proceed to uploading our `us.population.csv` file. Click the 'Upload' button and then select the `us.population.csv` file.          
+14. After the parser has been added, we will proceed to uploading our `us.population.csv` file. Click again on the `Parsers:CSV` dropdown. Then, click on the `Upload` button and then select 
+    the `us.population.csv` file.          
    
    ![Figure 25](Images/Figure25.png)
    
