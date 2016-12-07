@@ -173,7 +173,7 @@ Below is a step-by-step walk through for setting up local configurations of ATSD
    ```sql
    `export` USER=myuser; `export` PASSWORD=mypassword; docker-compose up -d 
    ```
-4. Access the ATSD user interface by navigating to the address shown in the image below. Create a username and password.
+4. Access the ATSD user interface by navigating to the address shown in the image below. Create a username and password. 
 
    <img src="Images/Figure11.png" width="600" >
 
