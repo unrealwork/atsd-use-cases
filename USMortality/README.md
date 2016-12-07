@@ -179,11 +179,11 @@ Below is a step-by-step walk through for setting up local configurations of ATSD
 
 5. Login to ATSD, as shown in the image below.
 
-   ![Figure 12](Images/Figure12.png)
+    <img src="Images/Figure12.png" width="600" >
    
 6. Axcess Axibase Collector by navigating to `https://localhost:9443/register.xhtml`, and populate the username and password fields as shown in the image below.
 
-   ![Figure 13](Images/Figure13.png)
+    <img src="Images/Figure13.png" width="600" >
    
 7. Import the Socrata `job.xml` file into Axibase Collector, as shown in the image below.
  
