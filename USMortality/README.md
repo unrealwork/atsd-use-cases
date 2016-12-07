@@ -10,7 +10,7 @@ Death. Along with taxes, it is one of the few certainties in life. While we all 
 According to [infoplease.com](http://www.infoplease.com/ipa/A0005148.html), life expectancy from 1935 to 2010 for both sexes in the U.S. increased from 61.7 to 78.7 years. 
 As reported by the [Center for Disease Control and Prevention (CDC)](http://www.cdc.gov/nchs/data/databriefs/db88.htm#x2013;2010%3C/a%3E>), the crude death rate in the United States fell from 1,094.5 to 798.7 deaths per 100,000 people from 1935 to 2010, translating to 
 a 27% decrease. However, the population of the U.S. as a whole was getting older during this time period. When this affect of aging was removed from calculation, the CDC estimates that the age
-adjusted **risk of dying dropped by 60 percent from 1935 to 2010**. 
+adjusted **risk of dying dropped by 60 percent from 1935 to 2010**.  
  
 The death rate for the 1 to 4 years of age group dropped by **94 percent** from 1935 to 2010.
 
