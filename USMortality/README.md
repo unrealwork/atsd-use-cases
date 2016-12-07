@@ -173,7 +173,7 @@ trend of deaths in the U.S. over time. However, in many instances, since there i
 a closer look at determining the **least deadly** and **deadliest** week for each city from 1970 to 2016.
 
 1. Install Docker (Xenial Version 16.04). A link for how to install Docker can be found [here](https://docs.docker.com/engine/installation/linux/ubuntulinux/). 
-2. Create `the docker-compose.yml` file from our [GitHub](https://github.com/axibase/axibase-collector-docs/blob/master/docker-bundle.md) page. 
+2. Create the `docker-compose.yml` file from our [GitHub](https://github.com/axibase/axibase-collector-docs/blob/master/docker-bundle.md) page. 
 3. In Terminal, launch containers with the below command:
 
    ```sql
@@ -202,17 +202,24 @@ a closer look at determining the **least deadly** and **deadliest** week for eac
       
    ![Figure 15](Images/Figure15.png)
    
-9. Navigate back to the main page, select the `Jobs` tab. Since we set `socrata-cdc` to 'Enabled', it shows up by default. Hit 'Run'. 
+9. Navigate back to the main page, select the `Jobs` tab. Since we set `socrata-cdc` to 'Enabled', it shows up by default. Hit 'Run'. After a few seconds, refresh your browser, and you
+   should see an output as shown in the second image below.
 
    ![Figure 16](Images/Figure16.png)
    
-   After a few seconds, refresh your browser, and you should see an output as shown below.
-   
    ![Figure 17](Images/Figure17.png)
    
-10. Now, navigate to back to the 'Entities' tab in ATSD. 
+10. Now, navigate to back to the 'Entities' tab in ATSD. We can see that 
    
    ![Figure 19](Images/Figure19.png)
+   
+11. Next, navigate to the `Configuration -> Replacement Table`.
+   
+   ![Figure 20](Images/Figure20.png)
+   
+12. Copy and paste the files included in this repository (`city-size` and `us-regions`) into the Replacement Table.  
+   
+   ![Figure 21](Images/Figure21.png)
    
 * `SELECT` - returns a result set of records from one or more tables.
 * `FROM` - indicates the table(s) to retrieve data from.
@@ -504,6 +511,78 @@ WHERE tags.region = '2'
   AND datetime >= '2016-01-01T00:00:00Z' AND datetime < '2016-10-01T00:00:00Z'
   GROUP BY tags.region, period(1 MONTH)
   ORDER BY datetime DESC
+```
+
+Cities with the highest mortality rate:
+
+```sql
+SELECT tags.city as 'city', tags.state as 'state', 
+  ISNULL(LOOKUP('us-region', tags.region), tags.region) AS 'region', 
+  sum(value) as 'all_deaths',
+  cast(LOOKUP('city-size', concat(tags.city, ',', tags.state))) AS 'population',
+  sum(value)/cast(LOOKUP('city-size', concat(tags.city, ',', tags.state)))*1000 AS 'mortality_rate'
+FROM cdc.all_deaths
+  WHERE entity = 'mr8w-325u' and tags.city IS NOT NULL
+  AND datetime >= '2015-01-01T00:00:00Z' AND datetime < '2016-01-01T00:00:00Z'
+GROUP BY tags
+ORDER BY mortality_rate DESC
+```
+
+Mortality rates in New York (fixed pop size, provisional):
+
+```sql
+SELECT tot.datetime, tot.tags.city as 'city', tot.tags.state as 'state', 
+  ISNULL(LOOKUP('us-region', tot.tags.region), tot.tags.region) AS 'region', 
+  sum(tot.value - t24.value - t44.value - t64.value - t64o.value) as 'other_deaths',
+  sum(t24.value) as '1-24_deaths',
+  sum(t44.value) as '24-44_deaths',
+  sum(t64.value) as '44-64_deaths',
+  sum(t64o.value) as '64+_deaths',
+  sum(tot.value) as 'all_deaths',
+  cast(LOOKUP('city-size', concat(tot.tags.city, ',', tot.tags.state))) AS 'population',
+  sum(tot.value - t24.value - t44.value - t64.value - t64o.value)/cast(LOOKUP('city-size', concat(tot.tags.city, ',', tot.tags.state)))*1000 AS 'other_mortality_rate',
+  sum(t24.value)/cast(LOOKUP('city-size', concat(tot.tags.city, ',', tot.tags.state)))*1000 AS '1_24_mortality_rate',
+  sum(t64o.value)/cast(LOOKUP('city-size', concat(tot.tags.city, ',', tot.tags.state)))*1000 AS '64_older_mortality_rate',
+  sum(tot.value)/cast(LOOKUP('city-size', concat(tot.tags.city, ',', tot.tags.state)))*1000 AS 'total_mortality_rate'
+FROM cdc.all_deaths tot
+  JOIN cdc._1_24_years t24
+  JOIN cdc._25_44_years t44
+  JOIN cdc._54_64_years t64
+  JOIN cdc._65_years t64o
+  WHERE tot.entity = 'mr8w-325u' and tot.tags.city IS NOT NULL
+  AND tot.datetime >= '1970-01-01T00:00:00Z' AND tot.datetime < '2016-01-01T00:00:00Z'
+  and tot.tags.city = 'New York'
+GROUP BY tot.tags, tot.period(1 year)
+  HAVING sum(tot.value) > 0
+ORDER BY tot.tags.city, tot.datetime
+```
+
+2016 mortality rates:
+
+```sql
+SELECT tot.tags.city as 'city', tot.tags.state as 'state', 
+  ISNULL(LOOKUP('us-region', tot.tags.region), tot.tags.region) AS 'region', 
+  sum(tot.value - t24.value - t44.value - t64.value - t64o.value) as 'other_deaths',
+  sum(t24.value) as '1-24_deaths',
+  sum(t44.value) as '24-44_deaths',
+  sum(t64.value) as '44-64_deaths',
+  sum(t64o.value) as '64+_deaths',
+  sum(tot.value) as 'all_deaths',
+  cast(LOOKUP('city-size', concat(tot.tags.city, ',', tot.tags.state))) AS 'population',
+  sum(tot.value - t24.value - t44.value - t64.value - t64o.value)/cast(LOOKUP('city-size', concat(tot.tags.city, ',', tot.tags.state)))*1000 AS 'other_mortality_rate',
+  sum(t24.value)/cast(LOOKUP('city-size', concat(tot.tags.city, ',', tot.tags.state)))*1000 AS '1_24_mortality_rate',
+  sum(t64o.value)/cast(LOOKUP('city-size', concat(tot.tags.city, ',', tot.tags.state)))*1000 AS '64_older_mortality_rate',
+  sum(tot.value)/cast(LOOKUP('city-size', concat(tot.tags.city, ',', tot.tags.state)))*1000 AS 'total_mortality_rate'
+FROM cdc.all_deaths tot
+  JOIN cdc._1_24_years t24
+  JOIN cdc._25_44_years t44
+  JOIN cdc._54_64_years t64
+  JOIN cdc._65_years t64o
+  WHERE tot.entity = 'mr8w-325u' and tot.tags.city IS NOT NULL
+  AND tot.datetime >= '2015-01-01T00:00:00Z' AND tot.datetime < '2016-01-01T00:00:00Z'
+GROUP BY tot.tags, tot.period(1 year)
+  HAVING sum(tot.value) > 0
+ORDER BY 'total_mortality_rate' desc
 ```
 
 ### Appendix: Death Statistics City List 
