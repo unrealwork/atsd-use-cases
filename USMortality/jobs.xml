@@ -1,40 +1,59 @@
 <list>
-  <com.axibase.collector.model.job.file.FileJobConfig>
-    <name>us-labor</name>
-    <cronExpression>0 0 0 5 * ?</cronExpression>
+  <com.axibase.collector.model.job.json.JsonJobConfig>
+    <name>socrata-cdc</name>
+    <cronExpression>0 0 8 * * ?</cronExpression>
     <enabled>false</enabled>
-    <jobType>FILE</jobType>
+    <jobType>JSON</jobType>
     <defaultTags/>
     <checkLastTime>false</checkLastTime>
     <commitInterval>10</commitInterval>
     <errorThreshold>0</errorThreshold>
     <configurations>
-      <com.axibase.collector.model.job.file.FileRoutingConfiguration>
-        <name>us-labor</name>
-        <path>http://download.bls.gov/pub/time.series/cu/cu.data.2.Summaries</path>
-        <encoding>ISO-8859-1</encoding>
-        <detectEncoding>true</detectEncoding>
-        <parserType>CSV</parserType>
-        <wait>false</wait>
-        <rules>true</rules>
-        <defaultEntity>bls</defaultEntity>
-        <useTime>false</useTime>
-        <ignoreDuplicates>true</ignoreDuplicates>
-        <deleteFileOnUpload>false</deleteFileOnUpload>
-        <minimumLineCount>2</minimumLineCount>
-        <firstLine>series_id</firstLine>
-        <validateFormat>true</validateFormat>
-        <timeFormat>yyyy-MM-dd&apos;T&apos;HH:mm:ss&apos;Z&apos;</timeFormat>
+      <com.axibase.collector.model.job.json.JsonConfiguration>
+        <name>https://catalog.data.gov/dataset/deaths-in-122-u-s-cities-1962-2016-122-cities-mortality-reporting-system [custom date, metric prefix]</name>
         <protocol>HTTP</protocol>
-        <method>GET</method>
-        <copyFiles>false</copyFiles>
-        <included/>
-        <excluded/>
+        <path>https://data.cdc.gov/api/views/mr8w-325u/rows.json?accessType=DOWNLOAD</path>
+        <format>SOCRATA</format>
+        <payloadMethod>GET</payloadMethod>
+        <httpHeaders/>
         <enableWebDriver>false</enableWebDriver>
-        <driverFileEncoding></driverFileEncoding>
-        <traversalDepth>0</traversalDepth>
-        <watcherEnabled>false</watcherEnabled>
-      </com.axibase.collector.model.job.file.FileRoutingConfiguration>
+        <driverTimeout>0</driverTimeout>
+        <deleteFileOnUpload>false</deleteFileOnUpload>
+        <ignoreDuplicates>true</ignoreDuplicates>
+        <settings>
+          <com.axibase.collector.model.job.json.JsonConfigurationSetting>
+            <jsonPath>$.data.*</jsonPath>
+            <depth>1</depth>
+            <entityField>$.meta.view.id</entityField>
+            <customTags/>
+            <renamedFields/>
+            <timeEnabled>true</timeEnabled>
+            <timeField>week_ending_date</timeField>
+            <timeFormat>MM/dd/yyyy</timeFormat>
+            <timeZone>UTC</timeZone>
+            <seriesEnabled>true</seriesEnabled>
+            <metricPrefix>cdc.</metricPrefix>
+            <includedFields>
+              <string>*</string>
+            </includedFields>
+            <excludedFields>
+              <string>year</string>
+              <string>_1_year</string>
+              <string>week</string>
+            </excludedFields>
+            <propertyEnabled>false</propertyEnabled>
+            <propertyTypeField>$.meta.view.name</propertyTypeField>
+            <propertyKeyFields/>
+            <propertyValueFields/>
+            <messageEnabled>false</messageEnabled>
+            <messageTypeField>$.meta.view.name</messageTypeField>
+            <messageSourceField>$.meta.view.attribution</messageSourceField>
+            <messageTagFields>
+              <string>*</string>
+            </messageTagFields>
+          </com.axibase.collector.model.job.json.JsonConfigurationSetting>
+        </settings>
+      </com.axibase.collector.model.job.json.JsonConfiguration>
     </configurations>
-  </com.axibase.collector.model.job.file.FileJobConfig>
+  </com.axibase.collector.model.job.json.JsonJobConfig>
 </list>

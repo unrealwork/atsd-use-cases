@@ -182,11 +182,16 @@ Below is a step-by-step walk through for setting up local configurations of ATSD
 
     <img src="Images/Figure12.png" width="500" >
    
-6. Access Axibase Collector by navigating to `https://localhost:9443.xhtml`, and populate the username and password fields. After creating your username and password, you will be prompted to
-   login. Enter in your your username and password.
+6. Access Axibase Collector by navigating to `https://localhost:9443`, and populate the username and password fields. After creating your username and password, you will be prompted to
+   login. Enter in your username and password.
 
     <img src="Images/Figure13.png" width="500" >
-   
+    
+    After setting up accounts for both ATSD and collector, navigate to 'Storage Drivers' in Collector. We want to check is there is a connection established between Collector and ATSD. 
+    If 'Write Status' is successful, this means that Collector can send data to ATSD. 
+    
+    ![Figure 34](Images/Figure34.png)
+
 7. We now want to import a `.xml` parser file, which contains rules for how our data will be digested. In Axibase Collector, click on the 'Jobs' tab in the upper left hand corner.
 
    ![Figure 32](Images/Figure32.png)
@@ -195,14 +200,16 @@ Below is a step-by-step walk through for setting up local configurations of ATSD
  
    ![Figure 14](Images/Figure14.png)
     
-8. Now click on the `Jobs` tab. Only jobs that are 'Enabled' are shown as the default. After importing, all jobs are automatically set to disabled. Select 'ALL' as shown in the first image 
-   below. Next, the actual name of the file that will show up in Collector is `socrata-cdc`. Click on this job, check the 'Enabled' checkbox, and hit 'Save' as shown in the second figure.
+8. Now click back on the `Jobs` tab. Only jobs that are 'Enabled' are shown as the default. After importing, all jobs are automatically set to disabled. Select 'ALL' as shown in the first image 
+   below. Next, the name of the file that will show up in Collector is `socrata-cdc` (second image). Click on this job, check the 'Enabled' checkbox, and hit 'Save' as shown in the third figure.
    
    ![Figure 18](Images/Figure18.png)
+   
+   ![Figure 33](Images/Figure33.png)
       
    ![Figure 15](Images/Figure15.png)
    
-9. Navigate back to the main page, select the `Jobs` tab. Since we set `socrata-cdc` to 'Enabled', it shows up by default. Hit 'Run'. After a few seconds, refresh your browser, and you
+9. Navigate back the `Jobs` tab. Since we set `socrata-cdc` to 'Enabled', it shows up by default. Hit 'Run'. After a few seconds, refresh your browser, and you
    should see an output as shown in the second image below.
 
    ![Figure 16](Images/Figure16.png)
