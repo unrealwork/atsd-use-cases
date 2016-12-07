@@ -187,21 +187,21 @@ Below is a step-by-step walk through for setting up local configurations of ATSD
 
     <img src="Images/Figure13.png" width="500" >
     
-    After setting up accounts for both ATSD and collector, navigate to 'Storage Drivers' in Collector. We want to check is there is a connection established between Collector and ATSD. 
-    If 'Write Status' is successful, this means that Collector can send data to ATSD. 
+    After setting up accounts for both ATSD and collector, navigate to **Storage Drivers** in Collector. We want to check if is there is a connection established between Collector and ATSD. 
+    If **Write Status** is successful, this means that Collector can send data to ATSD. 
     
     ![Figure 34](Images/Figure34.png)
 
-7. We now want to import a `.xml` parser file, which contains rules for how our data will be digested. In Axibase Collector, click on the 'Jobs' tab in the upper left hand corner.
+7. We now want to import a `.xml` job file, which contains rules for how the data will be digested. In Axibase Collector, click on the **Jobs** tab in the upper left hand corner.
 
    ![Figure 32](Images/Figure32.png)
    
-   Upload the file titled `job.xml`, which can be found here. Press 'Import'.
+   Upload the file titled `job.xml`, which can be found [here](https://github.com/axibase/atsd-use-cases/blob/master/USMortality/jobs.xml). Press **Import**.
  
    ![Figure 14](Images/Figure14.png)
     
-8. Now click back on the `Jobs` tab. Only jobs that are 'Enabled' are shown as the default. After importing, all jobs are automatically set to disabled. Select 'ALL' as shown in the first image 
-   below. Next, the name of the file that will show up in Collector is `socrata-cdc` (second image). Click on this job, check the 'Enabled' checkbox, and hit 'Save' as shown in the third figure.
+8. Now click back on the `Jobs` tab. Only jobs that are **Enabled** are shown as the default. After importing, all jobs are automatically set to disabled. Select **ALL** as shown in the first image 
+   below. Next, the name of the file that will show up in Collector is `socrata-cdc` (second image). Click on this job, check the 'Enabled' checkbox, and hit **Save** as shown in the third figure.
    
    ![Figure 18](Images/Figure18.png)
    
@@ -209,14 +209,14 @@ Below is a step-by-step walk through for setting up local configurations of ATSD
       
    ![Figure 15](Images/Figure15.png)
    
-9. Navigate back the `Jobs` tab. Since we set `socrata-cdc` to 'Enabled', it shows up by default. Hit 'Run'. After a few seconds, refresh your browser, and you
+9. Navigate back the `Jobs` tab. Since we set `socrata-cdc` to **Enabled**, it shows up by default. Hit **Run**. After a few seconds, refresh your browser, and you
    should see an output as shown in the second image below.
 
    ![Figure 16](Images/Figure16.png)
    
    ![Figure 17](Images/Figure17.png)
    
-10. Now, navigate to the 'Entities' tab in ATSD. We can see that the job has created a new entity in ATSD, with the name `mr8w-325u`.  
+10. Now, navigate to the **Entities** tab in ATSD. We can see that the job has created a new entity in ATSD, with the name `mr8w-325u`.  
    
    ![Figure 19](Images/Figure19.png)
    
@@ -224,7 +224,7 @@ Below is a step-by-step walk through for setting up local configurations of ATSD
    
    ![Figure 20](Images/Figure20.png)
    
-12. Copy and paste the files included in this repository (`city-size` and `us-regions`) into the Replacement Table. Click 'Save'.  
+12. Copy and paste the files included in this repository (`city-size` and `us-regions`) into the Replacement Table. Click **Save**.  
    
    ![Figure 21](Images/Figure21.png)
    
@@ -243,7 +243,7 @@ Below is a step-by-step walk through for setting up local configurations of ATSD
    
    ![Figure 26](Images/Figure26.png)
    
-   Click on the 'To submitted tasks' button.
+   Click on the **To submitted tasks** button.
    
    ![Figure 27](Images/Figure27.png)
    
@@ -251,11 +251,11 @@ Below is a step-by-step walk through for setting up local configurations of ATSD
    
    ![Figure 28](Images/Figure28.png)
    
-15. Next, navigate to `Metrics` and enter in `us.population` into the 'Name Mask' bar.     
+15. Next, navigate to `Metrics` and enter in `us.population` into the **Name Mask** bar.     
    
    ![Figure 29](Images/Figure29.png)
    
-   Select 'Series'. If the data was parsed successfully, you should see something like the second image. 
+   Select **Series**. If the data was parsed successfully, you should see something like the second image. 
    
    ![Figure 30](Images/Figure30.png)
    
