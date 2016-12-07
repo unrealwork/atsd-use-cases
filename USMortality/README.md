@@ -21,7 +21,7 @@ Below is an image showcasing the percent change form 1935 to 2010 in death rates
 ![Figure 1](Images/Figure1.png)
 
 In this article we will look at weekly death total statistics collected for over 100 U.S. cities for over 50 years. We will begin by walking through Axibase's SQL query language capabilities to help make sense 
-and digest all of this information on death in the United States. We will next incorporate population figures to calculate mortality rates for each individual city. As icing on the cake, we 
+and digest all of this information on death in the United States. We will then look at incorporating population figures to calculate mortality rates for each individual city. As icing on the cake, we 
 will explore additional datasets to see if there are any correlations between their behavior and that of our computed mortality rates.  
 
 ### Death Statistics for 122 U.S. Cities
@@ -159,18 +159,12 @@ You can explore the filtered portal for the state of New Jersey here:
 
 We can see that there is an unbelievable amount of data in this ATSD instance. The high quantity of cities, the frequent collection intervals of the data, and the highly variable nature of the 
 death totals make it difficult to wrap our heads around all of this. How can we make sense of all of it? Using Axibase's SQL query language capabilities allows you to easily search for specific
-information within this portal.
+information within this portal. We will begin by walking through installing local configurations of ATSD and Axibase Collector, which we will then use to query our dataset.
 
-### Axibase SQL Query Language
-------------------------------
+### Creating Local Configurations for ATSD and Axibase Collector 
+----------------------------------------------------------------
 
-According to [techopedia.com](https://www.techopedia.com/definition/1245/structured-query-language-sql), structured query language (SQL) is a standard computer language used for relational
-database management and data manipulation. SQL is used to query, insert, update, and modify data. Initially developed by IBM in the 1970's and released by Oracle Corporation in 1979, SQL allows
-you to maneuver through large amounts of data and specify exactly the information you are looking for.
-
-Let us begin by walking through some SQL examples for examining our dataset. Looking at an output for an individual city or even all of the cities combined, it is relatively easy to recognize the general
-trend of deaths in the U.S. over time. However, in many instances, since there is so much information, it is difficult to tell what the number of deaths was for a certain time. So let us take
-a closer look at determining the **least deadly** and **deadliest** week for each city from 1970 to 2016.
+Below is a step-by-step walk through for setting up local configurations of ATSD and Axibase Collector. We will use Docker as our host. You can learn more about Docker [on our website](https://axibase.com/docker-monitoring/).   
 
 1. Install Docker (Xenial Version 16.04). A link for how to install Docker can be found [here](https://docs.docker.com/engine/installation/linux/ubuntulinux/). 
 2. Create the `docker-compose.yml` file from our [GitHub](https://github.com/axibase/axibase-collector-docs/blob/master/docker-bundle.md) page. 
@@ -181,7 +175,7 @@ a closer look at determining the **least deadly** and **deadliest** week for eac
    ```
 4. Access the ATSD user interface by navigating to the address shown in the image below. Create a username and password.
 
-   ![Figure 11](Images/Figure11.png)
+   ![Figure 11](Images/Figure11.png,250x250)
 
 5. Login to ATSD, as shown in the image below.
 
@@ -209,7 +203,7 @@ a closer look at determining the **least deadly** and **deadliest** week for eac
    
    ![Figure 17](Images/Figure17.png)
    
-10. Now, navigate to back to the 'Entities' tab in ATSD. We can see that 
+10. Now, navigate to back to the 'Entities' tab in ATSD.
    
    ![Figure 19](Images/Figure19.png)
    
@@ -217,9 +211,54 @@ a closer look at determining the **least deadly** and **deadliest** week for eac
    
    ![Figure 20](Images/Figure20.png)
    
-12. Copy and paste the files included in this repository (`city-size` and `us-regions`) into the Replacement Table.  
+12. Copy and paste the files included in this repository (`city-size` and `us-regions`) into the Replacement Table. Click 'Save'.  
    
    ![Figure 21](Images/Figure21.png)
+   
+13. Navigate to `Configuration -> Parsers:CSV` and import the `parser.xml` file. 
+ 
+   ![Figure 22](Images/Figure22.png)
+   
+   ![Figure 23](Images/Figure23.png)
+   
+   ![Figure 24](Images/Figure24.png)
+   
+14. After the parser has been added, we will proceed to uploading our `us.population.csv` file. Click the 'Upload' button and then select the `us.population.csv` file.          
+   
+   ![Figure 25](Images/Figure25.png)
+   
+   ![Figure 26](Images/Figure26.png)
+   
+   Click on the 'To submitted tasks' button.
+   
+   ![Figure 27](Images/Figure27.png)
+   
+   If the upload was success, you should see something like the below image. 
+   
+   ![Figure 28](Images/Figure28.png)
+   
+15. Next, navigate to `Metrics` and enter in `us.population` into the 'Name Mask' bar.     
+   
+   ![Figure 29](Images/Figure29.png)
+   
+   Select 'Series'. If the data was parsed successfully, you should see something like the second image. 
+   
+   ![Figure 30](Images/Figure30.png)
+   
+   ![Figure 31](Images/Figure31.png)
+   
+We are now ready to begin querying our dataset.  
+
+### Axibase SQL Query Language
+------------------------------
+   
+According to [techopedia.com](https://www.techopedia.com/definition/1245/structured-query-language-sql), structured query language (SQL) is a standard computer language used for relational
+database management and data manipulation. SQL is used to query, insert, update, and modify data. Initially developed by IBM in the 1970's and released by Oracle Corporation in 1979, SQL allows
+you to maneuver through large amounts of data and specify exactly the information you are looking for.
+
+Let us begin by walking through some SQL examples for examining our dataset. Looking at an output for an individual city or even all of the cities combined, it is relatively easy to recognize the general
+trend of deaths in the U.S. over time. However, in many instances, since there is so much information, it is difficult to tell what the number of deaths was for a certain time. So let us take
+a closer look at determining the **least deadly** and **deadliest** week for each city from 1970 to 2016.
    
 * `SELECT` - returns a result set of records from one or more tables.
 * `FROM` - indicates the table(s) to retrieve data from.

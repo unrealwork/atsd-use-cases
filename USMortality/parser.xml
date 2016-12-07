@@ -1,0 +1,45 @@
+<list>
+  <com.axibase.tsd.model.csv.CsvConfiguration>
+    <name>US_population_all_cities</name>
+    <putType>METRIC</putType>
+    <delimiter>,</delimiter>
+    <recordDelimiter>
+</recordDelimiter>
+    <padding>�</padding>
+    <comment></comment>
+    <textQualifier>&quot;</textQualifier>
+    <entityColumn/>
+    <timestampColumn class="java.util.Arrays$ArrayList">
+      <a class="string-array">
+        <string>year</string>
+      </a>
+    </timestampColumn>
+    <timestampFormat>yyyy</timestampFormat>
+    <timestampType>PATTERN</timestampType>
+    <defaultMetric>us.population</defaultMetric>
+    <processEvents>false</processEvents>
+    <writeProperty>false</writeProperty>
+    <enabled>true</enabled>
+    <discardNan>true</discardNan>
+    <ignoreParseErrors>true</ignoreParseErrors>
+    <tagColumns class="linked-hash-set"/>
+    <excludedColumns class="linked-hash-set"/>
+    <propertyColumns class="linked-hash-set"/>
+    <propertyKeyColumns class="linked-hash-set"/>
+    <entityTags class="linked-hash-set"/>
+    <metricTags class="linked-hash-set"/>
+    <defaultTags class="linked-hash-map"/>
+    <renamedColumns class="linked-hash-map"/>
+    <header/>
+    <decimalSeparator>.</decimalSeparator>
+    <groupingSeparator>�</groupingSeparator>
+    <schema>select(&quot;#row=4-*&quot;).select(&quot;#col=2-*&quot;).&#xd;
+addSeries().&#xd;
+metric(&apos;us.population&apos;).&#xd;
+entity(&apos;mr8w-325u&apos;).&#xd;
+tag(&apos;city&apos;,cell(1, col)).&#xd;
+tag(&apos;state&apos;,cell(2, col)).&#xd;
+tag(&apos;region&apos;, cell(3, col)).&#xd;
+timestamp(cell(row, 1));</schema>
+  </com.axibase.tsd.model.csv.CsvConfiguration>
+</list>
