@@ -175,7 +175,7 @@ Below is a step-by-step walk through for setting up local configurations of ATSD
    ```
 4. Access the ATSD user interface by navigating to the address shown in the image below. Create a username and password.
 
-   ![Figure 11](Images/Figure11.png,250x250)
+   <img src="Images/Figure11.png" width="250" height="250" >
 
 5. Login to ATSD, as shown in the image below.
 
