@@ -48,7 +48,7 @@ Deaths can be grouped by geographic region, all of which are shown below.
 
 These are regions are part of the United States Census Bureau's [census regions and divisions](http://www.census.gov/econ/census/help/geography/regions_and_divisions.html)
 
-| # | Region Name | States included in Region |
+| Region | Region Name | States included in Region |
 |---|---------------|-------------------------------------------------------------------------------------------------------|
 | 1 | New-England | Connecticut (CT), Maine (ME), Massachusetts (MA), New Hampshire (NH), Rhode Island (RI), Vermont (VT) |
 | 2 | Middle-Atlantic | New Jersey (NJ), New York (NY), Pennsylvania (PA) |
