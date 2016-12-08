@@ -192,7 +192,7 @@ Below is a step-by-step walk through for setting up local configurations of ATSD
     
     ![Figure 34](Images/Figure34.png)
 
-7. We now want to import a `.xml` job file, which contains rules for how the data will be digested. In Axibase Collector, click on the **Jobs** tab in the upper left hand corner.
+7. We now want to import a `.xml` job file, which contains rules for how essentially the data will be retrieved from the source, in our case [data.gov](https://catalog.data.gov/dataset/deaths-in-122-u-s-cities-1962-2016-122-cities-mortality-reporting-system). In Axibase Collector, click on the **Jobs** tab in the upper left hand corner.
 
    ![Figure 32](Images/Figure32.png)
    
@@ -201,7 +201,7 @@ Below is a step-by-step walk through for setting up local configurations of ATSD
    ![Figure 14](Images/Figure14.png)
     
 8. Now click back on the `Jobs` tab. Only jobs that are **Enabled** are shown as the default. After importing, all jobs are automatically set to disabled. Select **ALL** as shown in the first image 
-   below. Next, the name of the file that will show up in Collector is `socrata-cdc` (second image). Click on this job, check the 'Enabled' checkbox, and hit **Save** as shown in the third figure.
+   below. Next, the name of the file that will show up in Collector is `socrata-cdc` (second image). Click on this job, check the **Enabled** checkbox, and hit **Save** as shown in the third figure.
    
    ![Figure 18](Images/Figure18.png)
    
@@ -209,8 +209,8 @@ Below is a step-by-step walk through for setting up local configurations of ATSD
       
    ![Figure 15](Images/Figure15.png)
    
-9. Navigate back the `Jobs` tab. Since we set `socrata-cdc` to **Enabled**, it shows up by default. Hit **Run**. After a few seconds, refresh your browser, and you
-   should see an output as shown in the second image below.
+9. Navigate back the `Jobs` tab. Since we set `socrata-cdc` to **Enabled**, it shows up by default. Hit **Run**. After a few seconds, refresh your browser. If the data was successfully retrieved
+   by Collector, you should see an output as shown in the second image below.
 
    ![Figure 16](Images/Figure16.png)
    
@@ -224,11 +224,13 @@ Below is a step-by-step walk through for setting up local configurations of ATSD
    
    ![Figure 20](Images/Figure20.png)
    
-12. Copy and paste the files included in this repository (`city-size` and `us-regions`) into the Replacement Table. Click **Save**.  
+12. Copy and paste the files included in this repository ([`city-size`](https://github.com/axibase/atsd-use-cases/blob/master/USMortality/city-size) and [`us-regions`](https://github.com/axibase/atsd-use-cases/blob/master/USMortality/us-regions) into the Replacement Table. Click **Save**. `city-size` contains 2015 population figures for each of the
+    122 cities included in this dataset. `us-regions` is a list of all of the regions (i.e. 1=New-England, 2=Mid-Atlantic etc.). These will be used later in this article for performing SQL
+    queries. 
    
    ![Figure 21](Images/Figure21.png)
    
-13. Navigate to `Configuration -> Parsers:CSV` and import the `parser.xml` file. 
+13. Navigate to `Configuration -> Parsers:CSV` and import the `parser.xml` file.
  
    ![Figure 22](Images/Figure22.png)
    
@@ -236,8 +238,8 @@ Below is a step-by-step walk through for setting up local configurations of ATSD
    
    ![Figure 24](Images/Figure24.png)
    
-14. After the parser has been added, we will proceed to uploading our `us.population.csv` file. Click again on the `Parsers:CSV` dropdown. Then, click on the `Upload` button and then select 
-    the `us.population.csv` file.          
+14. After the parser has been added, we will proceed to uploading our [`us.population.csv`](https://github.com/axibase/atsd-use-cases/blob/master/USMortality/us.population.csv) file. This file contains population estimates for all 122 cities for 1960, 1970, 1980, 1990, 2000, 2010,
+    and 2015. This file will be used for our SQL queries. Click again on the `Parsers:CSV` dropdown. Then, click on the `Upload` button and then select the `us.population.csv` file.          
    
    ![Figure 25](Images/Figure25.png)
    
