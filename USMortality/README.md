@@ -21,7 +21,7 @@ Below is an image showcasing the percent change from 1935 to 2010 in death rates
 ![Figure 1](Images/Figure1.png)
 
 In this article we will look at weekly death total statistics collected for over 100 U.S. cities for over 50 years. We will begin by introducing ourselves to the dataset. Next, we will walk 
-through installing local configurations of the Axibase Time Series Database (ATSD) and Axibase Collector using Docker. We will then go through through the Axibase's SQL query language 
+through installing local configurations of the Axibase Time Series Database (ATSD) and Axibase Collector using Docker. We will then go through through the ATSD's SQL query language 
 capabilities to help make sense and digest all of this information on death in the United States. Lastly, we will then look at incorporating population figures to calculate mortality rates for each individual city.
  
 ### Death Statistics for 122 U.S. Cities
@@ -268,7 +268,7 @@ Below is a step-by-step walk through for setting up local configurations of ATSD
    
    ![Figure 31](Images/Figure31.png)
    
-We are now ready to begin querying our dataset.  
+We are now ready to begin querying our dataset.
 
 ### Axibase SQL Query Language
 ------------------------------
@@ -278,14 +278,95 @@ database management and data manipulation. SQL is used to query, insert, update,
 you to maneuver through large amounts of data and specify exactly the information you are looking for.
 
 Let us begin by walking through some SQL examples for examining our dataset. Looking at an output for an individual city or even all of the cities combined, it is relatively easy to recognize the general
-trend of deaths in the U.S. over time. However, in many instances, since there is so much information, it is difficult to tell what the number of deaths was for a certain time. So let us take
-a closer look at determining the **least deadly** and **deadliest** week for each city from 1970 to 2016.
-   
-* `SELECT` - returns a result set of records from one or more tables.
+trend of deaths in the U.S. over time. However, in many instances, since there is so much information, it is difficult to tell what the number of deaths was for a certain period. Additionally,
+this dataset only provides us with the total number of deaths. However, with a few simple commands using ATSD's SQL query capabilities we will be able to calculate mortality statistics for this
+dataset.
+
+### SQL Example 1 - Pneumonia and Influenza Deaths in Boston
+------------------------------------------------------------
+
+Let us begin by running through a simple query looking at pneumonia and influenza deaths in Boston, Massachusetts. An output for this configuration is shown below. 
+
+![Figure 36](Images/Figure36.png)
+
+Let us begin by querying for the latest weekly pneumonia and influenza readings for Boston, which is shown below. :
+
+```sql
+SELECT datetime, value, tags.*
+  FROM cdc.pneumonia_and_influenza_deaths
+WHERE tags.city = 'Boston'
+  ORDER BY datetime DESC
+LIMIT 10
+```
+
+Looking at our query, we have each of the following clauses. 
+
+* `SELECT` - returns a result set of records from one or more tables. In this case, 
 * `FROM` - indicates the table(s) to retrieve data from.
 * `WHERE` - specifies which rows to retrieve.
 * `ORDER BY` - specifies the order in which to return the rows.
+* `LIMIT` - specifies the number of rows to return.
 
+Latest pneumonia and influenza and total readings for Boston, using JOIN:
+
+```sql
+SELECT *
+  FROM cdc.pneumonia_and_influenza_deaths pni
+    JOIN cdc.all_deaths tot
+WHERE pni.tags.city = 'Boston'
+  ORDER BY pni.datetime DESC
+LIMIT 10
+```
+
+Latest pneumonia and influenza and total readings for Boston, with specific tags:
+
+```sql
+SELECT datetime, value, tags.city, tags.state, tags.region
+  FROM cdc.pneumonia_and_influenza_deaths
+WHERE tags.city = 'Boston'
+  ORDER BY datetime DESC
+LIMIT 10
+```
+
+Latest pneumonia and influenza and total readings for Boston, with region code translated to region name using a Replacement Table:
+
+```sql
+SELECT datetime, value, tags.city, tags.state, 
+   LOOKUP('us-region', tags.region) AS 'region'
+  FROM cdc.pneumonia_and_influenza_deaths
+WHERE tags.city = 'Boston'
+  ORDER BY datetime DESC
+LIMIT 10
+```
+
+Same as above, except for total for all cities in a given region:
+
+```sql
+SELECT datetime, sum(value),  
+  LOOKUP('us-region', tags.region) AS 'region'
+  FROM cdc.pneumonia_and_influenza_deaths
+WHERE tags.region = '2'
+  GROUP BY tags.region, datetime
+  ORDER BY datetime DESC
+LIMIT 10
+```
+
+Monthly totals for all cities in region, for a given time-range:
+
+```sql
+SELECT datetime, sum(value),  
+  LOOKUP('us-region', tags.region) AS 'region'
+  FROM cdc.pneumonia_and_influenza_deaths
+WHERE tags.region = '2'
+  AND datetime >= '2016-01-01T00:00:00Z' AND datetime < '2016-10-01T00:00:00Z'
+  GROUP BY tags.region, period(1 MONTH)
+  ORDER BY datetime DESC
+```
+   
+   
+   
+   
+   
 The least deadly week by city:
 
 ```sql
@@ -505,72 +586,6 @@ FROM cdc.pneumonia_and_influenza_deaths
 GROUP BY tags.region, date_format(time, 'MMM')
   ORDER BY sum(value) DESC
   OPTION (ROW_MEMORY_THRESHOLD 500000)
-```
-
-Latest weekly pneumonia and influenza readings for Boston:
-
-```sql
-SELECT datetime, value, tags.*
-  FROM cdc.pneumonia_and_influenza_deaths
-WHERE tags.city = 'Boston'
-  ORDER BY datetime DESC
-LIMIT 10
-```
-
-Latest pneumonia and influenza and total readings for Boston, using JOIN:
-
-```sql
-SELECT *
-  FROM cdc.pneumonia_and_influenza_deaths pni
-    JOIN cdc.all_deaths tot
-WHERE pni.tags.city = 'Boston'
-  ORDER BY pni.datetime DESC
-LIMIT 10
-```
-
-Latest pneumonia and influenza and total readings for Boston, with specific tags:
-
-```sql
-SELECT datetime, value, tags.city, tags.state, tags.region
-  FROM cdc.pneumonia_and_influenza_deaths
-WHERE tags.city = 'Boston'
-  ORDER BY datetime DESC
-LIMIT 10
-```
-
-Latest pneumonia and influenza and total readings for Boston, with region code translated to region name using a Replacement Table:
-
-```sql
-SELECT datetime, value, tags.city, tags.state, 
-   LOOKUP('us-region', tags.region) AS 'region'
-  FROM cdc.pneumonia_and_influenza_deaths
-WHERE tags.city = 'Boston'
-  ORDER BY datetime DESC
-LIMIT 10
-```
-
-Same as above, except for total for all cities in a given region:
-
-```sql
-SELECT datetime, sum(value),  
-  LOOKUP('us-region', tags.region) AS 'region'
-  FROM cdc.pneumonia_and_influenza_deaths
-WHERE tags.region = '2'
-  GROUP BY tags.region, datetime
-  ORDER BY datetime DESC
-LIMIT 10
-```
-
-Monthly totals for all cities in region, for a given time-range:
-
-```sql
-SELECT datetime, sum(value),  
-  LOOKUP('us-region', tags.region) AS 'region'
-  FROM cdc.pneumonia_and_influenza_deaths
-WHERE tags.region = '2'
-  AND datetime >= '2016-01-01T00:00:00Z' AND datetime < '2016-10-01T00:00:00Z'
-  GROUP BY tags.region, period(1 MONTH)
-  ORDER BY datetime DESC
 ```
 
 Cities with the highest mortality rate:
