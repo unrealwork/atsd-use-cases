@@ -20,10 +20,10 @@ Below is an image showcasing the percent change from 1935 to 2010 in death rates
 
 ![Figure 1](Images/Figure1.png)
 
-In this article we will look at weekly death total statistics collected for over 100 U.S. cities for over 50 years. We will begin by walking through the Axibase's SQL query language capabilities to help make sense 
-and digest all of this information on death in the United States. We will then look at incorporating population figures to calculate mortality rates for each individual city. As icing on the cake, we 
-will explore additional datasets to see if there are any correlations between their behavior and that of our computed mortality rates.  
-
+In this article we will look at weekly death total statistics collected for over 100 U.S. cities for over 50 years. We will begin by introducing ourselves to the dataset. Next, we will walk 
+through installing local configurations of the Axibase Time Series Database (ATSD) and Axibase Collector using Docker. We will then go through through the Axibase's SQL query language 
+capabilities to help make sense and digest all of this information on death in the United States. Lastly, we will then look at incorporating population figures to calculate mortality rates for each individual city.
+ 
 ### Death Statistics for 122 U.S. Cities
 ----------------------------------------
 
@@ -115,7 +115,12 @@ as the previous groups, as shown below.
 | --- | --- |
 | ![Figure 7](Images/Figure7.png) | ![Figure 8](Images/Figure8.png) |
 
-What was the reason for this drastic rise in deaths for people under the age of 44 between 1991 to 1995? 
+What was the reason for this drastic rise in deaths for people under the age of 44 between 1991 to 1995? This may be in part to a rise in murders in the city in this same time period. According
+to a Chicago Police Department [report from 2011](http://4abpn833c0nr1zvwp7447f2b.wpengine.netdna-cdn.com/wp-content/uploads/2014/12/2011-Murder-Report.pdf), the number of murders in the city from 1991 to 1995 were 928, 943, 855, 931, and 828. In [1988](http://4abpn833c0nr1zvwp7447f2b.wpengine.netdna-cdn.com/wp-content/uploads/2014/12/1988-Annual-Report.pdf), the total number of murders was
+660. As detailed in the same 2011 report, murders in the late 1990's and into the 2000's from 643 in 1999 to 436 in 2010. Below is an [figure](https://en.wikipedia.org/wiki/Crime_in_Chicago#/media/File:Chicago_Murder_Rates.png) of total annual murders in Chicago, with our peak
+period marked in red.
+
+![Figure 35](Images/Figure35.png)
 
 You can observe this filtered portal for Chicago here:
 
