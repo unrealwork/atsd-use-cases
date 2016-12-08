@@ -46,15 +46,17 @@ In the [Appendix](https://github.com/axibase/atsd-use-cases/blob/master/USMortal
 
 Deaths can be grouped by geographic region, all of which are shown below.
 
-1 - Connecticut (CT), Massachusetts (MA), Rhode Island (RI)<br />
-2 - Pennsylvania (PA), New Jersey (NJ), New York (NY)<br />
-3 - Illinois (IL), Indiana (IN), Michigan (MI), Ohio (OH), Wisconsin (WI)<br />
-4 - Iowa (IA), Kansas (KS), Minnesota (MN), Missouri (MO), Nebraska (NE)<br />
-5 - Delaware (DE), District of Columbia (DC), Florida (FL), Georgia (GA), Maryland (MD), North Carolina (NC), Virginia (VA)<br />
-6 - Alabama (AL), Kentucky (KY), Tennessee (TN)<br />
-7 - Arkansas (AR), Louisiana (LA), Oklahoma (OK), Texas (TX)<br />
-8 - Arizona (AZ), Colorado (CO), Idaho (ID), New Mexico (NM), Nevada (NV), Utah (UT)<br />
-9 - California (CA), Hawaii (HI), Oregon (OR), Washington (WA)<br />
+These are regions are part of the United States Census Bureau's [census regions and divisions](http://www.census.gov/econ/census/help/geography/regions_and_divisions.html)
+
+1 (New-England) - Connecticut (CT), Maine (ME), Massachusetts (MA), New Hampshire (NH), Rhode Island (RI), Vermont (VT) <br />
+2 (Middle-Atlantic) - New Jersey (NJ), New York (NY), Pennsylvania (PA) <br />
+3 (East-North-Central) - Illinois (IL), Indiana (IN), Michigan (MI), Ohio (OH), Wisconsin (WI)<br />
+4 (West-North-Central) - Iowa (IA), Kansas (KS), Minnesota (MN), Missouri (MO), Nebraska, North Dakota (ND), South Dakota (ND) (NE)<br />
+5 (South-Atlantic) - Delaware (DE), District of Columbia (DC), Florida (FL), Georgia (GA), Maryland (MD), North Carolina (NC), South Carolina (SC), Virginia (VA), West Virginia (WV) <br />
+6 (East-South-Central) - Alabama (AL), Kentucky (KY), Mississippi (MS), Tennessee (TN)<br />
+7 (West-South-Central)- Arkansas (AR), Louisiana (LA), Oklahoma (OK), Texas (TX)<br />
+8 (Mountain) - Arizona (AZ), Colorado (CO), Idaho (ID), Montana (MT), Nevada (NV), New Mexico (NM), Utah (UT), Wyoming (WY)<br />
+9 (Pacific) - Alaska (AK), California (CA), Hawaii (HI), Oregon (OR), Washington (WA)<br />
 
 On the data.gov website, datasets can be downloaded as a CSV, RDF, JSON, or a XML file. This dataset can easily be parsed using the JSON job in Axibase.
 
@@ -126,17 +128,15 @@ You can observe this filtered portal for Chicago here:
 
 [![](Images/button.png)](https://apps.axibase.com/chartlab/6cf6fe70)
 
-Using the third dropdown, we are able to sort by geographic region. These regions are not part of any established system; the states were merely grouped together for this dataset to abe able
-to visualize deaths according to geographic distribution. The regions were provided only with numbers and without any names. Below is how we chose to name these regions. This list will come
-in handy later in the article when we delve into Axibase's SQL query language capabilities. 
+Using the third dropdown, we are able to sort by geographic region. This list will come in handy later in the article when we delve into Axibase's SQL query language capabilities. 
 
 1 = New-England<br />
-2 = Mid-Atlantic<br />
-3 = Midwest<br />
-4 = Great-Plains<br />
-5 = South-East<br />
-6 = Appalachia<br />
-7 = South-Central<br />
+2 = Middle-Atlantic<br />
+3 = East-North-Central<br />
+4 = West-North-Central<br />
+5 = South-Atlantic<br />
+6 = East-South-Central<br />
+7 = West-South-Central<br />
 8 = Mountain<br />
 9 = Pacific<br />
 
@@ -243,7 +243,7 @@ Below is a step-by-step walk through for setting up local configurations of ATSD
    
    ![Figure 24](Images/Figure24.png)
    
-14. After the parser has been added, we will proceed to uploading our [`us.population.csv`](https://github.com/axibase/atsd-use-cases/blob/master/USMortality/us.population.csv) file. This file contains population estimates for all 122 cities for 1960, 1970, 1980, 1990, 2000, 2010,
+14. After the parser has been added, we will proceed to uploading our [`us.population.csv`](https://github.com/axibase/atsd-use-cases/blob/master/USMortality/us.population.csv) file. This file contains population estimates from [census.gov](https://http://www.census.gov/data.html) for all 122 cities for 1960, 1970, 1980, 1990, 2000, 2010,
     and 2015. This file will be used for our SQL queries. Click again on the `Parsers:CSV` dropdown. Then, click on the `Upload` button and then select the `us.population.csv` file.          
    
    ![Figure 25](Images/Figure25.png)
@@ -379,7 +379,7 @@ LIMIT 10
 
 This query again is for latest pneumonia and influenza and total readings for Boston, but with region code translated to region name using a Replacement Table. As a default, each region is listed
 by their corresponding number. In the case of Boston, it falls in region 1, which included the states of Connecticut, Massachusetts, and Rhode Island. We created a replacement table in ATSD where
-we entered in region names for each region number. In this instance, region 2 is named **New-England**.   
+we entered in region names for each region number. In this instance, region 1 is named **New-England**.   
 
 ```sql
 SELECT datetime, value, tags.city, tags.state, 
@@ -394,34 +394,44 @@ Below is an image of this output.
 
 ![Figure 47](Images/Figure47.png)
 
-This query looks at total pneumonia and influenza deaths for all cities in a given region using the `GROUP BY` clause. 
-
+This query looks at total pneumonia and influenza deaths for all cities in a given region using the `GROUP BY` clause, which combines rows having common values into a a single row. The region
+specified in this query is ** New-England**.
+ 
 ```sql
 SELECT datetime, sum(value),  
   LOOKUP('us-region', tags.region) AS 'region'
   FROM cdc.pneumonia_and_influenza_deaths
-WHERE tags.region = '2'
+WHERE tags.region = '1'
   GROUP BY tags.region, datetime
   ORDER BY datetime DESC
 LIMIT 10
 ```
 
-Monthly totals for all cities in region, for a given time-range:
+![Figure 48](Images/Figure48.png)
+
+Monthly pneumonia and influenza death totals for all cities in the **New-England** region for the time-range from January 1st, 2016, to October 1st, 2016. 
 
 ```sql
 SELECT datetime, sum(value),  
   LOOKUP('us-region', tags.region) AS 'region'
   FROM cdc.pneumonia_and_influenza_deaths
-WHERE tags.region = '2'
+WHERE tags.region = '1'
   AND datetime >= '2016-01-01T00:00:00Z' AND datetime < '2016-10-01T00:00:00Z'
   GROUP BY tags.region, period(1 MONTH)
   ORDER BY datetime DESC
 ```
-   
+
+![Figure 49](Images/Figure49.png)
+
 ### SQL Example 2
 -----------------
      
-The least deadly week by city:
+The below query examines the least deadly week by city. Here a few noteworthy points regarding the query.
+
+1) `tags.city IS NOT NULL` is specified to discard a few rows present in the dataset for older dates but collected without a reference to a city.
+2) The line `WITH row_number ... <= 1` partitions rows by tags (city, state, region) and selects the row with MINIMUM value for each partition using the ORDER BY value condition.
+3) The `LOOKUP('us-region', tags.region)` function converts tags.region (number) into a string, for example, '3' -> Midwest.
+4) `LOOKUP('city-size', concat(tags.city, ',', tags.state))` retrieves city size for the given city and state pair, concatenated to the {city},{state} pattern.
 
 ```sql
 SELECT date_format(time, 'yyyy-MM-dd') AS 'date', 
@@ -641,6 +651,9 @@ GROUP BY tags.region, date_format(time, 'MMM')
   ORDER BY sum(value) DESC
   OPTION (ROW_MEMORY_THRESHOLD 500000)
 ```
+
+### Example 3 - Calculating Mortality Rates
+-------------------------------------------
 
 Cities with the highest mortality rate:
 
