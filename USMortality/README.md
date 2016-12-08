@@ -14,7 +14,7 @@ adjusted **risk of dying dropped by 60 percent from 1935 to 2010**.
  
 The death rate for the 1 to 4 years of age group dropped by **94 percent** from 1935 to 2010.
 
-The death rate for the 65 to 74 years of age group dropped by **62 percent** from 1935 to 2010.
+The death rate for the 65 to 74 years of age group dropped by **62 percent** from 1935 to 2010. 
 
 Below is an image showcasing the percent change from 1935 to 2010 in death rates by age in the U.S. from the [CDC](http://www.cdc.gov/nchs/data/databriefs/db88_fig3.png).
 
