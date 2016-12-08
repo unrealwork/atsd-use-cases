@@ -289,7 +289,36 @@ Let us begin by running through a simple query looking at pneumonia and influenz
 
 ![Figure 36](Images/Figure36.png)
 
-Let us begin by querying for the latest weekly pneumonia and influenza readings for Boston, which is shown below. :
+Let us begin by querying for the latest weekly pneumonia and influenza readings for Boston. Before we actually get into the query itself, we will begin by introducing ourselves to this particular
+portion of the dataset and take a look at where exactly it is stored.
+
+1. Navigate to the **Entities** tab in ASTD. Click on the entity for our datset, `mr8w-325u`.
+
+   ![Figure 37](Images/Figure37.png)
+   
+2. Click the **Metrics** button.   
+
+   ![Figure 38](Images/Figure38.png)
+   
+3. In **Metrics**, click on **Series** for **cdc.pneumonia_amd _influenza_deaths**.   
+
+   ![Figure 39](Images/Figure39.png)
+   
+4. For Boston, select **Export**.   
+
+   ![Figure 40](Images/Figure40.png)
+   
+5. Let us export the last 20 years of data for pneumonia and influenza deaths. Click **Submit**.   
+
+   ![Figure 41](Images/Figure41.png)
+
+Below is an output for this data.
+
+![Figure 42](Images/Figure42.png)
+
+Maneuvering through the entity and searching for our desired data can be very time consuming. Now, let us look at building a simple SQL query which will do the work for us.
+
+**SQL query for recent pneumonia and influenza deaths in Boston, Massachusetts**
 
 ```sql
 SELECT datetime, value, tags.*
@@ -301,13 +330,29 @@ LIMIT 10
 
 Looking at our query, we have each of the following clauses. 
 
-* `SELECT` - returns a result set of records from one or more tables. In this case, 
-* `FROM` - indicates the table(s) to retrieve data from.
-* `WHERE` - specifies which rows to retrieve.
-* `ORDER BY` - specifies the order in which to return the rows.
-* `LIMIT` - specifies the number of rows to return.
+* `SELECT` - returns a result set of records from one or more tables. In this case, we would like to return the time the weekly death total was recorded (i.e. 2016-09-24T00:00:00.000Z), the value
+  (or number of deaths), and the tags (tags.city, tags.region, and tags.state). `*` is shorthand for all. 
+* `FROM` - indicates the table(s) to retrieve data from. In this instance, we are filtering for `cdc.pneumonia_and_influenza_deaths`.
+* `WHERE` - specifies which rows to retrieve. Here, we are only looking for `'Boston'`.
+* `ORDER BY` - specifies the order in which to return the rows. `DESC` means descending order, so the most recent results will be returned first.
+* `LIMIT` - specifies the number of rows to return. In our instance, the 10 most recent weekly readings are returned.
 
-Latest pneumonia and influenza and total readings for Boston, using JOIN:
+Now let us walk though actually executing the query in ATSD.
+
+1. Click on the **SQL** tab.
+
+   ![Figure 43](Images/Figure43.png)
+
+2. Copy and paste the query into the dialogue box. Click **Execute**.
+    
+   ![Figure 44](Images/Figure44.png)
+   
+Below is an output of our queried data.
+   
+![Figure 45](Images/Figure45.png)
+   
+Now, let us look at the latest pneumonia and influenza and total deaths for Boston, using the `JOIN` clause. This will pair the results we just queried for with the corresponding total
+total number of deaths in the city. 
 
 ```sql
 SELECT *
@@ -318,7 +363,11 @@ WHERE pni.tags.city = 'Boston'
 LIMIT 10
 ```
 
-Latest pneumonia and influenza and total readings for Boston, with specific tags:
+Below is an image of our queried data.
+
+![Figure 46](Images/Figure46.png)
+
+The below query is the same as the first one we looked at, with the only difference being tags here are specified.
 
 ```sql
 SELECT datetime, value, tags.city, tags.state, tags.region
@@ -328,7 +377,9 @@ WHERE tags.city = 'Boston'
 LIMIT 10
 ```
 
-Latest pneumonia and influenza and total readings for Boston, with region code translated to region name using a Replacement Table:
+This query again is for latest pneumonia and influenza and total readings for Boston, but with region code translated to region name using a Replacement Table. As a default, each region is listed
+by their corresponding number. In the case of Boston, it falls in region 1, which included the states of Connecticut, Massachusetts, and Rhode Island. We created a replacement table in ATSD where
+we entered in region names for each region number. In this instance, region 2 is named **New-England**.   
 
 ```sql
 SELECT datetime, value, tags.city, tags.state, 
@@ -339,7 +390,11 @@ WHERE tags.city = 'Boston'
 LIMIT 10
 ```
 
-Same as above, except for total for all cities in a given region:
+Below is an image of this output.
+
+![Figure 47](Images/Figure47.png)
+
+This query looks at total pneumonia and influenza deaths for all cities in a given region using the `GROUP BY` clause. 
 
 ```sql
 SELECT datetime, sum(value),  
@@ -363,10 +418,9 @@ WHERE tags.region = '2'
   ORDER BY datetime DESC
 ```
    
-   
-   
-   
-   
+### SQL Example 2
+-----------------
+     
 The least deadly week by city:
 
 ```sql
