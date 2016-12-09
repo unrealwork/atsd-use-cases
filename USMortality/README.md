@@ -354,7 +354,7 @@ Below is an output of our queried data.
 ![Figure 45](Images/Figure45.png)
    
 Now, let us look at the latest pneumonia and influenza and total deaths for Boston, using the `JOIN` clause. This will pair the results we just queried for with the corresponding total
-total number of deaths in the city. 
+total number of deaths in the city.
 
 ```sql
 SELECT *
@@ -365,9 +365,22 @@ WHERE pni.tags.city = 'Boston'
 LIMIT 10
 ```
 
-Below is an image of our queried data.
+Below is an output of our queried data.
 
-![Figure 46](Images/Figure46.png)
+```ls
+| pni.entity  | pni.datetime              | pni.value  | pni.tags.city  | pni.tags.region  | pni.tags.state  | tot.entity  | tot.datetime              | tot.value  | tot.tags.city  | tot.tags.region  | tot.tags.state | 
+|-------------|---------------------------|------------|----------------|------------------|-----------------|-------------|---------------------------|------------|----------------|------------------|----------------| 
+| mr8w-325u   | 2016-10-01T00:00:00.000Z  | 8.0        | Boston         | 1                | MA              | mr8w-325u   | 2016-10-01T00:00:00.000Z  | 131.0      | Boston         | 1                | MA             | 
+| mr8w-325u   | 2016-09-24T00:00:00.000Z  | 5.0        | Boston         | 1                | MA              | mr8w-325u   | 2016-09-24T00:00:00.000Z  | 126.0      | Boston         | 1                | MA             | 
+| mr8w-325u   | 2016-09-17T00:00:00.000Z  | 11.0       | Boston         | 1                | MA              | mr8w-325u   | 2016-09-17T00:00:00.000Z  | 138.0      | Boston         | 1                | MA             | 
+| mr8w-325u   | 2016-09-10T00:00:00.000Z  | 5.0        | Boston         | 1                | MA              | mr8w-325u   | 2016-09-10T00:00:00.000Z  | 134.0      | Boston         | 1                | MA             | 
+| mr8w-325u   | 2016-09-03T00:00:00.000Z  | 13.0       | Boston         | 1                | MA              | mr8w-325u   | 2016-09-03T00:00:00.000Z  | 139.0      | Boston         | 1                | MA             | 
+| mr8w-325u   | 2016-08-27T00:00:00.000Z  | 11.0       | Boston         | 1                | MA              | mr8w-325u   | 2016-08-27T00:00:00.000Z  | 137.0      | Boston         | 1                | MA             | 
+| mr8w-325u   | 2016-08-20T00:00:00.000Z  | 12.0       | Boston         | 1                | MA              | mr8w-325u   | 2016-08-20T00:00:00.000Z  | 127.0      | Boston         | 1                | MA             | 
+| mr8w-325u   | 2016-08-13T00:00:00.000Z  | 8.0        | Boston         | 1                | MA              | mr8w-325u   | 2016-08-13T00:00:00.000Z  | 133.0      | Boston         | 1                | MA             | 
+| mr8w-325u   | 2016-08-06T00:00:00.000Z  | 11.0       | Boston         | 1                | MA              | mr8w-325u   | 2016-08-06T00:00:00.000Z  | 138.0      | Boston         | 1                | MA             | 
+| mr8w-325u   | 2016-07-30T00:00:00.000Z  | 12.0       | Boston         | 1                | MA              | mr8w-325u   | 2016-07-30T00:00:00.000Z  | 120.0      | Boston         | 1                | MA             | 
+```
 
 The below query is the same as the first one we looked at, with the only difference being tags here are specified.
 
@@ -394,7 +407,20 @@ LIMIT 10
 
 Below is an image of this output.
 
-![Figure 47](Images/Figure47.png)
+```ls
+| datetime                  | value  | tags.city  | tags.state  | region      | 
+|---------------------------|--------|------------|-------------|-------------| 
+| 2016-10-01T00:00:00.000Z  | 8.0    | Boston     | MA          | New-England | 
+| 2016-09-24T00:00:00.000Z  | 5.0    | Boston     | MA          | New-England | 
+| 2016-09-17T00:00:00.000Z  | 11.0   | Boston     | MA          | New-England | 
+| 2016-09-10T00:00:00.000Z  | 5.0    | Boston     | MA          | New-England | 
+| 2016-09-03T00:00:00.000Z  | 13.0   | Boston     | MA          | New-England | 
+| 2016-08-27T00:00:00.000Z  | 11.0   | Boston     | MA          | New-England | 
+| 2016-08-20T00:00:00.000Z  | 12.0   | Boston     | MA          | New-England | 
+| 2016-08-13T00:00:00.000Z  | 8.0    | Boston     | MA          | New-England | 
+| 2016-08-06T00:00:00.000Z  | 11.0   | Boston     | MA          | New-England | 
+| 2016-07-30T00:00:00.000Z  | 12.0   | Boston     | MA          | New-England | 
+```
 
 This query looks at total pneumonia and influenza deaths for all cities in a given region using the `GROUP BY` clause, which combines rows having common values into a a single row. The region
 specified in this query is **New-England**.
@@ -409,7 +435,20 @@ WHERE tags.region = '1'
 LIMIT 10
 ```
 
-![Figure 48](Images/Figure48.png)
+```ls
+| datetime                  | sum(value)  | region      | 
+|---------------------------|-------------|-------------| 
+| 2016-10-01T00:00:00.000Z  | 33.0        | New-England | 
+| 2016-09-24T00:00:00.000Z  | 22.0        | New-England | 
+| 2016-09-17T00:00:00.000Z  | 34.0        | New-England | 
+| 2016-09-10T00:00:00.000Z  | 25.0        | New-England | 
+| 2016-09-03T00:00:00.000Z  | 39.0        | New-England | 
+| 2016-08-27T00:00:00.000Z  | 26.0        | New-England | 
+| 2016-08-20T00:00:00.000Z  | 32.0        | New-England | 
+| 2016-08-13T00:00:00.000Z  | 33.0        | New-England | 
+| 2016-08-06T00:00:00.000Z  | 37.0        | New-England | 
+| 2016-07-30T00:00:00.000Z  | 34.0        | New-England | 
+```
 
 Monthly pneumonia and influenza death totals for all cities in the **New-England** region for the time-range from January 1st, 2016, to October 1st, 2016. 
 
@@ -423,7 +462,19 @@ WHERE tags.region = '1'
   ORDER BY datetime DESC
 ```
 
-![Figure 49](Images/Figure49.png)
+```ls
+| datetime                  | sum(value)  | region      | 
+|---------------------------|-------------|-------------| 
+| 2016-09-01T00:00:00.000Z  | 120.0       | New-England | 
+| 2016-08-01T00:00:00.000Z  | 128.0       | New-England | 
+| 2016-07-01T00:00:00.000Z  | 196.0       | New-England | 
+| 2016-06-01T00:00:00.000Z  | 150.0       | New-England | 
+| 2016-05-01T00:00:00.000Z  | 184.0       | New-England | 
+| 2016-04-01T00:00:00.000Z  | 308.0       | New-England | 
+| 2016-03-01T00:00:00.000Z  | 200.0       | New-England | 
+| 2016-02-01T00:00:00.000Z  | 203.0       | New-England | 
+| 2016-01-01T00:00:00.000Z  | 214.0       | New-England | 
+```
 
 ### SQL Example 2 - Best of the Best and Worst of the Worst 
 -----------------------------------------------------------
@@ -445,11 +496,31 @@ ORDER BY 'date' DESC
   OPTION (ROW_MEMORY_THRESHOLD 500000)
 ```
 
+Here is an output of the above query. This query filters for results for all 122 cities in the dataset. The below table contains only the first couple of lines of the output. As a note, moving forward
+all remaining query tables will contain truncated tables for the sake of maintaining the general flow of the article.
+
+```ls
+| date        | city              | state  | region              | all_deaths  | population | 
+|-------------|-------------------|--------|---------------------|-------------|------------| 
+| 2016-10-01  | Denver            | CO     | Mountain            | 9.0         | 682545     | 
+| 2016-10-01  | Somerville        | MA     | New-England         | 1.0         | 80318      | 
+| 2016-04-16  | Colorado Springs  | CO     | Mountain            | 3.0         | 456568     | 
+| 2016-02-27  | Seattle           | WA     | Pacific             | 1.0         | 684451     | 
+| 2016-01-16  | New York          | NY     | Middle-Atlantic     | 502.0       | 8550405    | 
+| 2016-01-02  | San Antonio       | TX     | West-South-Central  | 1.0         | 1469845    | 
+| 2016-01-02  | Spokane           | WA     | Pacific             | 1.0         | 213272     | 
+| 2015-12-26  | Lowell            | MA     | New-England         | 7.0         | 110699     | 
+| 2015-08-22  | Scranton          | PA     | Middle-Atlantic     | 11.0        | 77118      | 
+| 2015-02-07  | Baltimore         | MD     | South-Atlantic      | 18.0        | 621849     | 
+| 2015-01-03  | Milwaukee         | WI     | East-North-Central  | 25.0        | 600155     | 
+| 2014-12-27  | New Bedford       | MA     | New-England         | 9.0         | 94958      |  
+```
+
 Here a few noteworthy points regarding this query.
 
 1) `tags.city IS NOT NULL` is specified to discard a few rows present in the dataset for older dates but collected without a reference to a city.<br />
 2) The line `WITH row_number ... <= 1` partitions rows by tags (city, state, region) and selects the row with the **MINIMUM** value for each partition using the `ORDER BY` value condition.<br />
-3) The `LOOKUP('us-region', tags.region)` function converts tags.region (number) into a string, for example, '3' -> Midwest.<br />
+3) The `LOOKUP('us-region', tags.region)` function converts `tags.region` (number) into a string, for example, 3 -> East-North-Central.<br />
 4) `LOOKUP('city-size', concat(tags.city, ',', tags.state))` retrieves city size for the given city and state pair, concatenated to the {city},{state} pattern.<br />
 
 Now, lets look at the deadliest week for the total number of deaths by city.
@@ -465,6 +536,23 @@ FROM cdc.all_deaths
   WITH row_number(tags ORDER BY value desc, time desc) <= 1
 ORDER BY value desc
   OPTION (ROW_MEMORY_THRESHOLD 500000)  
+```
+
+```ls
+| date        | city          | state  | region              | all_deaths  | population | 
+|-------------|---------------|--------|---------------------|-------------|------------| 
+| 1976-02-21  | New York      | NY     | Middle-Atlantic     | 2550.0      | 8550405    | 
+| 1998-06-27  | Atlanta       | GA     | South-Atlantic      | 1971.0      | 463878     | 
+| 2004-02-07  | Los Angeles   | CA     | Pacific             | 1755.0      | 3971883    | 
+| 2003-02-08  | Saint Louis   | MO     | West-North-Central  | 1424.0      | 315685     | 
+| 1991-01-26  | Chicago       | IL     | East-North-Central  | 1295.0      | 2720546    | 
+| 2012-02-04  | Philadelphia  | PA     | Middle-Atlantic     | 1063.0      | 1567448    | 
+| 2000-04-01  | Washington    | DC     | South-Atlantic      | 999.0       | 672228     | 
+| 1983-02-12  | Houston       | TX     | West-South-Central  | 860.0       | 2327463    | 
+| 1970-10-03  | Cincinnati    | OH     | East-North-Central  | 706.0       | 298550     | 
+| 2016-01-09  | San Antonio   | TX     | West-South-Central  | 666.0       | 1469845    | 
+| 1998-08-01  | Phoenix       | AZ     | Mountain            | 632.0       | 1563025    | 
+| 2000-06-03  | Wichita       | KS     | West-North-Central  | 560.0       | 389965     | 
 ```
 
 This query is the same as the above example, except for the fact that the line `WITH row_number ... <= 1` partitions rows by tags (city, state, region) and selects the row with the
@@ -483,6 +571,16 @@ FROM cdc.pneumonia_and_influenza_deaths t1
   WITH row_number(tags ORDER BY value desc, time desc) <= 1
 ORDER BY value desc
   OPTION (ROW_MEMORY_THRESHOLD 500000)
+```
+
+```ls
+| date        | city         | state  | region              | pneumonia_influenza_deaths  | population | 
+|-------------|--------------|--------|---------------------|-----------------------------|------------| 
+| 1976-02-21  | New York     | NY     | Middle-Atlantic     | 280.0                       | 8550405    | 
+| 2004-01-17  | Los Angeles  | CA     | Pacific             | 231.0                       | 3971883    | 
+| 2003-02-08  | Saint Louis  | MO     | West-North-Central  | 150.0                       | 315685     | 
+| 2000-03-04  | Chicago      | IL     | East-North-Central  | 83.0                        | 2720546    | 
+| 1999-03-06  | Sacramento   | CA     | Pacific             | 77.0                        | 490712     | 
 ```
 
 This query has the same structure as for the example directly above, but has a different metric specified: `cdc.pneumonia_and_influenza_deaths` instead of `cdc.all_deaths`.
@@ -506,14 +604,17 @@ FROM cdc.all_deaths tot
   OPTION (ROW_MEMORY_THRESHOLD 500000)
 ```
 
+
+
+
 Here a few noteworthy points regarding this query.
 
-1) Same structure as for the query directly above, but 2 metrics are specified: `cdc.pneumonia_and_influenza_deaths` AND `cdc.all_deaths`.<br />
+1) This query has the same structure as for the query directly above, but 2 metrics are specified: `cdc.pneumonia_and_influenza_deaths` AND `cdc.all_deaths`.<br />
 2) `JOIN` merges records with the same entity, tags, and time.<br />
 3) A derived metric `pni.value/tot.value` is calculated to show a percentage of the part to the total number of deaths.<br />
 4) Only weeks with more than 1 pneumonia and influenza deaths are selected with the `AND pni.value > 1` condition.<br />
 
-`OUTER JOIN` can help find all instances when a city failed to report `pneumonia_and_influenza_deaths` (no data).
+Moving onto the next query, `OUTER JOIN` can help find all instances when a city failed to report `pneumonia_and_influenza_deaths` (no data).
 
 ```sql
 SELECT tot.datetime, tot.value AS 'total',
@@ -527,11 +628,19 @@ WHERE tot.entity = 'mr8w-325u'
 
 In this example, the query sorts for rows for the city of Baton Rouge where the `pni.value is NULL`. Below is an example of this output.
 
-![Figure 50](Images/Figure50.png)
+```ls
+| tot.datetime              | total  | pneumonia/influenza | 
+|---------------------------|--------|---------------------| 
+| 2008-10-04T00:00:00.000Z  | 76.0   | N/A                 | 
+| 2008-11-01T00:00:00.000Z  | 37.0   | N/A                 | 
+| 2008-11-08T00:00:00.000Z  | 49.0   | N/A                 | 
+| 2008-11-15T00:00:00.000Z  | 49.0   | N/A                 | 
+| 2008-11-22T00:00:00.000Z  | 70.0   | N/A                 | 
+```
 
-Now let us look at several queries which delve into looking at the top 10 for 
+Now let us look at several queries which delve into looking at the top 10 cities for all deaths and pneumonia and influenza deaths. 
 
-Top 10 cities by all deaths in the current year (year to date):
+Here is a query for filtering for the top 10 cities by all deaths in the current year (year to date).
 
 ```sql
 SELECT tags.city as 'city', tags.state as 'state', 
@@ -546,6 +655,24 @@ ORDER BY 'all_deaths' DESC
   LIMIT 10
   OPTION (ROW_MEMORY_THRESHOLD 500000)
 ```
+
+```ls
+| city         | state  | region              | all_deaths  | population | 
+|--------------|--------|---------------------|-------------|------------| 
+| New York     | NY     | Middle-Atlantic     | 41291.0     | 8550405    | 
+| Houston      | TX     | West-South-Central  | 15058.0     | 2327463    | 
+| Las Vegas    | NV     | Mountain            | 13305.0     | 623747     | 
+| Los Angeles  | CA     | Pacific             | 11934.0     | 3971883    | 
+| San Antonio  | TX     | West-South-Central  | 11444.0     | 1469845    | 
+| Chicago      | IL     | East-North-Central  | 11389.0     | 2720546    | 
+| Cleveland    | OH     | East-North-Central  | 11156.0     | 388072     | 
+| Columbus     | OH     | East-North-Central  | 9934.0      | 850106     | 
+| Sacramento   | CA     | Pacific             | 9070.0      | 490712     | 
+| Dallas       | TX     | West-South-Central  | 8923.0      | 1300092    | 
+```
+
+This query has a similar structure to some of the examples we have already looked at. 
+
 
 Top 10 cities by pneumonia and influenza deaths in the current year (year to date):
 
@@ -563,6 +690,21 @@ ORDER BY 'pneumonia_influenza_deaths' DESC
   OPTION (ROW_MEMORY_THRESHOLD 500000)
 ```
 
+```ls
+| city          | state  | region              | pneumonia_influenza_deaths  | population | 
+|---------------|--------|---------------------|-----------------------------|------------| 
+| New York      | NY     | Middle-Atlantic     | 1531.0                      | 8550405    | 
+| Los Angeles   | CA     | Pacific             | 1147.0                      | 3971883    | 
+| Las Vegas     | NV     | Mountain            | 1066.0                      | 623747     | 
+| San Antonio   | TX     | West-South-Central  | 735.0                       | 1469845    | 
+| Sacramento    | CA     | Pacific             | 678.0                       | 490712     | 
+| Chicago       | IL     | East-North-Central  | 666.0                       | 2720546    | 
+| Indianapolis  | IN     | East-North-Central  | 654.0                       | 853173     | 
+| Houston       | TX     | West-South-Central  | 649.0                       | 2327463    | 
+| Memphis       | TN     | East-South-Central  | 648.0                       | 655770     | 
+| Columbus      | OH     | East-North-Central  | 588.0                       | 850106     | 
+```
+
 Top 10 cities with the highest percentage of deaths caused by pneumonia and influenza, year-to-date:
 
 ```sql
@@ -578,7 +720,23 @@ WHERE tot.entity = 'mr8w-325u' AND tot.tags.city IS NOT NULL
   AND tot.datetime > current_year AND tot.value > 0
 GROUP BY tot.tags
   ORDER BY 'pneumonia_influenza_deaths, %' DESC, 'pneumonia_influenza_deaths' DESC
+  LIMIT 10
   OPTION (ROW_MEMORY_THRESHOLD 500000)
+```
+
+```ls
+| city         | state  | region              | all_deaths  | pneumonia_influenza_deaths  | pneumonia_influenza_deaths, %  | population | 
+|--------------|--------|---------------------|-------------|-----------------------------|--------------------------------|------------| 
+| Glendale     | CA     | Pacific             | 1412.0      | 223.0                       | 15.8                           | 201020     | 
+| Worcester    | MA     | New-England         | 2493.0      | 352.0                       | 14.1                           | 184815     | 
+| Long Beach   | CA     | Pacific             | 2673.0      | 314.0                       | 11.7                           | 474140     | 
+| New Haven    | CT     | New-England         | 961.0       | 106.0                       | 11.0                           | 130322     | 
+| Pasadena     | CA     | Pacific             | 1121.0      | 123.0                       | 11.0                           | 142250     | 
+| Honolulu     | HI     | Pacific             | 3505.0      | 370.0                       | 10.6                           | 402500     | 
+| Peoria       | IL     | East-North-Central  | 2340.0      | 239.0                       | 10.2                           | 115070     | 
+| Fall River   | MA     | New-England         | 1039.0      | 106.0                       | 10.2                           | 88777      | 
+| Little Rock  | AR     | West-South-Central  | 3862.0      | 394.0                       | 10.2                           | 197992     | 
+| Los Angeles  | CA     | Pacific             | 11934.0     | 1147.0                      | 9.6                            | 3971883    | 
 ```
 
 Top 10 cities with the highest percentage of deaths caused by pneumonia and influenza, for the last 12 months (trailing):
@@ -596,7 +754,23 @@ WHERE tot.entity = 'mr8w-325u' AND tot.tags.city IS NOT NULL
   AND tot.datetime > now-1*YEAR AND tot.value > 0
 GROUP BY tot.tags
   ORDER BY 'pneumonia_influenza_deaths, %' DESC, 'pneumonia_influenza_deaths' DESC
+  LIMIT 10
   OPTION (ROW_MEMORY_THRESHOLD 500000)
+```
+
+```ls
+| city         | state  | region              | all_deaths  | pneumonia_influenza_deaths  | pneumonia_influenza_deaths, %  | population | 
+|--------------|--------|---------------------|-------------|-----------------------------|--------------------------------|------------| 
+| Glendale     | CA     | Pacific             | 1518.0      | 240.0                       | 15.8                           | 201020     | 
+| Worcester    | MA     | New-England         | 2679.0      | 386.0                       | 14.4                           | 184815     | 
+| Long Beach   | CA     | Pacific             | 2841.0      | 329.0                       | 11.6                           | 474140     | 
+| Pasadena     | CA     | Pacific             | 1204.0      | 130.0                       | 10.8                           | 142250     | 
+| Honolulu     | HI     | Pacific             | 3744.0      | 398.0                       | 10.6                           | 402500     | 
+| Fall River   | MA     | New-England         | 1111.0      | 117.0                       | 10.5                           | 88777      | 
+| New Haven    | CT     | New-England         | 1077.0      | 113.0                       | 10.5                           | 130322     | 
+| Peoria       | IL     | East-North-Central  | 2516.0      | 261.0                       | 10.4                           | 115070     | 
+| Little Rock  | AR     | West-South-Central  | 4110.0      | 420.0                       | 10.2                           | 197992     | 
+| Los Angeles  | CA     | Pacific             | 12787.0     | 1232.0                      | 9.6                            | 3971883    | 
 ```
 
 Top 10 cities with the highest percentage of deaths caused by pneumonia and influenza, but for the entire period since 1970:
