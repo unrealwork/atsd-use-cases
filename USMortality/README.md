@@ -397,7 +397,7 @@ Below is an image of this output.
 ![Figure 47](Images/Figure47.png)
 
 This query looks at total pneumonia and influenza deaths for all cities in a given region using the `GROUP BY` clause, which combines rows having common values into a a single row. The region
-specified in this query is ** New-England**.
+specified in this query is **New-England**.
  
 ```sql
 SELECT datetime, sum(value),  
@@ -425,15 +425,12 @@ WHERE tags.region = '1'
 
 ![Figure 49](Images/Figure49.png)
 
-### SQL Example 2
------------------
-     
-The below query examines the least deadly week by city. Here a few noteworthy points regarding the query.
+### SQL Example 2 - Best of the Best and Worst of the Worst 
+-----------------------------------------------------------
 
-1) `tags.city IS NOT NULL` is specified to discard a few rows present in the dataset for older dates but collected without a reference to a city.
-2) The line `WITH row_number ... <= 1` partitions rows by tags (city, state, region) and selects the row with MINIMUM value for each partition using the ORDER BY value condition.
-3) The `LOOKUP('us-region', tags.region)` function converts tags.region (number) into a string, for example, '3' -> Midwest.
-4) `LOOKUP('city-size', concat(tags.city, ',', tags.state))` retrieves city size for the given city and state pair, concatenated to the {city},{state} pattern.
+Let us know look at some additional examples which delve into sorting for the deadliest and least deadly cities.
+     
+The below query examines the least deadly week for the total number of deaths by city. 
 
 ```sql
 SELECT date_format(time, 'yyyy-MM-dd') AS 'date', 
@@ -448,7 +445,14 @@ ORDER BY 'date' DESC
   OPTION (ROW_MEMORY_THRESHOLD 500000)
 ```
 
-The deadliest week by city:
+Here a few noteworthy points regarding this query.
+
+1) `tags.city IS NOT NULL` is specified to discard a few rows present in the dataset for older dates but collected without a reference to a city.
+2) The line `WITH row_number ... <= 1` partitions rows by tags (city, state, region) and selects the row with the **MINIMUM** value for each partition using the `ORDER BY` value condition.
+3) The `LOOKUP('us-region', tags.region)` function converts tags.region (number) into a string, for example, '3' -> Midwest.
+4) `LOOKUP('city-size', concat(tags.city, ',', tags.state))` retrieves city size for the given city and state pair, concatenated to the {city},{state} pattern.
+
+Now, lets look at the deadliest week for the total number of deaths by city.
 
 ```sql
 SELECT date_format(time, 'yyyy-MM-dd') as 'date', 
@@ -463,7 +467,10 @@ ORDER BY value desc
   OPTION (ROW_MEMORY_THRESHOLD 500000)  
 ```
 
-The deadliest week due to pneumonia and influenza by city:
+This query is the same as the above example, except for the fact that the line `WITH row_number ... <= 1` partitions rows by tags (city, state, region) and selects the row with the
+**MAXIMUM** value for each partition using the `ORDER BY` value `DESC` condition.
+
+Here is the deadliest week due to pneumonia and influenza by city.
 
 ```sql
 SELECT date_format(time, 'yyyy-MM-dd') as 'date', 
@@ -477,6 +484,8 @@ FROM cdc.pneumonia_and_influenza_deaths t1
 ORDER BY value desc
   OPTION (ROW_MEMORY_THRESHOLD 500000)
 ```
+
+This query has the same structure as for the example directly above, but has a different metric specified: `cdc.pneumonia_and_influenza_deaths` instead of `cdc.all_deaths`.
 
 The deadliest pneumonia and influenza week as a percentage of all deaths:
 
@@ -497,6 +506,11 @@ FROM cdc.all_deaths tot
   OPTION (ROW_MEMORY_THRESHOLD 500000)
 ```
 
+1) Same structure as for the query directly above, but 2 metrics are specified: `cdc.pneumonia_and_influenza_deaths` AND `cdc.all_deaths`.
+2) `JOIN` merges records with the same entity, tags, and time.
+3) A derived metric `pni.value/tot.value` is calculated to show a percentage of the part to the total number of deaths.
+4) Only weeks with more than 1 pneumonia and influenza deaths are selected with the `AND pni.value > 1` condition.
+
 `OUTER JOIN` can help find all instances when a city failed to report `pneumonia_and_influenza_deaths` (no data).
 
 ```sql
@@ -508,6 +522,10 @@ WHERE tot.entity = 'mr8w-325u'
   AND tot.tags.city = 'Baton Rouge'
   AND pni.value IS NULL
 ```
+
+In this example, the query sorts for rows for the city of Baton Rouge where the `pni.value is NULL`. Below is an example of this output.
+
+![Figure 50](Images/Figure50.png)
 
 Top 10 cities by all deaths in the current year (year to date):
 
