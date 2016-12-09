@@ -497,7 +497,7 @@ ORDER BY 'date' DESC
 ```
 
 Here is an output of the above query. This query filters for results for all 122 cities in the dataset. The below table contains only the first couple of lines of the output. As a note, moving forward
-all remaining query tables will contain truncated tables for the sake of maintaining the general flow of the article.
+some of the remaining query results will show truncated tables for the sake of maintaining the general flow of the article.
 
 ```ls
 | date        | city              | state  | region              | all_deaths  | population | 
@@ -604,9 +604,6 @@ FROM cdc.all_deaths tot
   OPTION (ROW_MEMORY_THRESHOLD 500000)
 ```
 
-
-
-
 Here a few noteworthy points regarding this query.
 
 1) This query has the same structure as for the query directly above, but 2 metrics are specified: `cdc.pneumonia_and_influenza_deaths` AND `cdc.all_deaths`.<br />
@@ -638,7 +635,7 @@ In this example, the query sorts for rows for the city of Baton Rouge where the 
 | 2008-11-22T00:00:00.000Z  | 70.0   | N/A                 | 
 ```
 
-Now let us look at several queries which delve into looking at the top 10 cities for all deaths and pneumonia and influenza deaths. 
+Now let us look at several queries which delves into looking at the top 10 deadliest cities for total deaths and pneumonia and influenza deaths. 
 
 Here is a query for filtering for the top 10 cities by all deaths in the current year (year to date).
 
@@ -671,10 +668,13 @@ ORDER BY 'all_deaths' DESC
 | Dallas       | TX     | West-South-Central  | 8923.0      | 1300092    | 
 ```
 
-This query has a similar structure to some of the examples we have already looked at. 
+This query has a similar structure to some of the examples we have already looked at. In this example the `LIMIT` clause is introduced. This clause caps the number of rows that can be returned,
+which in this case is 10. The line `AND datetime > current_year` returns values from 2016-01-01T00:00:00.000Z to 2016-10-01T00:00:00.000Z.
 
+The `OPTION (ROW_MEMORY_THRESHOLD {n})` instructs the database to perform processing in memory as opposed to a temporary table if the number of rows is within the specified threshold {n}. If 
+{n} is zero or negative, the results are processed using the temporary table.
 
-Top 10 cities by pneumonia and influenza deaths in the current year (year to date):
+This next query examines the top 10 cities by pneumonia and influenza deaths in the current year (year to date).
 
 ```sql
 SELECT tags.city as 'city', tags.state as 'state', 
@@ -705,7 +705,9 @@ ORDER BY 'pneumonia_influenza_deaths' DESC
 | Columbus      | OH     | East-North-Central  | 588.0                       | 850106     | 
 ```
 
-Top 10 cities with the highest percentage of deaths caused by pneumonia and influenza, year-to-date:
+This query has the same structure as for the example directly above, but has a different metric specified: `cdc.pneumonia_and_influenza_deaths` instead of `cdc.all_deaths`.
+
+This query shows the top 10 cities with the highest percentage of deaths caused by pneumonia and influenza in the current year (year-to-date). 
 
 ```sql
 SELECT tot.tags.city as 'city', tot.tags.state as 'state', 
@@ -724,6 +726,8 @@ GROUP BY tot.tags
   OPTION (ROW_MEMORY_THRESHOLD 500000)
 ```
 
+In this query, we are able to calculate the percentage of pneumonia and influenza deaths using the line `sum(pni.value)/sum(tot.value)*100 AS 'pneumonia_influenza_deaths, %',`. 
+
 ```ls
 | city         | state  | region              | all_deaths  | pneumonia_influenza_deaths  | pneumonia_influenza_deaths, %  | population | 
 |--------------|--------|---------------------|-------------|-----------------------------|--------------------------------|------------| 
@@ -739,7 +743,7 @@ GROUP BY tot.tags
 | Los Angeles  | CA     | Pacific             | 11934.0     | 1147.0                      | 9.6                            | 3971883    | 
 ```
 
-Top 10 cities with the highest percentage of deaths caused by pneumonia and influenza, for the last 12 months (trailing):
+Top 10 cities with the highest percentage of deaths caused by pneumonia and influenza, for the last 12 months (trailing).
 
 ```sql
 SELECT tot.tags.city as 'city', tot.tags.state as 'state', 
@@ -757,6 +761,9 @@ GROUP BY tot.tags
   LIMIT 10
   OPTION (ROW_MEMORY_THRESHOLD 500000)
 ```
+
+The only difference between this query and the previous one is the specified time frame. Using the line `AND tot.datetime > now-1*YEAR AND tot.value > 0`, we are able to filter for the last
+12 months, as opposed to the previous example which only looked at the calendar year of 2016.
 
 ```ls
 | city         | state  | region              | all_deaths  | pneumonia_influenza_deaths  | pneumonia_influenza_deaths, %  | population | 
