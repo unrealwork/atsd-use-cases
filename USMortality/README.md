@@ -447,10 +447,10 @@ ORDER BY 'date' DESC
 
 Here a few noteworthy points regarding this query.
 
-1) `tags.city IS NOT NULL` is specified to discard a few rows present in the dataset for older dates but collected without a reference to a city.
-2) The line `WITH row_number ... <= 1` partitions rows by tags (city, state, region) and selects the row with the **MINIMUM** value for each partition using the `ORDER BY` value condition.
-3) The `LOOKUP('us-region', tags.region)` function converts tags.region (number) into a string, for example, '3' -> Midwest.
-4) `LOOKUP('city-size', concat(tags.city, ',', tags.state))` retrieves city size for the given city and state pair, concatenated to the {city},{state} pattern.
+1) `tags.city IS NOT NULL` is specified to discard a few rows present in the dataset for older dates but collected without a reference to a city.<br />
+2) The line `WITH row_number ... <= 1` partitions rows by tags (city, state, region) and selects the row with the **MINIMUM** value for each partition using the `ORDER BY` value condition.<br />
+3) The `LOOKUP('us-region', tags.region)` function converts tags.region (number) into a string, for example, '3' -> Midwest.<br />
+4) `LOOKUP('city-size', concat(tags.city, ',', tags.state))` retrieves city size for the given city and state pair, concatenated to the {city},{state} pattern.<br />
 
 Now, lets look at the deadliest week for the total number of deaths by city.
 
@@ -506,10 +506,12 @@ FROM cdc.all_deaths tot
   OPTION (ROW_MEMORY_THRESHOLD 500000)
 ```
 
-1) Same structure as for the query directly above, but 2 metrics are specified: `cdc.pneumonia_and_influenza_deaths` AND `cdc.all_deaths`.
-2) `JOIN` merges records with the same entity, tags, and time.
-3) A derived metric `pni.value/tot.value` is calculated to show a percentage of the part to the total number of deaths.
-4) Only weeks with more than 1 pneumonia and influenza deaths are selected with the `AND pni.value > 1` condition.
+Here a few noteworthy points regarding this query.
+
+1) Same structure as for the query directly above, but 2 metrics are specified: `cdc.pneumonia_and_influenza_deaths` AND `cdc.all_deaths`.<br />
+2) `JOIN` merges records with the same entity, tags, and time.<br />
+3) A derived metric `pni.value/tot.value` is calculated to show a percentage of the part to the total number of deaths.<br />
+4) Only weeks with more than 1 pneumonia and influenza deaths are selected with the `AND pni.value > 1` condition.<br />
 
 `OUTER JOIN` can help find all instances when a city failed to report `pneumonia_and_influenza_deaths` (no data).
 
@@ -527,6 +529,8 @@ In this example, the query sorts for rows for the city of Baton Rouge where the 
 
 ![Figure 50](Images/Figure50.png)
 
+Now let us look at several queries which delve into looking at the top 10 for 
+
 Top 10 cities by all deaths in the current year (year to date):
 
 ```sql
@@ -543,7 +547,7 @@ ORDER BY 'all_deaths' DESC
   OPTION (ROW_MEMORY_THRESHOLD 500000)
 ```
 
-Top 10 cities by pneumonia and influenza deaths:
+Top 10 cities by pneumonia and influenza deaths in the current year (year to date):
 
 ```sql
 SELECT tags.city as 'city', tags.state as 'state', 
@@ -612,6 +616,8 @@ GROUP BY tot.tags
   ORDER BY 'pneumonia_influenza_deaths, %' DESC, 'pneumonia_influenza_deaths' DESC
   OPTION (ROW_MEMORY_THRESHOLD 500000)
 ```
+
+Now we will look at several queries which again analyze pneumonia and influenza deaths. 
 
 Number of pneumonia and influenza deaths per month, in Midwest:
 
@@ -695,18 +701,17 @@ Mortality rates in New York (fixed pop size, provisional):
 ```sql
 SELECT tot.datetime, tot.tags.city as 'city', tot.tags.state as 'state', 
   ISNULL(LOOKUP('us-region', tot.tags.region), tot.tags.region) AS 'region', 
-  sum(tot.value - t24.value - t44.value - t64.value - t64o.value) as 'other_deaths',
+  sum(tot.value - t1.value - t24.value - t44.value - t64.value - t64o.value) as 'other_deaths',
+  sum(t1.value) as 'infant_deaths',
   sum(t24.value) as '1-24_deaths',
-  sum(t44.value) as '24-44_deaths',
-  sum(t64.value) as '44-64_deaths',
+  sum(t44.value) as '25-44_deaths',
+  sum(t64.value) as '45-64_deaths',
   sum(t64o.value) as '64+_deaths',
   sum(tot.value) as 'all_deaths',
   cast(LOOKUP('city-size', concat(tot.tags.city, ',', tot.tags.state))) AS 'population',
-  sum(tot.value - t24.value - t44.value - t64.value - t64o.value)/cast(LOOKUP('city-size', concat(tot.tags.city, ',', tot.tags.state)))*1000 AS 'other_mortality_rate',
-  sum(t24.value)/cast(LOOKUP('city-size', concat(tot.tags.city, ',', tot.tags.state)))*1000 AS '1_24_mortality_rate',
-  sum(t64o.value)/cast(LOOKUP('city-size', concat(tot.tags.city, ',', tot.tags.state)))*1000 AS '64_older_mortality_rate',
   sum(tot.value)/cast(LOOKUP('city-size', concat(tot.tags.city, ',', tot.tags.state)))*1000 AS 'total_mortality_rate'
 FROM cdc.all_deaths tot
+  JOIN cdc._1_year t1
   JOIN cdc._1_24_years t24
   JOIN cdc._25_44_years t44
   JOIN cdc._54_64_years t64
@@ -717,35 +722,115 @@ FROM cdc.all_deaths tot
 GROUP BY tot.tags, tot.period(1 year)
   HAVING sum(tot.value) > 0
 ORDER BY tot.tags.city, tot.datetime
+  OPTION (ROW_MEMORY_THRESHOLD 500000)
 ```
 
-2016 mortality rates:
+DESC:
+
+1) Multiple metrics are joined in order to provide a breakdown of all deaths by age group, using the `JOIN` clause.<br />
+2) Observations are grouped by a period of 1 year to view total number of deaths in each age group in a given year.<br />
+3) The total mortality rate is calculated by dividing the number of all deaths by the 2015 New York City population size, which is retrieved from a replacement table for 2015 to simplify the query.<br />
+4) The data is limited to one city in the `WHERE` clause.<br />
+5) The timespan is limited to 2016-01-01 to exclude a not yet completed 2016 since the last observations end in October.<br />
+
+2015 mortality rates:
 
 ```sql
 SELECT tot.tags.city as 'city', tot.tags.state as 'state', 
   ISNULL(LOOKUP('us-region', tot.tags.region), tot.tags.region) AS 'region', 
-  sum(tot.value - t24.value - t44.value - t64.value - t64o.value) as 'other_deaths',
+  sum(tot.value - t1.value - t24.value - t44.value - t64.value - t64o.value) as 'other_deaths',
+  sum(t1.value) as 'infant_deaths',
   sum(t24.value) as '1-24_deaths',
-  sum(t44.value) as '24-44_deaths',
-  sum(t64.value) as '44-64_deaths',
+  sum(t44.value) as '25-44_deaths',
+  sum(t64.value) as '45-64_deaths',
   sum(t64o.value) as '64+_deaths',
   sum(tot.value) as 'all_deaths',
   cast(LOOKUP('city-size', concat(tot.tags.city, ',', tot.tags.state))) AS 'population',
-  sum(tot.value - t24.value - t44.value - t64.value - t64o.value)/cast(LOOKUP('city-size', concat(tot.tags.city, ',', tot.tags.state)))*1000 AS 'other_mortality_rate',
-  sum(t24.value)/cast(LOOKUP('city-size', concat(tot.tags.city, ',', tot.tags.state)))*1000 AS '1_24_mortality_rate',
-  sum(t64o.value)/cast(LOOKUP('city-size', concat(tot.tags.city, ',', tot.tags.state)))*1000 AS '64_older_mortality_rate',
   sum(tot.value)/cast(LOOKUP('city-size', concat(tot.tags.city, ',', tot.tags.state)))*1000 AS 'total_mortality_rate'
 FROM cdc.all_deaths tot
+  JOIN cdc._1_year t1
   JOIN cdc._1_24_years t24
   JOIN cdc._25_44_years t44
   JOIN cdc._54_64_years t64
   JOIN cdc._65_years t64o
   WHERE tot.entity = 'mr8w-325u' and tot.tags.city IS NOT NULL
   AND tot.datetime >= '2015-01-01T00:00:00Z' AND tot.datetime < '2016-01-01T00:00:00Z'
-GROUP BY tot.tags, tot.period(1 year)
+GROUP BY tot.tags
   HAVING sum(tot.value) > 0
 ORDER BY 'total_mortality_rate' desc
+  OPTION (ROW_MEMORY_THRESHOLD 500000)
 ```
+
+DESC:
+
+1) Full 2015 mortality numbers and percentages for all cities. The timespan is limited in the `WHERE` clause to specific end and time dates.<br />
+2) `GROUP BY` tags are used to calculated totals separate for each city.<br />
+3) Cities without deaths are excluded with the `HAVING sum(tot.value) > 0 clause`.<br />
+4) Total mortality rate is calculated by dividing the number of all deaths by the 2015 city size, which is retrieved from a replacement table for 2015 to simplify the query.<br />
+
+New York Mortality Rate history, using interpolated population size.
+
+```sql
+SELECT tot.datetime, tot.tags.city as 'city', tot.tags.state as 'state', 
+  ISNULL(LOOKUP('us-region', tot.tags.region), tot.tags.region) AS 'region', 
+  sum(tot.value - t1.value - t24.value - t44.value - t64.value - t64o.value) as 'other_deaths',
+  sum(t1.value) as 'infant_deaths',
+  sum(t24.value) as '1-24_deaths',
+  sum(t44.value) as '25-44_deaths',
+  sum(t64.value) as '45-64_deaths',
+  sum(t64o.value) as '64+_deaths',
+  sum(tot.value) as 'all_deaths',
+  sum(tot.value)/avg(pop.value)*1000 AS 'total_mortality_rate',
+  last(pop.value) AS 'population_end_of_year'
+FROM cdc.all_deaths tot
+  JOIN cdc._1_year t1
+  JOIN cdc._1_24_years t24
+  JOIN cdc._25_44_years t44
+  JOIN cdc._54_64_years t64
+  JOIN cdc._65_years t64o
+  JOIN us.population pop
+  WHERE tot.entity = 'mr8w-325u' and tot.tags.city IS NOT NULL
+  AND tot.datetime >= '1970-01-01T00:00:00Z' AND tot.datetime < '2016-01-01T00:00:00Z'
+  AND tot.tags.city = 'New York'
+GROUP BY tot.tags, tot.period(1 year)
+  HAVING sum(tot.value) > 0
+WITH INTERPOLATE (1 WEEK, LINEAR, INNER, EXTEND, START_TIME)  
+  ORDER BY tot.datetime
+OPTION (ROW_MEMORY_THRESHOLD 500000)
+```
+
+Mortality Rate by Age Group in New York city, 2010:
+
+```sql
+SELECT CAST(LOOKUP('new-york-city-2010-population', 'total')) AS 'population',
+  sum(t1.value) AS 'infant_deaths',
+  sum(t24.value) AS '1-24_deaths',
+  sum(t44.value) AS '25-44_deaths',
+  sum(t64.value) AS '45-64_deaths',
+  sum(t65.value) AS '65+_deaths',
+  sum(tot.value) AS 'all_deaths', 
+  sum(t1.value)/CAST(LOOKUP('new-york-city-2010-population', 'under-1'))*1000 AS 'infant_mortality_rate',
+  sum(t24.value)/CAST(LOOKUP('new-york-city-2010-population', '1-24'))*1000 AS '1-24_mortality_rate',
+  sum(t44.value)/CAST(LOOKUP('new-york-city-2010-population', '25-44'))*1000 AS '25-44_mortality_rate',
+  sum(t64.value)/CAST(LOOKUP('new-york-city-2010-population', '45-64'))*1000 AS '45-64_mortality_rate',
+  sum(t65.value)/CAST(LOOKUP('new-york-city-2010-population', '65+'))*1000 AS '65+_mortality_rate',
+  sum(tot.value)/CAST(LOOKUP('new-york-city-2010-population', 'total'))*1000 AS 'total_mortality_rate'
+FROM cdc.all_deaths tot
+  JOIN cdc._1_year t1
+  JOIN cdc._1_24_years t24
+  JOIN cdc._25_44_years t44
+  JOIN cdc._54_64_years t64
+  JOIN cdc._65_years t65
+WHERE tot.entity = 'mr8w-325u'
+  AND tot.datetime >= '2010-01-01T00:00:00Z' AND tot.datetime < '2011-01-01T00:00:00Z'
+  AND tot.tags.city = 'New York'
+GROUP BY tot.period(1 YEAR)
+  OPTION (ROW_MEMORY_THRESHOLD 500000)
+```  
+
+1) All metrics with death numbers are joined (grouped by year) with the `SUM` aggregation.<br />
+2) `SUM` aggregation is divided by the size of the corresponding age group, retrieved with a lookup function, and multiplied by 1000 since mortality is measured in deaths per 1000 people.<br />
+
 
 ### Appendix: Death Statistics City List 
 ----------------------------------------
