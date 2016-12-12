@@ -14,7 +14,7 @@ adjusted **risk of dying dropped by 60 percent from 1935 to 2010**.
  
 The death rate for the 1 to 4 years of age group dropped by **94 percent** from 1935 to 2010.
 
-The death rate for the 65 to 74 years of age group dropped by **62 percent** from 1935 to 2010. 
+The death rate for the 65 to 74 years of age group dropped by **62 percent** from 1935 to 2010.
 
 Below is an image showcasing the percent change from 1935 to 2010 in death rates by age in the U.S. from the [CDC](http://www.cdc.gov/nchs/data/databriefs/db88_fig3.png).
 
@@ -286,6 +286,8 @@ dataset.
 
 ### SQL Example 1 - Pneumonia and Influenza Deaths in Boston
 ------------------------------------------------------------
+
+
 
 Let us begin by running through a simple query looking at pneumonia and influenza deaths in Boston, Massachusetts. An output for this configuration is shown below. 
 
@@ -961,7 +963,6 @@ States as a whole ranks 90th in the world, with a rate of 8.20 deaths per 1,000 
 | 9    | Serbia        | 13.60                     | 2016 est.           | 
 | 10   | Russia        | 13.60                     | 2016 est.           | 
 
-
 To calculate our own mortality rates for a city in a given year, we need to simply divide the total number of deaths in the city by the population and multiply the result by 1,000.
 
 Below is our SQL query for determining the cities with the highest mortality rate in 2015.
@@ -1247,8 +1248,16 @@ Here are a few noteworthy points regarding this query:
 | 2015-01-01T00:00:00.000Z  | New York  | NY     | Middle-Atlantic  | 11.0          | 517.0          | 727.0        | 2619.0        | 11118.0       | 39309.0     | 54301.0     | 8550405.0   | 6.4                  | 
 ```
 
-We can see that the mortality rate in the city has declined considerably since the 1970's. However, since we have population numbers for 1960, 1970, 1980, 1990, 2000, 2010, and 2015, we can 
-compute much more accurate mortality rates for New York City using interpolated population sizes.
+We can see that the mortality rate in the city has declined considerably since the 1970's. According to their [report](http://www.nyc.gov/html/records/pdf/govpub/6551as_2010_final_population_&_mortality.pdf) on Population 
+and Mortality in 2010, the City of New York had the following key findings:
+
+* The 2010 New York City death rate reached an historic low of 6.4 deaths per 1,000 population, a 14.7% decline from 2001.
+* The 2009 New York City life expectancy reached a historic high of 80.6 years, a 3.7% (35 months) increase since 2000 and a 0.5% (5 months) increase since 2008.
+* Premature deaths (before age 65) accounted for 30% of all deaths in New York City.  The premature death rate decreased to 2.2 per 1,000 population, a 15.4% decline since 2001.
+
+The death rate for 2010 that was found in the report (6.4) does not match the value from out SQl query. This is due to the fact that we were using a fixed population size from 2015 to calculate
+**all** of the mortality rates. Since we have population numbers for 1960, 1970, 1980, 1990, 2000, 2010, and 2015, we can compute much more accurate mortality rates for New York City using interpolated population 
+sizes.
 
 ```sql
 SELECT tot.datetime, tot.tags.city as 'city', tot.tags.state as 'state', 
@@ -1278,8 +1287,6 @@ WITH INTERPOLATE (1 WEEK, LINEAR, INNER, EXTEND, START_TIME)
   ORDER BY tot.datetime
 OPTION (ROW_MEMORY_THRESHOLD 500000)
 ```
-
-To compute interpolated population numbers, we inserted the following snippet into our configuration:
   
 ```ls
 | tot.datetime              | city      | state  | region           | other_deaths  | infant_deaths  | 1-24_deaths  | 25-44_deaths  | 45-64_deaths  | 64+_deaths  | all_deaths  | total_mortality_rate  | population_end_of_year | 
@@ -1331,9 +1338,33 @@ To compute interpolated population numbers, we inserted the following snippet in
 | 2014-01-01T00:00:00.000Z  | New York  | NY     | Middle-Atlantic  | 10.0          | 514.6          | 722.9        | 2520.0        | 11219.1       | 38195.9     | 53182.4     | 6.2                   | 8548966.4              | 
 | 2015-01-01T00:00:00.000Z  | New York  | NY     | Middle-Atlantic  | 11.0          | 527.3          | 742.1        | 2680.3        | 11335.9       | 40083.7     | 55380.3     | 6.5                   | 8550405.0              | 
 ```
+ 
+Using our interpolated population numbers, we can see that our death rate value for 2010 (6.4) matches the one found in the report by the City of New York.  
+
+Since numbers for `us.population` and the CDC metrics are collected at different frequencies (10 year vs 1 week), they have different collection periods. Therefore, it is necessary to 
+calculate intermediate (weekly) population values to match the frequency of the CDC metrics. The `WITH INTERPOLATE` clause is set to 1 week to match the population periods to those of the
+CDC metrics.
+
+```sql
+SELECT datetime, value 
+ FROM us.population pop 
+WHERE tags.city = 'New York'
+ ORDER BY datetime
+```
+
+This interpolation function provides weekly estimated based on linear regression between neighboring points:
+
+```sql
+SELECT datetime, value 
+ FROM us.population pop 
+WHERE tags.city = 'New York'
+WITH INTERPOLATE (1 WEEK, LINEAR, INNER, EXTEND, START_TIME) 
+ ORDER BY datetime
+LIMIT 5
+```
 
 We can also look at determining mortality rate by age group in New York City. We grabbed age group population statistics from [nyc1.gov](http://www1.nyc.gov/site/planning/data-maps/nyc-population/census-2010.page)
-as part of the 2010 U.S. census. The `new-york-city-2010-population` file can be found [here](https://github.com/axibase/atsd-use-cases/blob/master/USMortality/new-york-city-2010-population) in this repository. 
+as part of the 2010 U.S. census. The `new-york-city-2010-population` file can be found [here](https://github.com/axibase/atsd-use-cases/blob/master/USMortality/new-york-city-2010-population) in this repository.
 
 ```sql
 SELECT CAST(LOOKUP('new-york-city-2010-population', 'total')) AS 'population',
@@ -1368,11 +1399,30 @@ GROUP BY tot.period(1 YEAR)
 | 8175133.0   | 596.0          | 811.0        | 2571.0        | 11513.0       | 36953.0     | 52464.0     | 5.5                    | 0.3                  | 1.1                   | 5.8                   | 37.2                | 6.4                  | 
 ```
 
-Here are two noteworthy points regarding this query:
+There are two noteworthy points regarding this query:
 
 1) All metrics with death numbers are joined (grouped by year) with the `SUM` aggregation.<br />
 2) `SUM` aggregation is divided by the size of the corresponding age group, retrieved with a lookup function, and multiplied by 1000 since mortality is measured in deaths per 1000 people.<br />
 
+### Action Items
+----------------
+
+Below are the summarized steps to follow to install local configurations of ATSD and Axibase Collector and create SQL queries for analyzing CDC death statistics:
+
+1. Install Docker (Xenial Version 16.04). A link for how to install Docker can be found [here](https://docs.docker.com/engine/installation/linux/ubuntulinux/).
+2. In Terminal, launch containers with the following command:
+   
+   ```sql
+   export USER=myuser; export PASSWORD=mypassword; docker-compose up -d 
+   ```
+3. Import the [`job.xml`](https://github.com/axibase/atsd-use-cases/blob/master/USMortality/jobs.xml) file into Axibase Collector.
+4. Import the [`parser.xml`](https://github.com/axibase/atsd-use-cases/blob/master/USMortality/parser.xml) file into ATSD.
+5. Import the [`us.population.csv`](https://github.com/axibase/atsd-use-cases/blob/master/USMortality/us.population.csv) into ATSD.
+6. Import the ([`city-size`](https://github.com/axibase/atsd-use-cases/blob/master/USMortality/city-size), [`us-regions`](https://github.com/axibase/atsd-use-cases/blob/master/USMortality/us-regions), 
+   and [`new-york-city-2010-population`](https://github.com/axibase/atsd-use-cases/blob/master/USMortality/new-york-city-2010-population) replacement tables into ATSD.
+7. Navigate to the SQL tab in ATSD and begin writing your queries!
+
+If you require assistance in installing this software or have any questions, please feel free to [contact us](https://axibase.com/feedback/) and we would be happy to be of assistance!
 
 ### Appendix: Death Statistics City List 
 ----------------------------------------
@@ -1500,4 +1550,9 @@ Worcester (MA)<br />
 Yonkers (NY)<br />
 Youngstown (OH)<br />
 
+### Sources
+-----------
+
+Article Title Photo: [http://www.governing.com/gov-data/pedestrian-deaths-poor-neighborhoods-report.html](http://www.governing.com/gov-data/pedestrian-deaths-poor-neighborhoods-report.html)
+Rust Belt Photo: [http://fountainheadauto.blogspot.ru/2014/09/trivia-time.html](http://fountainheadauto.blogspot.ru/2014/09/trivia-time.html)
 
