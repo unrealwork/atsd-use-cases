@@ -1134,10 +1134,26 @@ the Rust Belt is an area of the United States which once served as the hub of Am
 and manufacturing industries. However, at the mid point of the century, many of these cities fell upon hard times, as manufacturing jobs went overseas with their populations declining as a result. 
 The website sums up the Rust Belt as a "landscape (that) is characterized by the presence of old factory towns and post-industrial skylines."
 
-![Figure 46](Images/Figure46.png)
+ <img src="Images/Figure46.png" width="500" >
 
-Along with Detroit (MI) and Gary (IN), Youngstown (OH) is a to showcase the rise and fall of manufacturing in the United States. 
+Along with Detroit (MI) and Gary (IN), Youngstown (OH) is a to showcase the rise and fall of manufacturing in the United States. Youngstown was once a city where steel was king. Steel 
+dominated every aspect of life, and as this industry grew, so too did Youngstown.According to the [Hampton Institute](http://www.hamptoninstitution.org/youngstown.html#.WE6P3URVZhE), the 
+population of Youngstown grew from 33,000 in 1890 to 170,000 in 1930. Youngstown became the center of Mahoning Valley, which became to be known as the "Steel Valley." By the 1930's, Youngstown
+ranked fifth in the nation in terms of home ownership. However, the glory of Youngstown was short lived. According to [encyclopedia.com](http://www.encyclopedia.com/places/united-states-and-canada/miscellaneous-us-geography/rust-belt):
 
+"The U.S. worldwide market share of manufactured steel went from 20 percent in 1970 to 12 percent by 1990, and American employment in the industry dropped from 400,000 to 140,000 over the 
+same period. Starting in the late 1970s, steel factories began closing. Among the hardest hit of the communities was Youngstown, Ohio, where the closure of three steel mills starting in 
+1977 eliminated nearly 10,000 high-paying jobs."
+
+The loss of the manufacturing industry has been devastating for Youngstown. Large swaths of the population moved out. Crime soared in the city. The [crime rate](http://www.city-data.com/city/Youngstown-Ohio.html) in
+Youngstown in 2014 was **496.3**, compared to 287.5 for the U.S. as a whole.
+
+Here are some numbers from [census.gov](http://www.census.gov/quickfacts/table/LFE041215/00,3988000) comparing Youngstown (OH) to the United States as a whole:
+
+Persons aged 65 and over, percent April 1 2010 (percent): **15.8%** vs 13.0%
+Persons without health insurance, under age 65 (percent): **15.0%** vs 10.5%
+Persons in poverty (percent): **38.3%** vs 13.5%
+Per capita income in past 12 monts (in 2015 dolloars), 2011-2015: **$15,056** vs $28,930
 
 Mortality rates in New York (fixed pop size, provisional):
 
