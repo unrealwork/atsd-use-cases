@@ -320,7 +320,7 @@ Below is an output for this data.
 
 Maneuvering through the entity and searching for our desired data can be very time consuming. Now, let us look at building a simple SQL query which will do the work for us.
 
-**SQL query for recent pneumonia and influenza deaths in Boston, Massachusetts**
+Here is an SQL query looking at recent pneumonia and influenza deaths in Boston, Massachusetts.
 
 ```sql
 SELECT datetime, value, tags.*
@@ -811,7 +811,7 @@ GROUP BY tot.tags
   OPTION (ROW_MEMORY_THRESHOLD 500000)
 ```
 
-In this example, we did not specify a line for `tot.datetime`, as we did in the previous example. As a result, results are returned for all times ranging back to the start of the dataset.
+In this example, we did not specify a line for `tot.datetime`, as we did in the previous example. Consequentially, results are returned for all times ranging back to the start of the dataset.
 
 ```ls
 | city          | state  | region              | all_deaths  | pneumonia_influenza_deaths  | pneumonia_influenza_deaths, %  | population | 
@@ -823,9 +823,9 @@ In this example, we did not specify a line for `tot.datetime`, as we did in the 
 | Grand Rapids  | MI     | East-North-Central  | 140092.0    | 12451.0                     | 8.9                            | 195097     | 
 ```
 
-Now we will look at several queries which again analyze pneumonia and influenza deaths. 
+Below are a few more examples of pneumonia and influenza death queries. 
 
-Number of pneumonia and influenza deaths per month, in Midwest:
+Number of pneumonia and influenza deaths per month in 2016 in the East-North-Central (`tags.region = '3'`) region:
 
 ```sql
 SELECT date_format(time, 'yyyy MMM') as 'date',
@@ -854,7 +854,7 @@ ORDER BY datetime desc, tags.region
 | 2016 Jan  | East-North-Central  | 732.0                      | 
 ```
 
-Total yearly pneumonia and influenza deaths in January for region 3 (ranging back to 1970):
+Total yearly pneumonia and influenza deaths in January for the East-North-Central region ranging back to 1970:
 
 ```sql
 SELECT date_format(time, 'yyyy MMM') as 'date',
@@ -885,7 +885,7 @@ ORDER BY datetime, tags.region
 | 1980 Jan  | East-North-Central  | 249.0                      | 
 ```
 
-Top 3 deadliest pneumonia and influenza Januaries in region 3:
+Top 3 deadliest pneumonia and influenza Januaries in the East-North-Central region:
 
 ```sql
 SELECT date_format(time, 'yyyy MMM') as 'date',
@@ -909,7 +909,7 @@ ORDER BY sum(value) desc
 | 2015 Jan  | East-North-Central  | 1203.0                     | 
 ```
 
-Deadliest pneumonia and influenza month by region:
+Deadliest pneumonia and influenza by month in the Pacific region:
 
 ```sql
 SELECT date_format(time, 'MMM') AS 'Month',
@@ -917,17 +917,54 @@ SELECT date_format(time, 'MMM') AS 'Month',
   sum(value) as 'pneumonia_influenza_deaths'
 FROM cdc.pneumonia_and_influenza_deaths
   WHERE entity = 'mr8w-325u' and tags.city IS NOT NULL
+  AND LOOKUP('us-region', tags.region) = 'Pacific'
 GROUP BY tags.region, date_format(time, 'MMM')
-  ORDER BY sum(value) DESC
+ORDER BY sum(value) DESC
   OPTION (ROW_MEMORY_THRESHOLD 500000)
 ```
 
-
+```ls
+| Month  | region   | pneumonia_influenza_deaths | 
+|--------|----------|----------------------------| 
+| Jan    | Pacific  | 32144.0                    | 
+| Mar    | Pacific  | 30288.0                    | 
+| Feb    | Pacific  | 28677.0                    | 
+| Apr    | Pacific  | 25047.0                    | 
+| Dec    | Pacific  | 23639.0                    | 
+| May    | Pacific  | 22972.0                    | 
+| Jun    | Pacific  | 20664.0                    | 
+| Jul    | Pacific  | 20374.0                    | 
+| Oct    | Pacific  | 19626.0                    | 
+| Nov    | Pacific  | 19363.0                    | 
+| Aug    | Pacific  | 19279.0                    | 
+| Sep    | Pacific  | 18611.0                    | 
+```
 
 ### Example 3 - Calculating Mortality Rates
 -------------------------------------------
 
-Cities with the highest mortality rate:
+We have spent some time looking at relatively straight forward SQL queries to look at our dataset for the total number of deaths, total number of deaths caused by pneumonia and influenza, and ranking
+these results in terms of the deadliest month, region, or city. Now let us delve into computing mortality statistics for our dataset. According to the [CIA World Factbook](https://www.cia.gov/library/publications/the-world-factbook/rankorder/2066rank.html), the Mortality (or Death)
+rate is the average annual number of deaths during a year per 1,000 individuals in the population. Below is a table from their website showing the top 10 death rates in the world. In 2016, the United
+States as a whole ranks 90th in the world, with a rate of 8.20 deaths per 1,000 individuals.    
+
+| Rank | Country       | (DEATHS/1,000 POPULATION) | Date of Information | 
+|------|---------------|---------------------------|---------------------| 
+| 1    | Lesotho       | 14.90                     | 2016 est.           | 
+| 2    | Bulgaria      | 14.50                     | 2016 est.           | 
+| 3    | Lithuania     | 14.50                     | 2016 est.           | 
+| 4    | Ukraine       | 14.40                     | 2016 est.           | 
+| 5    | Latvia        | 14.40                     | 2016 est.           | 
+| 6    | Guinea-Bissau | 14.10                     | 2016 est.           | 
+| 7    | Chad          | 14.00                     | 2016 est.           | 
+| 8    | Afghanistan   | 13.70                     | 2016 est.           | 
+| 9    | Serbia        | 13.60                     | 2016 est.           | 
+| 10   | Russia        | 13.60                     | 2016 est.           | 
+
+
+To calculate our own mortality rates for a city in a given year, we need to simply divide the total number of deaths in the city by the population and multiply the result by 1,000.
+
+Below is our SQL query for determining the cities with the highest mortality rate in 2015.
 
 ```sql
 SELECT tags.city as 'city', tags.state as 'state', 
@@ -941,6 +978,28 @@ FROM cdc.all_deaths
 GROUP BY tags
 ORDER BY mortality_rate DESC
 ```
+
+Here is our line in the query which calculates our mortality rate:
+
+```sql
+sum(value)/cast(LOOKUP('city-size', concat(tags.city, ',', tags.state)))*1000 AS 'mortality_rate'
+```
+
+Here is the output from our query looking at mortality rates in 2015. These results are pretty eye opening. Of the 122 cities in our dataset, 95 have higher mortality rates than the US average
+of 8.2. The highest 2015 mortality rate, in Youngstown, Ohio, is **6.65** and **3.65** times higher than the US national average and the rate in Lesotho (which has the highest number in the world)
+respectively. #2 on our list is Dayton, Ohio, whose mortality rate of 52.1 is not much lower than in Youngstown. How can these numbers be so high?
+
+Below is a table comparing population estimates for top 6 cities with the highest 2015 mortality rates.  
+
+| City           |  1960 Population  |     2015 Population | Population Change (%)|
+|----------------------------------------------------------| ---------------------|
+| Youngstown     |    166,689        |     64,628          | 61.2 (-)             |
+| Dayton         |    262,332        |     140,599         | 46.4 (-)             |
+| Birmingham     |    340,887        |     212,461         | 37.7 (-)             |
+| Salt Lake City |    189,454        |     192,672         | 1.6 (+)              |
+| Cleveland      |    876,050        |     388,072         | 55.7 (-)             |
+| Rochester      |    318,611        |     209,802         | 34.2 (-)             |
+
 
 ```ls
 | city              | state  | region              | all_deaths  | population  | mortality_rate | 
