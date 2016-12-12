@@ -287,9 +287,7 @@ dataset.
 ### SQL Example 1 - Pneumonia and Influenza Deaths in Boston
 ------------------------------------------------------------
 
-
-
-Let us begin by running through a simple query looking at pneumonia and influenza deaths in Boston, Massachusetts. An output for this configuration is shown below. 
+Let us begin by running through a simple query looking at pneumonia and influenza deaths in Boston, Massachusetts. An output for this configuration is shown below.
 
 ![Figure 36](Images/Figure36.png)
 
@@ -321,6 +319,8 @@ Below is an output for this data.
 ![Figure 42](Images/Figure42.png)
 
 Maneuvering through the entity and searching for our desired data can be very time consuming. Now, let us look at building a simple SQL query which will do the work for us.
+
+**Note**: If you are new to writing SQL queries, please begin by first navigating to our section in the Appendix called Basic Queries 
 
 Here is an SQL query looking at recent pneumonia and influenza deaths in Boston, Massachusetts.
 
@@ -1418,7 +1418,7 @@ Below are the summarized steps to follow to install local configurations of ATSD
 3. Import the [`job.xml`](https://github.com/axibase/atsd-use-cases/blob/master/USMortality/jobs.xml) file into Axibase Collector.
 4. Import the [`parser.xml`](https://github.com/axibase/atsd-use-cases/blob/master/USMortality/parser.xml) file into ATSD.
 5. Import the [`us.population.csv`](https://github.com/axibase/atsd-use-cases/blob/master/USMortality/us.population.csv) into ATSD.
-6. Import the ([`city-size`](https://github.com/axibase/atsd-use-cases/blob/master/USMortality/city-size), [`us-regions`](https://github.com/axibase/atsd-use-cases/blob/master/USMortality/us-regions), 
+6. Import the [`city-size`](https://github.com/axibase/atsd-use-cases/blob/master/USMortality/city-size), [`us-regions`](https://github.com/axibase/atsd-use-cases/blob/master/USMortality/us-regions), 
    and [`new-york-city-2010-population`](https://github.com/axibase/atsd-use-cases/blob/master/USMortality/new-york-city-2010-population) replacement tables into ATSD.
 7. Navigate to the SQL tab in ATSD and begin writing your queries!
 
@@ -1550,9 +1550,91 @@ Worcester (MA)<br />
 Yonkers (NY)<br />
 Youngstown (OH)<br />
 
+### Basic Queries
+-----------------
+
+```sql
+SELECT *
+  FROM cdc.all_deaths tot
+LIMIT 10
+```
+
+Description: 
+
+1. Display 10 rows for the metric to see which series tags are available.
+
+```sql
+SELECT *
+  FROM cdc.all_deaths tot
+  ORDER BY datetime, tags.city
+LIMIT 10
+```
+
+Description: 
+
+1. Order rows by date and city and limit the response to 10 rows.
+
+```sql
+SELECT *
+  FROM cdc.all_deaths tot
+WHERE tags.city = 'Boston'
+  ORDER BY datetime
+LIMIT 10
+```
+
+Description: 
+
+1. Filter records for a particular city and order rows by date.
+2. Limit the response to 10 rows.
+
+```sql
+SELECT datetime, value, tags.*
+  FROM cdc.all_deaths tot
+WHERE tags.city = 'Boston'
+  AND datetime >= '2016-01-01T00:00:00Z'
+  ORDER BY datetime
+LIMIT 10
+```
+
+Description:
+
+1. Filter records for a particular city (in this case Boston).
+2. Filter records for a timespan (in this case retrieve samples from 2016 and older).
+3. Order rows by date and limit the response to 10 rows.
+
+```sql
+SELECT date_format(period(1 MONTH)), sum(value), count(value)
+  FROM cdc.all_deaths tot
+WHERE tags.city = 'Boston'
+  AND datetime >= '2016-01-01T00:00:00Z'
+GROUP BY period(1 MONTH)
+  ORDER BY 1
+```
+
+Description:
+
+1. Filter records for a particular city and time.
+2. Aggregate weekly samples into months and calculate the sum and count of samples in each month.
+3. Order rows by month start, referring to the date with the column index.
+
+```sql
+SELECT date_format(period(1 MONTH)), sum(value), count(value)
+  FROM cdc.all_deaths tot
+WHERE tags.city = 'Boston'
+  AND datetime >= '2016-01-01T00:00:00Z'
+GROUP BY period(1 MONTH)
+  HAVING count(value) >= 4
+ORDER BY datetime
+```
+
+Description:
+
+1. Filter records for a particular city and time.
+2. Aggregate weekly samples into months and calculate sum and count of samples in each month.
+3. Exclude months with less than 4 weekly samples (October 2016 has only 1 row).
+
 ### Sources
 -----------
 
-Article Title Photo: [http://www.governing.com/gov-data/pedestrian-deaths-poor-neighborhoods-report.html](http://www.governing.com/gov-data/pedestrian-deaths-poor-neighborhoods-report.html)
-Rust Belt Photo: [http://fountainheadauto.blogspot.ru/2014/09/trivia-time.html](http://fountainheadauto.blogspot.ru/2014/09/trivia-time.html)
-
+Article Title Photo: [http://www.governing.com/gov-data/pedestrian-deaths-poor-neighborhoods-report.html](http://www.governing.com/gov-data/pedestrian-deaths-poor-neighborhoods-report.html)<br />
+Rust Belt Photo: [http://fountainheadauto.blogspot.ru/2014/09/trivia-time.html](http://fountainheadauto.blogspot.ru/2014/09/trivia-time.html)<br />
