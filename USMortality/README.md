@@ -604,6 +604,19 @@ FROM cdc.all_deaths tot
   OPTION (ROW_MEMORY_THRESHOLD 500000)
 ```
 
+```
+| date        | city         | state  | region              | all_deaths  | pneumonia_influenza_deaths  | pneumonia_influenza_deaths, %  | population | 
+|-------------|--------------|--------|---------------------|-------------|-----------------------------|--------------------------------|------------| 
+| 2002-05-18  | Glendale     | CA     | Pacific             | 26.0        | 26.0                        | 100.0                          | 201020     | 
+| 2005-03-12  | New Orleans  | LA     | West-South-Central  | 12.0        | 12.0                        | 100.0                          | 389617     | 
+| 2003-10-18  | Birmingham   | AL     | East-South-Central  | 9.0         | 9.0                         | 100.0                          | 212461     | 
+| 1995-05-27  | Nashville    | TN     | East-South-Central  | 9.0         | 9.0                         | 100.0                          | 654610     | 
+| 2015-06-20  | Washington   | DC     | South-Atlantic      | 8.0         | 8.0                         | 100.0                          | 672228     | 
+| 1988-02-13  | Little Rock  | AR     | West-South-Central  | 7.0         | 7.0                         | 100.0                          | 197992     | 
+| 2000-12-16  | Trenton      | NJ     | Middle-Atlantic     | 3.0         | 3.0                         | 100.0                          | 84225      | 
+| 2003-06-28  | Akron        | OH     | East-North-Central  | 2.0         | 2.0                         | 100.0                          | 197542     | 
+```
+
 Here a few noteworthy points regarding this query.
 
 1) This query has the same structure as for the query directly above, but 2 metrics are specified: `cdc.pneumonia_and_influenza_deaths` AND `cdc.all_deaths`.<br />
@@ -743,7 +756,7 @@ In this query, we are able to calculate the percentage of pneumonia and influenz
 | Los Angeles  | CA     | Pacific             | 11934.0     | 1147.0                      | 9.6                            | 3971883    | 
 ```
 
-Top 10 cities with the highest percentage of deaths caused by pneumonia and influenza, for the last 12 months (trailing).
+Here is a query for the top 10 cities with the highest percentage of deaths caused by pneumonia and influenza, for the last 12 months (trailing).
 
 ```sql
 SELECT tot.tags.city as 'city', tot.tags.state as 'state', 
@@ -798,6 +811,18 @@ GROUP BY tot.tags
   OPTION (ROW_MEMORY_THRESHOLD 500000)
 ```
 
+In this example, we did not specify a line for `tot.datetime`, as we did in the previous example. As a result, results are returned for all times ranging back to the start of the dataset.
+
+```ls
+| city          | state  | region              | all_deaths  | pneumonia_influenza_deaths  | pneumonia_influenza_deaths, %  | population | 
+|---------------|--------|---------------------|-------------|-----------------------------|--------------------------------|------------| 
+| Cambridge     | MA     | New-England         | 51209.0     | 6090.0                      | 11.9                           | 110402     | 
+| Worcester     | MA     | New-England         | 144668.0    | 14404.0                     | 10.0                           | 184815     | 
+| Santa Cruz    | CA     | Pacific             | 40367.0     | 3959.0                      | 9.8                            | 64220      | 
+| Boston        | MA     | New-England         | 407382.0    | 36691.0                     | 9.0                            | 667137     | 
+| Grand Rapids  | MI     | East-North-Central  | 140092.0    | 12451.0                     | 8.9                            | 195097     | 
+```
+
 Now we will look at several queries which again analyze pneumonia and influenza deaths. 
 
 Number of pneumonia and influenza deaths per month, in Midwest:
@@ -812,10 +837,24 @@ FROM cdc.pneumonia_and_influenza_deaths
   AND datetime > now-5*year AND datetime < '2016-10-01T00:00:00Z'
 GROUP BY tags.region, period(1 MONTH)
 ORDER BY datetime desc, tags.region
-  OPTION (ROW_MEMORY_THRESHOLD 500000)+
+  OPTION (ROW_MEMORY_THRESHOLD 500000)
 ```
 
-Total pneumonia and influenza deaths in January for region 3:
+```ls
+| date      | region              | pneumonia_influenza_deaths | 
+|-----------|---------------------|----------------------------| 
+| 2016 Sep  | East-North-Central  | 476.0                      | 
+| 2016 Aug  | East-North-Central  | 430.0                      | 
+| 2016 Jul  | East-North-Central  | 529.0                      | 
+| 2016 Jun  | East-North-Central  | 425.0                      | 
+| 2016 May  | East-North-Central  | 566.0                      | 
+| 2016 Apr  | East-North-Central  | 812.0                      | 
+| 2016 Mar  | East-North-Central  | 633.0                      | 
+| 2016 Feb  | East-North-Central  | 578.0                      | 
+| 2016 Jan  | East-North-Central  | 732.0                      | 
+```
+
+Total yearly pneumonia and influenza deaths in January for region 3 (ranging back to 1970):
 
 ```sql
 SELECT date_format(time, 'yyyy MMM') as 'date',
@@ -828,6 +867,22 @@ FROM cdc.pneumonia_and_influenza_deaths
 GROUP BY tags.region, period(1 MONTH)
 ORDER BY datetime, tags.region
   OPTION (ROW_MEMORY_THRESHOLD 500000)
+```
+
+```ls
+| date      | region              | pneumonia_influenza_deaths | 
+|-----------|---------------------|----------------------------| 
+| 1970 Jan  | East-North-Central  | 526.0                      | 
+| 1971 Jan  | East-North-Central  | 457.0                      | 
+| 1972 Jan  | East-North-Central  | 764.0                      | 
+| 1973 Jan  | East-North-Central  | 479.0                      | 
+| 1974 Jan  | East-North-Central  | 289.0                      | 
+| 1975 Jan  | East-North-Central  | 384.0                      | 
+| 1976 Jan  | East-North-Central  | 368.0                      | 
+| 1977 Jan  | East-North-Central  | 346.0                      | 
+| 1978 Jan  | East-North-Central  | 547.0                      | 
+| 1979 Jan  | East-North-Central  | 303.0                      | 
+| 1980 Jan  | East-North-Central  | 249.0                      | 
 ```
 
 Top 3 deadliest pneumonia and influenza Januaries in region 3:
@@ -846,6 +901,14 @@ ORDER BY sum(value) desc
   OPTION (ROW_MEMORY_THRESHOLD 500000)
 ```  
 
+```ls
+| date      | region              | pneumonia_influenza_deaths | 
+|-----------|---------------------|----------------------------| 
+| 2000 Jan  | East-North-Central  | 1292.0                     | 
+| 2004 Jan  | East-North-Central  | 1279.0                     | 
+| 2015 Jan  | East-North-Central  | 1203.0                     | 
+```
+
 Deadliest pneumonia and influenza month by region:
 
 ```sql
@@ -858,6 +921,8 @@ GROUP BY tags.region, date_format(time, 'MMM')
   ORDER BY sum(value) DESC
   OPTION (ROW_MEMORY_THRESHOLD 500000)
 ```
+
+
 
 ### Example 3 - Calculating Mortality Rates
 -------------------------------------------
@@ -875,6 +940,131 @@ FROM cdc.all_deaths
   AND datetime >= '2015-01-01T00:00:00Z' AND datetime < '2016-01-01T00:00:00Z'
 GROUP BY tags
 ORDER BY mortality_rate DESC
+```
+
+```ls
+| city              | state  | region              | all_deaths  | population  | mortality_rate | 
+|-------------------|--------|---------------------|-------------|-------------|----------------| 
+| Youngstown        | OH     | East-North-Central  | 3523.0      | 64628.0     | 54.5           | 
+| Dayton            | OH     | East-North-Central  | 7328.0      | 140599.0    | 52.1           | 
+| Birmingham        | AL     | East-South-Central  | 9385.0      | 212461.0    | 44.2           | 
+| Salt Lake City    | UT     | Mountain            | 7377.0      | 192672.0    | 38.3           | 
+| Cleveland         | OH     | East-North-Central  | 14320.0     | 388072.0    | 36.9           | 
+| Rochester         | NY     | Middle-Atlantic     | 7439.0      | 209802.0    | 35.5           | 
+| Knoxville         | TN     | East-South-Central  | 6273.0      | 185291.0    | 33.9           | 
+| Tacoma            | WA     | Pacific             | 7021.0      | 207948.0    | 33.8           | 
+| Syracuse          | NY     | Middle-Atlantic     | 4150.0      | 144142.0    | 28.8           | 
+| Little Rock       | AR     | West-South-Central  | 5673.0      | 197992.0    | 28.7           | 
+| Albany            | NY     | Middle-Atlantic     | 2729.0      | 98469.0     | 27.7           | 
+| Erie              | PA     | Middle-Atlantic     | 2746.0      | 99475.0     | 27.6           | 
+| Chattanooga       | TN     | East-South-Central  | 4851.0      | 176588.0    | 27.5           | 
+| Santa Cruz        | CA     | Pacific             | 1718.0      | 64220.0     | 26.8           | 
+| South Bend        | IN     | East-North-Central  | 2710.0      | 101516.0    | 26.7           | 
+| Peoria            | IL     | East-North-Central  | 3046.0      | 115070.0    | 26.5           | 
+| Las Vegas         | NV     | Mountain            | 16294.0     | 623747.0    | 26.1           | 
+| Sacramento        | CA     | Pacific             | 12056.0     | 490712.0    | 24.6           | 
+| Canton            | OH     | East-North-Central  | 1757.0      | 71885.0     | 24.4           | 
+| Mobile            | AL     | East-South-Central  | 4675.0      | 194288.0    | 24.1           | 
+| Hartford          | CT     | New-England         | 2947.0      | 124006.0    | 23.8           | 
+| Lansing           | MI     | East-North-Central  | 2696.0      | 115056.0    | 23.4           | 
+| Ogden             | UT     | Mountain            | 1964.0      | 85444.0     | 23.0           | 
+| Evansville        | IN     | East-North-Central  | 2735.0      | 119943.0    | 22.8           | 
+| Savannah          | GA     | South-Atlantic      | 3248.0      | 145674.0    | 22.3           | 
+| Rockford          | IL     | East-North-Central  | 3262.0      | 148278.0    | 22.0           | 
+| Baton Rouge       | LA     | West-South-Central  | 5002.0      | 228590.0    | 21.9           | 
+| Duluth            | MN     | West-North-Central  | 1717.0      | 86110.0     | 19.9           | 
+| Camden            | NJ     | Middle-Atlantic     | 1482.0      | 76119.0     | 19.5           | 
+| Providence        | RI     | New-England         | 3439.0      | 179207.0    | 19.2           | 
+| Reading           | PA     | Middle-Atlantic     | 1823.0      | 97879.0     | 18.6           | 
+| Spokane           | WA     | Pacific             | 3951.0      | 213272.0    | 18.5           | 
+| Worcester         | MA     | New-England         | 3397.0      | 184815.0    | 18.4           | 
+| Shreveport        | LA     | West-South-Central  | 3595.0      | 197204.0    | 18.2           | 
+| Toledo            | OH     | East-North-Central  | 5086.0      | 279789.0    | 18.2           | 
+| Scranton          | PA     | Middle-Atlantic     | 1399.0      | 77118.0     | 18.1           | 
+| Atlanta           | GA     | South-Atlantic      | 8288.0      | 463878.0    | 17.9           | 
+| Buffalo           | NY     | Middle-Atlantic     | 4607.0      | 258071.0    | 17.9           | 
+| Schenectady       | NY     | Middle-Atlantic     | 1165.0      | 65305.0     | 17.8           | 
+| Grand Rapids      | MI     | East-North-Central  | 3324.0      | 195097.0    | 17.0           | 
+| Tampa             | FL     | South-Atlantic      | 6255.0      | 369075.0    | 16.9           | 
+| Tucson            | AZ     | Mountain            | 8981.0      | 531641.0    | 16.9           | 
+| Tulsa             | OK     | West-South-Central  | 6795.0      | 403505.0    | 16.8           | 
+| Fort Wayne        | IN     | East-North-Central  | 4351.0      | 260326.0    | 16.7           | 
+| Boise             | ID     | Mountain            | 3431.0      | 218281.0    | 15.7           | 
+| Columbus          | OH     | East-North-Central  | 13046.0     | 850106.0    | 15.3           | 
+| Saint Louis       | MO     | West-North-Central  | 4821.0      | 315685.0    | 15.3           | 
+| Memphis           | TN     | East-South-Central  | 9888.0      | 655770.0    | 15.1           | 
+| Fall River        | MA     | New-England         | 1328.0      | 88777.0     | 15.0           | 
+| Pueblo            | CO     | Mountain            | 1624.0      | 109412.0    | 14.8           | 
+| Waterbury         | CT     | New-England         | 1577.0      | 108802.0    | 14.5           | 
+| New Haven         | CT     | New-England         | 1887.0      | 130322.0    | 14.5           | 
+| Lexington         | KY     | East-South-Central  | 4539.0      | 314488.0    | 14.4           | 
+| Akron             | OH     | East-North-Central  | 2839.0      | 197542.0    | 14.4           | 
+| Montgomery        | AL     | East-South-Central  | 2862.0      | 200602.0    | 14.3           | 
+| Cincinnati        | OH     | East-North-Central  | 4240.0      | 298550.0    | 14.2           | 
+| Saint Petersburg  | FL     | South-Atlantic      | 3481.0      | 257083.0    | 13.5           | 
+| Nashville         | TN     | East-South-Central  | 8806.0      | 654610.0    | 13.5           | 
+| Fresno            | CA     | Pacific             | 6954.0      | 520052.0    | 13.4           | 
+| Richmond          | VA     | South-Atlantic      | 2938.0      | 220289.0    | 13.3           | 
+| Allentown         | PA     | Middle-Atlantic     | 1595.0      | 120207.0    | 13.3           | 
+| New Bedford       | MA     | New-England         | 1259.0      | 94958.0     | 13.3           | 
+| Utica             | NY     | Middle-Atlantic     | 800.0       | 61100.0     | 13.1           | 
+| Wichita           | KS     | West-North-Central  | 4937.0      | 389965.0    | 12.7           | 
+| Springfield       | MA     | New-England         | 1896.0      | 154341.0    | 12.3           | 
+| Kansas City       | MO     | West-North-Central  | 5654.0      | 475378.0    | 11.9           | 
+| Albuquerque       | NM     | Mountain            | 6649.0      | 559121.0    | 11.9           | 
+| Indianapolis      | IN     | East-North-Central  | 10079.0     | 853173.0    | 11.8           | 
+| Trenton           | NJ     | Middle-Atlantic     | 987.0       | 84225.0     | 11.7           | 
+| Baltimore         | MD     | South-Atlantic      | 7229.0      | 621849.0    | 11.6           | 
+| Omaha             | NE     | West-North-Central  | 5119.0      | 443885.0    | 11.5           | 
+| Detroit           | MI     | East-North-Central  | 7788.0      | 677116.0    | 11.5           | 
+| Boston            | MA     | New-England         | 7669.0      | 667137.0    | 11.5           | 
+| Lowell            | MA     | New-England         | 1212.0      | 110699.0    | 10.9           | 
+| Bridgeport        | CT     | New-England         | 1595.0      | 147629.0    | 10.8           | 
+| Honolulu          | HI     | Pacific             | 4323.0      | 402500.0    | 10.7           | 
+| San Jose          | CA     | Pacific             | 10894.0     | 1026908.0   | 10.6           | 
+| Portland          | OR     | Pacific             | 6707.0      | 632309.0    | 10.6           | 
+| Corpus Christi    | TX     | West-South-Central  | 3427.0      | 324074.0    | 10.6           | 
+| Saint Paul        | MN     | West-North-Central  | 3124.0      | 300851.0    | 10.4           | 
+| San Antonio       | TX     | West-South-Central  | 14858.0     | 1469845.0   | 10.1           | 
+| Kansas City       | KS     | West-North-Central  | 1521.0      | 151306.0    | 10.1           | 
+| Jacksonville      | FL     | South-Atlantic      | 8318.0      | 868031.0    | 9.6            | 
+| Glendale          | CA     | Pacific             | 1891.0      | 201020.0    | 9.4            | 
+| Norfolk           | VA     | South-Atlantic      | 2313.0      | 246393.0    | 9.4            | 
+| Lincoln           | NE     | West-North-Central  | 2571.0      | 277348.0    | 9.3            | 
+| Pasadena          | CA     | Pacific             | 1312.0      | 142250.0    | 9.2            | 
+| Charlotte         | NC     | South-Atlantic      | 7589.0      | 827097.0    | 9.2            | 
+| Wilimington       | DE     | South-Atlantic      | 651.0       | 71948.0     | 9.0            | 
+| Dallas            | TX     | West-South-Central  | 11252.0     | 1300092.0   | 8.7            | 
+| Minneapolis       | MN     | West-North-Central  | 3556.0      | 410939.0    | 8.7            | 
+| Colorado Springs  | CO     | Mountain            | 3902.0      | 456568.0    | 8.5            | 
+| New Orleans       | LA     | West-South-Central  | 3317.0      | 389617.0    | 8.5            | 
+| Gary              | IN     | East-North-Central  | 649.0       | 77156.0     | 8.4            | 
+| Washington        | DC     | South-Atlantic      | 5620.0      | 672228.0    | 8.4            | 
+| El Paso           | TX     | West-South-Central  | 5633.0      | 681124.0    | 8.3            | 
+| Miami             | FL     | South-Atlantic      | 3490.0      | 441003.0    | 7.9            | 
+| Houston           | TX     | West-South-Central  | 18294.0     | 2327463.0   | 7.9            | 
+| Long Beach        | CA     | Pacific             | 3348.0      | 474140.0    | 7.1            | 
+| Milwaukee         | WI     | East-North-Central  | 4228.0      | 600155.0    | 7.0            | 
+| Cambridge         | MA     | New-England         | 771.0       | 110402.0    | 7.0            | 
+| San Francisco     | CA     | Pacific             | 6013.0      | 864816.0    | 7.0            | 
+| Newark            | NJ     | Middle-Atlantic     | 1945.0      | 281944.0    | 6.9            | 
+| Elizabeth         | NJ     | Middle-Atlantic     | 859.0       | 129007.0    | 6.7            | 
+| Seattle           | WA     | Pacific             | 4551.0      | 684451.0    | 6.6            | 
+| San Diego         | CA     | Pacific             | 8897.0      | 1394928.0   | 6.4            | 
+| New York          | NY     | Middle-Atlantic     | 54301.0     | 8550405.0   | 6.4            | 
+| Denver            | CO     | Mountain            | 4264.0      | 682545.0    | 6.2            | 
+| Phoenix           | AZ     | Mountain            | 9480.0      | 1563025.0   | 6.1            | 
+| Berkeley          | CA     | Pacific             | 716.0       | 120971.0    | 5.9            | 
+| Austin            | TX     | West-South-Central  | 5150.0      | 931830.0    | 5.5            | 
+| Paterson          | NJ     | Middle-Atlantic     | 798.0       | 147754.0    | 5.4            | 
+| Chicago           | IL     | East-North-Central  | 14227.0     | 2720546.0   | 5.2            | 
+| Yonkers           | NY     | Middle-Atlantic     | 923.0       | 201116.0    | 4.6            | 
+| Lynn              | MA     | New-England         | 386.0       | 92457.0     | 4.2            | 
+| Pittsburgh        | PA     | Middle-Atlantic     | 1153.0      | 304391.0    | 3.8            | 
+| Jersey City       | NJ     | Middle-Atlantic     | 991.0       | 264290.0    | 3.7            | 
+| Los Angeles       | CA     | Pacific             | 13887.0     | 3971883.0   | 3.5            | 
+| Somerville        | MA     | New-England         | 177.0       | 80318.0     | 2.2            | 
+| Des Moines        | IA     | West-North-Central  | 0.0         | 210330.0    | 0.0            | 
 ```
 
 Mortality rates in New York (fixed pop size, provisional):
@@ -904,6 +1094,57 @@ GROUP BY tot.tags, tot.period(1 year)
   HAVING sum(tot.value) > 0
 ORDER BY tot.tags.city, tot.datetime
   OPTION (ROW_MEMORY_THRESHOLD 500000)
+```
+
+```ls
+| tot.datetime              | city      | state  | region           | other_deaths  | infant_deaths  | 1-24_deaths  | 25-44_deaths  | 45-64_deaths  | 64+_deaths  | all_deaths  | population  | total_mortality_rate | 
+|---------------------------|-----------|--------|------------------|---------------|----------------|--------------|---------------|---------------|-------------|-------------|-------------|----------------------| 
+| 1970-01-01T00:00:00.000Z  | New York  | NY     | Middle-Atlantic  | 0.0           | 3243.0         | 2966.0       | 6323.0        | 23540.0       | 52021.0     | 88093.0     | 8550405.0   | 10.3                 | 
+| 1971-01-01T00:00:00.000Z  | New York  | NY     | Middle-Atlantic  | 0.0           | 2748.0         | 3140.0       | 6242.0        | 22769.0       | 51816.0     | 86715.0     | 8550405.0   | 10.1                 | 
+| 1972-01-01T00:00:00.000Z  | New York  | NY     | Middle-Atlantic  | 0.0           | 2333.0         | 3079.0       | 6182.0        | 22429.0       | 52436.0     | 86459.0     | 8550405.0   | 10.1                 | 
+| 1973-01-01T00:00:00.000Z  | New York  | NY     | Middle-Atlantic  | 0.0           | 2201.0         | 2947.0       | 5896.0        | 20727.0       | 50474.0     | 82245.0     | 8550405.0   | 9.6                  | 
+| 1974-01-01T00:00:00.000Z  | New York  | NY     | Middle-Atlantic  | 0.0           | 2117.0         | 2704.0       | 5460.0        | 19589.0       | 49867.0     | 79737.0     | 8550405.0   | 9.3                  | 
+| 1975-01-01T00:00:00.000Z  | New York  | NY     | Middle-Atlantic  | 0.0           | 2143.0         | 2377.0       | 5359.0        | 18781.0       | 47390.0     | 76050.0     | 8550405.0   | 8.9                  | 
+| 1976-01-01T00:00:00.000Z  | New York  | NY     | Middle-Atlantic  | 0.0           | 2048.0         | 2259.0       | 5287.0        | 18517.0       | 49016.0     | 77127.0     | 8550405.0   | 9.0                  | 
+| 1977-01-01T00:00:00.000Z  | New York  | NY     | Middle-Atlantic  | 0.0           | 1977.0         | 2143.0       | 5206.0        | 18170.0       | 48585.0     | 76081.0     | 8550405.0   | 8.9                  | 
+| 1978-01-01T00:00:00.000Z  | New York  | NY     | Middle-Atlantic  | 0.0           | 1824.0         | 1958.0       | 4954.0        | 17231.0       | 47020.0     | 72987.0     | 8550405.0   | 8.5                  | 
+| 1979-01-01T00:00:00.000Z  | New York  | NY     | Middle-Atlantic  | 0.0           | 1750.0         | 2047.0       | 4863.0        | 16566.0       | 46451.0     | 71677.0     | 8550405.0   | 8.4                  | 
+| 1980-01-01T00:00:00.000Z  | New York  | NY     | Middle-Atlantic  | 0.0           | 1683.0         | 2022.0       | 5363.0        | 16714.0       | 49927.0     | 75709.0     | 8550405.0   | 8.9                  | 
+| 1981-01-01T00:00:00.000Z  | New York  | NY     | Middle-Atlantic  | 0.0           | 1692.0         | 2013.0       | 5476.0        | 16240.0       | 48500.0     | 73921.0     | 8550405.0   | 8.6                  | 
+| 1982-01-01T00:00:00.000Z  | New York  | NY     | Middle-Atlantic  | 0.0           | 1679.0         | 1913.0       | 5517.0        | 15956.0       | 47850.0     | 72915.0     | 8550405.0   | 8.5                  | 
+| 1983-01-01T00:00:00.000Z  | New York  | NY     | Middle-Atlantic  | 0.0           | 1637.0         | 1903.0       | 5962.0        | 15939.0       | 49259.0     | 74700.0     | 8550405.0   | 8.7                  | 
+| 1984-01-01T00:00:00.000Z  | New York  | NY     | Middle-Atlantic  | 0.0           | 1536.0         | 1762.0       | 6377.0        | 15590.0       | 48246.0     | 73511.0     | 8550405.0   | 8.6                  | 
+| 1985-01-01T00:00:00.000Z  | New York  | NY     | Middle-Atlantic  | 0.0           | 1546.0         | 1732.0       | 7327.0        | 15644.0       | 48232.0     | 74481.0     | 8550405.0   | 8.7                  | 
+| 1986-01-01T00:00:00.000Z  | New York  | NY     | Middle-Atlantic  | 0.0           | 1638.0         | 1848.0       | 8303.0        | 15371.0       | 48443.0     | 75603.0     | 8550405.0   | 8.8                  | 
+| 1987-01-01T00:00:00.000Z  | New York  | NY     | Middle-Atlantic  | 0.0           | 1599.0         | 1857.0       | 9098.0        | 15451.0       | 48280.0     | 76285.0     | 8550405.0   | 8.9                  | 
+| 1988-01-01T00:00:00.000Z  | New York  | NY     | Middle-Atlantic  | 0.0           | 1759.0         | 2047.0       | 9654.0        | 15569.0       | 49694.0     | 78723.0     | 8550405.0   | 9.2                  | 
+| 1989-01-01T00:00:00.000Z  | New York  | NY     | Middle-Atlantic  | 0.0           | 1824.0         | 1895.0       | 9993.0        | 14828.0       | 47239.0     | 75779.0     | 8550405.0   | 8.9                  | 
+| 1990-01-01T00:00:00.000Z  | New York  | NY     | Middle-Atlantic  | 0.0           | 1614.0         | 1925.0       | 9711.0        | 14318.0       | 46140.0     | 73708.0     | 8550405.0   | 8.6                  | 
+| 1991-01-01T00:00:00.000Z  | New York  | NY     | Middle-Atlantic  | 1.0           | 1570.0         | 1901.0       | 9799.0        | 13687.0       | 44154.0     | 71112.0     | 8550405.0   | 8.3                  | 
+| 1992-01-01T00:00:00.000Z  | New York  | NY     | Middle-Atlantic  | 0.0           | 1420.0         | 1759.0       | 9795.0        | 13942.0       | 43903.0     | 70819.0     | 8550405.0   | 8.3                  | 
+| 1993-01-01T00:00:00.000Z  | New York  | NY     | Middle-Atlantic  | 2.0           | 1350.0         | 1737.0       | 9616.0        | 14057.0       | 46109.0     | 72871.0     | 8550405.0   | 8.5                  | 
+| 1994-01-01T00:00:00.000Z  | New York  | NY     | Middle-Atlantic  | 6.0           | 1300.0         | 1582.0       | 10043.0       | 14323.0       | 45169.0     | 72423.0     | 8550405.0   | 8.5                  | 
+| 1995-01-01T00:00:00.000Z  | New York  | NY     | Middle-Atlantic  | 2.0           | 1186.0         | 1453.0       | 9163.0        | 14193.0       | 44633.0     | 70630.0     | 8550405.0   | 8.3                  | 
+| 1996-01-01T00:00:00.000Z  | New York  | NY     | Middle-Atlantic  | 2.0           | 1017.0         | 1189.0       | 7227.0        | 13284.0       | 43674.0     | 66393.0     | 8550405.0   | 7.8                  | 
+| 1997-01-01T00:00:00.000Z  | New York  | NY     | Middle-Atlantic  | 1.0           | 924.0          | 1097.0       | 5536.0        | 12204.0       | 42941.0     | 62703.0     | 8550405.0   | 7.3                  | 
+| 1998-01-01T00:00:00.000Z  | New York  | NY     | Middle-Atlantic  | 0.0           | 862.0          | 997.0        | 4755.0        | 12133.0       | 42190.0     | 60937.0     | 8550405.0   | 7.1                  | 
+| 1999-01-01T00:00:00.000Z  | New York  | NY     | Middle-Atlantic  | 12.0          | 863.0          | 1044.0       | 4487.0        | 12304.0       | 43258.0     | 61968.0     | 8550405.0   | 7.2                  | 
+| 2000-01-01T00:00:00.000Z  | New York  | NY     | Middle-Atlantic  | 48.0          | 857.0          | 1000.0       | 4536.0        | 12383.0       | 43139.0     | 61963.0     | 8550405.0   | 7.2                  | 
+| 2001-01-01T00:00:00.000Z  | New York  | NY     | Middle-Atlantic  | 46.0          | 745.0          | 1107.0       | 5916.0        | 13192.0       | 41486.0     | 62492.0     | 8550405.0   | 7.3                  | 
+| 2002-01-01T00:00:00.000Z  | New York  | NY     | Middle-Atlantic  | 23.0          | 756.0          | 953.0        | 4304.0        | 12310.0       | 41361.0     | 59707.0     | 8550405.0   | 7.0                  | 
+| 2003-01-01T00:00:00.000Z  | New York  | NY     | Middle-Atlantic  | 180.0         | 775.0          | 951.0        | 3829.0        | 11982.0       | 39902.0     | 57619.0     | 8550405.0   | 6.7                  | 
+| 2004-01-01T00:00:00.000Z  | New York  | NY     | Middle-Atlantic  | 102.0         | 780.0          | 954.0        | 3605.0        | 12295.0       | 40762.0     | 58498.0     | 8550405.0   | 6.8                  | 
+| 2005-01-01T00:00:00.000Z  | New York  | NY     | Middle-Atlantic  | 53.0          | 774.0          | 988.0        | 3494.0        | 12387.0       | 40799.0     | 58495.0     | 8550405.0   | 6.8                  | 
+| 2006-01-01T00:00:00.000Z  | New York  | NY     | Middle-Atlantic  | 56.0          | 734.0          | 858.0        | 3311.0        | 11761.0       | 38562.0     | 55282.0     | 8550405.0   | 6.5                  | 
+| 2007-01-01T00:00:00.000Z  | New York  | NY     | Middle-Atlantic  | 63.0          | 677.0          | 798.0        | 3074.0        | 11692.0       | 37510.0     | 53814.0     | 8550405.0   | 6.3                  | 
+| 2008-01-01T00:00:00.000Z  | New York  | NY     | Middle-Atlantic  | 31.0          | 692.0          | 827.0        | 2939.0        | 11682.0       | 37371.0     | 53542.0     | 8550405.0   | 6.3                  | 
+| 2009-01-01T00:00:00.000Z  | New York  | NY     | Middle-Atlantic  | 19.0          | 690.0          | 793.0        | 2793.0        | 11547.0       | 36891.0     | 52733.0     | 8550405.0   | 6.2                  | 
+| 2010-01-01T00:00:00.000Z  | New York  | NY     | Middle-Atlantic  | 20.0          | 596.0          | 811.0        | 2571.0        | 11513.0       | 36953.0     | 52464.0     | 8550405.0   | 6.1                  | 
+| 2011-01-01T00:00:00.000Z  | New York  | NY     | Middle-Atlantic  | 23.0          | 585.0          | 799.0        | 2664.0        | 11700.0       | 38066.0     | 53837.0     | 8550405.0   | 6.3                  | 
+| 2012-01-01T00:00:00.000Z  | New York  | NY     | Middle-Atlantic  | 19.0          | 584.0          | 779.0        | 2549.0        | 11312.0       | 37094.0     | 52337.0     | 8550405.0   | 6.1                  | 
+| 2013-01-01T00:00:00.000Z  | New York  | NY     | Middle-Atlantic  | 10.0          | 575.0          | 748.0        | 2639.0        | 11383.0       | 38396.0     | 53751.0     | 8550405.0   | 6.3                  | 
+| 2014-01-01T00:00:00.000Z  | New York  | NY     | Middle-Atlantic  | 10.0          | 514.0          | 726.0        | 2524.0        | 11228.0       | 38227.0     | 53229.0     | 8550405.0   | 6.2                  | 
+| 2015-01-01T00:00:00.000Z  | New York  | NY     | Middle-Atlantic  | 11.0          | 517.0          | 727.0        | 2619.0        | 11118.0       | 39309.0     | 54301.0     | 8550405.0   | 6.4                  | 
 ```
 
 DESC:
@@ -949,6 +1190,130 @@ DESC:
 3) Cities without deaths are excluded with the `HAVING sum(tot.value) > 0 clause`.<br />
 4) Total mortality rate is calculated by dividing the number of all deaths by the 2015 city size, which is retrieved from a replacement table for 2015 to simplify the query.<br />
 
+```ls
+| city              | state  | region              | other_deaths  | infant_deaths  | 1-24_deaths  | 25-44_deaths  | 45-64_deaths  | 64+_deaths  | all_deaths  | population  | total_mortality_rate | 
+|-------------------|--------|---------------------|---------------|----------------|--------------|---------------|---------------|-------------|-------------|-------------|----------------------| 
+| Youngstown        | OH     | East-North-Central  | 0.0           | 29.0           | 39.0         | 109.0         | 609.0         | 2737.0      | 3523.0      | 64628.0     | 54.5                 | 
+| Dayton            | OH     | East-North-Central  | 0.0           | 80.0           | 111.0        | 398.0         | 1499.0        | 5240.0      | 7328.0      | 140599.0    | 52.1                 | 
+| Birmingham        | AL     | East-South-Central  | 1.0           | 213.0          | 231.0        | 660.0         | 2229.0        | 6051.0      | 9385.0      | 212461.0    | 44.2                 | 
+| Salt Lake City    | UT     | Mountain            | 1.0           | 162.0          | 195.0        | 552.0         | 1579.0        | 4888.0      | 7377.0      | 192672.0    | 38.3                 | 
+| Cleveland         | OH     | East-North-Central  | 0.0           | 208.0          | 185.0        | 666.0         | 3000.0        | 10261.0     | 14320.0     | 388072.0    | 36.9                 | 
+| Rochester         | NY     | Middle-Atlantic     | 0.0           | 96.0           | 112.0        | 275.0         | 1239.0        | 5717.0      | 7439.0      | 209802.0    | 35.5                 | 
+| Knoxville         | TN     | East-South-Central  | 0.0           | 91.0           | 84.0         | 329.0         | 1459.0        | 4310.0      | 6273.0      | 185291.0    | 33.9                 | 
+| Tacoma            | WA     | Pacific             | 0.0           | 65.0           | 123.0        | 340.0         | 1460.0        | 5033.0      | 7021.0      | 207948.0    | 33.8                 | 
+| Syracuse          | NY     | Middle-Atlantic     | 30.0          | 31.0           | 50.0         | 127.0         | 686.0         | 3226.0      | 4150.0      | 144142.0    | 28.8                 | 
+| Little Rock       | AR     | West-South-Central  | 0.0           | 128.0          | 131.0        | 328.0         | 1435.0        | 3651.0      | 5673.0      | 197992.0    | 28.7                 | 
+| Albany            | NY     | Middle-Atlantic     | 0.0           | 62.0           | 47.0         | 115.0         | 530.0         | 1975.0      | 2729.0      | 98469.0     | 27.7                 | 
+| Erie              | PA     | Middle-Atlantic     | 0.0           | 13.0           | 38.0         | 127.0         | 491.0         | 2077.0      | 2746.0      | 99475.0     | 27.6                 | 
+| Chattanooga       | TN     | East-South-Central  | 0.0           | 50.0           | 67.0         | 245.0         | 1093.0        | 3396.0      | 4851.0      | 176588.0    | 27.5                 | 
+| Santa Cruz        | CA     | Pacific             | 0.0           | 5.0            | 26.0         | 75.0          | 335.0         | 1277.0      | 1718.0      | 64220.0     | 26.8                 | 
+| South Bend        | IN     | East-North-Central  | 12.0          | 38.0           | 58.0         | 145.0         | 478.0         | 1979.0      | 2710.0      | 101516.0    | 26.7                 | 
+| Peoria            | IL     | East-North-Central  | 0.0           | 47.0           | 37.0         | 130.0         | 650.0         | 2182.0      | 3046.0      | 115070.0    | 26.5                 | 
+| Las Vegas         | NV     | Mountain            | 4.0           | 146.0          | 295.0        | 999.0         | 3770.0        | 11080.0     | 16294.0     | 623747.0    | 26.1                 | 
+| Sacramento        | CA     | Pacific             | 0.0           | 130.0          | 187.0        | 581.0         | 2527.0        | 8631.0      | 12056.0     | 490712.0    | 24.6                 | 
+| Canton            | OH     | East-North-Central  | 0.0           | 21.0           | 15.0         | 95.0          | 396.0         | 1230.0      | 1757.0      | 71885.0     | 24.4                 | 
+| Mobile            | AL     | East-South-Central  | 0.0           | 69.0           | 83.0         | 285.0         | 1152.0        | 3086.0      | 4675.0      | 194288.0    | 24.1                 | 
+| Hartford          | CT     | New-England         | 0.0           | 56.0           | 45.0         | 173.0         | 649.0         | 2024.0      | 2947.0      | 124006.0    | 23.8                 | 
+| Lansing           | MI     | East-North-Central  | 0.0           | 39.0           | 43.0         | 123.0         | 597.0         | 1894.0      | 2696.0      | 115056.0    | 23.4                 | 
+| Ogden             | UT     | Mountain            | 0.0           | 25.0           | 34.0         | 133.0         | 395.0         | 1377.0      | 1964.0      | 85444.0     | 23.0                 | 
+| Evansville        | IN     | East-North-Central  | 0.0           | 13.0           | 30.0         | 122.0         | 583.0         | 1987.0      | 2735.0      | 119943.0    | 22.8                 | 
+| Savannah          | GA     | South-Atlantic      | 0.0           | 79.0           | 96.0         | 179.0         | 760.0         | 2134.0      | 3248.0      | 145674.0    | 22.3                 | 
+| Rockford          | IL     | East-North-Central  | 0.0           | 25.0           | 50.0         | 135.0         | 627.0         | 2425.0      | 3262.0      | 148278.0    | 22.0                 | 
+| Baton Rouge       | LA     | West-South-Central  | 0.0           | 110.0          | 117.0        | 309.0         | 1206.0        | 3260.0      | 5002.0      | 228590.0    | 21.9                 | 
+| Duluth            | MN     | West-North-Central  | 2.0           | 15.0           | 30.0         | 57.0          | 340.0         | 1273.0      | 1717.0      | 86110.0     | 19.9                 | 
+| Camden            | NJ     | Middle-Atlantic     | 0.0           | 46.0           | 41.0         | 121.0         | 408.0         | 866.0       | 1482.0      | 76119.0     | 19.5                 | 
+| Providence        | RI     | New-England         | 0.0           | 49.0           | 50.0         | 165.0         | 696.0         | 2479.0      | 3439.0      | 179207.0    | 19.2                 | 
+| Reading           | PA     | Middle-Atlantic     | 0.0           | 17.0           | 15.0         | 84.0          | 320.0         | 1387.0      | 1823.0      | 97879.0     | 18.6                 | 
+| Spokane           | WA     | Pacific             | 61.0          | 68.0           | 60.0         | 162.0         | 780.0         | 2820.0      | 3951.0      | 213272.0    | 18.5                 | 
+| Worcester         | MA     | New-England         | 0.0           | 36.0           | 51.0         | 188.0         | 733.0         | 2389.0      | 3397.0      | 184815.0    | 18.4                 | 
+| Shreveport        | LA     | West-South-Central  | 0.0           | 60.0           | 65.0         | 207.0         | 838.0         | 2425.0      | 3595.0      | 197204.0    | 18.2                 | 
+| Toledo            | OH     | East-North-Central  | 0.0           | 50.0           | 82.0         | 274.0         | 1107.0        | 3573.0      | 5086.0      | 279789.0    | 18.2                 | 
+| Scranton          | PA     | Middle-Atlantic     | 0.0           | 6.0            | 8.0          | 52.0          | 218.0         | 1115.0      | 1399.0      | 77118.0     | 18.1                 | 
+| Atlanta           | GA     | South-Atlantic      | 0.0           | 125.0          | 199.0        | 700.0         | 2185.0        | 5079.0      | 8288.0      | 463878.0    | 17.9                 | 
+| Buffalo           | NY     | Middle-Atlantic     | 0.0           | 77.0           | 83.0         | 240.0         | 1071.0        | 3136.0      | 4607.0      | 258071.0    | 17.9                 | 
+| Schenectady       | NY     | Middle-Atlantic     | 0.0           | 4.0            | 8.0          | 52.0          | 233.0         | 868.0       | 1165.0      | 65305.0     | 17.8                 | 
+| Grand Rapids      | MI     | East-North-Central  | 0.0           | 89.0           | 50.0         | 151.0         | 644.0         | 2390.0      | 3324.0      | 195097.0    | 17.0                 | 
+| Tampa             | FL     | South-Atlantic      | 0.0           | 138.0          | 154.0        | 391.0         | 1525.0        | 4047.0      | 6255.0      | 369075.0    | 16.9                 | 
+| Tucson            | AZ     | Mountain            | 84.0          | 53.0           | 116.0        | 413.0         | 1749.0        | 6566.0      | 8981.0      | 531641.0    | 16.9                 | 
+| Tulsa             | OK     | West-South-Central  | 1.0           | 116.0          | 114.0        | 430.0         | 1665.0        | 4469.0      | 6795.0      | 403505.0    | 16.8                 | 
+| Fort Wayne        | IN     | East-North-Central  | 0.0           | 58.0           | 82.0         | 228.0         | 938.0         | 3045.0      | 4351.0      | 260326.0    | 16.7                 | 
+| Boise             | ID     | Mountain            | 0.0           | 44.0           | 43.0         | 133.0         | 648.0         | 2563.0      | 3431.0      | 218281.0    | 15.7                 | 
+| Columbus          | OH     | East-North-Central  | 0.0           | 428.0          | 258.0        | 768.0         | 3101.0        | 8491.0      | 13046.0     | 850106.0    | 15.3                 | 
+| Saint Louis       | MO     | West-North-Central  | 25.0          | 152.0          | 281.0        | 518.0         | 1542.0        | 2303.0      | 4821.0      | 315685.0    | 15.3                 | 
+| Memphis           | TN     | East-South-Central  | 0.0           | 162.0          | 239.0        | 660.0         | 2581.0        | 6246.0      | 9888.0      | 655770.0    | 15.1                 | 
+| Fall River        | MA     | New-England         | 0.0           | 4.0            | 8.0          | 71.0          | 234.0         | 1011.0      | 1328.0      | 88777.0     | 15.0                 | 
+| Pueblo            | CO     | Mountain            | 0.0           | 5.0            | 21.0         | 88.0          | 336.0         | 1174.0      | 1624.0      | 109412.0    | 14.8                 | 
+| Waterbury         | CT     | New-England         | 1.0           | 11.0           | 20.0         | 80.0          | 324.0         | 1141.0      | 1577.0      | 108802.0    | 14.5                 | 
+| New Haven         | CT     | New-England         | 0.0           | 41.0           | 42.0         | 109.0         | 496.0         | 1199.0      | 1887.0      | 130322.0    | 14.5                 | 
+| Lexington         | KY     | East-South-Central  | 0.0           | 80.0           | 106.0        | 325.0         | 1172.0        | 2856.0      | 4539.0      | 314488.0    | 14.4                 | 
+| Akron             | OH     | East-North-Central  | 0.0           | 74.0           | 84.0         | 178.0         | 681.0         | 1822.0      | 2839.0      | 197542.0    | 14.4                 | 
+| Montgomery        | AL     | East-South-Central  | 0.0           | 34.0           | 68.0         | 199.0         | 695.0         | 1866.0      | 2862.0      | 200602.0    | 14.3                 | 
+| Cincinnati        | OH     | East-North-Central  | 0.0           | 166.0          | 166.0        | 344.0         | 1057.0        | 2507.0      | 4240.0      | 298550.0    | 14.2                 | 
+| Saint Petersburg  | FL     | South-Atlantic      | 61.0          | 63.0           | 39.0         | 100.0         | 784.0         | 2434.0      | 3481.0      | 257083.0    | 13.5                 | 
+| Nashville         | TN     | East-South-Central  | 0.0           | 177.0          | 212.0        | 552.0         | 2266.0        | 5599.0      | 8806.0      | 654610.0    | 13.5                 | 
+| Fresno            | CA     | Pacific             | 1.0           | 115.0          | 114.0        | 388.0         | 1497.0        | 4839.0      | 6954.0      | 520052.0    | 13.4                 | 
+| Richmond          | VA     | South-Atlantic      | 4.0           | 65.0           | 50.0         | 177.0         | 826.0         | 1816.0      | 2938.0      | 220289.0    | 13.3                 | 
+| Allentown         | PA     | Middle-Atlantic     | 0.0           | 15.0           | 14.0         | 73.0          | 278.0         | 1215.0      | 1595.0      | 120207.0    | 13.3                 | 
+| New Bedford       | MA     | New-England         | 0.0           | 0.0            | 13.0         | 76.0          | 227.0         | 943.0       | 1259.0      | 94958.0     | 13.3                 | 
+| Utica             | NY     | Middle-Atlantic     | 0.0           | 2.0            | 4.0          | 32.0          | 137.0         | 625.0       | 800.0       | 61100.0     | 13.1                 | 
+| Wichita           | KS     | West-North-Central  | 0.0           | 61.0           | 122.0        | 287.0         | 1202.0        | 3265.0      | 4937.0      | 389965.0    | 12.7                 | 
+| Springfield       | MA     | New-England         | 0.0           | 21.0           | 34.0         | 113.0         | 432.0         | 1296.0      | 1896.0      | 154341.0    | 12.3                 | 
+| Kansas City       | MO     | West-North-Central  | 27.0          | 135.0          | 152.0        | 311.0         | 1389.0        | 3640.0      | 5654.0      | 475378.0    | 11.9                 | 
+| Albuquerque       | NM     | Mountain            | 2.0           | 71.0           | 131.0        | 468.0         | 1464.0        | 4513.0      | 6649.0      | 559121.0    | 11.9                 | 
+| Indianapolis      | IN     | East-North-Central  | 0.0           | 252.0          | 293.0        | 715.0         | 2610.0        | 6209.0      | 10079.0     | 853173.0    | 11.8                 | 
+| Trenton           | NJ     | Middle-Atlantic     | 0.0           | 6.0            | 16.0         | 74.0          | 247.0         | 644.0       | 987.0       | 84225.0     | 11.7                 | 
+| Baltimore         | MD     | South-Atlantic      | 0.0           | 137.0          | 235.0        | 676.0         | 2191.0        | 3990.0      | 7229.0      | 621849.0    | 11.6                 | 
+| Omaha             | NE     | West-North-Central  | 0.0           | 99.0           | 104.0        | 259.0         | 1113.0        | 3544.0      | 5119.0      | 443885.0    | 11.5                 | 
+| Detroit           | MI     | East-North-Central  | 0.0           | 181.0          | 241.0        | 684.0         | 2421.0        | 4261.0      | 7788.0      | 677116.0    | 11.5                 | 
+| Boston            | MA     | New-England         | 0.0           | 204.0          | 161.0        | 526.0         | 1841.0        | 4937.0      | 7669.0      | 667137.0    | 11.5                 | 
+| Lowell            | MA     | New-England         | 0.0           | 8.0            | 16.0         | 68.0          | 263.0         | 857.0       | 1212.0      | 110699.0    | 10.9                 | 
+| Bridgeport        | CT     | New-England         | 0.0           | 21.0           | 18.0         | 77.0          | 294.0         | 1185.0      | 1595.0      | 147629.0    | 10.8                 | 
+| Honolulu          | HI     | Pacific             | 0.0           | 75.0           | 50.0         | 150.0         | 732.0         | 3316.0      | 4323.0      | 402500.0    | 10.7                 | 
+| San Jose          | CA     | Pacific             | 2.0           | 146.0          | 180.0        | 422.0         | 1944.0        | 8200.0      | 10894.0     | 1026908.0   | 10.6                 | 
+| Portland          | OR     | Pacific             | 32.0          | 78.0           | 111.0        | 365.0         | 1429.0        | 4692.0      | 6707.0      | 632309.0    | 10.6                 | 
+| Corpus Christi    | TX     | West-South-Central  | 0.0           | 75.0           | 43.0         | 208.0         | 793.0         | 2308.0      | 3427.0      | 324074.0    | 10.6                 | 
+| Saint Paul        | MN     | West-North-Central  | 4.0           | 54.0           | 54.0         | 144.0         | 653.0         | 2215.0      | 3124.0      | 300851.0    | 10.4                 | 
+| San Antonio       | TX     | West-South-Central  | 5.0           | 252.0          | 270.0        | 921.0         | 3316.0        | 10094.0     | 14858.0     | 1469845.0   | 10.1                 | 
+| Kansas City       | KS     | West-North-Central  | 0.0           | 29.0           | 34.0         | 127.0         | 430.0         | 901.0       | 1521.0      | 151306.0    | 10.1                 | 
+| Jacksonville      | FL     | South-Atlantic      | 0.0           | 135.0          | 183.0        | 506.0         | 2106.0        | 5388.0      | 8318.0      | 868031.0    | 9.6                  | 
+| Glendale          | CA     | Pacific             | 0.0           | 7.0            | 10.0         | 56.0          | 275.0         | 1543.0      | 1891.0      | 201020.0    | 9.4                  | 
+| Norfolk           | VA     | South-Atlantic      | 0.0           | 74.0           | 24.0         | 83.0          | 577.0         | 1555.0      | 2313.0      | 246393.0    | 9.4                  | 
+| Lincoln           | NE     | West-North-Central  | 0.0           | 28.0           | 35.0         | 76.0          | 454.0         | 1978.0      | 2571.0      | 277348.0    | 9.3                  | 
+| Pasadena          | CA     | Pacific             | 0.0           | 13.0           | 15.0         | 59.0          | 215.0         | 1010.0      | 1312.0      | 142250.0    | 9.2                  | 
+| Charlotte         | NC     | South-Atlantic      | 8.0           | 182.0          | 181.0        | 444.0         | 1728.0        | 5046.0      | 7589.0      | 827097.0    | 9.2                  | 
+| Wilimington       | DE     | South-Atlantic      | 0.0           | 1.0            | 7.0          | 30.0          | 131.0         | 482.0       | 651.0       | 71948.0     | 9.0                  | 
+| Dallas            | TX     | West-South-Central  | 4.0           | 341.0          | 348.0        | 817.0         | 2993.0        | 6749.0      | 11252.0     | 1300092.0   | 8.7                  | 
+| Minneapolis       | MN     | West-North-Central  | 3.0           | 151.0          | 119.0        | 244.0         | 901.0         | 2138.0      | 3556.0      | 410939.0    | 8.7                  | 
+| Colorado Springs  | CO     | Mountain            | 0.0           | 43.0           | 97.0         | 296.0         | 813.0         | 2653.0      | 3902.0      | 456568.0    | 8.5                  | 
+| New Orleans       | LA     | West-South-Central  | 1.0           | 72.0           | 129.0        | 364.0         | 916.0         | 1835.0      | 3317.0      | 389617.0    | 8.5                  | 
+| Gary              | IN     | East-North-Central  | 2.0           | 13.0           | 36.0         | 65.0          | 202.0         | 331.0       | 649.0       | 77156.0     | 8.4                  | 
+| Washington        | DC     | South-Atlantic      | 0.0           | 183.0          | 170.0        | 341.0         | 1572.0        | 3354.0      | 5620.0      | 672228.0    | 8.4                  | 
+| El Paso           | TX     | West-South-Central  | 1.0           | 74.0           | 118.0        | 310.0         | 1144.0        | 3986.0      | 5633.0      | 681124.0    | 8.3                  | 
+| Miami             | FL     | South-Atlantic      | 1.0           | 12.0           | 84.0         | 157.0         | 554.0         | 2682.0      | 3490.0      | 441003.0    | 7.9                  | 
+| Houston           | TX     | West-South-Central  | 0.0           | 348.0          | 498.0        | 1366.0        | 4469.0        | 11613.0     | 18294.0     | 2327463.0   | 7.9                  | 
+| Long Beach        | CA     | Pacific             | 0.0           | 47.0           | 56.0         | 174.0         | 762.0         | 2309.0      | 3348.0      | 474140.0    | 7.1                  | 
+| Milwaukee         | WI     | East-North-Central  | 0.0           | 84.0           | 96.0         | 355.0         | 1080.0        | 2613.0      | 4228.0      | 600155.0    | 7.0                  | 
+| Cambridge         | MA     | New-England         | 3.0           | 1.0            | 9.0          | 34.0          | 121.0         | 603.0       | 771.0       | 110402.0    | 7.0                  | 
+| San Francisco     | CA     | Pacific             | 3.0           | 94.0           | 90.0         | 362.0         | 1265.0        | 4199.0      | 6013.0      | 864816.0    | 7.0                  | 
+| Newark            | NJ     | Middle-Atlantic     | 2.0           | 34.0           | 82.0         | 206.0         | 595.0         | 1026.0      | 1945.0      | 281944.0    | 6.9                  | 
+| Elizabeth         | NJ     | Middle-Atlantic     | 0.0           | 7.0            | 15.0         | 57.0          | 219.0         | 561.0       | 859.0       | 129007.0    | 6.7                  | 
+| Seattle           | WA     | Pacific             | 0.0           | 93.0           | 116.0        | 284.0         | 1104.0        | 2954.0      | 4551.0      | 684451.0    | 6.6                  | 
+| San Diego         | CA     | Pacific             | 7.0           | 150.0          | 166.0        | 437.0         | 1818.0        | 6319.0      | 8897.0      | 1394928.0   | 6.4                  | 
+| New York          | NY     | Middle-Atlantic     | 11.0          | 517.0          | 727.0        | 2619.0        | 11118.0       | 39309.0     | 54301.0     | 8550405.0   | 6.4                  | 
+| Denver            | CO     | Mountain            | 0.0           | 114.0          | 59.0         | 273.0         | 1025.0        | 2793.0      | 4264.0      | 682545.0    | 6.2                  | 
+| Phoenix           | AZ     | Mountain            | 19.0          | 183.0          | 267.0        | 762.0         | 2445.0        | 5804.0      | 9480.0      | 1563025.0   | 6.1                  | 
+| Berkeley          | CA     | Pacific             | 0.0           | 22.0           | 8.0          | 22.0          | 116.0         | 548.0       | 716.0       | 120971.0    | 5.9                  | 
+| Austin            | TX     | West-South-Central  | 0.0           | 92.0           | 128.0        | 340.0         | 1242.0        | 3348.0      | 5150.0      | 931830.0    | 5.5                  | 
+| Paterson          | NJ     | Middle-Atlantic     | 1.0           | 16.0           | 24.0         | 62.0          | 206.0         | 489.0       | 798.0       | 147754.0    | 5.4                  | 
+| Chicago           | IL     | East-North-Central  | 3.0           | 211.0          | 379.0        | 998.0         | 3576.0        | 9060.0      | 14227.0     | 2720546.0   | 5.2                  | 
+| Yonkers           | NY     | Middle-Atlantic     | 0.0           | 4.0            | 13.0         | 40.0          | 164.0         | 702.0       | 923.0       | 201116.0    | 4.6                  | 
+| Lynn              | MA     | New-England         | 0.0           | 0.0            | 3.0          | 40.0          | 80.0          | 263.0       | 386.0       | 92457.0     | 4.2                  | 
+| Pittsburgh        | PA     | Middle-Atlantic     | 0.0           | 9.0            | 13.0         | 32.0          | 200.0         | 899.0       | 1153.0      | 304391.0    | 3.8                  | 
+| Jersey City       | NJ     | Middle-Atlantic     | 0.0           | 3.0            | 19.0         | 67.0          | 239.0         | 663.0       | 991.0       | 264290.0    | 3.7                  | 
+| Los Angeles       | CA     | Pacific             | 0.0           | 243.0          | 362.0        | 960.0         | 3337.0        | 8985.0      | 13887.0     | 3971883.0   | 3.5                  | 
+| Somerville        | MA     | New-England         | 0.0           | 1.0            | 24.0         | 12.0          | 37.0          | 103.0       | 177.0       | 80318.0     | 2.2                  | 
+```
+
 New York Mortality Rate history, using interpolated population size.
 
 ```sql
@@ -980,6 +1345,56 @@ WITH INTERPOLATE (1 WEEK, LINEAR, INNER, EXTEND, START_TIME)
 OPTION (ROW_MEMORY_THRESHOLD 500000)
 ```
 
+```ls
+| 1970-01-01T00:00:00.000Z  | New York  | NY  | Middle-Atlantic  | 0.0    | 3308.4  | 3030.9  | 6445.1  | 24068.3  | 53156.4  | 90009.1  | 11.5  | 7812810.2 | 
+|---------------------------|-----------|-----|------------------|--------|---------|---------|---------|----------|----------|----------|-------|-----------| 
+| 1971-01-01T00:00:00.000Z  | New York  | NY  | Middle-Atlantic  | 0.0    | 2733.0  | 3135.7  | 6243.4  | 22721.1  | 51819.6  | 86652.9  | 11.2  | 7730758.4 | 
+| 1972-01-01T00:00:00.000Z  | New York  | NY  | Middle-Atlantic  | -0.0   | 2290.6  | 3016.4  | 6059.9  | 21980.9  | 51333.0  | 84680.7  | 11.0  | 7648706.6 | 
+| 1973-01-01T00:00:00.000Z  | New York  | NY  | Middle-Atlantic  | -0.0   | 2202.1  | 2948.7  | 5897.4  | 20740.7  | 50485.7  | 82274.7  | 10.8  | 7566654.8 | 
+| 1974-01-01T00:00:00.000Z  | New York  | NY  | Middle-Atlantic  | 0.0    | 2119.0  | 2704.0  | 5465.7  | 19597.0  | 49888.4  | 79774.1  | 10.6  | 7484603.0 | 
+| 1975-01-01T00:00:00.000Z  | New York  | NY  | Middle-Atlantic  | 0.0    | 2146.4  | 2384.4  | 5360.1  | 18778.4  | 47432.9  | 76102.3  | 10.2  | 7402551.2 | 
+| 1976-01-01T00:00:00.000Z  | New York  | NY  | Middle-Atlantic  | 0.0    | 2083.1  | 2299.6  | 5384.4  | 18871.0  | 49944.4  | 78582.6  | 10.7  | 7318921.5 | 
+| 1977-01-01T00:00:00.000Z  | New York  | NY  | Middle-Atlantic  | 0.0    | 1941.0  | 2097.0  | 5103.7  | 17823.1  | 47567.4  | 74532.3  | 10.2  | 7236869.7 | 
+| 1978-01-01T00:00:00.000Z  | New York  | NY  | Middle-Atlantic  | 0.0    | 1820.9  | 1956.9  | 4958.0  | 17235.0  | 47058.6  | 73029.3  | 10.1  | 7154817.9 | 
+| 1979-01-01T00:00:00.000Z  | New York  | NY  | Middle-Atlantic  | 0.0    | 1750.3  | 2052.7  | 4866.1  | 16573.1  | 46461.3  | 71703.6  | 10.1  | 7072766.1 | 
+| 1980-01-01T00:00:00.000Z  | New York  | NY  | Middle-Atlantic  | -0.0   | 1689.6  | 2022.0  | 5356.4  | 16704.0  | 49884.4  | 75656.4  | 10.7  | 7096298.8 | 
+| 1981-01-01T00:00:00.000Z  | New York  | NY  | Middle-Atlantic  | 0.0    | 1718.6  | 2053.0  | 5597.0  | 16558.6  | 49466.3  | 75393.4  | 10.6  | 7121782.8 | 
+| 1982-01-01T00:00:00.000Z  | New York  | NY  | Middle-Atlantic  | 0.0    | 1678.3  | 1915.9  | 5512.7  | 15949.6  | 47842.1  | 72898.6  | 10.2  | 7146786.0 | 
+| 1983-01-01T00:00:00.000Z  | New York  | NY  | Middle-Atlantic  | 0.0    | 1610.6  | 1858.4  | 5841.9  | 15637.1  | 48305.4  | 73253.4  | 10.2  | 7171789.2 | 
+| 1984-01-01T00:00:00.000Z  | New York  | NY  | Middle-Atlantic  | -0.0   | 1533.4  | 1762.3  | 6377.3  | 15591.7  | 48276.9  | 73541.6  | 10.2  | 7196792.4 | 
+| 1985-01-01T00:00:00.000Z  | New York  | NY  | Middle-Atlantic  | -0.0   | 1549.1  | 1734.3  | 7321.9  | 15642.9  | 48260.0  | 74508.1  | 10.3  | 7221795.6 | 
+| 1986-01-01T00:00:00.000Z  | New York  | NY  | Middle-Atlantic  | -0.0   | 1637.1  | 1848.0  | 8301.9  | 15372.4  | 48441.9  | 75601.3  | 10.5  | 7246798.8 | 
+| 1987-01-01T00:00:00.000Z  | New York  | NY  | Middle-Atlantic  | -0.0   | 1626.4  | 1889.0  | 9261.3  | 15718.7  | 49197.3  | 77692.7  | 10.7  | 7272282.8 | 
+| 1988-01-01T00:00:00.000Z  | New York  | NY  | Middle-Atlantic  | -0.0   | 1725.9  | 2010.4  | 9474.4  | 15291.0  | 48707.3  | 77209.0  | 10.6  | 7297286.0 | 
+| 1989-01-01T00:00:00.000Z  | New York  | NY  | Middle-Atlantic  | 0.0    | 1829.4  | 1897.3  | 9993.6  | 14844.9  | 47276.7  | 75841.9  | 10.4  | 7322289.2 | 
+| 1990-01-01T00:00:00.000Z  | New York  | NY  | Middle-Atlantic  | -0.0   | 1613.7  | 1929.3  | 9725.6  | 14329.1  | 46202.3  | 73800.0  | 10.0  | 7390160.0 | 
+| 1991-01-01T00:00:00.000Z  | New York  | NY  | Middle-Atlantic  | 1.0    | 1589.7  | 1927.7  | 9960.9  | 13868.1  | 44775.5  | 72122.9  | 9.7   | 7458507.1 | 
+| 1992-01-01T00:00:00.000Z  | New York  | NY  | Middle-Atlantic  | 0.0    | 1442.6  | 1793.4  | 9983.9  | 14211.3  | 44777.1  | 72208.3  | 9.6   | 7528168.5 | 
+| 1993-01-01T00:00:00.000Z  | New York  | NY  | Middle-Atlantic  | 2.0    | 1352.9  | 1729.9  | 9605.3  | 14034.1  | 46086.1  | 72810.3  | 9.6   | 7596515.6 | 
+| 1994-01-01T00:00:00.000Z  | New York  | NY  | Middle-Atlantic  | 5.7    | 1275.1  | 1555.9  | 9859.4  | 14063.7  | 44272.6  | 71032.4  | 9.3   | 7664862.7 | 
+| 1995-01-01T00:00:00.000Z  | New York  | NY  | Middle-Atlantic  | 2.3    | 1184.6  | 1451.6  | 9168.1  | 14184.7  | 44663.9  | 70655.1  | 9.2   | 7733209.8 | 
+| 1996-01-01T00:00:00.000Z  | New York  | NY  | Middle-Atlantic  | 2.0    | 1019.3  | 1192.4  | 7242.1  | 13315.1  | 43686.0  | 66457.0  | 8.6   | 7801556.9 | 
+| 1997-01-01T00:00:00.000Z  | New York  | NY  | Middle-Atlantic  | 1.0    | 924.6   | 1093.3  | 5534.6  | 12196.6  | 42932.1  | 62682.1  | 8.0   | 7869903.9 | 
+| 1998-01-01T00:00:00.000Z  | New York  | NY  | Middle-Atlantic  | 0.0    | 878.3   | 1022.7  | 4844.7  | 12377.6  | 43105.3  | 62228.6  | 7.9   | 7939565.4 | 
+| 1999-01-01T00:00:00.000Z  | New York  | NY  | Middle-Atlantic  | 12.7   | 860.1   | 1036.1  | 4495.6  | 12292.6  | 43233.0  | 61930.1  | 7.8   | 8007912.5 | 
+| 2000-01-01T00:00:00.000Z  | New York  | NY  | Middle-Atlantic  | 47.3   | 843.6   | 985.3   | 4447.4  | 12154.1  | 42285.3  | 60763.0  | 7.6   | 8024821.8 | 
+| 2001-01-01T00:00:00.000Z  | New York  | NY  | Middle-Atlantic  | 46.0   | 745.9   | 1108.1  | 5919.7  | 13201.1  | 41514.9  | 62535.7  | 7.8   | 8041446.9 | 
+| 2002-01-01T00:00:00.000Z  | New York  | NY  | Middle-Atlantic  | 23.0   | 756.6   | 951.9   | 4304.3  | 12306.3  | 41349.3  | 59691.3  | 7.4   | 8058072.0 | 
+| 2003-01-01T00:00:00.000Z  | New York  | NY  | Middle-Atlantic  | 179.7  | 776.7   | 953.0   | 3831.0  | 12000.0  | 39965.7  | 57706.1  | 7.2   | 8074697.2 | 
+| 2004-01-01T00:00:00.000Z  | New York  | NY  | Middle-Atlantic  | 102.3  | 788.1   | 963.9   | 3658.3  | 12441.9  | 41312.7  | 59267.1  | 7.3   | 8091642.0 | 
+| 2005-01-01T00:00:00.000Z  | New York  | NY  | Middle-Atlantic  | 52.7   | 764.4   | 976.7   | 3438.4  | 12212.4  | 40139.4  | 57584.1  | 7.1   | 8108267.1 | 
+| 2006-01-01T00:00:00.000Z  | New York  | NY  | Middle-Atlantic  | 56.3   | 734.0   | 859.4   | 3313.3  | 11772.4  | 38617.7  | 55353.1  | 6.8   | 8124892.2 | 
+| 2007-01-01T00:00:00.000Z  | New York  | NY  | Middle-Atlantic  | 62.4   | 677.6   | 798.0   | 3076.3  | 11694.9  | 37520.0  | 53829.1  | 6.6   | 8141517.4 | 
+| 2008-01-01T00:00:00.000Z  | New York  | NY  | Middle-Atlantic  | 31.6   | 692.6   | 828.4   | 2943.3  | 11696.0  | 37425.6  | 53617.4  | 6.6   | 8158142.5 | 
+| 2009-01-01T00:00:00.000Z  | New York  | NY  | Middle-Atlantic  | 19.0   | 692.7   | 807.1   | 2836.1  | 11716.9  | 37429.6  | 53501.4  | 6.6   | 8175087.3 | 
+| 2010-01-01T00:00:00.000Z  | New York  | NY  | Middle-Atlantic  | 20.7   | 598.9   | 802.4   | 2558.9  | 11485.9  | 36858.0  | 52324.7  | 6.4   | 8249735.3 | 
+| 2011-01-01T00:00:00.000Z  | New York  | NY  | Middle-Atlantic  | 22.3   | 578.3   | 791.1   | 2633.6  | 11540.1  | 37567.6  | 53133.0  | 6.4   | 8324543.0 | 
+| 2012-01-01T00:00:00.000Z  | New York  | NY  | Middle-Atlantic  | 19.0   | 583.4   | 779.9   | 2542.7  | 11310.9  | 37090.3  | 52326.1  | 6.3   | 8399350.8 | 
+| 2013-01-01T00:00:00.000Z  | New York  | NY  | Middle-Atlantic  | 10.0   | 576.4   | 749.4   | 2642.7  | 11387.9  | 38398.9  | 53765.3  | 6.4   | 8474158.6 | 
+| 2014-01-01T00:00:00.000Z  | New York  | NY  | Middle-Atlantic  | 10.0   | 514.6   | 722.9   | 2520.0  | 11219.1  | 38195.9  | 53182.4  | 6.2   | 8548966.4 | 
+| 2015-01-01T00:00:00.000Z  | New York  | NY  | Middle-Atlantic  | 11.0   | 527.3   | 742.1   | 2680.3  | 11335.9  | 40083.7  | 55380.3  | 6.5   | 8550405.0 | 
+```
+
 Mortality Rate by Age Group in New York city, 2010:
 
 ```sql
@@ -1008,6 +1423,12 @@ WHERE tot.entity = 'mr8w-325u'
 GROUP BY tot.period(1 YEAR)
   OPTION (ROW_MEMORY_THRESHOLD 500000)
 ```  
+
+```ls
+| population  | infant_deaths  | 1-24_deaths  | 25-44_deaths  | 45-64_deaths  | 65+_deaths  | all_deaths  | infant_mortality_rate  | 1-24_mortality_rate  | 25-44_mortality_rate  | 45-64_mortality_rate  | 65+_mortality_rate  | total_mortality_rate | 
+|-------------|----------------|--------------|---------------|---------------|-------------|-------------|------------------------|----------------------|-----------------------|-----------------------|---------------------|----------------------| 
+| 8175133.0   | 596.0          | 811.0        | 2571.0        | 11513.0       | 36953.0     | 52464.0     | 5.5                    | 0.3                  | 1.1                   | 5.8                   | 37.2                | 6.4                  | 
+```
 
 1) All metrics with death numbers are joined (grouped by year) with the `SUM` aggregation.<br />
 2) `SUM` aggregation is divided by the size of the corresponding age group, retrieved with a lookup function, and multiplied by 1000 since mortality is measured in deaths per 1000 people.<br />
