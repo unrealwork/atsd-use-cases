@@ -992,7 +992,7 @@ respectively. #2 on our list is Dayton, Ohio, whose mortality rate of 52.1 is no
 Below is a table comparing population estimates for top 6 cities with the highest 2015 mortality rates.  
 
 | City           |  1960 Population  |     2015 Population | Population Change (%)|
-|----------------------------------------------------------| ---------------------|
+|----------------|-------------------|---------------------| ---------------------|
 | Youngstown     |    166,689        |     64,628          | 61.2 (-)             |
 | Dayton         |    262,332        |     140,599         | 46.4 (-)             |
 | Birmingham     |    340,887        |     212,461         | 37.7 (-)             |
