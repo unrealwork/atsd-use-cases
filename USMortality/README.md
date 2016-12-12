@@ -985,21 +985,7 @@ Here is our line in the query which calculates our mortality rate:
 sum(value)/cast(LOOKUP('city-size', concat(tags.city, ',', tags.state)))*1000 AS 'mortality_rate'
 ```
 
-Here is the output from our query looking at mortality rates in 2015. These results are pretty eye opening. Of the 122 cities in our dataset, 95 have higher mortality rates than the US average
-of 8.2. The highest 2015 mortality rate, in Youngstown, Ohio, is **6.65** and **3.65** times higher than the US national average and the rate in Lesotho (which has the highest number in the world)
-respectively. #2 on our list is Dayton, Ohio, whose mortality rate of 52.1 is not much lower than in Youngstown. How can these numbers be so high?
-
-Below is a table comparing population estimates for top 6 cities with the highest 2015 mortality rates.  
-
-| City           |  1960 Population  |     2015 Population | Population Change (%)|
-|----------------|-------------------|---------------------| ---------------------|
-| Youngstown     |    166,689        |     64,628          | 61.2 (-)             |
-| Dayton         |    262,332        |     140,599         | 46.4 (-)             |
-| Birmingham     |    340,887        |     212,461         | 37.7 (-)             |
-| Salt Lake City |    189,454        |     192,672         | 1.6 (+)              |
-| Cleveland      |    876,050        |     388,072         | 55.7 (-)             |
-| Rochester      |    318,611        |     209,802         | 34.2 (-)             |
-
+Here is the output from our query looking at mortality rates in 2015. 
 
 ```ls
 | city              | state  | region              | all_deaths  | population  | mortality_rate | 
@@ -1125,6 +1111,33 @@ Below is a table comparing population estimates for top 6 cities with the highes
 | Somerville        | MA     | New-England         | 177.0       | 80318.0     | 2.2            | 
 | Des Moines        | IA     | West-North-Central  | 0.0         | 210330.0    | 0.0            | 
 ```
+
+These results are pretty eye opening. Of the 122 cities in our dataset, 95 have higher mortality rates than the US average of 8.2. The highest 2015 mortality rate, in Youngstown, Ohio, is
+**6.65** and **3.65** times higher than the US national average and the rate in Lesotho (which has the highest number in the world) respectively. #2 on our list is Dayton, Ohio, whose mortality
+rate of 52.1 is not much lower than in Youngstown. How can these numbers be so high?
+
+Below is a table comparing population estimates for top 6 cities with the highest 2015 mortality rates. 
+ 
+| City           |  1960 Population  |     2015 Population | Population Change (%)|
+|----------------|-------------------|---------------------| ---------------------|
+| Youngstown     |    166,689        |     64,628          | 61.2 **(-)**             |
+| Dayton         |    262,332        |     140,599         | 46.4 **(-)**             |
+| Birmingham     |    340,887        |     212,461         | 37.7 **(-)**             |
+| Salt Lake City |    189,454        |     192,672         | 1.6 **(+)**              |
+| Cleveland      |    876,050        |     388,072         | 55.7 **(-)**             |
+| Rochester      |    318,611        |     209,802         | 34.2 **(-)**             |
+
+How has the population of these cities declined so dramatically?
+
+Four of these six cities are located in the Rust Belt of the United States (map shown below). According to [geography.about.com](http://geography.about.com/od/urbaneconomicgeography/a/Rust-Belt.htm),
+the Rust Belt is an area of the United States which once served as the hub of American industry. In the early to mid 20th century, abundant natural resources led to thriving coal, steel,
+and manufacturing industries. However, at the mid point of the century, many of these cities fell upon hard times, as manufacturing jobs went overseas with their populations declining as a result. 
+The website sums up the Rust Belt as a "landscape (that) is characterized by the presence of old factory towns and post-industrial skylines."
+
+![Figure 46](Images/Figure46.png)
+
+Along with Detroit (MI) and Gary (IN), Youngstown (OH) is a to showcase the rise and fall of manufacturing in the United States. 
+
 
 Mortality rates in New York (fixed pop size, provisional):
 
