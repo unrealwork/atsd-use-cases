@@ -1150,10 +1150,10 @@ Youngstown in 2014 was **496.3**, compared to 287.5 for the U.S. as a whole.
 
 Here are some numbers from [census.gov](http://www.census.gov/quickfacts/table/LFE041215/00,3988000) comparing Youngstown (OH) to the United States as a whole:
 
-Persons aged 65 and over, percent April 1 2010 (percent): **15.8%** vs 13.0%
-Persons without health insurance, under age 65 (percent): **15.0%** vs 10.5%
-Persons in poverty (percent): **38.3%** vs 13.5%
-Per capita income in past 12 monts (in 2015 dolloars), 2011-2015: **$15,056** vs $28,930
+Persons aged 65 and over, percent April 1 2010 (percent): **15.8%** vs 13.0%<br />
+Persons without health insurance, under age 65 (percent): **15.0%** vs 10.5%<br />
+Persons in poverty (percent): **38.3%** vs 13.5%<br />
+Per capita income in past 12 monts (in 2015 dolloars), 2011-2015: **$15,056** vs $28,930<br />
 
 Mortality rates in New York (fixed pop size, provisional):
 
