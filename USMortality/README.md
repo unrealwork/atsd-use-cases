@@ -21,20 +21,21 @@ Below is an image showcasing the percent change from 1935 to 2010 in death rates
 ![Figure 1](Images/Figure1.png)
 
 In this article we will look at weekly death total statistics collected for over 100 U.S. cities for over 50 years. We will begin by introducing ourselves to the dataset. Next, we will walk 
-through installing local configurations of the Axibase Time Series Database (ATSD) and Axibase Collector using Docker. We will then go through through the ATSD's SQL query language 
-capabilities to help make sense and digest all of this information on death in the United States. Lastly, we will then look at incorporating population figures to calculate mortality rates for each individual city.
+through installing local configurations of the Axibase Time Series Database (ATSD) and Axibase Collector using Docker. We will then go through through ATSD's query language 
+capabilities to help make sense of and digest all of this information on death in the United States. Lastly, we will then look at incorporating population figures to calculate mortality rates for each individual city.
  
 ### Death Statistics for 122 U.S. Cities
 ----------------------------------------
 
-Let's take a look at the dataset **Deaths in 122 U.S. cities - 1962-2016. 122 Cities Mortality Reporting System** from data.gov.
+Let's take a look at the dataset titled **Deaths in 122 U.S. cities - 1962-2016. 122 Cities Mortality Reporting System** from data.gov.
 
 This dataset can be found here: [https://catalog.data.gov/dataset/deaths-in-122-u-s-cities-1962-2016-122-cities-mortality-reporting-system](https://catalog.data.gov/dataset/deaths-in-122-u-s-cities-1962-2016-122-cities-mortality-reporting-system)
 
-This file contains data for the weekly death totals collected from 1962 to 2016 in 122 U.S. cities. The system was retired on October 6th, 2016. While the system was running, the vital statistics
+This file contains data for weekly death totals collected from 1962 to 2016 in 122 U.S. cities. The system was retired on October 6th, 2016. While the system was running, the vital statistics
 offices of these cities across the United States reported the total number of death certificates processed and the number of those for which pneumonia or influenza was listed as the underlying 
-or contributing cause of death by age group. Deaths from under the age of 1 year are not included in this dataset. Deaths in this dataset are split into the following categories:
+or contributing cause of death by age group. Deaths in this dataset are split into the following categories:
 
+* 0 - 1 years (all causes of death)
 * 1 - 24 years (all causes of death)
 * 25 - 44 years (all causes of death)
 * 45 - 64 years (all causes of death)
@@ -44,7 +45,7 @@ or contributing cause of death by age group. Deaths from under the age of 1 year
 
 In the [Appendix](https://github.com/axibase/atsd-use-cases/blob/master/USMortality/README.md#appendix-death-statistics-city-list) of this article, you can find a complete list of the cities (with their corresponding state) included in this dataset.
 
-Deaths can be grouped by geographic region, all of which are shown below.
+Death statistics were collected for 122 cities. These cities have their respective state listed and are be grouped as well by geographic region, all of which are shown below.
 
 These are regions are part of the United States Census Bureau's [census regions and divisions](http://www.census.gov/econ/census/help/geography/regions_and_divisions.html)
 
@@ -67,7 +68,7 @@ On the data.gov website, datasets can be downloaded as a CSV, RDF, JSON, or a XM
 
 The processing of datasets using Axibase Time Series Database (ATSD) is straight forward.  Processing the same data with ATSD is less time consuming
 because its collection tool has built-in heuristics to handle the format in which data.gov datasets are published, namely the Socrata Open Data Format.
-When loading data for a particular dataset the collector uses Socrata metadata to understand the meaning of columns and automatically extract dates, times,
+When loading data for a particular dataset, the collector uses Socrata metadata to understand the meaning of columns and automatically extract dates, times,
 and categories from the data files. Besides, ATSD stores the data in the user's own database so that this public data can be combined with internal data
 sources as well as mixed and matched across different datasets. Once you install ATSD, you **don't** have to:
 
@@ -91,7 +92,7 @@ The user has the ability to filter the data to their liking in the above instanc
 
 The following four filters are applied to the default portal:
 
-* First dropdown: allows the user to view data by the specified metric. In the default portal, the user has the option of choosing death totals for 1 - 24 years (all causes of death),
+* First dropdown: allows the user to view data by the specified metric. In the default portal, the user has the option of choosing death totals for 0 - 1 years (all causes of death), 1 - 24 years (all causes of death),
   25 - 44 years (all causes of death), 45 - 64 years (all causes of death), 65 + years (all causes of death), all deaths, and pneumonia and influenza deaths. In the default instance above,
   1 - 24 years (all causes of death) is selected.
 * Second dropdown: allows the user to filter between 122 U.S. cities. Again, the list of available cities is shown in the [Appendix](https://github.com/axibase/atsd-use-cases/blob/master/USMortality/README.md#appendix-death-statistics-city-list) . In the case above, all cities have been selected. 
@@ -103,12 +104,12 @@ the spike in the number of deaths in the city from March 2nd, 1991, to June 3, 1
 
 ![Figure 3](Images/Figure3.png)
 
-The next image is again for Chicago, but this time filtered for the 25 - 44 years age group. Again, we can see that the was quite the spike in the number of deaths in the city, exactly matching
+The next image is again for Chicago, but this time filtered for the 25 - 44 years age group. Again, we can see that there was quite the spike in the number of deaths in the city, exactly matching
 the period from the previous image, March 2nd, 1991, to June 3, 1995.  
 
 ![Figure 4](Images/Figure4.png)
 
-Let us know filter for the remaining age groups (45 - 64 years, 65 + years, all deaths, and pneumonia and influenza deaths). We can see that these groups **do not** have the same spike in deaths 
+Let us now filter for the remaining age groups (45 - 64 years, 65 + years, all deaths, and pneumonia and influenza deaths). We can see that these groups **do not** have the same spike in deaths 
 as the previous groups, as shown below.
 
 | 45 - 64 Years | 65 + Years  | 
@@ -130,7 +131,7 @@ You can observe this filtered portal for Chicago here:
 
 [![](Images/button.png)](https://apps.axibase.com/chartlab/6cf6fe70)
 
-Using the third dropdown, we are able to sort by geographic region. This list will come in handy later in the article when we delve into Axibase's SQL query language capabilities. 
+Using the third dropdown, we are able to sort by geographic region. This list will come in handy later in the article when we delve into Axibase's query language capabilities. 
 
 1 = New-England<br />
 2 = Middle-Atlantic<br />
@@ -144,7 +145,7 @@ Using the third dropdown, we are able to sort by geographic region. This list wi
 
 Let us sort by region 9 (pacific). Below is an output for this filtered instance. We can see that cities for California (CA), Hawaii (HI), Oregon (OR), Washington (WA) are all included in
 this output. We can observe that up until the early to mid 2000's, the deaths in Los Angeles greatly outnumber those of any other city in the region. Recently, however, the deaths in Los Angeles
-have drastically dropped off, and now seem to generally be on par with several other cities in the region. Why has there been such a drastic drop off in deaths recently in Los Angeles?  
+have drastically dropped off, and now seem to generally be on par with several other cities in the region. 
 
 ![Figure 9](Images/Figure9.png)
 
@@ -164,8 +165,8 @@ You can explore the filtered portal for the state of New Jersey here:
 
 [![](Images/button.png)](https://apps.axibase.com/chartlab/3d07088c)
 
-We can see that there is an unbelievable amount of data in this ATSD instance. The high quantity of cities, the frequent collection intervals of the data, and the highly variable nature of the 
-death totals make it difficult to wrap our heads around all of this. How can we make sense of all of it? Using Axibase's SQL query language capabilities allows you to easily search for specific
+We can see that we have an unbelievable amount of data loaded into this Chart Lab instance. The high quantity of cities, the frequent collection intervals of the data, and the highly variable nature of the 
+death totals make it difficult to wrap our heads around all of this. How can we make sense of it? Using Axibase's query language capabilities allows you to easily search for specific
 information within this portal. We will begin by walking through installing local configurations of ATSD and Axibase Collector, which we will then use to query our dataset.
 
 ### Creating Local Configurations for ATSD and Axibase Collector 
@@ -227,17 +228,17 @@ Below is a step-by-step walk through for setting up local configurations of ATSD
    
    ![Figure 19](Images/Figure19.png)
    
-11. Next, click on the `Configuration -> Replacement Table`.
+11. Next, click on **Configuration -> Replacement Table**.
    
    ![Figure 20](Images/Figure20.png)
    
 12. Copy and paste the files included in this repository ([`city-size`](https://github.com/axibase/atsd-use-cases/blob/master/USMortality/city-size) and [`us-regions`](https://github.com/axibase/atsd-use-cases/blob/master/USMortality/us-regions) into the Replacement Table. Click **Save**. `city-size` contains 2015 population figures for each of the
-    122 cities included in this dataset. `us-regions` is a list of all of the regions (i.e. 1=New-England, 2=Mid-Atlantic etc.). These will be used later in this article for performing SQL
+    122 cities included in this dataset. `us-regions` is a list of all of the regions (i.e. 1=New-England, 2=Middle-Atlantic etc.). These will be used later in this article for performing
     queries. 
    
    ![Figure 21](Images/Figure21.png)
    
-13. Navigate to `Configuration -> Parsers:CSV` and import the `parser.xml` file.
+13. Navigate to **Configuration -> Parsers:CSV** and import the `parser.xml` file.
  
    ![Figure 22](Images/Figure22.png)
    
@@ -246,7 +247,7 @@ Below is a step-by-step walk through for setting up local configurations of ATSD
    ![Figure 24](Images/Figure24.png)
    
 14. After the parser has been added, we will proceed to uploading our [`us.population.csv`](https://github.com/axibase/atsd-use-cases/blob/master/USMortality/us.population.csv) file. This file contains population estimates from [census.gov](https://http://www.census.gov/data.html) for all 122 cities for 1960, 1970, 1980, 1990, 2000, 2010,
-    and 2015. This file will be used for our SQL queries. Click again on the `Parsers:CSV` dropdown. Then, click on the `Upload` button and then select the `us.population.csv` file.          
+    and 2015. This file will be used for our queries. Click again on the **Parsers:CSV** dropdown. Then, click on the **Upload** button and then select the `us.population.csv` file.          
    
    ![Figure 25](Images/Figure25.png)
    
@@ -260,7 +261,7 @@ Below is a step-by-step walk through for setting up local configurations of ATSD
    
    ![Figure 28](Images/Figure28.png)
    
-15. Next, navigate to `Metrics` and enter in `us.population` into the **Name Mask** bar.     
+15. Next, navigate to **Metrics** and enter in `us.population` into the **Name Mask** bar.     
    
    ![Figure 29](Images/Figure29.png)
    
@@ -281,7 +282,7 @@ you to maneuver through large amounts of data and specify exactly the informatio
 
 Let us begin by walking through some SQL examples for examining our dataset. Looking at an output for an individual city or even all of the cities combined, it is relatively easy to recognize the general
 trend of deaths in the U.S. over time. However, in many instances, since there is so much information, it is difficult to tell what the number of deaths was for a certain period. Additionally,
-this dataset only provides us with the total number of deaths. However, with a few simple commands using ATSD's SQL query capabilities we will be able to calculate mortality statistics for this
+this dataset only provides us with the total number of deaths. With a few commands using ATSD's SQL query capabilities we will be able to calculate mortality statistics for this
 dataset.
 
 ### SQL Example 1 - Pneumonia and Influenza Deaths in Boston
@@ -291,7 +292,7 @@ Let us begin by running through a simple query looking at pneumonia and influenz
 
 ![Figure 36](Images/Figure36.png)
 
-Let us begin by querying for the latest weekly pneumonia and influenza readings for Boston. Before we actually get into the query itself, we will begin by introducing ourselves to this particular
+We will start by querying for the latest weekly pneumonia and influenza readings for Boston. Before we actually get into the query itself, we will begin by introducing ourselves to this particular
 portion of the dataset and take a look at where exactly it is stored.
 
 1. Navigate to the **Entities** tab in ASTD. Click on the entity for our datset, `mr8w-325u`.
@@ -320,7 +321,7 @@ Below is an output for this data.
 
 Maneuvering through the entity and searching for our desired data can be very time consuming. Now, let us look at building a simple SQL query which will do the work for us.
 
-**Note**: If you are new to writing SQL queries, please begin by first navigating to our section in the Appendix called Basic Queries 
+**Important Note**: If you are new to writing SQL queries, please begin by first navigating to our section in the Appendix called [Basic Queries](https://github.com/axibase/atsd-use-cases/tree/master/USMortality#basic-queries). 
 
 Here is an SQL query looking at recent pneumonia and influenza deaths in Boston, Massachusetts.
 
@@ -367,8 +368,6 @@ WHERE pni.tags.city = 'Boston'
 LIMIT 10
 ```
 
-Below is an output of our queried data.
-
 ```ls
 | pni.entity  | pni.datetime              | pni.value  | pni.tags.city  | pni.tags.region  | pni.tags.state  | tot.entity  | tot.datetime              | tot.value  | tot.tags.city  | tot.tags.region  | tot.tags.state | 
 |-------------|---------------------------|------------|----------------|------------------|-----------------|-------------|---------------------------|------------|----------------|------------------|----------------| 
@@ -394,8 +393,8 @@ WHERE tags.city = 'Boston'
 LIMIT 10
 ```
 
-This query again is for latest pneumonia and influenza and total readings for Boston, but with region code translated to region name using a Replacement Table. As a default, each region is listed
-by their corresponding number. In the case of Boston, it falls in region 1, which included the states of Connecticut, Massachusetts, and Rhode Island. We created a replacement table in ATSD where
+This next query is again for latest pneumonia and influenza and total readings for Boston, but with region code translated to region name using one of our Replacement Table. As a default, each region is listed
+by their corresponding number. In the case of Boston, it falls in region 1, which includes the states of Connecticut, Maine, Massachusetts, New Hampshire, Rhode Island, and Vermont. We created a replacement table in ATSD where
 we entered in region names for each region number. In this instance, region 1 is named **New-England**.   
 
 ```sql
@@ -406,8 +405,6 @@ WHERE tags.city = 'Boston'
   ORDER BY datetime DESC
 LIMIT 10
 ```
-
-Below is an image of this output.
 
 ```ls
 | datetime                  | value  | tags.city  | tags.state  | region      | 
@@ -424,7 +421,7 @@ Below is an image of this output.
 | 2016-07-30T00:00:00.000Z  | 12.0   | Boston     | MA          | New-England | 
 ```
 
-This query looks at total pneumonia and influenza deaths for all cities in a given region using the `GROUP BY` clause, which combines rows having common values into a a single row. The region
+This next query looks at total pneumonia and influenza deaths for all cities in a given region using the `GROUP BY` clause, which combines rows having common values into a a single row. The region
 specified in this query is **New-England**.
  
 ```sql
@@ -452,7 +449,7 @@ LIMIT 10
 | 2016-07-30T00:00:00.000Z  | 34.0        | New-England | 
 ```
 
-Monthly pneumonia and influenza death totals for all cities in the **New-England** region for the time-range from January 1st, 2016, to October 1st, 2016. 
+Here, monthly pneumonia and influenza death are totaled for all cities in the **New-England** region for the time-range from January 1st, 2016, to October 1st, 2016. 
 
 ```sql
 SELECT datetime, sum(value),  
@@ -481,7 +478,7 @@ WHERE tags.region = '1'
 ### SQL Example 2 - Best of the Best and Worst of the Worst 
 -----------------------------------------------------------
 
-Let us know look at some additional examples which delve into sorting for the deadliest and least deadly cities.
+Let us know look at some additional examples which delve into finding out which of our 122 cities have some of the deadliest and least deadly conditions.
      
 The below query examines the least deadly week for the total number of deaths by city. 
 
@@ -619,7 +616,7 @@ FROM cdc.all_deaths tot
 | 2003-06-28  | Akron        | OH     | East-North-Central  | 2.0         | 2.0                         | 100.0                          | 197542     | 
 ```
 
-Here a few noteworthy points regarding this query.
+A few noteworthy points regarding this query.
 
 1) This query has the same structure as for the query directly above, but 2 metrics are specified: `cdc.pneumonia_and_influenza_deaths` AND `cdc.all_deaths`.<br />
 2) `JOIN` merges records with the same entity, tags, and time.<br />
@@ -945,10 +942,10 @@ ORDER BY sum(value) DESC
 ### Example 3 - Calculating Mortality Rates
 -------------------------------------------
 
-We have spent some time looking at relatively straight forward SQL queries to look at our dataset for the total number of deaths, total number of deaths caused by pneumonia and influenza, and ranking
-these results in terms of the deadliest month, region, or city. Now let us delve into computing mortality statistics for our dataset. According to the [CIA World Factbook](https://www.cia.gov/library/publications/the-world-factbook/rankorder/2066rank.html), the Mortality (or Death)
-rate is the average annual number of deaths during a year per 1,000 individuals in the population. Below is a table from their website showing the top 10 death rates in the world. In 2016, the United
-States as a whole ranks 90th in the world, with a rate of 8.20 deaths per 1,000 individuals.    
+We have spent some time looking at relatively straight forward SQL queries to look at our dataset for the total number of deaths, percentages of deaths caused by pneumonia and influenza, and ranking
+these results in terms of the deadliest month, region, or city. Now let us delve into computing mortality statistics for our dataset. According to the [CIA World Factbook](https://www.cia.gov/library/publications/the-world-factbook/rankorder/2066rank.html), mortality (or death)
+rate is the average annual number of deaths during a year per 1,000 individuals in the population. As of 2016, the United States as a whole ranks 90th in the world, with a rate of 8.20 
+deaths per 1,000 individuals. Below is a table from their website showing the top 10 death rates in the world.    
 
 | Rank | Country       | (DEATHS/1,000 POPULATION) | Date of Information | 
 |------|---------------|---------------------------|---------------------| 
@@ -980,7 +977,7 @@ GROUP BY tags
 ORDER BY mortality_rate DESC
 ```
 
-Here is our line in the query which calculates our mortality rate:
+Our line in the query which calculates our mortality rate:
 
 ```sql
 sum(value)/cast(LOOKUP('city-size', concat(tags.city, ',', tags.state)))*1000 AS 'mortality_rate'
@@ -1114,7 +1111,7 @@ Here is the output from our query looking at mortality rates in 2015.
 ```
 
 These results are pretty eye opening. Of the 122 cities in our dataset, 95 have higher mortality rates than the US average of 8.2. The highest 2015 mortality rate, in Youngstown, Ohio, is
-**6.65** and **3.65** times higher than the US national average and the rate in Lesotho (which has the highest number in the world) respectively. #2 on our list is Dayton, Ohio, whose mortality
+**6.65** and **3.65** times higher than the US national average and the rate in Lesotho (which has the highest number in the world). #2 on our list is Dayton, Ohio, whose mortality
 rate of 52.1 is not much lower than in Youngstown. How can these numbers be so high?
 
 Below is a table comparing population estimates for top 6 cities with the highest 2015 mortality rates. 
@@ -1137,8 +1134,8 @@ The website sums up the Rust Belt as a "landscape (that) is characterized by the
 
  <img src="Images/Figure46.png" width="600" >
 
-Along with Detroit (MI) and Gary (IN), Youngstown (OH) is a to showcase the rise and fall of manufacturing in the United States. Youngstown was once a city where steel was king. Steel 
-dominated every aspect of life, and as this industry grew, so too did Youngstown.According to the [Hampton Institute](http://www.hamptoninstitution.org/youngstown.html#.WE6P3URVZhE), the 
+Along with Detroit (MI) and Gary (IN), Youngstown (OH) is often used to showcase the rise and fall of manufacturing in the United States. Youngstown was once a city where steel was king. Steel 
+dominated every aspect of life, and as this industry grew, so too did Youngstown. According to the [Hampton Institute](http://www.hamptoninstitution.org/youngstown.html#.WE6P3URVZhE), the 
 population of Youngstown grew from 33,000 in 1890 to 170,000 in 1930. Youngstown became the center of Mahoning Valley, which became to be known as the "Steel Valley." By the 1930's, Youngstown
 ranked fifth in the nation in terms of home ownership. However, the glory of Youngstown was short lived. According to [encyclopedia.com](http://www.encyclopedia.com/places/united-states-and-canada/miscellaneous-us-geography/rust-belt):
 
@@ -1151,7 +1148,7 @@ Youngstown in 2014 was **496.3**, compared to 287.5 for the U.S. as a whole.
 
 Here are some numbers from [census.gov](http://www.census.gov/quickfacts/table/LFE041215/00,3988000) comparing Youngstown (OH) to the United States as a whole:
 
-Persons aged 65 and over, percent April 1 2010 (percent): **15.8%** vs 13.0%<br />
+Persons aged 65 and over, April 1 2010 (percent): **15.8%** vs 13.0%<br />
 Persons without health insurance, under age 65 (percent): **15.0%** vs 10.5%<br />
 Persons in poverty (percent): **38.3%** vs 13.5%<br />
 Per capita income in past 12 monts (in 2015 dolloars), 2011-2015: **$15,056** vs $28,930<br />
@@ -1352,7 +1349,7 @@ WHERE tags.city = 'New York'
  ORDER BY datetime
 ```
 
-This interpolation function provides weekly estimated based on linear regression between neighboring points:
+This interpolation function provides weekly estimates based on linear regression between neighboring points:
 
 ```sql
 SELECT datetime, value 
