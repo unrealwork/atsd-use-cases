@@ -278,15 +278,14 @@ According to [techopedia.com](https://www.techopedia.com/definition/1245/structu
 database management and data manipulation. SQL is used to query, insert, update, and modify data. Initially developed by IBM in the 1970's and released by Oracle Corporation in 1979, SQL allows
 you to maneuver through large amounts of data and specify exactly the information you are looking for.
 
-Let us begin by walking through some SQL examples for examining our dataset. Looking at an output for an individual city or even all of the cities combined, it is relatively easy to recognize the general
-trend of deaths in the U.S. over time. However, in many instances, since there is so much information, it is difficult to tell what the number of deaths was for a certain period. Additionally,
-this dataset only provides us with the total number of deaths. With a few commands using ATSD's SQL query capabilities we will be able to calculate mortality statistics for this
-dataset.
+Looking at an output for an individual city or even all of the cities combined, it is relatively easy to recognize the general trend of deaths in the U.S. over time. However, in many 
+instances, since there is so much information, it is difficult to tell what the number of deaths was for a certain period. Additionally, this dataset only provides us with the total 
+number of deaths. With a few commands using ATSD's SQL query capabilities we will be able to calculate mortality statistics for this dataset.
 
 ### SQL Example 1 - Pneumonia and Influenza Deaths in Boston
 ------------------------------------------------------------
 
-Let us begin by running through a simple query looking at pneumonia and influenza deaths in Boston, Massachusetts. An output for this configuration is shown below.
+Let us begin by running through a query looking at pneumonia and influenza deaths in Boston, Massachusetts. An output from Chart Lab for this configuration is shown below.
 
 ![Figure 36](Images/Figure36.png)
 
@@ -301,7 +300,7 @@ portion of the dataset and take a look at where exactly it is stored.
 
    ![Figure 38](Images/Figure38.png)
    
-3. In **Metrics**, click on **Series** for **cdc.pneumonia_amd _influenza_deaths**.   
+3. In **Metrics**, click on **Series** for `cdc.pneumonia_amd _influenza_deaths`.   
 
    ![Figure 39](Images/Figure39.png)
    
@@ -317,9 +316,9 @@ Below is an output for this data.
 
 ![Figure 42](Images/Figure42.png)
 
-Maneuvering through the entity and searching for our desired data can be very time consuming. Now, let us look at building a simple SQL query which will do the work for us.
+Maneuvering through the entity and searching for our desired data for different cities, states, regions, age groups, and deaths types can be very time consuming. Now, let us look at building a simple SQL query which will do the work for us.
 
-**Important Note**: If you are new to writing SQL queries, please begin by first navigating to our section in the Appendix called [Basic Queries](https://github.com/axibase/atsd-use-cases/tree/master/USMortality#basic-queries). 
+**Important Note**: If you are new to writing SQL queries, please begin by first navigating to our section in the Appendix called [Basic Queries](https://github.com/axibase/atsd-use-cases/blob/master/USMortality/README.md#basic-queries). 
 
 Here is an SQL query looking at recent pneumonia and influenza deaths in Boston, Massachusetts.
 
@@ -331,10 +330,10 @@ WHERE tags.city = 'Boston'
 LIMIT 10
 ```
 
-Looking at our query, we have each of the following clauses. 
+Looking at our query, we have each of the following clauses:
 
 * `SELECT` - returns a result set of records from one or more tables. In this case, we would like to return the time the weekly death total was recorded (i.e. 2016-09-24T00:00:00.000Z), the value
-  (or number of deaths), and the tags (tags.city, tags.region, and tags.state). `*` is shorthand for all. 
+  (or number of deaths), and the tags (`tags.city`, `tags.region`, and `tags.state`). `*` is shorthand for all. 
 * `FROM` - indicates the table(s) to retrieve data from. In this instance, we are filtering for `cdc.pneumonia_and_influenza_deaths`.
 * `WHERE` - specifies which rows to retrieve. Here, we are only looking for `'Boston'`.
 * `ORDER BY` - specifies the order in which to return the rows. `DESC` means descending order, so the most recent results will be returned first.
@@ -355,7 +354,7 @@ Below is an output of our queried data.
 ![Figure 45](Images/Figure45.png)
    
 Now, let us look at the latest pneumonia and influenza and total deaths for Boston, using the `JOIN` clause. This will pair the results we just queried for with the corresponding total
-total number of deaths in the city.
+number of deaths in the city.
 
 ```sql
 SELECT *
@@ -392,7 +391,7 @@ LIMIT 10
 ```
 
 This next query is again for latest pneumonia and influenza and total readings for Boston, but with region code translated to region name using one of our Replacement Table. As a default, each region is listed
-by their corresponding number. In the case of Boston, it falls in region 1, which includes the states of Connecticut, Maine, Massachusetts, New Hampshire, Rhode Island, and Vermont. We created a replacement table in ATSD where
+by their corresponding number. In the case of Boston, it falls in region 1, which includes the states of Connecticut, Maine, Massachusetts, New Hampshire, Rhode Island, and Vermont. Recall that we created a replacement table in ATSD where
 we entered in region names for each region number. In this instance, region 1 is named **New-England**.   
 
 ```sql
@@ -419,7 +418,7 @@ LIMIT 10
 | 2016-07-30T00:00:00.000Z  | 12.0   | Boston     | MA          | New-England | 
 ```
 
-This next query looks at total pneumonia and influenza deaths for all cities in a given region using the `GROUP BY` clause, which combines rows having common values into a a single row. The region
+This next query looks at total pneumonia and influenza deaths for all cities in a given region using the `GROUP BY` clause, which combines rows having common values into a single row. The region
 specified in this query is **New-England**.
  
 ```sql
@@ -601,7 +600,7 @@ FROM cdc.all_deaths tot
   OPTION (ROW_MEMORY_THRESHOLD 500000)
 ```
 
-```
+```ls
 | date        | city         | state  | region              | all_deaths  | pneumonia_influenza_deaths  | pneumonia_influenza_deaths, %  | population | 
 |-------------|--------------|--------|---------------------|-------------|-----------------------------|--------------------------------|------------| 
 | 2002-05-18  | Glendale     | CA     | Pacific             | 26.0        | 26.0                        | 100.0                          | 201020     | 
@@ -616,9 +615,9 @@ FROM cdc.all_deaths tot
 
 A few noteworthy points regarding this query.
 
-1) This query has the same structure as for the query directly above, but 2 metrics are specified: `cdc.pneumonia_and_influenza_deaths` AND `cdc.all_deaths`.<br />
+1) This query has the same structure as for the query directly above, but 2 metrics are specified: `cdc.pneumonia_and_influenza_deaths` **AND** `cdc.all_deaths`.<br />
 2) `JOIN` merges records with the same entity, tags, and time.<br />
-3) A derived metric `pni.value/tot.value` is calculated to show a percentage of the part to the total number of deaths.<br />
+3) A derived metric, `pni.value/tot.value`, is calculated to show a percentage of the part to the total number of deaths.<br />
 4) Only weeks with more than 1 pneumonia and influenza deaths are selected with the `AND pni.value > 1` condition.<br />
 
 Moving onto the next query, `OUTER JOIN` can help find all instances when a city failed to report `pneumonia_and_influenza_deaths` (no data).
@@ -678,7 +677,7 @@ ORDER BY 'all_deaths' DESC
 | Dallas       | TX     | West-South-Central  | 8923.0      | 1300092    | 
 ```
 
-This query has a similar structure to some of the examples we have already looked at. In this example the `LIMIT` clause is introduced. This clause caps the number of rows that can be returned,
+This query has a similar structure to some of the examples we have already looked at. In this example, the `LIMIT` clause is introduced. This clause caps the number of rows that can be returned,
 which in this case is 10. The line `AND datetime > current_year` returns values from 2016-01-01T00:00:00.000Z to 2016-10-01T00:00:00.000Z.
 
 The `OPTION (ROW_MEMORY_THRESHOLD {n})` instructs the database to perform processing in memory as opposed to a temporary table if the number of rows is within the specified threshold {n}. If 
@@ -941,8 +940,8 @@ ORDER BY sum(value) DESC
 -------------------------------------------
 
 We have spent some time looking at relatively straight forward SQL queries to look at our dataset for the total number of deaths, percentages of deaths caused by pneumonia and influenza, and ranking
-these results in terms of the deadliest month, region, or city. Now let us delve into computing mortality statistics for our dataset. According to the [CIA World Factbook](https://www.cia.gov/library/publications/the-world-factbook/rankorder/2066rank.html), mortality (or death)
-rate is the average annual number of deaths during a year per 1,000 individuals in the population. As of 2016, the United States as a whole ranks 90th in the world, with a rate of 8.20 
+these results in terms of the deadliest month, region, or city. Now let us delve into computing our own mortality statistics for our dataset. According to the [CIA World Factbook](https://www.cia.gov/library/publications/the-world-factbook/rankorder/2066rank.html), mortality (or death)
+rate is the average annual number of deaths during a year per 1,000 individuals in the population. As of 2016, the **United States** as a whole ranks 90th in the world, with a rate of **8.20** 
 deaths per 1,000 individuals. Below is a table from their website showing the top 10 death rates in the world.    
 
 | Rank | Country       | (DEATHS/1,000 POPULATION) | Date of Information | 
@@ -1123,11 +1122,11 @@ Below is a table comparing population estimates for top 6 cities with the highes
 | Cleveland      |    876,050        |     388,072         | 55.7 **(-)**             |
 | Rochester      |    318,611        |     209,802         | 34.2 **(-)**             |
 
-How has the population of these cities declined so dramatically?
+How has the population of five of these six cities declined so dramatically?
 
 Four of these six cities are located in the Rust Belt of the United States (map shown below). According to [geography.about.com](http://geography.about.com/od/urbaneconomicgeography/a/Rust-Belt.htm),
 the Rust Belt is an area of the United States which once served as the hub of American industry. In the early to mid 20th century, abundant natural resources led to thriving coal, steel,
-and manufacturing industries. However, at the mid point of the century, many of these cities fell upon hard times, as manufacturing jobs went overseas with their populations declining as a result. 
+and manufacturing industries. However, at the mid point of the century, many of these cities fell upon hard times, as manufacturing jobs went overseas, populations began to decline as a result. 
 The website sums up the Rust Belt as a "landscape (that) is characterized by the presence of old factory towns and post-industrial skylines."
 
  <img src="Images/Figure46.png" width="600" >
@@ -1151,7 +1150,7 @@ Persons without health insurance, under age 65 (percent): **15.0%** vs 10.5%<br 
 Persons in poverty (percent): **38.3%** vs 13.5%<br />
 Per capita income in past 12 monts (in 2015 dolloars), 2011-2015: **$15,056** vs $28,930<br />
 
-A declining aging population, high crime and poverty rates has likely led to Youngstown having such a high mortality rate.
+A declining and aging population and high crime and poverty rates has likely led to Youngstown having such a high mortality rate.
 
 Now, let us move to looking at mortality rates in New York City (fixed population size):
 
@@ -1396,7 +1395,7 @@ GROUP BY tot.period(1 YEAR)
 
 There are two noteworthy points regarding this query:
 
-1) All metrics with death numbers are joined (grouped by year) with the `SUM` aggregation.<br />
+1) All metrics with death numbers are joined (grouped by year) using the `SUM` aggregation.<br />
 2) `SUM` aggregation is divided by the size of the corresponding age group, retrieved with a lookup function, and multiplied by 1000 since mortality is measured in deaths per 1000 people.<br />
 
 ### Action Items
