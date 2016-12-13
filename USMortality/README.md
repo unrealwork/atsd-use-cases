@@ -9,7 +9,7 @@ Knocking on Heaven's Door - Computing U.S. Mortality Statistics
 Death. Along with taxes, it is one of the few certainties in life. While we all will meet our end some day, that end is becoming farther and farther away and the risk of death is decreasing.
 According to [infoplease.com](http://www.infoplease.com/ipa/A0005148.html), life expectancy from 1935 to 2010 for both sexes in the U.S. increased from 61.7 to 78.7 years. 
 As reported by the [Center for Disease Control and Prevention (CDC)](http://www.cdc.gov/nchs/data/databriefs/db88.htm#x2013;2010%3C/a%3E>), the crude death rate in the United States fell from 1,094.5 to 798.7 deaths per 100,000 people from 1935 to 2010, translating to 
-a 27% decrease. However, the population of the U.S. as a whole was getting older during this time period. When this affect of aging was removed from calculation, the CDC estimates that the age
+a 27% decrease. However, the population of the U.S. as a whole was getting older during this time period. When this affect of aging was removed from the calculation, the CDC estimates that the age
 adjusted **risk of dying dropped by 60 percent from 1935 to 2010**.  
  
 The death rate for the 1 to 4 years of age group dropped by **94 percent** from 1935 to 2010.
@@ -21,13 +21,13 @@ Below is an image showcasing the percent change from 1935 to 2010 in death rates
 ![Figure 1](Images/Figure1.png)
 
 In this article we will look at weekly death total statistics collected for over 100 U.S. cities for over 50 years. We will begin by introducing ourselves to the dataset. Next, we will walk 
-through installing local configurations of the Axibase Time Series Database (ATSD) and Axibase Collector using Docker. We will then go through through ATSD's query language 
-capabilities to help make sense of and digest all of this information on death in the United States. Lastly, we will then look at incorporating population figures to calculate mortality rates for each individual city.
+through installing local configurations of the Axibase Time Series Database (ATSD) and Axibase Collector using Docker. We will then go through ATSD's query language 
+capabilities to help make sense of and digest all of this information on death in the United States. Lastly, we will then look at incorporating population figures to calculate our own mortality rates for each individual city.
  
 ### Death Statistics for 122 U.S. Cities
 ----------------------------------------
 
-Let's take a look at the dataset titled **Deaths in 122 U.S. cities - 1962-2016. 122 Cities Mortality Reporting System** from data.gov.
+Let's take a look at the dataset titled **Deaths in 122 U.S. cities - 1962-2016. 122 Cities Mortality Reporting System** from [data.gov](https://www.data.gov/).
 
 This dataset can be found here: [https://catalog.data.gov/dataset/deaths-in-122-u-s-cities-1962-2016-122-cities-mortality-reporting-system](https://catalog.data.gov/dataset/deaths-in-122-u-s-cities-1962-2016-122-cities-mortality-reporting-system)
 
@@ -45,9 +45,8 @@ or contributing cause of death by age group. Deaths in this dataset are split in
 
 In the [Appendix](https://github.com/axibase/atsd-use-cases/blob/master/USMortality/README.md#appendix-death-statistics-city-list) of this article, you can find a complete list of the cities (with their corresponding state) included in this dataset.
 
-Death statistics were collected for 122 cities. These cities have their respective state listed and are be grouped as well by geographic region, all of which are shown below.
-
-These are regions are part of the United States Census Bureau's [census regions and divisions](http://www.census.gov/econ/census/help/geography/regions_and_divisions.html)
+Additionally, these cities are be grouped by their United States Census Bureau [census regions and divisions](http://www.census.gov/econ/census/help/geography/regions_and_divisions.html)
+geographic region, all of which are shown below. 
 
 | Region | Region Name | States included in Region |
 |---|---------------|-------------------------------------------------------------------------------------------------------|
@@ -67,8 +66,8 @@ On the data.gov website, datasets can be downloaded as a CSV, RDF, JSON, or a XM
 --------------------------------
 
 The processing of datasets using Axibase Time Series Database (ATSD) is straight forward.  Processing the same data with ATSD is less time consuming
-because its collection tool has built-in heuristics to handle the format in which data.gov datasets are published, namely the Socrata Open Data Format.
-When loading data for a particular dataset, the collector uses Socrata metadata to understand the meaning of columns and automatically extract dates, times,
+because its collection tool has built-in heuristics to handle the format in which [data.gov](https://www.data.gov/) datasets are published, namely the Socrata Open Data Format.
+When loading data for a particular dataset, Axibase collector uses Socrata metadata to understand the meaning of columns and automatically extract dates, times,
 and categories from the data files. Besides, ATSD stores the data in the user's own database so that this public data can be combined with internal data
 sources as well as mixed and matched across different datasets. Once you install ATSD, you **don't** have to:
 
@@ -131,7 +130,7 @@ You can observe this filtered portal for Chicago here:
 
 [![](Images/button.png)](https://apps.axibase.com/chartlab/6cf6fe70)
 
-Using the third dropdown, we are able to sort by geographic region. This list will come in handy later in the article when we delve into Axibase's query language capabilities. 
+Using the third dropdown, we are able to sort by dataset by United States Census Bureau [census regions and divisions](http://www.census.gov/econ/census/help/geography/regions_and_divisions.html) geographic regions.
 
 1 = New-England<br />
 2 = Middle-Atlantic<br />
@@ -153,9 +152,8 @@ You can explore the filtered portal for the Pacific region here:
 
 [![](Images/button.png)](https://apps.axibase.com/chartlab/c284427c)
 
-Finally, using the fourth dropdown, we are able to sort by state. It is worth noting that all not states are represented in this dataset. 39 states plus the District of Columbia are included
-in this dataset. States that are not included are: Alaska (AK), Maine (ME), Mississippi (MS), Montana (MT), New Hampshire (NH), North Dakota (ND), South Carolina (SC), South Dakota (SD), 
-Vermont (VT), West Virginia (WV), and Wyoming (WY). 
+Finally, using the fourth dropdown, we are able to sort by state. It is worth noting that all not states are represented in this dataset. 39 states plus the District of Columbia are included.
+States that are not included are: Alaska (AK), Maine (ME), Mississippi (MS), Montana (MT), New Hampshire (NH), North Dakota (ND), South Carolina (SC), South Dakota (SD), Vermont (VT), West Virginia (WV), and Wyoming (WY). 
 
 Below is an image of New Jersey (NJ) filtered for all deaths.
 
@@ -166,11 +164,11 @@ You can explore the filtered portal for the state of New Jersey here:
 [![](Images/button.png)](https://apps.axibase.com/chartlab/3d07088c)
 
 We can see that we have an unbelievable amount of data loaded into this Chart Lab instance. The high quantity of cities, the frequent collection intervals of the data, and the highly variable nature of the 
-death totals make it difficult to wrap our heads around all of this. How can we make sense of it? Using Axibase's query language capabilities allows you to easily search for specific
-information within this portal. We will begin by walking through installing local configurations of ATSD and Axibase Collector, which we will then use to query our dataset.
+death totals make it difficult to wrap our heads around all of this. How can we make sense of it? Using ATSD's query language capabilities allows you to easily search for specific
+information within this dataset. We will begin by walking through installing local configurations of ATSD and Axibase Collector, which we will then use to query our dataset.
 
-### Creating Local Configurations for ATSD and Axibase Collector 
-----------------------------------------------------------------
+### Creating Local Configurations for ATSD and Axibase Collector using Docker
+-----------------------------------------------------------------------------
 
 Below is a step-by-step walk through for setting up local configurations of ATSD and Axibase Collector. We will use Docker as our host. You can learn more about Docker [on our website](https://axibase.com/docker-monitoring/).   
 
@@ -200,7 +198,7 @@ Below is a step-by-step walk through for setting up local configurations of ATSD
     
     ![Figure 34](Images/Figure34.png)
 
-7. We now want to import a `.xml` job file, which contains rules for how essentially the data will be retrieved from the source, in our case [data.gov](https://catalog.data.gov/dataset/deaths-in-122-u-s-cities-1962-2016-122-cities-mortality-reporting-system). In Axibase Collector, click on the **Jobs** tab in the upper left hand corner.
+7. We now want to import a `.xml` job file, which contains rules for how, essentially, the data will be retrieved from the source, in our case [data.gov](https://catalog.data.gov/dataset/deaths-in-122-u-s-cities-1962-2016-122-cities-mortality-reporting-system). In Axibase Collector, click on the **Jobs** tab in the upper left hand corner.
 
    ![Figure 32](Images/Figure32.png)
    
@@ -208,7 +206,7 @@ Below is a step-by-step walk through for setting up local configurations of ATSD
  
    ![Figure 14](Images/Figure14.png)
     
-8. Now click back on the `Jobs` tab. Only jobs that are **Enabled** are shown as the default. After importing, all jobs are automatically set to disabled. Select **ALL** as shown in the first image 
+8. Now click back on the **Jobs** tab. Only jobs that are **Enabled** are shown as the default. After importing, all jobs are automatically set to disabled. Select **ALL** as shown in the first image 
    below. Next, the name of the file that will show up in Collector is `socrata-cdc` (second image). Click on this job, check the **Enabled** checkbox, and hit **Save** as shown in the third figure.
    
    ![Figure 18](Images/Figure18.png)
@@ -217,7 +215,7 @@ Below is a step-by-step walk through for setting up local configurations of ATSD
       
    ![Figure 15](Images/Figure15.png)
    
-9. Navigate back the `Jobs` tab. Since we set `socrata-cdc` to **Enabled**, it shows up by default. Hit **Run**. After a few seconds, refresh your browser. If the data was successfully retrieved
+9. Navigate back the **Jobs** tab. Since we set `socrata-cdc` to **Enabled**, it shows up by default. Hit **Run**. After a few seconds, refresh your browser. If the data was successfully retrieved
    by Collector, you should see an output as shown in the second image below.
 
    ![Figure 16](Images/Figure16.png)
@@ -228,11 +226,11 @@ Below is a step-by-step walk through for setting up local configurations of ATSD
    
    ![Figure 19](Images/Figure19.png)
    
-11. Next, click on **Configuration -> Replacement Table**.
+11. Next, click on **Configuration -> Replacement Tables**.
    
    ![Figure 20](Images/Figure20.png)
    
-12. Copy and paste the files included in this repository ([`city-size`](https://github.com/axibase/atsd-use-cases/blob/master/USMortality/city-size) and [`us-regions`](https://github.com/axibase/atsd-use-cases/blob/master/USMortality/us-regions) into the Replacement Table. Click **Save**. `city-size` contains 2015 population figures for each of the
+12. Copy and paste the files included in this repository ([`city-size`](https://github.com/axibase/atsd-use-cases/blob/master/USMortality/city-size) and [`us-regions`](https://github.com/axibase/atsd-use-cases/blob/master/USMortality/us-regions)) into the Replacement Table. Click **Save**. `city-size` contains 2015 population figures for each of the
     122 cities included in this dataset. `us-regions` is a list of all of the regions (i.e. 1=New-England, 2=Middle-Atlantic etc.). These will be used later in this article for performing
     queries. 
    
