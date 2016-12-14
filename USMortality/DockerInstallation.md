@@ -1,5 +1,5 @@
-### Creating Local Configurations for ATSD and Axibase Collector using Docker
------------------------------------------------------------------------------
+Creating Local Configurations for ATSD and Axibase Collector using Docker
+=========================================================================
 
 Below is a step-by-step walk through for setting up local configurations of ATSD and Axibase Collector. We will use Docker as our host.
 

@@ -170,7 +170,8 @@ information within this dataset. We will begin by walking through installing loc
 ### Creating Local Configurations for ATSD and Axibase Collector using Docker
 -----------------------------------------------------------------------------
 
-You can set up local configurations of ATSD and Axibase Collector by going through on our [step-by-step walk through]. We will use Docker as our host. 
+You can set up local configurations of ATSD and Axibase Collector using Docker by going through on our [step-by-step walk through](https://github.com/axibase/atsd-use-cases/blob/master/USMortality/DockerInstallation.md).
+It should take you about 15 minutes to complete this walk through. 
 
 You can learn more about Docker [on our website](https://axibase.com/docker-monitoring/).   
 
