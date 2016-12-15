@@ -140,7 +140,7 @@ Using the third dropdown, we are able to sort by dataset by United States Census
 6 = East-South-Central<br />
 7 = West-South-Central<br />
 8 = Mountain<br />
-9 = Pacific<br />
+9 = Pacific<br /> 
 
 Let us sort by region 9 (pacific). Below is an output for this filtered instance. We can see that cities for California (CA), Hawaii (HI), Oregon (OR), Washington (WA) are all included in
 this output. We can observe that up until the early to mid 2000's, the deaths in Los Angeles greatly outnumber those of any other city in the region. Recently, however, the deaths in Los Angeles
@@ -159,7 +159,7 @@ Below is an image of New Jersey (NJ) filtered for all deaths.
 
 ![Figure 10](Images/Figure10.png)
 
-You can explore the filtered portal for the state of New Jersey here:
+You can explore the filtered portal for the state of New Jersey here: 
 
 [![](Images/button.png)](https://apps.axibase.com/chartlab/3d07088c)
 
