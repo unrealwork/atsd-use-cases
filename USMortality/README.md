@@ -563,7 +563,6 @@ FROM cdc.all_deaths
 GROUP BY tags
 ORDER BY 'all_deaths' DESC
   LIMIT 10
-  OPTION (ROW_MEMORY_THRESHOLD 500000)
 ```
 
 ```ls
@@ -600,7 +599,6 @@ FROM cdc.pneumonia_and_influenza_deaths
 GROUP BY tags
 ORDER BY 'pneumonia_influenza_deaths' DESC
   LIMIT 10
-  OPTION (ROW_MEMORY_THRESHOLD 500000)
 ```
 
 ```ls
@@ -636,7 +634,6 @@ WHERE tot.entity = 'mr8w-325u' AND tot.tags.city IS NOT NULL
 GROUP BY tot.tags
   ORDER BY 'pneumonia_influenza_deaths, %' DESC, 'pneumonia_influenza_deaths' DESC
   LIMIT 10
-  OPTION (ROW_MEMORY_THRESHOLD 500000)
 ```
 
 In this query, we are able to calculate the percentage of pneumonia and influenza deaths using the line `sum(pni.value)/sum(tot.value)*100 AS 'pneumonia_influenza_deaths, %',`. 
@@ -672,7 +669,6 @@ WHERE tot.entity = 'mr8w-325u' AND tot.tags.city IS NOT NULL
 GROUP BY tot.tags
   ORDER BY 'pneumonia_influenza_deaths, %' DESC, 'pneumonia_influenza_deaths' DESC
   LIMIT 10
-  OPTION (ROW_MEMORY_THRESHOLD 500000)
 ```
 
 The only difference between this query and the previous one is the specified time frame. Using the line `AND tot.datetime > now-1*YEAR AND tot.value > 0`, we are able to filter for the last
@@ -737,7 +733,6 @@ FROM cdc.pneumonia_and_influenza_deaths
   AND datetime > now-5*year AND datetime < '2016-10-01T00:00:00Z'
 GROUP BY tags.region, period(1 MONTH)
 ORDER BY datetime desc, tags.region
-  OPTION (ROW_MEMORY_THRESHOLD 500000)
 ```
 
 ```ls
@@ -766,7 +761,6 @@ FROM cdc.pneumonia_and_influenza_deaths
   AND date_format(time, 'MMM') = 'Jan'
 GROUP BY tags.region, period(1 MONTH)
 ORDER BY datetime, tags.region
-  OPTION (ROW_MEMORY_THRESHOLD 500000)
 ```
 
 ```ls
@@ -798,7 +792,6 @@ FROM cdc.pneumonia_and_influenza_deaths
 GROUP BY tags.region, period(1 MONTH)
 ORDER BY sum(value) desc
   LIMIT 3
-  OPTION (ROW_MEMORY_THRESHOLD 500000)
 ```  
 
 ```ls
@@ -820,7 +813,6 @@ FROM cdc.pneumonia_and_influenza_deaths
   AND LOOKUP('us-region', tags.region) = 'Pacific'
 GROUP BY tags.region, date_format(time, 'MMM')
 ORDER BY sum(value) DESC
-  OPTION (ROW_MEMORY_THRESHOLD 500000)
 ```
 
 ```ls
@@ -1082,7 +1074,6 @@ FROM cdc.all_deaths tot
 GROUP BY tot.tags, tot.period(1 year)
   HAVING sum(tot.value) > 0
 ORDER BY tot.tags.city, tot.datetime
-  OPTION (ROW_MEMORY_THRESHOLD 500000)
 ```
 
 Here are a few noteworthy points regarding this query:
@@ -1183,7 +1174,6 @@ GROUP BY tot.tags, tot.period(1 year)
   HAVING sum(tot.value) > 0
 WITH INTERPOLATE (1 WEEK, LINEAR, INNER, EXTEND, START_TIME)  
   ORDER BY tot.datetime
-OPTION (ROW_MEMORY_THRESHOLD 500000)
 ```
   
 ```ls
@@ -1288,7 +1278,6 @@ WHERE tot.entity = 'mr8w-325u'
   AND tot.datetime >= '2010-01-01T00:00:00Z' AND tot.datetime < '2011-01-01T00:00:00Z'
   AND tot.tags.city = 'New York'
 GROUP BY tot.period(1 YEAR)
-  OPTION (ROW_MEMORY_THRESHOLD 500000)
 ```  
 
 ```ls
