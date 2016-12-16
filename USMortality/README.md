@@ -35,7 +35,7 @@ or contributing cause of death by age group. Deaths in this dataset are split in
 
 You can find a complete list of the cities (with their corresponding state) in our [city-list](https://github.com/axibase/atsd-use-cases/blob/master/USMortality/city-list.md) file.
 
-Additionally, these cities are be grouped by their United States Census Bureau [census regions and divisions](http://www.census.gov/econ/census/help/geography/regions_and_divisions.html)
+Additionally, these cities are be grouped by their [United States Census Bureau regions](http://www.census.gov/econ/census/help/geography/regions_and_divisions.html)
 geographic region. You can find a table of these regions in our [region-table](https://github.com/axibase/atsd-use-cases/blob/master/USMortality/region-table.md) file.
 
 On the data.gov website, datasets can be downloaded as a CSV, RDF, JSON, or a XML file. This dataset can easily be parsed using the JSON job in Axibase.
@@ -125,11 +125,14 @@ Below is an output for this data.
 
 ![Figure 42](Images/Figure42.png)
 
-Maneuvering through the entity and searching for our desired data for different cities, states, regions, age groups, and deaths types can be very time consuming. Now, let us look at building some 
+Maneuvering through the entity and searching for our desired data for different cities, states, regions, age groups, and deaths types can be very time consuming. Now, let us look some 
 simple SQL queries which will do the work for us.
 
 ### Basic SQL Queries
 ---------------------
+
+Here are some basic SQL queries with brief descriptions included. Look these over to get yourself acclimated to the general format of SQL queries. In the example following this section, we will
+in detail walk through executing a query from start to finish.  
 
 ```sql
 SELECT *
