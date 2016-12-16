@@ -9,17 +9,17 @@ Knocking on Heaven's Door - Computing U.S. Mortality Statistics
 Death. Along with taxes, it is one of the few certainties in life. While we all will meet our end some day, that end is becoming farther and farther away and the risk of death is decreasing.
 According to [infoplease.com](http://www.infoplease.com/ipa/A0005148.html), life expectancy from 1935 to 2010 for both sexes in the U.S. increased from 61.7 to 78.7 years. 
 As reported by the [Center for Disease Control and Prevention (CDC)](http://www.cdc.gov/nchs/data/databriefs/db88.htm#x2013;2010%3C/a%3E>), the crude death rate in the United States fell from 
-1,094.5 to 798.7 deaths per 100,000 people from 1935 to 2010, translating to a **27% decrease**. Mortality rates, however, are vastly different across different U.S. cities and age groups. 
-In this article we will analyze a dataset looking at [death statistics for 122 U.S. cities](https://catalog.data.gov/dataset/deaths-in-122-u-s-cities-1962-2016-122-cities-mortality-reporting-system). 
-This article will focus on the Axibase Time Series Databases's (ATSD) SQL query language capabilities, which we will use to search for specific information contained in this dataset. Additionally,
-we will then look at incorporating population figures to calculate our own mortality rates for each individual city.
+10.9 to 7.9 deaths per 1,000 people from 1935 to 2010, translating to a **27% decrease**. Mortality rates, however, are vastly different across different U.S. cities and age groups. 
+In this article we will analyze a data.gov dataset looking at [death statistics for 122 U.S. cities](https://catalog.data.gov/dataset/deaths-in-122-u-s-cities-1962-2016-122-cities-mortality-reporting-system). 
+This article will focus on the Axibase Time Series Databases's (ATSD) SQL query language capabilities, which we will use to search for specific information contained in this dataset. 
 
 ### Death Statistics for 122 U.S. Cities
 ----------------------------------------
 
 Let's take a look at the dataset titled **Deaths in 122 U.S. cities - 1962-2016. 122 Cities Mortality Reporting System** from [data.gov](https://www.data.gov/).
 
-This dataset can be found here: [https://catalog.data.gov/dataset/deaths-in-122-u-s-cities-1962-2016-122-cities-mortality-reporting-system](https://catalog.data.gov/dataset/deaths-in-122-u-s-cities-1962-2016-122-cities-mortality-reporting-system)
+This dataset can be found here: [https://catalog.data.gov/dataset/deaths-in-122-u-s-cities-1962-2016-122-cities-mortality-reporting-system](https://catalog.data.gov/dataset/deaths-in-122-u-s-cities-1962-2016-122-cities-mortality-reporting-system).
+On the data.gov website, datasets can be downloaded as a [CSV](https://catalog.data.gov/dataset/deaths-in-122-u-s-cities-1962-2016-122-cities-mortality-reporting-system/resource/40bf5898-91cc-4156-9885-6ef3b72f7a61)(16.7 MB), RDF, [JSON](https://data.cdc.gov/api/views/mr8w-325u/rows.json?accessType=DOWNLOAD)(66.2 MB), or a XML file. This dataset can easily be parsed using the JSON job in Axibase.
 
 This file contains data for weekly death totals collected from 1962 to 2016 in 122 U.S. cities. The system was retired on October 6th, 2016. While the system was running, the vital statistics
 offices of these cities across the United States reported the total number of death certificates processed and the number of those for which pneumonia or influenza was listed as the underlying 
@@ -35,25 +35,26 @@ or contributing cause of death by age group. Deaths in this dataset are split in
 
 You can find a complete list of the cities (with their corresponding state) in our [city-list](https://github.com/axibase/atsd-use-cases/blob/master/USMortality/city-list.md) file.
 
-Additionally, these cities are be grouped by their [United States Census Bureau regions](http://www.census.gov/econ/census/help/geography/regions_and_divisions.html)
-geographic region. You can find a table of these regions in our [region-table](https://github.com/axibase/atsd-use-cases/blob/master/USMortality/region-table.md) file.
+Additionally, these cities are be grouped by their [United States Census Bureau regions](http://www.census.gov/econ/census/help/geography/regions_and_divisions.html).
+You can find a table of these regions in our [region-table](https://github.com/axibase/atsd-use-cases/blob/master/USMortality/region-table.md) file.
 
-On the data.gov website, datasets can be downloaded as a CSV, RDF, JSON, or a XML file. This dataset can easily be parsed using the JSON job in Axibase.
+While you can manually analyze this information in a spreadsheet program, it is much more convenient to interact with the data once it is loaded into a database.  
 
 ### Axibase Time Series Database
 --------------------------------
 
-Below is an output of the default configuration with all 122 U.S. cities parsed into ATSD. 
+The Axibase Time Series Database (ATSD) is a powerful tool when it comes to storing, analyzing, and displaying datasets. This article will not focus on creating graphs and figures using ATSD, but 
+rather on writing and running SQL queries. If you are interested in reading more on the visual presentation capabilities of ATSD, check out our articles on
+[employee compensation numbers in Iowa](https://github.com/axibase/atsd-use-cases/blob/master/SocrataIowaCompensation/README.md) and
+[aviation statistics in the United Kingdom](https://github.com/axibase/atsd-use-cases/blob/master/UKAviation/README.md).
+
+Below is an output of the default configuration with all 122 U.S. cities parsed into ATSD.
 
 ![Figure 2](Images/Figure2.png)
 
 Here you can explore the complete dataset for U.S. death totals:
 
 [![](Images/button.png)](https://apps.axibase.com/chartlab/3d07088c)
-
-This article will not focus on creating graphs and figures using ATSD, but rather on writing and running SQL queries. If you are interested in reading more on the visual presentation capabilities of ATSD, check 
-out our articles on [employee compensation numbers in Iowa](https://github.com/axibase/atsd-use-cases/blob/master/SocrataIowaCompensation/README.md) and
-[aviation statistics in the United Kingdom](https://github.com/axibase/atsd-use-cases/blob/master/UKAviation/README.md).
 
 ### Creating Local Configurations for ATSD and Axibase Collector using Docker
 -----------------------------------------------------------------------------
@@ -68,10 +69,7 @@ You can learn more about Docker [on our website](https://axibase.com/docker-moni
 ### ATSD Schema
 ---------------
 
-Before we get in to creating SQL queries, let us begin by running through the data schema of ATSD. Let's look at pneumonia and influenza deaths in Boston, Massachusetts. An output from Chart Lab for 
-this configuration is shown below.
-
-![Figure 36](Images/Figure36.png)
+Before we get in to creating SQL queries, let us begin by running through the data schema of ATSD. 
 
 Below is a list and brief descriptions of some dataset schema terminology we will be using.
 
@@ -125,8 +123,8 @@ Below is an output for this data.
 
 ![Figure 42](Images/Figure42.png)
 
-Maneuvering through the entity and searching for our desired data for different cities, states, regions, age groups, and deaths types can be very time consuming. Now, let us look some 
-simple SQL queries which will do the work for us.
+Maneuvering through the entity and searching for our desired data for different cities, states, regions, age groups, and deaths types can be time consuming. Now, let us look some 
+simple SQL queries which will do the work for us. You can read more about [data schema and models](http://axibase.com/products/axibase-time-series-database/data-model/) on our website.
 
 ### Basic SQL Queries
 ---------------------
