@@ -100,4 +100,4 @@ Below is a step-by-step walk through for setting up local configurations of ATSD
    
    ![Figure 31](Images/Figure31.png)
    
-We are now ready to begin querying our dataset. [Here](https://github.com/axibase/atsd-use-cases/blob/master/USMortality/README.md#axibase-sql-query-language) is a link back to the article.
+We are now ready to begin querying our dataset.
