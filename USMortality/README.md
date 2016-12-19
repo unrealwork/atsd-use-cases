@@ -1245,7 +1245,7 @@ LIMIT 5
 ```
 
 We can also look at determining mortality rate by age group in New York City. We grabbed age group population statistics from [nyc1.gov](http://www1.nyc.gov/site/planning/data-maps/nyc-population/census-2010.page)
-as part of the 2010 U.S. census. The `new-york-city-2010-population` file can be found [here](https://github.com/axibase/atsd-use-cases/blob/master/USMortality/new-york-city-2010-population) in this repository.
+as part of the 2010 U.S. census. The `new-york-city-2010-population` file can be found [here](https://github.com/axibase/atsd-use-cases/blob/master/USMortality/resources/new-york-city-2010-population) in this repository.
 
 ```sql
 SELECT CAST(LOOKUP('new-york-city-2010-population', 'total')) AS 'population',
@@ -1283,6 +1283,47 @@ There are two noteworthy points regarding this query:
 
 1) All metrics with death numbers are joined (grouped by year) using the `SUM` aggregation.<br />
 2) `SUM` aggregation is divided by the size of the corresponding age group, retrieved with a lookup function, and multiplied by 1000 since mortality is measured in deaths per 1000 people.<br />
+
+As the final query in this article, let us take a look at mortality rates by age group in Youngstown. We determined population figures with help from [http://places.mooseroots.com](http://places.mooseroots.com/l/332116/Youngstown-OH)
+as part of the 2010 U.S. Census. The `youngstown-2010-population` file can be found [here](https://github.com/axibase/atsd-use-cases/blob/master/USMortality/resources/youngstown-2010-population).
+
+```sql
+SELECT CAST(LOOKUP('youngstown-2010-population', 'total')) AS 'population',
+  sum(t24.value+t1.value) AS '0-24_deaths',
+  sum(t44.value) AS '25-44_deaths',
+  sum(t64.value) AS '45-64_deaths',
+  sum(t65.value) AS '65+_deaths',
+  sum(tot.value) AS 'all_deaths', 
+  sum(t24.value+t1.value)/CAST(LOOKUP('youngstown-2010-population', '1-24'))*1000 AS '1-24_mortality_rate',
+  sum(t44.value)/CAST(LOOKUP('youngstown-2010-population', '25-44'))*1000 AS '25-44_mortality_rate',
+  sum(t64.value)/CAST(LOOKUP('youngstown-2010-population', '45-64'))*1000 AS '45-64_mortality_rate',
+  sum(t65.value)/CAST(LOOKUP('youngstown-2010-population', '65+'))*1000 AS '65+_mortality_rate',
+  sum(tot.value)/CAST(LOOKUP('youngstown-2010-population', 'total'))*1000 AS 'total_mortality_rate'
+FROM cdc.all_deaths tot
+  OUTER JOIN cdc._1_year t1
+  OUTER JOIN cdc._1_24_years t24
+  OUTER JOIN cdc._25_44_years t44
+  OUTER JOIN cdc._54_64_years t64
+  OUTER JOIN cdc._65_years t65
+WHERE tot.entity = 'mr8w-325u'
+  AND tot.datetime >= '2010-01-01T00:00:00Z' AND tot.datetime < '2011-01-01T00:00:00Z'
+  AND tot.tags.city = 'Youngstown'
+GROUP BY tot.period(1 YEAR)
+```
+
+```ls
+| population  | 0-24_deaths  | 25-44_deaths  | 45-64_deaths  | 65+_deaths  | all_deaths  | 1-24_mortality_rate  | 25-44_mortality_rate  | 45-64_mortality_rate  | 65+_mortality_rate  | total_mortality_rate | 
+|-------------|--------------|---------------|---------------|-------------|-------------|----------------------|-----------------------|-----------------------|---------------------|----------------------| 
+| 66982.0     | 16.0         | 40.0          | 493.0         | 2461.0      | 3039.0      | 0.7                  | 2.6                   | 27.5                  | 223.4               | 45.4                 | 
+```
+
+Below is a table comparing mortality rates in 2010 in New York City and Youngstown.
+
+ |city        | infant_mortality_rate  | 1-24_mortality_rate  | 25-44_mortality_rate  | 45-64_mortality_rate  | 65+_mortality_rate  | total_mortality_rate | 
+ |------------|------------------------|----------------------|-----------------------|-----------------------|---------------------|----------------------| 
+ | New York   | 5.5                    | 0.3                  | 1.1                   | 5.8                   | 37.2                | 6.4                  | 
+ | Youngstown | 0.0                    | 0.7                  | 2.6                   | 27.5                  | 223.4               | 45.4                 |
+
 
 ### Action Items
 ----------------

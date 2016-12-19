@@ -24,40 +24,29 @@ Below is a step-by-step walk through for setting up local configurations of ATSD
 
     <img src="Images/Figure13.png" width="500" >
     
-    As was written into our `docker-compose.yaml`, we have already connected Collector to ATSD, as well as imported and scheduled a `.xml` job file. This file contains rules for how, 
-    essentially, the data will be retrieved from the source, in our case [data.gov](https://catalog.data.gov/dataset/deaths-in-122-u-s-cities-1962-2016-122-cities-mortality-reporting-system).
-    
-7. Now click back on the **Jobs** tab. 
-      
-   ![Figure 32](Images/Figure32.png)
-   
-   Only jobs that are **Enabled** are shown as the default. Our job is already set to **Enabled**, as was specified in our `docker-compose.yaml` file, so it shows up right away. The name of the file
-   that will show up in Collector is `socrata-cdc`. 
-         
-   ![Figure 50](Images/Figure50.png)
-   
-8. Hit **Run**. After a few seconds, refresh your browser. If the data was successfully retrieved
-   by Collector, you should see an output as shown in the second image below.
+7. Now click back on the **Jobs** tab. The name of the file that will show up in Collector is `socrata-cdc`. Hit **Run**. After a few seconds, refresh your browser. If the data was successfully 
+   retrieved by Collector, you should see an output as shown in the second image below. As a note, normally you would need to import a `.xml` job file in Collector. This step, however, was circumvented by
+   specifying a retrieval path for a `.xml` file from GitHub in our `docker-compose.yaml` file. 
 
    ![Figure 16](Images/Figure16.png)
    
    ![Figure 17](Images/Figure17.png)
    
-9. Now, navigate to the **Entities** tab in ATSD. We can see that the job has created a new entity in ATSD, with the name `mr8w-325u`.  
+8. Now, navigate to the **Entities** tab in ATSD. We can see that the job has created a new entity in ATSD, with the name `mr8w-325u`.  
    
    ![Figure 19](Images/Figure19.png)
    
-10. Next, click on **Configuration -> Replacement Tables**.
+9. Next, click on **Configuration -> Replacement Tables**.
    
    ![Figure 20](Images/Figure20.png)
    
-11. Copy and paste the files included in this repository ([`city-size`](https://github.com/axibase/atsd-use-cases/blob/master/USMortality/city-size) and [`us-regions`](https://github.com/axibase/atsd-use-cases/blob/master/USMortality/us-regions)) into the Replacement Table. Click **Save**. `city-size` contains 2015 population figures for each of the
+10. Copy and paste the files included in this repository ([`city-size`](https://github.com/axibase/atsd-use-cases/blob/master/USMortality/city-size) and [`us-regions`](https://github.com/axibase/atsd-use-cases/blob/master/USMortality/us-regions)) into the Replacement Table. Click **Save**. `city-size` contains 2015 population figures for each of the
     122 cities included in this dataset. `us-regions` is a list of all of the regions (i.e. 1=New-England, 2=Middle-Atlantic etc.). These will be used later in this article for performing
     queries. 
    
    ![Figure 21](Images/Figure21.png)
    
-12. Navigate to **Configuration -> Parsers:CSV** and import the `parser.xml` file.
+11. Navigate to **Configuration -> Parsers:CSV** and import the `parser.xml` file.
  
    ![Figure 22](Images/Figure22.png)
    
@@ -65,7 +54,7 @@ Below is a step-by-step walk through for setting up local configurations of ATSD
    
    ![Figure 24](Images/Figure24.png)
    
-13. After the parser has been added, we will proceed to uploading our [`us.population.csv`](https://github.com/axibase/atsd-use-cases/blob/master/USMortality/us.population.csv) file. This file contains population estimates from [census.gov](https://http://www.census.gov/data.html) for all 122 cities for 1960, 1970, 1980, 1990, 2000, 2010,
+12. After the parser has been added, we will proceed to uploading our [`us.population.csv`](https://github.com/axibase/atsd-use-cases/blob/master/USMortality/us.population.csv) file. This file contains population estimates from [census.gov](https://http://www.census.gov/data.html) for all 122 cities for 1960, 1970, 1980, 1990, 2000, 2010,
     and 2015. This file will be used for our queries. Click again on the **Parsers:CSV** dropdown. Then, click on the **Upload** button and then select the `us.population.csv` file.          
    
    ![Figure 25](Images/Figure25.png)
@@ -80,7 +69,7 @@ Below is a step-by-step walk through for setting up local configurations of ATSD
    
    ![Figure 28](Images/Figure28.png)
    
-14. Next, navigate to **Metrics** and enter in `us.population` into the **Name Mask** bar.     
+13. Next, navigate to **Metrics** and enter in `us.population` into the **Name Mask** bar.     
    
    ![Figure 29](Images/Figure29.png)
    
