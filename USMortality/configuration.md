@@ -24,13 +24,15 @@ Below is a step-by-step walk through for setting up local configurations of ATSD
 
     <img src="Images/Figure13.png" width="500" >
     
-    As was written into our `docker-compose.yaml`, we have already connected Collector to ATSD, as well as imported and scheduled our `job.xml` job. This `.xml` job file contains rules for how, 
+    As was written into our `docker-compose.yaml`, we have already connected Collector to ATSD, as well as imported and scheduled a `.xml` job file. This file contains rules for how, 
     essentially, the data will be retrieved from the source, in our case [data.gov](https://catalog.data.gov/dataset/deaths-in-122-u-s-cities-1962-2016-122-cities-mortality-reporting-system).
     
-7. Now click back on the **Jobs** tab. Only jobs that are **Enabled** are shown as the default. The name of the file that will show up in Collector is `socrata-cdc`. Our job is already set to **Enabled**,
-   as was specified in our `docker-compose.yaml` file.
+7. Now click back on the **Jobs** tab. 
       
    ![Figure 32](Images/Figure32.png)
+   
+   Only jobs that are **Enabled** are shown as the default. Our job is already set to **Enabled**, as was specified in our `docker-compose.yaml` file, so it shows up right away. The name of the file
+   that will show up in Collector is `socrata-cdc`. 
          
    ![Figure 50](Images/Figure50.png)
    
