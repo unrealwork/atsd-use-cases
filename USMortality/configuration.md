@@ -4,7 +4,7 @@ Creating Local Configurations for ATSD and Axibase Collector using Docker
 Below is a step-by-step walk through for setting up local configurations of ATSD and Axibase Collector. We will use Docker as our host.
 
 1. Install Docker. A link for how to install Docker can be found [here](https://docs.docker.com/engine/installation/linux/ubuntulinux/). 
-2. Copy the `docker-compose.yml` file from our [GitHub] page. Save this file to whichever directory you are using
+2. Copy the `docker-compose.yaml` file which can be found [here](resources/docker-compose.yaml). Save this file to whichever directory you are using
    in Terminal (i.e. Desktop, Documents).
 3. In Terminal, launch containers with the below command:
 
@@ -24,7 +24,10 @@ Below is a step-by-step walk through for setting up local configurations of ATSD
 
     <img src="Images/Figure13.png" width="500" >
     
-    After setting up accounts for both ATSD and collector, navigate to **Storage Drivers** in Collector. We want to check if is there is a connection established between Collector and ATSD. 
+    Written into our `docker-compose.yaml`, we have already connected Collector to our database and imported and scheduled the `socrata-cdc` job. You can check the Collector navigate to **Storage Drivers** in Collector. We want to check if is there is a connection established between Collector and ATSD. 
+    If **Write Status** is successful, this means that Collector can send data to ATSD. 
+    
+    After setting up accounts for both ATSD and Collector, navigate to **Storage Drivers** in Collector. We want to check if is there is a connection established between Collector and ATSD. 
     If **Write Status** is successful, this means that Collector can send data to ATSD. 
     
     ![Figure 34](Images/Figure34.png)
@@ -46,7 +49,7 @@ Below is a step-by-step walk through for setting up local configurations of ATSD
       
    ![Figure 15](Images/Figure15.png)
    
-9. Navigate back the **Jobs** tab. Since we set `socrata-cdc` to **Enabled**, it shows up by default. Hit **Run**. After a few seconds, refresh your browser. If the data was successfully retrieved
+9. Navigate back the **Jobs** tab. Hit **Run**. After a few seconds, refresh your browser. If the data was successfully retrieved
    by Collector, you should see an output as shown in the second image below.
 
    ![Figure 16](Images/Figure16.png)
