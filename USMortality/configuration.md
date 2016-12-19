@@ -3,8 +3,8 @@ Creating Local Configurations for ATSD and Axibase Collector using Docker
 
 Below is a step-by-step walk through for setting up local configurations of ATSD and Axibase Collector. We will use Docker as our host.
 
-1. Install Docker (Xenial Version 16.04). A link for how to install Docker can be found [here](https://docs.docker.com/engine/installation/linux/ubuntulinux/). 
-2. Copy the `docker-compose.yml` file from our [GitHub](https://github.com/axibase/axibase-collector-docs/blob/master/docker-bundle.md) page. Save this file to whichever directory you are using
+1. Install Docker. A link for how to install Docker can be found [here](https://docs.docker.com/engine/installation/linux/ubuntulinux/). 
+2. Copy the `docker-compose.yml` file from our [GitHub] page. Save this file to whichever directory you are using
    in Terminal (i.e. Desktop, Documents).
 3. In Terminal, launch containers with the below command:
 

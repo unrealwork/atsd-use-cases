@@ -11,7 +11,7 @@ According to [infoplease.com](http://www.infoplease.com/ipa/A0005148.html), life
 As reported by the [Center for Disease Control and Prevention (CDC)](http://www.cdc.gov/nchs/data/databriefs/db88.htm#x2013;2010%3C/a%3E>), the crude death rate in the United States fell from 
 10.9 to 7.9 deaths per 1,000 people from 1935 to 2010, translating to a **27% decrease**. Mortality rates, however, are vastly different across different U.S. cities and age groups. 
 In this article we will analyze a data.gov dataset looking at [death statistics for 122 U.S. cities](https://catalog.data.gov/dataset/deaths-in-122-u-s-cities-1962-2016-122-cities-mortality-reporting-system). 
-This article will focus on the Axibase Time Series Databases's (ATSD) SQL query language capabilities, which we will use to search for specific information contained in this dataset. 
+This article will focus on the Axibase Time Series Databases's (ATSD) [SQL query language capabilities](https://github.com/axibase/atsd-docs/blob/master/api/sql/README.md#overview), which we will use to search for specific information contained in this dataset. 
 
 ### Death Statistics for 122 U.S. Cities
 ----------------------------------------
@@ -82,14 +82,14 @@ Below is a list and brief descriptions of some dataset schema terminology we wil
   "attribution" : "CDC, NCIRD, Influenza Division",
 ```
 
-* Metrics - a list of numeric columns contained in the dataset (for example `pneumonia_and_influenza_deaths`). This particular dataset contains 7 metrics.
+* Metrics - a list of numeric columns contained in the dataset (for example: `pneumonia_and_influenza_deaths`). This particular dataset contains 7 metrics.
 
 ```json
    "dataTypeName" : "number",
    "fieldName" : "pneumonia_and_influenza_deaths"
 ```
 
-* Series Tags - a list of text columns contained in the dataset (for example `city`). The tag columns allow us to filter and group the data. This dataset contains 3 series tags: city, state, and region.
+* Series Tags - a list of text columns contained in the dataset (for example: `city`). The tag columns allow us to filter and group the data. This dataset contains 3 series tags: `city`, `state`, and `region`.
 
 ```json
    "name" : "City",
@@ -107,7 +107,7 @@ Now we will begin by introducing ourselves to this dataset and taking a look at 
 
    ![Figure 38](Images/Figure38.png)
    
-3. In **Metrics**, click on **Series** for `cdc.pneumonia_amd _influenza_deaths`.   
+3. In **Metrics**, click on **Series** for `cdc.pneumonia_and _influenza_deaths`.   
 
    ![Figure 39](Images/Figure39.png)
    
@@ -130,7 +130,7 @@ simple SQL queries which will do the work for us. You can read more about [data 
 ---------------------
 
 Here are some basic SQL queries with brief descriptions included. Look these over to get yourself acclimated to the general format of SQL queries. In the example following this section, we will
-in detail walk through executing a query from start to finish.  
+in detail walk through executing a query from start to finish. You can read more about SQL syntax [here](https://github.com/axibase/atsd-docs/blob/master/api/sql/README.md#syntax).   
 
 ```sql
 SELECT *
@@ -147,7 +147,7 @@ SELECT *
 LIMIT 10
 ```
 
-The query orders rows by date and city and limit the response to 10 rows.
+The query orders rows by date and city, and limits the response to 10 rows.
 
 ```sql
 SELECT *
@@ -157,7 +157,7 @@ WHERE tags.city = 'Boston'
 LIMIT 10
 ```
 
-This query serves to filter records for a particular city and order rows by date, as well as limiting the response to 10 rows.
+This query serves to filter records for a particular city and orders rows by date, as well as limiting the response to 10 rows.
 
 ```sql
 SELECT datetime, value, tags.*
@@ -168,7 +168,7 @@ WHERE tags.city = 'Boston'
 LIMIT 10
 ```
 
-This next query filter records for a particular city (in this case Boston) and for a timespan (in this case retrieve samples from 2016 and older). With the `ORDER BY` clause, rows are sorted by date 
+This next query filter records for a particular city (in this case Boston) and for a timespan (in this case retrieve samples from 2016 and older). With the `ORDER BY` clause, rows are sorted by date, 
 and with the `LIMIT` clause the response is restricted to 10 rows.
 
 ```sql
@@ -180,8 +180,8 @@ GROUP BY period(1 MONTH)
   ORDER BY 1
 ```
 
-This query serves to filter records for a particular city and time. Weekly samples are aggregated into months and the sum and count of samples are calculated for each month. Finally, rows are ordered
-by month start, referring to the date with the column index.
+This query serves to filter records for a particular city and time. Weekly samples are aggregated into months and the sum and count of samples are calculated for each month. Additionally, rows are ordered
+by the starting month, referring to the date with the column index.
 
 ```sql
 SELECT date_format(period(1 MONTH)), sum(value), count(value)
