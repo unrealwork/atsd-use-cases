@@ -138,9 +138,7 @@ SELECT *
 LIMIT 10
 ```
 
-**Description**: 
-
-1. Display 10 rows for the metric to see which series tags are available.
+The above query displays 10 rows for the metric to see which series tags are available.
 
 ```sql
 SELECT *
@@ -149,9 +147,7 @@ SELECT *
 LIMIT 10
 ```
 
-**Description**: 
-
-1. Order rows by date and city and limit the response to 10 rows.
+The query orders rows by date and city and limit the response to 10 rows.
 
 ```sql
 SELECT *
@@ -161,10 +157,7 @@ WHERE tags.city = 'Boston'
 LIMIT 10
 ```
 
-**Description**: 
-
-1. Filter records for a particular city and order rows by date.
-2. Limit the response to 10 rows.
+This query serves to filter records for a particular city and order rows by date, as well as limiting the response to 10 rows.
 
 ```sql
 SELECT datetime, value, tags.*
@@ -175,11 +168,8 @@ WHERE tags.city = 'Boston'
 LIMIT 10
 ```
 
-**Description**:
-
-1. Filter records for a particular city (in this case Boston).
-2. Filter records for a timespan (in this case retrieve samples from 2016 and older).
-3. Order rows by date and limit the response to 10 rows.
+This next query filter records for a particular city (in this case Boston) and for a timespan (in this case retrieve samples from 2016 and older). With the `ORDER BY` clause, rows are sorted by date 
+and with the `LIMIT` clause the response is restricted to 10 rows.
 
 ```sql
 SELECT date_format(period(1 MONTH)), sum(value), count(value)
@@ -190,11 +180,8 @@ GROUP BY period(1 MONTH)
   ORDER BY 1
 ```
 
-**Description**: 
-
-1. Filter records for a particular city and time.
-2. Aggregate weekly samples into months and calculate the sum and count of samples in each month.
-3. Order rows by month start, referring to the date with the column index.
+This query serves to filter records for a particular city and time. Weekly samples are aggregated into months and the sum and count of samples are calculated for each month. Finally, rows are ordered
+by month start, referring to the date with the column index.
 
 ```sql
 SELECT date_format(period(1 MONTH)), sum(value), count(value)
@@ -206,16 +193,13 @@ GROUP BY period(1 MONTH)
 ORDER BY datetime
 ```
 
-**Description**: 
+This final example filters records for a particular city and time. Weekly samples are aggregated into months and the sum and count of samples in each month are calculated. With the line
+`HAVING count(value) >= 4`, months with less than 4 weekly samples are excluded (October 2016 has only 1 row).
 
-1. Filter records for a particular city and time.
-2. Aggregate weekly samples into months and calculate sum and count of samples in each month.
-3. Exclude months with less than 4 weekly samples (October 2016 has only 1 row).
-
-### SQL Example 1 - Pneumonia and Influenza Deaths in Boston
+### Detailed SQL Example 1 - Pneumonia and Influenza Deaths in Boston
 ------------------------------------------------------------
 
-Here is an SQL query looking at recent pneumonia and influenza deaths in Boston, Massachusetts.
+Now that we have looked at the basics, let's get into a detailed example. Here is an SQL query looking at recent pneumonia and influenza deaths in Boston, Massachusetts.
 
 ```sql
 SELECT datetime, value, tags.*
@@ -275,7 +259,7 @@ LIMIT 10
 | mr8w-325u   | 2016-07-30T00:00:00.000Z  | 12.0       | Boston         | 1                | MA              | mr8w-325u   | 2016-07-30T00:00:00.000Z  | 120.0      | Boston         | 1                | MA             | 
 ```
 
-The below query is the same as the first one we looked at, with the only difference being tags here are specified.
+The below query is the same as the first one we looked at, with the only difference being tags here are explicitly specified.
 
 ```sql
 SELECT datetime, value, tags.city, tags.state, tags.region
@@ -367,8 +351,8 @@ WHERE tags.region = '1'
 | 2016-01-01T00:00:00.000Z  | 214.0       | New-England | 
 ```
 
-### SQL Example 2 - Best of the Best and Worst of the Worst
------------------------------------------------------------
+### Detailed SQL Example 2 - Best of the Best and Worst of the Worst
+--------------------------------------------------------------------
 
 Let us know look at some additional examples which delve into finding out which of our 122 cities have some of the deadliest and least deadly conditions.
      
@@ -387,7 +371,7 @@ ORDER BY 'date' DESC
   OPTION (ROW_MEMORY_THRESHOLD 500000)
 ```
 
-Here is an output of the above query. This query filters for results for all 122 cities in the dataset. The below table contains only the first couple of lines of the output. As a note, moving forward
+Here is an output of the above query. This query displays for results for all 122 cities in the dataset. The below table contains only the first couple of lines of the output. As a note, moving forward
 some of the remaining query results will show truncated tables for the sake of maintaining the general flow of the article.
 
 ```ls
@@ -449,7 +433,27 @@ ORDER BY value desc
 This query is the same as the above example, except for the fact that the line `WITH row_number ... <= 1` partitions rows by tags (city, state, region) and selects the row with the
 **MAXIMUM** value for each partition using the `ORDER BY` value `DESC` condition.
 
-Here is the deadliest week due to pneumonia and influenza by city.
+Noticeably absent in from the above list is the city of New Orleans, Louisiana. On August 29th, 2005, [Hurricane Katrina](http://edition.cnn.com/2013/08/23/us/hurricane-katrina-statistics-fast-facts/)
+struck the Gulf coast of the United States, with New Orleans taking the brunt of the storm's force. According to the Federal Emergency Management Agency (FEMA), Katrina was "the single most catastrophic
+natural disaster in U.S. history." FEMA estimated the total damage from the hurricane ammounted to $108 billion dollars, making it the "costliest hurricane in U.S. history." Approximately 1,833 people
+are estimated to have died in the storm, with 1,577 of those deaths occurring in the New Orleans area. This number of deaths would clearly put New Orleans, so why is it not showing up?
+
+Below is a Chart Lab output for the number of deaths for New Orleans from 1970 to 2016.
+   
+![Figure 47](Images/Figure47.png)
+
+We can clearly see that there is quite a noticeable gap in the data collection history from the city. From August 20th, 2005, to December 8th, 2012, New Orleans did not collect death total statistics.
+Since the hurricane occurred on August 29th, 2005, these sky high death totals do not show up in our list. 
+
+You can explore the death totals for New Orleans in the Chart Lab instance below.
+
+[![](Images/button.png)](https://apps.axibase.com/chartlab/3d07088c/2/)
+
+Another example of a city stopping data collection is Philadelphia, Pennsylvania. Looking at a [filtered output for Philadelphia](https://apps.axibase.com/chartlab/3d07088c/3/), we can see that the 
+city has recently experienced a significant increase in deaths. The city recorded a death total of 1,063 on February 4th, 2012; however data collection was stopped on November 24th, 2012. So, using this
+particular dataset, we cannot say whether or not the 1,063 deaths is the highest weekly total in Philadelphia history, or if there was a higher occurrence happening after November 24th, 2012.
+
+Moving on, here is the deadliest week due to pneumonia and influenza by city.
 
 ```sql
 SELECT date_format(time, 'yyyy-MM-dd') as 'date', 
@@ -823,13 +827,13 @@ ORDER BY sum(value) DESC
 | Sep    | Pacific  | 18611.0                    | 
 ```
 
-### Example 3 - Calculating Mortality Rates
--------------------------------------------
+### Detailed SQL Example 3 - Calculating Mortality Rates
+--------------------------------------------------------
 
 We have spent some time looking at relatively straight forward SQL queries to look at our dataset for the total number of deaths, percentages of deaths caused by pneumonia and influenza, and ranking
 these results in terms of the deadliest month, region, or city. Now let us delve into computing our own mortality statistics for our dataset. According to the [CIA World Factbook](https://www.cia.gov/library/publications/the-world-factbook/rankorder/2066rank.html), mortality (or death)
 rate is the average annual number of deaths during a year per 1,000 individuals in the population. As of 2016, the **United States** as a whole ranks 90th in the world, with a rate of **8.20** 
-deaths per 1,000 individuals. Below is a table from their website showing the top 10 death rates in the world.    
+deaths per 1,000 individuals. Generally speaking, the higher the death rate, the worse. Below is a table from their website showing the top 5 death rates in the world.    
 
 | Rank | Country       | (DEATHS/1,000 POPULATION) | Date of Information | 
 |------|---------------|---------------------------|---------------------| 
@@ -838,13 +842,9 @@ deaths per 1,000 individuals. Below is a table from their website showing the to
 | 3    | Lithuania     | 14.50                     | 2016 est.           | 
 | 4    | Ukraine       | 14.40                     | 2016 est.           | 
 | 5    | Latvia        | 14.40                     | 2016 est.           | 
-| 6    | Guinea-Bissau | 14.10                     | 2016 est.           | 
-| 7    | Chad          | 14.00                     | 2016 est.           | 
-| 8    | Afghanistan   | 13.70                     | 2016 est.           | 
-| 9    | Serbia        | 13.60                     | 2016 est.           | 
-| 10   | Russia        | 13.60                     | 2016 est.           | 
 
-To calculate our own mortality rates for a city in a given year, we need to simply divide the total number of deaths in the city by the population and multiply the result by 1,000.
+To calculate our own mortality rates for a city in a given year, we need to simply divide the total number of deaths in the city by the population and multiply the result by 1,000. Additionally,
+this dataset does not include population numbers, so we need to pull in population figures to calculate mortality numbers.
 
 Below is our SQL query for determining the cities with the highest mortality rate in 2015.
 
@@ -1002,12 +1002,12 @@ Below is a table comparing population estimates for top 6 cities with the highes
  
 | City           |  1960 Population  |     2015 Population | Population Change (%)|
 |----------------|-------------------|---------------------| ---------------------|
-| Youngstown     |    166,689        |     64,628          | 61.2 **(-)**             |
-| Dayton         |    262,332        |     140,599         | 46.4 **(-)**             |
-| Birmingham     |    340,887        |     212,461         | 37.7 **(-)**             |
-| Salt Lake City |    189,454        |     192,672         | 1.6 **(+)**              |
-| Cleveland      |    876,050        |     388,072         | 55.7 **(-)**             |
-| Rochester      |    318,611        |     209,802         | 34.2 **(-)**             |
+| Youngstown     |    166,689        |     64,628          | **(-)** 61.2         |
+| Dayton         |    262,332        |     140,599         | **(-)** 46.4         |
+| Birmingham     |    340,887        |     212,461         | **(-)** 37.7         |
+| Salt Lake City |    189,454        |     192,672         | **(+)** 1.6          |
+| Cleveland      |    876,050        |     388,072         | **(-)** 55.7         |
+| Rochester      |    318,611        |     209,802         | **(-)** 34.2         |
 
 How has the population of five of these six cities declined so dramatically?
 
@@ -1301,7 +1301,7 @@ Below are the summarized steps to follow to install local configurations of ATSD
 7. Import the `city-size`, `us-regions`, and `new-york-city-2010-population` replacement tables into ATSD.
 8. Navigate to the SQL tab in ATSD and begin writing your queries!
 
-The full guide for setting up can be found 
+The full guide for setting up can be found [here](https://github.com/axibase/atsd-use-cases/blob/master/USMortality/configuration.md).
 
 If you require assistance in installing this software or have any questions, please feel free to [contact us](https://axibase.com/feedback/) and we would be happy to be of assistance!
 
