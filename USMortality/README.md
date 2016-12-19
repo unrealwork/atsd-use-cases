@@ -1317,7 +1317,7 @@ GROUP BY tot.period(1 YEAR)
 | 66982.0     | 16.0         | 40.0          | 493.0         | 2461.0      | 3039.0      | 0.7                  | 2.6                   | 27.5                  | 223.4               | 45.4                 | 
 ```
 
-Below is a table comparing mortality rates in 2010 in New York City and Youngstown.
+Below is a table comparing mortality rates in 2010 in New York City and Youngstown. 
 
 |city        | infant_mortality_rate  | 1-24_mortality_rate  | 25-44_mortality_rate  | 45-64_mortality_rate  | 65+_mortality_rate  | total_mortality_rate | 
 |------------|------------------------|----------------------|-----------------------|-----------------------|---------------------|----------------------| 
