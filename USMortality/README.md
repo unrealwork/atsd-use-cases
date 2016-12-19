@@ -19,7 +19,7 @@ This article will focus on the Axibase Time Series Databases's (ATSD) [SQL query
 Let's take a look at the dataset titled **Deaths in 122 U.S. cities - 1962-2016. 122 Cities Mortality Reporting System** from [data.gov](https://www.data.gov/).
 
 This dataset can be found here: [https://catalog.data.gov/dataset/deaths-in-122-u-s-cities-1962-2016-122-cities-mortality-reporting-system](https://catalog.data.gov/dataset/deaths-in-122-u-s-cities-1962-2016-122-cities-mortality-reporting-system).
-On the data.gov website, datasets can be downloaded as a [CSV](https://catalog.data.gov/dataset/deaths-in-122-u-s-cities-1962-2016-122-cities-mortality-reporting-system/resource/40bf5898-91cc-4156-9885-6ef3b72f7a61)(16.7 MB), RDF, [JSON](https://data.cdc.gov/api/views/mr8w-325u/rows.json?accessType=DOWNLOAD)(66.2 MB), or a XML file. This dataset can easily be parsed using the JSON job in Axibase.
+On the data.gov website, datasets can be downloaded as a CSV (16.7 MB), RDF, [JSON](https://data.cdc.gov/api/views/mr8w-325u/rows.json?accessType=DOWNLOAD)(66.2 MB), or a XML file. This dataset can easily be parsed using the JSON job in Axibase.
 
 This file contains data for weekly death totals collected from 1962 to 2016 in 122 U.S. cities. The system was retired on October 6th, 2016. While the system was running, the vital statistics
 offices of these cities across the United States reported the total number of death certificates processed and the number of those for which pneumonia or influenza was listed as the underlying 
@@ -61,7 +61,7 @@ Here you can explore the complete dataset for U.S. death totals:
 
 To query information from this dataset you will need to install both ATSD and Axibase Collector.
 
-You can set up local configurations of ATSD and Axibase Collector using Docker by going through our [step-by-step walk through](https://github.com/axibase/atsd-use-cases/blob/master/USMortality/DockerInstallation.md).
+You can set up local configurations of ATSD and Axibase Collector using Docker by going through our [step-by-step walk through](https://github.com/axibase/atsd-use-cases/blob/master/USMortality/configuration.md).
 It should take you about 15 minutes to complete. 
 
 You can learn more about Docker [on our website](https://axibase.com/docker-monitoring/).   
@@ -69,7 +69,7 @@ You can learn more about Docker [on our website](https://axibase.com/docker-moni
 ### ATSD Schema
 ---------------
 
-Before we get in to creating SQL queries, let us begin by running through the data schema of ATSD. 
+Before we get in to creating SQL queries, let us begin by running through the [data schema and models](http://axibase.com/products/axibase-time-series-database/data-model/) of ATSD. 
 
 Below is a list and brief descriptions of some dataset schema terminology we will be using.
 
@@ -124,13 +124,13 @@ Below is an output for this data.
 ![Figure 42](Images/Figure42.png)
 
 Maneuvering through the entity and searching for our desired data for different cities, states, regions, age groups, and deaths types can be time consuming. Now, let us look some 
-simple SQL queries which will do the work for us. You can read more about [data schema and models](http://axibase.com/products/axibase-time-series-database/data-model/) on our website.
+simple SQL queries which will do the work for us. 
 
 ### Basic SQL Queries
 ---------------------
 
 Here are some basic SQL queries with brief descriptions included. Look these over to get yourself acclimated to the general format of SQL queries. In the example following this section, we will
-in detail walk through executing a query from start to finish. You can read more about SQL syntax [here](https://github.com/axibase/atsd-docs/blob/master/api/sql/README.md#syntax).   
+in detail walk through executing a query from start to finish. You can read more about our SQL syntax [here](https://github.com/axibase/atsd-docs/blob/master/api/sql/README.md#syntax).   
 
 ```sql
 SELECT *
@@ -157,7 +157,7 @@ WHERE tags.city = 'Boston'
 LIMIT 10
 ```
 
-This query serves to filter records for a particular city and orders rows by date, as well as limiting the response to 10 rows.
+This query serves to filter records for a particular city and orders rows by date, as well as setting the response limit to 10 rows.
 
 ```sql
 SELECT datetime, value, tags.*
@@ -169,7 +169,7 @@ LIMIT 10
 ```
 
 This next query filter records for a particular city (in this case Boston) and for a timespan (in this case retrieve samples from 2016 and older). With the `ORDER BY` clause, rows are sorted by date, 
-and with the `LIMIT` clause the response is restricted to 10 rows.
+and the response is restricted to 10 rows.
 
 ```sql
 SELECT date_format(period(1 MONTH)), sum(value), count(value)
@@ -181,7 +181,7 @@ GROUP BY period(1 MONTH)
 ```
 
 This query serves to filter records for a particular city and time. Weekly samples are aggregated into months and the sum and count of samples are calculated for each month. Additionally, rows are ordered
-by the starting month, referring to the date with the column index.
+by the starting month, referring to the date in the column index.
 
 ```sql
 SELECT date_format(period(1 MONTH)), sum(value), count(value)
@@ -195,6 +195,8 @@ ORDER BY datetime
 
 This final example filters records for a particular city and time. Weekly samples are aggregated into months and the sum and count of samples in each month are calculated. With the line
 `HAVING count(value) >= 4`, months with less than 4 weekly samples are excluded (October 2016 has only 1 row).
+
+You can look at various other [SQL queries examples on our GitHub page](https://github.com/axibase/atsd-docs/tree/master/api/sql/examples).
 
 ### Detailed SQL Example 1 - Pneumonia and Influenza Deaths in Boston
 ------------------------------------------------------------
@@ -259,7 +261,7 @@ LIMIT 10
 | mr8w-325u   | 2016-07-30T00:00:00.000Z  | 12.0       | Boston         | 1                | MA              | mr8w-325u   | 2016-07-30T00:00:00.000Z  | 120.0      | Boston         | 1                | MA             | 
 ```
 
-The below query is the same as the first one we looked at, with the only difference being tags here are explicitly specified.
+The below query is the same as the first one we looked at, with the only difference being tags here are explicitly specified. Read more about [series tags here](https://github.com/axibase/atsd-docs/tree/master/api/sql#series-tag-columns).
 
 ```sql
 SELECT datetime, value, tags.city, tags.state, tags.region
@@ -271,7 +273,7 @@ LIMIT 10
 
 This next query is again for latest pneumonia and influenza and total readings for Boston, but with region code translated to region name using one of our Replacement Table. As a default, each region is listed
 by their corresponding number. In the case of Boston, it falls in region 1, which includes the states of Connecticut, Maine, Massachusetts, New Hampshire, Rhode Island, and Vermont. Recall that we created a replacement table in ATSD where
-we entered in region names for each region number. In this instance, region 1 is named **New-England**.   
+we entered in region names for each region number. In this instance, region 1 is named **New-England**. Read more about [replacement tables here](https://github.com/axibase/atsd-docs/tree/master/api/sql#lookup).
 
 ```sql
 SELECT datetime, value, tags.city, tags.state, 
@@ -515,7 +517,7 @@ FROM cdc.all_deaths tot
 A few noteworthy points regarding this query.
 
 1) This query has the same structure as for the query directly above, but 2 metrics are specified: `cdc.pneumonia_and_influenza_deaths` **AND** `cdc.all_deaths`.<br />
-2) `JOIN` merges records with the same entity, tags, and time.<br />
+2) `JOIN` merges records with the same entity, tags, and time. Read more about [the `JOIN` clause here](https://github.com/axibase/atsd-docs/tree/master/api/sql#joins).<br />
 3) A derived metric, `pni.value/tot.value`, is calculated to show a percentage of the part to the total number of deaths.<br />
 4) Only weeks with more than 1 pneumonia and influenza deaths are selected with the `AND pni.value > 1` condition.<br />
 
@@ -578,7 +580,7 @@ ORDER BY 'all_deaths' DESC
 This query has a similar structure to some of the examples we have already looked at. In this example, the `LIMIT` clause is introduced. This clause caps the number of rows that can be returned,
 which in this case is 10. The line `AND datetime > current_year` returns values from 2016-01-01T00:00:00.000Z to 2016-10-01T00:00:00.000Z.
 
-The `OPTION (ROW_MEMORY_THRESHOLD {n})` instructs the database to perform processing in memory as opposed to a temporary table if the number of rows is within the specified threshold {n}. If 
+The [`OPTION (ROW_MEMORY_THRESHOLD {n})`](https://github.com/axibase/atsd-docs/tree/master/api/sql#row_memory_threshold-option) instructs the database to perform processing in memory as opposed to a temporary table if the number of rows is within the specified threshold {n}. If 
 {n} is zero or negative, the results are processed using the temporary table.
 
 This next query examines the top 10 cities by pneumonia and influenza deaths in the current year (year to date).
@@ -1222,7 +1224,7 @@ Using our interpolated population numbers, we can see that our death rate value 
 
 Since numbers for `us.population` and the CDC metrics are collected at different frequencies (10 year vs 1 week), they have different collection periods. Therefore, it is necessary to 
 calculate intermediate (weekly) population values to match the frequency of the CDC metrics. The `WITH INTERPOLATE` clause is set to 1 week to match the population periods to those of the
-CDC metrics.
+CDC metrics. Read more about interpolation [here](https://github.com/axibase/atsd-docs/tree/master/api/sql#interpolation).
 
 ```sql
 SELECT datetime, value 
@@ -1287,19 +1289,19 @@ There are two noteworthy points regarding this query:
 
 Below are the summarized steps to follow to install local configurations of ATSD and Axibase Collector and create SQL queries for analyzing CDC death statistics:
 
-1. Install Docker (Xenial Version 16.04). A link for how to install Docker can be found [here](https://docs.docker.com/engine/installation/linux/ubuntulinux/).
-2. Copy the `docker-compose.yml` file from our [GitHub](https://github.com/axibase/axibase-collector-docs/blob/master/docker-bundle.md) page. Save this file to whichever directory you are using
+1. Install Docker. A link for how to install Docker can be found [here](https://docs.docker.com/engine/installation/linux/ubuntulinux/).
+2. Copy the `docker-compose.yaml` file which can be found [here](https://github.com/axibase/atsd-use-cases/blob/master/USMortality/resources/docker-compose.yaml). Save this file to whichever directory you are using
    in Terminal (i.e. Desktop, Documents).
 3. In Terminal, launch containers with the following command:
    
    ```sql
    export USER=myuser; export PASSWORD=mypassword; docker-compose up -d 
    ```
-4. Import the `job.xml`file into Axibase Collector.
-5. Import the `parser.xml` file into ATSD.
-6. Import the `us.population.csv` into ATSD.
-7. Import the `city-size`, `us-regions`, and `new-york-city-2010-population` replacement tables into ATSD.
-8. Navigate to the SQL tab in ATSD and begin writing your queries!
+
+4. Import the `parser.xml` file into ATSD.
+5. Import the `us.population.csv` into ATSD.
+6. Import the `city-size`, `us-regions`, and `new-york-city-2010-population` replacement tables into ATSD.
+7. Navigate to the SQL tab in ATSD and begin writing your queries!
 
 The full guide for setting up can be found [here](https://github.com/axibase/atsd-use-cases/blob/master/USMortality/configuration.md).
 
