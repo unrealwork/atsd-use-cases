@@ -196,7 +196,7 @@ ORDER BY datetime
 This final example filters records for a particular city and time. Weekly samples are aggregated into months and the sum and count of samples in each month are calculated. With the line
 `HAVING count(value) >= 4`, months with less than 4 weekly samples are excluded (October 2016 has only 1 row).
 
-You can look at various other [SQL queries examples on our GitHub page](https://github.com/axibase/atsd-docs/tree/master/api/sql/examples).
+You can take a look at various other [SQL queries examples on our GitHub page](https://github.com/axibase/atsd-docs/tree/master/api/sql/examples).
 
 ### Detailed SQL Example 1 - Pneumonia and Influenza Deaths in Boston
 ------------------------------------------------------------
@@ -517,7 +517,7 @@ FROM cdc.all_deaths tot
 A few noteworthy points regarding this query.
 
 1) This query has the same structure as for the query directly above, but 2 metrics are specified: `cdc.pneumonia_and_influenza_deaths` **AND** `cdc.all_deaths`.<br />
-2) `JOIN` merges records with the same entity, tags, and time. Read more about [the `JOIN` clause here](https://github.com/axibase/atsd-docs/tree/master/api/sql#joins).<br />
+2) `JOIN` merges records with the same entity, tags, and time. Read more about the `JOIN` clause [here](https://github.com/axibase/atsd-docs/tree/master/api/sql#joins).<br />
 3) A derived metric, `pni.value/tot.value`, is calculated to show a percentage of the part to the total number of deaths.<br />
 4) Only weeks with more than 1 pneumonia and influenza deaths are selected with the `AND pni.value > 1` condition.<br />
 
