@@ -837,7 +837,7 @@ these results in terms of the deadliest month, region, or city. Now let us delve
 rate is the average annual number of deaths during a year per 1,000 individuals in the population. As of 2016, the **United States** as a whole ranks 90th in the world, with a rate of **8.20** 
 deaths per 1,000 individuals. Generally speaking, the higher the death rate, the worse. Below is a table from their website showing the top 5 death rates in the world.    
 
-| Rank | Country       | (DEATHS/1,000 POPULATION) | Date of Information | 
+| Rank | Country       | (Deaths/1,000 Population) | Date of Information | 
 |------|---------------|---------------------------|---------------------| 
 | 1    | Lesotho       | 14.90                     | 2016 est.           | 
 | 2    | Bulgaria      | 14.50                     | 2016 est.           | 
@@ -1319,19 +1319,19 @@ GROUP BY tot.period(1 YEAR)
 
 Below is a table comparing mortality rates in 2010 in New York City and Youngstown. We can see that mortality rates in Youngstown are higher almost across the whole board.
 
-|Mortality Rate | New York City  | Youngstown  |
-|---------------|----------------|-------------|
-| infant        | 5.5            | 0.0**       |                
-| 1-24          | 0.3            | 0.7         |            
-| 25-44         | 1.1            | 2.6         |
-| 45-64         | 5.8            | 27.5        |
-| 65+           | 37.2           | 223.4       |
-| total         | 6.5            | 45.4        |
+|Mortality Rate  | New York City  | Youngstown  |
+|----------------|----------------|-------------|
+| Infant         | 5.5            | 0.0**       |                
+| 1 to 24 years  | 0.3            | 0.7         |            
+| 25 to 44 years | 1.1            | 2.6         |
+| 45 to 64 years | 5.8            | 27.5        |
+| 65+ years      | 37.2           | 223.4       |
+| total          | 6.5            | 45.4        |
 
 ** As a quick note, figures for the population under the age of 1 year in Youngstown were not available at the time this article was written (numbers were only available starting with the 0 to 24 age 
 group), so we were not able to calculate an infant mortality rate for the city. The value, therefore, for the 1-24 age group below for Youngstown is a little higher than it should be in reality.
 
-So what can explain these unbelievably high values in Youngstown? This is a complicated, multi-layered topic, with some people spending years analyzing these issues. Two factors that may play into 
+So what can explain these unbelievably high values in Youngstown? This is a complicated, multi-layered issue, with some experts spending years analyzing these problems. Two factors that may play into 
 these high rates are an aging population, which has above average rates for a number of diseases. Below is a table comparing incident rates for [6 diseases in Mahoning County (Youngstown)](https://www.odh.ohio.gov/healthstats/vitalstats/deathstat.aspx) versus the
 United States as a whole. We can see that Youngstown has higher incident rates for each disease. Additionally, according to the 2010 U.S. Census, the percentage of residents age 65 and older in
 Youngstown versus the United States was [16.44%](http://places.mooseroots.com/l/332116/Youngstown-OH) versus [12.75%](http://places.mooseroots.com/l/310125/United-States). These factors, along with
