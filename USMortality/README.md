@@ -19,7 +19,7 @@ This article will focus on the Axibase Time Series Databases's (ATSD) [SQL query
 Let's take a look at the dataset titled **Deaths in 122 U.S. cities - 1962-2016. 122 Cities Mortality Reporting System** from [data.gov](https://www.data.gov/).
 
 This dataset can be found here: [https://catalog.data.gov/dataset/deaths-in-122-u-s-cities-1962-2016-122-cities-mortality-reporting-system](https://catalog.data.gov/dataset/deaths-in-122-u-s-cities-1962-2016-122-cities-mortality-reporting-system).
-On the data.gov website, datasets can be downloaded as a CSV (16.7 MB), RDF, [JSON](https://data.cdc.gov/api/views/mr8w-325u/rows.json?accessType=DOWNLOAD)(66.2 MB), or a XML file. This dataset can easily be parsed using the JSON job in Axibase.
+On the data.gov website, datasets can be downloaded as a CSV (16.7 MB), RDF, [JSON](https://data.cdc.gov/api/views/mr8w-325u/rows.json?accessType=DOWNLOAD) (66.2 MB), or a XML file. This dataset can easily be parsed using the JSON job in Axibase.
 
 This file contains data for weekly death totals collected from 1962 to 2016 in 122 U.S. cities. The system was retired on October 6th, 2016. While the system was running, the vital statistics
 offices of these cities across the United States reported the total number of death certificates processed and the number of those for which pneumonia or influenza was listed as the underlying 
@@ -168,7 +168,7 @@ WHERE tags.city = 'Boston'
 LIMIT 10
 ```
 
-This next query filter records for a particular city (in this case Boston) and for a timespan (in this case retrieve samples from 2016 and older). With the `ORDER BY` clause, rows are sorted by date, 
+This next query filters records for a particular city (in this case Boston) and for a timespan (in this case retrieve samples from 2016 and older). With the `ORDER BY` clause, rows are sorted by date, 
 and the response is restricted to 10 rows.
 
 ```sql
@@ -271,7 +271,7 @@ WHERE tags.city = 'Boston'
 LIMIT 10
 ```
 
-This next query is again for latest pneumonia and influenza and total readings for Boston, but with region code translated to region name using one of our Replacement Table. As a default, each region is listed
+This next query is again for latest pneumonia and influenza and total readings for Boston, but with region code translated to region name using one of our Replacement Tables (as mentioned in the [step-by-step walk through](https://github.com/axibase/atsd-use-cases/blob/master/USMortality/configuration.md)]). As a default, each region is listed
 by their corresponding number. In the case of Boston, it falls in region 1, which includes the states of Connecticut, Maine, Massachusetts, New Hampshire, Rhode Island, and Vermont. Recall that we created a replacement table in ATSD where
 we entered in region names for each region number. In this instance, region 1 is named **New-England**. Read more about [replacement tables here](https://github.com/axibase/atsd-docs/tree/master/api/sql#lookup).
 
@@ -300,7 +300,7 @@ LIMIT 10
 ```
 
 This next query looks at total pneumonia and influenza deaths for all cities in a given region using the `GROUP BY` clause, which combines rows having common values into a single row. The region
-specified in this query is **New-England**.
+specified in this query is **New-England**. Read more about the `GROUP BY` clause [here](https://github.com/axibase/atsd-docs/tree/master/api/sql#grouping).
  
 ```sql
 SELECT datetime, sum(value),  
@@ -374,7 +374,7 @@ ORDER BY 'date' DESC
 ```
 
 Here is an output of the above query. This query displays for results for all 122 cities in the dataset. The below table contains only the first couple of lines of the output. As a note, moving forward
-some of the remaining query results will show truncated tables for the sake of maintaining the general flow of the article.
+some of the remaining query results may show truncated tables for the sake of maintaining the general flow of the article.
 
 ```ls
 | date        | city              | state  | region              | all_deaths  | population | 
@@ -453,7 +453,7 @@ You can explore the death totals for New Orleans in the Chart Lab instance below
 
 Another example of a city stopping data collection is Philadelphia, Pennsylvania. Looking at a [filtered output for Philadelphia](https://apps.axibase.com/chartlab/3d07088c/3/), we can see that the 
 city has recently experienced a significant increase in deaths. The city recorded a death total of 1,063 on February 4th, 2012; however data collection was stopped on November 24th, 2012. So, using this
-particular dataset, we cannot say whether or not the 1,063 deaths is the highest weekly total in Philadelphia history, or if there was a higher occurrence happening after November 24th, 2012.
+particular dataset, we cannot say whether or not this is the highest weekly total in Philadelphia history, or if there was a higher occurrence happening after November 24th, 2012.
 
 Moving on, here is the deadliest week due to pneumonia and influenza by city.
 
@@ -545,7 +545,7 @@ In this example, the query sorts for rows for the city of Baton Rouge where the 
 | 2008-11-22T00:00:00.000Z  | 70.0   | N/A                 | 
 ```
 
-Now let us look at several queries which delves into looking at the top 10 deadliest cities for total deaths and pneumonia and influenza deaths. 
+Now let us look at several queries which delve into looking at the top 10 deadliest cities for total deaths and pneumonia and influenza deaths. 
 
 Here is a query for filtering for the top 10 cities by all deaths in the current year (year to date).
 
@@ -577,7 +577,7 @@ ORDER BY 'all_deaths' DESC
 | Dallas       | TX     | West-South-Central  | 8923.0      | 1300092    | 
 ```
 
-This query has a similar structure to some of the examples we have already looked at. In this example, the `LIMIT` clause is introduced. This clause caps the number of rows that can be returned,
+This query has a similar structure to some of the examples we have already looked at. In this example, the `LIMIT` clause caps the number of rows that can be returned,
 which in this case is 10. The line `AND datetime > current_year` returns values from 2016-01-01T00:00:00.000Z to 2016-10-01T00:00:00.000Z.
 
 The [`OPTION (ROW_MEMORY_THRESHOLD {n})`](https://github.com/axibase/atsd-docs/tree/master/api/sql#row_memory_threshold-option) instructs the database to perform processing in memory as opposed to a temporary table if the number of rows is within the specified threshold {n}. If 
@@ -832,7 +832,7 @@ ORDER BY sum(value) DESC
 ### Detailed SQL Example 3 - Calculating Mortality Rates
 --------------------------------------------------------
 
-We have spent some time looking at relatively straight forward SQL queries to look at our dataset for the total number of deaths, percentages of deaths caused by pneumonia and influenza, and ranking
+We have spent some time looking at SQL queries to search for information from our dataset for the total number of deaths, percentages of deaths caused by pneumonia and influenza, and ranking
 these results in terms of the deadliest month, region, or city. Now let us delve into computing our own mortality statistics for our dataset. According to the [CIA World Factbook](https://www.cia.gov/library/publications/the-world-factbook/rankorder/2066rank.html), mortality (or death)
 rate is the average annual number of deaths during a year per 1,000 individuals in the population. As of 2016, the **United States** as a whole ranks 90th in the world, with a rate of **8.20** 
 deaths per 1,000 individuals. Generally speaking, the higher the death rate, the worse. Below is a table from their website showing the top 5 death rates in the world.    
@@ -846,7 +846,8 @@ deaths per 1,000 individuals. Generally speaking, the higher the death rate, the
 | 5    | Latvia        | 14.40                     | 2016 est.           | 
 
 To calculate our own mortality rates for a city in a given year, we need to simply divide the total number of deaths in the city by the population and multiply the result by 1,000. Additionally,
-this dataset does not include population numbers, so we need to pull in population figures to calculate mortality numbers.
+this dataset does not include population numbers, so we need to pull in population figures to calculate mortality numbers. See [step 12](https://github.com/axibase/atsd-use-cases/blob/master/USMortality/configuration.md) 
+in the step-by-step walk through for information on pulling in population statistics.
 
 Below is our SQL query for determining the cities with the highest mortality rate in 2015.
 
@@ -1034,12 +1035,9 @@ Youngstown in 2014 was **496.3**, compared to 287.5 for the U.S. as a whole.
 
 Here are some numbers from [census.gov](http://www.census.gov/quickfacts/table/LFE041215/00,3988000) comparing Youngstown (OH) to the United States as a whole:
 
-Persons aged 65 and over, April 1 2010 (percent): **15.8%** vs 13.0%<br />
 Persons without health insurance, under age 65 (percent): **15.0%** vs 10.5%<br />
 Persons in poverty (percent): **38.3%** vs 13.5%<br />
 Per capita income in past 12 monts (in 2015 dolloars), 2011-2015: **$15,056** vs $28,930<br />
-
-A declining and aging population and high crime and poverty rates has likely led to Youngstown having such a high mortality rate.
 
 Now, let us move to looking at mortality rates in New York City (fixed population size):
 
@@ -1133,7 +1131,7 @@ Here are a few noteworthy points regarding this query:
 We can see that the mortality rate in the city has declined considerably since the 1970's. According to their [report](http://www.nyc.gov/html/records/pdf/govpub/6551as_2010_final_population_&_mortality.pdf) on Population 
 and Mortality in 2010, the City of New York had the following key findings:
 
-* The 2010 New York City death rate reached an historic low of 6.4 deaths per 1,000 population, a 14.7% decline from 2001.
+* The 2010 New York City death rate reached a historic low of 6.4 deaths per 1,000 people in the population, a 14.7% decline from 2001.
 * The 2009 New York City life expectancy reached a historic high of 80.6 years, a 3.7% (35 months) increase since 2000 and a 0.5% (5 months) increase since 2008.
 * Premature deaths (before age 65) accounted for 30% of all deaths in New York City.  The premature death rate decreased to 2.2 per 1,000 population, a 15.4% decline since 2001.
 
@@ -1333,9 +1331,7 @@ group), so we were not able to calculate an infant mortality rate for the city. 
 
 So what can explain these unbelievably high values in Youngstown? This is a complicated, multi-layered issue, with some experts spending years analyzing these problems. Two factors that may play into 
 these high rates are an aging population, which has above average rates for a number of diseases. Below is a table comparing incident rates for [6 diseases in Mahoning County (Youngstown)](https://www.odh.ohio.gov/healthstats/vitalstats/deathstat.aspx) versus the
-United States as a whole. We can see that Youngstown has higher incident rates for each disease. Additionally, according to the 2010 U.S. Census, the percentage of residents age 65 and older in
-Youngstown versus the United States was [16.44%](http://places.mooseroots.com/l/332116/Youngstown-OH) versus [12.75%](http://places.mooseroots.com/l/310125/United-States). These factors, along with
-a struggling economy and high poverty and crime rates, may have led to Youngstown having such high mortality rates.  
+United States as a whole.  
 
 | Rate (# Deaths / 100,000 Population) | Mahoning County (Youngstown) | United States | 
 |--------------------------------------|------------------------------|---------------| 
@@ -1345,6 +1341,10 @@ a struggling economy and high poverty and crime rates, may have led to Youngstow
 | Stroke                               | 49.9                         | [41.7](https://www.cdc.gov/nchs/fastats/stroke.htm) | 
 | Unintentional Injury (Accident)      | 50.7                         | [42.7](https://www.cdc.gov/nchs/fastats/accidental-injury.htm) | 
 | Alzheimer's Disease                  | 30.8                         | [29.8](https://www.cdc.gov/nchs/fastats/alzheimers.htm) | 
+
+We can see that Youngstown has higher incident rates for each disease. Additionally, according to the 2010 U.S. Census, the percentage of residents age 65 and older in Youngstown versus the United
+States was [16.44%](http://places.mooseroots.com/l/332116/Youngstown-OH) versus [12.75%](http://places.mooseroots.com/l/310125/United-States). These factors, along with a struggling economy and 
+high poverty and crime rates, may have led to Youngstown having such high mortality rates. 
 
 This may be a simplified conclusion to a complicated issue. However, we were able to get to this point using ATSD. We loaded a dataset from data.gov, pulled in population figures from census.gov, 
 wrote our own SQL queries, and were able to compute our own mortality statistics. Using these capabilities of ATSD allows you gain a deeper understanding of complicated datasets and issues.    
