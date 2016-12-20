@@ -1334,7 +1334,7 @@ group), so we were not able to calculate an infant mortality rate for the city. 
 So what can explain these unbelievably high values in Youngstown? This is a complicated, multi-layered topic, with some people spending years analyzing these issues. Two factors that may play into 
 these high rates are an aging population, which has above average rate for a number of diseases. Below is a table comparing incident rates for 6 diseases in Mahoning County (Youngstown) versus the
 United States as a whole. We can see that Youngstown has higher incident rates for each disease. Additionally, according to the 2010 U.S. Census, the percentage of residents age 65 and older in
-Youngstown versus the United States was [16.44%](http://places.mooseroots.com/l/332116/Youngstown-OH) versus [12.75%](http://places.mooseroots.com/l/310125/United-States).   
+Youngstown versus the United States was [16.44%](http://places.mooseroots.com/l/332116/Youngstown-OH) versus [12.75%](http://places.mooseroots.com/l/310125/United-States).    
 
 | RATE (# DEATHS / 100,000 POPULATION) | MAHONING COUNTY (YOUNGSTOWN) | UNITED STATES | 
 |--------------------------------------|------------------------------|---------------| 
