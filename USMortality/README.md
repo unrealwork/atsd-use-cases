@@ -1332,18 +1332,22 @@ Below is a table comparing mortality rates in 2010 in New York City and Youngsto
 group), so we were not able to calculate an infant mortality rate for the city. The value, therefore, for the 1-24 age group below for Youngstown is a little higher than it should be in reality.
 
 So what can explain these unbelievably high values in Youngstown? This is a complicated, multi-layered topic, with some people spending years analyzing these issues. Two factors that may play into 
-these high rates are an aging population, which has above average rate for a number of diseases. Below is a table comparing incident rates for 6 diseases in Mahoning County (Youngstown) versus the
+these high rates are an aging population, which has above average rates for a number of diseases. Below is a table comparing incident rates for [6 diseases in Mahoning County (Youngstown)](https://www.odh.ohio.gov/healthstats/vitalstats/deathstat.aspx) versus the
 United States as a whole. We can see that Youngstown has higher incident rates for each disease. Additionally, according to the 2010 U.S. Census, the percentage of residents age 65 and older in
-Youngstown versus the United States was [16.44%](http://places.mooseroots.com/l/332116/Youngstown-OH) versus [12.75%](http://places.mooseroots.com/l/310125/United-States).    
+Youngstown versus the United States was [16.44%](http://places.mooseroots.com/l/332116/Youngstown-OH) versus [12.75%](http://places.mooseroots.com/l/310125/United-States). These factors, along with
+a struggling economy and high poverty and crime rates, may have led to Youngstown having such high mortality rates.  
 
-| RATE (# DEATHS / 100,000 POPULATION) | MAHONING COUNTY (YOUNGSTOWN) | UNITED STATES | 
+| Rate (# Deaths / 100,000 Population) | Mahoning County (Youngstown) | United States | 
 |--------------------------------------|------------------------------|---------------| 
-| HEART DISEASE                        | 203.6                        | 167.0         | 
-| CANCER                               | 190.5                        | 171.2         | 
-| CHRONIC LOWER RESP DISEASE           | 47.7                         | 46.1          | 
-| STROKE                               | 49.9                         | 41.7          | 
-| UNINTENTIONAL INJURY (ACCIDENT)      | 50.7                         | 42.7          | 
-| ALZHEIMER'S DIS                      | 30.8                         | 29.8          | 
+| Heart Disease                        | 203.6                        | [167.0](http://kff.org/other/state-indicator/number-of-deaths-due-to-diseases-of-the-heart-per-100000-population/?currentTimeframe=0) | 
+| Cancer                               | 190.5                        | [171.2](https://www.cancer.gov/about-cancer/understanding/statistics) | 
+| Chronic Lower Resp Disease           | 47.7                         | [46.1](https://www.cdc.gov/nchs/fastats/copd.htm) | 
+| Stroke                               | 49.9                         | [41.7](https://www.cdc.gov/nchs/fastats/stroke.htm) | 
+| Unintentional Injury (Accident)      | 50.7                         | [42.7](https://www.cdc.gov/nchs/fastats/accidental-injury.htm) | 
+| Alzheimer's Disease                  | 30.8                         | [29.8](https://www.cdc.gov/nchs/fastats/alzheimers.htm) | 
+
+This may be a simplified conclusion to a complicated issue. However, we were able to get to this point using ATSD. We loaded a dataset from data.gov, pulled in population figures from census.gov, 
+wrote our own SQL queries, and were able to compute our own mortality statistics. Using these capabilities of ATSD allows you gain a deeper understanding of complicated datasets and issues.    
 
 ### Action Items
 ----------------
@@ -1351,12 +1355,12 @@ Youngstown versus the United States was [16.44%](http://places.mooseroots.com/l/
 Below are the summarized steps to follow to install local configurations of ATSD and Axibase Collector and create SQL queries for analyzing CDC death statistics:
 
 1. Install Docker. A link for how to install Docker can be found [here](https://docs.docker.com/engine/installation/linux/ubuntulinux/).
-2. Copy the `docker-compose.yaml` file which can be found [here](https://github.com/axibase/atsd-use-cases/blob/master/USMortality/resources/docker-compose.yaml). Save this file to whichever directory you are using
+2. Copy the `docker-compose.yml` file which can be found [here](https://github.com/axibase/atsd-use-cases/blob/master/USMortality/resources/docker-compose.yml). Save this file to whichever directory you are using
    in Terminal (i.e. Desktop, Documents).
 3. In Terminal, launch containers with the following command:
    
    ```sql
-   export USER=myuser; export PASSWORD=mypassword; docker-compose up -d 
+   export USER=myuser; export PASSWORD=mypassword; docker-pull && docker up -d
    ```
 
 4. Import the `parser.xml` file into ATSD.

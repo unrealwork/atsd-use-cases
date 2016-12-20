@@ -4,12 +4,12 @@ Creating Local Configurations for ATSD and Axibase Collector using Docker
 Below is a step-by-step walk through for setting up local configurations of ATSD and Axibase Collector. We will use Docker as our host.
 
 1. Install Docker. A link for how to install Docker can be found [here](https://docs.docker.com/engine/installation/linux/ubuntulinux/). 
-2. Copy the `docker-compose.yaml` file which can be found [here](resources/docker-compose.yaml). Save this file to whichever directory you are using
+2. Copy the `docker-compose.yml` file which can be found [here](resources/docker-compose.yml). Save this file to whichever directory you are using
    in Terminal (i.e. Desktop, Documents).
 3. In Terminal, launch containers with the below command:
 
    ```sql
-   export USER=myuser; export PASSWORD=mypassword; docker-compose up -d 
+   export USER=myuser; export PASSWORD=mypassword; docker pull && docker up -d
    ```
 4. Access the ATSD user interface by navigating to `https://localhost:8443`. Create a username and password. 
 
@@ -26,7 +26,7 @@ Below is a step-by-step walk through for setting up local configurations of ATSD
     
 7. Now click back on the **Jobs** tab. The name of the file that will show up in Collector is `socrata-cdc`. Hit **Run**. After a few seconds, refresh your browser. If the data was successfully 
    retrieved by Collector, you should see an output as shown in the second image below. As a note, normally you would need to import a `.xml` job file in Collector. This step, however, was circumvented by
-   specifying a retrieval path for a `.xml` file from GitHub in our `docker-compose.yaml` file. 
+   specifying a retrieval path for a `.xml` file from GitHub in our `docker-compose.yml` file. 
 
    ![Figure 16](Images/Figure16.png)
    
