@@ -1317,13 +1317,33 @@ GROUP BY tot.period(1 YEAR)
 | 66982.0     | 16.0         | 40.0          | 493.0         | 2461.0      | 3039.0      | 0.7                  | 2.6                   | 27.5                  | 223.4               | 45.4                 | 
 ```
 
-Below is a table comparing mortality rates in 2010 in New York City and Youngstown. 
+Below is a table comparing mortality rates in 2010 in New York City and Youngstown. We can see that mortality rates in Youngstown are higher almost across the whole board.
 
-|city        | infant_mortality_rate  | 1-24_mortality_rate  | 25-44_mortality_rate  | 45-64_mortality_rate  | 65+_mortality_rate  | total_mortality_rate | 
-|------------|------------------------|----------------------|-----------------------|-----------------------|---------------------|----------------------| 
-| New York   | 5.5                    | 0.3                  | 1.1                   | 5.8                   | 37.2                | 6.4                  | 
-| Youngstown | 0.0                    | 0.7                  | 2.6                   | 27.5                  | 223.4               | 45.4                 |
+|Mortality Rate | New York City  | Youngstown  |
+|---------------|----------------|-------------|
+| infant        | 5.5            | 0.0**       |                
+| 1-24          | 0.3            | 0.7         |            
+| 25-44         | 1.1            | 2.6         |
+| 45-64         | 5.8            | 27.5        |
+| 65+           | 37.2           | 223.4       |
+| total         | 6.5            | 45.4        |
 
+** As a quick note, figures for the population under the age of 1 year in Youngstown were not available at the time this article was written (numbers were only available starting with the 0 to 24 age 
+group), so we were not able to calculate an infant mortality rate for the city. The value, therefore, for the 1-24 age group below for Youngstown is a little higher than it should be in reality.
+
+So what can explain these unbelievably high values in Youngstown? This is a complicated, multi-layered topic, with some people spending years analyzing these issues. Two factors that may play into 
+these high rates are an aging population, which has above average rate for a number of diseases. Below is a table comparing incident rates for 6 diseases in Mahoning County (Youngstown) versus the
+United States as a whole. We can see that Youngstown has higher incident rates for each disease. Additionally, according to the 2010 U.S. Census, the percentage of residents age 65 and older in
+Youngstown versus the United States was [16.44%](http://places.mooseroots.com/l/332116/Youngstown-OH) versus [12.75%](http://places.mooseroots.com/l/310125/United-States).   
+
+| RATE (# DEATHS / 100,000 POPULATION) | MAHONING COUNTY (YOUNGSTOWN) | UNITED STATES | 
+|--------------------------------------|------------------------------|---------------| 
+| HEART DISEASE                        | 203.6                        | 167.0         | 
+| CANCER                               | 190.5                        | 171.2         | 
+| CHRONIC LOWER RESP DISEASE           | 47.7                         | 46.1          | 
+| STROKE                               | 49.9                         | 41.7          | 
+| UNINTENTIONAL INJURY (ACCIDENT)      | 50.7                         | 42.7          | 
+| ALZHEIMER'S DIS                      | 30.8                         | 29.8          | 
 
 ### Action Items
 ----------------
@@ -1341,7 +1361,7 @@ Below are the summarized steps to follow to install local configurations of ATSD
 
 4. Import the `parser.xml` file into ATSD.
 5. Import the `us.population.csv` into ATSD.
-6. Import the `city-size`, `us-regions`, and `new-york-city-2010-population` replacement tables into ATSD.
+6. Import the `city-size`, `us-regions`, `new-york-city-2010-population`, and `youngstown-2010-population` replacement tables into ATSD.
 7. Navigate to the SQL tab in ATSD and begin writing your queries!
 
 The full guide for setting up can be found [here](https://github.com/axibase/atsd-use-cases/blob/master/USMortality/configuration.md).
