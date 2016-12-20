@@ -13,8 +13,8 @@ services:
     hostname: atsd
     restart: always
     environment:
-      - COLLECTOR_USER_NAME=${USER}
-      - COLLECTOR_USER_PASSWORD=${PASSWORD}
+      - COLLECTOR_USER_NAME=${C_USER}
+      - COLLECTOR_USER_PASSWORD=${C_PASSWORD}
   collector:
     image: axibase/collector:latest
     depends_on:
@@ -24,5 +24,5 @@ services:
     container_name: axibase-collector
     restart: always
     environment:
-      - COLLECTOR_ARGS=-atsd-url=https://${USER}:${PASSWORD}@atsd:8443 -job-path=https://raw.githubusercontent.com/axibase/axibase-collector-docs/master/job-templates/socrata-cdc.xml -job-execute=socrata-cdc
+      - COLLECTOR_ARGS=-atsd-url=https://${C_USER}:${C_PASSWORD}@atsd:8443 -job-path=https://raw.githubusercontent.com/axibase/axibase-collector-docs/master/job-templates/socrata-cdc.xml -job-execute=socrata-cdc
       - JAVA_OPTS=-Xmx2g
