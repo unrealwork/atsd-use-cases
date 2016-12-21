@@ -1360,7 +1360,7 @@ Below are the summarized steps to follow to install local configurations of ATSD
 3. In Terminal, launch containers with the following command:
    
    ```sql
-   export USER=myuser; export PASSWORD=mypassword; docker-pull && docker up -d
+   export C_USER=myuser; export C_PASSWORD=mypassword; docker-compose pull && docker-compose up -d
    ```
 
 4. Import the `parser.xml` file into ATSD.
