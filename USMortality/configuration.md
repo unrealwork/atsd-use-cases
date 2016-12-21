@@ -15,7 +15,7 @@ Below is a step-by-step walk through for setting up local configurations of ATSD
 4. Access the ATSD user interface by navigating to `https://localhost:8443`. Note that it may take several minutes for the containers to launch and for ATSD to become
    available. Create a username and password.
 
-   <img src="Images/Figure11.png" width="600" >
+   <img src="Images/Figure11.png" width="500" >
 
 5. After completing Step 4, you will be redirected to the page shown below. Login to ATSD with the username and password you just created.
 
