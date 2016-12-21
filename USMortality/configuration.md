@@ -30,9 +30,11 @@ Below is a step-by-step walk through for setting up local configurations of ATSD
    
    ![Figure 20](Images/Figure20.png)
    
-8. Copy and paste the files included in this repository ([`city-size`](https://github.com/axibase/atsd-use-cases/blob/master/USMortality/city-size) and [`us-regions`](https://github.com/axibase/atsd-use-cases/blob/master/USMortality/us-regions)) into the Replacement Table. Click **Save**. `city-size` contains 2015 population figures for each of the
-   122 cities included in this dataset. `us-regions` is a list of all of the regions (i.e. 1=New-England, 2=Middle-Atlantic etc.). These will be used later in this article for performing
-   queries. 
+8. Copy and paste the files included in this repository ([`city-size`](https://github.com/axibase/atsd-use-cases/blob/master/USMortality/city-size), [`us-regions`](https://github.com/axibase/atsd-use-cases/blob/master/USMortality/us-regions)), 
+   [`new-york-city-2010-population`](https://github.com/axibase/atsd-use-cases/blob/master/USMortality/resources/new-york-city-2010-population), and [`youngstown-2010-population`](https://github.com/axibase/atsd-use-cases/blob/master/USMortality/resources/youngstown-2010-population) 
+   into the Replacement Table. Click **Save**. `city-size` contains 2015 population figures for each of the 122 cities included in this dataset. `us-regions` is a list of all of the regions 
+   (i.e. 1=New-England, 2=Middle-Atlantic etc.). `new-york-city-2010-population` and `youngstown-2010-population` will be used to compute mortality statistics. These tables will be used later in 
+   the article for performing SQL queries
    
    ![Figure 21](Images/Figure21.png)
    
