@@ -9,7 +9,7 @@ Below is a step-by-step walk through for setting up local configurations of ATSD
 3. In Terminal, launch containers with the below command:
 
    ```sql
-   export USER=myuser; export PASSWORD=mypassword; docker pull && docker up -d
+   export USER=myuser; export PASSWORD=mypassword; docker-compose pull && docker-compose up -d
    ```
 4. Access the ATSD user interface by navigating to `https://localhost:8443`. Create a username and password. 
 
