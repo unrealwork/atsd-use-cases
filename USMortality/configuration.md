@@ -11,7 +11,9 @@ Below is a step-by-step walk through for setting up local configurations of ATSD
    ```sql
    export C_USER=myuser; export C_PASSWORD=mypassword; docker-compose pull && docker-compose up -d
    ```
-4. Access the ATSD user interface by navigating to `https://localhost:8443`. Create a username and password. 
+   
+4. Access the ATSD user interface by navigating to `https://localhost:8443`. Note that it may take several minutes for the containers to launch and for ATSD to become
+   available. Create a username and password.
 
    <img src="Images/Figure11.png" width="600" >
 
@@ -19,34 +21,22 @@ Below is a step-by-step walk through for setting up local configurations of ATSD
 
     <img src="Images/Figure12.png" width="500" >
    
-6. Access Axibase Collector by navigating to `https://localhost:9443`, and populate the username and password fields. After creating your username and password, you will be prompted to
-   login. Enter in your username and password.
-
-    <img src="Images/Figure13.png" width="500" >
-    
-7. Now click back on the **Jobs** tab. The name of the file that will show up in Collector is `socrata-cdc`. Hit **Run**. After a few seconds, refresh your browser. If the data was successfully 
-   retrieved by Collector, you should see an output as shown in the second image below. As a note, normally you would need to import a `.xml` job file in Collector. This step, however, was circumvented by
-   specifying a retrieval path for a `.xml` file from GitHub in our `docker-compose.yml` file. 
-
-   ![Figure 16](Images/Figure16.png)
-   
-   ![Figure 17](Images/Figure17.png)
-   
-8. Now, navigate to the **Entities** tab in ATSD. We can see that the job has created a new entity in ATSD, with the name `mr8w-325u`.  
+6. Now, navigate to the **Entities** tab in ATSD. We can see that the job has created a new entity in ATSD, with the name `mr8w-325u`. Note that it may take a minute or two for the label **Deaths 
+   in 122 U.S. cities - 1962-2016. 122 Cities Mortality Reporting System** to show up in ATSD.  
    
    ![Figure 19](Images/Figure19.png)
    
-9. Next, click on **Configuration -> Replacement Tables**.
+7. Click on **Configuration -> Replacement Tables**.
    
    ![Figure 20](Images/Figure20.png)
    
-10. Copy and paste the files included in this repository ([`city-size`](https://github.com/axibase/atsd-use-cases/blob/master/USMortality/city-size) and [`us-regions`](https://github.com/axibase/atsd-use-cases/blob/master/USMortality/us-regions)) into the Replacement Table. Click **Save**. `city-size` contains 2015 population figures for each of the
-    122 cities included in this dataset. `us-regions` is a list of all of the regions (i.e. 1=New-England, 2=Middle-Atlantic etc.). These will be used later in this article for performing
-    queries. 
+8. Copy and paste the files included in this repository ([`city-size`](https://github.com/axibase/atsd-use-cases/blob/master/USMortality/city-size) and [`us-regions`](https://github.com/axibase/atsd-use-cases/blob/master/USMortality/us-regions)) into the Replacement Table. Click **Save**. `city-size` contains 2015 population figures for each of the
+   122 cities included in this dataset. `us-regions` is a list of all of the regions (i.e. 1=New-England, 2=Middle-Atlantic etc.). These will be used later in this article for performing
+   queries. 
    
    ![Figure 21](Images/Figure21.png)
    
-11. Navigate to **Configuration -> Parsers:CSV** and import the `parser.xml` file.
+9. Navigate to **Configuration -> Parsers:CSV** and import the `parser.xml` file.
  
    ![Figure 22](Images/Figure22.png)
    
@@ -54,7 +44,7 @@ Below is a step-by-step walk through for setting up local configurations of ATSD
    
    ![Figure 24](Images/Figure24.png)
    
-12. After the parser has been added, we will proceed to uploading our [`us.population.csv`](https://github.com/axibase/atsd-use-cases/blob/master/USMortality/us.population.csv) file. This file contains population estimates from [census.gov](https://http://www.census.gov/data.html) for all 122 cities for 1960, 1970, 1980, 1990, 2000, 2010,
+10. After the parser has been added, we will proceed to uploading our [`us.population.csv`](https://github.com/axibase/atsd-use-cases/blob/master/USMortality/us.population.csv) file. This file contains population estimates from [census.gov](https://http://www.census.gov/data.html) for all 122 cities for 1960, 1970, 1980, 1990, 2000, 2010,
     and 2015. This file will be used for our queries. Click again on the **Parsers:CSV** dropdown. Then, click on the **Upload** button and then select the `us.population.csv` file.          
    
    ![Figure 25](Images/Figure25.png)
@@ -69,7 +59,7 @@ Below is a step-by-step walk through for setting up local configurations of ATSD
    
    ![Figure 28](Images/Figure28.png)
    
-13. Next, navigate to **Metrics** and enter in `us.population` into the **Name Mask** bar.     
+11. Next, navigate to **Metrics** and enter in `us.population` into the **Name Mask** bar.     
    
    ![Figure 29](Images/Figure29.png)
    
