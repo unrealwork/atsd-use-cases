@@ -1355,8 +1355,12 @@ wrote our own SQL queries, and were able to compute our own mortality statistics
 Below are the summarized steps to follow to install local configurations of ATSD and Axibase Collector and create SQL queries for analyzing CDC death statistics:
 
 1. Install Docker. A link for how to install Docker can be found [here](https://docs.docker.com/engine/installation/linux/ubuntulinux/).
-2. Copy the `docker-compose.yml` file which can be found [here](https://github.com/axibase/atsd-use-cases/blob/master/USMortality/resources/docker-compose.yml). Save this file to whichever directory you are using
-   in Terminal (i.e. Desktop, Documents).
+2. Download the `docker-compose.yml` file to launch the ATSD Collector container bundle.
+   
+   ```sql
+   curl -o docker-compose.yml https://raw.githubusercontent.com/axibase/atsd-use-cases/master/USMortality/resources/docker-compose.yml
+   ```
+
 3. In Terminal, launch containers with the following command:
    
    ```sql
