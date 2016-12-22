@@ -10,7 +10,7 @@ Below is a step-by-step guide for setting up local instances of the Axibase Time
    ```
    curl -o docker-compose.yml https://raw.githubusercontent.com/axibase/atsd-use-cases/master/USMortality/resources/docker-compose.yml
    ```
-3. Launch containers by specifying the built-in collector account that will be used by Axibase Collector to insert data into ATSD.
+3. Launch containers by specifying the built-in collector account credentials that will be used by Axibase Collector to insert data into ATSD.
 
    ```sh
    export C_USER=myuser; export C_PASSWORD=mypassword; docker-compose pull && docker-compose up -d
