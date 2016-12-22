@@ -1,4 +1,4 @@
-Creating Local Instance for ATSD and Axibase Collector using Docker
+Creating Local Instance for ATSD and Axibases Collector using Docker
 =========================================================================
 
 Below is a step-by-step guide for setting up local instances of the Axibase Time Series Database and Axibase Collector on a Docker host.
