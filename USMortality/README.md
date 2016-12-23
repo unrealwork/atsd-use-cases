@@ -43,7 +43,7 @@ While you can manually analyze this information in a spreadsheet program, it is 
 ### Axibase Time Series Database
 --------------------------------
 
-The Axibase Time Series Database (ATSD) is a powerful tool when it comes to storing, analyzing, and displaying datasets. This article will not focus on creating graphs and figures using ATSD, but 
+The [Axibase Time Series Database](http://axibase.com/products/axibase-time-series-database/) (ATSD) is a powerful tool when it comes to storing, analyzing, and visualing datasets. This article will not focus on creating graphs and figures using ATSD, but 
 rather on writing and running SQL queries. If you are interested in reading more on the visual presentation capabilities of ATSD, check out our articles on
 [employee compensation numbers in Iowa](https://github.com/axibase/atsd-use-cases/blob/master/SocrataIowaCompensation/README.md) and
 [aviation statistics in the United Kingdom](https://github.com/axibase/atsd-use-cases/blob/master/UKAviation/README.md).
@@ -61,10 +61,8 @@ Here you can explore the complete dataset for U.S. death totals:
 
 To query information from this dataset you will need to install both ATSD and Axibase Collector.
 
-You can set up local configurations of ATSD and Axibase Collector using Docker by going through our [step-by-step walk through](https://github.com/axibase/atsd-use-cases/blob/master/USMortality/configuration.md).
-It should take you about 15 minutes to complete. 
-
-You can learn more about Docker [on our website](https://axibase.com/docker-monitoring/).   
+You can set up local instances of ATSD and Axibase Collector using Docker by going through our [step-by-step walk through](https://github.com/axibase/atsd-use-cases/blob/master/USMortality/configuration.md).
+It should take you about 15 minutes. 
 
 ### ATSD Schema
 ---------------
