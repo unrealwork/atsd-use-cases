@@ -7,9 +7,9 @@ Analyzing Chicago Crime Statistics
 ----------------
 
 Pizza. Michael Jordan. Lake Michigan. Jazz. The Bean. These are some of the great things that Chicago, Illinois, is known for. There is another thing that has defined the city since its birth, and 
-as of lately seems to be all we think about when it comes to Chicago: crime. In 2016, Chicago, the 3rd most populous city in the United States, [had more homicides](http://www.foxnews.com/us/2017/01/01/1-chicagos-bloodiest-years-ends-with-762-homicides.html)
-than New York City and Los Angeles **combined**. In 2016, there were 753 murders in the city, a **53% increase** from 496 in 2015. In 2016, there were 4,331 total shooting victims, compared to 2,939 
-in 2015. From 2004 to 2015, the peak number of murders in the city was 513. From 2011 to 2015, the city recorded less than 3,000 shooting victims per year. So what is the reason for this alarming 
+as of lately seems to be all we think about when it comes to Chicago: **crime**. In 2016, Chicago, the 3rd most populous city in the United States, [had more homicides](http://www.foxnews.com/us/2017/01/01/1-chicagos-bloodiest-years-ends-with-762-homicides.html)
+than New York City and Los Angeles **combined**. In 2016, there were 753 murders in the city, a **55% increase** from 486 in 2015. In 2016, there were 4,331 total shooting victims, compared to 2,939 
+in 2015. From 2004 to 2015, the peak number of murders in the city under 500. From 2011 to 2015, the city recorded less than 3,000 shooting victims per year. So what is the reason for this alarming 
 increase in violence in Chicago? Was there an increase in all kinds of crime, or was the rise in murders and shootings an exception? In this article we will analyze a dataset from data.gov 
 looking at [Chicago crime statistics](https://catalog.data.gov/dataset/crimes-2001-to-present-398a4) from 2001 to the present time.  
 
@@ -18,12 +18,12 @@ looking at [Chicago crime statistics](https://catalog.data.gov/dataset/crimes-20
 
 Let's take a look at the dataset titled **Crimes - 2001 to present** from [data.gov](https://www.data.gov/).  
 
-This dataset can be found here: https://catalog.data.gov/dataset/crimes-2001-to-present-398a4. On the data.gov website, datasets can be downloaded as a CSV (1.4 GB), RDF, JSON (2.8 GB), or a 
+This dataset can be found here: https://catalog.data.gov/dataset/crimes-2001-to-present-398a4. On the data.gov website, this dataset can be downloaded as a CSV (1.4 GB), RDF, JSON (2.8 GB), or a 
 XML file. This dataset can easily be parsed using the JSON job in Axibase.
 
 This dataset contains crime statistics collected monthly from 2001 to the present time. This dataset is continuously updated with a time lag of 7 days. Statistics are available for 32 different crime types. Furthermore, these crimes may be filtered by the location
 where the crime occurred, and by the specific crime type. For example, for the crime type **Narcotics**, you may filter by 96 locations (alley, street, gas station) and 49 specific violations (possession
-of cocaine, manufacturing and delivering heroin, or soliciting narcotics). Each crime type has it's own number of locations and specific violations that it may be sorted for.
+of cocaine, manufacturing and delivering heroin, soliciting narcotics etc). Each crime type has it's own number of locations and specific violations that it may be sorted for.
 
 Given the size of the dataset, you cannot load it in Excel. It is much more convenient to interact with the data once it is loaded into a database. The 
 [Axibase Time Series Database (ATSD)](http://axibase.com/products/axibase-time-series-database/) is a powerful tool when it comes to storing, analyzing, and visualizing datasets. We will use the
@@ -33,7 +33,7 @@ You can load the dataset into your ATSD instance by following the steps provided
 ### Homicide Numbers
 --------------------
 
-Below is an image of monthly homicide totals from January 2008 through December 2016. The month with the highest murder total in 2016 was August, which experienced 90 murders. August 2015 only had 53 murders.
+Below is an image of monthly homicide totals from January 2001 through December 2016, but with a zoomed in view starting with 2008. The month with the highest murder total in 2016 was August, which experienced 90 murders. August 2015 only had 53 murders.
 Taking a closer look at this graph, we can see that every year seems to follow a general trend of low numbers to start the year out, with totals increasing in the summer months, and then dropping back
 down as winter approaches. 
 
@@ -53,7 +53,7 @@ Click on this button to explore this Chart Lab portal:
 
 [![](Images/button.png)](https://apps.axibase.com/chartlab/3f33d4ba/16/)
 
-In addition to looking at graphical outputs, we can also perform [SQL queries](https://github.com/axibase/atsd-docs/blob/master/api/sql/README.md#overview), which we can use to search for specific 
+In addition to looking at graphical outputs, we can also perform [SQL queries](https://github.com/axibase/atsd-docs/blob/master/api/sql/README.md#overview), which can be used to search for specific 
 information contained in this dataset. For example, we can see that 2016 months totals are greater than the previous years as a whole. But what were the average monthly totals for the last several
 years before the city experienced the horrific spike of 2016?
 
@@ -106,9 +106,9 @@ GROUP BY date_format(time, 'u')
 | Sun          | 142.0        | 
 ```
 
-Did the most common locations for homicides changes from 2015 to 2016? The below pie chart shows the top five locations were homicides were committed in 2015 and 2016. Both years have the same top five
-locations for murders (alley, apartment, street, house, auto) and we can see that the greatest number of homicide took place on the street. These percentages experienced almost no change from 2015
-to 2016. The percentage of murders on the street in 2015 and 2016 was exactly same at 68%.  
+Did the most common locations for homicides changes from 2015 to 2016? The below pie chart shows the top five locations where homicides were committed in 2015 and 2016. Both years have the same top five
+locations for murders (alley, apartment, street, house, auto) and we can see that the greatest number of homicide took place on the street. The percentage of murders on the street in 2015 and 2016 
+was exactly same at 68%.  
 
 ![Figure 6](Images/Figure6.png)
 
@@ -191,8 +191,8 @@ year reduction of 48.0% for narcotics makes one think that there may be somethin
 
 According to [an article by the Chicago Tribune](http://www.chicagotribune.com/news/opinion/editorials/ct-chicago-crime-increase-causes-edit-0118-md-20170117-story.html),
 the release of a video in November 2015 showing the police fatally shooting of a black teenager ([Laquan McDonald](https://en.wikipedia.org/wiki/Shooting_of_Laquan_McDonald)), the launch of a Justice Department investigation of the Chicago Police Department, and a decline 
-in the number of street stops by the police, resulting from a new policy on street stops between the city of Chicago and the American Civil Liberties Union have had a drastic affect on policing in
-Chicago. According to [Vice News](https://news.vice.com/video/with-killings-on-the-rise-in-chicago-police-are-putting-their-hands-up), because of the Laquan McDonald shooting Police have become afraid of becoming the next "viral video" and are
+in the number of street stops by the police resulting from a new policy on street stops between the city of Chicago and the American Civil Liberties Union have had a drastic affect on policing in
+Chicago. According to [Vice News](https://news.vice.com/video/with-killings-on-the-rise-in-chicago-police-are-putting-their-hands-up), because of the Laquan McDonald shooting, the police have become afraid of becoming the next "viral video" and are
 less willing to go out, put themselves on the line, and prevent murders and make narcotics involved arrests.
  
 Below is a figure showing the monthly homicide count in Chicago with breakdown by arrest. The red represents murders that resulted in an arrest at the time of the incident, while grey represents 
@@ -232,7 +232,7 @@ Title Photo: http://www.zerohedge.com/news/2016-08-23/chicagos-violent-crime-spr
 ### Additional SQL Queries
 --------------------------
 
-Here are some additional SQL queries (along with snippets of their outputs) which take a closer look at some of the crime in Chicago.
+Here are some additional SQL queries (along with snippets of their outputs) which take a closer look at some of the crime statistics in Chicago.
 
 Homicide statistics from January 1, 2016, to the present time. All tags from the dataset are included.
 
@@ -381,7 +381,7 @@ GROUP BY period(1 year)
 | 2016-01-01T00:00:00.000Z  | 4352.0       | 
 ```
 
-Total yearly drug manufacturing and distribution arrests from 2016 through 2016, excluding marijuana.
+Total yearly drug manufacturing and distribution arrests from 2001 through 2016, excluding marijuana.
 
 ```sql
 SELECT datetime, count(value)
