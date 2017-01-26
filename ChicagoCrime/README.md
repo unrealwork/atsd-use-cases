@@ -69,10 +69,20 @@ as we can see in the figure below.
 
 ![Figure 3](Images/Figure3.png)
 
-There were, however, increases for certain crimes in 2016 from 2015. The number of arrests increased for each of the following crime types: robbery from 9,611 to 11,894 (23.8%), motor 
-vehicle theft from 9,001 to 10,247 (13.8%), assault from 16,885 to 18,580 (10.0%), and criminal sexual assault from 1,306 to 1,426 (9.2%). The number of narcotics arrests, however, decreased 
-from 25,562 in 2015 to 12,329 (48.0%) in 2016. Gambling and Liquor Law violations decreased by 39% and 23%, respectively. Below is a figure showing the change from 2015 to 2016 for each of the 
-crime types included in this dataset.  
+There were, however, increases for certain crimes in 2016 from 2015. The number of arrests increased for each of the following crime types: 
+
+* Robbery: 9,611 to 11,894 (**23.8%**)
+* Motor vehicle theft: 9,001 to 10,247 (**13.8%**)
+* Assault: 16,885 to 18,580 (**10.0%**)
+* Criminal sexual assault: 1,306 to 1,426 (**9.2%**)
+
+The number of arrests decreased for each of the following crime types: 
+
+* Narcotics: 25,562 in 2015 to 12,329 (**48.0%**)
+* Gambling: (**39%**)
+* Liquor Law Violations: (**23%**)
+ 
+Below is a figure showing the change from 2015 to 2016 for each of the crime types included in this dataset.  
     
 ![Figure 4](Images/Figure4.png)
 
