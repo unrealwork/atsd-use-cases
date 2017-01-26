@@ -16,7 +16,7 @@ exception? In this article we will analyze a dataset from data.gov looking at [C
 ### Chicago Crime Statistics Dataset
 ------------------------------------
 
-Let's take a look at the dataset titled **Crimes - 2001 to present** from [data.gov](https://www.data.gov/). 
+Let's take a look at the dataset titled **Crimes - 2001 to present** from [data.gov](https://www.data.gov/).  
 
 This dataset can be found here: https://catalog.data.gov/dataset/crimes-2001-to-present-398a4. On the data.gov website, datasets can be downloaded as a CSV (1.4 GB), RDF, JSON (2.8 GB), or a 
 XML file. This dataset can easily be parsed using the JSON job in Axibase.
