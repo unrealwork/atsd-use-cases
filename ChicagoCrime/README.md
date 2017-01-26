@@ -7,7 +7,7 @@ Analyzing Chicago Crime Statistics
 ----------------
 
 Pizza. Michael Jordan. Lake Michigan. Jazz. The Bean. These are some of the great things that Chicago, Illinois, is known for. There is another thing that has defined the city since its birth, and 
-as of lately seems to be all we think about when it comes to Chicago: **crime**. In 2016, Chicago, the 3rd most populous city in the United States, [had more homicides](http://www.foxnews.com/us/2017/01/01/1-chicagos-bloodiest-years-ends-with-762-homicides.html)
+as of lately seems to be all we think about when it comes to Chicago: **crime**. In 2016, Chicago, the 3rd most populous city in the United States, had more homicides
 than New York City and Los Angeles **combined**. In 2016, there were 753 murders in the city, a **55% increase** from 486 in 2015. In 2016, there were 4,331 total shooting victims, compared to 2,939 
 in 2015. From 2004 to 2015, the peak number of murders in the city under 500. From 2011 to 2015, the city recorded less than 3,000 shooting victims per year. So what is the reason for this alarming 
 increase in violence in Chicago? Was there an increase in all kinds of crime, or was the rise in murders and shootings an exception? In this article we will analyze a dataset from data.gov 
@@ -556,7 +556,7 @@ GROUP BY date_format(time, 'w')
 
 Murders per week in 2016.
 
-```
+```sql
 SELECT date_format(time, 'w') AS 'week_in_year', count(value) AS 'murders_per_week'
  FROM 'chg.row_number'
 WHERE datetime >= '2016-01-01T00:00:00Z' AND datetime < '2016-05-01T00:00:00Z'
