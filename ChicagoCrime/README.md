@@ -8,10 +8,10 @@ Analyzing Chicago Crime Statistics
 
 Pizza. Michael Jordan. Lake Michigan. Jazz. The Bean. These are some of the great things that Chicago, Illinois, is known for. There is another thing that has defined the city since its birth, and 
 as of lately seems to be all we think about when it comes to Chicago: crime. In 2016, Chicago, the 3rd most populous city in the United States, [had more homicides](http://www.foxnews.com/us/2017/01/01/1-chicagos-bloodiest-years-ends-with-762-homicides.html)
-than New York City and Los Angeles **combined**. In 2016, there were [762 murders](http://edition.cnn.com/2017/01/02/us/chicago-murder-rate-2016-visual-guide/) in the city, a **53% increase** from 496
-in 2015. In 2016, there were 4,331 total shooting victims, compared to 2,939 in 2015. From 2004 to 2015, the peak number of murders in the city was 513. From 2011 to 2015, the city recorded less 
-than 3,000 shooting victims per year. So what is the reason for this alarming increase in violence in Chicago? Was there an increase in all kinds of crime, or was the rise in murders and shootings an 
-exception? In this article we will analyze a dataset from data.gov looking at [Chicago crime statistics](https://catalog.data.gov/dataset/crimes-2001-to-present-398a4) from 2001 to the present time.  
+than New York City and Los Angeles **combined**. In 2016, there were 753 murders in the city, a **53% increase** from 496 in 2015. In 2016, there were 4,331 total shooting victims, compared to 2,939 
+in 2015. From 2004 to 2015, the peak number of murders in the city was 513. From 2011 to 2015, the city recorded less than 3,000 shooting victims per year. So what is the reason for this alarming 
+increase in violence in Chicago? Was there an increase in all kinds of crime, or was the rise in murders and shootings an exception? In this article we will analyze a dataset from data.gov 
+looking at [Chicago crime statistics](https://catalog.data.gov/dataset/crimes-2001-to-present-398a4) from 2001 to the present time.  
 
 ### Chicago Crime Statistics Dataset
 ------------------------------------
@@ -21,13 +21,14 @@ Let's take a look at the dataset titled **Crimes - 2001 to present** from [data.
 This dataset can be found here: https://catalog.data.gov/dataset/crimes-2001-to-present-398a4. On the data.gov website, datasets can be downloaded as a CSV (1.4 GB), RDF, JSON (2.8 GB), or a 
 XML file. This dataset can easily be parsed using the JSON job in Axibase.
 
-This dataset contains crime statistics collected monthly from 2001 to the present time. Statistics are available for 32 different crime types. Furthermore, these crimes may be filtered by the location
+This dataset contains crime statistics collected monthly from 2001 to the present time. This dataset is continuously updated with a time lag of 7 days. Statistics are available for 32 different crime types. Furthermore, these crimes may be filtered by the location
 where the crime occurred, and by the specific crime type. For example, for the crime type **Narcotics**, you may filter by 96 locations (alley, street, gas station) and 49 specific violations (possession
 of cocaine, manufacturing and delivering heroin, or soliciting narcotics). Each crime type has it's own number of locations and specific violations that it may be sorted for.
 
-While you can manually analyze this information in a spreadsheet program, it is much more convenient to interact with the data once it is loaded into a database. The 
+Given the size of the dataset, you cannot load it in Excel. It is much more convenient to interact with the data once it is loaded into a database. The 
 [Axibase Time Series Database (ATSD)](http://axibase.com/products/axibase-time-series-database/) is a powerful tool when it comes to storing, analyzing, and visualizing datasets. We will use the
-following two aspects of ASTD to look into this dataset: interactive graphs from [Chart Lab](/ChartLabIntro/README.md) and tables output from [SQL queries](https://github.com/axibase/atsd-docs/blob/master/api/sql/README.md#overview).
+following two aspects of ATSD to look into this dataset: interactive graphs from [Chart Lab](/ChartLabIntro/README.md) and tabular outputs from analytical [SQL queries](https://github.com/axibase/atsd-docs/blob/master/api/sql/README.md#overview).
+You can load the dataset into your ATSD instance by following the steps provided at the [end of the article](#action-items).
 
 ### Homicide Numbers
 --------------------
@@ -154,6 +155,8 @@ LIMIT 20
 | TAVERN                     | 2.0             | 
 ```
 
+If you would like to see more queries on this Chicago crime dataset, please go to the [Additonal SQL Queries](#additional-sql-queries) section.
+
 ### A Deeper Look at Crime in Chicago
 -------------------------------------
 
@@ -207,13 +210,13 @@ Below are the summarized steps to follow to install local configurations of ATSD
 1. Install [Docker](https://docs.docker.com/engine/installation/linux/ubuntulinux/).
 2. Download the [`docker-compose.yml`](https://raw.githubusercontent.com/axibase/atsd-use-cases/master/ChicagoCrime/resources/docker-compose.yml) file to launch the ATSD / Axibase Collector container bundle.
  
-```sql
+   ```bash
    curl -o docker-compose.yml https://raw.githubusercontent.com/axibase/atsd-use-cases/master/ChicagoCrime/resources/docker-compose.yml
    ```
 
 3. Launch containers with the following command:
  
-```sql
+   ```bash
    export C_USER=myuser; export C_PASSWORD=mypassword; docker-compose pull && docker-compose up -d
    ```
 
@@ -225,3 +228,380 @@ If you require assistance in installing this software or have any questions, ple
 -----------
 
 Title Photo: http://www.zerohedge.com/news/2016-08-23/chicagos-violent-crime-spreading-safe-north-side
+
+### Additional SQL Queries
+--------------------------
+
+Here are some additional SQL queries (along with snippets of their outputs) which take a closer look at some of the crime in Chicago.
+
+Homicide statistics from January 1, 2016, to the present time. All tags from the dataset are included.
+
+```sql
+SELECT *
+FROM 'chg.row_number'
+WHERE datetime >= '2016-01-01T00:00:00Z'
+AND tags.primary_type = 'HOMICIDE'
+AND entity = 'ijzp-q8t2'
+LIMIT 1000
+```
+
+```ls
+| entity     | datetime                  | value      | tags.arrest  | tags.description     | tags.primary_type  | tags.location_description | 
+|------------|---------------------------|------------|--------------|----------------------|--------------------|---------------------------| 
+| ijzp-q8t2  | 2016-01-01T02:37:00.000Z  | 3946209.0  | false        | FIRST DEGREE MURDER  | HOMICIDE           | STREET                    | 
+| ijzp-q8t2  | 2016-01-01T07:20:00.000Z  | 3946304.0  | false        | FIRST DEGREE MURDER  | HOMICIDE           | AUTO                      | 
+| ijzp-q8t2  | 2016-01-01T22:48:00.000Z  | 3946386.0  | true         | FIRST DEGREE MURDER  | HOMICIDE           | AUTO                      | 
+| ijzp-q8t2  | 2016-01-03T13:17:00.000Z  | 3946532.0  | false        | FIRST DEGREE MURDER  | HOMICIDE           | AUTO                      | 
+| ijzp-q8t2  | 2016-01-04T08:58:00.000Z  | 3946583.0  | true         | FIRST DEGREE MURDER  | HOMICIDE           | STREET                    | 
+| ijzp-q8t2  | 2016-01-05T01:52:00.000Z  | 3946672.0  | false        | FIRST DEGREE MURDER  | HOMICIDE           | STREET                    | 
+```
+
+Number of arrests made for homicides in 2015 and 2016. When `tags.arrest` is `true`, it means that an arrest was made. When this tag is `false`, no arrest was made.   
+
+```sql
+SELECT datetime, tags.arrest, count(value)
+FROM 'chg.row_number'
+WHERE datetime >= '2015-01-01T00:00:00Z' and datetime < '2017-01-01T00:00:00Z'
+AND tags.primary_type = 'HOMICIDE'
+AND entity = 'ijzp-q8t2'
+GROUP BY tags.arrest, period(1 month)
+```
+
+```ls
+| datetime                  | tags.arrest  | count(value) | 
+|---------------------------|--------------|--------------| 
+| 2015-01-01T00:00:00.000Z  | false        | 21.0         | 
+| 2015-02-01T00:00:00.000Z  | false        | 12.0         | 
+| 2015-03-01T00:00:00.000Z  | false        | 19.0         | 
+| 2015-01-01T00:00:00.000Z  | true         | 9.0          | 
+| 2015-02-01T00:00:00.000Z  | true         | 8.0          | 
+| 2015-03-01T00:00:00.000Z  | true         | 13.0         | 
+```
+
+Number of arrests made for narcotics possession in 2014.
+
+```sql
+SELECT tags.description, count(value)
+FROM 'chg.row_number'
+WHERE datetime >= '2014-01-01T00:00:00Z' and datetime < '2015-01-01T00:00:00Z'
+AND tags.primary_type = 'NARCOTICS'
+AND entity = 'ijzp-q8t2'
+AND tags.description LIKE 'POSS*'
+GROUP BY tags.description
+--HAVING count(value)/15 >= 5
+ORDER BY 2 DESC
+LIMIT 20
+```
+
+```ls
+| tags.description                 | count(value) | 
+|----------------------------------|--------------| 
+| POSS: CANNABIS 30GMS OR LESS     | 12732.0      | 
+| POSS: HEROIN(WHITE)              | 4476.0       | 
+| POSS: CRACK                      | 2318.0       | 
+| POSS: COCAINE                    | 943.0        | 
+| POSS: CANNABIS MORE THAN 30GMS   | 908.0        | 
+| POSSESSION OF DRUG EQUIPMENT     | 412.0        | 
+| POSS: SYNTHETIC DRUGS            | 395.0        | 
+| POSS: PCP                        | 288.0        | 
+| POSS: HALLUCINOGENS              | 209.0        | 
+| POSS: HEROIN(BRN/TAN)            | 205.0        | 
+| POSS: BARBITUATES                | 130.0        | 
+| POSS: METHAMPHETAMINES           | 40.0         | 
+| POSS: AMPHETAMINES               | 32.0         | 
+| POSSESSION: SYNTHETIC MARIJUANA  | 28.0         | 
+| POSS: HEROIN(BLACK TAR)          | 9.0          | 
+| POSS: LOOK-ALIKE DRUGS           | 8.0          | 
+```
+
+Total yearly drug possession arrests from 2001 through 2016.
+
+```sql
+SELECT datetime, count(value)
+FROM 'chg.row_number'
+WHERE datetime >= '2001-01-01T00:00:00Z' and datetime < '2017-01-01T00:00:00Z'
+AND tags.primary_type = 'NARCOTICS'
+AND entity = 'ijzp-q8t2'
+AND tags.description LIKE 'POSS*'
+GROUP BY period(1 year)
+```
+
+```ls
+| datetime                  | count(value) | 
+|---------------------------|--------------| 
+| 2001-01-01T00:00:00.000Z  | 39623.0      | 
+| 2002-01-01T00:00:00.000Z  | 38413.0      | 
+| 2003-01-01T00:00:00.000Z  | 39359.0      | 
+| 2004-01-01T00:00:00.000Z  | 40668.0      | 
+| 2005-01-01T00:00:00.000Z  | 41267.0      | 
+| 2006-01-01T00:00:00.000Z  | 41385.0      | 
+| 2007-01-01T00:00:00.000Z  | 42710.0      | 
+| 2008-01-01T00:00:00.000Z  | 37878.0      | 
+| 2009-01-01T00:00:00.000Z  | 35893.0      | 
+| 2010-01-01T00:00:00.000Z  | 36097.0      | 
+| 2011-01-01T00:00:00.000Z  | 32999.0      | 
+| 2012-01-01T00:00:00.000Z  | 29766.0      | 
+| 2013-01-01T00:00:00.000Z  | 27498.0      | 
+| 2014-01-01T00:00:00.000Z  | 23133.0      | 
+| 2015-01-01T00:00:00.000Z  | 18938.0      | 
+| 2016-01-01T00:00:00.000Z  |              | 
+```
+
+Total yearly drug possession arrests from 2001 through 2016, excluding marijuana.
+
+```sql
+SELECT datetime, count(value)
+FROM 'chg.row_number'
+WHERE datetime >= '2001-01-01T00:00:00Z' and datetime < '2017-01-01T00:00:00Z'
+AND tags.primary_type = 'NARCOTICS'
+AND entity = 'ijzp-q8t2'
+AND tags.description LIKE 'POSS*'
+AND tags.description NOT LIKE '*CANNAB*'
+GROUP BY period(1 year)
+```
+
+```ls
+| datetime                  | count(value) | 
+|---------------------------|--------------| 
+| 2001-01-01T00:00:00.000Z  | 24165.0      | 
+| 2002-01-01T00:00:00.000Z  | 22165.0      | 
+| 2003-01-01T00:00:00.000Z  | 21367.0      | 
+| 2004-01-01T00:00:00.000Z  | 21305.0      | 
+| 2005-01-01T00:00:00.000Z  | 21358.0      | 
+| 2006-01-01T00:00:00.000Z  | 20240.0      | 
+| 2007-01-01T00:00:00.000Z  | 19036.0      | 
+| 2008-01-01T00:00:00.000Z  | 16601.0      | 
+| 2009-01-01T00:00:00.000Z  | 14040.0      | 
+| 2010-01-01T00:00:00.000Z  | 13446.0      | 
+| 2011-01-01T00:00:00.000Z  | 12210.0      | 
+| 2012-01-01T00:00:00.000Z  | 11277.0      | 
+| 2013-01-01T00:00:00.000Z  | 10780.0      | 
+| 2014-01-01T00:00:00.000Z  | 9493.0       | 
+| 2015-01-01T00:00:00.000Z  | 8368.0       | 
+| 2016-01-01T00:00:00.000Z  | 4352.0       | 
+```
+
+Total yearly drug manufacturing and distribution arrests from 2016 through 2016, excluding marijuana.
+
+```sql
+SELECT datetime, count(value)
+FROM 'chg.row_number'
+WHERE datetime >= '2001-01-01T00:00:00Z' and datetime < '2017-01-01T00:00:00Z'
+AND tags.primary_type = 'NARCOTICS'
+AND entity = 'ijzp-q8t2'
+AND tags.description LIKE 'MANU*' AND tags.description NOT LIKE '*CANNAB*'
+GROUP BY period(1 year)
+```
+
+```ls
+| datetime                  | count(value) | 
+|---------------------------|--------------| 
+| 2001-01-01T00:00:00.000Z  | 3859.0       | 
+| 2002-01-01T00:00:00.000Z  | 4355.0       | 
+| 2003-01-01T00:00:00.000Z  | 3792.0       | 
+| 2004-01-01T00:00:00.000Z  | 4739.0       | 
+| 2005-01-01T00:00:00.000Z  | 4065.0       | 
+| 2006-01-01T00:00:00.000Z  | 4465.0       | 
+| 2007-01-01T00:00:00.000Z  | 3346.0       | 
+| 2008-01-01T00:00:00.000Z  | 3059.0       | 
+| 2009-01-01T00:00:00.000Z  | 2620.0       | 
+| 2010-01-01T00:00:00.000Z  | 2711.0       | 
+| 2011-01-01T00:00:00.000Z  | 1907.0       | 
+| 2012-01-01T00:00:00.000Z  | 2130.0       | 
+| 2013-01-01T00:00:00.000Z  | 3057.0       | 
+| 2014-01-01T00:00:00.000Z  | 2764.0       | 
+| 2015-01-01T00:00:00.000Z  | 2258.0       | 
+| 2016-01-01T00:00:00.000Z  | 1526.0       | 
+```
+
+All narcotics arrests made from 2001 through 2016.
+
+```sql
+SELECT datetime, count(value)
+FROM 'chg.row_number'
+WHERE datetime >= '2001-01-01T00:00:00Z' and datetime < '2017-01-01T00:00:00Z'
+AND tags.primary_type = 'NARCOTICS'
+AND entity = 'ijzp-q8t2'
+GROUP BY period(1 year)
+```
+
+```ls
+| datetime                  | count(value) | 
+|---------------------------|--------------| 
+| 2001-01-01T00:00:00.000Z  | 49483.0      | 
+| 2002-01-01T00:00:00.000Z  | 50298.0      | 
+| 2003-01-01T00:00:00.000Z  | 51391.0      | 
+| 2004-01-01T00:00:00.000Z  | 55114.0      | 
+| 2005-01-01T00:00:00.000Z  | 54597.0      | 
+| 2006-01-01T00:00:00.000Z  | 54251.0      | 
+| 2007-01-01T00:00:00.000Z  | 53200.0      | 
+| 2008-01-01T00:00:00.000Z  | 45827.0      | 
+| 2009-01-01T00:00:00.000Z  | 42775.0      | 
+| 2010-01-01T00:00:00.000Z  | 42614.0      | 
+| 2011-01-01T00:00:00.000Z  | 37993.0      | 
+| 2012-01-01T00:00:00.000Z  | 35039.0      | 
+| 2013-01-01T00:00:00.000Z  | 33785.0      | 
+| 2014-01-01T00:00:00.000Z  | 28722.0      | 
+| 2015-01-01T00:00:00.000Z  | 23647.0      | 
+| 2016-01-01T00:00:00.000Z  | 12323.0      | 
+```
+
+Yearly homicide totals.
+
+```sql
+SELECT datetime, count(value)
+FROM 'chg.row_number'
+WHERE datetime >= '2001-01-01T00:00:00Z' and datetime < '2017-01-01T00:00:00Z'
+AND tags.primary_type = 'HOMICIDE'
+AND entity = 'ijzp-q8t2'
+GROUP BY period(1 year)
+```
+
+```ls
+| datetime                  | count(value) | 
+|---------------------------|--------------| 
+| 2001-01-01T00:00:00.000Z  | 654.0        | 
+| 2002-01-01T00:00:00.000Z  | 650.0        | 
+| 2003-01-01T00:00:00.000Z  | 590.0        | 
+| 2004-01-01T00:00:00.000Z  | 447.0        | 
+| 2005-01-01T00:00:00.000Z  | 451.0        | 
+| 2006-01-01T00:00:00.000Z  | 467.0        | 
+| 2007-01-01T00:00:00.000Z  | 436.0        | 
+| 2008-01-01T00:00:00.000Z  | 495.0        | 
+| 2009-01-01T00:00:00.000Z  | 446.0        | 
+| 2010-01-01T00:00:00.000Z  | 416.0        | 
+| 2011-01-01T00:00:00.000Z  | 427.0        | 
+| 2012-01-01T00:00:00.000Z  | 492.0        | 
+| 2013-01-01T00:00:00.000Z  | 412.0        | 
+| 2014-01-01T00:00:00.000Z  | 418.0        | 
+| 2015-01-01T00:00:00.000Z  | 486.0        | 
+| 2016-01-01T00:00:00.000Z  | 753.0        | 
+```
+
+Monthly homicide totals from 2014 through 2016. 
+
+```sql
+SELECT date_format(time, 'yyyy-MMM') as 'date', count(value)
+FROM 'chg.row_number'
+WHERE datetime >= '2014-01-01T00:00:00Z' and datetime < '2017-01-01T00:00:00Z'
+AND tags.primary_type = 'HOMICIDE'
+AND entity = 'ijzp-q8t2'
+GROUP BY period(1 month)
+```
+
+```ls
+| date      | count(value) | 
+|-----------|--------------| 
+| 2014-Jan  | 19.0         | 
+| 2014-Feb  | 21.0         | 
+| 2014-Mar  | 23.0         | 
+| 2014-Apr  | 35.0         | 
+| 2014-May  | 41.0         |
+```
+
+Yearly weapons violation arrest from 2011 through 2016.
+
+```sql
+SELECT date_format(time, 'yyyy-MMM') as 'date', count(value)
+FROM 'chg.row_number'
+WHERE datetime >= '2010-01-01T00:00:00Z' and datetime < '2017-01-01T00:00:00Z'
+AND tags.primary_type = 'WEAPONS VIOLATION'
+AND entity = 'ijzp-q8t2'
+GROUP BY period(1 year)
+```
+
+```ls
+| date      | count(value) | 
+|-----------|--------------| 
+| 2010-Jan  | 3695.0       | 
+| 2011-Jan  | 3870.0       | 
+| 2012-Jan  | 3900.0       | 
+| 2013-Jan  | 3240.0       | 
+| 2014-Jan  | 3108.0       | 
+| 2015-Jan  | 3353.0       | 
+| 2016-Jan  | 3423.0       | 
+```
+
+Murders per week, averaged over the 5 year period from 2010 to 2015.  
+
+```sql
+SELECT date_format(time, 'w') AS 'week_in_year', count(value)/5 AS 'murders_per_week'
+ FROM 'chg.row_number'
+WHERE datetime >= '2010-01-01T00:00:00Z' AND datetime < '2016-01-01T00:00:00Z'
+ AND tags.primary_type = 'HOMICIDE'
+GROUP BY date_format(time, 'w')
+ ORDER BY CAST(date_format(time, 'w') as number)
+ LIMIT 15
+```
+
+```ls
+| week_in_year  | murders_per_week | 
+|---------------|------------------| 
+| 1             | 10.2             | 
+| 2             | 9.0              | 
+| 3             | 7.6              | 
+| 4             | 7.6              | 
+| 5             | 5.0              | 
+| 6             | 7.0              | 
+| 7             | 5.8              | 
+| 8             | 6.4              | 
+| 9             | 6.2              | 
+| 10            | 6.0              | 
+| 11            | 7.0              | 
+| 12            | 10.0             | 
+| 13            | 8.4              | 
+| 14            | 9.8              | 
+| 15            | 7.0              | 
+```
+
+Murders per week in 2016.
+
+```
+SELECT date_format(time, 'w') AS 'week_in_year', count(value) AS 'murders_per_week'
+ FROM 'chg.row_number'
+WHERE datetime >= '2016-01-01T00:00:00Z' AND datetime < '2016-05-01T00:00:00Z'
+ AND tags.primary_type = 'HOMICIDE'
+GROUP BY date_format(time, 'w')
+ ORDER BY CAST(date_format(time, 'w') as number)
+ LIMIT 15
+```
+
+```ls
+| week_in_year  | murders_per_week | 
+|---------------|------------------| 
+| 1             | 3.0              | 
+| 2             | 14.0             | 
+| 3             | 9.0              | 
+| 4             | 8.0              | 
+| 5             | 19.0             | 
+| 6             | 10.0             | 
+| 7             | 9.0              | 
+| 8             | 11.0             | 
+| 9             | 10.0             | 
+| 10            | 7.0              | 
+| 11            | 11.0             | 
+| 12            | 11.0             | 
+| 13            | 9.0              | 
+| 14            | 8.0              | 
+| 15            | 12.0             | 
+```
+
+Murders per week in 2017.
+
+```sql
+SELECT date_format(time, 'w') AS 'week_in_year', count(value) AS 'murders_per_week'
+ FROM 'chg.row_number'
+WHERE datetime >= '2017-01-01T00:00:00Z' AND datetime < '2017-05-01T00:00:00Z'
+ AND tags.primary_type = 'HOMICIDE'
+GROUP BY date_format(time, 'w')
+ ORDER BY CAST(date_format(time, 'w') as number)
+ LIMIT 15
+```
+
+```ls
+| week_in_year  | murders_per_week | 
+|---------------|------------------| 
+| 1             | 9.0              | 
+| 2             | 12.0             | 
+| 3             | 6.0              | 
+```
