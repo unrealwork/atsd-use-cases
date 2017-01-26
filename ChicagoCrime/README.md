@@ -1,4 +1,4 @@
- <img src="Images/TitlePhoto.png" width="600" >
+ <img src="Images/TitlePhoto.png" width="700" >
 
 Analyzing Chicago Crime Statistics
 ==================================
