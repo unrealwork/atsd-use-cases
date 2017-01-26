@@ -16,7 +16,8 @@ crime in Chicago? Was there an increase in all crime, or was the rise in murders
 ### Chicago Crime Statistics
 ----------------------------
 
-Below is an image of monthly homicide totals from January 2001 through December 2016.
+Below is an image of monthly homicide totals from January 2001 through December 2016. Between 2004 and 2015, Chicago only twice experienced a year with more than 500 murders, with 513 murders occurring
+in 2008. This number jumped to 762 in 2016.  
 
 ![Figure 1](Images/Figure1.png)
  
@@ -25,12 +26,12 @@ violence among many others.
 
 [![](Images/button.png)](https://apps.axibase.com/chartlab/3f33d4ba)
 
-Looking at this next figure, we can observe where exactly these crimes were committed. This dataset provides 42 different locations, including Street, Alley, Apartment, and Tavern among many others.
+Looking at this next figure, we can observe where exactly these murders were committed. This dataset provides 42 different locations, including Street, Alley, Apartment, and Tavern among many others.
 We can see that Homicides most often take place on the Street more than anywhere else.
 
 ![Figure 2](Images/Figure2.png)
 
-Below is a table showing the murder totals by location for 2016 and 2015.
+Below is a table showing the locations with the highest number of murders for 2016 and 2015.
 
 | Location Description      | 2016| 2015|
 |---------------------------|-----|-----| 
@@ -45,35 +46,6 @@ Below is a table showing the murder totals by location for 2016 and 2015.
 | VACANT LOT                | 10  | 0 |
 | GAS STATION               | 9   | 2 |
 | PARK PROPERTY             | 8   | 13|
-| HALLWAY                   | 5   | 3 |
-| RETAIL STORE              | 5   | 0 |
-| GARAGE                    | 4   | 0 |
-| ABANDONED BUILDING        | 3   | 0 |
-| CHA PARKING LOT           | 2   | 3 |
-| GANGWAY                   | 2   | 2 |
-| RESTAURANT                | 2   | 2 |
-| TAVERN                    | 2   | 2 |
-| BARBER SHOP/BEAUTY SALON  | 1   | 0 |
-| CAR WASH                  | 0   | 1 |
-| CLEANERS/LAUNDROMAT       | 1   | 0 |
-| CTA "L" TRAIN             | 1   | 0 |
-| DRIVEWAY                  | 1   | 1 |
-| ELEVATOR                  | 1   | 0 |
-| EXPRESSWAY EMBANKMENT     | 1   | 0 |
-| GAS STATION DRIVE/PROP.   | 1   | 1 |
-| HOSPITAL                  | 1   | 1 |
-| HOTEL                     | 1   | 0 |
-| LAGOON                    | 1   | 0 |
-| LAUNDRY ROOM              | 1   | 0 |
-| LIQUOR STORE              | 0   | 1 |
-| NURSING HOME              | 1   | 0 |
-| OFFICE                    | 1   | 1 |
-| POOLROOM                  | 1   | 0 |
-| RAILROAD PROPERTY         | 1   | 0 |
-| SCHOOL YARD               | 1   | 0 |
-| STAIRWELL                 | 0   | 1 |
-| TRUCK                     | 0   | 1 |
-| VESTIBULE                 | 1   | 0 |
 
 By clicking on the below link, you can filter each of the 32 crime types included in this dataset for 42 locations. 
 
@@ -81,7 +53,9 @@ By clicking on the below link, you can filter each of the 32 crime types include
 
 So what caused this drastic increase in murders in Chicago in 2016? Was there an uptick in crime in general in the city?
 
-There actually has been a long term decrease in crime in general Chicago, as we can see in the figure below. There were, however, increases for certain crimes in 2016 from 2015.  
+There actually has been a long term decrease in crime in general Chicago, as we can see in the figure below. There were, however, increases for certain crimes in 2016 from 2015.
+  
+
  
 ![Figure 3](Images/Figure3.png)
 
