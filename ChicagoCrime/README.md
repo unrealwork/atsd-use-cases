@@ -1,4 +1,4 @@
-![TitlePhoto](Images/TitlePhoto.png)
+ <img src="Images/TitlePhoto.png" width="600" >
 
 Analyzing Chicago Crime Statistics
 ==================================
