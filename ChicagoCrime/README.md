@@ -6,11 +6,11 @@ Analyzing Chicago Crime Statistics
 ### Introduction
 ----------------
 
-Pizza. Michael Jordan. Lake Michigan. Jazz. The Bean. These are some of the great things that Chicago, Illinois, is known for. There is another thing that has defined the city since its birth, which 
+Pizza. Michael Jordan. Lake Michigan. Jazz. The Bean. These are some of the great things that Chicago, Illinois, is known for. There is another thing that has defined the city since its birth, and 
 as of lately seems to be all we think about when it comes to Chicago: crime. In 2016, Chicago, the 3rd most populous city in the United States, [had more homicides](http://www.foxnews.com/us/2017/01/01/1-chicagos-bloodiest-years-ends-with-762-homicides.html)
-than New York City and Los Angeles combined. In 2016, there were [762 murders](http://edition.cnn.com/2017/01/02/us/chicago-murder-rate-2016-visual-guide/) in the city, a 53% increase from 496 murders
+than New York City and Los Angeles **combined**. In 2016, there were [762 murders](http://edition.cnn.com/2017/01/02/us/chicago-murder-rate-2016-visual-guide/) in the city, a **53% increase** from 496
 in 2015. In 2016, there were 4,331 total shooting victims, compared to 2,939 in 2015. From 2004 to 2015, the peak number of murders in the city was 513. From 2011 to 2015, the city recorded less 
-than 3,000 shooting victims per year. So what is the reason for this alarming increase in crime in Chicago? Was there an increase in all crime, or was the rise in murders and shootings an 
+than 3,000 shooting victims per year. So what is the reason for this alarming increase in violence in Chicago? Was there an increase in all kinds of crime, or was the rise in murders and shootings an 
 exception? In this article we will analyze a dataset from data.gov looking at [Chicago crime statistics](https://catalog.data.gov/dataset/crimes-2001-to-present-398a4) from 2001 to the present time.  
 
 ### Chicago Crime Statistics Dataset
@@ -32,7 +32,8 @@ following two aspects of ASTD to look into this dataset: interactive graphs from
 ### Homicide Numbers
 --------------------
 
-Below is an image of monthly homicide totals from January 2001 through December 2016. The month with the highest murder total in 2016 was August, which experienced 90 murders. August 2015 only had 53 murders.   
+Below is an image of monthly homicide totals from January 2008 through December 2016. The month with the highest murder total in 2016 was August, which experienced 90 murders. August 2015 only had 53 murders.
+Taking a closer look at this graph, we can see that every year seems to follow a general trend of low numbers to start the year out, with totals 
 
 ![Figure 1](Images/Figure1.png)
 
@@ -41,33 +42,27 @@ domestic violence, among many others.
 
 [![](Images/button.png)](https://apps.axibase.com/chartlab/3f33d4ba)
 
-Looking at the previous figure, we can acquire a general understanding of the landscape of Chicago, but it is difficult to tell how monthly totals for 2016 compare to previous years. Looking at this
-next figure, we can see that murder totals were higher almost across the board for 2016 than in previous years.
+From the previous figure we can acquire a general understanding of the landscape of Chicago, but it is difficult to tell how monthly totals for 2016 compare to previous years. Looking at the below
+line chart, we can see that murder totals were higher almost across the board for 2016 than in previous years.
 
 ![Figure 5](Images/Figure5.png)
 
-Looking at this next figure, we can observe where exactly homicides were committed. This dataset provides 42 different locations, including Street, Alley, Apartment, and Tavern among many others.
-We can see that Homicides most often take place on the Street more than anywhere else.
+Click on this button to explore this Chart Lab portal:
 
-![Figure 2](Images/Figure2.png)
+[![](Images/button.png)](https://apps.axibase.com/chartlab/3f33d4ba/13/)
 
-Below is a table showing the locations with some of the highest number of murders for 2016 and 2015.
+Did the most common locations for homicides changes from 2015 to 2016? The below pie chart shows the top five locations were homicides were committed in 2015 and 2016. Both years have the same top five
+locations for murders (alley, apartment, street, house, auto) and we can see that the greatest number of homicide took place on the street. These percentages experienced almost no change from 2015
+to 2016. The percentage of murders on the street in 2015 and 2016 was exactly same at 68%.  
 
-| Location Description      | 2016| 2015|
-|---------------------------|-----|-----| 
-| STREET                    | 430 | 282 |
-| AUTO                      | 85  | 52 |
-| ALLEY                     | 44  | 25 |
-| APARTMENT                 | 44  | 22 |
-| HOUSE                     | 34  | 35 |
-| PORCH                     | 19  | 14 |
+![Figure 6](Images/Figure6.png)
 
-By clicking on the below link, you can filter each of the 32 crime types included in this dataset for 42 locations. 
+Click on this button to explore each of the 32 crime types included in this dataset for 42 locations: 
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/3f33d4ba/2/)
+[![](Images/button.png)](https://apps.axibase.com/chartlab/d5c04002/6/)
 
-### A Deeper Look at Crime
--------------------------- 
+### A Deeper Look at Crime in Chicago
+-------------------------------------
 
 So what caused this drastic increase in murders in Chicago in 2016? Did the city experience an uptick in crime as a whole? There actually has been a long term decrease in crime in general Chicago, 
 as we can see in the figure below. 
