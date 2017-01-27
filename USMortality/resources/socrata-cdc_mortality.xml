@@ -1,0 +1,56 @@
+<list>
+    <com.axibase.collector.model.job.socrata.SocrataJobConfig>
+        <name>socrata-cdc_mortality</name>
+        <cronExpression>0 0/15 * * * ?</cronExpression>
+        <enabled>true</enabled>
+        <jobType>SOCRATA</jobType>
+        <defaultTags/>
+        <checkLastTime>false</checkLastTime>
+        <commitInterval>10</commitInterval>
+        <errorThreshold>0</errorThreshold>
+        <configurations>
+            <com.axibase.collector.model.job.socrata.SocrataConfiguration>
+                <name>CDC Mortality in 122 U.S. cities</name>
+                <path>https://data.cdc.gov/api/views/mr8w-325u</path>
+                <ignoreDuplicates>true</ignoreDuplicates>
+                <settings>
+                    <com.axibase.collector.model.job.socrata.SocrataConfigurationSetting>
+                        <entityField>$.meta.view.id</entityField>
+                        <timeEnabled>true</timeEnabled>
+                        <timeField>week_ending_date</timeField>
+                        <timeFormat>MM/dd/yyyy</timeFormat>
+                        <timeZone>UTC</timeZone>
+                        <seriesEnabled>true</seriesEnabled>
+                        <metricPrefix>cdc.</metricPrefix>
+                        <includedFields>
+                            <string>*</string>
+                        </includedFields>
+                        <excludedFields>
+                            <string>week</string>
+                            <string>year</string>
+                        </excludedFields>
+                        <propertyEnabled>false</propertyEnabled>
+                        <propertyTypeField>$.meta.view.name</propertyTypeField>
+                        <propertyKeyFields/>
+                        <propertyValueFields/>
+                        <messageEnabled>false</messageEnabled>
+                        <messageTypeField>$.meta.view.name</messageTypeField>
+                        <messageSourceField>$.meta.view.attribution</messageSourceField>
+                        <messageTagFields>
+                            <string>*</string>
+                        </messageTagFields>
+                        <jsonPath>$.data.*</jsonPath>
+                        <depth>1</depth>
+                    </com.axibase.collector.model.job.socrata.SocrataConfigurationSetting>
+                </settings>
+                <customTags>
+                    <entry>
+                        <string>region</string>
+                        <string>${region}</string>
+                    </entry>
+                </customTags>
+                <addRowNumber>false</addRowNumber>
+            </com.axibase.collector.model.job.socrata.SocrataConfiguration>
+        </configurations>
+    </com.axibase.collector.model.job.socrata.SocrataJobConfig>
+</list>
