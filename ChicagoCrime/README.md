@@ -269,8 +269,8 @@ LIMIT 1000
 ```
 
 ```ls
-| entity     | datetime                  | value      | tags.arrest  | tags.description     | tags.primary_type  | tags.location_description | 
-|------------|---------------------------|------------|--------------|----------------------|--------------------|---------------------------| 
+| entity     | datetime              | value    | tags.arrest  | tags.description     | tags.primary_type  | tags.location_description | 
+|------------|-----------------------|----------|--------------|----------------------|--------------------|---------------------------| 
 | ijzp-q8t2  | 2016-01-01T02:37:00Z  | 3946209  | false        | FIRST DEGREE MURDER  | HOMICIDE           | STREET                    | 
 | ijzp-q8t2  | 2016-01-01T07:20:00Z  | 3946304  | false        | FIRST DEGREE MURDER  | HOMICIDE           | AUTO                      | 
 | ijzp-q8t2  | 2016-01-01T22:48:00Z  | 3946386  | true         | FIRST DEGREE MURDER  | HOMICIDE           | AUTO                      | 
@@ -291,14 +291,14 @@ GROUP BY tags.arrest, period(1 month)
 ```
 
 ```ls
-| datetime                  | tags.arrest  | count(value) | 
-|---------------------------|--------------|--------------| 
-| 2015-01-01T00:00:00Z  | false        | 21         | 
-| 2015-02-01T00:00:00Z  | false        | 12         | 
-| 2015-03-01T00:00:00Z  | false        | 19         | 
-| 2015-01-01T00:00:00Z  | true         | 9          | 
-| 2015-02-01T00:00:00Z  | true         | 8          | 
-| 2015-03-01T00:00:00Z  | true         | 13         | 
+| datetime              | tags.arrest  | count(value) | 
+|-----------------------|--------------|--------------| 
+| 2015-01-01T00:00:00Z  | false        | 21           | 
+| 2015-02-01T00:00:00Z  | false        | 12           | 
+| 2015-03-01T00:00:00Z  | false        | 19           | 
+| 2015-01-01T00:00:00Z  | true         | 9            | 
+| 2015-02-01T00:00:00Z  | true         | 8            | 
+| 2015-03-01T00:00:00Z  | true         | 13           | 
 ```
 
 Number of arrests made for narcotics possession in 2014.
@@ -318,23 +318,23 @@ LIMIT 20
 
 ```ls
 | tags.description                 | count(value) | 
-|----------------------------------|--------------| 
-| POSS: CANNABIS 30GMS OR LESS     | 12732      | 
-| POSS: HEROIN(WHITE)              | 4476       | 
-| POSS: CRACK                      | 2318       | 
-| POSS: COCAINE                    | 943        | 
-| POSS: CANNABIS MORE THAN 30GMS   | 908        | 
-| POSSESSION OF DRUG EQUIPMENT     | 412        | 
-| POSS: SYNTHETIC DRUGS            | 395        | 
-| POSS: PCP                        | 288        | 
-| POSS: HALLUCINOGENS              | 209        | 
-| POSS: HEROIN(BRN/TAN)            | 205        | 
-| POSS: BARBITUATES                | 130        | 
-| POSS: METHAMPHETAMINES           | 40         | 
-| POSS: AMPHETAMINES               | 32         | 
-| POSSESSION: SYNTHETIC MARIJUANA  | 28         | 
-| POSS: HEROIN(BLACK TAR)          | 9          | 
-| POSS: LOOK-ALIKE DRUGS           | 8          | 
+|----------------------------------|------------- | 
+| POSS: CANNABIS 30GMS OR LESS     | 12732        | 
+| POSS: HEROIN(WHITE)              | 4476         | 
+| POSS: CRACK                      | 2318         | 
+| POSS: COCAINE                    | 943          | 
+| POSS: CANNABIS MORE THAN 30GMS   | 908          | 
+| POSSESSION OF DRUG EQUIPMENT     | 412          | 
+| POSS: SYNTHETIC DRUGS            | 395          | 
+| POSS: PCP                        | 288          | 
+| POSS: HALLUCINOGENS              | 209          | 
+| POSS: HEROIN(BRN/TAN)            | 205          | 
+| POSS: BARBITUATES                | 130          | 
+| POSS: METHAMPHETAMINES           | 40           | 
+| POSS: AMPHETAMINES               | 32           | 
+| POSSESSION: SYNTHETIC MARIJUANA  | 28           | 
+| POSS: HEROIN(BLACK TAR)          | 9            | 
+| POSS: LOOK-ALIKE DRUGS           | 8            | 
 ```
 
 Total yearly drug possession arrests from 2001 through 2016.
@@ -515,11 +515,11 @@ GROUP BY period(1 month)
 ```ls
 | date      | count(value) | 
 |-----------|--------------| 
-| 2014-Jan  | 19         | 
-| 2014-Feb  | 21         | 
-| 2014-Mar  | 23         | 
-| 2014-Apr  | 35         | 
-| 2014-May  | 41         |
+| 2014-Jan  | 19           | 
+| 2014-Feb  | 21           | 
+| 2014-Mar  | 23           | 
+| 2014-Apr  | 35           | 
+| 2014-May  | 41           |
 ```
 
 Yearly weapons violation arrest from 2011 through 2016.
@@ -536,13 +536,13 @@ GROUP BY period(1 year)
 ```ls
 | date      | count(value) | 
 |-----------|--------------| 
-| 2010-Jan  | 3695       | 
-| 2011-Jan  | 3870       | 
-| 2012-Jan  | 3900       | 
-| 2013-Jan  | 3240       | 
-| 2014-Jan  | 3108       | 
-| 2015-Jan  | 3353       | 
-| 2016-Jan  | 3423       | 
+| 2010-Jan  | 3695         | 
+| 2011-Jan  | 3870         | 
+| 2012-Jan  | 3900         | 
+| 2013-Jan  | 3240         | 
+| 2014-Jan  | 3108         | 
+| 2015-Jan  | 3353         | 
+| 2016-Jan  | 3423         | 
 ```
 
 Murders per week, averaged over the 5 year period from 2010 to 2015.  
@@ -592,21 +592,21 @@ GROUP BY date_format(time, 'w')
 ```ls
 | week_in_year  | murders_per_week | 
 |---------------|------------------| 
-| 1             | 3              | 
-| 2             | 14             | 
-| 3             | 9              | 
-| 4             | 8              | 
-| 5             | 19             | 
-| 6             | 10             | 
-| 7             | 9              | 
-| 8             | 11             | 
-| 9             | 10             | 
-| 10            | 7              | 
-| 11            | 11             | 
-| 12            | 11             | 
-| 13            | 9              | 
-| 14            | 8             | 
-| 15            | 12            | 
+| 1             | 3                | 
+| 2             | 14               | 
+| 3             | 9                |  
+| 4             | 8                | 
+| 5             | 19               | 
+| 6             | 10               | 
+| 7             | 9                | 
+| 8             | 11               | 
+| 9             | 10               | 
+| 10            | 7                | 
+| 11            | 11               | 
+| 12            | 11               | 
+| 13            | 9                | 
+| 14            | 8                | 
+| 15            | 12               | 
 ```
 
 Murders per week in 2017.
@@ -624,7 +624,7 @@ GROUP BY date_format(time, 'w')
 ```ls
 | week_in_year  | murders_per_week | 
 |---------------|------------------| 
-| 1             | 9              | 
-| 2             | 12             | 
-| 3             | 6              | 
+| 1             | 9                | 
+| 2             | 12               | 
+| 3             | 6                | 
 ```
