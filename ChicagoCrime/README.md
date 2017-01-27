@@ -42,19 +42,19 @@ down as winter approaches.
 
 ![Figure 1](Images/Figure1.png)
 
-Click on the Chart Lab link below to take a closer look at these numbers, as well as monthly totals for 31 other crime types, including weapons violations, prostitution, robbery, assault, and 
+Click on the Chart Lab button below to take a closer look at these numbers, as well as monthly totals for 31 other crime types, including weapons violations, prostitution, robbery, assault, and 
 domestic violence, among many others.
 
-https://apps.axibase.com/chartlab/3f33d4ba#fullscreen
+[![](Images/button.png)](https://apps.axibase.com/chartlab/3f33d4ba#fullscreen)
 
 From the previous figure we can acquire a general understanding of the homicide landscape in Chicago, but it is difficult to tell how monthly totals for 2016 compare to previous years. Looking at the below
 line chart, we can see that murder totals were higher almost across the board for 2016 than from 2007 through 2015.
 
 ![Figure 5](Images/Figure5.png)
 
-Click on the link to explore this Chart Lab portal:
+Click on this button to explore this Chart Lab portal:
 
-https://apps.axibase.com/chartlab/3f33d4ba/16/#fullscreen
+[![](Images/button.png)](https://apps.axibase.com/chartlab/3f33d4ba/16/#fullscreen)
 
 In addition to looking at graphical outputs, we can also perform [SQL queries](https://github.com/axibase/atsd-docs/blob/master/api/sql/README.md#overview), which can be used to search for specific 
 information contained in this dataset. For example, we can see that 2016 months totals are greater than the previous years as a whole. But what were the average monthly totals for the last several
@@ -115,9 +115,9 @@ was exactly same at 68%.
 
 ![Figure 6](Images/Figure6.png)
 
-Click on this link to explore the Chart Lab portal for the top five locations for homicides in 2015 and 2016: 
+Click on this button to explore the Chart Lab portal for the top five locations for homicides in 2015 and 2016: 
 
-https://apps.axibase.com/chartlab/d5c04002/6/#fullscreen
+[![](Images/button.png)](https://apps.axibase.com/chartlab/d5c04002/6/#fullscreen)
 
 With the below SQL query, we can look at the average number of the top locations of murders from 2001 through 2015.
 
@@ -169,9 +169,9 @@ There actually has been a long term decrease in crime as a whole in Chicago, as 
 
 ![Figure 3](Images/Figure3.png)
 
-Click on the link below to explore this Chart Lab portal:
+Click on the button below to explore this Chart Lab portal:
 
-https://apps.axibase.com/chartlab/3f33d4ba/4/#fullscreen
+[![](Images/button.png)](https://apps.axibase.com/chartlab/3f33d4ba/4/#fullscreen)
 
 Below is a figure showing the change from 2015 to 2016 for each of the crime types included in this dataset.  
     
@@ -179,7 +179,7 @@ Below is a figure showing the change from 2015 to 2016 for each of the crime typ
 
 Click here to check out these percentage changes in Chicago crime in Chart Lab:
 
-https://apps.axibase.com/chartlab/d5c04002/7/#fullscreen
+[![](Images/button.png)](https://apps.axibase.com/chartlab/d5c04002/7/#fullscreen)
 
 There were increases for certain crimes in 2016 from 2015. For example, the number of arrests increased for each of the following crime types: 
 
@@ -200,9 +200,9 @@ year reduction of 48.0% for narcotics makes one think that there may be somethin
 
 ![Figure 7](Images/Figure7.png)
 
-Click on the link button to check out narcotic arrests in Chicago:
+Click this button to check out narcotic arrests in Chicago:
 
-https://apps.axibase.com/chartlab/3f33d4ba/7/#fullscreen
+[![](Images/button.png)](https://apps.axibase.com/chartlab/3f33d4ba/7/#fullscreen)
 
 According to [an article by the Chicago Tribune](http://www.chicagotribune.com/news/opinion/editorials/ct-chicago-crime-increase-causes-edit-0118-md-20170117-story.html),
 the release of a video in November 2015 showing the police fatally shooting of a black teenager ([Laquan McDonald](https://en.wikipedia.org/wiki/Shooting_of_Laquan_McDonald)), the launch of a Justice Department investigation of the Chicago Police Department, and a decline 
@@ -219,7 +219,7 @@ as a result less willing to go out, fight crime, make arrests, and make a differ
 
 Click here to explore this Chart Lab portal:
 
-https://apps.axibase.com/chartlab/3f33d4ba/8/#fullscreen
+h[![](Images/button.png)](ttps://apps.axibase.com/chartlab/3f33d4ba/8/#fullscreen)
 
 ### Action Items
 ----------------
