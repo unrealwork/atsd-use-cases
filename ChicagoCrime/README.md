@@ -11,7 +11,10 @@ as of lately seems to be all we think about when it comes to Chicago: **crime**.
 than New York City and Los Angeles **combined**. In 2016, there were 753 murders in the city, a **55% increase** from 486 in 2015. In 2016, there were 4,331 total shooting victims, compared to 2,939 
 in 2015. From 2004 to 2015, the peak number of murders in the city was under 500. From 2011 to 2015, the city recorded less than 3,000 shooting victims per year. So what is the reason for this alarming 
 increase in violence in Chicago? Was there an increase in all kinds of crime, or was the rise in murders and shootings an exception? In this article we will analyze a dataset from data.gov 
-looking at [Chicago crime statistics](https://catalog.data.gov/dataset/crimes-2001-to-present-398a4) from 2001 to the present time.  
+looking at [Chicago crime statistics](https://catalog.data.gov/dataset/crimes-2001-to-present-398a4) from 2001 to the present time. This research article illustrates how publicly available data from 
+[data.gov](data.gov) can be easily loaded into the non-relational [Axibase Time Series Database (ATSD)](http://axibase.com/products/axibase-time-series-database/) for interactive analysis and graphical 
+representation of raw data collected by government and private organizations. The article provides both sample queries and charts, as well as instructions on how to install your own ATSD instance 
+and populate it with the raw data.  
 
 ### Chicago Crime Statistics Dataset
 ------------------------------------
