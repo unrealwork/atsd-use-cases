@@ -9,7 +9,7 @@ Analyzing Chicago Crime Statistics
 Pizza. Michael Jordan. Lake Michigan. Jazz. The Bean. These are some of the great things that Chicago, Illinois, is known for. There is another thing that has defined the city since its birth, and 
 as of lately seems to be all we think about when it comes to Chicago: **crime**. In 2016, Chicago, the 3rd most populous city in the United States, had more homicides
 than New York City and Los Angeles **combined**. In 2016, there were 753 murders in the city, a **55% increase** from 486 in 2015. In 2016, there were 4,331 total shooting victims, compared to 2,939 
-in 2015. From 2004 to 2015, the peak number of murders in the city under 500. From 2011 to 2015, the city recorded less than 3,000 shooting victims per year. So what is the reason for this alarming 
+in 2015. From 2004 to 2015, the peak number of murders in the city was under 500. From 2011 to 2015, the city recorded less than 3,000 shooting victims per year. So what is the reason for this alarming 
 increase in violence in Chicago? Was there an increase in all kinds of crime, or was the rise in murders and shootings an exception? In this article we will analyze a dataset from data.gov 
 looking at [Chicago crime statistics](https://catalog.data.gov/dataset/crimes-2001-to-present-398a4) from 2001 to the present time.  
 
@@ -18,11 +18,11 @@ looking at [Chicago crime statistics](https://catalog.data.gov/dataset/crimes-20
 
 Let's take a look at the dataset titled **Crimes - 2001 to present** from [data.gov](https://www.data.gov/).  
 
-This dataset can be found here: https://catalog.data.gov/dataset/crimes-2001-to-present-398a4. On the data.gov website, this dataset can be downloaded as a CSV (1.4 GB), RDF, JSON (2.8 GB), or a 
+This dataset can be found here: https://catalog.data.gov/dataset/crimes-2001-to-present-398a4. On the data.gov website, this dataset can be downloaded as a CSV (1.4 GB), RDF, JSON (**2.8 GB**), or a 
 XML file. This dataset can easily be parsed using the JSON job in Axibase.
 
-This dataset contains crime statistics collected monthly from 2001 to the present time. This dataset is continuously updated with a time lag of 7 days. Statistics are available for 32 different crime types. Furthermore, these crimes may be filtered by the location
-where the crime occurred, and by the specific crime type. For example, for the crime type **Narcotics**, you may filter by 96 locations (alley, street, gas station) and 49 specific violations (possession
+This dataset contains crime statistics collected daily from 2001 to the present time. This dataset is continuously updated with a time lag of 7 days. Statistics are available for **32 different crime types**. Furthermore, these crimes may be filtered by the location
+where the crime occurred, and by the specific crime type. For example, for the crime type **Narcotics**, you may filter by 96 locations (for example alley, street, gas station) and 49 specific violations (possession
 of cocaine, manufacturing and delivering heroin, soliciting narcotics etc). Each crime type has it's own number of locations and specific violations that it may be sorted for.
 
 Given the size of the dataset, you cannot load it in Excel. It is much more convenient to interact with the data once it is loaded into a database. The 
@@ -33,7 +33,7 @@ You can load the dataset into your ATSD instance by following the steps provided
 ### Homicide Numbers
 --------------------
 
-Below is an image of monthly homicide totals from January 2001 through December 2016, but with a zoomed in view starting with 2008. The month with the highest murder total in 2016 was August, which experienced 90 murders. August 2015 only had 53 murders.
+Below is an image of monthly homicide totals from January 2001 through December 2016, but with a zoomed in screenshot starting with 2008. The month with the highest murder total in 2016 was August, which experienced 90 murders. August 2015 only had 53 murders.
 Taking a closer look at this graph, we can see that every year seems to follow a general trend of low numbers to start the year out, with totals increasing in the summer months, and then dropping back
 down as winter approaches. 
 
@@ -44,8 +44,8 @@ domestic violence, among many others.
 
 [![](Images/button.png)](https://apps.axibase.com/chartlab/3f33d4ba)
 
-From the previous figure we can acquire a general understanding of the landscape of Chicago, but it is difficult to tell how monthly totals for 2016 compare to previous years. Looking at the below
-line chart, we can see that murder totals were higher almost across the board for 2016 than in previous years.
+From the previous figure we can acquire a general understanding of the homicide landscape in Chicago, but it is difficult to tell how monthly totals for 2016 compare to previous years. Looking at the below
+line chart, we can see that murder totals were higher almost across the board for 2016 than from 2007 through 2015.
 
 ![Figure 5](Images/Figure5.png)
 
@@ -112,7 +112,7 @@ was exactly same at 68%.
 
 ![Figure 6](Images/Figure6.png)
 
-Click on this button to explore each of the 32 crime types included in this dataset for 42 locations: 
+Click on this button to explore the top five locations for homicides in 2015 and 2016: 
 
 [![](Images/button.png)](https://apps.axibase.com/chartlab/d5c04002/6/)
 
@@ -155,14 +155,14 @@ LIMIT 20
 | TAVERN                     | 2.0             | 
 ```
 
-If you would like to see more queries on this Chicago crime dataset, please go to the [Additonal SQL Queries](#additional-sql-queries) section.
+If you would like to see more queries on this Chicago crime dataset, please go to the [Additonal SQL Queries](#additional-sql-queries) section at the end of this article.
 
 ### A Deeper Look at Crime in Chicago
 -------------------------------------
 
 So what caused this drastic increase in murders in Chicago in 2016? Did the city experience an uptick in crime as a whole? 
 
-There actually has been a long term decrease in crime in general Chicago, as we can see in the figure below. 
+There actually has been a long term decrease in crime as a whole in Chicago, as we can see in the figure below. 
 
 ![Figure 3](Images/Figure3.png)
 
@@ -170,7 +170,7 @@ Below is a figure showing the change from 2015 to 2016 for each of the crime typ
     
 ![Figure 4](Images/Figure4.png)
 
-There were increases for certain crimes in 2016 from 2015. The number of arrests increased for each of the following crime types: 
+There were increases for certain crimes in 2016 from 2015. For example, the number of arrests increased for each of the following crime types: 
 
 * Robbery: 9,611 to 11,894 (**23.8%**)
 * Motor vehicle theft: 9,001 to 10,247 (**13.8%**)
@@ -183,7 +183,7 @@ The number of arrests decreased for each of the following crime types:
 * Gambling: (**39%**)
 * Liquor Law Violations: (**23%**)
  
-While a decrease in the number of arrests may seem like a good thing, it can mean quite the opposite. Below is a screenshot of narcotics possession arrests from 2011 through 2017. There seems to be
+While a decrease in the number of arrests may seem like a good thing, it could possibly mean quite the opposite. Below is a screenshot of narcotics possession arrests from 2011 through 2017. There seems to be
 a relative steady decline beginning in 2011. One may think initially that this is because of the eradication of drugs from the city, which would lead to a fewer number of arrests. However, a one 
 year reduction of 48.0% for narcotics makes one think that there may be something else at play.
 
@@ -192,13 +192,13 @@ year reduction of 48.0% for narcotics makes one think that there may be somethin
 According to [an article by the Chicago Tribune](http://www.chicagotribune.com/news/opinion/editorials/ct-chicago-crime-increase-causes-edit-0118-md-20170117-story.html),
 the release of a video in November 2015 showing the police fatally shooting of a black teenager ([Laquan McDonald](https://en.wikipedia.org/wiki/Shooting_of_Laquan_McDonald)), the launch of a Justice Department investigation of the Chicago Police Department, and a decline 
 in the number of street stops by the police resulting from a new policy on street stops between the city of Chicago and the American Civil Liberties Union have had a drastic affect on policing in
-Chicago. According to [Vice News](https://news.vice.com/video/with-killings-on-the-rise-in-chicago-police-are-putting-their-hands-up), because of the Laquan McDonald shooting, the police have become afraid of becoming the next "viral video" and are
-less willing to go out, put themselves on the line, and prevent murders and make narcotics involved arrests.
+Chicago. According to [Vice News](https://news.vice.com/video/with-killings-on-the-rise-in-chicago-police-are-putting-their-hands-up), because of the Laquan McDonald shooting (as well as the other
+two points), the police have become afraid of becoming the next "viral video" and are less willing to go out, put themselves on the line, and prevent murders and make narcotics involved arrests.
  
-Below is a figure showing the monthly homicide count in Chicago with breakdown by arrest. The red represents murders that resulted in an arrest at the time of the incident, while grey represents 
+Can this really be true? Have the police become less engaged in saving the city of Chicago? Below is a figure showing the monthly homicide count in Chicago with breakdown by arrest. The red represents murders that resulted in an arrest at the time of the incident, while grey represents 
 murders without any arrests made. We can see that December 2016 had 57 murders. Of these murders, 55 had no arrest made and only 2 resulted in an arrest, resulting in a 3.6% arrest rate. What can this 
 drastically low arrest rate be due to? Is it because there is such a high number of killings that the police are unable to make any arrests? Or have the police become less invested in their work, and
-as a result less willing to go out, fight crime, make arrests, and make a difference?     
+as a result less willing to go out, fight crime, make arrests, and make a difference? Take a look at this dataset on Chicago crime and be the judge for yourself.      
 
 ![Figure 8](Images/Figure8.png)
 
@@ -221,6 +221,8 @@ Below are the summarized steps to follow to install local configurations of ATSD
    ```
 
 4. The dataset is over 3 gigabytes, so give Axibase Collector 15-20 minutes to download, parse, and insert data into ATSD. You can monitor the progress on the Job Statistics page in Axibase Collector.
+
+![Figure 9](Images/Figure9.png)
 
 If you require assistance in installing this software or have any questions, please feel free to [contact us](https://axibase.com/feedback/) and we would be happy to be of assistance!
 
