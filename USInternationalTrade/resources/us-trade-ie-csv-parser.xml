@@ -1,0 +1,53 @@
+<list>
+    <com.axibase.tsd.model.csv.CsvConfiguration>
+        <name>usa-trades-ie-parser</name>
+        <putType>METRIC</putType>
+        <delimiter>,</delimiter>
+        <recordDelimiter>&#xd;</recordDelimiter>
+        <padding>�</padding>
+        <comment></comment>
+        <textQualifier>&quot;</textQualifier>
+        <entityColumn/>
+        <timestampColumn class="java.util.Arrays$ArrayList">
+            <a class="string-array">
+                <string>year</string>
+            </a>
+        </timestampColumn>
+        <timestampFormat>yyyy-MM</timestampFormat>
+        <timestampType>PATTERN</timestampType>
+        <processEvents>false</processEvents>
+        <writeProperty>false</writeProperty>
+        <enabled>true</enabled>
+        <discardNan>true</discardNan>
+        <ignoreParseErrors>true</ignoreParseErrors>
+        <tagColumns class="linked-hash-set"/>
+        <excludedColumns class="linked-hash-set"/>
+        <propertyColumns class="linked-hash-set"/>
+        <propertyKeyColumns class="linked-hash-set"/>
+        <entityTags class="linked-hash-set"/>
+        <metricTags class="linked-hash-set"/>
+        <defaultTags class="linked-hash-map"/>
+        <renamedColumns class="linked-hash-map"/>
+        <header/>
+        <decimalSeparator>.</decimalSeparator>
+        <groupingSeparator>�</groupingSeparator>
+        <schema>select(&apos;#row=2-*&apos;)&#xd;
+            .select(&apos;#col=4-15&apos;)&#xd;
+            .addSeries()&#xd;
+            .entity(&apos;usa&apos;)&#xd;
+            .metric(&apos;us-trade-import&apos;)&#xd;
+            .tag(&apos;ctyname&apos;, cell(row, 3))&#xd;
+            .tag(&apos;cty_code&apos;, cell(row, 2))&#xd;
+            .timestamp(cell(row, 1) + &quot;-&quot;+(col-3) + &quot;-&quot;);&#xd;
+            &#xd;
+            select(&apos;#row=2-*&apos;)&#xd;
+            .select(&apos;#col=17-28&apos;)&#xd;
+            .addSeries()&#xd;
+            .entity(&apos;usa&apos;)&#xd;
+            .metric(&apos;us-trade-export&apos;)&#xd;
+            .tag(&apos;ctyname&apos;, cell(row, 3))&#xd;
+            .tag(&apos;cty_code&apos;, cell(row, 2))&#xd;
+            .timestamp(cell(row, 1) + &quot;-&quot;+(col-16) + &quot;-&quot;)
+        </schema>
+    </com.axibase.tsd.model.csv.CsvConfiguration>
+</list>
