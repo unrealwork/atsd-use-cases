@@ -45,7 +45,7 @@ down as winter approaches.
 By clicking on the button below, you can take a closer look at these numbers, as well as monthly totals for 31 other crime types, including weapons violations, prostitution, robbery, assault, and 
 domestic violence, among many others.
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/3f33d4ba)
+[![](Images/button.png)](https://apps.axibase.com/chartlab/3f33d4ba#fullscreen)
 
 From the previous figure we can acquire a general understanding of the homicide landscape in Chicago, but it is difficult to tell how monthly totals for 2016 compare to previous years. Looking at the below
 line chart, we can see that murder totals were higher almost across the board for 2016 than from 2007 through 2015.
@@ -54,7 +54,7 @@ line chart, we can see that murder totals were higher almost across the board fo
 
 Click on this button to explore this Chart Lab portal:
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/3f33d4ba/16/)
+[![](Images/button.png)](https://apps.axibase.com/chartlab/3f33d4ba/16/#fullscreen)
 
 In addition to looking at graphical outputs, we can also perform [SQL queries](https://github.com/axibase/atsd-docs/blob/master/api/sql/README.md#overview), which can be used to search for specific 
 information contained in this dataset. For example, we can see that 2016 months totals are greater than the previous years as a whole. But what were the average monthly totals for the last several
@@ -117,7 +117,7 @@ was exactly same at 68%.
 
 Click on this button to explore the top five locations for homicides in 2015 and 2016: 
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/d5c04002/6/)
+[![](Images/button.png)](https://apps.axibase.com/chartlab/d5c04002/6/#fullscreen)
 
 With the below SQL query, we can look at the average number of the top locations of murders from 2001 through 2015.
 
