@@ -42,19 +42,19 @@ down as winter approaches.
 
 ![Figure 1](Images/Figure1.png)
 
-By clicking on the button below, you can take a closer look at these numbers, as well as monthly totals for 31 other crime types, including weapons violations, prostitution, robbery, assault, and 
+Click on the Chart Lab link below to take a closer look at these numbers, as well as monthly totals for 31 other crime types, including weapons violations, prostitution, robbery, assault, and 
 domestic violence, among many others.
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/3f33d4ba#fullscreen)
+https://apps.axibase.com/chartlab/3f33d4ba#fullscreen
 
 From the previous figure we can acquire a general understanding of the homicide landscape in Chicago, but it is difficult to tell how monthly totals for 2016 compare to previous years. Looking at the below
 line chart, we can see that murder totals were higher almost across the board for 2016 than from 2007 through 2015.
 
 ![Figure 5](Images/Figure5.png)
 
-Click on this button to explore this Chart Lab portal:
+Click on the link to explore this Chart Lab portal:
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/3f33d4ba/16/#fullscreen)
+https://apps.axibase.com/chartlab/3f33d4ba/16/#fullscreen
 
 In addition to looking at graphical outputs, we can also perform [SQL queries](https://github.com/axibase/atsd-docs/blob/master/api/sql/README.md#overview), which can be used to search for specific 
 information contained in this dataset. For example, we can see that 2016 months totals are greater than the previous years as a whole. But what were the average monthly totals for the last several
@@ -100,13 +100,13 @@ GROUP BY date_format(time, 'u')
 ```ls
 | day_of_week  | count(value) | 
 |--------------|--------------| 
-| Mon          | 112.0        | 
-| Tue          | 106.0        | 
-| Wed          | 105.0        | 
-| Thu          | 85.0         | 
-| Fri          | 107.0        | 
-| Sat          | 123.0        | 
-| Sun          | 142.0        | 
+| Mon          | 112          | 
+| Tue          | 106          | 
+| Wed          | 105          | 
+| Thu          | 85           | 
+| Fri          | 107          | 
+| Sat          | 123          | 
+| Sun          | 142          | 
 ```
 
 Did the most common locations for homicides changes from 2015 to 2016? The below pie chart shows the top five locations where homicides were committed in 2015 and 2016. Both years have the same top five
@@ -115,9 +115,9 @@ was exactly same at 68%.
 
 ![Figure 6](Images/Figure6.png)
 
-Click on this button to explore the top five locations for homicides in 2015 and 2016: 
+Click on this link to explore the Chart Lab portal for the top five locations for homicides in 2015 and 2016: 
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/d5c04002/6/#fullscreen)
+https://apps.axibase.com/chartlab/d5c04002/6/#fullscreen
 
 With the below SQL query, we can look at the average number of the top locations of murders from 2001 through 2015.
 
@@ -169,9 +169,17 @@ There actually has been a long term decrease in crime as a whole in Chicago, as 
 
 ![Figure 3](Images/Figure3.png)
 
+Click on the link below to explore this Chart Lab portal:
+
+https://apps.axibase.com/chartlab/3f33d4ba/4/#fullscreen
+
 Below is a figure showing the change from 2015 to 2016 for each of the crime types included in this dataset.  
     
 ![Figure 4](Images/Figure4.png)
+
+Click here to check out these percentage changes in Chicago crime in Chart Lab:
+
+https://apps.axibase.com/chartlab/d5c04002/7/#fullscreen
 
 There were increases for certain crimes in 2016 from 2015. For example, the number of arrests increased for each of the following crime types: 
 
@@ -192,6 +200,10 @@ year reduction of 48.0% for narcotics makes one think that there may be somethin
 
 ![Figure 7](Images/Figure7.png)
 
+Click on the link button to check out narcotic arrests in Chicago:
+
+https://apps.axibase.com/chartlab/3f33d4ba/7/#fullscreen
+
 According to [an article by the Chicago Tribune](http://www.chicagotribune.com/news/opinion/editorials/ct-chicago-crime-increase-causes-edit-0118-md-20170117-story.html),
 the release of a video in November 2015 showing the police fatally shooting of a black teenager ([Laquan McDonald](https://en.wikipedia.org/wiki/Shooting_of_Laquan_McDonald)), the launch of a Justice Department investigation of the Chicago Police Department, and a decline 
 in the number of street stops by the police resulting from a new policy on street stops between the city of Chicago and the American Civil Liberties Union have had a drastic affect on policing in
@@ -204,6 +216,10 @@ drastically low arrest rate be due to? Is it because there is such a high number
 as a result less willing to go out, fight crime, make arrests, and make a difference? Take a look at this dataset on Chicago crime and be the judge for yourself.      
 
 ![Figure 8](Images/Figure8.png)
+
+Click here to explore this Chart Lab portal:
+
+https://apps.axibase.com/chartlab/3f33d4ba/8/#fullscreen
 
 ### Action Items
 ----------------
@@ -226,6 +242,8 @@ Below are the summarized steps to follow to install local configurations of ATSD
 4. The dataset is over 3 gigabytes, so give Axibase Collector 15-20 minutes to download, parse, and insert data into ATSD. You can monitor the progress on the Job Statistics page in Axibase Collector.
 
 ![Figure 9](Images/Figure9.png)
+
+![Figure 10](Images/Figure10.png)
 
 If you require assistance in installing this software or have any questions, please feel free to [contact us](https://axibase.com/feedback/) and we would be happy to be of assistance!
 
@@ -253,12 +271,12 @@ LIMIT 1000
 ```ls
 | entity     | datetime                  | value      | tags.arrest  | tags.description     | tags.primary_type  | tags.location_description | 
 |------------|---------------------------|------------|--------------|----------------------|--------------------|---------------------------| 
-| ijzp-q8t2  | 2016-01-01T02:37:00.000Z  | 3946209.0  | false        | FIRST DEGREE MURDER  | HOMICIDE           | STREET                    | 
-| ijzp-q8t2  | 2016-01-01T07:20:00.000Z  | 3946304.0  | false        | FIRST DEGREE MURDER  | HOMICIDE           | AUTO                      | 
-| ijzp-q8t2  | 2016-01-01T22:48:00.000Z  | 3946386.0  | true         | FIRST DEGREE MURDER  | HOMICIDE           | AUTO                      | 
-| ijzp-q8t2  | 2016-01-03T13:17:00.000Z  | 3946532.0  | false        | FIRST DEGREE MURDER  | HOMICIDE           | AUTO                      | 
-| ijzp-q8t2  | 2016-01-04T08:58:00.000Z  | 3946583.0  | true         | FIRST DEGREE MURDER  | HOMICIDE           | STREET                    | 
-| ijzp-q8t2  | 2016-01-05T01:52:00.000Z  | 3946672.0  | false        | FIRST DEGREE MURDER  | HOMICIDE           | STREET                    | 
+| ijzp-q8t2  | 2016-01-01T02:37:00Z  | 3946209  | false        | FIRST DEGREE MURDER  | HOMICIDE           | STREET                    | 
+| ijzp-q8t2  | 2016-01-01T07:20:00Z  | 3946304  | false        | FIRST DEGREE MURDER  | HOMICIDE           | AUTO                      | 
+| ijzp-q8t2  | 2016-01-01T22:48:00Z  | 3946386  | true         | FIRST DEGREE MURDER  | HOMICIDE           | AUTO                      | 
+| ijzp-q8t2  | 2016-01-03T13:17:00Z  | 3946532  | false        | FIRST DEGREE MURDER  | HOMICIDE           | AUTO                      | 
+| ijzp-q8t2  | 2016-01-04T08:58:00Z  | 3946583  | true         | FIRST DEGREE MURDER  | HOMICIDE           | STREET                    | 
+| ijzp-q8t2  | 2016-01-05T01:52:00Z  | 3946672  | false        | FIRST DEGREE MURDER  | HOMICIDE           | STREET                    | 
 ```
 
 Number of arrests made for homicides in 2015 and 2016. When `tags.arrest` is `true`, it means that an arrest was made. When this tag is `false`, no arrest was made.   
@@ -275,12 +293,12 @@ GROUP BY tags.arrest, period(1 month)
 ```ls
 | datetime                  | tags.arrest  | count(value) | 
 |---------------------------|--------------|--------------| 
-| 2015-01-01T00:00:00.000Z  | false        | 21.0         | 
-| 2015-02-01T00:00:00.000Z  | false        | 12.0         | 
-| 2015-03-01T00:00:00.000Z  | false        | 19.0         | 
-| 2015-01-01T00:00:00.000Z  | true         | 9.0          | 
-| 2015-02-01T00:00:00.000Z  | true         | 8.0          | 
-| 2015-03-01T00:00:00.000Z  | true         | 13.0         | 
+| 2015-01-01T00:00:00Z  | false        | 21         | 
+| 2015-02-01T00:00:00Z  | false        | 12         | 
+| 2015-03-01T00:00:00Z  | false        | 19         | 
+| 2015-01-01T00:00:00Z  | true         | 9          | 
+| 2015-02-01T00:00:00Z  | true         | 8          | 
+| 2015-03-01T00:00:00Z  | true         | 13         | 
 ```
 
 Number of arrests made for narcotics possession in 2014.
@@ -301,22 +319,22 @@ LIMIT 20
 ```ls
 | tags.description                 | count(value) | 
 |----------------------------------|--------------| 
-| POSS: CANNABIS 30GMS OR LESS     | 12732.0      | 
-| POSS: HEROIN(WHITE)              | 4476.0       | 
-| POSS: CRACK                      | 2318.0       | 
-| POSS: COCAINE                    | 943.0        | 
-| POSS: CANNABIS MORE THAN 30GMS   | 908.0        | 
-| POSSESSION OF DRUG EQUIPMENT     | 412.0        | 
-| POSS: SYNTHETIC DRUGS            | 395.0        | 
-| POSS: PCP                        | 288.0        | 
-| POSS: HALLUCINOGENS              | 209.0        | 
-| POSS: HEROIN(BRN/TAN)            | 205.0        | 
-| POSS: BARBITUATES                | 130.0        | 
-| POSS: METHAMPHETAMINES           | 40.0         | 
-| POSS: AMPHETAMINES               | 32.0         | 
-| POSSESSION: SYNTHETIC MARIJUANA  | 28.0         | 
-| POSS: HEROIN(BLACK TAR)          | 9.0          | 
-| POSS: LOOK-ALIKE DRUGS           | 8.0          | 
+| POSS: CANNABIS 30GMS OR LESS     | 12732      | 
+| POSS: HEROIN(WHITE)              | 4476       | 
+| POSS: CRACK                      | 2318       | 
+| POSS: COCAINE                    | 943        | 
+| POSS: CANNABIS MORE THAN 30GMS   | 908        | 
+| POSSESSION OF DRUG EQUIPMENT     | 412        | 
+| POSS: SYNTHETIC DRUGS            | 395        | 
+| POSS: PCP                        | 288        | 
+| POSS: HALLUCINOGENS              | 209        | 
+| POSS: HEROIN(BRN/TAN)            | 205        | 
+| POSS: BARBITUATES                | 130        | 
+| POSS: METHAMPHETAMINES           | 40         | 
+| POSS: AMPHETAMINES               | 32         | 
+| POSSESSION: SYNTHETIC MARIJUANA  | 28         | 
+| POSS: HEROIN(BLACK TAR)          | 9          | 
+| POSS: LOOK-ALIKE DRUGS           | 8          | 
 ```
 
 Total yearly drug possession arrests from 2001 through 2016.
@@ -332,24 +350,24 @@ GROUP BY period(1 year)
 ```
 
 ```ls
-| datetime                  | count(value) | 
-|---------------------------|--------------| 
-| 2001-01-01T00:00:00.000Z  | 39623.0      | 
-| 2002-01-01T00:00:00.000Z  | 38413.0      | 
-| 2003-01-01T00:00:00.000Z  | 39359.0      | 
-| 2004-01-01T00:00:00.000Z  | 40668.0      | 
-| 2005-01-01T00:00:00.000Z  | 41267.0      | 
-| 2006-01-01T00:00:00.000Z  | 41385.0      | 
-| 2007-01-01T00:00:00.000Z  | 42710.0      | 
-| 2008-01-01T00:00:00.000Z  | 37878.0      | 
-| 2009-01-01T00:00:00.000Z  | 35893.0      | 
-| 2010-01-01T00:00:00.000Z  | 36097.0      | 
-| 2011-01-01T00:00:00.000Z  | 32999.0      | 
-| 2012-01-01T00:00:00.000Z  | 29766.0      | 
-| 2013-01-01T00:00:00.000Z  | 27498.0      | 
-| 2014-01-01T00:00:00.000Z  | 23133.0      | 
-| 2015-01-01T00:00:00.000Z  | 18938.0      | 
-| 2016-01-01T00:00:00.000Z  |              | 
+| datetime              | count(value) | 
+|-----------------------|--------------| 
+| 2001-01-01T00:00:00Z  | 39623        | 
+| 2002-01-01T00:00:00Z  | 38413        | 
+| 2003-01-01T00:00:00Z  | 39359        | 
+| 2004-01-01T00:00:00Z  | 40668        | 
+| 2005-01-01T00:00:00Z  | 41267        | 
+| 2006-01-01T00:00:00Z  | 41385        | 
+| 2007-01-01T00:00:00Z  | 42710        | 
+| 2008-01-01T00:00:00Z  | 37878        | 
+| 2009-01-01T00:00:00Z  | 35893        | 
+| 2010-01-01T00:00:00Z  | 36097        | 
+| 2011-01-01T00:00:00Z  | 32999        | 
+| 2012-01-01T00:00:00Z  | 29766        | 
+| 2013-01-01T00:00:00Z  | 27498        | 
+| 2014-01-01T00:00:00Z  | 23133        | 
+| 2015-01-01T00:00:00Z  | 18938        | 
+| 2016-01-01T00:00:00Z  | 8797         | 
 ```
 
 Total yearly drug possession arrests from 2001 through 2016, excluding marijuana.
@@ -366,24 +384,24 @@ GROUP BY period(1 year)
 ```
 
 ```ls
-| datetime                  | count(value) | 
-|---------------------------|--------------| 
-| 2001-01-01T00:00:00.000Z  | 24165.0      | 
-| 2002-01-01T00:00:00.000Z  | 22165.0      | 
-| 2003-01-01T00:00:00.000Z  | 21367.0      | 
-| 2004-01-01T00:00:00.000Z  | 21305.0      | 
-| 2005-01-01T00:00:00.000Z  | 21358.0      | 
-| 2006-01-01T00:00:00.000Z  | 20240.0      | 
-| 2007-01-01T00:00:00.000Z  | 19036.0      | 
-| 2008-01-01T00:00:00.000Z  | 16601.0      | 
-| 2009-01-01T00:00:00.000Z  | 14040.0      | 
-| 2010-01-01T00:00:00.000Z  | 13446.0      | 
-| 2011-01-01T00:00:00.000Z  | 12210.0      | 
-| 2012-01-01T00:00:00.000Z  | 11277.0      | 
-| 2013-01-01T00:00:00.000Z  | 10780.0      | 
-| 2014-01-01T00:00:00.000Z  | 9493.0       | 
-| 2015-01-01T00:00:00.000Z  | 8368.0       | 
-| 2016-01-01T00:00:00.000Z  | 4352.0       | 
+| datetime              | count(value) | 
+|-----------------------|--------------| 
+| 2001-01-01T00:00:00Z  | 24165        | 
+| 2002-01-01T00:00:00Z  | 22165        | 
+| 2003-01-01T00:00:00Z  | 21367        | 
+| 2004-01-01T00:00:00Z  | 21305        | 
+| 2005-01-01T00:00:00Z  | 21358        | 
+| 2006-01-01T00:00:00Z  | 20240        | 
+| 2007-01-01T00:00:00Z  | 19036        | 
+| 2008-01-01T00:00:00Z  | 16601        | 
+| 2009-01-01T00:00:00Z  | 14040        | 
+| 2010-01-01T00:00:00Z  | 13446        | 
+| 2011-01-01T00:00:00Z  | 12210        | 
+| 2012-01-01T00:00:00Z  | 11277        | 
+| 2013-01-01T00:00:00Z  | 10780        | 
+| 2014-01-01T00:00:00Z  | 9493         | 
+| 2015-01-01T00:00:00Z  | 8368         | 
+| 2016-01-01T00:00:00Z  | 4352         | 
 ```
 
 Total yearly drug manufacturing and distribution arrests from 2001 through 2016, excluding marijuana.
@@ -399,24 +417,24 @@ GROUP BY period(1 year)
 ```
 
 ```ls
-| datetime                  | count(value) | 
-|---------------------------|--------------| 
-| 2001-01-01T00:00:00.000Z  | 3859.0       | 
-| 2002-01-01T00:00:00.000Z  | 4355.0       | 
-| 2003-01-01T00:00:00.000Z  | 3792.0       | 
-| 2004-01-01T00:00:00.000Z  | 4739.0       | 
-| 2005-01-01T00:00:00.000Z  | 4065.0       | 
-| 2006-01-01T00:00:00.000Z  | 4465.0       | 
-| 2007-01-01T00:00:00.000Z  | 3346.0       | 
-| 2008-01-01T00:00:00.000Z  | 3059.0       | 
-| 2009-01-01T00:00:00.000Z  | 2620.0       | 
-| 2010-01-01T00:00:00.000Z  | 2711.0       | 
-| 2011-01-01T00:00:00.000Z  | 1907.0       | 
-| 2012-01-01T00:00:00.000Z  | 2130.0       | 
-| 2013-01-01T00:00:00.000Z  | 3057.0       | 
-| 2014-01-01T00:00:00.000Z  | 2764.0       | 
-| 2015-01-01T00:00:00.000Z  | 2258.0       | 
-| 2016-01-01T00:00:00.000Z  | 1526.0       | 
+| datetime              | count(value) | 
+|-----------------------|--------------| 
+| 2001-01-01T00:00:00Z  | 3859         | 
+| 2002-01-01T00:00:00Z  | 4355         | 
+| 2003-01-01T00:00:00Z  | 3792         | 
+| 2004-01-01T00:00:00Z  | 4739         | 
+| 2005-01-01T00:00:00Z  | 4065         | 
+| 2006-01-01T00:00:00Z  | 4465         | 
+| 2007-01-01T00:00:00Z  | 3346         | 
+| 2008-01-01T00:00:00Z  | 3059         | 
+| 2009-01-01T00:00:00Z  | 2620         | 
+| 2010-01-01T00:00:00Z  | 2711         | 
+| 2011-01-01T00:00:00Z  | 1907         | 
+| 2012-01-01T00:00:00Z  | 2130         | 
+| 2013-01-01T00:00:00Z  | 3057         | 
+| 2014-01-01T00:00:00Z  | 2764         | 
+| 2015-01-01T00:00:00Z  | 2258         | 
+| 2016-01-01T00:00:00Z  | 1526         | 
 ```
 
 All narcotics arrests made from 2001 through 2016.
@@ -431,24 +449,24 @@ GROUP BY period(1 year)
 ```
 
 ```ls
-| datetime                  | count(value) | 
-|---------------------------|--------------| 
-| 2001-01-01T00:00:00.000Z  | 49483.0      | 
-| 2002-01-01T00:00:00.000Z  | 50298.0      | 
-| 2003-01-01T00:00:00.000Z  | 51391.0      | 
-| 2004-01-01T00:00:00.000Z  | 55114.0      | 
-| 2005-01-01T00:00:00.000Z  | 54597.0      | 
-| 2006-01-01T00:00:00.000Z  | 54251.0      | 
-| 2007-01-01T00:00:00.000Z  | 53200.0      | 
-| 2008-01-01T00:00:00.000Z  | 45827.0      | 
-| 2009-01-01T00:00:00.000Z  | 42775.0      | 
-| 2010-01-01T00:00:00.000Z  | 42614.0      | 
-| 2011-01-01T00:00:00.000Z  | 37993.0      | 
-| 2012-01-01T00:00:00.000Z  | 35039.0      | 
-| 2013-01-01T00:00:00.000Z  | 33785.0      | 
-| 2014-01-01T00:00:00.000Z  | 28722.0      | 
-| 2015-01-01T00:00:00.000Z  | 23647.0      | 
-| 2016-01-01T00:00:00.000Z  | 12323.0      | 
+| datetime              | count(value) | 
+|-----------------------|--------------| 
+| 2001-01-01T00:00:00Z  | 49483        | 
+| 2002-01-01T00:00:00Z  | 50298        | 
+| 2003-01-01T00:00:00Z  | 51391        | 
+| 2004-01-01T00:00:00Z  | 55114        | 
+| 2005-01-01T00:00:00Z  | 54597        | 
+| 2006-01-01T00:00:00Z  | 54251        | 
+| 2007-01-01T00:00:00Z  | 53200        | 
+| 2008-01-01T00:00:00Z  | 45827        | 
+| 2009-01-01T00:00:00Z  | 42775        | 
+| 2010-01-01T00:00:00Z  | 42614        | 
+| 2011-01-01T00:00:00Z  | 37993        | 
+| 2012-01-01T00:00:00Z  | 35039        | 
+| 2013-01-01T00:00:00Z  | 33785        | 
+| 2014-01-01T00:00:00Z  | 28722        | 
+| 2015-01-01T00:00:00Z  | 23647        | 
+| 2016-01-01T00:00:00Z  | 12323        | 
 ```
 
 Yearly homicide totals.
@@ -463,24 +481,24 @@ GROUP BY period(1 year)
 ```
 
 ```ls
-| datetime                  | count(value) | 
-|---------------------------|--------------| 
-| 2001-01-01T00:00:00.000Z  | 654.0        | 
-| 2002-01-01T00:00:00.000Z  | 650.0        | 
-| 2003-01-01T00:00:00.000Z  | 590.0        | 
-| 2004-01-01T00:00:00.000Z  | 447.0        | 
-| 2005-01-01T00:00:00.000Z  | 451.0        | 
-| 2006-01-01T00:00:00.000Z  | 467.0        | 
-| 2007-01-01T00:00:00.000Z  | 436.0        | 
-| 2008-01-01T00:00:00.000Z  | 495.0        | 
-| 2009-01-01T00:00:00.000Z  | 446.0        | 
-| 2010-01-01T00:00:00.000Z  | 416.0        | 
-| 2011-01-01T00:00:00.000Z  | 427.0        | 
-| 2012-01-01T00:00:00.000Z  | 492.0        | 
-| 2013-01-01T00:00:00.000Z  | 412.0        | 
-| 2014-01-01T00:00:00.000Z  | 418.0        | 
-| 2015-01-01T00:00:00.000Z  | 486.0        | 
-| 2016-01-01T00:00:00.000Z  | 753.0        | 
+| datetime              | count(value) | 
+|-----------------------|--------------| 
+| 2001-01-01T00:00:00Z  | 654          | 
+| 2002-01-01T00:00:00Z  | 650          | 
+| 2003-01-01T00:00:00Z  | 590          | 
+| 2004-01-01T00:00:00Z  | 447          | 
+| 2005-01-01T00:00:00Z  | 451          | 
+| 2006-01-01T00:00:00Z  | 467          | 
+| 2007-01-01T00:00:00Z  | 436          | 
+| 2008-01-01T00:00:00Z  | 495          | 
+| 2009-01-01T00:00:00Z  | 446          | 
+| 2010-01-01T00:00:00Z  | 416          | 
+| 2011-01-01T00:00:00Z  | 427          | 
+| 2012-01-01T00:00:00Z  | 492          | 
+| 2013-01-01T00:00:00Z  | 412          | 
+| 2014-01-01T00:00:00Z  | 418          | 
+| 2015-01-01T00:00:00Z  | 486          | 
+| 2016-01-01T00:00:00Z  | 753          | 
 ```
 
 Monthly homicide totals from 2014 through 2016. 
@@ -497,11 +515,11 @@ GROUP BY period(1 month)
 ```ls
 | date      | count(value) | 
 |-----------|--------------| 
-| 2014-Jan  | 19.0         | 
-| 2014-Feb  | 21.0         | 
-| 2014-Mar  | 23.0         | 
-| 2014-Apr  | 35.0         | 
-| 2014-May  | 41.0         |
+| 2014-Jan  | 19         | 
+| 2014-Feb  | 21         | 
+| 2014-Mar  | 23         | 
+| 2014-Apr  | 35         | 
+| 2014-May  | 41         |
 ```
 
 Yearly weapons violation arrest from 2011 through 2016.
@@ -518,13 +536,13 @@ GROUP BY period(1 year)
 ```ls
 | date      | count(value) | 
 |-----------|--------------| 
-| 2010-Jan  | 3695.0       | 
-| 2011-Jan  | 3870.0       | 
-| 2012-Jan  | 3900.0       | 
-| 2013-Jan  | 3240.0       | 
-| 2014-Jan  | 3108.0       | 
-| 2015-Jan  | 3353.0       | 
-| 2016-Jan  | 3423.0       | 
+| 2010-Jan  | 3695       | 
+| 2011-Jan  | 3870       | 
+| 2012-Jan  | 3900       | 
+| 2013-Jan  | 3240       | 
+| 2014-Jan  | 3108       | 
+| 2015-Jan  | 3353       | 
+| 2016-Jan  | 3423       | 
 ```
 
 Murders per week, averaged over the 5 year period from 2010 to 2015.  
@@ -574,21 +592,21 @@ GROUP BY date_format(time, 'w')
 ```ls
 | week_in_year  | murders_per_week | 
 |---------------|------------------| 
-| 1             | 3.0              | 
-| 2             | 14.0             | 
-| 3             | 9.0              | 
-| 4             | 8.0              | 
-| 5             | 19.0             | 
-| 6             | 10.0             | 
-| 7             | 9.0              | 
-| 8             | 11.0             | 
-| 9             | 10.0             | 
-| 10            | 7.0              | 
-| 11            | 11.0             | 
-| 12            | 11.0             | 
-| 13            | 9.0              | 
-| 14            | 8.0              | 
-| 15            | 12.0             | 
+| 1             | 3              | 
+| 2             | 14             | 
+| 3             | 9              | 
+| 4             | 8              | 
+| 5             | 19             | 
+| 6             | 10             | 
+| 7             | 9              | 
+| 8             | 11             | 
+| 9             | 10             | 
+| 10            | 7              | 
+| 11            | 11             | 
+| 12            | 11             | 
+| 13            | 9              | 
+| 14            | 8             | 
+| 15            | 12            | 
 ```
 
 Murders per week in 2017.
@@ -606,7 +624,7 @@ GROUP BY date_format(time, 'w')
 ```ls
 | week_in_year  | murders_per_week | 
 |---------------|------------------| 
-| 1             | 9.0              | 
-| 2             | 12.0             | 
-| 3             | 6.0              | 
+| 1             | 9              | 
+| 2             | 12             | 
+| 3             | 6              | 
 ```
