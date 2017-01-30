@@ -163,7 +163,7 @@ If you would like to see more queries on this Chicago crime dataset, please go t
 ### A Deeper Look at Crime in Chicago
 -------------------------------------
 
-So what caused this drastic increase in murders in Chicago in 2016? Did the city experience an uptick in crime as a whole?  
+So what caused this drastic increase in murders in Chicago in 2016? Did the city experience an uptick in crime as a whole?
 
 There actually has been a long term decrease in crime as a whole in Chicago, as we can see in the figure below. 
 
@@ -219,7 +219,7 @@ as a result less willing to go out, fight crime, make arrests, and make a differ
 
 ![Figure 8](Images/Figure8.png)
 
-Click here to explore this Chart Lab portal: 
+Click here to explore this Chart Lab portal:
 
 [![](Images/button.png)](https://apps.axibase.com/chartlab/3f33d4ba/8/#fullscreen)
 
