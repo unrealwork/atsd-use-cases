@@ -19,7 +19,7 @@
         <writeProperty>false</writeProperty>
         <enabled>true</enabled>
         <discardNan>true</discardNan>
-        <ignoreParseErrors>false</ignoreParseErrors>
+        <ignoreParseErrors>true</ignoreParseErrors>
         <tagColumns class="linked-hash-set"/>
         <excludedColumns class="linked-hash-set"/>
         <propertyColumns class="linked-hash-set"/>
