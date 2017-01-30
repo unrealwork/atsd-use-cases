@@ -219,7 +219,7 @@ as a result less willing to go out, fight crime, make arrests, and make a differ
 
 ![Figure 8](Images/Figure8.png)
 
-Click here to explore this Chart Lab portal:
+Click here to explore this Chart Lab portal: 
 
 [![](Images/button.png)](https://apps.axibase.com/chartlab/3f33d4ba/8/#fullscreen)
 
