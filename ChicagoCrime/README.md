@@ -163,7 +163,7 @@ If you would like to see more queries on this Chicago crime dataset, please go t
 ### A Deeper Look at Crime in Chicago
 -------------------------------------
 
-So what caused this drastic increase in murders in Chicago in 2016? Did the city experience an uptick in crime as a whole? 
+So what caused this drastic increase in murders in Chicago in 2016? Did the city experience an uptick in crime as a whole?
 
 There actually has been a long term decrease in crime as a whole in Chicago, as we can see in the figure below. 
 
@@ -205,7 +205,9 @@ Click this button to check out narcotic arrests in Chicago:
 [![](Images/button.png)](https://apps.axibase.com/chartlab/3f33d4ba/7/#fullscreen)
 
 According to [an article by the Chicago Tribune](http://www.chicagotribune.com/news/opinion/editorials/ct-chicago-crime-increase-causes-edit-0118-md-20170117-story.html),
-the release of a video in November 2015 showing the police fatally shooting of a black teenager ([Laquan McDonald](https://en.wikipedia.org/wiki/Shooting_of_Laquan_McDonald)), the launch of a Justice Department investigation of the Chicago Police Department, and a decline 
+the release of a video in November 2015 showing the police fatally shooting of a black teenager ([Laquan McDonald](https://en.wikipedia.org/wiki/Shooting_of_Laquan_McDonald)), the launch of a 
+[Justice Department investigation](http://www.reuters.com/article/us-usa-police-trump-insight-idUSKBN15E106) of the Chicago Police Department
+(which found that the Chicago Police routinely used excessive force and violated the constitutional rights of residents, particularly minorities), and a decline 
 in the number of street stops by the police resulting from a new policy on street stops between the city of Chicago and the American Civil Liberties Union have had a drastic affect on policing in
 Chicago. According to [Vice News](https://news.vice.com/video/with-killings-on-the-rise-in-chicago-police-are-putting-their-hands-up), because of the Laquan McDonald shooting (as well as the other
 two points), the police have become afraid of becoming the next "viral video" and are less willing to go out, put themselves on the line, and prevent murders and make narcotics involved arrests.
