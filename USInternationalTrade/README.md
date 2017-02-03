@@ -178,13 +178,11 @@ GROUP BY e.period(1 year), e.tags
 ### A Closer Look at the Recent History of America's International Trade
 ------------------------------------------------------------------------
 
-Has the U.S. always had a negative trade balance? If not, where did things change? Below are images showing import, export, and trade balance values between the U.S. and it's
-three largest trading partners: China, Canada, and Mexico. The top image in each figure showing exports (in blue) over imports (in pink). The lower figure shows the trade balance,
+Has the U.S. always had a negative trade balance? If not, where did things change? Below are images showing import, export, and trade balance values between the U.S. and two of it's
+three largest trading partners: China and Mexico. The top image in each figure showing exports (in blue) over imports (in pink). The lower figure shows the trade balance,
 which is the dollar amount for exports minus imports. 
 
 ![Figure 6](Images/Figure6.png)
-
-![Figure 8](Images/Figure8.png)
 
 ![Figure 5](Images/Figure5.png)
 
@@ -192,7 +190,7 @@ You can explore this portal by clicking on the below button:
 
 [![](Images/button.png)](https://apps.axibase.com/chartlab/552d7a44)
 
-Of the three, the trade deficit with China really seems to stick out. As shown in the table below output from an SQL query, we can see that the trade balance grew from **-$6 
+Of the two, the trade deficit with China really seems to stick out. As shown in the table below output from an SQL query, we can see that the trade balance grew from **-$6 
 Million** in 1985 to **-$319 Billion** in 2016.     
 
 ```sql
