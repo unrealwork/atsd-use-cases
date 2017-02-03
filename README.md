@@ -10,3 +10,4 @@ Axibase Time Series Database: Usage Example and Research Articles
 4. [Country Living - Analyzing and Combining Iowa Employment and Consumer Price Index Datasets](/SocrataIowaCompensation/README.md)
 5. [Knocking on Heaven's Door - Computing U.S. Mortality Statistics](/USMortality/README.md)
 6. [Analyzing Chicago Crime Statistics](/ChicagoCrime/README.md)
+7. [Analyzing America's International Trade history](/USInternationalTrade/README.md)
