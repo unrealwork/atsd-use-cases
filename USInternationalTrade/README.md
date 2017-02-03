@@ -38,14 +38,14 @@ Below is an image of the top countries for U.S. export and imports in 2016. We h
 monetary values for exports, imports, and the trade balance (export minus import) between the U.S. and each respective country, continent, or organization. The table is sorted by
 trade balance, with the highest negative trade balances showing at the top. You may sort the table by clicking on the column headers.
  
-In 2016, the locations with which the United States had the highest negative and positive trade balances with was China and Hong Kong at **- $319 Billion** and **$25.1 Billion**, 
+In 2016, the locations with which the United States had the highest negative and positive trade balances with was China and Hong Kong at **- $319 billion** and **$25.1 billion**, 
 respectively.   
 
 ![Figure 1](Images/Figure1.png)
 
 You can explore this portal by clicking the button below:
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/53e42403)
+[![](Images/button.png)](https://apps.axibase.com/chartlab/53e42403#fullscreen)
 
 In addition to looking at graphical outputs, we can also perform [SQL queries](https://github.com/axibase/atsd-docs/blob/master/api/sql/README.md#overview), which can be used 
 to search for specific information contained in this dataset. For example, how did 2016 look for the United States for trade balance (in billions USD) with regions of the world as a whole: 
@@ -116,10 +116,10 @@ Trade balance (in billions USD) from 1997.
 | Sub Saharan Africa         | 0019  | 6.2     | 16.5    | -10.3         | 
 ```
 
-To addition to tables output from SQL queries, we can display these relationships in Chart Lab graphs. Below are images for U.S. trade export and import numbers with South and
-Central America, Asia, Africa, Europe, adn North America for 2016, 2006, and 1997. Lines are drawn going from (exports) and coming back to (imports) the U.S. The heavier the lines
+In addition to tables output from SQL queries, we can display these relationships in Chart Lab graphs. Below are images for U.S. trade export and import numbers with South and
+Central America, Asia, Africa, Europe, and North America for 2016, 2006, and 1997. Lines are drawn going from (exports) and coming back to (imports) the U.S. The heavier the lines
 are between the U.S. and the respective continent, the greater the dollar amount in trade. We can see that, from the first image, 2016 exports from the U.S. to North America totalled
-**$457 billion**, while imports from North America into the US totalled **$525 Billion**, resulting in a trade balance of **-$68 Billion**. Additionally, we can see that the heaviest lines in all three images were between
+**$457 billion**, while imports from North America into the US totalled **$525 billion**, resulting in a trade balance of **-$68 billion**. Additionally, we can see that the heaviest lines in all three images were between
 the U.S. and Asia, indicating that these two have the highest trade volume between them. 
 
 ![Figure 2](Images/Figure2.png)
@@ -128,9 +128,9 @@ the U.S. and Asia, indicating that these two have the highest trade volume betwe
 
 ![Figure 4](Images/Figure4.png)
 
-You can explore this figures in Chart Lab by clicking on the button below:
+You can explore these figures in Chart Lab by clicking on the button below:
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/b9f27b14/2/)
+[![](Images/button.png)](https://apps.axibase.com/chartlab/b9f27b14/2/#fullscreen)
 
 Which countries were the US's best trading partners (imports plus exports, in millions USD) in 2016?
 
@@ -187,10 +187,10 @@ which is the dollar amount for exports minus imports.
 
 You can explore this portal by clicking on the below button:
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/552d7a44)
+[![](Images/button.png)](https://apps.axibase.com/chartlab/552d7a44#fullscreen)
 
 Of the two, the trade deficit with China really seems to stick out. As shown in the table below output from an SQL query, we can see that the trade balance grew from **-$6 
-Million** in 1985 to **-$319 Billion** in 2016.     
+million** in 1985 to **-$319 billion** in 2016.     
 
 ```sql
 SELECT date_format(e.time, 'yyyy') AS 'year', 
@@ -243,16 +243,16 @@ GROUP BY e.period(1 year), e.tags
 | 1985  | China    | 3855.7    | 3861.7    | -6.0          | 
 ```
 
-Below is an image of the trade balance between the United States with the rest of the world from 1985 to 2016. The trade balance has grown from **-$152 Billion** in 1987 to
-**-$677 Billion** in 2016.
+Below is an image of the trade balance between the United States with the rest of the world from 1985 to 2016. The trade balance has grown from **-$152 billion** in 1987 to
+**-$677 billion** in 2016.
 
 ![Figure 7](Images/Figure7.png)
 
 You can explore this portal by clicking on the below button:
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/552d7a44/2/)
+[![](Images/button.png)](https://apps.axibase.com/chartlab/552d7a44/2/#fullscreen)
 
-Using the following query, we can see that, within the time range of our dataset, 1991 was the year with that had the least negative trade balance of **-$66.7 Billion**.  
+Using the following query, we can see that, within the time range of our dataset, 1991 was the year with that had the least negative trade balance of **-$66.7 billion**.  
 
 ```sql
 SELECT date_format(e.time, 'yyyy') AS 'year', e.tags.ctyname AS country,
@@ -280,7 +280,7 @@ Below is figure showing the US balance of trade going back to 1950.
 We can see that up until 1976, the United States had a trade balance of virtually zero, that is the total amount imported equalled the total amount exported. Things, however, quickly began
 to change. According the [Forbes](http://www.forbes.com/sites/mikepatton/2016/02/29/u-s-role-in-global-economy-declines-nearly-50/#11502f7059c1), at that time "America was flush with cash and companies were rapidly evolving, all of which caught the eye of the federal government. Washington saw this significant revenue 
 source and increased business regulations and taxes to such an extent that it began to choke the very goose that laid the golden eggs." As the U.S. increased regulations on business,
-more and more companies moved their operations overseas. From 1978 to 2002, [manufacturing jobs in China](https://pdfs.semanticscholar.org/0fc1/91833dca5c728ddfe2fdd6c4f97680a05442.pdf) grew by offically by **30 million**, with
+more and more companies moved their operations overseas. From 1978 to 2002, [manufacturing jobs in China](https://pdfs.semanticscholar.org/0fc1/91833dca5c728ddfe2fdd6c4f97680a05442.pdf) grew by officially by **30 million**, with
 unofficial estimates putting that number at greater than **50 million**. The rise of developing economies and tightening of U.S. regulations seems to have led to the U.S. having such
 an uneven trade balance. While a even trade balance make not be everything that makes an economy hum, it is certainly a place to start looking when retooling a broken trading system.  
 
