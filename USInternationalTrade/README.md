@@ -3,9 +3,7 @@
 Analyzing America's International Trade History
 ===============================================
 
-Buy American. Drive American. Wear American.
-
-The American economy seems to be on everybody's minds these days, namely returning jobs and money sent overseas back to the American people. Many voters in the 2016 U.S. presidental election 
+Buy American. Drive American. Wear American. The American economy seems to be on everybody's minds these days, namely returning jobs and money sent overseas back to the American people. Many voters in the 2016 U.S. presidental election 
 desired to return to a time where America was producing more than it was taking in. According to an article on [forbes.com](http://www.forbes.com/sites/mikepatton/2016/02/29/u-s-role-in-global-economy-declines-nearly-50/#3e2283ea59c1),
 the United States represented **40%** of the world's GDP in **1960**. By 2014, that number had dropped to only **20%**. According to [CNN](http://money.cnn.com/2016/03/29/news/economy/us-manufacturing-jobs/), since 2000 the U.S. has lost over 5 
 million manufacturing jobs. Additionally, the percentage of Americans employed in manufacturing dropped from **19%** in 1980 to **8%** in 2016. How did things change so drastically
@@ -13,7 +11,7 @@ for America? Is there any chance of going back and recapturing the economic pros
 over time, and what impact has that had on the country's economy? In this article we will analyze a dataset from [census.gov](https://www.census.gov) looking at 
 [America's trade balance](https://www.census.gov/foreign-trade/balance/country.xlsx) from 1985 through the present time. This research article illustrates how 
 publicly available data from census.gov can be easily loaded into the non-relational [Axibase Time Series Database (ATSD)](http://axibase.com/products/axibase-time-series-database/) 
-for interactive analysis and graphical representation of raw data collected by government and private organizations. The article provides both sample queries and charts, 
+for interactive analysis and graphical representation of raw data collected by government organizations. The article provides both sample queries and charts, 
 as well as instructions on how to install your own ATSD instance and populate it with the raw data. 
 
 ### America's Trade Balance Dataset
@@ -21,8 +19,9 @@ as well as instructions on how to install your own ATSD instance and populate it
 
 Let's take a look at dataset looking at America's trade balance from [census.gov](https://www.census.gov/).  
 
-This dataset can be found here: https://www.census.gov/foreign-trade/balance/index.html. Click on the link labeled **Download the full dataset for all countries (Excel - 5 MB)**.
-You are only given the option of downloading this dataset as an [Excel file (5 MB)](https://www.census.gov/foreign-trade/balance/country.xlsx).
+This dataset can be found here: https://www.census.gov/foreign-trade/balance/index.html. 
+
+Click on the link labeled **Download the full dataset for all countries (Excel - 5 MB)**. You are only given the option of downloading this dataset as an [Excel file (5 MB)](https://www.census.gov/foreign-trade/balance/country.xlsx).
 
 This dataset contains import and export statistics collected monthly from 1985 to the present time for the United States and 259 locations. These locations include countries,
 continents (such as Europe and Asia), political organizations (such as the European Union), as well as various other organizations (such as [OPEC](https://en.wikipedia.org/wiki/OPEC)). 
@@ -49,7 +48,7 @@ You can explore this portal by clicking the button below:
 [![](Images/button.png)](https://apps.axibase.com/chartlab/53e42403)
 
 In addition to looking at graphical outputs, we can also perform [SQL queries](https://github.com/axibase/atsd-docs/blob/master/api/sql/README.md#overview), which can be used 
-to search for specific information contained in this dataset. For example, how did 2016 look for trade balance (in billions USD) to regions of the world as a whole: 
+to search for specific information contained in this dataset. For example, how did 2016 look for the United States for trade balance (in billions USD) with regions of the world as a whole: 
 
 ```sql
 SELECT e.tags.ctyname AS region,
@@ -119,8 +118,8 @@ Trade balance (in billions USD) from 1997.
 
 To addition to tables output from SQL queries, we can display these relationships in Chart Lab graphs. Below are images for U.S. trade export and import numbers with South and
 Central America, Asia, Africa, Europe, adn North America for 2016, 2006, and 1997. Lines are drawn going from (exports) and coming back to (imports) the U.S. The heavier the lines
-are between the U.S. and the respective continent, the greater the dollar amount in trade. We can see that in the first image, in 2016 exports from the U.S. to North America totalled
-**$457 billion**, while imports from North America into the US totalled **$525 Billion**. Additionally, we can see that the heaviest lines in all three images were between
+are between the U.S. and the respective continent, the greater the dollar amount in trade. We can see that, from the first image, 2016 exports from the U.S. to North America totalled
+**$457 billion**, while imports from North America into the US totalled **$525 Billion**, resulting in a trade balance of **-$68 Billion**. Additionally, we can see that the heaviest lines in all three images were between
 the U.S. and Asia, indicating that these two have the highest trade volume between them. 
 
 ![Figure 2](Images/Figure2.png)
@@ -178,7 +177,7 @@ GROUP BY e.period(1 year), e.tags
 ### A Closer Look at the Recent History of America's International Trade
 ------------------------------------------------------------------------
 
-Has the U.S. always had a negative trade balance? If not, where did things change? Below are images showing import, export, and trade balance values between the U.S. and two of it's
+Has the U.S. always had a negative international trade balance? If not, where did things change? Below are images showing import, export, and trade balance values between the U.S. and two of it's
 three largest trading partners: China and Mexico. The top image in each figure showing exports (in blue) over imports (in pink). The lower figure shows the trade balance,
 which is the dollar amount for exports minus imports. 
 
@@ -278,12 +277,12 @@ Below is figure showing the US balance of trade going back to 1950.
 
 ![Figure 9](Images/Figure9.png)
 
-We can see that up until 1976, the United States had a trade balance of virtually zero, that is the total amount imported equalled the total exported. Things, however, quickly began
-to change. According the [Forbes](http://www.forbes.com/sites/mikepatton/2016/02/29/u-s-role-in-global-economy-declines-nearly-50/#11502f7059c1), "America was flush with cash and companies were rapidly evolving, all of which caught the eye of the federal government. Washington saw this significant revenue 
+We can see that up until 1976, the United States had a trade balance of virtually zero, that is the total amount imported equalled the total amount exported. Things, however, quickly began
+to change. According the [Forbes](http://www.forbes.com/sites/mikepatton/2016/02/29/u-s-role-in-global-economy-declines-nearly-50/#11502f7059c1), at that time "America was flush with cash and companies were rapidly evolving, all of which caught the eye of the federal government. Washington saw this significant revenue 
 source and increased business regulations and taxes to such an extent that it began to choke the very goose that laid the golden eggs." As the U.S. increased regulations on business,
-more and more companies moved their operations overseas. From 1978 to 2002, [manufacturing jobs in China](https://pdfs.semanticscholar.org/0fc1/91833dca5c728ddfe2fdd6c4f97680a05442.pdf) grew by offically by**30 million**, with
+more and more companies moved their operations overseas. From 1978 to 2002, [manufacturing jobs in China](https://pdfs.semanticscholar.org/0fc1/91833dca5c728ddfe2fdd6c4f97680a05442.pdf) grew by offically by **30 million**, with
 unofficial estimates putting that number at greater than **50 million**. The rise of developing economies and tightening of U.S. regulations seems to have led to the U.S. having such
-an uneven trade balance. While a even trade balance make not be everything that makes an economy hum, it is certainly a place to start looking when retooling a broken economy.  
+an uneven trade balance. While a even trade balance make not be everything that makes an economy hum, it is certainly a place to start looking when retooling a broken trading system.  
 
 ### Action Items
 ----------------
@@ -291,14 +290,14 @@ an uneven trade balance. While a even trade balance make not be everything that 
 Below are the summarized steps to follow to install local configurations of ATSD and Axibase Collector and create SQL queries for analyzing America's trade balance statistics:
 
 1. Install [Docker](https://docs.docker.com/engine/installation/linux/ubuntulinux/).
-2. [Install the ATSD database](/atsd-docs/blob/master/installation/docker.md#option-2-configure-collector-account-manually) on in your local Docker configuration. 
+2. [Install the ATSD database](https://github.com/axibase/atsd-docs/blob/master/installation/docker.md#option-2-configure-collector-account-manually) on in your local Docker configuration. 
 3. Save the [Excel file](https://www.census.gov/foreign-trade/balance/country.xlsx) in CSV format.
 4. Import and upload `us-trade-ie-csv-parser.xml` file into ATSD.
 5. Import the Excel file saved in `.csv` format into ATSD.
 6. Import the `us-trade-balance-2016`, `us-trade-balance-rank-2016`, `world-gdp`, and `world-population` replacement tables into ATSD.
 7. Navigate to the SQL tab in ATSD and begin writing your queries!
 
-Check out our file on the describing our schema based parser used for this dataset [here](USInternationalTrade/resources/csv-parser-schema-explanation.md).
+Check out our file on the describing our schema based parser used for this dataset [here](https://github.com/axibase/atsd-use-cases/blob/master/USInternationalTrade/resources/csv-parser-schema-explanation.md).
 
 If you require assistance in installing this software or have any questions, please feel free to [contact us](https://axibase.com/feedback/) and we would be happy to be of assistance!
 
@@ -438,7 +437,7 @@ GROUP BY e.period(1 year), e.tags
   LIMIT 20
 ```
       
-```sql      
+```ls     
 | year  | country       | code  | export    | import    | trade_balance | 
 |-------|---------------|-------|-----------|-----------|---------------| 
 | 2016  | China         | 5700  | 104149.1  | 423431.2  | -319282.1     | 
