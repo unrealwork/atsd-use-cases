@@ -22,11 +22,11 @@ and populate it with the raw data.
 Let's take a look at the dataset titled **Crimes - 2001 to present** from [data.gov](https://www.data.gov/).  
 
 This dataset can be found here: https://catalog.data.gov/dataset/crimes-2001-to-present-398a4. On the data.gov website, this dataset can be downloaded as a CSV (1.4 GB), RDF, JSON (**2.8 GB**), or a 
-XML file. This dataset can easily be parsed using the JSON job in Axibase.
+XML file. This dataset can easily be parsed using the JSON job in Axibase Collector.
 
 This dataset contains crime statistics collected daily from 2001 to the present time. This dataset is continuously updated with a time lag of 7 days. Statistics are available for **32 different crime types**. Furthermore, these crimes may be filtered by the location
-where the crime occurred, and by the specific crime type. For example, for the crime type **Narcotics**, you may filter by 96 locations (for example alley, street, gas station) and 49 specific violations (possession
-of cocaine, manufacturing and delivering heroin, soliciting narcotics etc). Each crime type has it's own number of locations and specific violations that it may be sorted for.
+where the crime occurred, and by the specific crime type. For example, for the crime type **Narcotics**, you may filter by 96 locations (for example, alley, street, gas station) and 49 specific violations (possession
+of cocaine, manufacturing and delivering heroin, soliciting narcotics etc). Each crime type has its own number of locations and specific violations that it may be sorted for.
 
 Given the size of the dataset, you cannot load it in Excel. It is much more convenient to interact with the data once it is loaded into a database. The 
 [Axibase Time Series Database (ATSD)](http://axibase.com/products/axibase-time-series-database/) is a powerful tool when it comes to storing, analyzing, and visualizing datasets. We will use the
@@ -109,8 +109,8 @@ GROUP BY date_format(time, 'u')
 | Sun          | 142          | 
 ```
 
-Did the most common locations for homicides changes from 2015 to 2016? The below pie chart shows the top five locations where homicides were committed in 2015 and 2016. Both years have the same top five
-locations for murders (alley, apartment, street, house, auto) and we can see that the greatest number of homicide took place on the street. The percentage of murders on the street in 2015 and 2016 
+Did the most common locations for homicides change from 2015 to 2016? The below pie chart shows the top five locations where homicides were committed in 2015 and 2016. Both years have the same top five
+locations for murders (alley, apartment, street, house, auto) and we can see that the greatest number of homicides took place on the street. The percentage of murders on the street in 2015 and 2016 
 was exactly same at 68%.  
 
 ![Figure 6](Images/Figure6.png)
@@ -163,7 +163,7 @@ If you would like to see more queries on this Chicago crime dataset, please go t
 ### A Deeper Look at Crime in Chicago
 -------------------------------------
 
-So what caused this drastic increase in murders in Chicago in 2016? Did the city experience an uptick in crime as a whole?
+So, what caused this drastic increase in murders in Chicago in 2016? Did the city experience an uptick in crime as a whole?
 
 There actually has been a long term decrease in crime as a whole in Chicago, as we can see in the figure below. 
 

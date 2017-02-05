@@ -19,7 +19,7 @@ This article will focus on the Axibase Time Series Databases's (ATSD) [SQL query
 Let's take a look at the dataset titled **Deaths in 122 U.S. cities - 1962-2016. 122 Cities Mortality Reporting System** from [data.gov](https://www.data.gov/).
 
 This dataset can be found here: [https://catalog.data.gov/dataset/deaths-in-122-u-s-cities-1962-2016-122-cities-mortality-reporting-system](https://catalog.data.gov/dataset/deaths-in-122-u-s-cities-1962-2016-122-cities-mortality-reporting-system).
-On the data.gov website, datasets can be downloaded as a CSV (16.7 MB), RDF, [JSON](https://data.cdc.gov/api/views/mr8w-325u/rows.json?accessType=DOWNLOAD) (66.2 MB), or a XML file. This dataset can easily be parsed using the JSON job in Axibase.
+On the data.gov website, datasets can be downloaded as a CSV (16.7 MB), RDF, [JSON](https://data.cdc.gov/api/views/mr8w-325u/rows.json?accessType=DOWNLOAD) (66.2 MB), or a XML file. This dataset can easily be parsed using the JSON job in Axibase Collector.
 
 This file contains data for weekly death totals collected from 1962 to 2016 in 122 U.S. cities. The system was retired on October 6th, 2016. While the system was running, the vital statistics
 offices of these cities across the United States reported the total number of death certificates processed and the number of those for which pneumonia or influenza was listed as the underlying 
@@ -43,7 +43,7 @@ While you can manually analyze this information in a spreadsheet program, it is 
 ### Axibase Time Series Database
 --------------------------------
 
-The [Axibase Time Series Database](http://axibase.com/products/axibase-time-series-database/) (ATSD) is a powerful tool when it comes to storing, analyzing, and visualing datasets. This article will not focus on creating graphs and figures using ATSD, but 
+The [Axibase Time Series Database](http://axibase.com/products/axibase-time-series-database/) (ATSD) is a powerful tool when it comes to storing, analyzing, and visualising datasets. This article will not focus on creating graphs and figures using ATSD, but 
 rather on writing and running SQL queries. If you are interested in reading more on the visual presentation capabilities of ATSD, check out our articles on
 [employee compensation numbers in Iowa](https://github.com/axibase/atsd-use-cases/blob/master/SocrataIowaCompensation/README.md) and
 [aviation statistics in the United Kingdom](https://github.com/axibase/atsd-use-cases/blob/master/UKAviation/README.md).
@@ -178,7 +178,7 @@ GROUP BY period(1 MONTH)
   ORDER BY 1
 ```
 
-This query serves to filter records for a particular city and time. Weekly samples are aggregated into months and the sum and count of samples are calculated for each month. Additionally, rows are ordered
+This query serves to filter records for a particular city and time. Weekly samples are aggregated into months, and the sum and count of samples are calculated for each month. Additionally, rows are ordered
 by the starting month, referring to the date in the column index.
 
 ```sql
@@ -354,7 +354,7 @@ WHERE tags.region = '1'
 ### Detailed SQL Example 2 - Best of the Best and Worst of the Worst
 --------------------------------------------------------------------
 
-Let us know look at some additional examples which delve into finding out which of our 122 cities have some of the deadliest and least deadly conditions.
+Let us now look at some additional examples which delve into finding out which of our 122 cities have some of the deadliest and least deadly conditions.
      
 The below query examines the least deadly week for the total number of deaths by city. 
 
@@ -398,7 +398,7 @@ Here a few noteworthy points regarding this query.
 3) The `LOOKUP('us-region', tags.region)` function converts `tags.region` (number) into a string, for example, 3 -> East-North-Central.<br />
 4) `LOOKUP('city-size', concat(tags.city, ',', tags.state))` retrieves city size for the given city and state pair, concatenated to the {city},{state} pattern.<br />
 
-Now, lets look at the deadliest week for the total number of deaths by city.
+Now, let's look at the deadliest week for the total number of deaths by city.
 
 ```sql
 SELECT date_format(time, 'yyyy-MM-dd') as 'date', 
@@ -1133,7 +1133,7 @@ and Mortality in 2010, the City of New York had the following key findings:
 * The 2009 New York City life expectancy reached a historic high of 80.6 years, a 3.7% (35 months) increase since 2000 and a 0.5% (5 months) increase since 2008.
 * Premature deaths (before age 65) accounted for 30% of all deaths in New York City.  The premature death rate decreased to 2.2 per 1,000 population, a 15.4% decline since 2001.
 
-The death rate for 2010 that was found in the report (6.4) does not match the value from out SQl query. This is due to the fact that we were using a fixed population size from 2015 to calculate
+The death rate for 2010 that was found in the report (6.4) does not match the value from our SQL query result. This is due to the fact that we were using a fixed population size from 2015 to calculate
 **all** of the mortality rates. Since we have population numbers for 1960, 1970, 1980, 1990, 2000, 2010, and 2015, we can compute much more accurate mortality rates for New York City using interpolated population 
 sizes.
 
