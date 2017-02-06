@@ -282,8 +282,9 @@ Looking at our results, a couple of things stand out:
 * The U.S. had negative trade balances (more imports than exports) in 2016 with all of these countries.
 * All of these countries have a GDP per capita of greater than $22,190.9 (Taiwan).
 
-Looking at these two outputs together, we can see that the U.S. has bad trade balances with both poor and rich countries, hence both rich and poor countries may be equally
-accused of taking U.S. jobs.  
+Looking at these two outputs together, we can see that the U.S. has bad trade balances with both poor and rich countries. While there may not be a direct correlation between a 
+a country losing jobs and having to increase it's imports, both rich and poor countries could be equally accused of taking U.S. jobs. In the top ten for trade balance rank, there 
+are both five poor (China, Mexico, Vietnam, India, and Malaysia) and rich (Japan, Germany, Ireland, South Korea, and Italy) countries included in this list. 
 
 ```ls
 | country       | year  | export   | import   | trade_balance  | 2016_trade_balance  | 2016_GDP_per_capita  | 2016_trade_balance_rank | 
