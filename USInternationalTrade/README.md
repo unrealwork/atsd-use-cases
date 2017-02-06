@@ -4,18 +4,18 @@ Analyzing America's International Trade History
 ===============================================
 
 Buy American. Drive American. Wear American. The American economy seems to be on everybody's minds these days, namely returning jobs and money sent overseas back to the American people. Many voters in the 2016 U.S. presidental election 
-desired to return to a time where America was producing more than it was taking in. According to an article on [forbes.com](http://www.forbes.com/sites/mikepatton/2016/02/29/u-s-role-in-global-economy-declines-nearly-50/#3e2283ea59c1),
+desired to return to a time when America was producing more than it was taking in. According to an article on [forbes.com](http://www.forbes.com/sites/mikepatton/2016/02/29/u-s-role-in-global-economy-declines-nearly-50/#3e2283ea59c1),
 the United States represented **40%** of the world's GDP in **1960**. By 2014, that number had dropped to only **20%**. According to [CNN](http://money.cnn.com/2016/03/29/news/economy/us-manufacturing-jobs/), since 2000 the U.S. has lost over 5 
 million manufacturing jobs. Additionally, the percentage of Americans employed in manufacturing dropped from **19%** in 1980 to **8%** in 2016. In this article we will analyze a dataset from [census.gov](https://www.census.gov) looking at 
-[America's trade balance](https://www.census.gov/foreign-trade/balance/country.xlsx) from 1985 through the present time. This research article illustrates how 
+[America's international trade balance](https://www.census.gov/foreign-trade/balance/country.xlsx) from 1985 through the present day. This research article illustrates how 
 publicly available data from census.gov can be easily loaded into the non-relational [Axibase Time Series Database (ATSD)](http://axibase.com/products/axibase-time-series-database/) 
-for interactive analysis and graphical representation of raw data collected by government organizations. The article provides both sample queries and charts, 
+for interactive analysis and graphical representation of raw data collected by government organizations. This article provides both sample queries and charts, 
 as well as instructions on how to install your own ATSD instance and populate it with the raw data. 
 
 ### America's Trade Balance Dataset
 -----------------------------------
 
-Let's take a look at dataset looking at America's trade balance from [census.gov](https://www.census.gov/).  
+Let's take a look at dataset on America's trade balance from [census.gov](https://www.census.gov/).  
 
 This dataset can be found here: https://www.census.gov/foreign-trade/balance/index.html. 
 
@@ -24,7 +24,7 @@ Click on the link labeled **Download the full dataset for all countries (Excel -
 This dataset contains import and export statistics collected monthly from 1985 to the present time for the United States and 259 locations. These locations include countries,
 continents (such as Europe and Asia), political organizations (such as the European Union), as well as various other organizations (such as [OPEC](https://en.wikipedia.org/wiki/OPEC)). 
 
-It is much more convenient to interact with the data once it is loaded into a database, as opposed to analyzing this dataset in Excel. The 
+As opposed to using Excel, it is much more convenient to interact with the data once it is loaded into a database. The 
 [Axibase Time Series Database (ATSD)](http://axibase.com/products/axibase-time-series-database/) is a powerful tool when it comes to storing, analyzing, and visualizing datasets. We will use the
 following two aspects of ATSD to look into this dataset: interactive graphs from [Chart Lab](/ChartLabIntro/README.md) and tabular outputs from analytical [SQL queries](https://github.com/axibase/atsd-docs/blob/master/api/sql/README.md#overview).
 You can load the dataset into your ATSD instance by following the steps provided at the [end of the article](#action-items).
@@ -34,15 +34,16 @@ You can load the dataset into your ATSD instance by following the steps provided
 
 Let's begin by looking at trade balance between the U.S. and individual countries.  
 
-Below are images showing import, export, and trade balance values between the U.S. it's largest trading partners: China. The top image in each 
-figure showing exports (in blue) over imports (in pink). The lower figure shows the trade balance, which is the dollar amount for exports minus imports.
-As shown in the figure below, we can see that the trade balance grew from **-$6 million** in 1985 to **-$319 billion** in 2016.  
+Below is an image showing import, export, and trade balance values between the U.S. and it's largest trading partner, China. The top image 
+shows exports (in blue) over imports (in pink). In 2016, exports and imports to/from China totalled **$104 billion** and **$423 billion**, respectively. The lower figure 
+shows the trade balance, which is the dollar amount for exports minus imports. As marked in the figure below, we can see that the trade balance between the U.S. and China
+grew from **-$6 million** in 1985 to **-$319 billion** in 2016.  
 
 ![Figure 1](Images/Figure1.png)
 
 By clicking on the below button, you can explore the trade by any country included in this dataset. Simply click on the drop down tabs to scroll between different countries,
-as well as between continents or organizations. **Note**: there are separate filters for the top and bottom graphs, and you need to select your desired location from both drop
-downs in order to filter. 
+as well as between continents or organizations. **Note**: there are separate filters for the top and bottom graphs. You need to select your desired location from the
+`US Import/Export` drop down, as well from `US Trade Balance` in order to filter. 
 
 [![](Images/button.png)](https://apps.axibase.com/chartlab/552d7a44#fullscreen)
 
@@ -104,9 +105,10 @@ GROUP BY e.period(1 year), e.tags
 ### 2016: Year in Review
 ------------------------
 
-Below is an image of the top countries for U.S. export and imports in 2016. We have graphs for the top countries for both U.S. exports and imports. The table on the right provides
+Below is an image of the top countries for U.S. export and imports in 2016. The table to the right of the below graphs provides
 monetary values for exports, imports, and the trade balance (export minus import) between the U.S. and each respective country, continent, or organization. The table is sorted by
-trade balance, with the highest negative trade balances showing at the top. You may sort the table by clicking on the column headers.
+trade balance, with the highest negative trade balances showing at the top. You may sort the table as you wish by accessing the Chart Lab portal (button below) and clicking 
+on the column headers.
  
 In 2016, the locations with which the United States had the highest negative and positive trade balances with was China and Hong Kong at **- $319 billion** and **$25.1 billion**, 
 respectively.   
@@ -167,7 +169,7 @@ Let's now take a closer look at America's trading partners. Are there any shared
 
 A claim often made is that poor, developing countries are stealing American jobs and industry. If a country is poaching another country's jobs and industry, it is reasonable to
 to assume that the afflicted country's trade balance would change as a result. For example, the more steel manufacturing jobs that leave the U.S. for Asia, the more steel the
-U.S. will need to import from Asia. Here is a query showing the the year with the highest trade balance (least negative or most positive, in millions USD) going back to 1985
+U.S. will need to import from Asia. Here is a query showing the year with the highest trade balance (least negative or most positive, in millions USD) going back to 1985
 for countries in the bottom 50% by GDP per capita (true/absolute value shown below). In this instance, `2016_GDP_per_capita` was calculated from the following two replacement tables: 
 [`world-population.txt`](/resources/world-population.txt) and [`world-gdp.txt`](/resources/world-gdp.txt). Results are sorted by the country's `2016_trade_balance_rank`. The
 more negative a country's trade balance, the higher it's ranking. You can refer to the [`us-trade-balance-rank-2016.txt`](/resources/us-trade-balance-rank-2016.txt) file to see these rankings.   
@@ -192,7 +194,7 @@ GROUP BY e.period(1 year), e.tags
 
 Looking at our results, a couple of things stand out:
 
-* We need to go back to the early 1990's for when the U.S. had the best trade balance with the world's poorest countries (1993 for Iraq is the most recent year) 
+* We need to go back to the early 1990's for when the U.S. had the best trade balance with the world's poorest countries (1993 for Iraq is the most recent year).
 * The U.S. had negative trade balances (more imports than exports) in 2016 with all of these countries.
 * All of these countries have a GDP per capita of less than $8,240.9 (China). 
 
@@ -234,11 +236,11 @@ GROUP BY e.period(1 year), e.tags
 
 Looking at our results, a couple of things stand out:
 
-* With the except of 2008 for Switzerland, we need to go back the 1990's for when the U.S. had the best trade balance.
+* With the exception of 2008 for Switzerland, we need to go back to the 1990's for when the U.S. had the best trade balance with the world's richest countries.
 * The U.S. had negative trade balances (more imports than exports) in 2016 with all of these countries.
 * All of these countries have a GDP per capita of greater than $22,190.9 (Taiwan).
 
-Looking at these two outputs together, we can see that the U.S. has bad trade balances with both poor and rich countries, that is both rich and poor countries may be equally
+Looking at these two outputs together, we can see that the U.S. has bad trade balances with both poor and rich countries, hence both rich and poor countries may be equally
 accused of taking U.S. jobs.  
 
 ```ls
@@ -262,7 +264,7 @@ accused of taking U.S. jobs.
 So when did the U.S. have it's best trade balance in recent history?
 
 Below is an image of the trade balance between the United States with the rest of the world from 1985 to 2016. This graph shows the sum of all of the locations included in this
-dataset. The trade balance has grown from **-$152 billion** in 1987 to **-$677 billion** in 2016.
+dataset. The trade balance grew from **-$152 billion** in 1987 to **-$677 billion** in 2016.
 
 ![Figure 4](Images/Figure4.png)
 
