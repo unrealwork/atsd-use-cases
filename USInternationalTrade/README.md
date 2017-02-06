@@ -34,8 +34,8 @@ You can load the dataset into your ATSD instance by following the steps provided
 
 So when did the U.S. have it's best trade balance in recent history? 
 
-Below is an image of the trade balance between the United States with the rest of the world from 1985 to 2016. This graph shows the sum of all of the locations included in this
-dataset. The trade balance grew from **-$152 billion** in 1987 to **-$677 billion** in 2016.
+Below is an image showing import, export, and trade balance values from 1987 to 2016 between the U.S. and all countries included in this dataset. 
+The top image shows exports (in blue) over imports (in pink). In 2016, imports into the United States totalled **$2 trillion**, while exports were **$1.3 trillion**. The lower figure shows trade balance, which is the dollar amount for exports minus imports. The trade balance grew from **-$152 billion** in 1987 to **-$677 billion** in 2016.
 
 ![Figure 4](Images/Figure4.png)
 
@@ -44,7 +44,7 @@ You can explore this portal by clicking on the below button:
 [![](Images/button.png)](https://apps.axibase.com/chartlab/552d7a44/2/#fullscreen)
 
 In addition to looking at graphical outputs, we can also perform [SQL queries](https://github.com/axibase/atsd-docs/blob/master/api/sql/README.md#overview), which can be used 
-to search for specific information contained in this dataset. From the following query, we can see that, within the time range of our dataset, 1991 was the year with that had the least negative trade balance of **-$66.7 billion**. 
+to search for specific information contained in this dataset. From the following query, we can see that, within the time range of our dataset, 1991 was the year which had the least negative trade balance of **-$66.7 billion**. 
 
 ```sql
 SELECT date_format(e.time, 'yyyy') AS 'year', e.tags.ctyname AS country,
@@ -70,10 +70,8 @@ GROUP BY e.period(1 year), e.tags
 
 Let's now look at trade balance between the U.S. and individual countries.  
 
-Below is an image showing import, export, and trade balance values between the U.S. and it's largest trading partner, China. The top image 
-shows exports (in blue) over imports (in pink). In 2016, exports and imports to/from China totalled **$104 billion** and **$423 billion**, respectively. The lower figure 
-shows the trade balance, which is the dollar amount for exports minus imports. As marked in the figure below, we can see that the trade balance between the U.S. and China
-grew from **-$6 million** in 1985 to **-$319 billion** in 2016.  
+Below is an image showing import, export, and trade balance values between the U.S. and it's largest trading partner, China. In 2016, exports and imports to/from China totalled **$104 billion** and **$423 billion**, respectively. 
+As marked in the figure below, we can see that the trade balance between the U.S. and China grew from **-$6 million** in 1985 to **-$319 billion** in 2016.  
 
 ![Figure 1](Images/Figure1.png)
 
