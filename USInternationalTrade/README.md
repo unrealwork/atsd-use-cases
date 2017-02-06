@@ -266,7 +266,7 @@ dataset. The trade balance has grown from **-$152 billion** in 1987 to **-$677 b
 
 ![Figure 4](Images/Figure4.png)
 
-You can explore this portal by clicking on the below button:
+You can explore this portal by clicking on the below button: 
 
 [![](Images/button.png)](https://apps.axibase.com/chartlab/552d7a44/2/#fullscreen)
 
