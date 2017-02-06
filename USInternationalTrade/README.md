@@ -214,7 +214,7 @@ to assume that the afflicted country's trade balance would change as a result. F
 U.S. will need to import from Asia. Here is a query showing the year with the highest trade balance (least negative or most positive, in millions USD) going back to 1985
 for countries in the bottom 50% by GDP per capita (true/absolute value shown below). In this instance, `2016_GDP_per_capita` was calculated from the following two replacement tables: 
 [`world-population.txt`](/resources/world-population.txt) and [`world-gdp.txt`](/resources/world-gdp.txt). Results are sorted by the country's `2016_trade_balance_rank`. The
-more negative a country's trade balance, the higher it's ranking. You can refer to the [`us-trade-balance-rank-2016.txt`](/resources/us-trade-balance-rank-2016.txt) file to see these rankings.   
+more negative a country's trade balance, the higher it's ranking. You can refer to the [`us-trade-balance-rank-2016.txt`](/resources/us-trade-balance-rank-2016.txt) file to see these rankings.
 
 ```sql
 SELECT e.tags.ctyname AS country, 
@@ -306,7 +306,9 @@ are both five poor (China, Mexico, Vietnam, India, and Malaysia) and rich (Japan
 
 So when did the U.S. have it's best trade balance in recent history?
 
-Below is an image of the trade balance between the United States with the rest of the world from 1985 to 2016. This graph shows the sum of all of the locations included in this
+According to [tradingeconomics.com](http://www.tradingeconomics.com/united-states/balance-of-tradeBelow), the U.S. had a virtual net zero trade balance up until the 1980's, 
+when the U.S. begin to import more goods than it exported. By the mid 1980's the U.S. was briefly trended back towards a net zero trade balance. Below 
+is an image of the trade balance between the United States with the rest of the world from 1985 to 2016. This graph shows the sum of all of the locations included in this
 dataset. The trade balance grew from **-$152 billion** in 1987 to **-$677 billion** in 2016.
 
 ![Figure 4](Images/Figure4.png)
