@@ -10,7 +10,7 @@ million manufacturing jobs. Additionally, the percentage of Americans employed i
 [America's international trade balance](https://www.census.gov/foreign-trade/balance/country.xlsx) from 1985 through the present day. This research article illustrates how 
 publicly available data from census.gov can be easily loaded into the non-relational [Axibase Time Series Database (ATSD)](http://axibase.com/products/axibase-time-series-database/) 
 for interactive analysis and graphical representation of raw data collected by government organizations. This article provides both sample queries and charts, 
-as well as instructions on how to install your own ATSD instance and populate it with the raw data. 
+as well as instructions on how to install your own ATSD instance and populate it with the raw data.  
 
 ### America's Trade Balance Dataset
 -----------------------------------
