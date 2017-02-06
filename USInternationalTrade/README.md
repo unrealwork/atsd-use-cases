@@ -32,7 +32,7 @@ You can load the dataset into your ATSD instance by following the steps provided
 ### Overview
 ------------
 
-So when did the U.S. have it's best trade balance in recent history?
+So when did the U.S. have it's best trade balance in recent history? 
 
 Below is an image of the trade balance between the United States with the rest of the world from 1985 to 2016. This graph shows the sum of all of the locations included in this
 dataset. The trade balance grew from **-$152 billion** in 1987 to **-$677 billion** in 2016.
