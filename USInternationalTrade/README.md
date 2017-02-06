@@ -4,8 +4,8 @@ Analyzing America's International Trade History
 ===============================================
 
 Buy American. Drive American. Wear American. The American economy seems to be on everybody's minds these days, namely returning jobs and money sent overseas back to the American people. Many voters in the 2016 U.S. presidental election 
-desired to return to a time when America was producing more than it was taking in. According to an article on [forbes.com](http://www.forbes.com/sites/mikepatton/2016/02/29/u-s-role-in-global-economy-declines-nearly-50/#3e2283ea59c1),
-the United States represented **40%** of the world's GDP in **1960**. By 2014, that number had dropped to only **20%**. According to [CNN](http://money.cnn.com/2016/03/29/news/economy/us-manufacturing-jobs/), since 2000 the U.S. has lost over 5 
+desired to return to a time when America was producing more than it was taking in. According to data published by the [World Bank](http://data.worldbank.org/indicator/NY.GDP.MKTP.CD?locations=US),
+the United States represented **40%** of the world's GDP in **1960**. By 2015, that number had dropped to only **24%**. According to the [Bureau of Labor Statistics (BLS)](https://www.bls.gov/opub/mlr/2012/01/art4full.pdf), since 2000 the U.S. has lost over 5 
 million manufacturing jobs. Additionally, the percentage of Americans employed in manufacturing dropped from **19%** in 1980 to **8%** in 2016. In this article we will analyze a dataset from [census.gov](https://www.census.gov) looking at 
 [America's international trade balance](https://www.census.gov/foreign-trade/balance/country.xlsx) from 1985 through the present day. This research article illustrates how 
 publicly available data from census.gov can be easily loaded into the non-relational [Axibase Time Series Database (ATSD)](http://axibase.com/products/axibase-time-series-database/) 
@@ -29,10 +29,46 @@ As opposed to using Excel, it is much more convenient to interact with the data 
 following two aspects of ATSD to look into this dataset: interactive graphs from [Chart Lab](/ChartLabIntro/README.md) and tabular outputs from analytical [SQL queries](https://github.com/axibase/atsd-docs/blob/master/api/sql/README.md#overview).
 You can load the dataset into your ATSD instance by following the steps provided at the [end of the article](#action-items).
 
+### Overview
+------------
+
+So when did the U.S. have it's best trade balance in recent history?
+
+Below is an image of the trade balance between the United States with the rest of the world from 1985 to 2016. This graph shows the sum of all of the locations included in this
+dataset. The trade balance grew from **-$152 billion** in 1987 to **-$677 billion** in 2016.
+
+![Figure 4](Images/Figure4.png)
+
+You can explore this portal by clicking on the below button: 
+
+[![](Images/button.png)](https://apps.axibase.com/chartlab/552d7a44/2/#fullscreen)
+
+In addition to looking at graphical outputs, we can also perform [SQL queries](https://github.com/axibase/atsd-docs/blob/master/api/sql/README.md#overview), which can be used 
+to search for specific information contained in this dataset. From the following query, we can see that, within the time range of our dataset, 1991 was the year with that had the least negative trade balance of **-$66.7 billion**. 
+
+```sql
+SELECT date_format(e.time, 'yyyy') AS 'year', e.tags.ctyname AS country,
+  SUM(e.value)/1000 AS export, 
+  SUM(i.value)/1000 AS import, 
+  (SUM(e.value)-SUM(i.value))/1000 AS trade_balance
+  FROM 'us-trade-export' e
+  JOIN 'us-trade-import' i
+WHERE e.datetime >= '1970-01-01T00:00:00Z' and e.datetime < '2017-01-01T00:00:00Z'
+  AND e.tags.cty_code = '0015'
+GROUP BY e.period(1 year), e.tags
+  WITH ROW_NUMBER(e.entity, e.tags ORDER BY SUM(e.value)-SUM(i.value) DESC) <= 1
+```
+
+```ls
+| year  | country                         | export  | import  | trade_balance | 
+|-------|---------------------------------|---------|---------|---------------| 
+| 1991  | World, Not Seasonally Adjusted  | 421.7   | 488.5   | -66.7         | 
+```
+
 ### Trade by Country
 --------------------
 
-Let's begin by looking at trade balance between the U.S. and individual countries.  
+Let's now look at trade balance between the U.S. and individual countries.  
 
 Below is an image showing import, export, and trade balance values between the U.S. and it's largest trading partner, China. The top image 
 shows exports (in blue) over imports (in pink). In 2016, exports and imports to/from China totalled **$104 billion** and **$423 billion**, respectively. The lower figure 
@@ -47,8 +83,7 @@ as well as between continents or organizations. **Note**: there are separate fil
 
 [![](Images/button.png)](https://apps.axibase.com/chartlab/552d7a44#fullscreen)
 
-In addition to looking at graphical outputs, we can also perform [SQL queries](https://github.com/axibase/atsd-docs/blob/master/api/sql/README.md#overview), which can be used 
-to search for specific information contained in this dataset. For example, below is a SQL query and output showing the exports, imports, and trade balance
+Below is a SQL query and output showing the exports, imports, and trade balance
 (all in millions USD) between United States and Mexico from 1985 to 2016:   
 
 ```sql
@@ -215,6 +250,9 @@ U.S. will need to import from Asia. Here is a query showing the year with the hi
 for countries in the bottom 50% by GDP per capita (true/absolute value shown below). In this instance, `2016_GDP_per_capita` was calculated from the following two replacement tables: 
 [`world-population.txt`](/resources/world-population.txt) and [`world-gdp.txt`](/resources/world-gdp.txt). Results are sorted by the country's `2016_trade_balance_rank`. The
 more negative a country's trade balance, the higher it's ranking. You can refer to the [`us-trade-balance-rank-2016.txt`](/resources/us-trade-balance-rank-2016.txt) file to see these rankings.
+In order to seperate rich and poor countries, we calculated an average world GDP. We divided the world population ([7,432,663,275](https://en.wikipedia.org/wiki/List_of_countries_by_population_(United_Nations))) 
+by the world's GDP ([75,212,696](https://en.wikipedia.org/wiki/List_of_countries_by_GDP_(nominal))) to get a world GDP of $10,273. Any
+countries having a GDP less than this were considered poor countries, while countries with a greater GDP were considered rich.
 
 ```sql
 SELECT e.tags.ctyname AS country, 
@@ -299,44 +337,6 @@ are both five poor (China, Mexico, Vietnam, India, and Malaysia) and rich (Japan
 | Taiwan        | 1993  | 16167.8  | 25101.5  | -8933.7        | -12540.4            | 22190.0              | 14.0                    | 
 | Canada        | 1991  | 85149.8  | 91063.9  | -5914.1        | -9136.9             | 42229.1              | 16.0                    | 
 | Israel        | 1987  | 3130.2   | 2639.3   | 490.9          | -8352.5             | 38051.9              | 17.0                    | 
-```
-
-### Conclusion
---------------
-
-So when did the U.S. have it's best trade balance in recent history?
-
-According to [tradingeconomics.com](http://www.tradingeconomics.com/united-states/balance-of-tradeBelow), the U.S. had a virtual net zero trade balance up until the 1980's, 
-when the U.S. begin to import more goods than it exported. By the mid 1980's the U.S. was briefly trended back towards a net zero trade balance. Below 
-is an image of the trade balance between the United States with the rest of the world from 1985 to 2016. This graph shows the sum of all of the locations included in this
-dataset. The trade balance grew from **-$152 billion** in 1987 to **-$677 billion** in 2016.
-
-![Figure 4](Images/Figure4.png)
-
-You can explore this portal by clicking on the below button: 
-
-[![](Images/button.png)](https://apps.axibase.com/chartlab/552d7a44/2/#fullscreen)
-
-Using the following query, we can see that, within the time range of our dataset, 1991 was the year with that had the least negative trade balance of **-$66.7 billion**. While
-an even trade balance make not be everything that makes an economy hum, it is certainly a place to start looking when retooling a broken trading system.
-  
-```sql
-SELECT date_format(e.time, 'yyyy') AS 'year', e.tags.ctyname AS country,
-  SUM(e.value)/1000 AS export, 
-  SUM(i.value)/1000 AS import, 
-  (SUM(e.value)-SUM(i.value))/1000 AS trade_balance
-  FROM 'us-trade-export' e
-  JOIN 'us-trade-import' i
-WHERE e.datetime >= '1970-01-01T00:00:00Z' and e.datetime < '2017-01-01T00:00:00Z'
-  AND e.tags.cty_code = '0015'
-GROUP BY e.period(1 year), e.tags
-  WITH ROW_NUMBER(e.entity, e.tags ORDER BY SUM(e.value)-SUM(i.value) DESC) <= 1
-```
-
-```ls
-| year  | country                         | export  | import  | trade_balance | 
-|-------|---------------------------------|---------|---------|---------------| 
-| 1991  | World, Not Seasonally Adjusted  | 421.7   | 488.5   | -66.7         | 
 ```
 
 ### Action Items
