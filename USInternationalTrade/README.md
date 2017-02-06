@@ -162,6 +162,48 @@ You can explore this figures, as well as trade balances for 2006 and 1997, in Ch
 
 [![](Images/button.png)](https://apps.axibase.com/chartlab/b9f27b14/2/#fullscreen)
 
+Who were the U.S.'s best trading partners (imports plus exports, in millions USD) in 2016?
+
+```sql
+SELECT date_format(e.time, 'yyyy') AS 'year', e.tags.ctyname AS country, e.tags.cty_code AS code,
+  SUM(e.value) AS export, SUM(i.value) AS import, 
+  SUM(e.value)+SUM(i.value) AS trade_total
+  FROM 'us-trade-export' e
+  JOIN 'us-trade-import' i
+WHERE e.datetime >= '2016-01-01T00:00:00Z' and e.datetime < '2017-01-01T00:00:00Z'
+  AND e.tags.cty_code > '1000'
+  AND e.tags.cty_code NOT IN ('7740', '4350', '8500', '5080', '5160', '4790', '4610', '4799', '4802', '7320', '2771', '8220')
+GROUP BY e.period(1 year), e.tags
+  WITH ROW_NUMBER(e.entity, e.tags ORDER BY e.period(1 year)) < 10
+  ORDER BY SUM(e.value)+SUM(i.value) DESC
+  LIMIT 20
+```
+
+```ls
+| year  | country         | code  | export    | import    | trade_total   | 
+|-------|-----------------|-------|-----------|-----------|---------------| 
+| 2016  | China           | 5700  | 104149.1  | 423431.2  | 527580.3      | 
+| 2016  | Canada          | 1220  | 245619.2  | 254756.1  | 500375.4      | 
+| 2016  | Mexico          | 2010  | 211848.7  | 270647.2  | 482495.9      | 
+| 2016  | Japan           | 5880  | 57597.2   | 120006.5  | 177603.7      | 
+| 2016  | Germany         | 4280  | 44997.8   | 104553.9  | 149551.7      | 
+| 2016  | Korea, South    | 5800  | 37997.1   | 64465.1   | 102462.2      | 
+| 2016  | United Kingdom  | 4120  | 51081.3   | 49553.9   | 100635.2      | 
+| 2016  | France          | 4279  | 28018.7   | 43173.6   | 71192.3       | 
+| 2016  | India           | 5330  | 19592.9   | 42552.0   | 62144.9       | 
+| 2016  | Taiwan          | 5830  | 23409.5   | 35949.9   | 59359.4       | 
+| 2016  | Italy           | 4759  | 15243.7   | 41147.7   | 56391.4       | 
+| 2016  | Switzerland     | 4419  | 20468.3   | 33124.0   | 53592.3       | 
+| 2016  | Netherlands     | 4210  | 36955.4   | 14807.3   | 51762.7       | 
+| 2016  | Brazil          | 3510  | 27711.3   | 23712.0   | 51423.3       | 
+| 2016  | Ireland         | 4190  | 8761.2    | 41466.4   | 50227.7       | 
+| 2016  | Vietnam         | 5520  | 9451.9    | 38792.8   | 48244.7       | 
+| 2016  | Belgium         | 4231  | 29878.1   | 15749.5   | 45627.6       | 
+| 2016  | Malaysia        | 5570  | 10746.9   | 33600.3   | 44347.2       | 
+| 2016  | Singapore       | 5590  | 24528.4   | 16606.0   | 41134.4       | 
+| 2016  | Hong Kong       | 5820  | 31892.2   | 6821.8    | 38714.1       | 
+```
+
 ### A Closer Look at America's Trading Partners
 -----------------------------------------------
 
@@ -489,46 +531,4 @@ GROUP BY e.period(1 year), e.tags
 | OPEC                       | 2015  | 72.8    | 66.2    | 6.6           | 
 | South and Central America  | 2015  | 152.5   | 115.9   | 36.7          | 
 | Sub Saharan Africa         | 2015  | 18.0    | 18.8    | -0.8          | 
-```
-
-Largest trading partners with the US (imports plus exports, in millions USD) in 2016.
-
-```sql
-SELECT date_format(e.time, 'yyyy') AS 'year', e.tags.ctyname AS country, e.tags.cty_code AS code,
-  SUM(e.value) AS export, SUM(i.value) AS import, 
-  SUM(e.value)+SUM(i.value) AS trade_total
-  FROM 'us-trade-export' e
-  JOIN 'us-trade-import' i
-WHERE e.datetime >= '2016-01-01T00:00:00Z' and e.datetime < '2017-01-01T00:00:00Z'
-  AND e.tags.cty_code > '1000'
-  AND e.tags.cty_code NOT IN ('7740', '4350', '8500', '5080', '5160', '4790', '4610', '4799', '4802', '7320', '2771', '8220')
-GROUP BY e.period(1 year), e.tags
-  WITH ROW_NUMBER(e.entity, e.tags ORDER BY e.period(1 year)) < 10
-  ORDER BY SUM(e.value)+SUM(i.value) DESC
-  LIMIT 20
-```
-
-```ls
-| year  | country         | code  | export    | import    | trade_total   | 
-|-------|-----------------|-------|-----------|-----------|---------------| 
-| 2016  | China           | 5700  | 104149.1  | 423431.2  | 527580.3      | 
-| 2016  | Canada          | 1220  | 245619.2  | 254756.1  | 500375.4      | 
-| 2016  | Mexico          | 2010  | 211848.7  | 270647.2  | 482495.9      | 
-| 2016  | Japan           | 5880  | 57597.2   | 120006.5  | 177603.7      | 
-| 2016  | Germany         | 4280  | 44997.8   | 104553.9  | 149551.7      | 
-| 2016  | Korea, South    | 5800  | 37997.1   | 64465.1   | 102462.2      | 
-| 2016  | United Kingdom  | 4120  | 51081.3   | 49553.9   | 100635.2      | 
-| 2016  | France          | 4279  | 28018.7   | 43173.6   | 71192.3       | 
-| 2016  | India           | 5330  | 19592.9   | 42552.0   | 62144.9       | 
-| 2016  | Taiwan          | 5830  | 23409.5   | 35949.9   | 59359.4       | 
-| 2016  | Italy           | 4759  | 15243.7   | 41147.7   | 56391.4       | 
-| 2016  | Switzerland     | 4419  | 20468.3   | 33124.0   | 53592.3       | 
-| 2016  | Netherlands     | 4210  | 36955.4   | 14807.3   | 51762.7       | 
-| 2016  | Brazil          | 3510  | 27711.3   | 23712.0   | 51423.3       | 
-| 2016  | Ireland         | 4190  | 8761.2    | 41466.4   | 50227.7       | 
-| 2016  | Vietnam         | 5520  | 9451.9    | 38792.8   | 48244.7       | 
-| 2016  | Belgium         | 4231  | 29878.1   | 15749.5   | 45627.6       | 
-| 2016  | Malaysia        | 5570  | 10746.9   | 33600.3   | 44347.2       | 
-| 2016  | Singapore       | 5590  | 24528.4   | 16606.0   | 41134.4       | 
-| 2016  | Hong Kong       | 5820  | 31892.2   | 6821.8    | 38714.1       | 
 ```
