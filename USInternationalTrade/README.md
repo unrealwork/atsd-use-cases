@@ -27,7 +27,7 @@ You can load the dataset into your ATSD instance by following the steps provided
 
 The BLS file format presents a number of challenges when loading the data. In particular, it requires the parser to handle columns that combine both metric names (E - export, I - import), as well as partial dates (3-letter months). 
 
-[image]
+![csv-structure](Images/csv-structure.png)
 
 ATSD handles this by implementing a [schema-based](https://github.com/axibase/atsd-docs/blob/master/parsers/csv/csv-schema.md) parser which can be configured to load records from non-standard CSV files, such as the BLS report.
 
