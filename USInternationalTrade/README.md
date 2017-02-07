@@ -5,34 +5,36 @@ Analyzing America's International Trade History
 
 Buy American. Drive American. Wear American. The American economy seems to be on everybody's minds these days, namely returning jobs and money sent overseas back to the American people. Many voters in the 2016 U.S. presidental election 
 desired to return to a time when America was producing more than it was taking in. According to data published by the [World Bank](http://data.worldbank.org/indicator/NY.GDP.MKTP.CD?end=2015&start=1960&view=chart&year_high_desc=true),
-the United States represented **40%** of the world's GDP in **1960**. By 2015, that number had dropped to only **24%**. According to the [Bureau of Labor Statistics (BLS)](https://www.bls.gov/opub/mlr/2012/01/art4full.pdf), by 2020 the U.S. is predicted to have 5.7 
-million less manufacturing jobs than it had in 2000. Additionally, the percentage of Americans employed in manufacturing dropped from **19%** in 1980 to **8%** in 2016. In this article we will analyze a dataset from [census.gov](https://www.census.gov) looking at 
+the United States represented **40%** of the world's GDP in **1960**. By 2015, that number had dropped to only **24%**. According to the [Bureau of Labor Statistics (BLS)](https://www.bls.gov/opub/mlr/2012/01/art4full.pdf), by 2020 the U.S. is predicted to have **5.7 
+million** less manufacturing jobs than it had in 2000. Additionally, the percentage of Americans employed in manufacturing dropped from **19%** in 1980 to **8%** in 2016. In this article we will analyze a dataset from [census.gov](https://www.census.gov) looking at 
 [America's international trade balance](https://www.census.gov/foreign-trade/balance/country.xlsx) from 1985 through the present day. This research article illustrates how 
 publicly available data from census.gov can be easily loaded into the non-relational [Axibase Time Series Database (ATSD)](http://axibase.com/products/axibase-time-series-database/) 
-for interactive analysis and graphical representation of raw data collected by government organizations. This article provides both sample queries and charts, 
-as well as instructions on how to install your own ATSD instance and populate it with the raw data.
+for interactive analysis with SQL and graphical representation of open data published by government and multilateral organizations. This article provides both sample SQL queries and charts, 
+as well as instructions on how to install your own ATSD instance and populate it with the underlying data.
 
 ### America's Trade Balance Dataset
 -----------------------------------
 
-Let's take a look at a dataset on America's trade balance from [census.gov](https://www.census.gov/).  
-
-This dataset can be found here: https://www.census.gov/foreign-trade/balance/index.html. 
-
-Click on the link labeled **Download the full dataset for all countries (Excel - 5 MB)**. You are only given the option of downloading this dataset as an [Excel file (5 MB)](https://www.census.gov/foreign-trade/balance/country.xlsx).
+Let's take a look at a dataset on America's trade balance from [census.gov](https://www.census.gov/foreign-trade/balance/index.html).  The data is available as an Excel file at the following [link](https://www.census.gov/foreign-trade/balance/country.xlsx).
 
 This dataset contains import and export statistics collected monthly from 1985 to the present time for the United States and 259 locations. These locations include countries,
-continents (such as Europe and Asia), political organizations (such as the European Union), as well as various other organizations (such as [OPEC](https://en.wikipedia.org/wiki/OPEC)). 
+world regions (such as Europe and Asia), trade unions (such as the European Union or NAFTA), as well as various other organizations (such as [OPEC](https://en.wikipedia.org/wiki/OPEC)). 
 
-As opposed to using Excel, it is much more convenient to interact with the data once it is loaded into a database. The 
+While Excel can provide quick answers to simple questions, when it comes to complex analysis it is much more convenient to interact with the data once it is loaded into a database. The 
 [Axibase Time Series Database (ATSD)](http://axibase.com/products/axibase-time-series-database/) is a powerful tool when it comes to storing, analyzing, and visualizing datasets. We will use the
-following two aspects of ATSD to look into this dataset: interactive graphs from [Chart Lab](/ChartLabIntro/README.md) and tabular outputs from analytical [SQL queries](https://github.com/axibase/atsd-docs/blob/master/api/sql/README.md#overview).
+following two aspects of ATSD to look into this dataset: interactive graphs from [Chart Lab](/ChartLabIntro/README.md) and tabular outputs from analytical SQL queries with support for [partitioning](https://github.com/axibase/atsd-docs/blob/master/api/sql/README.md#partitioning).
 You can load the dataset into your ATSD instance by following the steps provided at the [end of the article](#action-items).
+
+The BLS file format presents a number of challenges when loading the data. In particular, it requires the parser to handle columns that combine both metric names (E - export, I - import), as well as partial dates (3-letter months). 
+
+[image]
+
+ATSD handles this by implementing a [schema-based](https://github.com/axibase/atsd-docs/blob/master/parsers/csv/csv-schema.md) parser which can be configured to load records from non-standard CSV files, such as the BLS report.
 
 ### Overview
 ------------
 
-So when did the U.S. have it's best international trade balance in recent history? 
+Let's begin by analyzing when the U.S. had its best international trade balance in recent history.
 
 Below is an image showing import, export, and trade balance values from 1987 to 2016 between the U.S. and the sum of all countries included in this dataset. 
 The top image shows exports (in blue) over imports (in pink). In 2016, imports into the United States totalled **$2 trillion**, while exports were **$1.3 trillion**. The lower figure shows trade balance, which is the dollar amount for exports minus imports. The trade balance grew from **-$152 billion** in 1987 to **-$677 billion** in 2016.
@@ -89,12 +91,13 @@ SELECT date_format(e.time, 'yyyy') AS 'year',
   e.tags.ctyname AS country, 
   SUM(e.value) AS export, 
   SUM(i.value) AS import, 
-  SUM(e.value)-SUM(i.value) AS trade_balance
+  SUM(e.value)-SUM(i.value) AS trade_balance -- apply grouped aggregation functions to calculate trade balance
 FROM 'us-trade-export' e 
-  JOIN 'us-trade-import' i 
+  JOIN 'us-trade-import' i -- merge export and import time series using JOIN
+  -- filter records by date in ISO 8601 format
 WHERE e.datetime >= '1970-01-01T00:00:00Z' AND e.datetime < '2017-01-01T00:00:00Z' 
-  AND e.tags.ctyname IN ('Mexico') 
-GROUP BY e.period(1 year), e.tags 
+  AND e.tags.ctyname IN ('Mexico') -- filter the data for country name = 'Mexico'
+GROUP BY e.period(1 year), e.tags -- group values by year, tags (include country name and code)
   ORDER BY e.datetime DESC
 ```
 
@@ -109,17 +112,7 @@ GROUP BY e.period(1 year), e.tags
 | 2011  | Mexico   | 198288.7  | 262873.6  | -64584.9      | 
 | 2010  | Mexico   | 163664.6  | 229985.6  | -66321.0      | 
 | 2009  | Mexico   | 128892.1  | 176654.4  | -47762.2      | 
-| 2008  | Mexico   | 151220.1  | 215941.6  | -64721.6      | 
-| 2007  | Mexico   | 135918.1  | 210714.0  | -74795.8      | 
-| 2006  | Mexico   | 133721.7  | 198253.2  | -64531.4      | 
-| 2005  | Mexico   | 120247.6  | 170108.6  | -49861.0      | 
-| 2004  | Mexico   | 110731.3  | 155901.5  | -45170.2      | 
-| 2003  | Mexico   | 97411.8   | 138060.0  | -40648.2      | 
-| 2002  | Mexico   | 97470.1   | 134616.0  | -37145.9      | 
-| 2001  | Mexico   | 101296.5  | 131337.9  | -30041.4      | 
-| 2000  | Mexico   | 111349.0  | 135926.3  | -24577.3      | 
-| 1999  | Mexico   | 86908.9   | 109720.5  | -22811.6      | 
-| 1998  | Mexico   | 78772.6   | 94629.0   | -15856.4      | 
+...
 | 1997  | Mexico   | 71388.5   | 85937.6   | -14549.1      | 
 | 1996  | Mexico   | 56791.6   | 74297.2   | -17505.6      | 
 | 1995  | Mexico   | 46292.1   | 62100.4   | -15808.3      | 
@@ -163,6 +156,7 @@ SELECT e.tags.ctyname AS region,
 FROM 'us-trade-export' e 
   JOIN 'us-trade-import' i 
 WHERE e.datetime >= '2016-01-01T00:00:00Z' AND e.datetime < '2017-01-01T00:00:00Z' 
+  -- include regions (code < 1000) except regional trade unions such as OPEC, NAFTA, etc.
   AND e.tags.cty_code < '1000' AND e.tags.cty_code NOT IN ('0004', '0005', '0006', '0007', '0008', '0015', '0017')
 GROUP BY e.period(1 year), e.tags 
   ORDER BY region
@@ -204,11 +198,12 @@ SELECT date_format(e.time, 'yyyy') AS 'year', e.tags.ctyname AS country, e.tags.
   FROM 'us-trade-export' e
   JOIN 'us-trade-import' i
 WHERE e.datetime >= '2016-01-01T00:00:00Z' and e.datetime < '2017-01-01T00:00:00Z'
+  -- exclude regions and non-existent/non-reporting countries/codes
   AND e.tags.cty_code > '1000'
   AND e.tags.cty_code NOT IN ('7740', '4350', '8500', '5080', '5160', '4790', '4610', '4799', '4802', '7320', '2771', '8220')
 GROUP BY e.period(1 year), e.tags
-  WITH ROW_NUMBER(e.entity, e.tags ORDER BY e.period(1 year)) < 10
   ORDER BY SUM(e.value)+SUM(i.value) DESC
+  -- limit results to 20 countries by trade volume in descending order
   LIMIT 20
 ```
 
@@ -267,6 +262,7 @@ WHERE e.datetime >= '1970-01-01T00:00:00Z' AND e.datetime < '2017-01-01T00:00:00
   AND e.tags.cty_code > '1000' AND e.tags.cty_code NOT IN ('7740', '4350', '8500', '5080', '5160', '4790', '4610', '4799', '4802', '7320', '2771', '8220') 
   AND 1000000*CAST(LOOKUP('world-gdp', e.tags.ctyname) AS number)/CAST(LOOKUP('world-population', e.tags.ctyname) AS number) <= 10273
 GROUP BY e.period(1 year), e.tags 
+  -- Use partitioning to group annual records countru and selecting one row with maximum trade balance for each country
   WITH ROW_NUMBER(e.entity, e.tags ORDER BY SUM(e.value)-SUM(i.value) DESC) <= 1
   ORDER BY CAST(LOOKUP('us-trade-balance-rank-2016', e.tags.ctyname) AS number)
   LIMIT 10
@@ -394,6 +390,7 @@ GROUP BY period(1 year), tags
 | 2011  | Mexico   | 198288.7 | 
 | 2010  | Mexico   | 163664.6 | 
 | 2009  | Mexico   | 128892.1 | 
+...
 ```
 
 Year with the highest trade balance (in millions USD) for each country, with 2016 population estimate (absolute value) listed as well. 
@@ -427,10 +424,12 @@ GROUP BY e.period(1 year), e.tags
 | 2008  | Armenia              | 4631  | 151.4    | 42.7    | 108.7          | 3026048    | 
 | 2014  | Aruba                | 2779  | 1300.2   | 60.4    | 1239.8         | 104263     | 
 | 2012  | Australia            | 6021  | 31161.4  | 9566.8  | 21594.6        | 24309330   | 
+...
 ```
 
 **Note**: The following countries/codes are excluded since they either no longer exist or their codes have been modified.
-          
+      
+```ls
 |Code  |   Country     | Removal/Modification Date|
 |------|---------------|--------------------------|
 | 7740 |   Ethiopia    |   2003-12-01| 
@@ -445,6 +444,7 @@ GROUP BY e.period(1 year), e.tags
 | 7320 |   Sudan |  2011-12-01|
 | 2771 |   Netherlands Antilles|    2011-12-01|
 | 8220 |   Unidentified Countries|  2014-12-01 |
+```
 
 Year with the highest trade balance for the 20 largest countries by 2016 population estimate (in millions).
 
