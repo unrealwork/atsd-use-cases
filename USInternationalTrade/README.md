@@ -15,7 +15,7 @@ as well as instructions on how to install your own ATSD instance and populate it
 ### America's Trade Balance Dataset
 -----------------------------------
 
-Let's take a look at dataset on America's trade balance from [census.gov](https://www.census.gov/).  
+Let's take a look at a dataset on America's trade balance from [census.gov](https://www.census.gov/).  
 
 This dataset can be found here: https://www.census.gov/foreign-trade/balance/index.html. 
 
@@ -32,9 +32,9 @@ You can load the dataset into your ATSD instance by following the steps provided
 ### Overview
 ------------
 
-So when did the U.S. have it's best trade balance in recent history? 
+So when did the U.S. have it's best international trade balance in recent history? 
 
-Below is an image showing import, export, and trade balance values from 1987 to 2016 between the U.S. and all countries included in this dataset. 
+Below is an image showing import, export, and trade balance values from 1987 to 2016 between the U.S. and the sum of all countries included in this dataset. 
 The top image shows exports (in blue) over imports (in pink). In 2016, imports into the United States totalled **$2 trillion**, while exports were **$1.3 trillion**. The lower figure shows trade balance, which is the dollar amount for exports minus imports. The trade balance grew from **-$152 billion** in 1987 to **-$677 billion** in 2016.
 
 ![Figure 4](Images/Figure4.png)
@@ -138,12 +138,12 @@ GROUP BY e.period(1 year), e.tags
 ### 2016: Year in Review
 ------------------------
 
-Below is an image of the top countries for U.S. export and imports in 2016. The table to the right of the below graphs provides
+How did 2016 look for the United States? Below is a figure of the top countries for U.S. export and imports in 2016. The table to the right of the below graphs provides
 monetary values for exports, imports, and the trade balance (export minus import) between the U.S. and each respective country, continent, or organization. The table is sorted by
 trade balance, with the highest negative trade balances showing at the top. You may sort the table as you wish by accessing the Chart Lab portal (button below) and clicking 
 on the column headers.
  
-In 2016, the locations with which the United States had the highest negative and positive trade balances with was China and Hong Kong at **- $319 billion** and **$25.1 billion**, 
+In 2016, the locations with which the United States had the highest negative and positive trade balances were China and Hong Kong at **- $319 billion** and **$25.1 billion**, 
 respectively.   
 
 ![Figure 2](Images/Figure2.png)
@@ -183,7 +183,7 @@ GROUP BY e.period(1 year), e.tags
 | Sub Saharan Africa         | 0019  | 12.4    | 18.2    | -5.8          | 
 ```
 
-In addition to tables output from SQL queries, we can display these relationships in Chart Lab graphs. Below is an image for U.S. trade export and import numbers with South and
+In addition to tables output from SQL queries, we can display these continental relationships in Chart Lab graphs. Below is an image for U.S. trade export and import numbers with South and
 Central America, Asia, Africa, Europe, and North America for 2016. Lines are drawn going from (exports) and coming back to (imports) the U.S. The heavier the lines
 are between the U.S. and the respective continent, the greater the dollar amount in trade. We can see that 2016 exports from the U.S. to North America totalled
 **$457 billion**, while imports from North America into the US totalled **$525 billion**, resulting in a trade balance of **-$68 billion**. Additionally, we can see that the 
@@ -244,13 +244,15 @@ Let's now take a closer look at America's trading partners. Are there any shared
 
 A claim often made is that poor, developing countries are stealing American jobs and industry. If a country is poaching another country's jobs and industry, it is reasonable to
 to assume that the afflicted country's trade balance would change as a result. For example, the more steel manufacturing jobs that leave the U.S. for Asia, the more steel the
-U.S. will need to import from Asia. Here is a query showing the year with the highest trade balance (least negative or most positive, in millions USD) going back to 1985
-for countries in the bottom 50% by GDP per capita (true/absolute value shown below). In this instance, `2016_GDP_per_capita` was calculated from the following two replacement tables: 
-[`world-population.txt`](/resources/world-population.txt) and [`world-gdp.txt`](/resources/world-gdp.txt). Results are sorted by the country's `2016_trade_balance_rank`. The
-more negative a country's trade balance, the higher it's ranking. You can refer to the [`us-trade-balance-rank-2016.txt`](/resources/us-trade-balance-rank-2016.txt) file to see these rankings.
+U.S. will need to import from Asia. In this instance, `2016_GDP_per_capita` was calculated from the following two replacement tables: 
+[`world-population.txt`](/atsd-use-cases/blob/master/USInternationalTrade/resources/world-population.txt) and [`world-gdp.txt`](/atsd-use-cases/blob/master/USInternationalTrade/resources/world-gdp.txt). Results are sorted by the country's `2016_trade_balance_rank`. The
+more negative a country's trade balance, the higher it's ranking. You can refer to the [`us-trade-balance-rank-2016.txt`](/atsd-use-cases/blob/master/USInternationalTrade/resources/us-trade-balance-rank-2016.txt) file to see these rankings.
 In order to seperate rich and poor countries, we calculated an average world GDP. We divided the world population ([7,432,663,275](https://en.wikipedia.org/wiki/List_of_countries_by_population_(United_Nations))) 
-by the world's GDP ([75,212,696](https://en.wikipedia.org/wiki/List_of_countries_by_GDP_(nominal))) to get a world GDP of $10,273. Any
+by the world's GDP ([$75,212,696 billion](https://en.wikipedia.org/wiki/List_of_countries_by_GDP_(nominal))) to get a world GDP of $10,273. Any
 countries having a GDP less than this were considered poor countries, while countries with a greater GDP were considered rich.
+
+Here is a query showing the year with the highest trade balance (least negative or most positive, in millions USD) going back to 1985
+for countries in the bottom 50% by GDP per capita (true/absolute value shown below):
 
 ```sql
 SELECT e.tags.ctyname AS country, 
@@ -318,7 +320,8 @@ Looking at our results, a couple of things stand out:
 * The U.S. had negative trade balances (more imports than exports) in 2016 with all of these countries.
 * All of these countries have a GDP per capita of greater than $22,190.9 (Taiwan).
 
-Looking at these two outputs together, we can see that the U.S. has bad trade balances with both poor and rich countries. While there may not be a direct correlation between a 
+Looking at these two outputs together, we can see that the U.S. has bad trade balances with both poor and rich countries. For both poor and rich countries, we need to go back to the
+early 1900's (as we found in the first query of this article) for when the U.S. had it's best trade balance. While there may not be a direct correlation between a 
 a country losing jobs and having to increase it's imports, both rich and poor countries could be equally accused of taking U.S. jobs. In the top ten for trade balance rank, there 
 are both five poor (China, Mexico, Vietnam, India, and Malaysia) and rich (Japan, Germany, Ireland, South Korea, and Italy) countries included in this list. 
 
@@ -336,6 +339,9 @@ are both five poor (China, Mexico, Vietnam, India, and Malaysia) and rich (Japan
 | Canada        | 1991  | 85149.8  | 91063.9  | -5914.1        | -9136.9             | 42229.1              | 16.0                    | 
 | Israel        | 1987  | 3130.2   | 2639.3   | 490.9          | -8352.5             | 38051.9              | 17.0                    | 
 ```
+
+While improving a country's international trade balance may not solve all of it's economic problems, it can be a good place to start looking for answers. Do you agree with the findings
+in this article? Download ATSD, explore this dataset, and make up your own mind. 
 
 ### Action Items
 ----------------
