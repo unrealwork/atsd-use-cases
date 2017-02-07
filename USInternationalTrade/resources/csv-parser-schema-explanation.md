@@ -1,6 +1,6 @@
-## Description of schema based parser
-The CSV file represents table  structure, for example, our script uses for parsing 
-the following file:
+## Description of Schema Based Parser
+
+The below CSV file snippet shows the table structure which our script will use for parsing:
 
 ```csv
 year,CTY_CODE,CTYNAME,IJAN,...,IDEC,IYR,EJAN,...,EDEC,EYR
@@ -9,7 +9,7 @@ year,CTY_CODE,CTYNAME,IJAN,...,IDEC,IYR,EJAN,...,EDEC,EYR
 1987,0001,OPEC,1344,...,1883,23952,739,...,1146,11057
 ```
 
-that represents the table structure, first line uses for headers:
+Below is the table structure that is represented. The first line is used for column headers:
 
 | year | CTY_CODE | CTYNAME | IJAN | ... | IDEC | IYR   | EJAN | ... | EDEC | EYR   | 
 |------|----------|---------|------|-----|------|-------|------|-----|------|-------| 
@@ -17,7 +17,7 @@ that represents the table structure, first line uses for headers:
 | 1986 | 0001     | OPEC    | 2631 | ... | 1327 | 19751 | 947  | ... | 813  | 10844 | 
 | 2016 | 0001     | OPEC    | 1344 | ... | 1883 | 23952 | 739  | ... | 1146 | 11057 | 
 
-There is our CSV parser schema:
+Here is our CSV parser schema:
  
 ```javascript
 select('#row=2-*')
@@ -32,16 +32,16 @@ select('#row=2-*')
     .timestamp(cell(row,1)+'-'+cell(1,col).substring(1));
 ```
 
-#### Select rows
+#### Select Rows
 
 ```javascript
 select('#row=2-*')
 ```
 
-The following method select elements from the table for following handling that described in passed in expression.
-In our case `'#row=2-*'`  means that we want to select all rows since the row with index 2 ( the first row has index 1).
+This method selects elements from the table for following the above expression.
+In this case, `'#row=2-*'`  means that we want to select all rows starting with row Index 2 (which will ignore the first row).
 
-After execution we will work with following table's cells:
+After execution, we will work with the following table's cells:
 
 |  Index | 1   | 2    | 3    | 4    |5-14 | 15   | 16    | 17   |18-27|   28|  29   | 
 |------|------|------|------|------|-----|------|-------|------|-----|------|-------| 
@@ -49,12 +49,13 @@ After execution we will work with following table's cells:
 | **3** | 1986 | 0001 | OPEC | 2631 | ... | 1327 | 19751 | 947  | ... | 813  | 10844 | 
 | **4** | 1987 | 0001 | OPEC | 1344 | ... | 1883 | 23952 | 739  | ... | 1146 | 11057 |
  
-#### Select columns  
+#### Select Columns  
  
  ```javascript
  select('#col=4-28')
  ```
-This expression `'#col=4-28''` means that we want select all columns with indexes from 4 to 28. After selection we will work with the following cells:
+ 
+This expression `'#col=4-28''` means that we want select all columns with indexes from 4 to 28. After selection, we will work with the following cells:
 
 |  Index | 4    |5-14 | 15   | 16    | 17   |18-27|   28 |
 |-------|-------|-----|------|-------|------|-----|------|
@@ -62,33 +63,32 @@ This expression `'#col=4-28''` means that we want select all columns with indexe
 | **3** |  2631 | ... | 1327 | 19751 | 947  | ... | 813  |  
 | **4** |  1344 | ... | 1883 | 23952 | 739  | ... | 1146 |
  
-#### Filter our cells
+#### Filter Cells
 
-We don't want to select columns that contain in a column that describes summary values for the year. The columns end with `YR` suffix.
+We don't want to select columns that are contained in a column which describes summary values for the year. The columns end with the `YR` suffix.
 
 ```javascript
  filter(!cell(1,col).endsWith('YR'))
 ```
 
-For filtering cells, we use `filter` command that takes boolean condition as param.
-The method goes through every cell and checks it for the condition.
-Let us consider our condition. 
+For filtering cells, we can use the `filter` command that takes a boolean condition as a parameter. The method goes through every cell and checks it for this condition.
 
-##### Current indexes: `row` and `col`
-When we are iterating through cell we can retrieve values of column's and row's indexes by `row` and  `col` variables accordingly.
+Let us consider our instance. 
 
-##### Method `cell` 
-Cell method return value of the cell with listed indexes of row and column.
+##### Current Indexes: `row` and `col`
+When we are iterating through cells, we can retrieve index values for columns and rows by using the `row` and `col` variables accordingly.
 
-For example, for the first iteration, we will retrieve a value of the cell that contains the first row in the fourth column. And it has value `IJAN`.
+##### `cell` Method 
+The `cell` method returns the value of the cell with listed row and column indexes.
 
-##### Standard Javascript methods 
-The cell method return value as a string, and we can use standard javascript call methods and properties from [String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) class.
-We will use method [endsWith](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) to determine whether a string ends with `YR` string.
+For example, for the first iteration, we will retrieve the value of the cell that is contained in the first row and the fourth column. It will have the value `IJAN`.
 
-##### Filtering cells
-We discard column with header `IYR` from our cells and
- we will work with following cells:
+##### Standard Javascript Methods 
+The cell method returns a value as a string, and we can use standard javascript call methods and properties from the [String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) class.
+We will use the [endsWith](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) method to determine whether a string ends with the `YR` string or not.
+
+##### Filtering Cells
+We discard the column with the header `IYR` from our cells and we will work with following cells:
 
 |  Index | 1   | 2    | 3    | 4    |5-14 | 15  | 17   |18-27|   28  | 
 |------|------|------|------|------|-----|------|------|-----|-------|
@@ -97,71 +97,72 @@ We discard column with header `IYR` from our cells and
 | **4** | 1987 | 0001 | OPEC | 1344 | ... | 1883 | 739  | ... | 1146 |
 
 
-#### Filter last missing data
+#### Filter Last Missing Data
 
-We want to discard data for December of 2016 and we will use the following filter for it
+We want to discard data for December 2016. We will use the following filter to do so:
 
 ```javascript
 filter(cell(row,1) != 2016 || cell(1,col).substring(1) != 'DEC')
 ```
 
-For example for first iteration we will check following condition:
+For example, in the first iteration we will check when the following condition equates to true: 
 
 ```javascript
 filter((1985 != 2016) || ('JAN' != 'DEC'))
 ```
-that equals true
 
 #### Add Series 
 
-We will use `addSeries()` method to add series for each cells.
+We will use the `addSeries()` method to add series for each of the cells.
 
 ```javascript
 addSeries()
 ```
 
-After filtering our cells, we will iterate through cells and use cell value as `series` value. But we need to specify necessary series fields.
+After filtering our cells, we will iterate through the cells and use the cell value as our `series` value. But first, we need to specify the necessary series fields.
 
-##### Series fields
+##### Series Fields
 ###### 1.  Entity
     
-   We should specify entity with `entity` method that takes entity name as string param. 
+   We should specify the entity with the `entity` method that takes the entity name as the string parameter. 
    
    ```javascript
     entity('usa')
    ```
     
 ###### 2.  Metric
-   To specify metrc we can use `metric` command.
+   To specify the metric, we can use the `metric` command.
     
    ```javascript
     metric('us-trade-' + (cell(1,col).startsWith('E')?'export':'import') )
    ```
    
-   Then we decide what metric we will use for the series
-    Our metric depends on the first letter in column header if header starts with 'E' we will use 'us-trade-export' else the name of metric will be 'us-trade-import'
+   Next, we decide which metric we will use for the series. Our metric depends on the first letter in the column header. If the header starts with 'E', we will use 'us-trade-export'.
+   Otherwise, the name of metric will be 'us-trade-import'.
 
 ###### 3. Tags
-   We can specify tags by `tag` method that takes `key` and `value` of a tag as param.
+   We can specify tags by using the `tag` method which takes `key` and `value` of a tag as the parameter.
    
    ```javascript
         tag('ctyname', cell(row, 3))
         .tag('cty_code', cell(row,2))
    ```
    
-   By the following methods we specify tags  `ctyname` and `cty_code` tags.
+   Using this method, we specified our tags as `ctyname` and `cty_code`, respectively.
         
 ###### 4. Timestamp
-   We should represent appropriate string that describes time of series' sample,
-   and then will be parsed by some timestamp pattern. We can do it by the `timestamp` method:
+   We should choose the appropriate string that describes the time of our series sample,
+   which then will be parsed by a timestamp pattern. We accomplish this by using the `timestamp` method:
+   
    ```javascript
    timestamp(cell(row,1)+'-'+cell(1,col).substring(1))
    ```
+   
 ###### Result   
    
-   In our case, we pass a  string that is a result of concatenating value of the first column in the row and a substring of current column's header.
+   In our case, we can pass a string that is the result of concatenated values of the first column in the row and a substring of the current column's header.
     
-For example for first iteration we get series with following fields:
+   For example, for our first iteration we get a series with the following fields:
  
  
 | Date                 | Metric          | Entity | Tags                             | Value | 
