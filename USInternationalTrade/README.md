@@ -347,12 +347,13 @@ Below are the summarized steps to follow to install local configurations of ATSD
 1. Install [Docker](https://docs.docker.com/engine/installation/linux/ubuntulinux/).
 2. [Install the ATSD database](https://github.com/axibase/atsd-docs/blob/master/installation/docker.md#option-2-configure-collector-account-manually) on in your local Docker configuration. 
 3. Save the [Excel file](https://www.census.gov/foreign-trade/balance/country.xlsx) in CSV format.
-4. Import and upload `us-trade-ie-csv-parser.xml` file into ATSD.
-5. Import the Excel file saved in `.csv` format into ATSD.
-6. Import the `us-trade-balance-2016`, `us-trade-balance-rank-2016`, `world-gdp`, and `world-population` replacement tables into ATSD.
-7. Navigate to the SQL tab in ATSD and begin writing your queries!
+4. Login to ATSD by navigating to `https://docker_host:8443/`. 
+5. Import the `us-trade-ie-csv-parser.xml` file into ATSD. For a more detailed description, refer to step 9 from the following [step-by-step walkthrough](https://github.com/axibase/atsd-use-cases/blob/master/USMortality/configuration.md) from our article on [U.S. mortality statistics](https://github.com/axibase/atsd-use-cases/blob/master/USMortality/README.md). 
+6. Upload the Excel file saved in `.csv` format into ATSD. Refer to step 10 from this same walkthrough. 
+7. Import the `us-trade-balance-2016`, `us-trade-balance-rank-2016`, `world-gdp`, and `world-population` replacement tables into ATSD. Refer to steps 7 and 8 from this same walkthrough. 
+8. Navigate to the SQL tab in ATSD and begin writing your queries!
 
-Check out our file on the describing our schema based parser used for this dataset [here](https://github.com/axibase/atsd-use-cases/blob/master/USInternationalTrade/resources/csv-parser-schema-explanation.md).
+Check out our file on the describing our schema-based parser used for this dataset [here](https://github.com/axibase/atsd-use-cases/blob/master/USInternationalTrade/resources/csv-parser-schema-explanation.md).
 
 If you require assistance in installing this software or have any questions, please feel free to [contact us](https://axibase.com/feedback/) and we would be happy to be of assistance!
 
@@ -360,6 +361,8 @@ If you require assistance in installing this software or have any questions, ple
 -----------
 
 Title Photo: https://www.reference.com/business-finance/denominations-u-s-currency-918a309bd714c43c
+
+World Population and World GDP Values: https://www.wikipedia.org/
 
 ### Additional SQL Queries
 --------------------------
