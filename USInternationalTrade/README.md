@@ -39,7 +39,7 @@ Let's begin by analyzing when the U.S. had its best international trade balance 
 Below is an image showing import, export, and trade balance values from 1987 to 2016 between the U.S. and the sum of all countries included in this dataset. 
 The top image shows exports (in blue) over imports (in pink). In 2016, imports into the United States totalled **$2 trillion**, while exports were **$1.3 trillion**. The lower figure shows trade balance, which is the dollar amount for exports minus imports. The trade balance grew from **-$152 billion** in 1987 to **-$677 billion** in 2016.
 
-![Figure 4](Images/Figure4.png)
+![Figure 1](Images/Figure1.png)
 
 You can explore this portal by clicking on the below button: 
 
@@ -75,7 +75,7 @@ Let's now look at trade balance between the U.S. and individual countries.
 Below is an image showing import, export, and trade balance values between the U.S. and it's largest trading partner, China. In 2016, exports and imports to/from China totalled **$104 billion** and **$423 billion**, respectively. 
 As marked in the figure below, we can see that the trade balance between the U.S. and China grew from **-$6 million** in 1985 to **-$319 billion** in 2016.  
 
-![Figure 1](Images/Figure1.png)
+![Figure 4](Images/Figure4.png)
 
 By clicking on the below button, you can explore the trade by any country included in this dataset. Simply click on the drop down tabs to scroll between different countries,
 as well as between continents or organizations. **Note**: there are separate filters for the top and bottom graphs. You need to select your desired location from the
