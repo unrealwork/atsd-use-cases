@@ -12,10 +12,10 @@ publicly available data from census.gov can be easily loaded into the non-relati
 for interactive analysis with SQL and graphical representation of open data published by government and multilateral organizations. This article provides both sample SQL queries and charts, 
 as well as instructions on how to install your own ATSD instance and populate it with the underlying data.
 
-### America's Trade Balance Dataset
------------------------------------
+### America's International Trade Dataset
+-----------------------------------------
 
-Let's take a look at a dataset on America's trade balance from [census.gov](https://www.census.gov/foreign-trade/balance/index.html).  The data is available as an Excel file at the following [link](https://www.census.gov/foreign-trade/balance/country.xlsx).
+Let's take a look at a dataset on America's international trade from [census.gov](https://www.census.gov/foreign-trade/balance/index.html).  The dataset is available as an Excel file at the following [link](https://www.census.gov/foreign-trade/balance/country.xlsx).
 
 This dataset contains import and export statistics collected monthly from 1985 to the present time for the United States and 259 locations. These locations include countries,
 world regions (such as Europe and Asia), trade unions (such as the European Union or NAFTA), as well as various other organizations (such as [OPEC](https://en.wikipedia.org/wiki/OPEC)). 
@@ -37,7 +37,7 @@ ATSD handles this by implementing a [schema-based](https://github.com/axibase/at
 Let's begin by analyzing when the U.S. had its best international trade balance in recent history.
 
 Below is an image showing import, export, and trade balance values from 1987 to 2016 between the U.S. and the sum of all countries included in this dataset. 
-The top image shows exports (in blue) over imports (in pink). In 2016, imports into the United States totalled **$2 trillion**, while exports were **$1.3 trillion**. The lower figure shows trade balance, which is the dollar amount for exports minus imports. The trade balance grew from **-$152 billion** in 1987 to **-$677 billion** in 2016.
+The top image shows exports (in blue) over imports (in pink). In 2016, imports into the United States totalled **$2 trillion**, while exports were **$1.3 trillion**. The lower figure shows trade balance, which is the dollar amount for exports minus imports. The trade balance deficit grew from **-$152 billion** in 1987 to **-$677 billion** in 2016.
 
 ![Figure 1](Images/Figure1.png)
 
@@ -72,8 +72,8 @@ GROUP BY e.period(1 year), e.tags
 
 Let's now look at trade balance between the U.S. and individual countries.  
 
-Below is an image showing import, export, and trade balance values between the U.S. and it's largest trading partner, China. In 2016, exports and imports to/from China totalled **$104 billion** and **$423 billion**, respectively. 
-As marked in the figure below, we can see that the trade balance between the U.S. and China grew from **-$6 million** in 1985 to **-$319 billion** in 2016.  
+Below is an image showing import, export, and trade balance values between the U.S. and its largest trading partner, China. In 2016, exports and imports to/from China totalled **$104 billion** and **$423 billion**, respectively. 
+As marked in the figure below, we can see that the trade balance deficit between the U.S. and China grew from **-$6 million** in 1985 to **-$319 billion** in 2016.  
 
 ![Figure 4](Images/Figure4.png)
 
@@ -136,7 +136,7 @@ monetary values for exports, imports, and the trade balance (export minus import
 trade balance, with the highest negative trade balances showing at the top. You may sort the table as you wish by accessing the Chart Lab portal (button below) and clicking 
 on the column headers.
  
-In 2016, the locations with which the United States had the highest negative and positive trade balances were China and Hong Kong at **- $319 billion** and **$25.1 billion**, 
+In 2016, the locations with which the United States had the highest negative and positive trade balances were China and Hong Kong at **-$319 billion** and **$25.1 billion**, 
 respectively.   
 
 ![Figure 2](Images/Figure2.png)
@@ -180,7 +180,7 @@ GROUP BY e.period(1 year), e.tags
 In addition to tables output from SQL queries, we can display these continental relationships in Chart Lab graphs. Below is an image for U.S. trade export and import numbers with South and
 Central America, Asia, Africa, Europe, and North America for 2016. Lines are drawn going from (exports) and coming back to (imports) the U.S. The heavier the lines
 are between the U.S. and the respective continent, the greater the dollar amount in trade. We can see that 2016 exports from the U.S. to North America totalled
-**$457 billion**, while imports from North America into the US totalled **$525 billion**, resulting in a trade balance of **-$68 billion**. Additionally, we can see that the 
+**$457 billion**, while imports from North America into the US totalled **$525 billion**, resulting in a trade balance deficit of **-$68 billion**. Additionally, we can see that the 
 heaviest lines were between the U.S. and Asia, indicating that these two have the highest trade volume between them. 
 
 ![Figure 3](Images/Figure3.png)
@@ -241,7 +241,7 @@ A claim often made is that poor, developing countries are stealing American jobs
 to assume that the afflicted country's trade balance would change as a result. For example, the more steel manufacturing jobs that leave the U.S. for Asia, the more steel the
 U.S. will need to import from Asia. In this instance, `2016_GDP_per_capita` was calculated from the following two replacement tables: 
 [`world-population.txt`](https://github.com/axibase/atsd-use-cases/blob/master/USInternationalTrade/resources/world-population.txt) and [`world-gdp.txt`](https://github.com/axibase/atsd-use-cases/blob/master/USInternationalTrade/resources/world-gdp.txt). Results are sorted by the country's `2016_trade_balance_rank`. The
-more negative a country's trade balance, the higher it's ranking. You can refer to the [`us-trade-balance-rank-2016.txt`](https://github.com/axibase/atsd-use-cases/blob/master/USInternationalTrade/resources/us-trade-balance-rank-2016.txt) file to see these rankings.
+more negative a country's trade balance, the higher its ranking. You can refer to the [`us-trade-balance-rank-2016.txt`](https://github.com/axibase/atsd-use-cases/blob/master/USInternationalTrade/resources/us-trade-balance-rank-2016.txt) file to see these rankings.
 In order to seperate rich and poor countries, we calculated an average world GDP. We divided the world population ([7,432,663,275](https://en.wikipedia.org/wiki/List_of_countries_by_population_(United_Nations))) 
 by the world's GDP ([$75,212,696 billion](https://en.wikipedia.org/wiki/List_of_countries_by_GDP_(nominal))) to get a world GDP of $10,273. Any
 countries having a GDP less than this were considered poor countries, while countries with a greater GDP were considered rich.
@@ -317,8 +317,8 @@ Looking at our results, a couple of things stand out:
 * All of these countries have a GDP per capita of greater than $22,190.9 (Taiwan).
 
 Looking at these two outputs together, we can see that the U.S. has bad trade balances with both poor and rich countries. For both poor and rich countries, we need to go back to the
-early 1900's (as we found in the first query of this article) for when the U.S. had it's best trade balance. While there may not be a direct correlation between a 
-a country losing jobs and having to increase it's imports, both rich and poor countries could be equally accused of taking U.S. jobs. In the top ten for trade balance rank, there 
+early 1900's (as we found in the first query of this article) for when the U.S. had its best trade balance. While there may not be a direct correlation between a 
+a country losing jobs and having to increase its imports, both rich and poor countries could be equally accused of taking U.S. jobs. In the top ten for trade balance rank, there 
 are both five poor (China, Mexico, Vietnam, India, and Malaysia) and rich (Japan, Germany, Ireland, South Korea, and Italy) countries included in this list. 
 
 ```ls
@@ -336,7 +336,7 @@ are both five poor (China, Mexico, Vietnam, India, and Malaysia) and rich (Japan
 | Israel        | 1987  | 3130.2   | 2639.3   | 490.9          | -8352.5             | 38051.9              | 17.0                    | 
 ```
 
-While improving a country's international trade balance may not solve all of it's economic problems, it can be a good place to start looking for answers. Do you agree with the findings
+While improving a country's international trade balance may not solve all of its economic problems, it can be a good place to start looking for answers. Do you agree with the findings
 in this article? Download ATSD, explore this dataset, and make up your own mind. 
 
 ### Action Items
@@ -396,7 +396,7 @@ GROUP BY period(1 year), tags
 ...
 ```
 
-Year with the highest trade balance (in millions USD) for each country, with 2016 population estimate (absolute value) listed as well. 
+Year with the highest/best trade balance (in millions USD) for each country, with 2016 population estimate (absolute value) listed as well. 
 
 ```sql
 SELECT date_format(e.time, 'yyyy') AS 'year', e.tags.ctyname AS country, e.tags.cty_code AS code,
@@ -433,23 +433,23 @@ GROUP BY e.period(1 year), e.tags
 **Note**: The following countries/codes are excluded since they either no longer exist or their codes have been modified.
       
 ```ls
-|Code  |   Country     | Removal/Modification Date|
-|------|---------------|--------------------------|
-| 7740 |   Ethiopia    |   2003-12-01| 
-| 4350 |   Czechoslovakia| 2003-12-01 |
-| 8500 |   International Organizations| 2003-12-01| 
-| 5080 |   Israel|  2003-12-01 |
-| 5160 |   Iraq-Saudi Arabia Neutral Zone|  2003-12-01|
-| 4790 |   Yugoslavia (former) | 2003-12-01|
-| 4610 |   USSR |    2003-12-01|
-| 4799 |   Serbia and Montenegro| 2006-12-01|
-| 4802 |   Serbia|  2008-12-01|
-| 7320 |   Sudan |  2011-12-01|
-| 2771 |   Netherlands Antilles|    2011-12-01|
-| 8220 |   Unidentified Countries|  2014-12-01 |
+|Code  |   Country                        | Modification Date |
+|------|----------------------------------|-------------------|
+| 7740 |   Ethiopia                       | 2003-12-01        | 
+| 4350 |   Czechoslovakia                 | 2003-12-01        |
+| 8500 |   International Organizations    | 2003-12-01        | 
+| 5080 |   Israel                         | 2003-12-01        |
+| 5160 |   Iraq-Saudi Arabia Neutral Zone | 2003-12-01        |
+| 4790 |   Yugoslavia (former)            | 2003-12-01        |
+| 4610 |   USSR                           | 2003-12-01        |
+| 4799 |   Serbia and Montenegro          | 2006-12-01        |
+| 4802 |   Serbia                         | 2008-12-01        |
+| 7320 |   Sudan                          | 2011-12-01        |
+| 2771 |   Netherlands Antilles           | 2011-12-01        |
+| 8220 |   Unidentified Countries         | 2014-12-01        |
 ```
 
-Year with the highest trade balance for the 20 largest countries by 2016 population estimate (in millions).
+Year with the highest/best trade balance for the 20 largest countries by 2016 population estimate (in millions).
 
 ```sql
 SELECT date_format(e.time, 'yyyy') AS 'year', e.tags.ctyname AS country, e.tags.cty_code AS code,
@@ -478,6 +478,7 @@ GROUP BY e.period(1 year), e.tags
 | 2014  | Nigeria     | 7530  | 5965.9   | 3839.5   | 2126.4         | 187.0      | 
 | 1985  | Bangladesh  | 5380  | 218.9    | 196.0    | 22.9           | 162.9      | 
 | 1992  | Russia      | 4621  | 2112.5   | 481.4    | 1631.1         | 143.4      | 
+...
 ```
 
 Top 20 countries by largest trade deficit (in millions USD).
@@ -509,9 +510,10 @@ GROUP BY e.period(1 year), e.tags
 | 2016  | Korea, South  | 5800  | 37997.1   | 64465.1   | -26468.0      | 
 | 2016  | Italy         | 4759  | 15243.7   | 41147.7   | -25904.0      | 
 | 2016  | India         | 5330  | 19592.9   | 42552.0   | -22959.1      | 
+...
 ```
 
-Year with the highest trade balance (in millions USD) by region.
+Year with the highest/best trade balance (in millions USD) by region.
 
 ```sql
 SELECT e.tags.ctyname AS country, 
