@@ -1,0 +1,26 @@
+version: '2'
+
+services:
+
+  atsd:
+    image: axibase/atsd:latest
+    ports:
+      - "8088:8088"
+      - "8443:8443"
+      - "8081:8081"
+      - "8082:8082/udp"
+    container_name: atsd
+    hostname: atsd
+    environment:
+      - COLLECTOR_USER_NAME=${C_USER}
+      - COLLECTOR_USER_PASSWORD=${C_PASSWORD}
+      - COLLECTOR_USER_TYPE=api-rw
+  collector1:
+    image: axibase/collector:latest
+    depends_on:
+      - atsd
+    ports:
+      - "9443:9443"
+    container_name: axibase-collector
+    environment:
+      - COLLECTOR_ARGS=-atsd-url=https://${C_USER}:${C_PASSWORD}@atsd:8443 -socrata-path=${S_PATH} -job-execute=socrata-auto
