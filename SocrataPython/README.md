@@ -1,42 +1,77 @@
-# Querying data.gov Datasets with Python and SQL
+# Querying Data.gov Dataset with Python and SQL
 
 ## Overview
 
-By the end of this tutorial you will be able identify the top-10 contractors in the [New York State Solar Photovoltaic Incentive Program](https://www.nyserda.ny.gov/All-Programs/Programs/NY-Sun/Customers), by loading a [data.gov](https://catalog.data.gov/dataset/solar-photovoltaic-pv-incentive-program-completed-projects-by-city-and-contractor-beginnin) dataset into a python DataFrame.
+This **10 minute** tutorial demonstrates how to load a [data.gov](https://catalog.data.gov/dataset/solar-photovoltaic-pv-incentive-program-completed-projects-by-city-and-contractor-beginnin) dataset into a python DataFrame in a few simple steps.
 
-The process should take less than **5 minutes**.
+For this particular exercise, we'll import the data on the [New York State Solar Photovoltaic Incentive Program](https://www.nyserda.ny.gov/All-Programs/Programs/NY-Sun/Customers) into Axibase Time Series Database and will query it with SQL to identify the top 10 contractors by total project cost and installed capacity.
 
 ## Prerequisites
 
 * [Docker](https://docs.docker.com/engine/installation/)
 
-## Table of Contents
+## Steps
 
-Download the [`docker-compose.yml`](docker-compose.yml) file:
+### Download the [`docker-compose.yml`](docker-compose.yml) file.
 
-```bash
+```sh
 curl -o docker-compose.yml https://raw.githubusercontent.com/axibase/atsd-use-cases/master/SocrataPython/docker-compose.yml
 ```
 
-Launch containers:
+The `compose` file configures Axibase Time Series Database (ATSD) and Axibase Collector services along with the required dependencies. The Collector's role is to automatically download and parse a specific data.gov [JSON file](https://data.ny.gov/api/views/3pzs-2zsk) while ATSD serves as the SQL-enabled datastore.
 
-```bash
+### Launch containers.
+
+```sh
 export C_USER=myuser; export C_PASSWORD=mypassword; export S_PATH=https://data.ny.gov/api/views/3pzs-2zsk; docker-compose pull && docker-compose up -d
 ```
 
-Install [`atsd_client`](https://github.com/axibase/atsd-api-python) and `tabulate` modules:
+```sh
+Pulling atsd (axibase/atsd:latest)...
+latest: Pulling from axibase/atsd
+...
+Creating atsd
+Creating axibase-collector
+```
 
-```bash
+Once images have been downloaded, it may take several minutes to initialize the services. You can monitor the progress by watching the container logs.
+
+```sh
+docker logs -f atsd
+```
+
+An 'ATSD start completed' message means that the setup completed successfully.
+
+```
+...
+ * [ATSD] Starting ATSD ...
+ * [ATSD] ATSD not running.
+ * [ATSD] ATSD java version "1.7.0_111"
+ * [ATSD] Waiting for ATSD to start. Checking ATSD web-interface port 8088 ...
+ * [ATSD] Waiting for ATSD to bind to port 8088 ...( 1 of 20 )
+...
+ * [ATSD] Waiting for ATSD to bind to port 8088 ...( 11 of 20 )
+ * [ATSD] ATSD web interface:
+...
+ * [ATSD] http://172.17.0.2:8088
+ * [ATSD] https://172.17.0.2:8443
+ * [ATSD] ATSD start completed.  
+ ```
+
+### Install `atsd_client` and `tabulate` python modules.
+
+```sh
 pip install atsd_client tabulate
 ```
 
-Open python shell:
+The [ATSD Python client](https://github.com/axibase/atsd-api-python) implements a set of methods to load series, properties, and message records from the database, as well as acts as an SQL client.
 
-```bash
+### Open python shell and execute the query.
+
+```sh
 python
 ```
-
-Execute the query:
+Replace `localhost` with the actual Docker hostname, if necessary.
 
 ```python
 import atsd_client
@@ -61,7 +96,7 @@ from tabulate import tabulate
 print(tabulate(df, headers='keys', tablefmt='psql'))
 ```
 
-Examine the results:
+### Examine the results.
 
 ```ls
 +----+---------------------------------------------+-----------------+-------------------------------+------------------+----------------+
@@ -79,3 +114,9 @@ Examine the results:
 |  9 | Best Energy Power (CS)                      |              14 |                          3290 |             12.9 |           3.91 |
 +----+---------------------------------------------+-----------------+-------------------------------+------------------+----------------+
 ```
+
+### Conclusion
+
+The tutorial provides an example on how to load one particular data.gov dataset into ATSD while minimizing time spent on designing table schemas and implementing parsers.
+
+In a more advanced (consolidation) scenario, the Collector can be scheduled to store and even incrementally update a wide range of datasets from data.gov into the same ATSD instance. This can be accomplished by creating additional [Socrata](https://github.com/axibase/axibase-collector-docs/blob/master/jobs/socrata.md) jobs in the Collector web interface accessible at https://localhost:9443.
