@@ -2,7 +2,7 @@
 
 ## Overview
 
-In less than 5 minutes you will be able identify the top-10 contractors in the [New York State Solar Photovoltaic Incentive Program](https://www.nyserda.ny.gov/All-Programs/Programs/NY-Sun/Customers), by loading a [data.gov](https://catalog.data.gov/dataset/solar-photovoltaic-pv-incentive-program-completed-projects-by-city-and-contractor-beginnin) dataset into a python DataFrame.
+By the end of this tutorial you will be able identify the top-10 contractors in the [New York State Solar Photovoltaic Incentive Program](https://www.nyserda.ny.gov/All-Programs/Programs/NY-Sun/Customers), by loading a [data.gov](https://catalog.data.gov/dataset/solar-photovoltaic-pv-incentive-program-completed-projects-by-city-and-contractor-beginnin) dataset into a python DataFrame.
 
 The process should take less than **5 minutes**.
 
@@ -15,7 +15,7 @@ The process should take less than **5 minutes**.
 Download the [`docker-compose.yml`](docker-compose.yml) file:
 
 ```bash
-  curl -o docker-compose.yml https://raw.githubusercontent.com/axibase/atsd-use-cases/master/SocrataPython/docker-compose.yml
+curl -o docker-compose.yml https://raw.githubusercontent.com/axibase/atsd-use-cases/master/SocrataPython/docker-compose.yml
 ```
 
 Launch containers:
@@ -27,13 +27,13 @@ export C_USER=myuser; export C_PASSWORD=mypassword; export S_PATH=https://data.n
 Install [`atsd_client`](https://github.com/axibase/atsd-api-python) and `tabulate` modules:
 
 ```bash
-  pip install atsd_client tabulate
+pip install atsd_client tabulate
 ```
 
 Open python shell:
 
 ```bash
-  python
+python
 ```
 
 Execute the query:
@@ -59,6 +59,11 @@ df = sql.query(q)
 
 from tabulate import tabulate
 print(tabulate(df, headers='keys', tablefmt='psql'))
+```
+
+Examine the results:
+
+```ls
 +----+---------------------------------------------+-----------------+-------------------------------+------------------+----------------+
 |    | contractor                                  |   project_count |   total_gwh_annual_production |   total_cost_mln |   cost_per_kwh |
 |----+---------------------------------------------+-----------------+-------------------------------+------------------+----------------|
