@@ -12,15 +12,15 @@ For this particular exercise, we'll import the data on the [New York State Solar
 
 ## Steps
 
-### Download the [`docker-compose.yml`](docker-compose.yml) file.
+### Download the `docker-compose.yml` file
 
 ```sh
 curl -o docker-compose.yml https://raw.githubusercontent.com/axibase/atsd-use-cases/master/SocrataPython/docker-compose.yml
 ```
 
-The `compose` file configures Axibase Time Series Database (ATSD) and Axibase Collector services along with the required dependencies. The Collector's role is to automatically download and parse a specific data.gov [JSON file](https://data.ny.gov/api/views/3pzs-2zsk) while ATSD serves as the SQL-enabled datastore.
+The [`docker-compose.yml`](docker-compose.yml) file configures Axibase Time Series Database (ATSD) and Axibase Collector services along with the required dependencies. The Collector's role is to automatically download and parse a specific data.gov [JSON file](https://data.ny.gov/api/views/3pzs-2zsk) while ATSD serves as the SQL-enabled datastore.
 
-### Launch containers.
+### Launch containers
 
 ```sh
 export C_USER=myuser; export C_PASSWORD=mypassword; export S_PATH=https://data.ny.gov/api/views/3pzs-2zsk; docker-compose pull && docker-compose up -d
@@ -58,7 +58,7 @@ An 'ATSD start completed' message means that the setup completed successfully.
  * [ATSD] ATSD start completed.  
  ```
 
-### Install `atsd_client` and `tabulate` python modules.
+### Install `atsd_client` and `tabulate` python modules
 
 ```sh
 pip install atsd_client tabulate
@@ -66,7 +66,7 @@ pip install atsd_client tabulate
 
 The [ATSD Python client](https://github.com/axibase/atsd-api-python) implements a set of methods to load series, properties, and message records from the database, as well as acts as an SQL client.
 
-### Open python shell and execute the query.
+### Open python shell and execute the query
 
 ```sh
 python
@@ -96,7 +96,7 @@ from tabulate import tabulate
 print(tabulate(df, headers='keys', tablefmt='psql'))
 ```
 
-### Examine the results.
+### Examine the results
 
 ```ls
 +----+---------------------------------------------+-----------------+-------------------------------+------------------+----------------+
