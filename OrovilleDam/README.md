@@ -3,12 +3,12 @@
 Realtime Analysis of the Oroville Dam Disaster 
 ==============================================
 
-In February 2017, [reservoir levels](http://www.sacbee.com/news/state/california/water-and-drought/article131579999.html) for the tallest dam in the United States, located near 
-[Oroville, California](https://cdec.water.ca.gov/cgi-progs/queryF?s=ORO&d=13-Feb-2017+02:57&span=1year), were beginning to reach capacity from high levels of stormwater and snowmelt. Officials decided to begin using the primary dam spillway, which
-quickly began to deteriorate, and [by February 10th](http://www.sfgate.com/news/article/Oroville-Dam-spillway-hole-erosion-water-reservoir-10920358.php), a hole 300 feet 
+In February 2017, reservoir levels for the tallest dam in the United States, located near 
+[Oroville, California](http://www.water.ca.gov/swp/facilities/Oroville/LakeDam.cfm), were beginning to reach capacity from high levels of stormwater and snowmelt. Officials decided to begin using the primary dam spillway, which
+quickly began to deteriorate, and by February 10th, a hole 300 feet 
 wide, 500 feet long, and 45 feet deep had appeared in the spillway. [On February 11th](http://abcnews.go.com/Technology/wireStory/latest-emergency-spillway-oroville-dam-45401080), 
 officials decided to begin using an auxiliary, spillway made from earthen materials. The emergency spillway quickly began to erode and water began to spill over its concrete top. On 
-February 12th, due to the "hazardous situation" surrounding the dam, [100,000 people](http://www.latimes.com/local/california/la-live-updates-oroville-dam-oroville-dam-spillway-expected-to-fail-1486953074-htmlstory.html)
+February 12th, due to the "hazardous situation" surrounding the dam, more than [100,000 people](http://www.latimes.com/local/california/la-live-updates-oroville-dam-oroville-dam-spillway-expected-to-fail-1486953074-htmlstory.html)
 from downstream communities were ordered to evacuate the area. 
  
 In this article we will analyze a dataset from the [California Department of Water Resources (California DWR)](https://cdec.water.ca.gov/index.html) looking at the several vital statistics from the
@@ -19,16 +19,15 @@ for interactive analysis with graphical representation of open data published by
 ### Oroville Dam Dataset
 ------------------------
 
-Let's take a look at a dataset from the California DWR from [cdec.water.ca.gov](https://cdec.water.ca.gov/index.html). The dataset is available in tabular format at the following 
-link:[https://cdec.water.ca.gov/cgi-progs/queryF?s=ORO&d=13-Feb-2017+02:57&span=1year](https://cdec.water.ca.gov/cgi-progs/queryF?s=ORO&d=13-Feb-2017+02:57&span=1year). 
+Let's take a look at a dataset from the California DWR from [cdec.water.ca.gov](https://cdec.water.ca.gov/index.html). The dataset can be found here:[https://cdec.water.ca.gov/cgi-progs/queryF?s=ORO&d=13-Feb-2017+02:57&span=1year](https://cdec.water.ca.gov/cgi-progs/queryF?s=ORO&d=13-Feb-2017+02:57&span=1year). 
 
 Data is collected hourly for the Oroville dam reservoir for the following metrics:
 
 * Reservoir Elevation (feet)
 * Reservoir Storage (acre-foot)
-* Outflow (cubic feet/second)
-* Inflow (cubic feet/second)
-* Discharge, spillway controlled regulating (cubic feet/second)
+* Dam Outflow (cubic feet/second)
+* Dam Inflow (cubic feet/second)
+* Spillway Outflow (cubic feet/second)
 * Rain (inches)
 
 You can output a graph for each of these metrics by clicking on its respective header, as shown in the image below.
@@ -36,7 +35,7 @@ You can output a graph for each of these metrics by clicking on its respective h
 ![Figure 1](Images/Figure1.png)
 
 The output graph for reservoir storage from the California DWR website is shown below. You can specify a custom time span for your graph. This ouput shows minimum and maximum values
-for storage for our selected timespan, in this case 2,784,813 and 3,578,686 acre-feet, respectively. The website's graphical outputs, however, have very little interactive features.
+for storage for our selected timespan, in this case 2,784,813 and 3,578,686 acre-feet (af), respectively. The website's graphical outputs, however, have very little interactive features.
 You cannot toggle over the series to display any of the intermediate values. Additionally, you are only able to display one metric per graph. 
  
 ![Figure 2](Images/Figure2.png)
@@ -66,10 +65,10 @@ You can load the dataset into your ATSD instance by following the steps provided
 ---------------------------------------------
 
 Below is a screenshot showing the change in the capacity of the Oroville dam from Saturday February 11th, 2017, to the early hours of February 14th, 2017 (the time this article was published).
-The threshold capacity is **3,537,577 acre-feet**, as marked by the orange line in the image. As a note, you can scroll over horizontally and up vertically by left-clicking and dragging in the direction you
-would like to shift. We can see the exact time that the dam exceeded the threshold capacity between 2 and 3 am U.S. pacific time (PT) with 3,539,160 acre-feet recorded at 2 am on February 11th, and returned to 
-below this limit between 11 pm on February 12th and 12 am (PT) on February 13th with 3,533,936 acre-feet recorded at midnight (both times marked below). Additionally, we can observe that the dam hit its peak capacity 
-of 3,578,686 acre-feet on Sunday February 12th at 3 am.  
+The threshold capacity is **3,537,577 af**, as marked by the orange line in the image. As a note, you can scroll over horizontally and up vertically by left-clicking and dragging in the direction you
+would like to shift. We can see the approximate time that the dam exceeded the threshold capacity between 2:00 and 3:00 am U.S. pacific time (PT) with 3,539,160 af recorded at 2:00 am on February 11th, and returned to 
+below this limit between 11:00 pm on February 12th and 12:00 am (PT) on February 13th with 3,533,936 af recorded at midnight (both times marked below). Additionally, we can observe that the dam hit its peak capacity 
+of 3,578,686 af on Sunday February 12th at 3:00 am.  
     
 ![Figure 3](Images/Figure3.png)
 
@@ -88,20 +87,27 @@ Zooming into the last couple of months, we can take a look at how storage levels
 
 ![Figure 5](Images/Figure5.png)
 
-Reservoir levels experienced their first significant uptick on December 10th, 2016, with an increase of 34,571 acre-feet added to the reservoir storage. Over the next several weeks,
-the dam experienced increase in storage (with the exception for a handful of days) until it was overtopped on February 11th.    
+Reservoir levels experienced their first significant uptick on December 10th, 2016, with an increase of 34,571 af added to the reservoir storage. Over the next several weeks,
+the dam experienced increase in storage (with the exception for a handful of days). By toggling over each of the individual columns, we can see the change in the storage 
+for February 9th (237,689 af), 10th (39,522 af), and 11th (53,896 af), which was when the dam was overtopped.      
 
 You can explore this portal by clicking on the button below:
  
 [![](Images/button.png)](https://apps.axibase.com/chartlab/dee79515/2)
 
-Below is an image showing dam inflow (orange) and outflow (dark green), as well as spillway outflow (light green). We can see that 
+Below is an image showing dam inflow (orange) and outflow (dark green), as well as spillway outflow (light green), all given in cubic feet per second (cfs). The image below shows these values for February 14th at 3:00 am 
+PT. At this time dam inflow is 30,805 cfs, dam outflow is 99,960 cfs, and spillway outflow is 118,031 cfs. The given number in light green (217,697 cfs) is the sum of the outflows.  
  
 ![Figure 6](Images/Figure6.png)
 
 You can explore this portal by clicking on the button below:
 
 [![](Images/button.png)](https://apps.axibase.com/chartlab/dee79515/5/)
+
+### The Next Several Days
+-------------------------
+
+
 
 
 
