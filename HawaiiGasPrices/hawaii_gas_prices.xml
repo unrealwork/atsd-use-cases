@@ -1,32 +1,21 @@
 <list>
-  <com.axibase.collector.model.job.json.JsonJobConfig>
-    <name>socrata</name>
+  <com.axibase.collector.model.job.socrata.SocrataJobConfig>
+    <name>Hawaii AAA Fuel Prices</name>
     <cronExpression>0 0 8 * * ?</cronExpression>
-    <enabled>true</enabled>
-    <jobType>JSON</jobType>
+    <enabled>false</enabled>
+    <jobType>SOCRATA</jobType>
     <defaultTags/>
     <checkLastTime>false</checkLastTime>
     <commitInterval>10</commitInterval>
     <errorThreshold>0</errorThreshold>
     <configurations>
-      <com.axibase.collector.model.job.json.JsonConfiguration>
+      <com.axibase.collector.model.job.socrata.SocrataConfiguration>
         <name>Hawaii AAA Fuel Prices: dqp6-3idi : http://catalog.data.gov/dataset/aaa-fuel-prices-52bf0</name>
-        <protocol>HTTP</protocol>
-        <path>https://data.hawaii.gov/api/views/dqp6-3idi/rows.json?accessType=DOWNLOAD</path>
-        <format>SOCRATA</format>
-        <payloadMethod>GET</payloadMethod>
-        <httpHeaders/>
-        <enableWebDriver>false</enableWebDriver>
-        <driverTimeout>0</driverTimeout>
-        <deleteFileOnUpload>false</deleteFileOnUpload>
+        <path>https://data.hawaii.gov/api/views/dqp6-3idi</path>
         <ignoreDuplicates>true</ignoreDuplicates>
         <settings>
-          <com.axibase.collector.model.job.json.JsonConfigurationSetting>
-            <jsonPath>$.data.*</jsonPath>
-            <depth>1</depth>
+          <com.axibase.collector.model.job.socrata.SocrataConfigurationSetting>
             <entityField>$.meta.view.id</entityField>
-            <customTags/>
-            <renamedFields/>
             <timeEnabled>true</timeEnabled>
             <timeField>month_of_price</timeField>
             <timeFormat>yyyy-MM-dd&apos;T&apos;HH:mm:ss</timeFormat>
@@ -36,16 +25,25 @@
               <string>*</string>
             </includedFields>
             <excludedFields/>
+            <annotationFields/>
             <propertyEnabled>false</propertyEnabled>
             <propertyTypeField>$.meta.view.name</propertyTypeField>
             <propertyKeyFields/>
             <propertyValueFields/>
             <messageEnabled>false</messageEnabled>
-            <messageTagFields/>
-          </com.axibase.collector.model.job.json.JsonConfigurationSetting>
+            <messageTypeField>$.meta.view.category</messageTypeField>
+            <messageSourceField>$.meta.view.attribution</messageSourceField>
+            <messageTagFields>
+              <string>*</string>
+            </messageTagFields>
+            <jsonPath>$.data.*</jsonPath>
+            <depth>1</depth>
+          </com.axibase.collector.model.job.socrata.SocrataConfigurationSetting>
         </settings>
-        <testMode>false</testMode>
-      </com.axibase.collector.model.job.json.JsonConfiguration>
+        <customTags/>
+        <addRowNumber>false</addRowNumber>
+        <skipOldData>true</skipOldData>
+      </com.axibase.collector.model.job.socrata.SocrataConfiguration>
     </configurations>
-  </com.axibase.collector.model.job.json.JsonJobConfig>
+  </com.axibase.collector.model.job.socrata.SocrataJobConfig>
 </list>
