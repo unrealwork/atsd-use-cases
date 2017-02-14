@@ -3,10 +3,9 @@
 Realtime Analysis of the Oroville Dam Disaster 
 ==============================================
 
-In February 2017, reservoir levels for the tallest dam in the United States, located near 
-[Oroville, California](http://www.water.ca.gov/swp/facilities/Oroville/LakeDam.cfm), were beginning to reach capacity from high levels of stormwater and snowmelt. Officials decided to begin using the primary dam spillway, which
-quickly began to deteriorate, and by February 10th, a hole 300 feet 
-wide, 500 feet long, and 45 feet deep had appeared in the spillway. [On February 11th](http://abcnews.go.com/Technology/wireStory/latest-emergency-spillway-oroville-dam-45401080), 
+In February 2017, reservoir levels for the tallest dam in the United States, located near [Oroville, California](http://www.water.ca.gov/swp/facilities/Oroville/LakeDam.cfm), were
+beginning to reach capacity from high levels of stormwater and snowmelt. Officials decided to begin using the primary dam spillway, which quickly began to deteriorate, and by 
+February 10th, a hole 300 feet wide, 500 feet long, and 45 feet deep had appeared in the spillway. [On February 11th](http://abcnews.go.com/Technology/wireStory/latest-emergency-spillway-oroville-dam-45401080), 
 officials decided to begin using an auxiliary, spillway made from earthen materials. The emergency spillway quickly began to erode and water began to spill over its concrete top. On 
 February 12th, due to the "hazardous situation" surrounding the dam, more than [100,000 people](http://www.latimes.com/local/california/la-live-updates-oroville-dam-oroville-dam-spillway-expected-to-fail-1486953074-htmlstory.html)
 from downstream communities were ordered to evacuate the area. 
@@ -19,7 +18,7 @@ for interactive analysis with graphical representation of open data published by
 ### Oroville Dam Dataset
 ------------------------
 
-Let's take a look at a dataset from the California DWR from [cdec.water.ca.gov](https://cdec.water.ca.gov/index.html). The dataset can be found here:[https://cdec.water.ca.gov/cgi-progs/queryF?s=ORO&d=13-Feb-2017+02:57&span=1year](https://cdec.water.ca.gov/cgi-progs/queryF?s=ORO&d=13-Feb-2017+02:57&span=1year). 
+Let's take a look at a dataset from the California DWR from [cdec.water.ca.gov](https://cdec.water.ca.gov/index.html). The dataset can be found [here](https://cdec.water.ca.gov/cgi-progs/queryF?s=ORO&d=13-Feb-2017+02:57&span=1year). 
 
 Data is collected hourly for the Oroville dam reservoir for the following metrics:
 
@@ -29,19 +28,11 @@ Data is collected hourly for the Oroville dam reservoir for the following metric
 * Dam Inflow (cubic feet/second)
 * Spillway Outflow (cubic feet/second)
 * Rain (inches)
-
-You can output a graph for each of these metrics by clicking on its respective header, as shown in the image below.
  
-![Figure 1](Images/Figure1.png)
-
-The output graph for reservoir storage from the California DWR website is shown below. You can specify a custom time span for your graph. This ouput shows minimum and maximum values
-for storage for our selected timespan, in this case 2,784,813 and 3,578,686 acre-feet (af), respectively. The website's graphical outputs, however, have very little interactive features.
-You cannot toggle over the series to display any of the intermediate values. Additionally, you are only able to display one metric per graph. 
- 
-![Figure 2](Images/Figure2.png)
-
-The California DWR website does not give any options for downloading the dataset. Using programs such as Excel to process this information can provide quick answers. However, when 
-it comes to complex analysis it is much more convenient to interact with the data once it is loaded into a database.  
+You can specify a custom time span for your graph. The website's graphical outputs, however, have very little interactive features. This ouput shows minimum and maximum values.
+You cannot toggle over the series to display any of the intermediate values. Additionally, you are only able to display one metric per graph. The California DWR website does not 
+give any options for downloading the dataset. Using programs such as Excel to process this information can provide quick answers. However, when it comes to complex analysis it is
+much more convenient to interact with the data once it is loaded into a database.  
 
 ### Axibase Time Series Database (ATSD)
 ---------------------------------------
@@ -74,7 +65,7 @@ of 3,578,686 af on Sunday February 12th at 3:00 am.
 
 You can explore this portal by clicking the button below:
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/dee79515)
+[![](Images/button.png)](https://apps.axibase.com/chartlab/dee79515#fullscreen)
 
 Below is an image showing the change in reservoir storage per hour going back to February 2016 at the Oroville dam. The blue line represents the hourly, absolute value of the 
 reservoir storage, with values shown on the left hand side of the graph. Change in the dam storage is represented by the yellow and green columns: yellow represents an increase
@@ -93,7 +84,7 @@ for February 9th (237,689 af), 10th (39,522 af), and 11th (53,896 af), which was
 
 You can explore this portal by clicking on the button below:
  
-[![](Images/button.png)](https://apps.axibase.com/chartlab/dee79515/2)
+[![](Images/button.png)](https://apps.axibase.com/chartlab/dee79515/2#fullscreen)
 
 Below is an image showing dam inflow (orange) and outflow (dark green), as well as spillway outflow (light green), all given in cubic feet per second (cfs). The image below shows these values for February 14th at 3:00 am 
 PT. At this time dam inflow is 30,805 cfs, dam outflow is 99,960 cfs, and spillway outflow is 118,031 cfs. The given number in light green (217,697 cfs) is the sum of the outflows.  
@@ -102,13 +93,13 @@ PT. At this time dam inflow is 30,805 cfs, dam outflow is 99,960 cfs, and spillw
 
 You can explore this portal by clicking on the button below:
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/dee79515/5/)
+[![](Images/button.png)](https://apps.axibase.com/chartlab/dee79515/5/#fullscreen)
 
 ### The Next Several Days
 -------------------------
 
-
-
+In the last several days, the storage level in the dam has dropped back down below the threshold capacity. The crisis, however, is not over quite yet. The main driving force behind
+the Oroville dam disaster has been a record setting amount of rainfall. 
 
 
 
