@@ -170,11 +170,21 @@ the situation. Simply by clicking on each of the **Chart Lab buttons**, you can 
 Below are the summarized steps to follow to install local configurations of ATSD and Axibase Collector for analyzing the Oroville dam disaster:
 
 1. Install [Docker](https://docs.docker.com/engine/installation/linux/ubuntulinux/).
-2. Download the `docker-compose.yml` file to launch the ATSD Collector container bundle.
-2. [Install the ATSD database](https://github.com/axibase/atsd-docs/blob/master/installation/docker.md#option-2-configure-collector-account-manually) in your local Docker configuration. 
-3. Login to ATSD by navigating to `https://docker_host:8443/`. 
-4. Import the `cdec.water.ca.gov-shef-parser.xml` file into ATSD, which is located in the [resource folder](/OrovilleDam/resources). For a more detailed description, refer to step 9 from the following [step-by-step walkthrough](https://github.com/axibase/atsd-use-cases/blob/master/USMortality/configuration.md) from our article on [U.S. mortality statistics](https://github.com/axibase/atsd-use-cases/blob/master/USMortality/README.md). 
-5. Upload the Excel file saved in `.csv` format into ATSD. Refer to step 10 from this same walkthrough. 
+2. Download the [`docker-compose.yml`](resources/docker-compose.yml) file to launch the ATSD Collector container bundle.
+
+   ```sql
+   curl -o docker-compose.yml https://raw.githubusercontent.com/axibase/atsd-use-cases/master/OrovilleDam/resources/docker-compose.yml
+   ```
+
+3. In Terminal, launch containers with the following command:
+
+   ```sql   
+   export C_USER=myuser; export C_PASSWORD=mypassword; docker-compose pull && docker-compose up -d
+   ```
+   
+4. Import the [`cdec.water.ca.gov-shef-parser.xml`](resources/cdec.water.ca.gov-shef-parser.xml) file into ATSD. For a more detailed description, refer to step 9 from the following [step-by-step walkthrough](https://github.com/axibase/atsd-use-cases/blob/master/USMortality/configuration.md) from our article on [U.S. mortality statistics](https://github.com/axibase/atsd-use-cases/blob/master/USMortality/README.md). 
+5. Navigate to Axibase Collector main page and manually run the following two jobs which were just imported by the docker-compose file: `cdec.water.ca.gov-shef-daily` and `cdec.water.ca.gov-shef-hourly`. You only need to run these jobs once, after which they will run on a specified schedule.
+6. Navigate to the ATSD 'Metrics' page and check that the metrics with the prefix `ca.` are in existence. 
 
 If you require assistance in installing this software or have any questions, please feel free to [contact us](https://axibase.com/feedback/) and we would be happy to be of assistance!
 
