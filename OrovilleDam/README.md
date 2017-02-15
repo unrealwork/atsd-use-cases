@@ -108,12 +108,12 @@ By toggling over any of the columns, we can see the values and time of these var
 Below is a table of four of the most recent and significant rainfalls. We can see that periods having rainfall accumulations over 6 inches led to massive increases in dam storage 
 levels. Periods with rainfall accumulation less than 4 inches experienced much less drastic increases.     
      
-| Rainfall Period  | Accumulation (in) | Reservoir Storage Change (af) (Values at 12:00 pm PT) | Net Change (af) |
-|------------------|-------------------|------------------------------------------------------------|-----------------| 
-| Dec-07 to Dec-10 |      3.8          | 1,468,037 (Dec-06) to 1,586,443 (Dec-12) |    118,406      |
-| Jan-07 to Jan-10 |      6.2          | 2,050,031 (Jan-06) to 2,830,139 (Jan-14) |  **780,108**    |
-| Jan-18 to Jan-22 |      3.0          | 2,811,974 (Jan-17) to 2,884,036 (Jan-25) |     72,062      |
-| Feb-02 to Feb-10 |      7.3          | 2,799,106 (Feb-05) to 3,578,686 (Feb-12) |  **779,580**    | 
+|Rainfall Period| Accumulation (in) | Reservoir Storage Change (af) (Values at 12:00 pm PT)      | Net Change (af) |
+|---------------|-------------------|------------------------------------------------------------|-----------------| 
+| Dec-07_Dec-10 |      3.8          | 1,468,037 (Dec-06) to 1,586,443 (Dec-12)                   |     118,406     |
+| Jan-07_Jan-10 |      6.2          | 2,050,031 (Jan-06) to 2,830,139 (Jan-14)                   |  **780,108**    |
+| Jan-18_Jan-22 |      3.0          | 2,811,974 (Jan-17) to 2,884,036 (Jan-25)                   |     72,062      |
+| Feb-02_Feb-10 |      7.3          | 2,799,106 (Feb-05) to 3,578,686 (Feb-12)                   |  **779,580**    | 
 
 You can explore this portal by clicking on the button below: 
  
