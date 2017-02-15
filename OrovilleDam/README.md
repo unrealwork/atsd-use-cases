@@ -61,10 +61,9 @@ You can explore this portal by clicking the button below:
 ### Reservoir Storage Levels
 ----------------------------
 
-Below is an image showing the change in reservoir storage per hour going back to February 2016 at the Oroville dam. The blue line represents the hourly, absolute value of the 
-reservoir storage, with values shown on the left hand side of the graph. Change in the dam storage is represented by the yellow and green columns: yellow represents an increase
-in the reservoir storage, while green represents a decrease. These delta values are displayed on the right hand side of the graph. Hourly delta values are not shown; rather, all 
-hourly values are summed up and a total delta value for a single day is displayed.
+Below is an image showing the change in reservoir storage going back to February 2016 at the Oroville dam. The blue line represents the hourly, absolute value of the 
+reservoir storage (in acre-feet), with values shown on the left hand side of the graph. Change in the dam storage is represented by the yellow and green columns: yellow represents an increase
+in the reservoir storage, while green represents a decrease (both in acre-feet per day). These delta values are displayed on the right hand side of the graph.
 
 ![Figure 4](Images/Figure4.png)
 
