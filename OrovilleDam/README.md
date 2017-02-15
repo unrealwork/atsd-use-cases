@@ -4,7 +4,7 @@ Realtime Analysis of the Oroville Dam Disaster
 ==============================================
 
 In February 2017, reservoir levels for the tallest dam in the United States, located near [Oroville, California](http://www.water.ca.gov/swp/facilities/Oroville/LakeDam.cfm), were
-beginning to reach capacity from unseasonably high rain fall totals. Officials decided to begin using the primary dam spillway, which quickly began to deteriorate, and by 
+beginning to reach capacity from unseasonably high rainfall totals. Officials decided to begin using the primary dam spillway, which quickly began to deteriorate, and by 
 February 10th, a hole 300 feet wide, 500 feet long, and 45 feet deep had appeared in the spillway. [On February 11th](http://www.latimes.com/local/california/la-live-updates-oroville-dam-oroville-dam-spillway-expected-to-fail-1486953074-htmlstory.html), 
 officials decided to begin using an auxiliary, spillway made from earthen materials. The emergency spillway quickly began to erode and water began to spill over its concrete top. On 
 February 12th, due to the "hazardous situation" surrounding the dam, more than [200,000 people](http://www.npr.org/sections/thetwo-way/2017/02/14/515172686/with-more-rain-forecast-crews-work-to-reinforce-oroville-dam)
@@ -38,9 +38,12 @@ much more convenient to interact with the data once it is loaded into a database
 ---------------------------------------
 
 The [Axibase Time Series Database](http://axibase.com/products/axibase-time-series-database/) (ATSD) is a powerful tool when it comes to storing, analyzing, and visualising 
-datasets. **You do not need to install ATSD to look the real-time Oroville dam analysis in this article**. If you are interested in reading more on the various 
-capabilities of ATSD, check out our articles on [employee compensation numbers in Iowa](https://github.com/axibase/atsd-use-cases/blob/master/SocrataIowaCompensation/README.md) and
-[aviation statistics in the United Kingdom](https://github.com/axibase/atsd-use-cases/blob/master/UKAviation/README.md).
+datasets. 
+
+**You do not need to install ATSD to look the real-time Oroville dam analysis in this article**. 
+
+If you are interested in reading more on the various capabilities of ATSD, check out our articles on [employee compensation numbers in Iowa](https://github.com/axibase/atsd-use-cases/blob/master/SocrataIowaCompensation/README.md) and
+[Hawaii gas prices](https://github.com/axibase/atsd-use-cases/blob/master/HawaiiGasPrices/hawaii_gas_prices.md).
 
 You can load the dataset into your ATSD instance by following the steps provided at the [end of the article](#action-items).
 
@@ -49,8 +52,8 @@ You can load the dataset into your ATSD instance by following the steps provided
 
 Below is a screenshot showing the change in capacity of the Oroville dam from Saturday February 11th, 2017, to the early hours of February 14th, 2017 (the time this article was published).
 The threshold capacity is **3,537,577 af**, as marked by the orange line in the image. As a note, you can scroll over horizontally and up or down vertically by left-clicking and dragging in the direction you
-would like to shift. We can see the approximate time that the dam exceeded the threshold capacity was between 2:00 and 3:00 am U.S. pacific time (PT) with 3,539,160 af recorded at 2:00 am on February 11th, and returned to 
-below this limit between 11:00 pm on February 12th and 12:00 am (PT) on February 13th with 3,533,936 af recorded at midnight (both times marked below). Additionally, we can observe that the dam hit its peak capacity 
+would like to shift. We can see the approximate time that the dam **exceeded the threshold capacity** was between 2:00 and 3:00 am U.S. pacific time (PT) with 3,539,160 af recorded at 2:00 am on February 11th, and **returned to 
+below this limit** between 11:00 pm on February 12th and 12:00 am (PT) on February 13th with 3,533,936 af recorded at midnight (both times marked below). Additionally, we can observe that the dam hit its peak storage 
 of 3,578,686 af on Sunday February 12th at 3:00 am.  
     
 ![Figure 3](Images/Figure3.png)
@@ -58,6 +61,9 @@ of 3,578,686 af on Sunday February 12th at 3:00 am.
 You can explore this portal by clicking the button below:
 
 [![](Images/button.png)](https://apps.axibase.com/chartlab/dee79515#fullscreen)
+
+### Reservoir Storage Levels
+----------------------------
 
 Below is an image showing the change in reservoir storage per hour going back to February 2016 at the Oroville dam. The blue line represents the hourly, absolute value of the 
 reservoir storage, with values shown on the left hand side of the graph. Change in the dam storage is represented by the yellow and green columns: yellow represents an increase
@@ -71,12 +77,15 @@ Zooming into the last couple of months, we can take a look at how storage levels
 ![Figure 5](Images/Figure5.png)
 
 Reservoir levels experienced their first significant uptick on December 10th, 2016, with an increase of 34,571 af added to the reservoir storage. Over the next several weeks,
-the dam experienced increase in storage (with the exception for a handful of days). By toggling over each of the individual columns, we can see the change in the storage 
+the dam experienced increase in storage (with the exception of a handful of days). By toggling over each of the individual columns, we can see the change in the storage 
 for February 9th (237,689 af), 10th (39,522 af), and 11th (53,896 af), which was when the dam was overtopped.      
 
 You can explore this portal by clicking on the button below:
  
 [![](Images/button.png)](https://apps.axibase.com/chartlab/dee79515/2#fullscreen)
+
+### Reservoir Inflow and Outflows
+---------------------------------
 
 Below is an image showing dam inflow (orange) and outflow (dark green), as well as spillway outflow (light green), all given in cubic feet per second (cfs). The image below shows these values for February 14th at 3:00 am 
 PT. At this time dam inflow is 30,805 cfs, dam outflow is 99,960 cfs, and spillway outflow is 118,031 cfs. The given number in light green (217,697 cfs) is the sum of the outflows.  
@@ -92,21 +101,21 @@ You can explore this portal by clicking on the button below:
 
 In the last several days, the storage level in the dam has dropped back down below the threshold capacity. The crisis, however, is not over quite yet. The main driving force behind
 the Oroville dam disaster has been a record setting amount of rainfall in California. Below is an image showing daily precipitation totals together with the dam storage levels. 
-By toggling over any of the columns, we can see the values and time of these variables. We can see that after a period of rain fall, storage levels experience almost an immediate hike. 
+By toggling over any of the columns, we can see the values and time of these variables. We can see that after a period of rainfall, storage levels experience almost an immediate hike. 
 
 ![Figure 7](Images/Figure7.png)
 
 Below is a table of four of the most recent and significant rainfalls. We can see that periods having rainfall accumulations over 6 inches led to massive increases in dam storage 
 levels. Periods with rainfall accumulation less than 4 inches experienced much less drastic increases.     
      
-```ls
+
 | Rainfall Period  | Accumulation (in) | Reservoir Storage Change (af)                              | Net Change (af) |
 |------------------|-------------------|------------------------------------------------------------|-----------------| 
 | Dec-07 to Dec-10 |      3.8          | 1,468,037 (Dec-06 12:00 pm) to 1,586,443 (Dec-12 12:00 pm) |    118,406      |
 | Jan-07 to Jan-10 |      6.2          | 2,050,031 (Jan-06 12:00 pm) to 2,830,139 (Jan-14 12:00 pm) |  **780,108**    |
 | Jan-18 to Jan-22 |      3.0          | 2,811,974 (Jan-17 12:00 pm) to 2,884,036 (Jan-25 12:00 pm) |     72,062      |
 | Feb-02 to Feb-10 |      7.3          | 2,799,106 (Feb-05 12:00 pm) to 3,578,686 (Feb-12 12:00 pm) |  **779,580**    | 
-```
+
 
 You can explore this portal by clicking on the button below: 
  
