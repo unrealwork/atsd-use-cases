@@ -11,9 +11,10 @@ February 12th, due to the "hazardous situation" surrounding the dam, more than [
 from downstream communities were ordered to evacuate the area. In the early morning hours of February 13th, the reservoir water levels returned below the threshold capacity of the dam.  
  
 While the situation has calmed somewhat in the last several days, the crisis is by no means over. Rain has been [forecasted](https://weather.com/en/weather/tenday/l/95966:4:US) 
-for the next several days. With a water surface area of 15,810 acres, the difference of mere inches of rain can make the difference between crisis averted and complete disaster.
+for the next several days. With a water surface area of 15,810 acres, the difference of mere inches of rain can make the difference between crisis averted and complete disaster for the
+Oroville dam.
  
-In this article we will analyze a dataset from the [California Department of Water Resources (CDWR)](https://cdec.water.ca.gov/index.html) looking at the several vital statistics from the
+In this article we will analyze a dataset from the [California Department of Water Resources (CDWR)](https://cdec.water.ca.gov/index.html) looking at the several vital statistics for the
 Oroville dam. This article provides **real-time analysis** with Chart Lab graphs (updated **hourly** and **automatically** with data taken from the CDWR website), which show the current situation at the dam. Additionally, this article illustrates 
 how publicly available data from the California DWR can be easily loaded into the non-relational [Axibase Time Series Database (ATSD)](http://axibase.com/products/axibase-time-series-database/) 
 for interactive analysis with graphical representation of open data published by government organizations. 
@@ -51,8 +52,8 @@ Now let's take a more in depth look at the situation at the Oroville dam.
 
 Below is a screenshot showing the change in storage capacity of the dam from Friday February 10th, 2017, to the morning of February 15th, 2017 (the time this article was published).
 The threshold capacity is **3,537,577 af**, as marked by the orange line in the image. As a note, you can scroll over horizontally and up or down vertically by left-clicking and dragging in the direction you
-would like to shift. We can see the approximate time that the dam **exceeded the threshold capacity** was between 2:00 and 3:00 am U.S. pacific time (PT). 3,539,160 af was recorded at 2:00 am on February 11th, and the storage level **returned to 
-below the threshold limit** between 11:00 pm on February 12th and 12:00 am (PT) on February 13th with 3,533,936 af recorded at midnight (both times marked below). Additionally, we can observe that the dam hit its peak storage 
+would like to shift. We can see the approximate time that the dam **exceeded the threshold capacity** was between 2:00 and 3:00 am U.S. pacific time (PT) on February 11th. 3,539,160 af was recorded at 2:00 am on February 11th, and the storage level **returned to 
+below the threshold limit** between 11:00 pm on February 12th and 12:00 am (PT) on February 13th with 3,533,936 af recorded at midnight (both times marked below). Additionally, we can observe that the dam hit its peak overflow 
 of 3,578,686 af on Sunday February 12th at 3:00 am.  
     
 ![Figure 3](Images/Figure3.png)
@@ -64,7 +65,7 @@ You can explore this portal by clicking the button below:
 ### Reservoir Storage Levels
 ----------------------------
 
-Below is an image showing the change in reservoir storage going back to February 2016 at the Oroville dam. The blue line represents the hourly, absolute value of the 
+Below is an image showing the change in reservoir storage going back to March 2016 at the Oroville dam. The blue line represents the hourly, absolute value of the 
 reservoir storage (in acre-feet), with values shown on the left hand side of the graph. Change in the dam storage is represented by the yellow and green columns: yellow represents an increase
 in the reservoir storage, while green represents a decrease (both in acre-feet per day). These delta values are displayed on the right hand side of the graph.
 
@@ -148,8 +149,8 @@ WHERE t1.datetime >= '2017-01-01T00:00:00Z'
 | 2462228.8                  | 18.0                        | 136790.5                         | 
 ```
 
-Based off of our estimate, for every inch of rainfall at the Oroville dam, 136,790.5 acre-feet will be added to the reservoir. As of 5:00 am PT on February 15th, there is 307,145 af 
-of space left in the reservoir before it reaches its threshold. The maximum outflow per day that the dam is able is push out is **142,034 afd**, which was achieved on February 14th. 
+Based off of our estimate, for every inch of rainfall at the Oroville dam, 136,790.5 acre-feet will be added to the reservoir. As of 5:00 am PT on February 15th, there was 307,145 af 
+of space left in the reservoir before it reaches its threshold. The maximum outflow per day that the dam is able is push out is **142,034 afd**, which was achieved on [February 14th](https://apps.axibase.com/chartlab/dee79515/2#fullscreen). 
 So, if we multiply the rainfall per day by our acre-feet rate (136,790.5) and subtract the maximum outflow, we should get a storage amount added per day. If we then divide the 
 storage added per day, we should get a answer for how many days it would take for the storage to reach threshold capacity again. Below is a table showing the amount of time for the
 dam storage to reach threshold capacity for a given amount of rainfall per day.
@@ -169,6 +170,7 @@ the situation. Simply by clicking on each of the **Chart Lab buttons**, you can 
 Below are the summarized steps to follow to install local configurations of ATSD and Axibase Collector for analyzing the Oroville dam disaster:
 
 1. Install [Docker](https://docs.docker.com/engine/installation/linux/ubuntulinux/).
+2. Download the `docker-compose.yml` file to launch the ATSD Collector container bundle.
 2. [Install the ATSD database](https://github.com/axibase/atsd-docs/blob/master/installation/docker.md#option-2-configure-collector-account-manually) in your local Docker configuration. 
 3. Login to ATSD by navigating to `https://docker_host:8443/`. 
 4. Import the `cdec.water.ca.gov-shef-parser.xml` file into ATSD, which is located in the [resource folder](/OrovilleDam/resources). For a more detailed description, refer to step 9 from the following [step-by-step walkthrough](https://github.com/axibase/atsd-use-cases/blob/master/USMortality/configuration.md) from our article on [U.S. mortality statistics](https://github.com/axibase/atsd-use-cases/blob/master/USMortality/README.md). 
