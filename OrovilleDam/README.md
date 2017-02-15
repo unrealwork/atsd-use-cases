@@ -28,29 +28,24 @@ Data is collected hourly for the Oroville dam reservoir for the following metric
 * Dam Inflow (cubic feet/second)
 * Spillway Outflow (cubic feet/second)
 * Rain (inches)
+
+Below is an image showing these CDWR metrics in ATSD. You can toggle between the different metrics by clicking on the dropdown.     
+
+![Figure 1](Images/Figure1.png)
+
+You can explore the basic CDWR portal (loaded into ATSD) by clicking the button below:
+
+[![](Images/button.png)](https://apps.axibase.com/chartlab/dee79515/11/#fullscreen)
+
+**You do not need to install ATSD to look the real-time Oroville dam analysis in this article**. However, you can load the dataset into your ATSD instance by following the steps 
+provided at the [end of the article](#action-items).
  
-You can graph each of these metrics on the CDWR website. The website's graphical outputs, however, have very little interactive features. Ouput shows minimum and maximum values for a given range,
-and you cannot toggle over the series to display any of the intermediate values. Additionally, you are only able to display one metric per graph. The CDWR website does not 
-give any options for downloading the dataset. Using programs such as Excel to process this information can provide quick answers. However, when it comes to more in depth analysis, it is
-much more convenient to interact with the data once it is loaded into a database.  
-
-### Axibase Time Series Database (ATSD)
----------------------------------------
-
-The [Axibase Time Series Database](http://axibase.com/products/axibase-time-series-database/) (ATSD) is a powerful tool when it comes to storing, analyzing, and visualising 
-datasets. 
-
-**You do not need to install ATSD to look the real-time Oroville dam analysis in this article**. 
-
-If you are interested in reading more on the various capabilities of ATSD, check out our articles on [employee compensation numbers in Iowa](https://github.com/axibase/atsd-use-cases/blob/master/SocrataIowaCompensation/README.md) and
-[Hawaii gas prices](https://github.com/axibase/atsd-use-cases/blob/master/HawaiiGasPrices/hawaii_gas_prices.md).
-
-You can load the dataset into your ATSD instance by following the steps provided at the [end of the article](#action-items).
-
 ### The Current Situation - Realtime Analysis
 ---------------------------------------------
 
-Below is a screenshot showing the change in capacity of the Oroville dam from Saturday February 11th, 2017, to the early hours of February 14th, 2017 (the time this article was published).
+Now let's take a more in depth look at the situation at the Oroville dam. 
+
+Below is a screenshot showing the change in capacity of the Oroville dam from Saturday February 11th, 2017, to the morning of February 15th, 2017 (the time this article was published).
 The threshold capacity is **3,537,577 af**, as marked by the orange line in the image. As a note, you can scroll over horizontally and up or down vertically by left-clicking and dragging in the direction you
 would like to shift. We can see the approximate time that the dam **exceeded the threshold capacity** was between 2:00 and 3:00 am U.S. pacific time (PT) with 3,539,160 af recorded at 2:00 am on February 11th, and **returned to 
 below this limit** between 11:00 pm on February 12th and 12:00 am (PT) on February 13th with 3,533,936 af recorded at midnight (both times marked below). Additionally, we can observe that the dam hit its peak storage 
@@ -87,14 +82,15 @@ You can explore this portal by clicking on the button below:
 ### Reservoir Inflow and Outflows
 ---------------------------------
 
-Below is an image showing dam inflow (orange) and outflow (dark green), as well as spillway outflow (light green), all given in cubic feet per second (cfs). The image below shows these values for February 14th at 3:00 am 
-PT. At this time dam inflow is 30,805 cfs, dam outflow is 99,960 cfs, and spillway outflow is 118,031 cfs. The given number in light green (217,697 cfs) is the sum of the outflows.  
+Below is an image showing dam inflow (orange) and outflow (dark green), as well as spillway outflow (light green), all given in acre-feet per day (afd), which we converted from cfs
+(these calculations can be seen by clicking on the below Chart Lab button). The image below shows these values for February 15th at 5:00 am 
+PT. Up to this point in the day, the dam inflow has been 61,475 afd, dam outflow has been 198,175 afd, and spillway outflow is 233,042 cfs. The given number in light green (431,217 afd) is the sum of the outflows.  
  
 ![Figure 6](Images/Figure6.png)
 
 You can explore this portal by clicking on the button below:
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/dee79515/5/#fullscreen)
+[![](Images/button.png)](https://apps.axibase.com/chartlab/dee79515/10/#fullscreen)
 
 ### The Next Several Days
 -------------------------
@@ -119,12 +115,43 @@ You can explore this portal by clicking on the button below:
  
 [![](Images/button.png)](https://apps.axibase.com/chartlab/dee79515/7/#fullscreen)
 
-Below is an image of the situation at the time this article was published. As of 23:00 pm PT on February 14th, the reservoir storage level was at 3,266,396 af, which is 271,181 af
-less than the dam threshold. We can also see that for the last several days, the storage level has been decreasing. However, rain has been [forecast](https://weather.com/en/weather/tenday/l/95966:4:US) for the next several days.
-If the total rain accumulation remains under 4 inches, the situation at the Oroville dam should continue to get better. If more than 6 inches accumulate, this could
-result in a drastic storage level increase, again topping the threshold of the dam, and spelling a continuation of the disaster.   
+Below is an image of the situation at the time this article was published. As of 5:00 am PT on February 15th, the reservoir storage level was at 3,242,128 af, which is 289,208 af
+less than the dam threshold. We can also see that for the last several days, the storage level has been decreasing. However, rain has been [forecast](https://weather.com/en/weather/tenday/l/95966:4:US) 
+for the next several days.
 
 ![Figure 8](Images/Figure8.png)
+
+Is there any way we can can predict how quickly the dam will fill up for a given amount of rainfall? Another very helpful tool in ATSD is the capability to perform 
+[SQL queries](https://github.com/axibase/atsd-docs/blob/master/api/sql/README.md#overview), which can be used to search for specific information contained in this dataset. 
+Using the following query, we are able to obtain an estimate for the volume added (acre-foot) to the storage level of the reservoir per inch of rainfall.    
+
+```sql
+SELECT
+    SUM(t1.value)*3600*2.29569e-5 as 'total_inflow_in_acre_foot',
+    DELTA(t2.value) as 'total_precipitation_inches',
+    SUM(t1.value)*3600*2.29569e-5/DELTA(t2.value) as 'acre_foot_per_precipitation_inch'
+FROM 'ca.reservoir_inflow_cfs' t1
+JOIN 'ca.precipitation_accumulated_inches' t2
+WHERE t1.datetime >= '2017-01-01T00:00:00Z'
+```
+
+```ls
+| total_inflow_in_acre_foot  | total_precipitation_inches  | acre_foot_per_precipitation_inch | 
+|----------------------------|-----------------------------|----------------------------------| 
+| 2462228.8                  | 18.0                        | 136790.5                         | 
+```
+
+Based off of our estimate, for every inch of rainfall at the Oroville dam, 136,790.5 acre-feet will be added to the reservoir. As of 5:00 am PT on February 15th, there is 289,208 af 
+of space left in the reservoir before it reaches its threshold. The maximum outflow per day that the dam is able is push out is **142,034 afd**, which was achieved on February 14th. 
+So, if we multiply the rainfall per day by our acre-feet rate (136,790.5) and subtract the maximum outflow, we should get a storage amount added per day. If we then divide the 
+storage added per day, we should get a answer for how many days it would take for the storage to reach threshold capacity again. Below is a table showing the amount of time for the
+dam storage to reach threshold capacity for a given amount of rainfall per day. 
+
+| Rainfall       | Storage Added/Day | Remaining Storage | Time to Reach Threshold |
+|----------------|-------------------|-------------------|-------------------------|
+| 1 inch per day | -5,243.5          | 289,208           | No storage gain         |
+| 2 inch per day | +131,547          | 289,208           | 2.198 days ~ 52 hours   |
+| 3 inch per day | +268,337.5        | 289,208           | 1.049 days ~ 26 hours   |
 
 Come back to this article in the coming days and look at our **real-time analysis** for updates on the Oroville dam. **You do not need to install ATSD** to continue to monitor
 the situation. Simply by clicking on each of the **Chart Lab buttons**, you can keep up to date on dam storage levels, dam inflow, dam outflow, spillway outflow, and precipitation.
