@@ -22,7 +22,7 @@ for interactive analysis with graphical representation of open data published by
 ### Oroville Dam Dataset
 ------------------------
 
-Let's begin by gathering current data for the Oroville dam from [cdec.water.ca.gov](https://cdec.water.ca.gov/index.html). This dataset can be found [here](https://cdec.water.ca.gov/cgi-progs/queryF?s=ORO&d=13-Feb-2017+02:57&span=1year). 
+Let's begin by gathering current data for the Oroville dam from [cdec.water.ca.gov](https://cdec.water.ca.gov/index.html). This dataset can be found [here](https://cdec.water.ca.gov/cgi-progs/queryF?s=ORO&d=13-Feb-2017+02:57&span=1week). 
 
 Data is collected hourly for the Oroville dam for the following metrics:
 
@@ -183,8 +183,8 @@ Below are the summarized steps to follow to install local configurations of ATSD
    ```
    
 4. Import the [`cdec.water.ca.gov-shef-parser.xml`](resources/cdec.water.ca.gov-shef-parser.xml) file into ATSD. For a more detailed description, refer to step 9 from the following [step-by-step walkthrough](https://github.com/axibase/atsd-use-cases/blob/master/USMortality/configuration.md) from our article on [U.S. mortality statistics](https://github.com/axibase/atsd-use-cases/blob/master/USMortality/README.md). 
-5. Navigate to Axibase Collector main page (https://docker_host:9443/) and manually run the following two jobs which were just imported by the docker-compose file: `cdec.water.ca.gov-shef-daily` and `cdec.water.ca.gov-shef-hourly`. You only need to run these jobs once, after which they will run on a specified schedule.
-6. Navigate to the ATSD 'Metrics' page (https://docker_host:8443/metrics) and check that the metrics with the prefix `ca.` are in existence. 
+5. Navigate to Axibase Collector main page [https://docker_host:9443/]() and manually run the following two jobs which were just imported by the docker-compose file: `cdec.water.ca.gov-shef-daily` and `cdec.water.ca.gov-shef-hourly`. You only need to run these jobs once, after which they will run on a specified schedule.
+6. Navigate to the ATSD 'Metrics' page [https://docker_host:8443/metrics]() and check that the metrics with the prefix `ca.` are in existence. 
 
 If you require assistance in installing this software or have any questions, please feel free to [contact us](https://axibase.com/feedback/) and we would be happy to be of assistance!
 
