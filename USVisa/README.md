@@ -3,8 +3,8 @@
 Visa Travel to the United States
 ================================
 
-In 2015, the United States was the [second most](https://en.wikipedia.org/wiki/World_Tourism_rankings) visited country in the world. Where do all of these travellers come from and what
-are their reasons for coming to the United States?
+In 2015, the United States was the [second most](https://en.wikipedia.org/wiki/World_Tourism_rankings) visited country in the world. Where do all of these travellers come from and 
+what are their reasons for coming to the United States?
 
 In this article we will analyze a dataset from [travel.state.gov](travel.state.gov) looking at non-immigrant visa figures from 1997 through 2015. This research article illustrates 
 how publicly available data from travel.state.gov can be easily loaded into the non-relational [Axibase Time Series Database (ATSD)](http://axibase.com/products/axibase-time-series-database/)
@@ -16,8 +16,8 @@ for interactive analysis and graphical representation of raw data collected by g
 
 Let's take a look at the dataset from [travel.state.gov](travel.state.gov), which can be accessed in Excel by clicking [here](https://travel.state.gov/content/dam/visas/Statistics/Non-Immigrant-Statistics/NIVDetailTables/FYs97-15_NIVDetailTable.xls).
  
-This dataset contains yearly totals for visas issued from 1997 through 2015. This dataset contains information on non-immigrant visas. Totals were collected for 84 different visas types. You can find the complete list of all the visa 
-types include in this dataset [here](Resources/visalist.txt).
+This dataset contains yearly totals for visas issued from 1997 through 2015. This dataset contains information on non-immigrant visas. Totals were collected for 84 different visas 
+types. You can find the complete list of all the visa types include in this dataset [here](Resources/visalist.txt).
 
 Visa figures were collected for 200 countries, 7 continents, and for unknown national origins. You can find a complete list of all the countries included in this dataset [here](Resources/countrylist.txt).
 You can find descriptions of all visa types on the [U.S. Department of State](https://travel.state.gov/content/visas/en/general/all-visa-categories.html) website.
@@ -53,7 +53,7 @@ You can explore this portal by clicking on the below button:
 ------------------------------------
 
 Countries with the greatest number of O-1 visa, which is a work visa for individuals with exceptional abilities. The brain-drain from other countries has steadily grown over the 
-years, especially from the U.K., which in 2015 had 2,630 O-1 visas issued.
+years, especially from the U.K., which in 2015 had **2,630** O-1 visas issued.
 
 ![Figure3](Images/Figure3.png)
 
@@ -72,7 +72,7 @@ You can explore this portal by clicking on the below button:
 [![](Images/button.png)](https://apps.axibase.com/chartlab/16c6e667/3/)
 
 This below figure shows how many dependents come with each primary visa holder. Saudi Arabian visa holders are currently bringing in the most dependents. Below are some ratios (in %)
-for Saudi nationals showing the number of dependent travellers coming to the United States per primary visa holder. 
+for Saudi nationals showing the number of dependent travellers coming to the United States per primary visa holder.
 
 * H-4 (family members of H-1B visa holders) to H-1B (general temporary work visa): **170**
 * L-2 (spouse of L-1 visa holder) to L-1 (work visa available to employees of international companies with offices abroad and in the U.S.): **245**
@@ -91,7 +91,7 @@ You can explore this portal by clicking on the below button:
 In addition to outputs from Chart Lab, ATSD is also capable to perform [SQL queries](https://github.com/axibase/atsd-docs/blob/master/api/sql/README.md#overview), 
 which can be used to search for specific information contained in this dataset. You can read more about our SQL syntax [here](https://github.com/axibase/atsd-docs/blob/master/api/sql/README.md#syntax).
 
-This query shows the number of the most popular visas issued world wide, except for B(travel), C(transit), G(government), and A(diplomatic).
+This query shows the number of the most popular visas issued world wide, except for B (travel), C (transit), G (government), and A (diplomatic).
 
 ```sql
 SELECT tags.visa_type, sum(value) 
@@ -129,7 +129,7 @@ ORDER BY 2 DESC
 | M-1             | 11058      | 
 ```
 
-This below query shows the top 15 largest countries by non-immigrant visas in 2015, for all visa types except B(travel), C(transit), G(government), and A(diplomatic).
+This below query shows the top 15 largest countries by non-immigrant visas in 2015, for all visa types except B (travel), C (transit), G (government), and A (diplomatic).
 
 ```sql
 SELECT tags.country, sum(value) 
