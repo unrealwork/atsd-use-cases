@@ -3,8 +3,8 @@
 Visa Travel to the United States
 ================================
 
-In 2015, the United States was the [second most](https://en.wikipedia.org/wiki/World_Tourism_rankings) visited country in the world. Where do all of these tourists from and what
-are their reasons for travelling to the United States?
+In 2015, the United States was the [second most](https://en.wikipedia.org/wiki/World_Tourism_rankings) visited country in the world. Where do all of these travellers come from and what
+are their reasons for coming to the United States?
 
 In this article we will analyze a dataset from [travel.state.gov](travel.state.gov) looking at non-immigrant visa figures from 1997 through 2015. This research article illustrates 
 how publicly available data from travel.state.gov can be easily loaded into the non-relational [Axibase Time Series Database (ATSD)](http://axibase.com/products/axibase-time-series-database/)
@@ -52,8 +52,8 @@ You can explore this portal by clicking on the below button:
 ### Delving in Further to U.S. Visas
 ------------------------------------
 
-Countries with the greatest number of O-1 visa, which is for exceptional abilities. The brain-drain from other countries has steadily grown over the years, especially from the U.K., 
-which in 2015 had 2,630 O-1 visas issued.
+Countries with the greatest number of O-1 visa, which is a work visa for individuals with exceptional abilities. The brain-drain from other countries has steadily grown over the 
+years, especially from the U.K., which in 2015 had 2,630 O-1 visas issued.
 
 ![Figure3](Images/Figure3.png)
 
@@ -62,7 +62,8 @@ You can explore this portal by clicking on the below button:
 [![](Images/button.png)](https://apps.axibase.com/chartlab/3a320d35)
 
 Below is an image for the total visa issued for the countries included in Trump administration's [travel ban](https://www.washingtonpost.com/graphics/national/immigration-order-explainer/)
-(which has since been lifted). These countries included Iran, Iraq, Libya, Somalia, Sudan, Syria, and Yemen.     
+(which has since been lifted). These countries included Iran, Iraq, Libya, Somalia, Sudan, Syria, and Yemen. After the September 11th terrorist attacks, the number of visas issued
+to these countries dropped to only **17,431** in 2003 but climbed back up to **72,162** in 2015.    
 
 ![Figure4](Images/Figure4.png)
 
@@ -70,7 +71,13 @@ You can explore this portal by clicking on the below button:
 
 [![](Images/button.png)](https://apps.axibase.com/chartlab/16c6e667/3/)
 
-This below figure shows how many dependents come with each primary visa holder. Saudi Arabian visa holders are currently bringing in the most dependents.
+This below figure shows how many dependents come with each primary visa holder. Saudi Arabian visa holders are currently bringing in the most dependents. Below are some ratios (in %)
+for Saudi nationals showing the number of dependent travellers coming to the United States per primary visa holder. 
+
+* H-4 (family members of H-1B visa holders) to H-1B (general temporary work visa): **170**
+* L-2 (spouse of L-1 visa holder) to L-1 (work visa available to employees of international companies with offices abroad and in the U.S.): **245**
+* F-2 (dependents of F-1 visa holders) to F-1 (student visa): **31**
+* J-2 (dependents of J-1 visa holders) to J-1 (research scholars, professors, exchange visitors): **79**
 
 ![Figure5](Images/Figure5.png)
 
@@ -78,14 +85,88 @@ You can explore this portal by clicking on the below button:
 
 [![](Images/button.png)](https://apps.axibase.com/chartlab/1bc51064/2/)
 
-### SQL Queries and Data Visualization with Redash
---------------------------------------------------
+### SQL Queries 
+---------------
 
 In addition to outputs from Chart Lab, ATSD is also capable to perform [SQL queries](https://github.com/axibase/atsd-docs/blob/master/api/sql/README.md#overview), 
 which can be used to search for specific information contained in this dataset. You can read more about our SQL syntax [here](https://github.com/axibase/atsd-docs/blob/master/api/sql/README.md#syntax).
 
-The query below shows the number of B-1 and B-2 visas totals for a handful of countries, with the numbers issued for 2005 and 2010 totals, 10 year percentage change, as well as a 
-compounded annual growth rate (CAGR). 
+This query shows the number of the most popular visas issued world wide, except for B(travel), C(transit), G(government), and A(diplomatic).
+
+```sql
+SELECT tags.visa_type, sum(value) 
+  FROM 'state.non-immigrant-visa' 
+WHERE tags.visa_type NOT LIKE 'A*' 
+  AND tags.visa_type NOT LIKE 'B*' 
+  AND tags.visa_type NOT LIKE 'C*' 
+  AND tags.visa_type NOT LIKE 'G*' 
+  AND tags.visa_type NOT LIKE '*Total*' AND tags.country NOT LIKE '*Total*' 
+AND datetime = '2015-01-01T00:00:00Z'
+GROUP BY tags.visa_type
+HAVING sum(value) > 10000
+ORDER BY 2 DESC
+```
+
+```ls
+| tags.visa_type  | sum(value) | 
+|-----------------|------------| 
+| F-1             | 644233     | 
+| J-1             | 332540     | 
+| H-1B            | 172748     | 
+| H-4             | 124484     | 
+| H-2A            | 108144     | 
+| L-2             | 86067      | 
+| L-1             | 78537      | 
+| H-2B            | 69684      | 
+| J-2             | 42289      | 
+| E-2             | 41162      | 
+| F-2             | 33632      | 
+| K-1             | 30947      | 
+| P-1             | 24262      | 
+| I               | 14447      | 
+| O-1             | 13865      | 
+| TN              | 13093      | 
+| M-1             | 11058      | 
+```
+
+This below query shows the top 15 largest countries by non-immigrant visas in 2015, for all visa types except B(travel), C(transit), G(government), and A(diplomatic).
+
+```sql
+SELECT tags.country, sum(value) 
+  FROM 'state.non-immigrant-visa' 
+WHERE tags.visa_type NOT LIKE 'A*' 
+  AND tags.visa_type NOT LIKE 'B*' 
+  AND tags.visa_type NOT LIKE 'C*' 
+  AND tags.visa_type NOT LIKE 'G*' 
+  AND tags.visa_type NOT LIKE '*Total*' AND tags.country NOT LIKE '*Total*' 
+AND datetime = '2015-01-01T00:00:00Z'
+GROUP BY tags.country
+ORDER BY 2 DESC
+LIMIT 15
+```
+
+```ls
+| tags.country                        | sum(value) | 
+|-------------------------------------|------------| 
+| China - mainland                    | 373275     | 
+| India                               | 368884     | 
+| Mexico                              | 231186     | 
+| Japan                               | 58333      | 
+| Korea, South                        | 58060      | 
+| Great Britain and Northern Ireland  | 56302      | 
+| Brazil                              | 47694      | 
+| Germany                             | 47680      | 
+| Saudi Arabia                        | 40333      | 
+| France                              | 37301      | 
+| Australia                           | 25035      | 
+| Philippines                         | 23269      | 
+| Vietnam                             | 22710      | 
+| Spain                               | 22640      | 
+| Italy                               | 20603      | 
+```
+
+The query below shows some statistics for of B-1 and B-2 visas totals (which may be used for business or tourism). This query displays the number of these visas issued for 2005 and
+2010 totals, 10 year percentage change, as well as a compounded annual growth rate (CAGR). The output is ordered by the number of visa issued in 2015. 
 
 ```sql 
 SELECT tags.country, first(value) AS "2005", 
@@ -128,12 +209,12 @@ ORDER BY 3 DESC
 | Costa Rica          | 35449.0   | 58139.0    | 64.0               | 4.6     | 
 ```
 
-Total visa revenues (in millions of USD) for the state department at $160 per visa from 1997 to 2015:
+Total revenue for travel visas (in millions of USD) for the state department at $160 per visa from 1997 to 2015:
 
 ```sql
-SELECT date_format(time, 'yyyy') AS "year", sum(value) * 190 / power(10, 6) AS "Visa Fees, $M"
+SELECT date_format(time, 'yyyy') AS "year", sum(value) * 160 / power(10, 6) AS "Visa Fees, $M"
   FROM 'state.non-immigrant-visa' 
-WHERE tags.visa_type = 'Grand Total' 
+WHERE tags.visa_type = 'B-1,2' 
   AND tags.country NOT LIKE '*Total*' 
 GROUP BY datetime
 ```
@@ -141,23 +222,31 @@ GROUP BY datetime
 ```ls
 | year  | Visa Fees, $M | 
 |-------|---------------| 
-| 1997  | 1129.0        | 
-| 1998  | 1104.7        | 
-| 1999  | 1176.6        | 
-| 2000  | 1356.9        | 
-| 2001  | 1441.9        | 
-| 2002  | 1096.2        | 
-| 2003  | 927.5         | 
-| 2004  | 959.3         | 
-| 2005  | 1023.9        | 
-| 2006  | 1108.9        | 
-| 2007  | 1224.4        | 
-| 2008  | 1253.0        | 
-| 2009  | 1101.0        | 
-| 2010  | 1217.3        | 
-| 2011  | 1423.1        | 
-| 2012  | 1696.1        | 
-| 2013  | 1741.2        | 
-| 2014  | 1887.2        | 
-| 2015  | 2069.4        | 
+| 1997  | 491.3         | 
+| 1998  | 516.3         | 
+| 1999  | 551.7         | 
+| 2000  | 570.8         | 
+| 2001  | 564.3         | 
+| 2002  | 404.5         | 
+| 2003  | 353.2         | 
+| 2004  | 374.5         | 
+| 2005  | 433.5         | 
+| 2006  | 488.6         | 
+| 2007  | 531.0         | 
+| 2008  | 558.0         | 
+| 2009  | 467.0         | 
+| 2010  | 523.0         | 
+| 2011  | 694.0         | 
+| 2012  | 854.8         | 
+| 2013  | 903.3         | 
+| 2014  | 1004.3        | 
+| 2015  | 1152.0        | 
 ```
+
+Of the **$1.152 billion** that the U.S. made from non-immigration visas, how much of that was earned from visa applications that were denied? We can load visa refusal rates from
+[travel.state.gov](https://travel.state.gov/content/dam/visas/Statistics/Non-Immigrant-Statistics/RefusalRates/FY16.pdf) into ATSD as a replacement table.   
+  
+### Data Visualization with Redash
+----------------------------------
+
+Using SQL queries from 
