@@ -244,9 +244,61 @@ GROUP BY datetime
 ```
 
 Of the **$1.152 billion** that the U.S. made from non-immigration visas, how much of that was earned from visa applications that were denied? We can load visa refusal rates from
-[travel.state.gov](https://travel.state.gov/content/dam/visas/Statistics/Non-Immigrant-Statistics/RefusalRates/FY16.pdf) into ATSD as a replacement table.   
+[travel.state.gov](https://travel.state.gov/content/dam/visas/Statistics/Non-Immigrant-Statistics/RefusalRates/FY16.pdf) into ATSD as a replacement table, and then calculate the
+total dollar amount earned from visas that were denied. In 2015 Mexico topped the list for paying the most for refused visa applications at **$145,316,514.6**.
+
+```sql 
+SELECT tags.country, sum(value) as 'Total Visas Issued', 
+  CAST(LOOKUP('visa-refusal-rate', UPPER(tags.country)) AS number) as 'Visa Refusal Rate',
+  sum(value)/(1-CAST(LOOKUP('visa-refusal-rate', UPPER(tags.country)) as number)/100) as 'Applications',
+  sum(value)/(1-CAST(LOOKUP('visa-refusal-rate', UPPER(tags.country)) as number)/100) - sum(value) as 'Refusals',
+  160*(sum(value)/(1-CAST(LOOKUP('visa-refusal-rate', UPPER(tags.country)) as number)/100) - sum(value)) as 'Refusal Fees'
+  FROM 'state.non-immigrant-visa' 
+WHERE tags.country NOT LIKE '*Total*' AND tags.visa_type != 'Total Visas'
+AND datetime = '2015-01-01T00:00:00Z'
+GROUP BY tags.country
+ORDER BY 'Refusal Fees' DESC
+```
+
+```ls
+| tags.country                           | Total Visas Issued  | Visa Refusal Rate  | Applications  | Refusals  | Refusal Fees | 
+|----------------------------------------|---------------------|--------------------|---------------|-----------|--------------| 
+| Mexico                                 | 2958218.0           | 23.5               | 3866446.2     | 908228.2  | 145316514.6  | 
+| China - mainland                       | 5253168.0           | 12.4               | 5993346.3     | 740178.3  | 118428522.2  | 
+| India                                  | 1922846.0           | 26.0               | 2599143.0     | 676297.0  | 108207521.9  | 
+| Brazil                                 | 1860612.0           | 16.7               | 2233627.9     | 373015.9  | 59682536.2   | 
+| Venezuela                              | 475852.0            | 40.2               | 796405.0      | 320553.0  | 51288483.3   | 
+| Nigeria                                | 312294.0            | 41.4               | 533288.9      | 220994.9  | 35359189.5   | 
+| Cuba                                   | 45594.0             | 81.8               | 251206.6      | 205612.6  | 32898017.9   | 
+| El Salvador                            | 121750.0            | 57.1               | 283931.9      | 162181.9  | 25949104.5   | 
+| Colombia                               | 736716.0            | 17.8               | 896139.2      | 159423.2  | 25507704.9   | 
+| Philippines                            | 397142.0            | 27.3               | 546200.0      | 149058.0  | 23849275.6   | 
+| Haiti                                  | 73932.0             | 64.5               | 208376.6      | 134444.6  | 21511128.0   | 
+| Ecuador                                | 314860.0            | 29.2               | 444591.9      | 129731.9  | 20757107.7   | 
+| Pakistan                               | 148300.0            | 46.4               | 276834.0      | 128534.0  | 20565447.8   | 
+| Jamaica                                | 202050.0            | 35.6               | 313937.2      | 111887.2  | 17901956.5   | 
+| Ukraine                                | 154406.0            | 40.8               | 260953.2      | 106547.2  | 17047549.7   | 
+| Guatemala                              | 111236.0            | 48.7               | 216749.8      | 105513.8  | 16882208.8   | 
+| Peru                                   | 223836.0            | 28.6               | 313539.7      | 89703.7   | 14352593.8   | 
+......
+| Tuvalu                                 | 154.0               | 20.0               | 192.5         | 38.5      | 6160.0       | 
+| Korea, North                           | 178.0               | 15.0               | 209.4         | 31.4      | 5025.9       | 
+| Andorra                                | 54.0                | 28.6               | 75.6          | 21.6      | 3455.8       | 
+| Solomon Islands                        | 334.0               | 4.3                | 348.9         | 14.9      | 2389.5       | 
+| Nauru                                  | 80.0                | 13.3               | 92.3          | 12.3      | 1968.7       | 
+| Micronesia, Federated States of        | 10.0                | 25.0               | 13.3          | 3.3       | 533.3        | 
+| Liechtenstein                          | 110.0               | 0.0                | 110.0         | 0.0       | 0.0          | 
+| Monaco                                 | 90.0                | 0.0                | 90.0          | 0.0       | 0.0          | 
+| San Marino                             | 50.0                | 0.0                | 50.0          | 0.0       | 0.0          | 
+| United Nations Laissez-Passer          | 214.0               | 0.0                | 214.0         | 0.0       | 0.0          | 
+```
   
 ### Data Visualization with Redash
 ----------------------------------
 
-Using SQL queries from 
+SQL queries allow you search for and display specific information from a dataset in tabular format, but you are not able to directly output these tables in ATSD.
+  
+Axibase is partnered with [Redash](https://redash.io/), which is a open source data visualization tool. 
+     
+![Figure6](Images/Figure6.png)
+
