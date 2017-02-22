@@ -1,15 +1,16 @@
 ![TitlePhoto](Images/TitlePhoto.png)
 
-Visa Travel to the United States
-================================
+Visa Travel to the United States with Chart Lab, SQL Queries, and Redash
+========================================================================
 
 In 2015, the United States was the [second most](https://en.wikipedia.org/wiki/World_Tourism_rankings) visited country in the world. Where do all of these travellers come from and 
 what are their reasons for coming to the United States? 
 
 In this article we will analyze a dataset from [travel.state.gov](travel.state.gov) looking at non-immigrant visa figures from 1997 through 2015. This research article illustrates 
 how publicly available data from travel.state.gov can be easily loaded into the non-relational [Axibase Time Series Database (ATSD)](http://axibase.com/products/axibase-time-series-database/)
-for interactive analysis and graphical representation of raw data collected by government organizations. Additionally, this article illustrates some of the capabilities of [redash](https://redash.io/)
-(an open source data visualization tool), as well as instructions on how to install your own ATSD instance and populate it with the raw data.
+for interactive analysis and graphical representation of raw data collected by government organizations. Additionally, this article illustrates some of the capabilities of [Redash](https://redash.io/),
+which is an open source data visualization tool that is partnered with Axibase. We will walk through how to take SQl queries from ATSD and create visualizations in Redash. Additionally,
+this article contains instructions on how to install your own ATSD instance and populate it with the raw data.
 
 ### U.S. Visa Dataset
 ---------------------
@@ -298,7 +299,56 @@ ORDER BY 'Refusal Fees' DESC
 
 SQL queries allow you search for and display specific information from a dataset in tabular format, but you are not able to directly output these tables in ATSD.
   
-Axibase is partnered with [Redash](https://redash.io/), which is a open source data visualization tool. 
+Axibase is partnered with [Redash](https://redash.io/), which is a open source data visualization tool. You can plug in your query results, and with a few simple steps, create
+graphical outputs for your SQL queries. Begin by walking through [setting up Redash though ATSD](https://github.com/axibase/website/blob/master/user-guide/data-sources/atsd.md). 
+The set up time should take you about 10 minutes.
      
-![Figure6](Images/Figure6.png)
+Let's begin by preparing a visualization for our last SQL query looking at refusal fees.
+     
+1. After completing the walkthrough, form the 'Queries' dropdown select 'New Queries', as shown in the image below. 
+      
+   ![Figure6](Images/Figure6.png)
+   
+2. Copy and paste the SQL query configuration from above. Select `atsd nur.axibase.com` as your 'Data Source'. 
+ 
+   ![Figure7](Images/Figure7.png)
 
+3. Press Execute!
+      
+4. After selecting execute, you should see a table output like in the image below. Click on '+New Visualization', as shown in the image below.
+        
+   ![Figure8](Images/Figure8.png)
+       
+5. Now, we can specify the details of our output. Select `tags.country` as the X Column and `Refusal Fees` as the Y Column.
+
+   ![Figure9](Images/Figure9.png)
+    
+6. Next, select the X Column tab. Select `Category` as the Scale, uncheck the `Sort Values` button, and modify the height of the column to fit all the country names. Click 'Save' in
+   the bottom right hand corner.
+ 
+   ![Figure10](Images/Figure10.png)
+   
+7. Below is our output from our query. You can toggle over any column to see what the visa refusal fees were for that particular country in 2015. By selecting the 'Save' button,
+   you can save the configuration and come back to it anytime. By selecting the 'Publish' button, you can make this configuration available to anybody else that shares the same
+   system credentials with you.  
+    
+   ![Figure11](Images/Figure11.png)
+   
+Here are some additional Redash charts for some of the queries that were include earlier in this article.
+
+Top 20 countries with the most B-1,2 visas issued for 2005 and 2015 (1st figure), as well as the compound annual growth rate for these countries (2nd figure).    
+   
+![Figure12](Images/Figure12.png)
+
+![Figure13](Images/Figure13.png)
+
+Worldwide visa issuances (excluding travel, diplomats, government, transit).
+
+![Figure14](Images/Figure14.png)
+   
+   
+        
+### Sources
+-----------
+
+Title Photo: http://www.siam-legal.com/US_Visa/k1-visa-thailand.php
