@@ -321,7 +321,7 @@ Let's begin by preparing a visualization for our last SQL query looking at refus
       
 4. After selecting execute, you should see a table output like in the image below. Click on 'New Visualization', as shown in the image below.
         
-   <img src="Images/Figure8.png" width="600" >
+   ![Figure8](Images/Figure8.png)
        
 5. Now, we can specify the details of our output. Select `tags.country` as the X Column and `Refusal Fees` as the Y Column.
 
