@@ -1,7 +1,7 @@
 ![TitlePhoto](Images/TitlePhoto.png)
 
-Visa Travel to the United States with Chart Lab, SQL Queries, and Redash
-========================================================================
+Visa Travel to America with Charts, SQL, and Redash
+===================================================
 
 In 2015, the United States was the [second most](https://en.wikipedia.org/wiki/World_Tourism_rankings) visited country in the world. Where do all of these travellers come from and 
 what are their reasons for coming to the United States? 
@@ -15,8 +15,10 @@ this article contains instructions on how to install your own ATSD instance and 
 ### U.S. Visa Dataset
 ---------------------
 
-Let's take a look at the dataset from [travel.state.gov](travel.state.gov), which can be accessed in Excel by clicking [here](https://travel.state.gov/content/dam/visas/Statistics/Non-Immigrant-Statistics/NIVDetailTables/FYs97-15_NIVDetailTable.xls).
- 
+Let's take a look at the dataset from [travel.state.gov](travel.state.gov), which can be accessed via our archive located [here](Resources/visas.tar.gz). Alternatively, you can
+download the Excel file from the [travel.state.gov](https://travel.state.gov/content/visas/en/law-and-policy/statistics/non-immigrant-visas.html) website and save each year as its
+own seperate CSV file. The title of the Excel file is **Nonimmigrant Visa Issuances by Visa Class and by Nationality FY1997-2015 NIV Detail Table**.    
+
 This dataset contains yearly totals for visas issued from 1997 through 2015. This dataset contains information on non-immigrant visas. Totals were collected for 84 different visas 
 types. You can find the complete list of all the visa types include in this dataset [here](Resources/visalist.txt).
 
@@ -346,7 +348,51 @@ Worldwide visa issuances (excluding travel, diplomats, government, transit).
 
 ![Figure14](Images/Figure14.png)
    
+### Action Items
+----------------
+
+Below are the summarized steps to follow to install local configurations of ATSD for analyzing United States visa statistics:   
    
+1. Install [Docker](https://docs.docker.com/engine/installation/linux/ubuntulinux/).
+2. Install Redash using the following command.
+   
+   ```sql
+      git clone https://github.com/getredash/redash
+      cd redash
+      docker-compose -f docker-compose.production.yml run --rm server create_db to setup the database
+      docker-compose -f docker-compose.production.yml up -d
+   ```
+
+   For more details on Redash click [here](https://redash.io/help-onpremise/setup/setting-up-redash-instance.html).
+
+3. Install the ATSD database on your local configuration using the following command. 
+
+   ```sql
+    docker run \
+      --detach \
+      --name=atsd \
+      --restart=always \
+      --publish 8088:8088 \
+      --publish 8443:8443 \
+      --publish 8081:8081 \
+      --publish 8082:8082/udp \
+      axibase/atsd:latest
+   ```
+
+4. Login into ATSD and configure the pre-defined administrator account.
+5. Import the [`travel_visas.xml`](Resources/travel_visas.xml) file into ATSD. For a more detailed description, refer to step 9 from the following [step-by-step walkthrough](https://github.com/axibase/atsd-use-cases/blob/master/USMortality/configuration.md) from our article on [U.S. mortality statistics](https://github.com/axibase/atsd-use-cases/blob/master/USMortality/README.md). 
+6. Import the [`visas.tar.gz`](Resources/visa.tar.gz) file into ATSD using the the above mentioned parser.
+7. Navigate to the Docker machine IP at port 5000, where you should see a Redash login screen.
+8. Follow the steps in [ATSD datasource guide](https://github.com/axibase/website/blob/master/user-guide/data-sources/atsd.md) to create a read-only account in ATSD and add a new ATSD datasource in Redash.
+9. Create a sample query configuration, and execute the following query to validate the integration:
+
+   ```sql
+   SELECT * FROM jvm_memory_free LIMIT 10 
+   ```
+   
+10. You are all set! Continue creating query configurations described in this article.
+
+If you require assistance in installing this software or have any questions, please feel free to [contact us](https://axibase.com/feedback/) and we would be happy to be of assistance!
         
 ### Sources
 -----------
