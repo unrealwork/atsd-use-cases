@@ -321,16 +321,16 @@ Let's begin by preparing a visualization for our last SQL query looking at refus
       
 4. After selecting execute, you should see a table output like in the image below. Click on 'New Visualization', as shown in the image below.
         
-   ![Figure8](Images/Figure8.png)
+   <img src="Images/Figure9.png" width="600" >
        
 5. Now, we can specify the details of our output. Select `tags.country` as the X Column and `Refusal Fees` as the Y Column.
 
-   <img src="Images/Figure9.png" width="650" >
+   <img src="Images/Figure9.png" width="600" >
     
 6. Next, select the X Column tab. Select `Category` as the Scale, uncheck the `Sort Values` button, and modify the height of the column to fit all the country names. Click 'Save' in
    the bottom right hand corner.
  
-   <img src="Images/Figure10.png" width="650" >
+   <img src="Images/Figure10.png" width="600" >
    
 Below is our output from our query. You can toggle over any column to see what the visa refusal fees were for that particular country in 2015. By selecting the 'Save' button,
 you can save the configuration and come back to it anytime. By selecting the 'Publish' button, you can make this configuration available to anybody else that shares the same
