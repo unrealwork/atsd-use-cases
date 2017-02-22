@@ -41,7 +41,7 @@ in the second dropdown.
 
 You can explore this portal by clicking on the below button:
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/8c9bb9cc)
+[![](Images/button.png)](https://apps.axibase.com/chartlab/8c9bb9cc#fullscreen)
 
 The next image below an output for H-1B visas issued to the continent of Asia as a whole. We can see that the number of visas issued increased from **47,726** in 1997 to **149,788**
 in 2015. you can toggle between different continents in the first dropdown, and by visa type in the second dropdown.
@@ -50,7 +50,7 @@ in 2015. you can toggle between different continents in the first dropdown, and 
 
 You can explore this portal by clicking on the below button: 
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/3c55ada0)
+[![](Images/button.png)](https://apps.axibase.com/chartlab/3c55ada0#fullscreen)
 
 ### Delving in Further to U.S. Visas
 ------------------------------------
@@ -62,7 +62,7 @@ years, especially from the U.K., which in 2015 had **2,630** O-1 visas issued. I
 
 You can explore this portal by clicking on the below button: 
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/3a320d35)
+[![](Images/button.png)](https://apps.axibase.com/chartlab/3a320d35#fullscreen)
 
 Below is an image for the total visa issued for the countries included in Trump administration's [travel ban](https://www.washingtonpost.com/graphics/national/immigration-order-explainer/)
 (which has since been lifted). These countries included Iran, Iraq, Libya, Somalia, Sudan, Syria, and Yemen. After the September 11th terrorist attacks, the number of visas issued
@@ -72,7 +72,7 @@ to these countries dropped to only **17,431** in 2003 but climbed back up to **7
 
 You can explore this portal by clicking on the below button:
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/16c6e667/3/)
+[![](Images/button.png)](https://apps.axibase.com/chartlab/16c6e667/3/#fullscreen)
 
 This below figure shows how many dependents come with each primary visa holder. Saudi Arabian visa holders are currently bringing in the most dependents. Below are some ratios (in %)
 for Saudi nationals showing the number of dependent travellers coming to the United States per primary visa holder.
@@ -86,12 +86,12 @@ for Saudi nationals showing the number of dependent travellers coming to the Uni
 
 You can explore this portal by clicking on the below button: 
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/1bc51064/2/)
+[![](Images/button.png)](https://apps.axibase.com/chartlab/1bc51064/2/#fullscreen)
 
 ### SQL Queries 
 ---------------
 
-In addition to outputs from Chart Lab, ATSD is also capable to perform [SQL queries](https://github.com/axibase/atsd-docs/blob/master/api/sql/README.md#overview), 
+In addition to outputs from Chart Lab, ATSD is also capable of performing [SQL queries](https://github.com/axibase/atsd-docs/blob/master/api/sql/README.md#overview), 
 which can be used to search for specific information contained in this dataset. You can read more about our SQL syntax [here](https://github.com/axibase/atsd-docs/blob/master/api/sql/README.md#syntax).
 
 This query shows the number of the most popular visas issued world wide, except for B (travel), C (transit), G (government), and A (diplomatic). We can see that by far the greatest
@@ -325,12 +325,12 @@ Let's begin by preparing a visualization for our last SQL query looking at refus
        
 5. Now, we can specify the details of our output. Select `tags.country` as the X Column and `Refusal Fees` as the Y Column.
 
-   ![Figure9](Images/Figure9.png)
+   <img src="Images/Figure9.png" width="650" >
     
 6. Next, select the X Column tab. Select `Category` as the Scale, uncheck the `Sort Values` button, and modify the height of the column to fit all the country names. Click 'Save' in
    the bottom right hand corner.
  
-   ![Figure10](Images/Figure10.png)
+   <img src="Images/Figure10.png" width="650" >
    
 Below is our output from our query. You can toggle over any column to see what the visa refusal fees were for that particular country in 2015. By selecting the 'Save' button,
 you can save the configuration and come back to it anytime. By selecting the 'Publish' button, you can make this configuration available to anybody else that shares the same
