@@ -10,7 +10,7 @@ In this article we will analyze a dataset from [travel.state.gov](travel.state.g
 how publicly available data from travel.state.gov can be easily loaded into the non-relational [Axibase Time Series Database (ATSD)](http://axibase.com/products/axibase-time-series-database/)
 for interactive analysis and graphical representation of raw data collected by government organizations. Additionally, this article illustrates some of the capabilities of [Redash](https://redash.io/),
 which is an open source data visualization tool that is partnered with Axibase. We will walk through how to take SQl queries from ATSD and create visualizations in Redash. Additionally,
-this article contains instructions on how to install your own ATSD instance and populate it with the raw data.
+this article contains instructions on how to install your own ATSD instance and populate it with the raw data. 
 
 ### U.S. Visa Dataset
 ---------------------
