@@ -55,7 +55,7 @@ You can explore this portal by clicking on the below button:
 
 [![](Images/button.png)](https://apps.axibase.com/chartlab/3c55ada0#fullscreen)
 
-### Delving Further to U.S. Visas
+### Delving Further into U.S. Visas
 ------------------------------------
 
 By looking at the two Chart Lab instances above, we can gain an understanding of the general situation of non-immigrant travel to the United States. Let's begin by taking a look
