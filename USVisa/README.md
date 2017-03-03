@@ -82,6 +82,17 @@ You can explore this portal by clicking on the below button:
 
 [![](Images/button.png)](https://apps.axibase.com/chartlab/16c6e667/3/#fullscreen)
 
+According to a recent article published by [Reuters](http://www.reuters.com/article/us-eu-usa-visa-idUSKBN1691Q9), the European Union (EU) is insistent on requiring American citizens to
+obtain travel visas to visit Europe (currently, Americans do not need visas). This is in response to Washington refusing to to grant visa-free access to 5 EU countries: Poland, Croatia,
+Bulgaria, Romania, and Cyprus. All EU countries except for these 5 may travel to the US without needing to obtain a travel visa. The following image shows the number of B-1 and B-2 visas
+from these countries between 1197 and 2015. 
+ 
+![Figure15](Images/Figure15.png) 
+
+You can explore this portal by clicking on the below button: 
+
+[![](Images/button.png)](https://apps.axibase.com/chartlab/82d4e825#fullscreen)
+
 This below figure shows how many dependents come with each primary visa holder. Saudi Arabian visa holders are currently bringing in the most dependents. Below are some ratios (in %)
 for Saudi nationals showing the number of dependent travellers coming to the United States per primary visa holder.
 
