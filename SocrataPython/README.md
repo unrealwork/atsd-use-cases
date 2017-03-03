@@ -58,10 +58,10 @@ An 'ATSD start completed' message means that the setup completed successfully.
  * [ATSD] ATSD start completed.  
  ```
 
-### Install `atsd_client` and `tabulate` python modules
+### Install `atsd_client`, `pandas` and `tabulate` python modules
 
 ```sh
-pip install atsd_client tabulate
+pip install atsd_client pandas tabulate
 ```
 
 The [ATSD Python client](https://github.com/axibase/atsd-api-python) implements a set of methods to load series, properties, and message records from the database, as well as acts as an SQL client.
