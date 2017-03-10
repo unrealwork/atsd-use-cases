@@ -97,7 +97,8 @@ GROUP BY datetime
 
 In comparison to the **$2.069 billion** that the U.S. made from non-immigration visas, how much was earned from visa applications that were submitted but denied? We can load visa refusal rates from
 [travel.state.gov](https://travel.state.gov/content/dam/visas/Statistics/Non-Immigrant-Statistics/RefusalRates/FY16.pdf) into ATSD as a series, and then calculate the
-total dollar amount earned from visas that were denied. In 2015 Mexico topped the list for paying the most for refused visa applications at **$59,794,320.00**.
+total dollar amount earned from visas that were denied. In 2015 Mexico topped the list for paying the most for refused visa applications at **$59,794,320.00**, with India coming in
+at a close second at **$47,992,945.00**. 
 
 ```sql 
 SELECT  t1.tags.country as 'Country', t1.value as 'Total Visas Issued', t2.value as 'Visa Refusal Rate',
@@ -335,7 +336,9 @@ GROUP BY t1.tags.visa_type
 ```
 
 We can see that the total amount of money earned from visa applications which ended up being denied was **$411,382,202.00**, which comes to a little less than 1/4 of the amount earned
-from visas that were issued. 
+from visas that were issued. These numbers check out with the State Department's [official report from 2015](https://www.state.gov/documents/organization/249770.pdf), which reported
+that 10.9 million visas were issued at foreign posts in 2015. According to our SQL query, in this year 2,571,139 non-immigrant visa applications were rejected. You can take a closer
+look at the U.S. visa refusal rates by following the below actions items to install your own ATSD instance.  
 
 ### Action Items
 ----------------
