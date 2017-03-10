@@ -3,13 +3,13 @@
 U.S. Visa Refusal Rates with Charts and SQL Queries
 ===================================================
 
-There are a few ways to earn **$400 million** in a short amount of time in today's world. You can win the lottery, come up with the next big smart phone app, or invest your money. Or
-you could simply be the [U.S. State Department](https://www.state.gov/), which in 2015 earned more than **$1.7 billion** from issued non-immigrant visas. Additionally, the State 
-Department earned over **$400 million** from non-immigrant visas that ended up being refused. What do the visa refusal rates for countries around the world look like? How have 
-visa refusal rates changed over time? What is the total revenue the U.S. draws from refused visa applications?
+There are a few ways to earn **$400 million** in today's world. You can win the lottery, come up with the next big smart phone app, or invest your money. These are all relatively
+established get rich schemes. How about earning millions by rejecting customers? In 2015, the [U.S. State Department](https://www.state.gov/) earned over **$400 million** from non-immigrant visa applications that ended up being rejected. 
+What do the visa refusal rates for countries around the world look like? How have visa refusal rates changed over time? What is the total revenue the U.S. draws from refused 
+visa applications?
 
 In this article we will analyze a dataset from [travel.state.gov](https://travel.state.gov) looking at non-immigrant visa figures from 1997 through 2015 together with visa refusal rates
-from 2006 to 216 (also from [travel.state.gov](https://travel.state.gov)). This research article illustrates how publicly available data from travel.state.gov collected by government 
+from 2006 to 2016 (also from [travel.state.gov](https://travel.state.gov)). This research article illustrates how publicly available data from travel.state.gov collected by government 
 organizations can be easily loaded into the non-relational [Axibase Time Series Database (ATSD)](http://axibase.com/products/axibase-time-series-database/) for interactive analysis and 
 visual outputs with Chart Lab charts and SQL queries. Additionally, this article contains instructions on how to install your own ATSD instance and populate it with raw data. 
 
@@ -31,8 +31,7 @@ website and download each file individually; however these files are only availa
 visas are issued for individuals seeking entry for business purposes, while B-2 visas are issued for tourism and non-business purposes. In this article, in order to come up with a total
 monetary value for visa refusal fees, we will apply these refusal rates to all visa types. 
 
-As opposed to analyzing this information in Excel, it is much more convenient to interact with the data once it is loaded into a database. The [Axibase Time Series Database (ATSD)](http://axibase.com/products/axibase-time-series-database/) 
-is a powerful tool when it comes to storing, analyzing, and visualizing datasets. We will use the following two aspects of ATSD to look into this dataset: interactive graphs 
+As opposed to analyzing this information in Excel, it is much more convenient to interact with the data once it is loaded into a database. We will use the following two aspects of ATSD to look into this dataset: interactive graphs 
 from [Chart Lab](/ChartLabIntro/README.md) and tabular outputs from analytical [SQL queries](https://github.com/axibase/atsd-docs/blob/master/api/sql/README.md#overview).
 You can load the dataset into your ATSD instance by following the steps provided at the [end of the article](#action-items). 
  
@@ -52,6 +51,14 @@ by country by clicking on the dropdown button. Here are a few more countries wit
 You can explore this portal by clicking on the below button:
 
 [![](Images/button.png)](https://apps.axibase.com/chartlab/8c9bb9cc/4/#fullscreen)
+
+The below image shows how refusal rates have changed over time for Afghanistan, Canada, China - mainland, India, Mexico, Norway, Russia, and Vatican City. 
+
+![Figure4](Images/Figure4.png)
+
+You can explore this portal by clicking on the below button:
+
+[![](Images/button.png)](https://apps.axibase.com/chartlab/8c9bb9cc/5/#fullscreen)
 
 The below figure shows the countries with the highest and lowest refusal rates in 2015. Cuba topped the list with the highest refusal rate at **82%**, while Lictenstein, Monaco, and
 San Marino all had refusal rates of **0%**.
