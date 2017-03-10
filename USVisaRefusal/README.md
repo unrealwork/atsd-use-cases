@@ -1,10 +1,10 @@
 ![TitlePhoto](Images/TitlePhoto.png)
 
-U.S. Visa Refusal Rates with Charts and SQL Queries
-===================================================
+U.S. State Department: Getting Paid $400 Million While Rejecting Customers
+==========================================================================
 
-There are a few ways to earn **$400 million** in today's world. You can win the lottery, come up with the next big smart phone app, or invest your money. These are all relatively
-established get rich schemes. How about earning millions by rejecting customers? In 2015, the [U.S. State Department](https://www.state.gov/) earned over **$400 million** from non-immigrant visa applications that ended up being rejected. 
+There are a few ways to earn **$400 million** in today's world. You can win the [lottery jackpot](https://en.wikipedia.org/wiki/Lottery_jackpot_records), or come up with the next big [smart phone app](https://www.bloomberg.com/gadfly/articles/2017-03-01/snapchat-s-ipo-leads-the-way-for-other-overheated-startups). These are relatively
+established "get rich" schemes. How about earning millions by rejecting customers? In 2015, the [U.S. State Department](https://www.state.gov/) earned over **$400 million** from non-immigrant visa applications that ended up being rejected. 
 What do the visa refusal rates for countries around the world look like? How have visa refusal rates changed over time? What is the total revenue the U.S. draws from refused 
 visa applications?
 
