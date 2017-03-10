@@ -3,11 +3,10 @@
 U.S. Visa Refusal Rates with Charts and SQL Queries
 ===================================================
 
-On March 6th, 2016, the United States government issued a [revised travel ban](https://www.nytimes.com/interactive/2017/03/06/us/politics/document-Washington-Minnesota-Travel-Ban-Case.html)
-restricting citizens of Iran, Libya, Somalia, Sudan, Syria, and Yemen from travelling to the U.S. This new order bans travellers from these countries for 90 days, but with Syrian citizens
-being subjected to a 120 day ban. With the exception of diplomats, dual nationals, and green card holders, all citizens of these countries are banned from travelling to the United States.
-What do the visa refusal rates for these, as well as other countries, really look like? How have visa refusal rates changed over time? What is the total revenue the U.S. draws 
-from refused visa applications?
+There are few ways to earn **$400 million** in a short amount of time in today's world. You can win the lottery, come up with the next big smart phone app, or invest your money. Or
+You could simply be the [U.S. State Department](https://www.state.gov/), which in 2015 earned more than **$1.7 billion** from issued non-immigrant visas. Additionally, the State 
+Department earned over **$400 million** from non-immigrant visas that ended up being refused. What do the visa refusal rates for countries around the world look like? How have 
+visa refusal rates changed over time? What is the total revenue the U.S. draws from refused visa applications?
 
 In this article we will analyze a dataset from [travel.state.gov](https://travel.state.gov) looking at non-immigrant visa figures from 1997 through 2015 together with visa refusal rates
 from 2006 to 216 (also from [travel.state.gov](https://travel.state.gov)). This research article illustrates how publicly available data from travel.state.gov collected by government 
@@ -79,6 +78,160 @@ You can explore this portal by clicking on the below button:
 
 In addition to outputs from Chart Lab, ATSD is also capable of performing [SQL queries](https://github.com/axibase/atsd-docs/blob/master/api/sql/README.md#overview), 
 which can be used to search for specific information contained in this dataset. You can read more about our SQL syntax [here](https://github.com/axibase/atsd-docs/blob/master/api/sql/README.md#syntax).
+
+This first query shows countries were refusals have increased most over the last 10 years. Surprisingly, two countries that have long been considered U.S. allies, Canada and Norway,
+saw their refusal rates considerably increase during this time period. Canada's visa refusal rate increased from 25.5% in 2006 to 47.9% in 2016, while in this same period Norway's 
+refusal rate increased by 17.1%. Cuba, the country with the largest visa refusal rate in 2016, saw a 20.5% increase from 2006 to 2016.  
+
+```sql
+SELECT tags.country AS 'Country', 
+  first(value) AS 'Refusal Rate, 2006', 
+  median(value) AS 'Median Rate, 2006-2016',   
+  last(value) AS 'Refusal Rate, 2016', 
+  last(value)-first(value) AS 'Change, 2006-2016'
+FROM 'state.visa-refusal-rate' 
+  GROUP BY tags.country
+  HAVING COUNT(value) > 10
+ORDER BY 'Change, 2006-2016' DESC
+  LIMIT 25
+```
+
+```ls
+| Country                           | Refusal Rate, 2006  | Median Rate, 2006-2016  | Refusal Rate, 2016  | Change, 2006-2016 | 
+|-----------------------------------|---------------------|-------------------------|---------------------|-------------------| 
+| Vatican City                      | 0.0                 | 11.8                    | 62.5                | 62.5              | 
+| Angola                            | 11.1                | 19.9                    | 48.5                | 37.4              | 
+| Afghanistan                       | 39.8                | 56.0                    | 73.8                | 34.0              | 
+| Burkina Faso                      | 33.2                | 43.1                    | 65.4                | 32.1              | 
+| Comoros                           | 21.6                | 25.0                    | 53.7                | 32.1              | 
+| Haiti                             | 32.7                | 54.4                    | 64.5                | 31.8              | 
+| Maldives                          | 16.3                | 16.3                    | 47.6                | 31.3              | 
+| Liberia                           | 39.4                | 57.6                    | 70.2                | 30.8              | 
+| Burundi                           | 32.9                | 52.2                    | 61.3                | 28.4              | 
+| Guinea-Bissau                     | 44.5                | 55.0                    | 71.9                | 27.4              | 
+| Venezuela                         | 13.8                | 16.1                    | 40.2                | 26.4              | 
+| Tajikistan                        | 31.2                | 32.4                    | 55.2                | 24.0              | 
+| Syria                             | 36.7                | 36.7                    | 59.8                | 23.1              | 
+| Canada                            | 25.5                | 47.9                    | 47.9                | 22.4              | 
+| Kyrgyzstan                        | 29.4                | 29.8                    | 51.7                | 22.3              | 
+| Cuba                              | 61.3                | 53.1                    | 81.8                | 20.5              | 
+| Congo, Rep. of the (Brazzaville)  | 29.0                | 33.0                    | 46.6                | 17.5              | 
+| Norway                            | 4.9                 | 17.8                    | 22.0                | 17.1              | 
+| Algeria                           | 20.2                | 23.1                    | 36.0                | 15.8              | 
+| Bangladesh                        | 47.2                | 47.2                    | 62.8                | 15.6              | 
+| Pakistan                          | 31.3                | 40.0                    | 46.4                | 15.1              | 
+| Kazakhstan                        | 12.5                | 11.7                    | 27.6                | 15.0              | 
+| Mauritania                        | 56.5                | 54.7                    | 71.4                | 15.0              | 
+| Mali                              | 42.7                | 52.8                    | 57.6                | 14.9              | 
+| Marshall Islands                  | 14.7                | 14.0                    | 29.4                | 14.7              | 
+```
+
+This next query shows countries where refusals have decreased most over the last 10 years. Poland in this time period saw a decrease of 20.8%, which may be due in part to it's admittance
+to the [European Union](https://en.wikipedia.org/wiki/European_Union) in 2004. Seven African countries (Cote d'Ivoire, Kiribati, Malawi, Niger, Nigeria, Zambia, Zimbabwe) saw decreases
+greater than 12.4% from 2006 to 2016. 
+
+```sql
+SELECT tags.country AS 'Country', 
+  first(value) AS 'Refusal Rate, 2006', 
+  median(value) AS 'Median Rate, 2006-2016',   
+  last(value) AS 'Refusal Rate, 2016', 
+  last(value)-first(value) AS 'Change, 2006-2016'
+FROM 'state.visa-refusal-rate' 
+  GROUP BY tags.country
+  HAVING COUNT(value) > 10
+ORDER BY 'Change, 2006-2016' 
+  LIMIT 25
+```
+
+```ls
+| Country                          | Refusal Rate, 2006  | Median Rate, 2006-2016  | Refusal Rate, 2016  | Change, 2006-2016 | 
+|----------------------------------|---------------------|-------------------------|---------------------|-------------------| 
+| Micronesia, Federated States of  | 100.0               | 50.0                    | 25.0                | -75.0             | 
+| Guyana                           | 60.3                | 52.7                    | 25.8                | -34.5             | 
+| Burma                            | 44.9                | 32.0                    | 13.0                | -31.9             | 
+| Palau                            | 78.6                | 53.3                    | 53.3                | -25.3             | 
+| San Marino                       | 25.0                | 0.0                     | 0.0                 | -25.0             | 
+| Cambodia                         | 58.3                | 44.0                    | 35.6                | -22.7             | 
+| Romania                          | 34.1                | 22.4                    | 11.4                | -22.7             | 
+| Poland                           | 26.2                | 10.2                    | 5.4                 | -20.8             | 
+| Niger                            | 51.9                | 41.3                    | 31.1                | -20.8             | 
+| Malawi                           | 35.1                | 26.9                    | 14.5                | -20.6             | 
+| Peru                             | 48.6                | 26.0                    | 28.6                | -20.0             | 
+| Paraguay                         | 26.3                | 7.6                     | 7.5                 | -18.8             | 
+| Albania                          | 54.5                | 39.8                    | 36.0                | -18.5             | 
+| Zambia                           | 39.8                | 23.1                    | 22.3                | -17.5             | 
+| Zimbabwe                         | 40.1                | 22.9                    | 22.9                | -17.2             | 
+| Bolivia                          | 31.4                | 17.4                    | 14.4                | -17.0             | 
+| Turkmenistan                     | 48.7                | 24.3                    | 33.0                | -15.8             | 
+| Costa Rica                       | 24.1                | 13.7                    | 8.4                 | -15.7             | 
+| Colombia                         | 33.3                | 21.7                    | 17.8                | -15.5             | 
+| Monaco                           | 14.3                | 12.5                    | 0.0                 | -14.3             | 
+| Cote d'Ivoire                    | 51.3                | 37.4                    | 37.4                | -13.9             | 
+| Vanuatu                          | 30.0                | 16.7                    | 16.7                | -13.3             | 
+| Armenia                          | 58.7                | 48.9                    | 45.9                | -12.8             | 
+| Nigeria                          | 54.0                | 35.1                    | 41.4                | -12.6             | 
+| Kiribati                         | 18.2                | 19.6                    | 5.8                 | -12.4             | 
+```
+
+Countries with worst refusal rates in 2016:
+
+```sql
+SELECT tags.country AS 'Country', 
+  first(value) AS 'Refusal Rate, 2006', 
+  median(value) AS 'Median Rate, 2006-2016',   
+  last(value) AS 'Refusal Rate, 2016', 
+  last(value)-first(value) AS 'Change, 2006-2016'
+FROM 'state.visa-refusal-rate' 
+  GROUP BY tags.country
+  HAVING COUNT(value) > 10
+ORDER BY last(value) DESC
+  LIMIT 10
+```
+
+```ls
+| Country        | Refusal Rate, 2006  | Median Rate, 2006-2016  | Refusal Rate, 2016  | Change, 2006-2016 | 
+|----------------|---------------------|-------------------------|---------------------|-------------------| 
+| Cuba           | 61.3                | 53.1                    | 81.8                | 20.5              | 
+| Afghanistan    | 39.8                | 56.0                    | 73.8                | 34.0              | 
+| Guinea-Bissau  | 44.5                | 55.0                    | 71.9                | 27.4              | 
+| Mauritania     | 56.5                | 54.7                    | 71.4                | 15.0              | 
+| Liberia        | 39.4                | 57.6                    | 70.2                | 30.8              | 
+| Gambia, The    | 65.5                | 67.2                    | 69.9                | 4.4               | 
+| Bhutan         | 57.0                | 54.6                    | 69.8                | 12.8              | 
+| Ghana          | 66.1                | 59.8                    | 65.7                | -0.4              | 
+| Burkina Faso   | 33.2                | 43.1                    | 65.4                | 32.1              | 
+| Haiti          | 32.7                | 54.4                    | 64.5                | 31.8              | 
+```
+
+Countries with lowest refusal rates in 2016:
+
+```sql
+SELECT tags.country AS 'Country', 
+  first(value) AS 'Refusal Rate, 2006', 
+  median(value) AS 'Median Rate, 2006-2016',   
+  last(value) AS 'Refusal Rate, 2016', 
+  last(value)-first(value) AS 'Change, 2006-2016'
+FROM 'state.visa-refusal-rate' 
+  GROUP BY tags.country
+  HAVING COUNT(value) > 10
+ORDER BY last(value)
+  LIMIT 10
+```
+
+```ls
+| Country               | Refusal Rate, 2006  | Median Rate, 2006-2016  | Refusal Rate, 2016  | Change, 2006-2016 | 
+|-----------------------|---------------------|-------------------------|---------------------|-------------------| 
+| Liechtenstein         | 5.9                 | 5.9                     | 0.0                 | -5.9              | 
+| Monaco                | 14.3                | 12.5                    | 0.0                 | -14.3             | 
+| San Marino            | 25.0                | 0.0                     | 0.0                 | -25.0             | 
+| Oman                  | 5.2                 | 2.8                     | 1.9                 | -3.3              | 
+| Cyprus                | 2.2                 | 1.9                     | 2.0                 | -0.2              | 
+| Argentina             | 6.7                 | 2.5                     | 2.1                 | -4.6              | 
+| Uruguay               | 12.6                | 3.8                     | 3.1                 | -9.5              | 
+| Qatar                 | 4.1                 | 3.0                     | 3.5                 | -0.6              | 
+| Malaysia              | 11.4                | 5.4                     | 3.6                 | -7.8              | 
+| United Arab Emirates  | 9.8                 | 8.0                     | 4.0                 | -5.8              | 
+```
 
 The below query shows the total revenue for travel visas (in millions of USD) for the state department at [$160](https://travel.state.gov/content/visas/en/fees/fees-visa-services.html) per visa from 1997 to 
 2015. Revenues from issued visas in this time period almost doubled, from **$951 million** in 1997 to **$1.743 billion** in 2015.  
