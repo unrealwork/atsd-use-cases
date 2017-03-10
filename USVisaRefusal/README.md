@@ -6,20 +6,20 @@ U.S. Visa Refusal Rates with Charts and SQL Queries
 On March 6th, 2016, the United States government issued a [revised travel ban](https://www.nytimes.com/interactive/2017/03/06/us/politics/document-Washington-Minnesota-Travel-Ban-Case.html)
 restricting citizens of Iran, Libya, Somalia, Sudan, Syria, and Yemen from travelling to the U.S. This new order bans travellers from these countries for 90 days, but with Syrian citizens
 being subjected to a 120 day ban. With the exception of diplomats, dual nationals, and green card holders, all citizens of these countries are banned from travelling to the United States.
-But what do the visa refusal rates for these, as well as other countries, really look like? How have visa refusal rates changed over time? What is the total revenue the U.S. draws 
-from reviewed visa applications?
+What do the visa refusal rates for these, as well as other countries, really look like? How have visa refusal rates changed over time? What is the total revenue the U.S. draws 
+from refused visa applications?
 
 In this article we will analyze a dataset from [travel.state.gov](https://travel.state.gov) looking at non-immigrant visa figures from 1997 through 2015 together with visa refusal rates
 from 2006 to 216 (also from [travel.state.gov](https://travel.state.gov)). This research article illustrates how publicly available data from travel.state.gov collected by government 
-organizations can be easily loaded into the non-relational[Axibase Time Series Database (ATSD)](http://axibase.com/products/axibase-time-series-database/) for interactive analysis and 
-visual outputs with Chart Lab charts and SQL queries. Additionally, this article contains instructions on how to install your own ATSD instance and populate it with the raw data. 
+organizations can be easily loaded into the non-relational [Axibase Time Series Database (ATSD)](http://axibase.com/products/axibase-time-series-database/) for interactive analysis and 
+visual outputs with Chart Lab charts and SQL queries. Additionally, this article contains instructions on how to install your own ATSD instance and populate it with raw data. 
 
 ### U.S. Visa Dataset and Refusal Rates
 ---------------------------------------
 
 Let's take a look at the dataset from travel.state.gov, which can be accessed via our archive located in the [Resources](Resources/visas.tar.gz) folder in this repository. Alternatively, you can
-download the Excel file from the [travel.state.gov](https://travel.state.gov/content/visas/en/law-and-policy/statistics/non-immigrant-visas.html) website and save each year as its
-own separate CSV file. The title of the Excel file on the travel.state.gov website is **Nonimmigrant Visa Issuances by Visa Class and by Nationality FY1997-2015 NIV Detail Table**.    
+download the Excel file from the [travel.state.gov](https://travel.state.gov/content/visas/en/law-and-policy/statistics/non-immigrant-visas.html) website and save each separate year as its
+own individual CSV file. The title of the Excel file on the travel.state.gov website is **Nonimmigrant Visa Issuances by Visa Class and by Nationality FY1997-2015 NIV Detail Table**.    
 
 This dataset contains yearly totals for non-immigrant visas issued from 1997 through 2015. Totals were collected for 84 different visa types. You can find the complete list of all 
 the visa types included in this dataset [here](Resources/visalist.txt). You can find descriptions of all visa types on the [U.S. Department of State](https://travel.state.gov/content/visas/en/general/all-visa-categories.html) website.
@@ -27,7 +27,7 @@ the visa types included in this dataset [here](Resources/visalist.txt). You can 
 Visa figures were collected for 200 countries, 7 continents, and for unknown national origins. You can find a complete list of all the countries included in this dataset [here](Resources/countrylist.txt).
 
 Visa refusal rates were taken from the [travel.state.gov](https://travel.state.gov/content/dam/visas/Statistics/Non-Immigrant-Statistics/refusalratelanguage.pdf#3) website, and can be
-accessed via our archive located in the [Resources](Resources/visas-refusal-rate-csvs.tar.gz) as individual CSV files for each year. Alternatively, you can navigate to the travel.state.gov
+accessed via our archive located in the [Resources](Resources/visa-refusal.csv) as individual CSV files for each year. Alternatively, you can navigate to the travel.state.gov
 website and download each file individually; however these files are only available in PDF format. These refusal rates are applied for only type [B visas](https://en.wikipedia.org/wiki/B_visa). Generally speaking, B-1 
 visas are issued for individuals seeking entry for business purposes, while B-2 visas are issued for tourism and non-business purposes. In this article, in order to come up with a total
 monetary value for visa refusal fees, we will apply these refusal rates to all visa types. 
@@ -41,7 +41,7 @@ You can load the dataset into your ATSD instance by following the steps provided
 ---------------------------
 
 The below figure shows the refusal rates from 2006 through 2016. We can see that refusal rates for Syrian nationals grew from **23.6%** in 2009 to **60.0%** in 2016. You can filter 
-by country by clicking on the dropdown button. Here are a few more countries, showing how their refusal rates have changed over time.
+by country by clicking on the dropdown button. Here are a few more countries with figures showing how their refusal rates have changed over time.
 
 * Mexico: 33.0% (2007) to 23.5% (2016)
 * Russia: 15.3% (2006) to 9.3% (2016)
@@ -60,8 +60,8 @@ You can explore this portal by clicking on the below button:
 In addition to outputs from Chart Lab, ATSD is also capable of performing [SQL queries](https://github.com/axibase/atsd-docs/blob/master/api/sql/README.md#overview), 
 which can be used to search for specific information contained in this dataset. You can read more about our SQL syntax [here](https://github.com/axibase/atsd-docs/blob/master/api/sql/README.md#syntax).
 
-Total revenue for travel visas (in millions of USD) for the state department at [$160](https://travel.state.gov/content/visas/en/fees/fees-visa-services.html) per visa from 1997 to 
-2015. Revenues from issued visas in this time period has almost doubled, from **$1.128 billion** in 1997 to **$2.069 billion** in 2015.  
+The below query shows the total revenue for travel visas (in millions of USD) for the state department at [$160](https://travel.state.gov/content/visas/en/fees/fees-visa-services.html) per visa from 1997 to 
+2015. Revenues from issued visas in this time period almost doubled, from **$1.128 billion** in 1997 to **$2.069 billion** in 2015.  
 
 ```sql
 SELECT date_format(time, 'yyyy') AS "year", sum(value) * 190 / power(10, 6) AS "Visa Fees, $M"
