@@ -54,6 +54,26 @@ You can explore this portal by clicking on the below button:
 
 [![](Images/button.png)](https://apps.axibase.com/chartlab/8c9bb9cc/4/#fullscreen)
 
+The below figure shows the countries with the highest and lowest refusal rates in 2015. Cuba topped the list with the highest refusal rate at **82%**, while Lictenstein, Monaco, and
+San Marino all had refusal rates of **0%**.
+
+![Figure3](Images/Figure3.png)
+
+You can explore this portal by clicking on the below button:
+
+[![](Images/button.png)](https://apps.axibase.com/chartlab/b8675093/2/#fullscreen)
+
+The below figure shows the distribution over time of the lowest (top figure) and highest (bottom figure) refusal rates from 2015. By scrolling over of the the distributions, you
+can see the maximum and minimum refusal rates for the country from 2006 through 2016, as well as values for the 25th, 50th, and 75th percentiles. We can see that the visa refusal rates
+for nationals from Monaco has shot up to a **57%** refusal rate in 2015 (the absolute minimum in this time frame was 0%). Cuba shot up to a **82%** refusal rate in 2015, with the minimum
+refusal from 2006 to 2014 being 20.5%.   
+
+![Figure2](Images/Figure2.png)
+
+You can explore this portal by clicking on the below button:
+
+[![](Images/button.png)](https://apps.axibase.com/chartlab/b8675093#fullscreen)
+
 ### SQL Queries
 ---------------
 
@@ -61,10 +81,10 @@ In addition to outputs from Chart Lab, ATSD is also capable of performing [SQL q
 which can be used to search for specific information contained in this dataset. You can read more about our SQL syntax [here](https://github.com/axibase/atsd-docs/blob/master/api/sql/README.md#syntax).
 
 The below query shows the total revenue for travel visas (in millions of USD) for the state department at [$160](https://travel.state.gov/content/visas/en/fees/fees-visa-services.html) per visa from 1997 to 
-2015. Revenues from issued visas in this time period almost doubled, from **$1.128 billion** in 1997 to **$2.069 billion** in 2015.  
+2015. Revenues from issued visas in this time period almost doubled, from **$951 million** in 1997 to **$1.743 billion** in 2015.  
 
 ```sql
-SELECT date_format(time, 'yyyy') AS "year", sum(value) * 190 / power(10, 6) AS "Visa Fees, $M"
+SELECT date_format(time, 'yyyy') AS "year", sum(value) * 160 / power(10, 6) AS "Visa Fees, $M"
   FROM 'state.non-immigrant-visa' 
 WHERE tags.visa_type = 'Grand Total' 
   AND tags.country NOT LIKE '*Total*' 
@@ -74,25 +94,25 @@ GROUP BY datetime
 ```ls
 | year  | Visa Fees, $M | 
 |-------|---------------| 
-| 1997  | 1128.99159    | 
-| 1998  | 1104.68907    | 
-| 1999  | 1176.57082    | 
-| 2000  | 1356.91084    | 
-| 2001  | 1441.86782    | 
-| 2002  | 1096.19303    | 
-| 2003  | 927.48063     | 
-| 2004  | 959.32881     | 
-| 2005  | 1023.90069    | 
-| 2006  | 1108.88123    | 
-| 2007  | 1224.41415    | 
-| 2008  | 1253.0006     | 
-| 2009  | 1100.95063    | 
-| 2010  | 1217.26939    | 
-| 2011  | 1423.06504    | 
-| 2012  | 1696.1471     | 
-| 2013  | 1741.22631    | 
-| 2014  | 1887.1712     | 
-| 2015  | 2069.43155    | 
+| 1997  | 951           | 
+| 1998  | 930           | 
+| 1999  | 991           | 
+| 2000  | 1143          | 
+| 2001  | 1214          | 
+| 2002  | 923           | 
+| 2003  | 781           | 
+| 2004  | 808           | 
+| 2005  | 862           | 
+| 2006  | 934           | 
+| 2007  | 1031          | 
+| 2008  | 1055          | 
+| 2009  | 927           | 
+| 2010  | 1025          | 
+| 2011  | 1198          | 
+| 2012  | 1428          | 
+| 2013  | 1466          | 
+| 2014  | 1589          | 
+| 2015  | 1743          | 
 ```
 
 In comparison to the **$2.069 billion** that the U.S. made from non-immigration visas, how much was earned from visa applications that were submitted but denied? We can load visa refusal rates from
