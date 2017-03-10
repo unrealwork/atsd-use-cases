@@ -61,7 +61,7 @@ In addition to outputs from Chart Lab, ATSD is also capable of performing [SQL q
 which can be used to search for specific information contained in this dataset. You can read more about our SQL syntax [here](https://github.com/axibase/atsd-docs/blob/master/api/sql/README.md#syntax).
 
 Total revenue for travel visas (in millions of USD) for the state department at [$160](https://travel.state.gov/content/visas/en/fees/fees-visa-services.html) per visa from 1997 to 
-2015. Revenues from visas in this time period has almost doubled, from **$1.128 billion** in 1997 to **$2.069 billion** in 2015.  
+2015. Revenues from issued visas in this time period has almost doubled, from **$1.128 billion** in 1997 to **$2.069 billion** in 2015.  
 
 ```sql
 SELECT date_format(time, 'yyyy') AS "year", sum(value) * 190 / power(10, 6) AS "Visa Fees, $M"
@@ -95,9 +95,9 @@ GROUP BY datetime
 | 2015  | 2069.43155    | 
 ```
 
-Of the **$2.069 billion** that the U.S. made from non-immigration visas, how much of that was earned from visa applications that were denied? We can load visa refusal rates from
+In comparison to the **$2.069 billion** that the U.S. made from non-immigration visas, how much was earned from visa applications that were submitted but denied? We can load visa refusal rates from
 [travel.state.gov](https://travel.state.gov/content/dam/visas/Statistics/Non-Immigrant-Statistics/RefusalRates/FY16.pdf) into ATSD as a series, and then calculate the
-total dollar amount earned from visas that were denied. In 2015 Mexico topped the list for paying the most for refused visa applications at **$47,733,805.65**.
+total dollar amount earned from visas that were denied. In 2015 Mexico topped the list for paying the most for refused visa applications at **$59,794,320.00**.
 
 ```sql 
 SELECT  t1.tags.country as 'Country', t1.value as 'Total Visas Issued', t2.value as 'Visa Refusal Rate',
@@ -106,7 +106,7 @@ SELECT  t1.tags.country as 'Country', t1.value as 'Total Visas Issued', t2.value
   ROUND(160*(t1.value/((100-t2.value)/100))* (t2.value/100)) as 'Refusal Fees'
   FROM 'state.non-immigrant-visa' t1
 JOIN 'state.visa-refusal-rate' t2   
-WHERE t1.tags.country NOT LIKE '*Total*' AND t1.tags.visa_type = 'Total Visas' AND date_format(t1.time, 'yyyy') = '2015'
+WHERE t1.tags.country NOT LIKE '*Total*' AND t1.tags.visa_type = 'Grand Total' AND date_format(t1.time, 'yyyy') = '2015'
 ORDER BY 'Refusal Fees' DESC
 ```
 
@@ -324,7 +324,7 @@ SELECT REPLACE(t1.entity, 'travel.state.gov', 'Total') AS 'Country',
   ROUND(SUM(160*(t1.value/((100-t2.value)/100))* (t2.value/100))) AS 'Total Refusal Fees'
   FROM 'state.non-immigrant-visa' t1
 JOIN 'state.visa-refusal-rate' t2   
-WHERE t1.tags.country NOT LIKE '*Total*' AND t1.tags.visa_type = 'Total Visas' AND date_format(t1.time, 'yyyy') = '2015'
+WHERE t1.tags.country NOT LIKE '*Total*' AND t1.tags.visa_type = 'Grand Total' AND date_format(t1.time, 'yyyy') = '2015'
 GROUP BY t1.tags.visa_type
 ```
 
@@ -334,8 +334,8 @@ GROUP BY t1.tags.visa_type
 | Total    | 10888211.00         | 26.55                      | 13459350.00         | 2571139.00      | 411382202.00       | 
 ```
 
-We can see that the total amount of money earned from visa applications which ended up being refused was **$356,398,477.00**
-
+We can see that the total amount of money earned from visa applications which ended up being denied was **$411,382,202.00**, which comes to a little less than 1/4 of the amount earned
+from visas that were issued. 
 
 ### Action Items
 ----------------
