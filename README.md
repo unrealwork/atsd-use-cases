@@ -13,5 +13,5 @@ Axibase Time Series Database: Usage Examples and Research Articles
 7. [Analyzing America's International Trade history](/USInternationalTrade/README.md)
 8. [From data.gov dataset to Python DataFrame in 10 minutes](/SocrataPython/README.md)
 9. [Realtime Analysis of the Oroville Dam Disaster](/OrovilleDam/README.md)
-10. [U.S. State Department: Getting Paid $400 Million While Rejecting Customers](/USVisaRefusal)
+10. [U.S. State Department: Getting Paid $400 Million While Rejecting Customers](/USVisaRefusal/README.md)
 11. [Visa Travel to the United States with Charts, SQL, and Redash](/USVisa/README.md)
