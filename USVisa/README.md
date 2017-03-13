@@ -294,17 +294,17 @@ Let's begin by preparing a visualization for our last SQL query looking at world
       
 4. After selecting `Execute`, you should see a table output like the image below. Click on 'New Visualization', as shown in the image below.
         
-   <img src="Images/Figure8.png" width="400" >
+   ![Figure8](Images/Figure8.png)
        
 5. Now, we can specify the details of our output. Select `tags.country` as the X Column and `tags.visa_type` as the Y Column. You can give your output a title by filling in the
    'Visualization Name' box. 
 
-   <img src="Images/Figure9.png" width="600" >
+   ![Figure9](Images/Figure9.png)
     
 6. Next, select the X Column tab. Select `Category` as the Scale, uncheck the `Sort Values` button, and modify the height of the column to fit all the country names. Click 'Save' in
    the bottom right-hand corner.
  
-   <img src="Images/Figure10.png" width="600" >
+   ![Figure10](Images/Figure10.png)
    
 Below is the output from our query. You can toggle over any column to see what the visa issuances were for that particular visa type in 2015. By selecting the 'Save' button,
 you can save the configuration and come back to it anytime. By selecting the 'Publish' button, you can make this configuration available to anybody else who shares the same
