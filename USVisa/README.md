@@ -70,10 +70,10 @@ You can explore this portal by clicking on the below button:
 
 [![](Images/button.png)](https://apps.axibase.com/chartlab/3a320d35#fullscreen)
 
-Below is an image for the total visas issued for the countries included in Trump administration's [travel ban](https://www.washingtonpost.com/graphics/national/immigration-order-explainer/)
-(which has since been lifted). These countries included Iran, Iraq, Libya, Somalia, Sudan, Syria, and Yemen. After the September 11th terrorist attacks, the number of visas issued
-to these countries dropped to only **17,431** in 2003 but climbed back up to **72,162** in 2015. Visas to the United States are generally priced at [$160](https://travel.state.gov/content/visas/en/fees/fees-visa-services.html),
-which amounted to **$11 million** in revenue in 2015.    
+Below is an image for the total visas issued for the countries included in Trump administration's revised [travel ban](https://www.washingtonpost.com/graphics/national/immigration-order-explainer/)
+(which has since been lifted). These countries included Iran, Libya, Somalia, Sudan, Syria, and Yemen. After the September 11th terrorist attacks, the number of visas issued
+to these countries dropped to only **16,076** in 2003 but climbed back up to **62,464** in 2015. Visas to the United States are generally priced at [$160](https://travel.state.gov/content/visas/en/fees/fees-visa-services.html),
+which amounted to **$10 million** in revenue in 2015.    
 
 ![Figure4](Images/Figure4.png)
 
