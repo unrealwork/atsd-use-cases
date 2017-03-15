@@ -7,9 +7,9 @@ In 2015, the United States was the [second most](https://en.wikipedia.org/wiki/W
 what are their reasons for coming to the United States? 
 
 In this article we will analyze a dataset from [travel.state.gov](https://travel.state.gov) looking at non-immigrant visa figures from 1997 through 2015. This research article illustrates 
-how publicly available data from travel.state.gov collected by government organizations can be easily loaded into the non-relational [Axibase Time Series Database (ATSD)](http://axibase.com/products/axibase-time-series-database/)
-for interactive analysis and graphical representation. Additionally, this article illustrates some of the capabilities of [Redash](https://redash.io/),
-which is an open-source data visualization tool that is partnered with Axibase. We will walk through how to make SQL queries in ATSD and create visualizations in Redash. Additionally,
+how publicly available data collected by government organizations can be easily loaded into the non-relational [Axibase Time Series Database (ATSD)](http://axibase.com/products/axibase-time-series-database/)
+for interactive analysis. Additionally, this article illustrates some of the capabilities of [Redash](https://redash.io/),
+which is an open-source data visualization tool that is integrated with Axibase TSD. We will walk through how to make SQL queries in ATSD and create visualizations in Redash. Additionally,
 this article contains instructions on how to install your own ATSD instance and populate it with the raw data.  
 
 ### U.S. Visa Dataset
@@ -25,9 +25,8 @@ the [U.S. Department of State](https://travel.state.gov/content/visas/en/general
 
 Visa figures were collected for 200 countries, 7 continents, and for unknown national origins. You can find a complete list of all the countries included in this dataset [here](Resources/countrylist.txt).
 
-As opposed to analyzing the dataset in Excel, it is much more convenient to interact with the data once it is loaded into a database. The [Axibase Time Series Database (ATSD)](http://axibase.com/products/axibase-time-series-database/) 
-is a powerful tool when it comes to storing, analyzing, and visualizing datasets. We will use the following two aspects of ATSD to look into this dataset: interactive graphs 
-from [Chart Lab](/ChartLabIntro/README.md) and tabular outputs from analytical [SQL queries](https://github.com/axibase/atsd-docs/blob/master/api/sql/README.md#overview).
+As opposed to analyzing the dataset in Excel, it is much more convenient to interact with the data once it is loaded into a database. We will use the following two aspects of [Axibase Time Series Database (ATSD)](http://axibase.com/products/axibase-time-series-database/) to look into this dataset: interactive graphs 
+from [Chart Lab](/ChartLabIntro/README.md) which retrieves data from ATSD via its Data API and tabular outputs from analytical [SQL queries](https://github.com/axibase/atsd-docs/blob/master/api/sql/README.md#overview).
 You can load the dataset into your ATSD instance by following the steps provided at the [end of the article](#action-items). 
  
 ### Visa Travel by Country, Continent, and Visa Type
@@ -51,7 +50,7 @@ to the rest of Asia as a whole.
  
 ![Figure2](Images/Figure2.png)
 
-You can explore this portal by clicking on the below button: 
+You can explore this portal by right-clicking on the below button: 
 
 [![](Images/button.png)](https://apps.axibase.com/chartlab/3c55ada0#fullscreen)
 
