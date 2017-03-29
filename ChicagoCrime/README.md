@@ -90,11 +90,10 @@ How about the deadliest day of the week in Chicago in 2016?
 
 ```sql
 SELECT date_format(time, 'EEE') AS 'day_of_week', count(value)
- FROM 'chg.row_number'
+ FROM 'chg.row_number.ijzp-q8t2'
 WHERE datetime >= '2016-01-01T00:00:00Z'
  AND tags.primary_type = 'HOMICIDE'
- AND entity = 'ijzp-q8t2'
-GROUP BY date_format(time, 'u')
+GROUP BY date_format(time, 'EEE')
 ```
 
 ```ls
@@ -123,10 +122,9 @@ With the below SQL query, we can look at the average number of the top locations
 
 ```sql
 SELECT tags.location_description, count(value)/15
-FROM 'chg.row_number'
+FROM 'chg.row_number.ijzp-q8t2'
 WHERE datetime >= '2001-01-01T00:00:00Z' and datetime < '2016-01-01T00:00:00Z'
 AND tags.primary_type = 'HOMICIDE'
-AND entity = 'ijzp-q8t2'
 GROUP BY tags.location_description
 --HAVING count(value)/15 >= 5
 ORDER BY 2 DESC
@@ -263,10 +261,9 @@ Homicide statistics from January 1, 2016, to the present time. All tags from the
 
 ```sql
 SELECT *
-FROM 'chg.row_number'
+FROM 'chg.row_number.ijzp-q8t2'
 WHERE datetime >= '2016-01-01T00:00:00Z'
 AND tags.primary_type = 'HOMICIDE'
-AND entity = 'ijzp-q8t2'
 LIMIT 1000
 ```
 
@@ -285,10 +282,9 @@ Number of arrests made for homicides in 2015 and 2016. When `tags.arrest` is `tr
 
 ```sql
 SELECT datetime, tags.arrest, count(value)
-FROM 'chg.row_number'
+FROM 'chg.row_number.ijzp-q8t2'
 WHERE datetime >= '2015-01-01T00:00:00Z' and datetime < '2017-01-01T00:00:00Z'
 AND tags.primary_type = 'HOMICIDE'
-AND entity = 'ijzp-q8t2'
 GROUP BY tags.arrest, period(1 month)
 ```
 
@@ -307,10 +303,9 @@ Number of arrests made for narcotics possession in 2014.
 
 ```sql
 SELECT tags.description, count(value)
-FROM 'chg.row_number'
+FROM 'chg.row_number.ijzp-q8t2'
 WHERE datetime >= '2014-01-01T00:00:00Z' and datetime < '2015-01-01T00:00:00Z'
 AND tags.primary_type = 'NARCOTICS'
-AND entity = 'ijzp-q8t2'
 AND tags.description LIKE 'POSS*'
 GROUP BY tags.description
 --HAVING count(value)/15 >= 5
@@ -343,10 +338,9 @@ Total yearly drug possession arrests from 2001 through 2016.
 
 ```sql
 SELECT datetime, count(value)
-FROM 'chg.row_number'
+FROM 'chg.row_number.ijzp-q8t2'
 WHERE datetime >= '2001-01-01T00:00:00Z' and datetime < '2017-01-01T00:00:00Z'
 AND tags.primary_type = 'NARCOTICS'
-AND entity = 'ijzp-q8t2'
 AND tags.description LIKE 'POSS*'
 GROUP BY period(1 year)
 ```
@@ -376,10 +370,9 @@ Total yearly drug possession arrests from 2001 through 2016, excluding marijuana
 
 ```sql
 SELECT datetime, count(value)
-FROM 'chg.row_number'
+FROM 'chg.row_number.ijzp-q8t2'
 WHERE datetime >= '2001-01-01T00:00:00Z' and datetime < '2017-01-01T00:00:00Z'
 AND tags.primary_type = 'NARCOTICS'
-AND entity = 'ijzp-q8t2'
 AND tags.description LIKE 'POSS*'
 AND tags.description NOT LIKE '*CANNAB*'
 GROUP BY period(1 year)
@@ -410,10 +403,9 @@ Total yearly drug manufacturing and distribution arrests from 2001 through 2016,
 
 ```sql
 SELECT datetime, count(value)
-FROM 'chg.row_number'
+FROM 'chg.row_number.ijzp-q8t2'
 WHERE datetime >= '2001-01-01T00:00:00Z' and datetime < '2017-01-01T00:00:00Z'
 AND tags.primary_type = 'NARCOTICS'
-AND entity = 'ijzp-q8t2'
 AND tags.description LIKE 'MANU*' AND tags.description NOT LIKE '*CANNAB*'
 GROUP BY period(1 year)
 ```
@@ -443,10 +435,9 @@ All narcotics arrests made from 2001 through 2016.
 
 ```sql
 SELECT datetime, count(value)
-FROM 'chg.row_number'
+FROM 'chg.row_number.ijzp-q8t2'
 WHERE datetime >= '2001-01-01T00:00:00Z' and datetime < '2017-01-01T00:00:00Z'
 AND tags.primary_type = 'NARCOTICS'
-AND entity = 'ijzp-q8t2'
 GROUP BY period(1 year)
 ```
 
@@ -475,10 +466,9 @@ Yearly homicide totals.
 
 ```sql
 SELECT datetime, count(value)
-FROM 'chg.row_number'
+FROM 'chg.row_number.ijzp-q8t2'
 WHERE datetime >= '2001-01-01T00:00:00Z' and datetime < '2017-01-01T00:00:00Z'
 AND tags.primary_type = 'HOMICIDE'
-AND entity = 'ijzp-q8t2'
 GROUP BY period(1 year)
 ```
 
@@ -507,10 +497,9 @@ Monthly homicide totals from 2014 through 2016.
 
 ```sql
 SELECT date_format(time, 'yyyy-MMM') as 'date', count(value)
-FROM 'chg.row_number'
+FROM 'chg.row_number.ijzp-q8t2'
 WHERE datetime >= '2014-01-01T00:00:00Z' and datetime < '2017-01-01T00:00:00Z'
 AND tags.primary_type = 'HOMICIDE'
-AND entity = 'ijzp-q8t2'
 GROUP BY period(1 month)
 ```
 
@@ -528,10 +517,9 @@ Yearly weapons violation arrest from 2011 through 2016.
 
 ```sql
 SELECT date_format(time, 'yyyy-MMM') as 'date', count(value)
-FROM 'chg.row_number'
+FROM 'chg.row_number.ijzp-q8t2'
 WHERE datetime >= '2010-01-01T00:00:00Z' and datetime < '2017-01-01T00:00:00Z'
 AND tags.primary_type = 'WEAPONS VIOLATION'
-AND entity = 'ijzp-q8t2'
 GROUP BY period(1 year)
 ```
 
@@ -551,7 +539,7 @@ Murders per week, averaged over the 5 year period from 2010 to 2015.
 
 ```sql
 SELECT date_format(time, 'w') AS 'week_in_year', count(value)/5 AS 'murders_per_week'
- FROM 'chg.row_number'
+ FROM 'chg.row_number.ijzp-q8t2'
 WHERE datetime >= '2010-01-01T00:00:00Z' AND datetime < '2016-01-01T00:00:00Z'
  AND tags.primary_type = 'HOMICIDE'
 GROUP BY date_format(time, 'w')
@@ -583,7 +571,7 @@ Murders per week in 2016.
 
 ```sql
 SELECT date_format(time, 'w') AS 'week_in_year', count(value) AS 'murders_per_week'
- FROM 'chg.row_number'
+ FROM 'chg.row_number.ijzp-q8t2'
 WHERE datetime >= '2016-01-01T00:00:00Z' AND datetime < '2016-05-01T00:00:00Z'
  AND tags.primary_type = 'HOMICIDE'
 GROUP BY date_format(time, 'w')
@@ -615,7 +603,7 @@ Murders per week in 2017.
 
 ```sql
 SELECT date_format(time, 'w') AS 'week_in_year', count(value) AS 'murders_per_week'
- FROM 'chg.row_number'
+ FROM 'chg.row_number.ijzp-q8t2'
 WHERE datetime >= '2017-01-01T00:00:00Z' AND datetime < '2017-05-01T00:00:00Z'
  AND tags.primary_type = 'HOMICIDE'
 GROUP BY date_format(time, 'w')
