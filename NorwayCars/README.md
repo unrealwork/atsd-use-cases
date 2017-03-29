@@ -17,7 +17,7 @@ The Norway's central statistical agency, [SSB](https://www.ssb.no/statistikkbank
 
 ![](Images/chart-total.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/bbc5e671/7/#fullscreen)
+[![](Images/button.png)](https://apps.axibase.com/chartlab/bbc5e671/5/#fullscreen)
 
 ---
 
@@ -25,7 +25,7 @@ The Norway's central statistical agency, [SSB](https://www.ssb.no/statistikkbank
 
 ![](Images/chart-winner-losers.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/bbc5e671/7/#fullscreen)
+[![](Images/button.png)](https://apps.axibase.com/chartlab/bbc5e671/6/#fullscreen)
 
 ---
 
