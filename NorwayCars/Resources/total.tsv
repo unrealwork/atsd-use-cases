@@ -1,0 +1,79 @@
+type of fuel	contents	2010	2011	2012	2013	2014	2015	2016	
+Petrol	Registered vehicles (private cars)	1500841	1448232	1408198	1368625	1328380	1295739	1196148
+Petrol	Registered vehicles (ambulances)	172	140	124	111	99	109	99
+Petrol	Registered vehicles (buses)	864	717	578	491	421	348	308
+Petrol	Registered vehicles (vans)	54526	48304	43626	39166	35456	31896	29463
+Petrol	Registered vehicles (Combines vehicles)	8534	7174	6009	4916	4138	3468	2828
+Petrol	Registered vehicles (lorries)	7085	6605	6045	5437	4827	4275	3420
+Petrol	Registered vehicles (mopeds)	166604	169382	172256	173376	174742	175382	175459
+Petrol	Registered vehicles (light motor cycles)	19077	19753	20574	21300	22063	23441	24725
+Petrol	Registered vehicles (heavy motor cycles)	126214	130389	134537	138721	143839	150902	157668
+Petrol	Registered vehicles (snow scooters)	68764	70959	73511	76398	77526	82121	85796
+Petrol	Registered vehicles (tractors)	21148	23080	25888	28840	32262	36475	41384
+Petrol	Registered vehicles (special purpose vehicles)	2561	2521	2478	2437	2404	2369	2314
+Petrol	Total	1976390	1927256	1893824	1859818	1826157	1806525	1719612
+Diesel	Registered vehicles (private cars)	804384	922986	1025220	1110621	1186194	1243235	1276947
+Diesel	Registered vehicles (ambulances)	891	921	981	963	983	980	1005
+Diesel	Registered vehicles (buses)	19233	18072	17131	16484	16063	15631	15179
+Diesel	Registered vehicles (vans)	342510	362098	380518	394596	405069	416298	429013
+Diesel	Registered vehicles (Combines vehicles)	39884	36183	32688	29305	26098	23128	19857
+Diesel	Registered vehicles (lorries)	74118	73421	73671	73799	73604	72555	71476
+Diesel	Registered vehicles (mopeds)	1802	1822	1851	1830	1813	1805	1781
+Diesel	Registered vehicles (light motor cycles)	1	1	1	1	1	2	2
+Diesel	Registered vehicles (heavy motor cycles)	25	28	32	32	35	44	45
+Diesel	Registered vehicles (snow scooters)	1	1	2	2	2	2	2
+Diesel	Registered vehicles (tractors)	225325	226328	228348	230145	231463	232391	233593
+Diesel	Registered vehicles (special purpose vehicles)	5465	5421	5390	5409	5368	5330	5325
+Diesel	Total	1513639	1647282	1765833	1863187	1946693	2011401	2054225
+Paraffin	Registered vehicles (private cars)	21	20	17	18	16	13	9
+Paraffin	Registered vehicles (ambulances)	0	0	0	0	0	0	0
+Paraffin	Registered vehicles (buses)	2	1	1	1	1	0	0
+Paraffin	Registered vehicles (vans)	3	4	3	4	3	3	3
+Paraffin	Registered vehicles (Combines vehicles)	0	0	0	0	0	0	0
+Paraffin	Registered vehicles (lorries)	13	14	16	16	16	16	20
+Paraffin	Registered vehicles (mopeds)	0	0	0	0	0	0	0
+Paraffin	Registered vehicles (light motor cycles)	0	0	0	0	0	0	0
+Paraffin	Registered vehicles (heavy motor cycles)	0	0	0	0	0	0	0
+Paraffin	Registered vehicles (snow scooters)	0	0	0	0	0	0	0
+Paraffin	Registered vehicles (tractors)	80	75	76	74	73	70	69
+Paraffin	Registered vehicles (special purpose vehicles)	0	0	0	0	0	0	0
+Paraffin	Total	119	114	113	113	109	102	101
+Gas	Registered vehicles (private cars)	27	38	36	87	120	129	116
+Gas	Registered vehicles (ambulances)	0	0	0	0	0	0	0
+Gas	Registered vehicles (buses)	215	400	441	545	565	626	701
+Gas	Registered vehicles (vans)	127	170	265	293	308	320	394
+Gas	Registered vehicles (Combines vehicles)	5	5	5	4	4	4	3
+Gas	Registered vehicles (lorries)	90	94	96	137	160	209	253
+Gas	Registered vehicles (mopeds)	0	0	0	0	0	0	0
+Gas	Registered vehicles (light motor cycles)	0	0	0	0	0	0	0
+Gas	Registered vehicles (heavy motor cycles)	2	1	2	2	2	2	1
+Gas	Registered vehicles (snow scooters)	0	0	0	0	0	0	0
+Gas	Registered vehicles (tractors)	2	2	2	4	4	4	4
+Gas	Registered vehicles (special purpose vehicles)	2	2	2	1	1	0	1
+Gas	Total	470	712	849	1073	1164	1294	1473
+Electricity	Registered vehicles (private cars)	2068	3909	8031	17770	38652	69134	97532
+Electricity	Registered vehicles (ambulances)	0	0	0	0	0	0	0
+Electricity	Registered vehicles (buses)	10	10	10	10	9	11	10
+Electricity	Registered vehicles (vans)	64	101	159	511	1068	1808	2568
+Electricity	Registered vehicles (Combines vehicles)	0	0	0	0	0	0	0
+Electricity	Registered vehicles (lorries)	3	2	2	2	2	2	2
+Electricity	Registered vehicles (mopeds)	498	642	766	881	947	1048	1142
+Electricity	Registered vehicles (light motor cycles)	11	21	39	48	51	66	65
+Electricity	Registered vehicles (heavy motor cycles)	1259	1450	1632	1709	1651	1575	1494
+Electricity	Registered vehicles (snow scooters)	0	0	0	0	0	0	0
+Electricity	Registered vehicles (tractors)	6	20	37	51	58	67	77
+Electricity	Registered vehicles (special purpose vehicles)	27	30	30	30	29	27	27
+Electricity	Total	3946	6185	10706	21012	42467	73738	102917
+Other fuel	Registered vehicles (private cars)	144	180	357	2070	999	1013	91054
+Other fuel	Registered vehicles (ambulances)	0	0	0	0	0	0	0
+Other fuel	Registered vehicles (buses)	24	40	59	53	52	52	60
+Other fuel	Registered vehicles (vans)	49	53	63	66	63	60	57
+Other fuel	Registered vehicles (Combines vehicles)	9	9	7	7	7	5	5
+Other fuel	Registered vehicles (lorries)	21	24	27	46	59	63	67
+Other fuel	Registered vehicles (mopeds)	0	0	0	0	0	0	0
+Other fuel	Registered vehicles (light motor cycles)	0	0	0	0	0	0	0
+Other fuel	Registered vehicles (heavy motor cycles)	3	7	9	10	7	8	10
+Other fuel	Registered vehicles (snow scooters)	1	1	1	1	0	0	1
+Other fuel	Registered vehicles (tractors)	58	42	37	33	6	6	30
+Other fuel	Registered vehicles (special purpose vehicles)	0	0	0	0	0	0	0
+Other fuel	Total	309	356	560	2286	1193	1207	91284
