@@ -127,7 +127,7 @@ look at the statistics by following the below steps to install your own [Axibase
    ```
 
 2. Login into ATSD and configure the pre-defined administrator account.
-3. Import the [`csv-parser-nor-configs.xml`](Resources/travel_visas.xml) parser definitios on **Configuration > Parsers: CSV** page.
+3. Import the [`csv-parser-nor-configs.xml`](Resources/travel_visas.xml) parser definitions on **Configuration > Parsers: CSV** page.
 4. Export files from Statbank in Matrix TSV format (see instructions at the end of this article) or upload prepared tsv files as outlined in steps 5 and 6 below.
 5. Upload the [`total.tsv`](Resources/total.tsv) file using the `nor-transport` parser.
 6. Upload the [`by-make-1.tsv`](Resources/by-make-1.tsv) and [`by-make-2.tsv`](Resources/by-make-2.tsv) files using the `nor-transport-make` parser.
