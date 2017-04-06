@@ -7,7 +7,7 @@ Tax Day 2017: Are U.S. Tax Payers Procrastinating?
 
 Americans are filing fewer tax returns this year.
 
-According to the IRS, the total number of tax returns received by the agency as of March 24 is down by 4.7% compared to previous year.
+According to the IRS, the total number of tax returns received by the agency as of March 31 is down by **4.1%** compared to previous year.
 
 **Total Returns Received in 2017 compared to 2016**
 
@@ -18,6 +18,7 @@ According to the IRS, the total number of tax returns received by the agency as 
 | March 10 | -6.8% |
 | March 17 | -5.5% |
 | March 24 | -4.7% |
+| March 31 | -4.1% |
 _Source: [IRS Filing Season Statistics](https://www.irs.gov/uac/2017-and-prior-year-filing-season-statistics)_
 
 ![](Images/total_receipts.png)
@@ -34,14 +35,14 @@ To normalize the year-on-year data reported by IRS we will load the data into Ax
 
 Note that the IRS reports reference two dates used for year-on-year comparison, for example:
 
-> Cumulative statistics comparing 03/25/2016 and 03/24/2017
+> Cumulative statistics comparing 04/01/2016 and 03/31/2017
 
-These dates are Fridays when the metrics were collected and as such they ignore day-of-week and Tax Day changes between the annual periods. In this particular [example](https://www.irs.gov/uac/newsroom/filing-season-statistics-for-week-ending-march-24-2017), 2017-Mar-24 is the 83rd day in year whereas 2016-Mar-25 is the 85th day in year. 2017-Mar-24 is 25 days away from the Tax Day, whereas 2016-Mar-25 is 24 days from the Tax Day. By removing these calendar discrepancies we should be able to get a clearer picture.
+These dates are Fridays when the metrics were collected and as such they ignore day-of-week and Tax Day changes between the annual periods. In this particular [example](https://www.irs.gov/uac/newsroom/filing-season-statistics-for-week-ending-march-31-2017), 2017-Mar-31 is the 90th day in year whereas 2016-Apr-01 is the 92nd day in year. 2017-Mar-31 is 18 days away from the Tax Day, whereas 2016-Apr-01 is 17 days from the Tax Day. By removing these calendar discrepancies we should be able to get a clearer picture.
 
 Lets build the year-on-year comparisons for the following three scenarios:
 
-* Case 1. Tax payers file returns on the same calendar date each year, so March 24 should be compared with March 24. After many years of doing it, people might have a marker in their calendar to do it on April 10th, for example.
-* Case 2. Tax payers file returns on the same ordinal day in each year, e.g. on the 83rd day. It takes time to gather forms and receipts from employers, banks, brokers, and this effort takes certain amount of time each year. We'll assume such effort to be a constant number.
+* Case 1. Tax payers file returns on the same calendar date each year, so March 31 should be compared with March 31. After many years of doing it, people might have a marker in their calendar to do it on April 10th, for example.
+* Case 2. Tax payers file returns on the same ordinal day in each year, e.g. on the 90th day. It takes time to gather forms and receipts from employers, banks, brokers, and this effort takes certain amount of time each year. We'll assume such effort to be a constant number.
 * Case 3. Tax payers file returns based on the deadline, e.i. when 10 days are remaining to Tax Day. Historically, it's been April 15th, however with the introduction of the Emancipation Day in Washington, D.C, the specific Tax Day will change more often going forward.
 
 ## Case 1: File Tax on the Same Calendar Date
@@ -49,30 +50,30 @@ Lets build the year-on-year comparisons for the following three scenarios:
 ```sql
 SELECT date_format(time, 'yyyy') AS 'Year',
   date_format(time, 'MMM-dd') AS 'Date',
-  value/1000000 AS 'Curr. Year, Mln',
-  LAG(value)/1000000 AS 'Prev. Year, Mln',
-  (value-LAG(value))/1000000 AS 'Y-o-Y Change, Mln',
-  (value/LAG(value)-1)*100 AS 'Y-o-Y Change, %'
+  value/1000000 AS 'Curr Year, Mln',
+  LAG(value)/1000000 AS 'Prev Year, Mln',
+  (value-LAG(value))/1000000 AS 'YoY Change, Mln',
+  (value/LAG(value)-1)*100 AS 'YoY Change, %'
   FROM 'irs_season.count_year_current'
 WHERE tags.section = 'Individual Income Tax Returns' AND tags.type = 'Total Returns Received'
-  AND date_format(time, 'MM-dd') = '03-24'
+  AND date_format(time, 'MM-dd') = '03-31'
   WITH INTERPOLATE(1 DAY)
 ORDER BY date_format(time, 'MM-dd')
 ```
 
 In this query example, the `LAG(column_name)` function provides a convenient syntax to access columns in the previous row within the current result set.
 
-The `WITH INTERPOLATE(1 DAY)` clause is used to fill the missing datapoints and make the series regular.  
+The `WITH INTERPOLATE(1 DAY)` clause is used to fill the missing data points and make the series regular.  
 
-| Year | Date   | Curr. Year, Mln | Prev. Year, Mln | Y-o-Y Change, Mln | Y-o-Y Change, % |
-|------|--------|----------------------:|-------------------:|------------------:|----------------:|
-| 2011 | Mar-24 | 81.3                  | null               | null              | null            |
-| 2012 | Mar-24 | 85.1                  | 81.3               | 3.9               | 4.7             |
-| 2013 | Mar-24 | 82.7                  | 85.1               | -2.4              | -2.9            |
-| 2014 | Mar-24 | 86.2                  | 82.7               | 3.5               | 4.3             |
-| 2015 | Mar-24 | 86.8                  | 86.2               | 0.6               | 0.7             |
-| 2016 | Mar-24 | 88.3                  | 86.8               | 1.5               | 1.7             |
-| 2017 | Mar-24 | 85.3                  | 88.3               | -3.1              | -3.5            |
+| Year | Date   | Curr Year, Mln | Prev Year, Mln | YoY Change, Mln | YoY Change, % |
+|------|--------|----------------:|----------------:|------------------:|----------------:|
+| 2011 | Mar-31 | 88.7            | null            | null              | null            |
+| 2012 | Mar-31 | 92.2            | 88.7            | 3.5               | 4.0             |
+| 2013 | Mar-31 | 90.6            | 92.2            | -1.5              | -1.7            |
+| 2014 | Mar-31 | 94.7            | 90.6            | 4.0               | 4.4             |
+| 2015 | Mar-31 | 95.3            | 94.7            | 0.6               | 0.7             |
+| 2016 | Mar-31 | 96.5            | 95.3            | 1.2               | 1.2             |
+| 2017 | Mar-31 | 93.7            | 96.5            | -2.8              | -2.9            |
 
 ## Case 2: File Taxes on the Same Day in Year
 
@@ -80,13 +81,13 @@ The `WITH INTERPOLATE(1 DAY)` clause is used to fill the missing datapoints and 
 SELECT date_format(time, 'yyyy') AS 'Year',
   date_format(time, 'MMM-dd') AS 'Date',
   CAST(date_format(time, 'D') AS NUMBER) AS 'Day in Year',
-  value/1000000 AS 'Returns Received, Mln',
-  LAG(value)/1000000 AS 'Previous Year, Mln',
-  (value-LAG(value))/1000000 AS 'Y-o-Y Change, Mln',
-  (value/LAG(value)-1)*100 AS 'Y-o-Y Change, %'
+  value/1000000 AS 'Curr Year, Mln',
+  LAG(value)/1000000 AS 'Prev Year, Mln',
+  (value-LAG(value))/1000000 AS 'YoY Change, Mln',
+  (value/LAG(value)-1)*100 AS 'YoY Change, %'
   FROM 'irs_season.count_year_current'
 WHERE tags.section = 'Individual Income Tax Returns' AND tags.type = 'Total Returns Received'
-  AND 'Day in Year' = CAST(date_format('2017-03-24T00:00:00Z', 'D') AS NUMBER)
+  AND 'Day in Year' = CAST(date_format('2017-03-31T00:00:00Z', 'D') AS NUMBER)
   WITH INTERPOLATE(1 DAY)
 ORDER BY 'Day in Year', time
 ```
@@ -94,15 +95,15 @@ ORDER BY 'Day in Year', time
 The [`date_format`](https://github.com/axibase/atsd-docs/tree/master/api/sql#date-formatting-functions) function can be conveniently used to perform date- and calendar-based filtering.
 
 
-| Year | Date   | Day in Year | Curr. Year, Mln | Prev. Year, Mln | Y-o-Y Change, Mln | Y-o-Y Change, % |
+| Year | Date   | Day in Year | Curr Year, Mln | Prev Year, Mln | YoY Change, Mln | YoY Change, % |
 |------|--------|------------:|----------------------:|-------------------:|------------------:|----------------:|
-| 2011 | Mar-24 | 83          | 81.3                  | null               | null              | null            |
-| 2012 | Mar-23 | 83          | 84.1                  | 81.3               | 2.9               | 3.5             |
-| 2013 | Mar-24 | 83          | 82.7                  | 84.1               | -1.4              | -1.7            |
-| 2014 | Mar-24 | 83          | 86.2                  | 82.7               | 3.5               | 4.3             |
-| 2015 | Mar-24 | 83          | 86.8                  | 86.2               | 0.6               | 0.7             |
-| 2016 | Mar-23 | 83          | 87.3                  | 86.8               | 0.4               | 0.5             |
-| 2017 | Mar-24 | 83          | 85.3                  | 87.3               | -2.0              | -2.3            |
+| 2011 | Mar-31 | 90          | 88.7                  | null               | null              | null            |
+| 2012 | Mar-30 | 90          | 91.1                  | 88.7               | 2.4               | 2.7             |
+| 2013 | Mar-31 | 90          | 90.6                  | 91.1               | -0.4              | -0.5            |
+| 2014 | Mar-31 | 90          | 94.7                  | 90.6               | 4.0               | 4.4             |
+| 2015 | Mar-31 | 90          | 95.3                  | 94.7               | 0.6               | 0.7             |
+| 2016 | Mar-30 | 90          | 95.3                  | 95.3               | -0.0              | -0.0            |
+| 2017 | Mar-31 | 90          | 93.7                  | 95.3               | -1.6              | -1.7            |
 
 ## Case 3: File Taxes based on Days Remaining to Filing Date (Tax Day)
 
@@ -116,27 +117,28 @@ SELECT date_format(time, 'yyyy') AS 'Year',
       WHEN '2016' OR '2017' THEN '18'
       ELSE '15'
     END, "T00:00:00Z")), 'D') AS NUMBER) - CAST(date_format(time, 'D') AS NUMBER) AS 'Days to File',     
-  value/1000000 AS 'Returns Received, Mln',
-  LAG(value)/1000000 AS 'Previous Year, Mln',
-  (value-LAG(value))/1000000 AS 'Y-o-Y Change, Mln',
-  (value/LAG(value)-1)*100 AS 'Y-o-Y Change, %'
+  value/1000000 AS 'Curr Year, Mln',
+  LAG(value)/1000000 AS 'Prev Year, Mln',
+  (value-LAG(value))/1000000 AS 'YoY Change, Mln',
+  (value/LAG(value)-1)*100 AS 'YoY Change, %'
   FROM 'irs_season.count_year_current'
 WHERE tags.section = 'Individual Income Tax Returns' AND tags.type = 'Total Returns Received'
-  -- 25 days between 24-Mar-2017 and 18-Apr-2017  
-  AND 'Days to File' = 25
+  -- 18 days between 31-Mar-2017 and 18-Apr-2017  
+  AND 'Days to File' = 18
   WITH INTERPOLATE(1 DAY)
 ORDER BY 'Days to File' DESC, time
 ```
 
-| Year | Date   | Day in Year | Days to File | Curr. Year, Mln | Prev. Year, Mln | Y-o-Y Change, Mln | Y-o-Y Change, % |
-|------|--------|------------:|-------------:|----------------------:|-------------------:|------------------:|----------------:|
-| 2011 | Mar-21 | 80          | 25           | 78.3                  | null               | null              | null            |
-| 2012 | Mar-23 | 83          | 25           | 84.1                  | 78.3               | 5.9               | 7.5             |
-| 2013 | Mar-21 | 80          | 25           | 79.4                  | 84.1               | -4.7              | -5.6            |
-| 2014 | Mar-21 | 80          | 25           | 82.9                  | 79.4               | 3.5               | 4.3             |
-| 2015 | Mar-21 | 80          | 25           | 83.4                  | 82.9               | 0.6               | 0.7             |
-| 2016 | Mar-24 | 84          | 25           | 88.3                  | 83.4               | 4.9               | 5.9             |
-| 2017 | Mar-24 | 83          | 25           | 85.3                  | 88.3               | -3.1              | -3.5            |
+| Year | Date   | Day in Year | Days to File | Curr Year, Mln | Prev Year, Mln | YoY Change, Mln | YoY Change, % |
+|------|--------|-------------|--------------|----------------|----------------|-----------------|---------------|
+| 2011 | Mar-28 | 87          | 18           | 85.5           | null           | null            | null          |
+| 2012 | Mar-30 | 90          | 18           | 91.1           | 85.5           | 5.6             | 6.6           |
+| 2013 | Mar-28 | 87          | 18           | 87.2           | 91.1           | -3.9            | -4.3          |
+| 2014 | Mar-28 | 87          | 18           | 90.8           | 87.2           | 3.6             | 4.1           |
+| 2015 | Mar-28 | 87          | 18           | 91.5           | 90.8           | 0.8             | 0.8           |
+| 2016 | Mar-31 | 91          | 18           | 96.5           | 91.5           | 4.9             | 5.4           |
+| 2017 | Mar-31 | 90          | 18           | 93.7           | 96.5           | -2.8            | -2.9          |
+
 
 ## Summary
 --
@@ -145,21 +147,19 @@ By normalizing the raw data collected by IRS we're observing the following perce
 
 | Case | 2017/2016 YoY Change, %   |
 |------|-------:|
-| 1 | -3.5 |
-| 2 | -2.3 |
-| 3 | -3.5 |
+| 1 | -2.9 |
+| 2 | -1.7 |
+| 3 | -2.9 |
 
-These estimates are measurably smaller than **4.7%** drop displayed in the latest IRS report. The American taxpayers appear to be not procrastinating - they are reacting to legislative changes in a rational way, within the margin of error.
+These estimates are measurably smaller than **4.1%** drop displayed in the latest IRS report. The American taxpayers appear to be not procrastinating - they are reacting to legislative changes in a rational way.
 
-What we noticed however is that the trends are not uniform across E-filing channels. A disproportionate share of the drop can be attributed to the number of tax returns received from **tax professionals**.
+We noticed however that the trends are not uniform across E-filing channels.
 
 **2017/2016 YoY Change, %**
 
 | Case | Tax Professionals | Self-prepared |
 |------|-------:|---:|
-| 1 | -4.5 | -1.8 |
-| 2 | -3.1 | -1.0 |
-| 3 | -4.5 | -1.8 |
+| 3 | -3.3 | -1.8 |
 
 ```sql
 SELECT date_format(time, 'yyyy') AS 'Year',
@@ -178,7 +178,7 @@ SELECT date_format(time, 'yyyy') AS 'Year',
   FROM 'irs_season.count_year_current'
 WHERE tags.section = 'E-filing Receipts' AND tags.type = 'Self-prepared'
 --WHERE tags.section = 'E-filing Receipts' AND tags.type = 'Tax Professionals'
-  AND 'Days to File' = 25
+  AND 'Days to File' = 18
   WITH INTERPOLATE(1 DAY)
 ORDER BY 'Days to File' DESC, time
 ```
@@ -190,11 +190,11 @@ Given that a higher percentage (60+%) of early returns is submitted via tax prep
 [![](Images/button.png)](https://apps.axibase.com/chartlab/fc79b852/2/#fullscreen)
 
 
-## Playing with Data
+## Querying Data
 ---
 
 You can take a closer
-look at the IRS filing statistics by installing your own [Axibase Time Series Database](http://axibase.com/products/axibase-time-series-database/) instance and loading the data for interactive analysis with SQL and charts.
+look at the IRS filing statistics by installing a local [Axibase Time Series Database](http://axibase.com/products/axibase-time-series-database/) instance and loading the data for interactive analysis with SQL and charts.
 
 The list of available series:
 
@@ -213,12 +213,12 @@ The list of available series:
 | Total Refunds                 | Average refund          |
 | Web Usage                     | Visits to IRS.gov       |
 
-You can also use [Chartlab](https://apps.axibase.com/chartlab/) to create, save, and share custom visualizations based on data hosted by Axibase.
+You can also use [Chartlab](https://apps.axibase.com/chartlab/) to create, save, and share custom visualizations based on hosted data.
 
 ## Installation Steps
 ---
 
-1. Install the ATSD database from a Docker image:
+1. Install the database from a Docker image:
 
    ```sql
     docker run \
