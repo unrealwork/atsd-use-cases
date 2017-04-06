@@ -17,3 +17,4 @@ Axibase Time Series Database: Usage Examples and Research Articles
 11. [Visa Travel to the United States with Charts, SQL, and Redash](/USVisa/README.md)
 12. [Norway Car Registrations](/NorwayCars/README.md)
 13. [IRS Tax Filings](/IRSTaxFilings/README.md)
+14. [Consumer Finance Complaints](/ConsumerFinance/README.md)
