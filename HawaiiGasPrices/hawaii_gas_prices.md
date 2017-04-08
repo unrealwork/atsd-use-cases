@@ -289,7 +289,7 @@ If you would like to view a data.gov dataset without installing the ATSD softwar
 
 Below are the steps to follow to install ATSD:
 
-1. [Install the database](https://github.com/axibase/atsd-docs/tree/master/installation#installation) on a virtual machine or in a Linux container.
+1. [Install the database](https://github.com/axibase/atsd/tree/master/docs/installation#installation) on a virtual machine or in a Linux container.
 2. [Install Axibase Collector](https://github.com/axibase/axibase-collector/blob/master/docs/installation.md#axibase-collector-installation) and configure it to write data into your ATSD instance.
 3. Import [SOCRATA Job](hawaii_gas_prices.xml) into Axibase Collector.
 4. Add your desired data.gov dataset to the job to enable data collection. Click on [Run] to collect data for the first time.
