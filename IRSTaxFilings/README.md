@@ -12,13 +12,14 @@ According to the IRS, the total number of tax returns received by the agency as 
 **Total Returns Received in 2017 compared to 2016**
 
 | Date | Change |
-|------|---------:|
+|------|-------:|
 | February 24 | -10.6% |
 | March 03 | -8.5% |
 | March 10 | -6.8% |
 | March 17 | -5.5% |
 | March 24 | -4.7% |
 | March 31 | -4.1% |
+
 _Source: [IRS Filing Season Statistics](https://www.irs.gov/uac/2017-and-prior-year-filing-season-statistics)_
 
 ![](Images/total_receipts.png)
@@ -141,7 +142,6 @@ ORDER BY 'Days to File' DESC, time
 
 
 ## Summary
---
 
 By normalizing the raw data collected by IRS we're observing the following percentage changes for the 2017/16 filing season.
 
