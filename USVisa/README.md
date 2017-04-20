@@ -5,6 +5,13 @@ Visa Travel to America. Identifying Trends and Outliers with Charts, SQL and Red
 
 [LINK1](/NorwayCars/README.md)
 [LINK2](/NorwayCars/)
+[LINK3]({{ site.url }}/NorwayCars/README.md)
+[LINK4]({{ site.url }}/NorwayCars/)
+[LINK5]({{ site.baseurl }}/NorwayCars/README.md)
+[LINK6]({{ site.baseurl }}/NorwayCars/)
+[LINK7](/NorwayCars)
+[LINK8]({{ site.url }}/NorwayCars)
+[LINK9]({{ site.baseurl }}/NorwayCars)
 
 In 2015, the United States was the [second most](https://en.wikipedia.org/wiki/World_Tourism_rankings) visited country in the world. Where do all of these travellers come from and
 what are their reasons for coming to the United States?
