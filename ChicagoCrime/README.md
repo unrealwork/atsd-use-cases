@@ -30,7 +30,7 @@ of cocaine, manufacturing and delivering heroin, soliciting narcotics etc). Each
 
 Given the size of the dataset, you cannot load it in Excel. It is much more convenient to interact with the data once it is loaded into a database. The
 [Axibase Time Series Database (ATSD)](http://axibase.com/products/axibase-time-series-database/) is a powerful tool when it comes to storing, analyzing, and visualizing datasets. We will use the
-following two aspects of ATSD to look into this dataset: interactive graphs from [Chart Lab](/ChartLabIntro/README.md) and tabular outputs from analytical [SQL queries](https://github.com/axibase/atsd/blob/master/docs/api/sql/README.md#overview).
+following two aspects of ATSD to look into this dataset: interactive graphs from [Chart Lab](/ChartLabIntro/README.md) and tabular outputs from analytical [SQL queries](https://github.com/axibase/atsd/blob/master/api/sql/README.md#overview).
 You can load the dataset into your ATSD instance by following the steps provided at the [end of the article](#action-items).
 
 ### Homicide Numbers
@@ -56,7 +56,7 @@ Click on this button to explore this Chart Lab portal:
 
 [![](Images/button.png)](https://apps.axibase.com/chartlab/3f33d4ba/16/#fullscreen)
 
-In addition to looking at graphical outputs, we can also perform [SQL queries](https://github.com/axibase/atsd/blob/master/docs/api/sql/README.md#overview), which can be used to search for specific
+In addition to looking at graphical outputs, we can also perform [SQL queries](https://github.com/axibase/atsd/blob/master/api/sql/README.md#overview), which can be used to search for specific
 information contained in this dataset. For example, we can see that 2016 months totals are greater than the previous years as a whole. But what were the average monthly totals for the last several
 years before the city experienced the horrific spike of 2016?
 

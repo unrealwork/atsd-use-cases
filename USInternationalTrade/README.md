@@ -22,14 +22,14 @@ world regions (such as Europe and Asia), trade unions (such as the European Unio
 
 While Excel can provide quick answers to simple questions, when it comes to complex analysis it is much more convenient to interact with the data once it is loaded into a database. The
 [Axibase Time Series Database (ATSD)](http://axibase.com/products/axibase-time-series-database/) is a powerful tool when it comes to storing, analyzing, and visualizing datasets. We will use the
-following two aspects of ATSD to look into this dataset: interactive graphs from [Chart Lab](/ChartLabIntro/README.md) and tabular outputs from analytical SQL queries with support for [partitioning](https://github.com/axibase/atsd/blob/master/docs/api/sql/README.md#partitioning).
+following two aspects of ATSD to look into this dataset: interactive graphs from [Chart Lab](/ChartLabIntro/README.md) and tabular outputs from analytical SQL queries with support for [partitioning](https://github.com/axibase/atsd/blob/master/api/sql/README.md#partitioning).
 You can load the dataset into your ATSD instance by following the steps provided at the [end of the article](/USInternationalTrade/README.md#action-items).
 
 The BLS file format presents a number of challenges when loading the data. In particular, it requires the parser to handle columns that combine both metric names (E - export, I - import), as well as partial dates (3-letter months).
 
 ![csv-structure](Images/csv-structure.png)
 
-ATSD handles this by implementing a [schema-based](https://github.com/axibase/atsd/blob/master/docs/parsers/csv/csv-schema.md) parser which can be configured to load records from non-standard CSV files, such as the BLS report.
+ATSD handles this by implementing a [schema-based](https://github.com/axibase/atsd/blob/master/parsers/csv/csv-schema.md) parser which can be configured to load records from non-standard CSV files, such as the BLS report.
 
 ### Overview
 ------------
@@ -45,7 +45,7 @@ You can explore this portal by clicking on the below button:
 
 [![](Images/button.png)](https://apps.axibase.com/chartlab/552d7a44/2/#fullscreen)
 
-In addition to looking at graphical outputs, we can also perform [SQL queries](https://github.com/axibase/atsd/blob/master/docs/api/sql/README.md#overview), which can be used
+In addition to looking at graphical outputs, we can also perform [SQL queries](https://github.com/axibase/atsd/blob/master/api/sql/README.md#overview), which can be used
 to search for specific information contained in this dataset. From the following query, we can see that, within the time range of our dataset, 1991 was the year which had the least negative trade balance of **-$66.7 billion**.
 
 ```sql
@@ -345,7 +345,7 @@ in this article? Download ATSD, explore this dataset, and make up your own mind.
 Below are the summarized steps to follow to install local configurations of ATSD and Axibase Collector and create SQL queries for analyzing America's trade balance statistics:
 
 1. Install [Docker](https://docs.docker.com/engine/installation/linux/ubuntulinux/).
-2. [Install the ATSD database](https://github.com/axibase/atsd/blob/master/docs/installation/docker.md#option-2-configure-collector-account-manually) on in your local Docker configuration.
+2. [Install the ATSD database](https://github.com/axibase/atsd/blob/master/installation/docker.md#option-2-configure-collector-account-manually) on in your local Docker configuration.
 3. Save the [Excel file](https://www.census.gov/foreign-trade/balance/country.xlsx) in CSV format.
 4. Login to ATSD by navigating to `https://docker_host:8443/`.
 5. Import the `us-trade-ie-csv-parser.xml` file into ATSD. For a more detailed description, refer to step 9 from the following [step-by-step walkthrough](https://github.com/axibase/atsd-use-cases/blob/master/USMortality/configuration.md) from our article on [U.S. mortality statistics](https://github.com/axibase/atsd-use-cases/blob/master/USMortality/README.md).
