@@ -45,8 +45,8 @@ While you can manually analyze this information in a spreadsheet program, it is 
 
 The [Axibase Time Series Database](http://axibase.com/products/axibase-time-series-database/) (ATSD) is a powerful tool when it comes to storing, analyzing, and visualising datasets. This article will not focus on creating graphs and figures using ATSD, but
 rather on writing and running SQL queries. If you are interested in reading more on the visual presentation capabilities of ATSD, check out our articles on
-[employee compensation numbers in Iowa](https://github.com/axibase/atsd-use-cases/blob/master/SocrataIowaCompensation/README.md) and
-[aviation statistics in the United Kingdom](https://github.com/axibase/atsd-use-cases/blob/master/UKAviation/README.md).
+[employee compensation numbers in Iowa](../SocrataIowaCompensation/README.md) and
+[aviation statistics in the United Kingdom](../UKAviation/README.md).
 
 Below is an output of the default configuration with all 122 U.S. cities parsed into ATSD.
 
@@ -61,7 +61,7 @@ Here you can explore the complete dataset for U.S. death totals:
 
 To query information from this dataset you will need to install both ATSD and Axibase Collector.
 
-You can set up local instances of ATSD and Axibase Collector using Docker by going through our [step-by-step walk through](https://github.com/axibase/atsd-use-cases/blob/master/USMortality/configuration.md).
+You can set up local instances of ATSD and Axibase Collector using Docker by going through our [step-by-step walk through](../USMortality/configuration.md).
 It should take you about 15 minutes.
 
 ### ATSD Schema
@@ -269,7 +269,7 @@ WHERE tags.city = 'Boston'
 LIMIT 10
 ```
 
-This next query is again for latest pneumonia and influenza and total readings for Boston, but with region code translated to region name using one of our Replacement Tables (as mentioned in the [step-by-step walk through](https://github.com/axibase/atsd-use-cases/blob/master/USMortality/configuration.md)]). As a default, each region is listed
+This next query is again for latest pneumonia and influenza and total readings for Boston, but with region code translated to region name using one of our Replacement Tables (as mentioned in the [step-by-step walk through](../USMortality/configuration.md)]). As a default, each region is listed
 by their corresponding number. In the case of Boston, it falls in region 1, which includes the states of Connecticut, Maine, Massachusetts, New Hampshire, Rhode Island, and Vermont. Recall that we created a replacement table in ATSD where
 we entered in region names for each region number. In this instance, region 1 is named **New-England**. Read more about [replacement tables here](https://github.com/axibase/atsd/tree/master/docs/api/sql#lookup).
 
@@ -844,7 +844,7 @@ deaths per 1,000 individuals. Generally speaking, the higher the death rate, the
 | 5    | Latvia        | 14.40                     | 2016 est.           |
 
 To calculate our own mortality rates for a city in a given year, we need to simply divide the total number of deaths in the city by the population and multiply the result by 1,000. Additionally,
-this dataset does not include population numbers, so we need to pull in population figures to calculate mortality numbers. See [step 12](https://github.com/axibase/atsd-use-cases/blob/master/USMortality/configuration.md)
+this dataset does not include population numbers, so we need to pull in population figures to calculate mortality numbers. See [step 12](../USMortality/configuration.md)
 in the step-by-step walk through for information on pulling in population statistics.
 
 Below is our SQL query for determining the cities with the highest mortality rate in 2015.
@@ -1370,7 +1370,7 @@ Below are the summarized steps to follow to install local configurations of ATSD
 6. Import the `city-size`, `us-regions`, `new-york-city-2010-population`, and `youngstown-2010-population` replacement tables into ATSD.
 7. Navigate to the SQL tab in ATSD and begin writing your queries!
 
-The full guide for setting up can be found [here](https://github.com/axibase/atsd-use-cases/blob/master/USMortality/configuration.md).
+The full guide for setting up can be found [here](../USMortality/configuration.md).
 
 If you require assistance in installing this software or have any questions, please feel free to [contact us](https://axibase.com/feedback/) and we would be happy to be of assistance!
 
