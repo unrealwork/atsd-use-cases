@@ -29,8 +29,8 @@ where the crime occurred, and by the specific crime type. For example, for the c
 of cocaine, manufacturing and delivering heroin, soliciting narcotics etc). Each crime type has its own number of locations and specific violations that it may be sorted for.
 
 Given the size of the dataset, you cannot load it in Excel. It is much more convenient to interact with the data once it is loaded into a database. The
-[Axibase Time Series Database (ATSD)](http://axibase.com/products/axibase-time-series-database/) is a powerful tool when it comes to storing, analyzing, and visualizing datasets. We will use the
-following two aspects of ATSD to look into this dataset: interactive graphs from [Chart Lab](../ChartLabIntro/README.md) and tabular outputs from analytical [SQL queries](https://github.com/axibase/atsd/blob/master/api/sql/README.md#overview).
+[Axibase Time Series Database (ATSD)](http://axibase.com/products/axibase-time-series-database/) is a powerful tool when it comes to storing, analyzing, and visualizing datasets. We will use the following two capabilities of ATSD to look into this dataset: interactive graphs from [Chart Lab](../ChartLabIntro/README.md) and tabular outputs from analytical [SQL queries](https://github.com/axibase/atsd/blob/master/api/sql/README.md#overview).
+
 You can load the dataset into your ATSD instance by following the steps provided at the [end of the article](#action-items).
 
 ### Homicide Numbers

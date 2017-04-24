@@ -25,8 +25,8 @@ the [U.S. Department of State](https://travel.state.gov/content/visas/en/general
 
 Visa figures were collected for 200 countries, 7 continents, and for unknown national origins. You can find a complete list of all the countries included in this dataset [here](../USVisaRefusal/Resources/countrylist.txt).
 
-As opposed to analyzing the dataset in Excel, it is much more convenient to interact with the data once it is loaded into a database. We will use the following two aspects of [Axibase Time Series Database (ATSD)](http://axibase.com/products/axibase-time-series-database/) to look into this dataset: tabular outputs from analytical [SQL queries](https://github.com/axibase/atsd/blob/master/api/sql/README.md#overview) and interactive graphs 
-from [Chart Lab](../ChartLabIntro/README.md) which is similar to [jsfiddle](https://jsfiddle.net/).
+As opposed to analyzing the dataset in Excel, it is much more convenient to interact with the data once it is loaded into a database. We will use the following two aspects of [Axibase Time Series Database (ATSD)](http://axibase.com/products/axibase-time-series-database/) to look into this dataset: tabular outputs from analytical [SQL queries](https://github.com/axibase/atsd/blob/master/api/sql/README.md#overview) and interactive graphs from [Chart Lab](../ChartLabIntro/README.md) which is similar to [jsfiddle](https://jsfiddle.net/).
+
 You can load the dataset into your ATSD instance by following the steps provided at the [end of the article](#action-items).
 
 ### Visa Travel by Country, Continent, and Visa Type
