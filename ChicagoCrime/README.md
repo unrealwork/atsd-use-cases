@@ -3,23 +3,6 @@
 Analyzing Chicago Crime Statistics
 ==================================
 
-## Table of Contents
-
-1. [Pain at the Pump - a Closer Look at Hawaii's High Fuel Prices](/HawaiiGasPrices/hawaii_gas_prices.md)
-2. [Data Visualization with Chart Lab](/ChartLabIntro/README.md)
-3. [Analyzing UK Aviation Statistics using CAA Datasets](/UKAviation/README.md)
-4. [Country Living - Analyzing and Combining Iowa Employment and Consumer Price Index Datasets](/SocrataIowaCompensation/README.md)
-5. [Knocking on Heaven's Door - Computing U.S. Mortality Statistics](/USMortality/README.md)
-6. [Analyzing Chicago Crime Statistics](/ChicagoCrime/README.md)
-7. [Analyzing America's International Trade history](/USInternationalTrade/README.md)
-8. [From data.gov dataset to Python DataFrame in 10 minutes](/SocrataPython/README.md)
-9. [Realtime Analysis of the Oroville Dam Disaster](/OrovilleDam/README.md)
-10. [U.S. State Department: Getting Paid $400 Million While Rejecting Visitors](/USVisaRefusal/README.md)
-11. [Visa Travel to the United States with Charts, SQL, and Redash](/USVisa/README.md)
-12. [Norway Car Registrations](/NorwayCars/README.md)
-13. [Tax Day 2017: Are U.S. Tax Payers Procrastinating?](/IRSTaxFilings/README.md)
-14. [Consumer Finance Complaints](/ConsumerFinance/README.md)
-
 ### Introduction
 ----------------
 
@@ -47,7 +30,7 @@ of cocaine, manufacturing and delivering heroin, soliciting narcotics etc). Each
 
 Given the size of the dataset, you cannot load it in Excel. It is much more convenient to interact with the data once it is loaded into a database. The
 [Axibase Time Series Database (ATSD)](http://axibase.com/products/axibase-time-series-database/) is a powerful tool when it comes to storing, analyzing, and visualizing datasets. We will use the
-following two aspects of ATSD to look into this dataset: interactive graphs from [Chart Lab](/ChartLabIntro/README.md) and tabular outputs from analytical [SQL queries](https://github.com/axibase/atsd/blob/master/docs/api/sql/README.md#overview).
+following two aspects of ATSD to look into this dataset: interactive graphs from [Chart Lab](../ChartLabIntro/README.md) and tabular outputs from analytical [SQL queries](https://github.com/axibase/atsd/blob/master/docs/api/sql/README.md#overview).
 You can load the dataset into your ATSD instance by following the steps provided at the [end of the article](#action-items).
 
 ### Homicide Numbers
