@@ -361,7 +361,7 @@ Below are the summarized steps to follow to install local configurations of ATSD
 5. Import the [`travel_visas.xml`](../USVisaRefusal/Resources/travel_visas.xml) file into ATSD. For a more detailed description, refer to step 9 from the following [step-by-step walkthrough](../USMortality/configuration.md) from our article on [U.S. mortality statistics](../USMortality/README.md).
 6. Import the [`visas.tar.gz`](../USVisaRefusal/Resources/visas.tar.gz) file into ATSD using the the above mentioned parser.
 7. Navigate to the Docker machine IP at port 5000, where you should see a Redash login screen.
-8. Follow the steps in [ATSD datasource guide](https://github.com/axibase/website/blob/master/user-guide/data-sources/axibase_tsd.md) to create a read-only account in ATSD and add a new ATSD datasource in Redash.
+8. Follow the steps in [ATSD datasource guide](https://github.com/getredash/website/blob/master/user-guide/data-sources/axibase_tsd.md) to create a read-only account in ATSD and add a new ATSD datasource in Redash.
 9. Create a sample query configuration, and execute the following query to validate the integration:
 
    ```sql
