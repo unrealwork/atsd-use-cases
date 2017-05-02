@@ -276,8 +276,8 @@ GROUP BY datetime
 
 SQL queries are a great tool for searching for and displaying specific information from a dataset in tabular format. One of the biggest drawbacks from SQL outputs is that you are
 not able to show these tables as some kind graphical output. **But fear no more**!  Axibase is partnered with [Redash](https://redash.io/), which is an open-source data visualization tool.
-You can plug in your query results into Redash, and with a few simple steps, create graphical outputs for your SQL queries. Begin by walking through
-[setting up Redash through ATSD](https://redash.io/help/data-sources/axibase_tsd.html). The setup should take you about 10 minutes.
+You can plug in your query results into Redash, and with a few simple steps, create graphical outputs for your SQL queries. Begin by walking through [setting up Redash through ATSD](https://redash.io/help/data-sources/axibase_tsd.html). The setup should take you about 10 minutes.
+
 
 Let's begin by preparing a visualization for our last SQL query looking at worldwide visa issuances.
 
