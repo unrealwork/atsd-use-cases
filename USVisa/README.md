@@ -276,8 +276,8 @@ GROUP BY datetime
 
 SQL queries are a great tool for searching for and displaying specific information from a dataset in tabular format. One of the biggest drawbacks from SQL outputs is that you are
 not able to show these tables as some kind graphical output. **But fear no more**!  Axibase is partnered with [Redash](https://redash.io/), which is an open-source data visualization tool.
-You can plug in your query results into Redash, and with a few simple steps, create graphical outputs for your SQL queries. Begin by walking through
-[setting up Redash through ATSD](https://github.com/getredash/website/blob/master/user-guide/data-sources/axibase_tsd.md). The setup should take you about 10 minutes.
+You can plug in your query results into Redash, and with a few simple steps, create graphical outputs for your SQL queries. Begin by walking through [setting up Redash through ATSD](https://redash.io/help/data-sources/axibase_tsd.html). The setup should take you about 10 minutes.
+
 
 Let's begin by preparing a visualization for our last SQL query looking at worldwide visa issuances.
 
@@ -361,7 +361,7 @@ Below are the summarized steps to follow to install local configurations of ATSD
 5. Import the [`travel_visas.xml`](../USVisaRefusal/Resources/travel_visas.xml) file into ATSD. For a more detailed description, refer to step 9 from the following [step-by-step walkthrough](../USMortality/configuration.md) from our article on [U.S. mortality statistics](../USMortality/README.md).
 6. Import the [`visas.tar.gz`](../USVisaRefusal/Resources/visas.tar.gz) file into ATSD using the the above mentioned parser.
 7. Navigate to the Docker machine IP at port 5000, where you should see a Redash login screen.
-8. Follow the steps in [ATSD datasource guide](https://github.com/getredash/website/blob/master/user-guide/data-sources/axibase_tsd.md) to create a read-only account in ATSD and add a new ATSD datasource in Redash.
+8. Follow the steps in [ATSD datasource guide](https://redash.io/help/data-sources/axibase_tsd.html) to create a read-only account in ATSD and add a new ATSD datasource in Redash.
 9. Create a sample query configuration, and execute the following query to validate the integration:
 
    ```sql
