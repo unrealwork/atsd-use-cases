@@ -1,0 +1,9 @@
+### .idea  files come from Ruby Mine, a Rails IDE. ###
+.idea
+.idea/workspace.xml
+
+### File from IntelliJ ###
+*.iml
+*.ipr
+*.iws
+.idea/
