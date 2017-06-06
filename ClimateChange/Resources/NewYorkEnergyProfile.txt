@@ -1,0 +1,144 @@
+https://www.eia.gov/state/analysis.php?sid=NY
+
+NEW YORK   New York Profile
+State Profile and Energy Estimates
+CHANGE STATE/TERRITORY
+OVERVIEWDATA ANALYSIS
+ RANKINGS COMPARE FINDHELP
+Profile AnalysisPrint State Energy Profile
+(overview, data, & analysis)
+
+﻿
+Last Updated: July 21, 2016
+
+Overview
+One-fourth of New York state residents commute by public transit, five times the national average.
+New York state stretches from the Great Lakes to New England and from Canada south to the Atlantic Ocean beaches of Long Island. It includes the densely populated New York City metropolis, rolling agricultural lands, and rugged mountains. The state's climate ranges from the temperate, ocean-moderated southeast to interior plains where Arctic winds sweep in from the Great Lakes and Canada.1 Because of its large population, New York's total energy consumption ranks among the highest in the nation, but its energy intensity and per capita energy consumption are among the lowest.2,3,4 The state's energy efficiency results in part from the New York City metropolitan region's widely used mass transportation systems. More than half of New York City workers use public transit, and more than one-fourth of state residents do, which is five times the U.S. average.5,6
+
+The commercial sector leads state energy demand, followed by the residential sector and the transportation sector.7 New York's key businessesâ€"construction, food processing, electronics manufacturing, financial services, professional services, education, and health careâ€"are not among the most energy-intensive industries, and the state's industrial energy consumption is close to the national median.8
+
+More than half New York's energy is supplied from other states and Canada. New York has developed a state energy plan to reduce greenhouse gases by 40% from 1990 levels and obtain half of all electricity from renewable sources, both by 2030.9 State emissions from electricity generation have declined since 2000 because of increased natural gas use and because of compliance with the Regional Greenhouse Gas Initiative,10 a program to reduce power plant emissions in nine northeastern states.11 In 2013, New York had the lowest carbon dioxide emissions per capita of any state in the nation.12,13
+
+Petroleum
+New York is one of the largest consumers of petroleum products, which are used mainly for transportation and home heating.14 New York was an important center for oil production and refining in the 19th century, supporting the state's industrial regions around New York City and along the Erie Canal from as many as 56 refineries. By the end of the 20th century, all the refineries were closed.15 The state continues to produce small amounts of crude oil.16 Petroleum products consumed in New York are supplied by refineries in New Jersey and Pennsylvania, by the Colonial Pipeline system from the Gulf Coast, and by imports, mostly from Canada.17,18 New York Harbor, which includes terminals on both the New York and New Jersey shorelines, is the largest petroleum products hub in the Northeast, with bulk storage capacity exceeding 75 million barrels.19 Petroleum products delivered to the harbor are redistributed by truck or by barge to smaller ports on Long Island and upstate along the Hudson River, and to Connecticut, Rhode Island, and Massachusetts.20,21 Western New York receives refined products from Pennsylvania and the Midwest through pipelines and from Canada through the Port of Buffalo.22,23,24
+
+New York required that ultra-low sulfur diesel replace high-sulfur home heating oil starting in 2012.
+More than three-fourths of petroleum products consumed in New York are used in the transportation sector, and much of the rest is used for heating.25 About one-fourth of New York households are heated with fuel oil.26 In 2000, after severe winter weather threatened regional shortages of home heating oil in the Northeast, the federal government created the Northeast Home Heating Oil Reserve. In 2011, the government converted the reserve to ultra-low sulfur diesel (ULSD), in part as a result of New York's decision to require consumers heating with petroleum to use ULSD starting in 2012.27 New York's decision led to a substantial increase in demand for ULSD, and most other northeastern states are phasing in ULSD as well.28,29
+
+To reduce ozone formation, reformulated motor gasoline blended with ethanol is required year-round in New York City and the surrounding metropolitan areas. The rest of the state is required to use a low volatility blend in the summer.30 New York Harbor is the primary Northeast distribution hub for ethanol supplies. Some ethanol is produced in New York,31 and Midwest ethanol producers often transport output to New York Harbor and to the Port of Albany by rail.32 Storage capacity and intermodal shipping capability have been expanded at Albany to distribute ethanol for blending with motor gasoline and also to move crude oil from North Dakota to East Coast refineries.33
+
+Natural gas
+The electric power sector, residential sector, and commercial sector consume most of the natural gas used in New York.34 More than half of New York households heat with natural gas.35 Western New York has historically produced small amounts of natural gas,36 but most natural gas consumed in the state is supplied by pipelines from other states and Canada. An increasing share of New York's natural gas comes from Pennsylvania.37 The Marcellus Shale, a formation extending under parts of New York, Pennsylvania, Ohio, West Virginia, and Maryland, is the largest natural gas field in the United States.38 There has been no development of natural gas shale resources in New York, and the total amount of retrievable natural gas under the state is unclear.39 In late 2014, citing health and environmental concerns, the state government banned hydraulic fracturing, a technique used to produce shale gas. New York had maintained a moratorium on the technology since 2008 while state officials explored safety and environmental regulations.40
+
+Virtually all major interstate pipelines from the Gulf Coast and Canada reach New York, both to supply in-state customers and to ship supplies onward to Connecticut and Massachusetts.41,42 With Pennsylvania natural gas production growing more than seventeen-fold since 2009,43,44 pipeline companies are expanding their capabilities to ship Marcellus Shale natural gas to customers in New York and New England.45,46 New York has more than two dozen natural gas underground storage facilities, mainly in depleted gas fields.47 Along with storage in Pennsylvania and West Virginia, those facilities are key to meeting northeastern winter heating demand.48
+
+Coal
+New York has no coal mining.49 Coal is transported to New York electricity generating plants by rail, barge, or truck from nearby states, primarily Pennsylvania, and from the Powder River Basin in Wyoming. About 20% of the coal consumed in New York is used by industrial plants.50 Some steam coal for power generation is imported from Latin America through New York City's port.51 Coal from eastern U.S. mines is exported to Canada through the Port of Buffalo.52
+
+Since 2000, coal has been providing progressively less of New York's net electricity generation because new generating capacity has been mostly natural gas-fired. In recent years, less than 5% of New York's net electricity generation has been fueled by coal.53,54,55 New York has adopted carbon dioxide limits for new generating plants that may constrain future use of coal.56,57
+
+Electricity
+New York depends on natural gas, nuclear, and hydroelectric generators for most of its electricity.
+New York electricity generators include both regulated electric utilities and independent power producers with diverse energy sources of generation. Natural gas, nuclear power, and hydroelectricity typically provide nine-tenths of net electricity generation, with wind, biomass, coal, and petroleum making up the balance.58 In 2015, about two-fifths of net electricity generation came from natural gas, one-third from nuclear power, and one-fifth from hydroelectricity.59
+
+New York's electricity usually flows east and south because half of the state's power demand is in the New York City region, but only about two-fifths of net electricity generation originates there.60 New York sometimes imports electricity from neighboring states and Canada, but demand has declined since the 2008 recession.61 Only about 10% of New York households use electricity for heating,62 and New Yorkers per capita are among the lowest electricity users in the nation.63,64 The New York grid operator says in-state generating resources can meet expected demand, but maintaining capability to exchange electricity with neighboring grids remains vital to power reliability and system efficiency.65 More than half of New York's in-state generating capacity can burn either fuel oil or natural gas. To avoid blackouts, New York regulators require units with this dual-fuel capability to be ready to switch to fuel oil in the event of a natural gas supply disruption.66
+
+Renewable energy
+About four-fifths of net renewable generation in New York comes from hydroelectricity, with small but growing amounts from wind, biomass, and solar sources.67,68 The state is home to the largest hydroelectric power plant in the eastern United States, the 2.4-gigawatt Robert Moses Niagara plant, and produces more hydroelectric power than any other state east of the Rocky Mountains.69,70 New York is also among the top states using landfill gas and municipal solid waste to fuel electricity generation.71,72
+
+New York's Robert Moses Niagara hydroelectric plant is the largest hydroelectric power plant east of the Rocky Mountains.
+New York is consolidating its renewable portfolio standard (RPS), energy efficiency portfolio standard (EEPS), and other clean energy mandates under a program called Reforming the Energy Vision (REV). REV is intended to create a flexible utility business model that offers increased incentives for renewable and distributed electricity generation as well as consumer incentives for efficiency and distributed generation. The REV program details were being developed during 2016.73 The REV sets state goals for 2030 of obtaining half of all electricity sold in the state from renewable sources, reducing energy-related greenhouse gas emissions 40% from 1990 levels, and reducing energy consumption by buildings 23% from 2012 levels. The program sets a further goal of cutting greenhouse gas emissions 80% by 2050.74 As part of the REV development, a clean energy standard (CES) is replacing the state's expired RPS. The CES may recognize some nuclear power as an eligible clean energy source that reduces greenhouse gas emissions.75,76
+
+Most new renewable electricity has been obtained competitively from utility-scale projects by the New York State Energy Research and Development Authority.77 Most new power is from wind.78 The state's first wind farm began operating in 2000.79 More than two dozen wind farms are operating or are in development around the state. New York has an estimated potential for nearly 140,000 megawatts of onshore wind energy,80 particularly around Lake Erie and Lake Ontario, on peaks of the Adirondack Mountains and the Catskill Mountains, and along the Long Island shoreline.81 Some areas off the Long Island coast are also considered suitable for large-scale wind farms.82 Other new renewable electricity is being obtained from biomass and biogas resources and from hydroelectric facility upgrades.83 In 2010, New York regulators set a goal of obtaining about 8.5% of new renewable generation from small, customer-sited facilities, such as solar photovoltaic (PV) and solar thermal systems, fuel cells, anaerobic digester systems, and wind installations. Customer systems are generally limited to normal customer load, up to 200 kilowatts of capacity. The state offers consumers incentives for those installations.84
+
+In 2014, as part of the state's NY-Sun initiative, New York set a target of installing 3,000 megawatts of solar PV systems by 2023. At the end of 2015, 457 megawatts of solar PV capacity were installed in New York under NY-Sun, and 493 megawatts were in development.85 New York also encourages customer-sited solar installations, such as rooftop solar, through net metering. With its variety of support programs, the state was fifth in the nation in new solar capacity installed in 2015.86 Solar PV systems still provided less than 1% of New York's net electricity generation, but solar generation increased by 60% from 2014. The 32-megawatt Long Island Solar Farm is the largest solar PV generator in the eastern United States,87 but most solar installations in New York are small. Four-fifths of the state's 2015 solar generation came from customer-sited solar panels.88
+
+Endnotes
+1 NETSTATE, New York, The Geography of New York, updated February 25, 2016.
+2 U.S. Energy Information Administration, State Energy Data System, Table C10, Energy Consumption Estimates by End-Use Sector, Ranked by State, 2014.
+3 U.S. Energy Information Administration, State Energy Data System, Table C13, Energy Consumption Estimates per Capita by End-Use Sector, Ranked by State, 2014.
+4 U.S. Energy Information Administration, State Energy Data System, Table C12, Total Energy Consumption Estimates, Real Gross Domestic Product (GDP), Energy Consumption Estimates per Real Dollar of GDP, Ranked by State, 2014.
+5 U.S. Census Bureau, American FactFinder, Table B08130; Geographies: United States, New York State, and New York City; Means of Transportation to Work by Place of Work—State and County Level, 2010-14 American Community Survey 5-Year Estimates.
+6 Fischer-Baum, Reuben, "How Your City's Public Transit Stacks Up," FiveThirtyEight (July 31, 2014).
+7 U.S. Energy Information Administration, State Energy Data System, Table C10, Energy Consumption Estimates by End-Use Sector, Ranked by State, 2014.
+8 New York State Department of Labor, Significant Industries, New York State (2015).
+9 New York State Energy Plan, The Energy to Lead (2015), Overview, p. 2, and Volume II, p. 12.
+10 New York Independent System Operator (NYISO), Power Trends 2015, p. 49.
+11 Regional Greenhouse Gas Initiative, Welcome, accessed May 31, 2016.
+12 U.S. Energy Information Administration, U.S. States, Rankings: Total Carbon Dioxide Emissions, 2013.
+13 U.S. Census Bureau, Population Estimates, State Totals: Vintage 2013, Tables, Annual Estimates of the Resident Population for the United States, Regions, States, and Puerto Rico: April 1, 2010 to July 1, 2013 (NST-EST2013-01).
+14 U.S. Energy Information Administration, State Energy Data System, Table C4, Total End-Use Energy Consumption Estimates, 2014.
+15 New York State Department of Environmental Conservation, New York's Oil and Natural Gas History, accessed June 1, 2016, p. 10, 11.
+16 U.S. Energy Information Administration, Crude Oil Production, Annual-Thousand Barrels, 2010-15.
+17 U.S. Energy Information Administration, PAD District Imports by Country of Origin, Total Crude Oil and Products, Annual-Thousand Barrels per Day, East Coast (PADD 1), 2010-15.
+18 U.S. Energy Information Administration, Movements by Tanker, Pipeline, Barge and Rail Between PAD Districts, PADD 3 to PADD 1, Annual-Thousand Barrels, 2010-15.
+19 Schneyer, Joshua, "Biggest New York Harbor Oil Terminal Resumes Partial Operations," Reuters (November 3, 2012).
+20 Petroleum Assessment, New York State Energy Plan 2009 (December 2009), p. 22.
+21 ERS Group, Report on Petroleum Products Markets in the Northeast (September 2007), p. 3.
+22 U.S. Energy Information Administration, Potential Impacts of Reductions in Refinery Activity on Northeast Petroleum Product Markets, updated May 11, 2012, p 8.
+23 Buckeye Partners LP, System Map, accessed June 1, 2016.
+24 Sunoco Logistics, Asset Map, accessed June 1, 2016.
+25 U.S. Energy Information Administration, U.S. States, Table F15, Total Petroleum Consumption Estimates, 2014.
+26 U.S. Census Bureau, American FactFinder, New York, Table B25040, House Heating Fuel, 2010-14 American Community Survey 5-Year Estimates.
+27 U.S. Department of Energy, Office of Fossil Energy, Heating Oil Reserve History, accessed June 16, 2016.
+28 Baker & O'Brien, Inc., "Northeast Gasoline and Distillate Supply and Demand Issues" (May 21, 2014), slides 11, 12.
+29 U.S. Energy Information Administration, Potential Impacts of Reductions in Refinery Activity on Northeast Petroleum Product Markets, updated May 2012, p. 9.
+30 U.S. Environmental Protection Agency, Gasoline Standards, Gasoline Programs, Reformulated gasoline and Reid vapor pressure, see New York, accessed June 1, 2016.
+31 Ethanol Producer Magazine, U.S. Ethanol Plants, updated January 23, 2016.
+32 Petroleum Assessment, New York State Energy Plan 2009 (December 2009), p. 11.
+33 Slifka, Eric, President and CEO, Global Partners LP (GLP) Presentation (July 9, 2012), slides 3, 5, 6.
+34 U.S. Energy Information Administration, Natural Gas Consumption by End Use, New York, Annual, 2010-15.
+35 U.S. Census Bureau, American FactFinder, New York, Table B25040, House Heating Fuel, 2010-14 American Community Survey 5-Year Estimates.
+36 New York State Department of Environmental Conservation, New York's Oil and Natural Gas History, accessed June 1, 2016, p. 8, 9.
+37 U.S. Energy Information Administration, International and Interstate Movements of Natural Gas by State, New York, Annual, 2009-14.
+38 U.S. Energy Information Administration, Top 100 U.S. Oil and Gas Fields (March 2015), p. 4, 8.
+39 Berman, Arthur, and Lyndon Pittinger, Resource Assessment of Potentially Producible Natural Gas Volumes from the Marcellus Shale, State of New York, Labyrinth Consulting (April 10, 2014), Summary.
+40 Kaplan, Thomas, "Citing Health Risks, Cuomo Bans Fracking in New York State," New York Times (December 17, 2014).
+41 U.S. Energy Information Administration, Natural Gas Pipelines in the Northeast Region (2008).
+42 U.S. Energy Information Administration, New York, Profile Data, Distribution and Marketing, accessed June 2, 2016.
+43 Pennsylvania Department of Environmental Protection, Oil & Gas Reporting Website, Statewide Data Downloads By Reporting Period, Production for conventional and unconventional wells, 2015.
+44 U.S. Energy Information Administration, Natural Gas Withdrawals and Production, Pennsylvania, Annual, 2009-14.
+45 Northeast Gas Association, NGA Issue Brief: Pipeline Expansion Projects (2016).
+46 Silverman, Gerald B., "Debate Rages on Pipelines in Northeastern States," Bloomberg BNA (May 19, 2016).
+47 U.S. Energy Information Administration, Natural Gas Underground Storage Capacity, New York, Annual, 2009-14.
+48 U.S. Energy Information Administration, U.S. Underground Natural Gas Storage Facilities, by Type (December 31, 2013).
+49 U.S. Energy Information Administration, Weekly Coal Production, Annual coal production by state, accessed June 3, 2016.
+50 U.S. Energy Information Administration, Annual Coal Distribution Report 2014 (April 2016), Domestic distribution U.S. coal by destination State, consumer, destination and method of transportation.
+51 Dayette, Jeff, and Barbara Freese, Burning Coal Burning Cash, Union of Concerned Scientists (2010), p. 39.
+52 U.S. Energy Information Administration, Quarterly Coal Report (Abbreviated), (April 5, 2016), Table 13, Coal Exports by Customs District.
+53 U.S. Energy Information Administration, Electric Power Monthly (February 2016), Tables 1.3.B, 1.4.B, 1.9.B.
+54 U.S. Energy Information Administration, Electricity, Detailed State Data, Annual Data, 1990-2014 Net Generation by State by Type of Producer by Energy Source (EIA-906, EIA-920, and EIA-923).
+55 New York Independent System Operator, Power Trends 2015, p. 6, 16.
+56 New York Department of Environmental Conservation, "DEC Adopts Ground-Breaking Power Sector Regulations to Analyze Possible Environmental Impacts and Limit CO2 Emissions from Power Plants," Press Release (June 28, 2012).
+57 DiSavino, Scott, "NY Adopts CO2 Rules that Limit New Coal Power Plants," Reuters (June 28, 2012).
+58 U.S. Energy Information Administration, Electricity, Detailed State Data, Annual Data, 1990-2014 Net Generation by State by Type of Producer by Energy Source (EIA-906, EIA-920, and EIA-923).
+59 U.S. Energy Information Administration, Electric Power Monthly (February 2016), Tables 1.3.B, 1.7.B, 1.9.B, 1.10.B.
+60 New York Independent System Operator, Power Trends 2014, p. 27, 31.
+61 New York Independent System Operator, Power Trends 2015, p. 9.
+62 U.S. Census Bureau, American FactFinder, New York, Table B25040, House Heating Fuel, 2010-14 American Community Survey 5-Year Estimates.
+63 U.S. Energy Information Administration, Electric Power Monthly (February 2016), Table 5.4.B.
+64 U.S. Census Bureau, Population Estimates, State Totals: Vintage 2015, Tables, Annual Estimates of the Resident Population for the United States, Regions, States, and Puerto Rico: April 1, 2010 to July 1, 2015 (NST-EST2015-01).
+65 New York Independent System Operator, Power Trends 2015, p. 8, 22.
+66 New York Independent System Operator, Power Trends 2015, p. 25-27.
+67 U.S. Energy Information Administration, Electric Power Monthly (February 2016), Tables 1.3.B, 1.10.B, 1.14.B, 1.15.B, 1.17.B.
+68 U.S. Energy Information Administration, Electricity, Detailed State Data, Annual Data, 1990-2014 Net Generation by State by Type of Producer by Energy Source (EIA-906, EIA-920, and EIA-923).
+69 "A Powerful 50 Years at Niagara," International Water Power & Dam Construction (April 15, 2011).
+70 U.S. Energy Information Administration, Electric Power Monthly (February 2016), Tables 1.3.B, 1.10.B.
+71 New York State Department of Environmental Conservation, Landfill Gas-to-Energy Facility Data, 2014 Annual Report Data, accessed June 6, 2016.
+72 U.S. Energy Information Administration, Electricity, Detailed State Data, Annual Data, 1990-2013 Existing Nameplate and Net Summer Capacity by Energy Source, Producer Type and State (EIA-860).
+73 Bade, Gavin, "REV in 2016: The Year That Could Transform Utility Business Models in New York," Utility Dive (January 20, 2016).
+74 New York State, Department of Public Service, Reforming the Energy Vision, updated January 28, 2016.
+75 New York State, "Governor Cuomo Directs Department of Public Service to Begin Process to Enact Clean Energy Standard" (December 2, 2015).
+76 Walton, Robert, "New York Regulators Propose Nuclear Power Mandate in New Clean Energy Plan," Utility Dive (January 27, 2016).
+77 New York State, Department of Public Service, 03-E-0188: Renewable Portfolio Standard - Home Page, accessed June 6, 2016.
+78 New York State Energy Research and Development Authority, New York State Renewable Portfolio Standard, Annual Performance Report Through December 2015, Final Report (March 2016), Summary and p. 11.
+79 Booker, Ted, "Jefferson County Could Learn Lesson From Tax Break for Madison Wind Farm," Watertown Daily Times (November 7, 2015).
+80 American Wind Energy Association, New York Wind Energy, accessed June 6, 2016.
+81 U.S. Department of Energy, Energy Efficiency and Renewable Energy, WINDExchange, New York Wind Resource Map and Potential Wind Capacity, updated September 24, 2015.
+82 U.S. Department of Energy, Energy Efficiency and Renewable Energy, WINDExchange, New York Offshore 90-Meter Wind Map and Wind Resource Potential, updated May 1, 2014.
+83 New York State Energy Research and Development Authority, New York State Renewable Portfolio Standard, Annual Performance Report Through December 2015, Final Report (March 2016), p. 11.
+84 NC Clean Energy Technology Center, DSIRE, Renewable Portfolio Standard, New York, updated January 26, 2016.
+85 New York State Energy Research and Development Authority, NY-Sun Annual Performance Report Through December 31, 2015, Final Report (March 2016), p. S-1.
+86 Solar Energy Industries Association, New York Solar, accessed June 7, 2016.
+87 Brookhaven National Laboratory, Long Island Solar Farm, Project Overview, accessed June 7, 2016.
+88 U.S. Energy Information Administration, Electric Power Monthly (February 2016), Tables 1.3.B, 1.17.B.

@@ -1,0 +1,33 @@
+http://climateactiontracker.org/countries/china.html
+
+China
+Page last updated: 15th May 2017
+Rating
+
+
+
+Basic view+Pledges
+
+Note: Hover over the coloured bars for a pop-up with the fair emissions range per effort sharing category. More information here.
+
+Assessment
+
+China’s CO2 emissions appear to have peaked more than a decade ahead of its Paris Agreement commitment to peak its CO2 emissions before 2030. The latest analysis from the Climate Action Tracker indicates that these emissions may, in fact, already have stopped increasing and reached peak levels.
+
+The ongoing reduction in coal use for the third year in a row has had a major impact, and, if they were to continue at similar rates in the next decade, total Chinese GHG emissions will only show a very slight increase in the period 2015–2030, and essentially plateau at close to 12.0 GtCO2e/year. However, the absence of comparable commitments on other, non-CO2, gases means that total greenhouse gas emissions could continue to increase until at least 2030.
+
+China’s policies and actions appear ambitious enough to potentially overachieve the CO2 goal in its Nationally Determined Contribution (NDC), as well as its national targets. The NDC itself, however, is not ambitious enough to limit warming to below 2°C, let alone the 1.5°C limit in the Paris Agreement, unless other countries make much deeper reductions and comparably greater effort than China, which is why the CAT rates it Medium.
+
+On 3 September 2016, China ratified the Paris Agreement, and it has policies in place to reach its NDC goals. These policies are currently centred around the targets set in its NDC, which include a commitment to peak CO2 emissions by 2030 at the latest, lower the carbon intensity of GDP by 60%–65% below 2005 levels by 2030, increase the share of non-fossil energy carriers of the total primary energy supply to around 20% by that time, and increase its forest stock volume by 4.5 billion cubic metres, compared to 2005 levels.
+
+China’s NDC’s targets, if reached, would result in GHG emission levels of roughly 12.8–14.3 GtCO2e in 2030, a 64%–70% reduction of emissions intensity below 2005 levels (using the latest projections on GDP development (IEA, 2016b)). The NDC carbon intensity targets on their own would lead to 2030 emission levels of 14.0–16.0 GtCO2e.  As the intensity targets are likely to be reached automatically if the non-fossil targets are achieved, and our rating is based on achieving all NDC targets, we do not address the intensity targets separately here. (In earlier assessments, we explicitly noted that China’s INDC target on its own would result in an “inadequate” rating.)
+
+However, this range also implies that China’s NDC and its national actions are not yet consistent with limiting warming to below 2°C, let alone 1.5°C unless other countries make much deeper reductions and comparably greater effort than China. We therefore rate the emission levels estimated for 2025 and 2030 resulting from the most ambitious aspects of the NDC as “medium.”
+
+Our analysis shows that China will achieve both its 2020 pledge and its 2030 plans. Current policy projections show that emissions in 2030 could lie in the range of 12.2–13.7 GtCO2e, implying that China may well overachieve the target levels implied by its NDC with its current policies.
+
+China is implementing significant policies to address climate change, most recently aiming to restrict coal consumption, which may well have already peaked, based on recent estimates. China’s 13th Five-Year-Plan stipulates a maximum 58% share of coal in national energy consumption by 2020 (NDRC, 2016). The CAT assesses two scenarios of future developments in coal consumption: a continued coal abatement scenarioas well as a stalled coal abatement scenario:
+
+Under the “continued coal abatement”  scenario, where the recent decreases in coal consumption continue at a similar pace for the next few years—forming the lower range of the 2030 projections—CO2 emissions would already have plateaued in 2015, and will decrease substantially up to 2030, reaching the NDC peaking target around ten years early.
+In the “stalled coal abatement” scenario, total coal consumption stabilises after the recent decreases and remains constant through the decade 2020–2030 (see Current Policy section for more detail).
+However, total GHG emissions are likely to continue increasing until 2030, as China has not yet implemented sufficient policies addressing non-CO2 GHG emissions (CH4, N2O, HFCs etc.), although the rate of increase of total emissions would become near-zero under the most optimistic assumptions of continued coal abatement (at an average growth rate of 0.3%/year in total GHG emissions between 2017 and 2030). As the NDC acknowledges that addressing these gases is important, further policy action may be expected to address non- CO2 emissions as well.

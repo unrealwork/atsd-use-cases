@@ -1,0 +1,14 @@
+https://www.eia.gov/consumption/
+
+Recent Data
+
+Energy consumption estimates by sector
+trillion Btu
+January to January	2017	2016	2015	2014	2013
+End–Use Sector
+Residential	2,347	2,419	2,538	2,775	2,432
+Commercial	1,726	1,766	1,802	1,866	1,694
+Industrial	2,686	2,684	2,747	2,787	2,703
+Transportation	2,197	2,189	2,185	2,152	2,144
+Primary Total	8,955	9,058	9,273	9,584	8,973
+Source: U.S. Energy Information Administration, Monthly Energy Review – Table 2.1
