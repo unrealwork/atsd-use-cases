@@ -66,9 +66,6 @@ dramatic overall reduction of fossil fuel consumption. <br>
 
 ![EnergySector](Images/EnergySector.png) <br>
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/9a43c098)
-<br>
-
 The energy sector makes up the largest amount of internal greenhouse gas production and analysts
 are encouraged to see an energy market dominated by coal production able to reduce greenhouse 
 gas emissions in the production sector by more than 50% over the last two and a half decades. 
@@ -76,16 +73,10 @@ gas emissions in the production sector by more than 50% over the last two and a 
 
 ![ResidentialSector](Images/ResidentialSector.png) <br>
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/9a43c098)
-<br>
-
 Not only does the consumer sector show little net improvement throughout the observed period, 
 it is also the source of an ever-growing share of total consumption.<br>
 
 ![CommercialSector](Images/CommericalSector.png) <br>
-
-[![](Images/button.png)](https://apps.axibase.com/chartlab/9a43c098)
-<br>
 
 Despite a sharp peak in 2004, the State of New York has produced encouraging results in the 
 commercial sector in the last decade. The commercial sector is defined as non-residential use
@@ -93,25 +84,16 @@ of fossil fuels and waste management. <br>
 
 ![IndustrialSector](Images/IndustrialSector.png) <br> 
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/9a43c098)
-<br>
-
 New York has seen the disappearance of over 
 [100,000 internal manufacturing jobs](Resources/NewYorkLabor.txt) 
 in the last two decades, many to overseas manufacturers. <br>
 
 ![TransportationSector](Images/TransportationSector.png) <br>
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/9a43c098)
-<br>
-
 The effects of the state's efforts to reduce fossil fuel consumption by increasing bicycle and
 bus infrastructure are [producing encouraging results](Resources/NewYorkTransit.txt). <br>
 
 ![EnergyImport](Images/EnergyImport.png) <br>
-
-[![](Images/button.png)](https://apps.axibase.com/chartlab/9a43c098)
-<br>
 
 With the downturn of the coal industry following the subprime mortgage crisis 
 that left former industry titans penniless and facing bankruptcy, the state of New York and 
@@ -129,7 +111,43 @@ is shown relative to other states and territories: California, Texas, Washington
 and the District of Columbia, with the national mean being -7.5%.
 <br>
 
-#### Analysis <br>
+Advanced charting can be done for side-by-side comparison of relevant data. <br>
+
+![ResidentialIndustrial](Images/ResidentialIndustrial.png)
+
+[![](Images/button.png)](https://apps.axibase.com/chartlab/14f22d6e/4/)
+<br>
+
+When comparing the best performing and worst performing sectors of the New York energy market,
+a simultaneous comparison highlights the achievements of the industrial sector and the 
+shortcomings of the residential sector. <br>
+
+![CommercialTransportation](Images/CommercialTransportation.png)
+
+[![](Images/button.png)](https://apps.axibase.com/chartlab/14f22d6e/7/)
+<br>
+
+Although similar when comparing percent change, a stacked comparison blatantly shows
+the difference in absolute change of two similarly performing sectors. <br>
+
+![NYTotalHisto](Images/NYTotalHisto.png) <br>
+
+[![](Images/button.png)](https://apps.axibase.com/chartlab/14f22d6e/9/)
+<br>
+
+A histogram that displays all sectors together can highlight trends that may be otherwise
+missed.
+
+![NYTotalHisto](Images/NYTotal.png) <br>
+
+[![](Images/button.png)](https://apps.axibase.com/chartlab/14f22d6e/8/)
+<br>
+
+Likewise, total performance can be analyzed based on change per year and overall amount 
+per year for a clear understanding of the performance of each sector. <br>
+
+#### Analysis
+
 During the observed period, New York greenhouse gas production is shown to decrease noticeably
 with a difference of more than 20 million metric tons of fossil fuels consumed in the year 2014
 when compared to the 1990 numbers. <br>
