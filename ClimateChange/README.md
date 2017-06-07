@@ -45,77 +45,35 @@ half of the [New York State energy market](https://www.eia.gov/state/analysis.ph
 
 ![NyTotalPie](Images/NYPie2.png) <br>
 
-[![](Images/button.png)](http://apps.axibase.com/chartlab/9e04b681/3/)
-<br>
-
 The current picture of New York State energy consumption sorted by end-use sector based on
-[2015 data](https://www.eia.gov/state/?sid=NY#tabs-1) from the United States Energy Information Agency.<br>
+[2015 data](https://www.eia.gov/state/?sid=NY#tabs-1) from the United States Energy 
+Information Agency.<br>
 
 ![YearTotal](Images/YearTotal.png) <br>
 
 [![](Images/button.png)](https://apps.axibase.com/chartlab/9a43c098)
 <br>
 
-Although there is a recent trend indicating an increase in greenhouse gas emission, on the whole,
-New York State has been lauded as a prime example of the power of green legislation, evidenced by a 
-dramatic overall reduction of emissions. <br>
-
-![EnergySector](Images/EnergySector.png) <br>
-
-The energy sector makes up the largest amount of internal greenhouse gas emission and analysts
-are encouraged to see an energy market dominated by coal production able to reduce
-emissions in the production sector by more than 50% over the last two and a half decades. <br>
-
-![ResidentialSector](Images/ResidentialSector.png) <br>
-
-Not only does the consumer sector show little net improvement throughout the observed period, 
-it is also the source of an ever-growing share of total emissions.<br>
-
-![CommercialSector](Images/CommericalSector.png) <br>
-
-Despite a sharp peak in 2004, the State of New York has produced encouraging results in the 
-commercial sector in the last decade. The commercial sector is defined as the emissions from
-non-residential use of fossil fuels and waste management. <br>
-
-![IndustrialSector](Images/IndustrialSector.png) <br> 
-
-New York State has seen the disappearance of over 
-[100,000 manufacturing jobs](https://www.osc.state.ny.us/reports/economic/employment_trends_nys_2013.pdf) 
-in the last two decades, many to overseas manufacturers which contributes
-to the substantial decrease in greenhouse gas emissions. <br>
-
-![TransportationSector](Images/TransportationSector.png) <br>
-
-The effects of the state's efforts to reduce greenhouse gas emission by increasing bicycle and
-bus infrastructure are producing encouraging results. <br>
-
-![EnergyImport](Images/EnergyImport.png) <br>
-
-With the downturn of the coal industry following the subprime mortgage crisis 
-that left former industry titans penniless and facing bankruptcy, the state of New York and 
-its historically coal-heavy energy sector have been forced to find new alternatives 
-to supply their energy needs, including importing energy from neighboring states and Canada, 
-evidenced here by a sharp increase in emissions from imported energy following the 2007 bubble 
-burst.<br>
+Using the dropdown menu in ChartLab, users can explore each component of the New York
+State energy market individually with a visualization of greenhouse gas emissions by sector,
+including emissions from imported energy. 
+<br>
 
 ![StateByState](Images/FinalBarState.png) <br>
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/4307bcb6/7/)
-<br>
-
 Using [time series data](https://www.eia.gov/environment/emissions/state/analysis/pdf/table1.pdf) 
-from the Energy Information Agency, the results from efforts to reduce greenhouse gas emissions
+from the Energy Information Agency, the results of efforts to reduce greenhouse gas emissions
 are shown relative to other states and territories from 2000 to 2014 alongside the 
 United States national average. <br>
 
-Advanced charting can be done for side-by-side comparison of relevant data. <br>
+Advanced charting can be done for side-by-side comparison of relevant data: <br>
 
 ![ResidentialIndustrial](Images/ResidentialIndustrial.png)
 
 [![](Images/button.png)](https://apps.axibase.com/chartlab/14f22d6e/4/)
 <br>
 
-When comparing the lowest and highest emitting sectors of the New York State energy market,
+When analyzing the emissions from two sectors of the New York State energy market,
 a simultaneous comparison highlights the achievements of the industrial sector and the 
 shortcomings of the residential sector. <br>
 
@@ -146,10 +104,29 @@ representation of the complete data that a simpler chart would neglect.<br>
 #### Analysis
 
 During the observed period, New York State greenhouse gas emissions are shown to decrease noticeably
-with a difference of more than 20 million metric tons of fossil fuels consumed in the year 2014
-compared to the 1990 numbers. <br>
+with a difference of more than 20 million metric tons of gas emitted in the year 2014
+compared to the 1990 numbers. Although there is a recent trend indicating an increase in greenhouse gas emission, on the whole,
+New York State has been lauded as a prime example of the power of green legislation, evidenced by a 
+dramatic overall reduction of emissions. The energy sector makes up the largest amount of internal greenhouse gas emission and analysts
+are encouraged to see an energy market dominated by coal production able to reduce
+emissions in the production sector by more than 50% over the last two and a half decades. <br>
 
-New York is considered a model state for environmentalists who point to the 
+The consumer sector shows little net improvement throughout the observed period and
+it is also the source of an ever-growing share of total emissions. Despite a sharp peak in 
+2004, the State of New York has produced encouraging results in the 
+commercial sector in the last decade. The commercial sector is defined as the emissions from
+non-residential use of fossil fuels and waste management. New York State has seen the 
+disappearance of over 
+[100,000 manufacturing jobs](https://www.osc.state.ny.us/reports/economic/employment_trends_nys_2013.pdf) 
+in the last two decades, many to overseas manufacturers, which contributes
+to the substantial decrease in greenhouse gas emissions. The effects of the state's efforts to reduce greenhouse gas emission by increasing bicycle and
+bus infrastructure have produced noticeable results as well and with the downturn of the coal industry following the subprime mortgage crisis 
+that left former industry titans penniless and facing bankruptcy, the state of New York and 
+its historically coal-heavy energy sector have been forced to find new alternatives 
+to supply their energy needs, including importing energy from neighboring states and Canada.
+<br>
+
+New York is considered a model state by environmentalists who point to the 
 [per capita](https://www.eia.gov/state/?sid=NY) consumption rate, 
 the second lowest in the nation behind only the District of Columbia, 
 as the gold standard of what is achievable for other populous states like
@@ -157,26 +134,26 @@ Texas that seem to be lagging behind in the green transition. Considering per se
 fossil fuels alongside emissions helps illuminate the concerns of analysts who claim 
 that while America may be making strides on a macro scale, 
 more changes are needed to see the kinds of goals laid 
-out by the previous administration reached in due time. New York State is no
-exception as the domestic energy market is dominated by coal production and high
-residential consumption and emission. <br>
+out by the previous administration reached in due time. 
+<br>
 
-The largest push from most green media shifts the focus of reducing America's carbon footprint 
+The largest push from green media shifts the focus of reducing America's carbon footprint 
 to the individual. Low flow toilets, florescent light bulbs, and a host of
 other green technologies have been steadily making waves on the consumer market, 
-making claims that they hold the key to reducing greenhouse gas emission, 
+making claims that they are the key to reducing greenhouse gas emission, 
 however an examination of the residential emission data tells another story, 
 showing that today's emissions by residents of the state 
 are actually greater than the 1990 numbers. 
 To be fair, that uptick in consumer-level emission is a recent trend, 
 with several years during the early 2010's showing slightly lower greenhouse gas emissions. 
 Nonetheless, residential emissions make up just [12%](https://www.epa.gov/ghgemissions/sources-greenhouse-gas-emissions) 
-of America's total greenhouse gas emission, and almost 30% of New York State's.
+of America's total greenhouse gas emission, and 30% of New York State's.
 This figure does not even include emissions from consumer motor vehicles,
-typically considered to be the most harmful to the environment. Despite earnest
-intent, it seems that at least on the consumer level, greenhouse gas emissions have not 
-changed dramatically. For the observed period, the standard deviation of the residential sector
-was 2.82, which accounts for just 7.95% of the observed mean. <br>
+typically considered to be the most harmful to the environment, which are included in 
+transportation data. Despite earnest intent, it seems that at least on the consumer level, 
+greenhouse gas emissions have not changed dramatically. For the observed period, 
+the standard deviation of the residential sector was 2.82, which accounts for just 7.95% of 
+the observed mean. <br>
 
 #### Conclusions <br> 
 
@@ -185,7 +162,9 @@ as the clause in the Paris Agreement that relates to voluntary withdrawal states
 must give almost half a decade's notice to the other signatories, 
 but some [legal experts](https://www.cfr.org/blog-post/vietnam-and-united-states-make-nice-now-disappointment-looms)
 have theorized that the President may be able to withdraw from the original 1992 framework
-in order to bypass the lengthy withdrawal process in as soon as a year. In the meantime, however, 
-public data provided by states like New York can offer a unique insight to the mechanisms currently 
+in order to bypass the lengthy withdrawal process in as soon as a year. Further, most of the 
+mechanisms of the Paris Agreement were set to begin taking effect in 2020, making them mostly
+symbolic at present. In the meantime, however, 
+public data provided by states like New York can offer a unique insight to the policies currently 
 in place and help analysts make predictions about the validity of future efforts.
 <br>
