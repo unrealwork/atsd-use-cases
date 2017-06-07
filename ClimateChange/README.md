@@ -19,7 +19,7 @@ will create lopsided results, with countries like America and Great Britain
 heavily investing in greener options at great personal expense while some of the largest 
 producers of greenhouse gas emissions like China and India, will not even begin to see a [peak 
 in their production](http://climateactiontracker.org/countries/china.html) 
-for up to ten years in the future. <br>
+for up to ten years in the future. <br> 
 
 So, is America's position as a green leader truly in jeopardy?
 Have the last decades of climate change action produced the desired results?
@@ -43,20 +43,19 @@ half of the [New York State energy market](https://www.eia.gov/state/analysis.ph
 
 #### Data <br>
 
+![NYTotal](Images/NYTotal.png) <br>
+
+[![](Images/button.png)](https://apps.axibase.com/chartlab/14f22d6e/8/)
+<br>
+
+Total emissions from each sector can be analyzed together to get a clearer 
+representation of the complete data that a simpler chart would neglect.<br>
+
 ![NyTotalPie](Images/NYPie2.png) <br>
 
 The current picture of New York State energy consumption sorted by end-use sector based on
 [2015 data](https://www.eia.gov/state/?sid=NY#tabs-1) from the United States Energy 
-Information Agency.<br>
-
-![YearTotal](Images/YearTotal.png) <br>
-
-[![](Images/button.png)](https://apps.axibase.com/chartlab/9a43c098)
-<br>
-
-Using the dropdown menu in ChartLab, users can explore each component of the New York
-State energy market individually with a visualization of greenhouse gas emissions by sector,
-including emissions from imported energy. 
+Information Agency.
 <br>
 
 ![StateByState](Images/FinalBarState.png) <br>
@@ -92,14 +91,6 @@ the stark difference in absolute change of two similarly performing sectors. <br
 
 A histogram that displays all sectors together can highlight trends that may be otherwise
 missed such as the sharp decrease in emissions from all sectors between 2007 and 2012. <br>
-
-![NYTotalHisto](Images/NYTotal.png) <br>
-
-[![](Images/button.png)](https://apps.axibase.com/chartlab/14f22d6e/8/)
-<br>
-
-Likewise, total emissions from each sector can be analyzed together to get a clearer 
-representation of the complete data that a simpler chart would neglect.<br>
 
 #### Analysis
 
@@ -168,3 +159,19 @@ symbolic at present. In the meantime, however,
 public data provided by states like New York can offer a unique insight to the policies currently 
 in place and help analysts make predictions about the validity of future efforts.
 <br>
+
+#### Action Items
+
+Using the following procedure, users can replicate data analysis seen here.
+
+1. Install [Docker](https://docs.docker.com/engine/installation/linux/ubuntu/).
+
+2. Download the [docker-compose.yml](Resources/docker-compose.yml) file to launch the ATSD container bundle.
+
+3. Launch containers with the following command: <br>
+
+![ContainerCommand](Images/containercommand.png) <br>
+
+4. Open Axibase Timeseries Database and begin working with your data.
+
+[Contact Axibase](https://axibase.com/feedback/) with any questions here.
