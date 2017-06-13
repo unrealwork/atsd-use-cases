@@ -474,13 +474,16 @@ available that allows them to do just that.
 #### Action Items
 
 1. Download [Docker](https://docs.docker.com/engine/installation/linux/ubuntu/).
-2. Download the [docker-compose.yml](Resources/docker-compose3.yml) file to launch the ATSD 
+2. Download the [docker-compose.yml](Resources/docker-compose.yml) file to launch the ATSD 
 container bundle.
-3. Download the [docker-compose.yml](Resources/docker-compose4.yml) file for the second set of data, and launch the ATSD
-container bundle with the following script:
-```$xslt
-curl -u axibase:*** -o output.csv -v https://nur.axibase.com/export?settings=%7B%22m%22%3A%22row_number.33zm-qy8h%22%2C%22e%22%3A%2233zm-qy8h%22%2C%22si%22%3A%221-DAY%22%2C%22et%22%3A%22now%22%2C%22t%22%3A%22HISTORY%22%2C%22f%22%3A%22CSV%22%2C%22np%22%3A-1%2C%22v%22%3Afalse%2C%22tf%22%3A%22LOCAL%22%2C%22ms%22%3Afalse%2C%22ro%22%3Afalse%2C%22te%22%3A%5B%5D%2C%22am%22%3Afalse%2C%22eft%22%3A%22NAME%22%2C%22tglfmt%22%3Afalse%2C%22tglftr%22%3Afalse%2C%22tc%22%3Afalse%2C%22efv%22%3A%2233zm-qy8h%22%7D
-```
+4. Launch containers by specifying the built-in collector account credentials that will be used by Axibase Collector to insert data into ATSD.
+
+```sh
+   export C_USER=myuser; export C_PASSWORD=mypassword; docker-compose pull && docker-compose up -d
+   ```
+   
+Note that both data sets have been collected under one Socrata job.
+
 Contact [Axibase](https://axibase.com/feedback/) with any questions.
 
 #### Appendix
