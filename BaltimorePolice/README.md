@@ -9,41 +9,37 @@ about incidents of force used by the Police Department which have come under inv
 the BPD Force Investigation Team. Using this data set, which begins in 2013 and continues until the end of 2015, 
 these actions can be scrutinized based on a number of criteria including the location 
 of the incident, the nature of the incident, and the date of the incident. 
-Axibase Time Series Database software allows for the presentation of such data in a way that 
-underscores key features of the information. Due to the nature of the data, using a 
-[Structured Query Language](https://github.com/axibase/atsd/blob/master/api/sql/README.md#overview)
-is the most effective way to sort and display the information. In order to efficiently query
-this data, it should be converted into a more usable time series, 
-using [Socrata](https://github.com/axibase/axibase-collector/blob/master/jobs/socrata.md).
 
-_(For additional information about performing these steps, please see the [Action Items](#Action-Items)
-section below)_
-
-Additionally, the City of Baltimore has recorded a number of figures regarding crime in the city,
+Additionally, the City of Baltimore has recorded crime incidents in the city,
 including homicide rates during the years 2013 and 2014. Baltimore has one of the highest murder 
 rates in the country, and even ranks 19th on the planet 
 [for highest per capita murder rate](http://www.worldatlas.com/articles/most-dangerous-cities-in-the-world.html).
 These two data sets can be compared and contrasted to underline a number of features
 regarding the nature and the scope of the violence that occurs against the backdrop of a nearly three hundred
-year old city less than forty miles from the nation's capitol.
+year old city less than forty miles from the nation's capital.
+
+Both of these datasets can be analyzed in the Axibase Time Series Database which provides a built-in support for the [Socrata](https://github.com/axibase/axibase-collector/blob/master/jobs/socrata.md) Open Data format used by the majority of government agencies in the United States. ATSD also includes graphics capabilities to analyze the data with [SQL](https://github.com/axibase/atsd/blob/master/api/sql/README.md#overview)
+and visualize it with graphs.
+
+> For information about performing these steps in your own ATSD instance, see the [Action Items](#Action-Items)
+section below.
 
 #### Data
 
-The general format for SQL queries for this data set is:
+The general format for SQL queries for this dataset is:
 
 ```sql
-SELECT tags.YOURTAGHERE, count(*), datetime
-  FROM "row_number.YOUR_DATA_HERE" 
-  GROUP BY tags.YOUR_TAG_HERE, period(YOUR_TIMEPERIOD_HERE)
-  order by tags.YOUR_TAG_HERE, datetime
+SELECT tags.$TAG_NAME$, count(*), datetime
+  FROM 'row_number.3w4d-kckv' 
+GROUP BY tags.$TAG_NAME$, PERIOD(1 MONTH)
+  ORDER BY tags.$TAG_NAME$, datetime
 ```
 
-The Structured Query Language allows the user to ask and answer a series of relevant questions
+The `$TAG_NAME$` represents one of the dimensions of the time series collected within the dataset, such as 'district', whereas  `3w4d-kckv` represents the dataset's unique identifier in the data.gov catalog.
+
+The SQL syntax allows the user to ask and answer a series of relevant questions
 about both sets of data, and ChartLab allow the user to visualize and compare this data for
-an even deeper understanding of the information. For a step-by-step explanation of how to
-effectively format your data and structure your queries
-the [Action Items](#Action-Items) section at the end of the article will provide more comprehensive 
-instructions.
+a deeper understanding of the information.
 
 ##### Where Did These Incidents Occur?
 
@@ -52,13 +48,12 @@ To organize the data so that the location of the incident is considered, the fol
 is used:
 
 ```sql
-SELECT tags.district, count(*), datetime
-  FROM "row_number.3w4d-kckv" 
-  GROUP BY tags.district, period(10 year)
-  order by tags.district, datetime
+SELECT tags.district, count(*)
+  FROM 'row_number.3w4d-kckv'
+GROUP BY tags.district
+  ORDER BY tags.district
 ```
-Notice the time period is arbitrarily set to a 10-year interval, any interval greater than the
-total interval of the data (roughly three years) will display the results identically.
+Notice the time period is not set to calculate the break-down of police use-of-force indidents for the entire timespan.
 
 This query's results are displayed as follows:
 
@@ -77,8 +72,7 @@ This query's results are displayed as follows:
 | WD            | 9        | 
 ```
 
-The data has been sorted by its cardinal and intermediate cardinal direction,
-this classification corresponds to the Baltimore City Planning Map
+The data has been sorted by district which names correspond to the Baltimore City Planning Map
 shown below. Data lacking location information has been displayed with the district tag `null`.
 Please notice that the Eastern District of the city is split into two Police Precincts 
 (Eastern and Southeastern), and the unlabeled blue area just below the Central District is
@@ -87,8 +81,8 @@ Precinct, so that data will be included with other Central District data.
 
 ![BaltimoreDistrictMap](Images/CityPlan.png)
 
-_([Source](http://cityview.baltimorecity.gov/planningmaps/index.html#/map/1389e1fceb374e1e98a82800e46a8a63):
-Baltimore City Planning Department)_
+> [Source](http://cityview.baltimorecity.gov/planningmaps/index.html#/map/1389e1fceb374e1e98a82800e46a8a63):
+Baltimore City Planning Department.
 
 The results from the first query can also be visualized as shown below, by precinct:
 
@@ -100,10 +94,10 @@ To organize the data so that the nature of the incident is considered, the follo
 is used:
 
 ```sql
-SELECT tags.type, count(*), datetime
-  FROM "row_number.3w4d-kckv" 
-  GROUP BY tags.type, period(10 year)
-  order by tags.type, datetime
+SELECT tags.type, count(*)
+  FROM 'row_number.3w4d-kckv' 
+GROUP BY tags.type
+  ORDER BY tags.type
 ```
 
 This query's results are displayed as follows:
@@ -145,8 +139,7 @@ SELECT datetime, count(*)
   order by datetime
 ```
 
-Notice here that the time interval is not arbitrary because it is the variable being considered.
-In order to display the results at an interval of one year, set the time period to one year.
+Notice here that the time aggregation interval is now set to 1 year because it is the variable being considered.
 
 This query's results are displayed as follows:
 
@@ -220,7 +213,7 @@ query is used:
 SELECT datetime, count(*)
   FROM "row_number.3w4d-kckv" 
   GROUP BY period(1 week)
-  order by datetime
+  ORDER BY datetime
 ```
 These results can also be visualized in ChartLab:
 
@@ -235,7 +228,7 @@ used:
 SELECT datetime, count(*)
   FROM "row_number.3w4d-kckv" 
   GROUP BY period(1 day)
-  order by datetime
+  ORDER BY datetime
 ```
 
 For the sake of brevity, the resulting table is displayed below in the [Appendix](#Appendix). 
