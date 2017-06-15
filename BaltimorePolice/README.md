@@ -53,7 +53,7 @@ SELECT tags.district, count(*)
 GROUP BY tags.district
   ORDER BY tags.district
 ```
-Notice the time period is not set to calculate the break-down of police use-of-force indidents for the entire timespan.
+Notice the time period is not set to calculate the break-down of police use of force indidents for the entire timespan.
 
 This query's results are displayed as follows:
 
@@ -505,6 +505,20 @@ careless casualty at the hands of a violent and overly-militarized police force,
 officials' inability to explain the incident clearly only frustrated those who
 felt that the problem was far from resolved by their internal investigations. Countless stories have been published
 by various media outlets that have both defended and defamed law enforcement officers and their actions.
+
+Using these two datasets, it can be shown that while there is certainly a strong correlation
+between police precincts that have a high rate of homicide and the number of incidents that 
+involve police use of force, the classic paradigm of the chicken and its egg come to mind.
+When trying to draw correlation on a short-term basis by comparing incidents of murder followed
+by incidents of police use of force, theoretically indicating that in precincts where a murder
+occurs, the following days are likely to see an incident of police violence the data
+shown above just cannot support the claim. Likewise the opposite claim, 
+that precincts where the police use force to make an arrest are likely to have a homicide in the
+following days is equally unsupported by the data here. Perhaps the only true conclusion
+that can be drawn using such comparison methods is one that has been made since biblical
+times, and was reiterated again during the Civil Rights Movement by Martin Luther King, Jr:
+
+> ### "Violence begets more violence."
 
 A total of six officers would be indicted and charged in a second-degree murder case that would 
 ultimately see all six either acquitted, released on a mistrial, or free to go because the
