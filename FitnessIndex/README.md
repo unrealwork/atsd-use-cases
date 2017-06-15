@@ -1,6 +1,8 @@
 Quantifying Public Health: The American Fitness Index
 =====
 
+![Cover](Images/AFICover.jpg)
+
 ### Methodology
 [Data](https://catalog.data.gov/dataset/american-fitness-index-ranking-2010-present)
 originally released by the [American College of Sports Medicine](http://www.acsm.org/) and

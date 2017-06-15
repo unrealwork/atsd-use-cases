@@ -57,7 +57,7 @@ Notice the time period is not set to calculate the break-down of police use-of-f
 
 This query's results are displayed as follows:
 
-```ls
+```sql
 | tags.district | count(*) | 
 |---------------|----------| 
 | null          | 3        | 
@@ -103,7 +103,7 @@ GROUP BY tags.type
 Because of the `ORDER BY count(*) DESC` command, the data will be displayed in descending 
 order. This query's results are displayed as follows:
 
-```ls
+```sql
 | tags.type                | count(*) | 
 |--------------------------|----------| 
 | Shooting                 | 33       | 
@@ -136,7 +136,7 @@ used:
 ```sql
 SELECT datetime, count(*)
   FROM 'row_number.3w4d-kckv' 
-  GROUP BY period(1 year)
+GROUP BY period(1 year)
   ORDER BY datetime
 ```
 
@@ -144,7 +144,7 @@ Notice here that the time aggregation interval is now set to 1 year because it i
 
 This query's results are displayed as follows:
 
-```ls
+```sql
 | datetime   | count(*) | 
 |------------|----------| 
 | 2013-01-01 | 12       | 
@@ -158,13 +158,13 @@ used:
 ```sql
 SELECT datetime, count(*)
   FROM 'row_number.3w4d-kckv' 
-  GROUP BY period(1 month, VALUE 0)
+GROUP BY period(1 month, VALUE 0)
   ORDER BY datetime
 ```
 
 This query's results are displayed as follows:
 
-```ls
+```sql
 | datetime   | count(*) | 
 |------------|----------| 
 | 2013-01-01 | 5        | 
@@ -224,7 +224,7 @@ query is used:
 ```sql
 SELECT datetime, count(*)
   FROM 'row_number.3w4d-kckv' 
-  GROUP BY period(1 week)
+GROUP BY period(1 week)
   ORDER BY datetime
 ```
 
@@ -238,25 +238,26 @@ The day of the week of these incidents can also be considered using the followin
 query:
 
 ```sql
-SELECT date_format(time, 'u'), date_format(time, 'EEE'),
-  count(*)
-FROM 'row_number.3w4d-kckv'
-GROUP BY date_format(time, 'u'), date_format(time, 'EEE')
-  ORDER BY date_format(time, 'u')
+SELECT date_format(time, 'u'), count(*)
+  FROM 'row_number.3w4d-kckv'
+GROUP BY date_format(time, 'u')
   ```
   
 The results of this query are displayed as followed:
 ```sql
-| date_format(time, 'EEE') | count(*) | 
-|--------------------------|----------| 
-| Mon                      | 11       | 
-| Tue                      | 11       | 
-| Wed                      | 9        | 
-| Thu                      | 5        | 
-| Fri                      | 9        | 
-| Sat                      | 8        | 
-| Sun                      | 15       | 
+| date_format(time, 'u') | count(*) | 
+|------------------------|----------| 
+| 1                      | 11       | 
+| 2                      | 11       | 
+| 3                      | 9        | 
+| 4                      | 5        | 
+| 5                      | 9        | 
+| 6                      | 8        | 
+| 7                      | 15       | 
 ```
+
+When using the `'u'` configuration in the `DARE_FORMAT` clause, the days of the week
+are displayed in order beginning with Monday, and represented with a number.
 
 Using [homicide data](https://data.baltimorecity.gov/Crime/Homicides-2013-Present/33zm-qy8h#rateUp)
 also provided by the City of Baltimore, the scale of police brutality can be shown alongside
@@ -276,15 +277,15 @@ below
 To organize the data so that the location of the incident is considered, 
 the following SQL query is used:
 
-```$xslt
+```sql
 SELECT tags.district, count(*)
   FROM 'row_number.33zm-qy8h'
-  GROUP BY tags.district
+GROUP BY tags.district
   ORDER BY tags.district
 ```
 This query's results are displayed as follows:
 
-```ls
+```sql
 | tags.district | count(*) | 
 |---------------|----------| 
 | CENTRAL       | 31       | 
@@ -324,17 +325,17 @@ The City of Baltimore includes figures that consider the weapon used in the comm
 recorded homicides, to query the SQL Console about this information, the following syntax
 is used:
 
-```ls
+```sql
 SELECT tags.weapon, count(*)
   FROM 'row_number.33zm-qy8h'
-  GROUP BY tags.weapon
+GROUP BY tags.weapon
   ORDER BY tags.weapon
   ```
 
 Unsurprisingly, firearms are the primary tool of homicide for the observed period. The results
 of this query are displayed as follows:
 
-```ls
+```sql
 | tags.weapon | count(*) | 
 |-------------|----------| 
 | FIREARM     | 329      | 
@@ -355,16 +356,16 @@ from the primary portion of the graph to highlight its insertion here.
 To organize the data so that the year of the incident is considered, the following SQL query 
 is used:
 
-```$xslt
+```sql
 SELECT datetime, count(*)
   FROM 'row_number.33zm-qy8h'
-  GROUP BY period (1 year)
+GROUP BY period (1 year)
   ORDER BY datetime
 ```
 
 The results of this query are displayed as follows:
 
-```ls
+```sql
 | datetime   | count(*) | 
 |------------|----------| 
 | 2013-01-01 | 222      | 
@@ -378,16 +379,16 @@ needed.
 To organize the data so that the month of the incident is considered, the following SQL
 query is used:
 
-```$xslt
+```sql
 SELECT datetime, count(*)
   FROM 'row_number.33zm-qy8h'
-  GROUP BY period (1 month)
+GROUP BY period (1 month)
   ORDER BY datetime
 ```
 
 The results of this query are displayed as follows:
 
-```ls
+```sql
 | datetime   | count(*) | 
 |------------|----------| 
 | 2013-01-01 | 14       | 
@@ -447,26 +448,24 @@ Additionally, the following syntax can be used so that the day of the week of th
 is considered: 
 
 ```sql
-SELECT date_format(time, 'u'), date_format(time, 'EEE'),
-  count(*)
-FROM 'row_number.33zm-qy8h'
-GROUP BY date_format(time, 'u'), date_format(time, 'EEE')
-  ORDER BY date_format(time, 'u')
+SELECT date_format(time, 'u'), count(*)
+  FROM 'row_number.33zm-qy8h'
+GROUP BY date_format(time, 'u')
 ```
 
 This query's results are displayed as follows:
 
 ```sql
-| date_format(time, 'EEE') | count(*) | 
-|--------------------------|----------| 
-| Mon                      | 52       | 
-| Tue                      | 70       | 
-| Wed                      | 49       | 
-| Thu                      | 58       | 
-| Fri                      | 71       | 
-| Sat                      | 64       | 
-| Sun                      | 62       | 
-```
+| date_format(time, 'u') | count(*) | 
+|------------------------|----------| 
+| 1                      | 52       | 
+| 2                      | 70       | 
+| 3                      | 49       | 
+| 4                      | 58       | 
+| 5                      | 71       | 
+| 6                      | 64       | 
+| 7                      | 62       |  
+``` 
 
 The above datasets can be combined to show the total number of incidents of police use of force and homicides
 over the span of the entire observed period.
@@ -588,7 +587,7 @@ syntax is used:
 ```sql
 SELECT datetime, count(*)
   FROM 'row_number.3w4d-kckv' 
-  GROUP BY period(1 day)
+GROUP BY period(1 day)
   ORDER BY datetime
 ```
 
@@ -599,7 +598,7 @@ The period of observation can be modified on the third line using a myriad of [t
 ```sql
 SELECT datetime, count(*)
   FROM 'row_number.3w4d-kckv' 
-  GROUP BY period(1 month)
+GROUP BY period(1 month)
   ORDER BY datetime
 ```
 Removing the `VALUE 0` clause from the `GROUP BY` command renders the chart without
