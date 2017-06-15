@@ -1,4 +1,4 @@
-### Baltimore Police and the Use of Force
+### Violence Begets Violence: An Analysis of the Baltimore Police Force and Baltimore Homicide Data
 
 ![BaltimoreProtests](Images/BaltimoreProtests.jpg)
 
