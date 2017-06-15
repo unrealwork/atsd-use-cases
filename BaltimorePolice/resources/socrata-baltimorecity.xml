@@ -10,27 +10,23 @@
     <errorThreshold>0</errorThreshold>
     <configurations>
       <com.axibase.collector.model.job.socrata.SocrataConfiguration>
-        <name>Homicide</name>
+        <name>Homicides 2013 - Present</name>
         <path>https://data.baltimorecity.gov/api/views/33zm-qy8h</path>
-        <ignoreDuplicates>false</ignoreDuplicates>
+        <ignoreDuplicates>true</ignoreDuplicates>
         <settings>
           <com.axibase.collector.model.job.socrata.SocrataConfigurationSetting>
             <entityField>$.meta.view.id</entityField>
             <timeEnabled>true</timeEnabled>
-            <timeField>crimedate</timeField>
-            <timeFormat>yyyy-MM-dd&apos;T&apos;HH:mm:ss</timeFormat>
-            <timeZone>UTC</timeZone>
+            <timeField>crimedate-crimetime</timeField>
+            <timeFormat>yyyy-MM-dd&apos;T&apos;00:00:00-HHmm</timeFormat>
+            <timeZone>US/Eastern</timeZone>
             <seriesEnabled>true</seriesEnabled>
             <includedFields>
               <string>*</string>
             </includedFields>
             <excludedFields>
-              <string>crimecode</string>
-              <string>crimetime</string>
-              <string>neighborhood</string>
               <string>post</string>
               <string>crimecasenumber</string>
-              <string>description</string>
             </excludedFields>
             <propertyEnabled>false</propertyEnabled>
             <propertyTypeField>$.meta.view.name</propertyTypeField>
@@ -45,7 +41,7 @@
         </settings>
         <customTags/>
         <addRowNumber>true</addRowNumber>
-        <skipOldData>false</skipOldData>
+        <skipOldData>true</skipOldData>
         <checkEachRow>false</checkEachRow>
       </com.axibase.collector.model.job.socrata.SocrataConfiguration>
       <com.axibase.collector.model.job.socrata.SocrataConfiguration>

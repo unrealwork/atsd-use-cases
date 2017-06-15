@@ -12,8 +12,8 @@ takes into account a number of factors they believe contribute to the overall he
 of a city and its surrounding area with the goal of informing policy makers of the
 reality of public health in their areas. 
 
-(_A detailed explanation of how the ACSM 
-assigns scores can be found in the [Appendix](#Appendix)_)
+>A detailed explanation of how the ACSM 
+assigns scores can be found in the [Appendix](#Appendix)
 
 The data compares ten Metropolitan Statistical Areas (MSAs) located primarily
 in the Southeast of the country, a region notorious for its problems with public health. 
@@ -43,7 +43,7 @@ This visualization looks at year 2015 data and highlights those cities performin
 below the National Benchmark Average, or mean value for all 50 observed cities,
 with the `ALERT` command.
 
-(_For more information about using this command, see the [Appendix](#Appendix)_)
+>For more information about using this command, see the [Appendix](#Appendix)
 
 In order to observe trends in individual MSAs, finding an effective method to sort
 the data is needed. By organizing the data by city, chronologically, a user can find
@@ -53,11 +53,11 @@ trends that were not as obvious in the first visualization:
 
 [![](Images/button.png)](https://apps.axibase.com/chartlab/c43f580b)
 
+>See [Appendix](#Appendix) for an alternative display of the above data
+
 Using the date as the primary control, and focusing the layout of the visualization
 on the trend across the observed MSAs for a given year, a third configuration is
 needed:
-
-(_See [Appendix](#Appendix) for an alternative display of the above data_)
 
 ![ByYearByCity](Images/ByYearByCity2.png)
 
@@ -66,13 +66,14 @@ needed:
 Although the two charts are rendered almost identically with respect to the data,
 the key difference is how they are presented. Here we see the graph organized to show
 trends based on the year, and even though a significant amount of data is still
-present, tracing patterns year-to-year has become much easier. Notice that because
-data is only available for 2015 for Baton Rouge, Louisiana the remaining empty
-columns are still rendered for the sake of chronology.
+present, tracing patterns year-to-year has become much easier than it was in the previous
+display. Notice that because data is only available for 2015 for Baton Rouge, 
+Louisiana the remaining empty columns are still rendered for the sake of chronology.
 
 Average performance of the observed cities can displayed with a less ambiguous 
 visualization using the [Gauge Chart](https://axibase.com/products/axibase-time-series-database/visualization/widgets/gauge-chart/)
-that shows subjective performance standards:
+that shows subjective performance standards, here the threshold has been set at 42,
+the mean value of the 5-year United States Benchmark Average value:
 
 ![AtlantaAvg](Images/AtlantaAvg.png)
 
@@ -95,17 +96,26 @@ a similar strategy can be used with a different method of visualization:
 
 [![](Images/button.png)](https://apps.axibase.com/chartlab/e926d483/28/)
 
-Or, to compare the results of data observed within one state, a similar chart can be
-used:
+Or, to compare the results of data observed within one state, additions can easily be
+made to include a third entity:
 
 ![Miami](Images/FloridaAvg.png)
 
 [![](Images/button.png)](https://apps.axibase.com/chartlab/e926d483/29/)
 
-Here the performance of the Miami Metropolitan Statistical Area is shown on a smaller
-scale next to the United States Benchmark Average.
+The same can be done using the two Tennessee MSAs, Memphis and Nashville/Davidson,
+displayed here alongside the Benchmark Average value:
 
-(_For additional city versus city comparisons, see the [Appendix](#Appendix) below_)
+![TN](Images/TNCompare.png)
+
+[![](Images/button.png)](https://apps.axibase.com/chartlab/e926d483/30/)
+
+Additionally, using cities that serve as state capitols can be used as a microcosm
+for the indicators of the state itself:
+
+![Capitols](Images/CapitolCompare.png)
+
+[![](Images/button.png)](https://apps.axibase.com/chartlab/e926d483/31/)
 
 ###Appendix
 

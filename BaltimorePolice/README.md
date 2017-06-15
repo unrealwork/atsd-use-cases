@@ -343,13 +343,9 @@ of this query are displayed as follows:
 | OTHER       | 35       | 
 ```
 
-These results can be shown alongside the primary method of attack by police in recorded 
-incidents:
+These results can be shown graphically as well:
 
-![MethodOfAttack](Images/MethodOfAttack.png)
-
-Data from police-involved incidents is shown in two shades of blue, and has been separated
-from the primary portion of the graph to highlight its insertion here.
+![MethodOfAttack](Images/WeaponRing.png)
 
 ##### When Did These Homicides Occur? 
 
@@ -470,9 +466,9 @@ This query's results are displayed as follows:
 The above datasets can be combined to show the total number of incidents of police use of force and homicides
 over the span of the entire observed period.
 
-![TotalVTotal](Images/TotalIncidentCount1.png)
+![TotalVTotal](Images/Total2.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/3f33d4ba/25/)
+[![](Images/button.png)](https://apps.axibase.com/chartlab/3f33d4ba/26s/)
 
 #### Analysis
 
