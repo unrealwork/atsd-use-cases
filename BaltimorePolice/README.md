@@ -35,7 +35,7 @@ GROUP BY tags.$TAG_NAME$, PERIOD(1 MONTH)
   ORDER BY tags.$TAG_NAME$, datetime
 ```
 
-The `$TAG_NAME$` represents one of the dimensions of the time series collected within the dataset, such as 'district', whereas  `3w4d-kckv` represents the dataset's unique identifier in the data.gov catalog.
+The `$TAG_NAME$` represents one of the dimensions of the time series collected within the dataset, such as 'district', while  `3w4d-kckv` represents the dataset's unique identifier in the data.gov catalog.
 
 The SQL syntax allows the user to ask and answer a series of relevant questions
 about both sets of data, and ChartLab allow the user to visualize and compare this data for
@@ -97,29 +97,30 @@ is used:
 SELECT tags.type, count(*)
   FROM 'row_number.3w4d-kckv' 
 GROUP BY tags.type
-  ORDER BY tags.type
+  ORDER BY count(*) DESC
 ```
 
-This query's results are displayed as follows:
+Because of the `ORDER BY count(*) DESC` command, the data will be displayed in descending 
+order. This query's results are displayed as follows:
 
 ```ls
-| tags.type                | count(*) |
-|--------------------------|----------|
-| Discharge                | 5        |  
-| Fall/Head                | 1        |
-| Hands                    | 1        |
-| Head Injury              | 3        |
-| Head Injury & Taser      | 1        |
-| Impact Weapon            | 1        |
-| In Custody Injury        | 1        |
-| In Custody Death         | 2        |
+| tags.type                | count(*) | 
+|--------------------------|----------| 
+| Shooting                 | 33       | 
+| Vehicle                  | 10       | 
+| Discharge                | 5        | 
+| Taser                    | 4        | 
+| Head Injury              | 3        | 
 | Injured Person           | 3        | 
+| In Custody Death         | 2        |
+| Fall/Head                | 1        | 
+| Taser / In Custody Death | 1        | 
+| Shooting (Animal)        | 1        | 
 | Self Inflicted Shooting  | 1        | 
-| Shooting                 | 33       |
-| Shooting (Animal)        | 1        |
-| Taser                    | 4        |
-| Taser / In Custody Death | 1        |
-| Vehicle                  | 10       |
+| Head Injury & Taser      | 1        | 
+| Impact Weapon            | 1        | 
+| In Custody Injury        | 1        |  
+| Hands                    | 1        | 
 ```
 
 Shown below is a visualization of three years' worth of incidents, sorted by the type of 
@@ -134,9 +135,9 @@ used:
 
 ```sql
 SELECT datetime, count(*)
-  FROM "row_number.3w4d-kckv" 
+  FROM 'row_number.3w4d-kckv' 
   GROUP BY period(1 year)
-  order by datetime
+  ORDER BY datetime
 ```
 
 Notice here that the time aggregation interval is now set to 1 year because it is the variable being considered.
@@ -156,9 +157,9 @@ used:
 
 ```sql
 SELECT datetime, count(*)
-  FROM "row_number.3w4d-kckv" 
-  GROUP BY period(1 month)
-  order by datetime
+  FROM 'row_number.3w4d-kckv' 
+  GROUP BY period(1 month, VALUE 0)
+  ORDER BY datetime
 ```
 
 This query's results are displayed as follows:
@@ -167,12 +168,17 @@ This query's results are displayed as follows:
 | datetime   | count(*) | 
 |------------|----------| 
 | 2013-01-01 | 5        | 
+| 2013-02-01 | 0        | 
 | 2013-03-01 | 1        | 
 | 2013-04-01 | 2        | 
 | 2013-05-01 | 1        | 
+| 2013-06-01 | 0        | 
+| 2013-07-01 | 0        | 
 | 2013-08-01 | 1        | 
 | 2013-09-01 | 1        | 
 | 2013-10-01 | 1        | 
+| 2013-11-01 | 0        | 
+| 2013-12-01 | 0        | 
 | 2014-01-01 | 2        | 
 | 2014-02-01 | 4        | 
 | 2014-03-01 | 2        | 
@@ -182,56 +188,75 @@ This query's results are displayed as follows:
 | 2014-07-01 | 3        | 
 | 2014-08-01 | 7        | 
 | 2014-09-01 | 3        | 
+| 2014-10-01 | 0        | 
 | 2014-11-01 | 3        | 
 | 2014-12-01 | 1        | 
 | 2015-01-01 | 2        | 
 | 2015-02-01 | 3        | 
 | 2015-03-01 | 1        | 
 | 2015-04-01 | 4        | 
+| 2015-05-01 | 0        | 
 | 2015-06-01 | 2        | 
 | 2015-07-01 | 1        | 
+| 2015-08-01 | 0        | 
 | 2015-09-01 | 1        | 
 | 2015-10-01 | 2        | 
 | 2015-11-01 | 6        | 
 ```
 
-Notice that months without incident are omitted from the results table. This data can be 
-further visualized in ChartLab:
+In order to maintain the chronology of the display, interpolation is used here to display
+those months without incident as well. 
+
+>To view this table without interpolation see the [Appendix](#Appendix)
+
+This data can be further visualized in ChartLab:
 
 ![MonthIncidentCount](Images/MonthIncidentCount.png)
 
 [![](Images/button.png)](https://apps.axibase.com/chartlab/3f33d4ba/19/)
 
-Empty columns, or months without incident, are not omitted here, because the nature of the
-visualization is such that an omission of empty months would distort the chronology of the
-data.
+Because the nature of the visualization is such that the omission of empty months 
+would distort the chronology of the data, interpolation is used once again.
 
 To organize the data so that the week of the incident is considered, the following SQL 
 query is used:
 
 ```sql
 SELECT datetime, count(*)
-  FROM "row_number.3w4d-kckv" 
+  FROM 'row_number.3w4d-kckv' 
   GROUP BY period(1 week)
   ORDER BY datetime
 ```
+
 These results can also be visualized in ChartLab:
 
 ![WeekIncidentCount](Images/WeeklyIncidentCount1.png)
 
 [![](Images/button.png)](https://apps.axibase.com/chartlab/3f33d4ba/21/)
 
-To organize the data so that the day of the incident is considered the following SQL query is
-used:
+The day of the week of these incidents can also be considered using the following
+query:
 
 ```sql
-SELECT datetime, count(*)
-  FROM "row_number.3w4d-kckv" 
-  GROUP BY period(1 day)
-  ORDER BY datetime
+SELECT date_format(time, 'u'), date_format(time, 'EEE'),
+  count(*)
+FROM 'row_number.3w4d-kckv'
+GROUP BY date_format(time, 'u'), date_format(time, 'EEE')
+  ORDER BY date_format(time, 'u')
+  ```
+  
+The results of this query are displayed as followed:
+```sql
+| date_format(time, 'EEE') | count(*) | 
+|--------------------------|----------| 
+| Mon                      | 11       | 
+| Tue                      | 11       | 
+| Wed                      | 9        | 
+| Thu                      | 5        | 
+| Fri                      | 9        | 
+| Sat                      | 8        | 
+| Sun                      | 15       | 
 ```
-
-For the sake of brevity, the resulting table is displayed below in the [Appendix](#Appendix). 
 
 Using [homicide data](https://data.baltimorecity.gov/Crime/Homicides-2013-Present/33zm-qy8h#rateUp)
 also provided by the City of Baltimore, the scale of police brutality can be shown alongside
@@ -243,8 +268,8 @@ Similar to the first data set, [Socrata](https://github.com/axibase/axibase-coll
 should be used to compile the data in meaningful way and a [Structured Query Language](https://github.com/axibase/atsd/blob/master/api/sql/README.md#overview)
 should be used again.
 
-_(For a more detailed explanation of performing SQL Queries, see the [Appendix](#Appendix)
-below)_
+>For a more detailed explanation of performing SQL Queries, see the [Appendix](#Appendix)
+below
 
 ##### Where Did These Homicides Occur?
 
@@ -252,14 +277,12 @@ To organize the data so that the location of the incident is considered,
 the following SQL query is used:
 
 ```$xslt
-SELECT tags.district, count(*), datetime
-  FROM "row_number.33zm-qy8h" 
-  GROUP BY tags.district, period(10 year)
-  order by tags.district, datetime
+SELECT tags.district, count(*)
+  FROM 'row_number.33zm-qy8h'
+  GROUP BY tags.district
+  ORDER BY tags.district
 ```
-Once again, an arbitrary time period greater than the two-year period of observation is used, 
-in order to truncate the data to a convenient display. This query's results are displayed as
-follows:
+This query's results are displayed as follows:
 
 ```ls
 | tags.district | count(*) | 
@@ -302,10 +325,10 @@ recorded homicides, to query the SQL Console about this information, the followi
 is used:
 
 ```ls
-SELECT tags.weapon, count(*), datetime
-  FROM "row_number.33zm-qy8h" 
-  GROUP BY tags.weapon, period(10 year)
-  order by tags.weapon, datetime
+SELECT tags.weapon, count(*)
+  FROM 'row_number.33zm-qy8h'
+  GROUP BY tags.weapon
+  ORDER BY tags.weapon
   ```
 
 Unsurprisingly, firearms are the primary tool of homicide for the observed period. The results
@@ -334,9 +357,9 @@ is used:
 
 ```$xslt
 SELECT datetime, count(*)
-  FROM "row_number.33zm-qy8h" 
+  FROM 'row_number.33zm-qy8h'
   GROUP BY period (1 year)
-  order by datetime
+  ORDER BY datetime
 ```
 
 The results of this query are displayed as follows:
@@ -357,9 +380,9 @@ query is used:
 
 ```$xslt
 SELECT datetime, count(*)
-  FROM "row_number.33zm-qy8h" 
+  FROM 'row_number.33zm-qy8h'
   GROUP BY period (1 month)
-  order by datetime
+  ORDER BY datetime
 ```
 
 The results of this query are displayed as follows:
@@ -393,6 +416,9 @@ The results of this query are displayed as follows:
 | 2014-12-01 | 15       | 
 ```
 
+Notice here that although there is no command to interpolate the data, because there
+were no months without a homicide, the chronology of the data is not disrupted.
+
 Using ChartLab, a side-by-side comparison of incidents of police use of force and homicides in
 the city of Baltimore can be done on a monthly basis:
 
@@ -417,7 +443,32 @@ a spike in the number of homicides.
 Notice that in ChartLab, the `endtime` command has to be modified to reflect the
 difference in observation periods of the two data sets.
 
-These two data sets can also be combined to show the total number of incidents of police use of force and homicides
+Additionally, the following syntax can be used so that the day of the week of the homicide
+is considered: 
+
+```sql
+SELECT date_format(time, 'u'), date_format(time, 'EEE'),
+  count(*)
+FROM 'row_number.33zm-qy8h'
+GROUP BY date_format(time, 'u'), date_format(time, 'EEE')
+  ORDER BY date_format(time, 'u')
+```
+
+This query's results are displayed as follows:
+
+```sql
+| date_format(time, 'EEE') | count(*) | 
+|--------------------------|----------| 
+| Mon                      | 52       | 
+| Tue                      | 70       | 
+| Wed                      | 49       | 
+| Thu                      | 58       | 
+| Fri                      | 71       | 
+| Sat                      | 64       | 
+| Sun                      | 62       | 
+```
+
+The above datasets can be combined to show the total number of incidents of police use of force and homicides
 over the span of the entire observed period.
 
 ![TotalVTotal](Images/TotalIncidentCount1.png)
@@ -448,7 +499,9 @@ homicide made up 1.9% of total Baltimore homicides in 2013, and 1.8% of total Ba
 
 In order to display the total number of police homicides for the observed years, the `[other]`
 function can be used, only displaying the desired year's data, but still showing other data 
-alongside for perspective. See the [Appendix](#Appendix) below for more detailed instructions.
+alongside for perspective. 
+
+>See the [Appendix](#Appendix) below for more detailed instructions.
 
 ![2014](Images/2014Other.png)
 
@@ -481,32 +534,36 @@ Contact [Axibase](https://axibase.com/feedback/) with any questions.
 
 #### Appendix
 
+##### Using the [`EXPAND`](https://axibase.com/products/axibase-time-series-database/visualization/widgets/pie-chart-widget/) Command
+
 In order to highlight specific data, as shown [here](#What-Was-the-Nature-of-These-Homicides?),
 use the command `expand = true` under the `[series]` which should be expanded:
 
 ![Expand1](Images/Expand1.png)
 
+##### Using the [`OTHER`](https://axibase.com/products/axibase-time-series-database/visualization/widgets/pie-chart-widget/) Command
+
 In order to display a full series of data, but only show detailed information for a desired
-portion, the `[other]` command needs to be included in the `[series]` cluster, and a
-value for `total-value = x` needs to be added under the `[widget]` cluster.
+portion of that data, the `[other]` command needs to be included in the `[series]` cluster, and a
+value for `total-value = x` needs to be added under the `[widget]` cluster as shown below,
 
 ![OtherDisplay](Images/OtherDisplay1.png)
 
 The default setting for the `[other]` command is `false` so if the `display = true` command 
 is not entered, the visualization will lack the `total-value` information.
 
-A detailed explanation of performing SQL queries:
+##### Performing Queries in the SQL Console
 
 ```sql
-SELECT tags.YOURTAGHERE, count(*), datetime
-  FROM "row_number.YOUR_DATA_HERE" 
-  GROUP BY tags.YOUR_TAG_HERE, period(YOUR_TIMEPERIOD_HERE)
-  order by tags.YOUR_TAG_HERE, datetime
+SELECT tags.$TAG_NAME$, count(*), datetime
+  FROM 'row_number.3w4d-kckv' 
+GROUP BY tags.$TAG_NAME$, PERIOD(1 MONTH)
+  ORDER BY tags.$TAG_NAME$, datetime
 ```
 
 Using this generic model, a series of queries can be performed in the [SQL Console](https://nur.axibase.com/sql/console).
 
-The `tags.YOURTAGHERE` corresponds to the metric the user is interested in querying.
+The `tags.$TAG_NAME$` corresponds to the metric the user is interested in querying.
 
 ![SQL1](Images/SQL1.png)
 
@@ -530,83 +587,53 @@ syntax is used:
 
 ```sql
 SELECT datetime, count(*)
-  FROM "row_number.3w4d-kckv" 
+  FROM 'row_number.3w4d-kckv' 
   GROUP BY period(1 day)
-  order by datetime
+  ORDER BY datetime
 ```
 
-The period of observation can be modified on the third line using a myriad of [time units](https://github.com/axibase/atsd/blob/master/api/data/series/time-unit.md),
-and the resulting table looks like this:
+The period of observation can be modified on the third line using a myriad of [time units](https://github.com/axibase/atsd/blob/master/api/data/series/time-unit.md).
 
-```ls
+##### Monthly Police Incident Data Without Interpolation
+
+```sql
+SELECT datetime, count(*)
+  FROM 'row_number.3w4d-kckv' 
+  GROUP BY period(1 month)
+  ORDER BY datetime
+```
+Removing the `VALUE 0` clause from the `GROUP BY` command renders the chart without
+interpolation. This query's results are as shown below:
+```sql
 | datetime   | count(*) | 
 |------------|----------| 
-| 2013-01-02 | 1        | 
-| 2013-01-13 | 1        | 
-| 2013-01-25 | 1        | 
-| 2013-01-28 | 1        | 
-| 2013-01-29 | 1        | 
-| 2013-03-28 | 1        | 
-| 2013-04-18 | 1        | 
-| 2013-04-22 | 1        | 
-| 2013-05-25 | 1        | 
-| 2013-08-13 | 1        | 
-| 2013-09-04 | 1        | 
-| 2013-10-16 | 1        | 
-| 2014-01-13 | 1        | 
-| 2014-01-26 | 1        | 
-| 2014-02-03 | 1        | 
-| 2014-02-12 | 2        | 
-| 2014-02-21 | 1        | 
-| 2014-03-06 | 1        | 
-| 2014-03-26 | 1        | 
-| 2014-04-04 | 1        | 
-| 2014-04-29 | 1        | 
-| 2014-05-07 | 1        | 
-| 2014-05-16 | 1        | 
-| 2014-05-20 | 1        | 
-| 2014-05-27 | 1        | 
-| 2014-06-06 | 1        | 
-| 2014-06-13 | 1        | 
-| 2014-06-15 | 1        | 
-| 2014-07-01 | 1        | 
-| 2014-07-14 | 1        | 
-| 2014-07-21 | 1        | 
-| 2014-08-05 | 1        | 
-| 2014-08-07 | 1        | 
-| 2014-08-17 | 1        | 
-| 2014-08-18 | 1        | 
-| 2014-08-20 | 1        | 
-| 2014-08-26 | 1        | 
-| 2014-08-31 | 1        | 
-| 2014-09-09 | 1        | 
-| 2014-09-20 | 1        | 
-| 2014-09-23 | 1        | 
-| 2014-11-10 | 1        | 
-| 2014-11-15 | 1        | 
-| 2014-11-23 | 1        | 
-| 2014-12-28 | 1        | 
-| 2015-01-22 | 1        | 
-| 2015-01-24 | 1        | 
-| 2015-02-07 | 1        | 
-| 2015-02-14 | 1        | 
-| 2015-02-23 | 1        | 
-| 2015-03-27 | 1        | 
-| 2015-04-04 | 1        | 
-| 2015-04-05 | 1        | 
-| 2015-04-12 | 1        | 
-| 2015-04-18 | 1        | 
-| 2015-06-07 | 1        | 
-| 2015-06-28 | 1        | 
-| 2015-07-27 | 1        | 
-| 2015-09-28 | 1        | 
-| 2015-10-06 | 1        | 
-| 2015-10-11 | 1        | 
-| 2015-11-06 | 1        | 
-| 2015-11-08 | 1        | 
-| 2015-11-11 | 1        | 
-| 2015-11-15 | 2        | 
-| 2015-11-20 | 1        | 
+| 2013-01-01 | 5        | 
+| 2013-03-01 | 1        | 
+| 2013-04-01 | 2        | 
+| 2013-05-01 | 1        | 
+| 2013-08-01 | 1        | 
+| 2013-09-01 | 1        | 
+| 2013-10-01 | 1        | 
+| 2014-01-01 | 2        | 
+| 2014-02-01 | 4        | 
+| 2014-03-01 | 2        | 
+| 2014-04-01 | 2        | 
+| 2014-05-01 | 4        | 
+| 2014-06-01 | 3        | 
+| 2014-07-01 | 3        | 
+| 2014-08-01 | 7        | 
+| 2014-09-01 | 3        | 
+| 2014-11-01 | 3        | 
+| 2014-12-01 | 1        | 
+| 2015-01-01 | 2        | 
+| 2015-02-01 | 3        | 
+| 2015-03-01 | 1        | 
+| 2015-04-01 | 4        | 
+| 2015-06-01 | 2        | 
+| 2015-07-01 | 1        | 
+| 2015-09-01 | 1        | 
+| 2015-10-01 | 2        | 
+| 2015-11-01 | 6        | 
 ```
 
 Please contact [Axibase](https://axibase.com/feedback/) with any questions.
