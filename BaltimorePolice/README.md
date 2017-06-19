@@ -64,7 +64,7 @@ GROUP BY tags.district
 ```
 Notice the time period is not set to calculate the break-down of police use of force indidents for the entire timespan.
 
-This query's results are displayed as follows:
+This results of this query are as follows:
 
 ```sql
 | tags.district | count(*) | 
