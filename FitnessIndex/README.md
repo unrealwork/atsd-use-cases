@@ -19,10 +19,10 @@ that is America's ever-growing waistline.
 [Data](https://catalog.data.gov/dataset/american-fitness-index-ranking-2010-present)
 originally released by the [American College of Sports Medicine](http://www.acsm.org/) and
 partially-published by the City of New Orleans attempts to quantify the overall health of the 
-fifty largest metropolitan areas in the United States every year. The 100-point scale
+fifty largest metropolitan areas in the United States every year. The 100-point ascending scale
 takes into account a number of factors they believe contribute to the overall health
 of a city and its surrounding area with the goal of informing policy makers of the
-reality of public health in their areas. 
+reality of public health in their areas.
 
 >A detailed explanation of how the ACSM 
 assigns scores can be found in the [Appendix](#Appendix)
@@ -46,28 +46,29 @@ health using this data?
 Publicly-available data allows for anyone with access to the correct analytics tools to pursue answers
 to their own questions and convey that information to any audience. The [Axibase Timeseries Database](https://axibase.com/)
 is developed to work within the [Socrata](https://github.com/axibase/axibase-collector/blob/master/jobs/socrata.md) 
-framework used by government agencies to publish data, so it was selected as the main tool for this project. 
+framework used by government agencies to publish data, so it was selected as the main tool for this project
+and calculations were done using the computational knowledge engine [WolframAlpha](https://www.wolframalpha.com/).
 
 ### Data
 
-![AllCity](Images/AllCityByYear.png)
+![AllCity](Images/MainGraph.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/e926d483/21/)
+[![](Images/button.png)](https://apps.axibase.com/chartlab/e926d483/47/)
 
 Looking at an entire set of data at once is often unhelpful and overwhelming, but
 this visualization can be used to offer a wide lens through which to view what amounts
-to quite a lot of data over a long period of time. The grey Benchmark Average column
+to quite a lot of data over a long period of time. The grey Benchmark Average line
 simplifies the visualization by establishing a standard and providing perspective to someone
 who may be otherwise unfamiliar with the scoring system.
 
-![2015](Images/2015ByCity.png)
+![2015](Images/2015.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/e926d483/23/)
+[![](Images/button.png)](https://apps.axibase.com/chartlab/e926d483/55/)
 
 This visualization looks at Year 2015 data and highlights those cities performing 
 below the National Benchmark Average.
 
->For more information about using the `ALERT` command, see the [Appendix](#Appendix)
+>For more information about using the `ALERT` Setting, see the [Appendix](#Appendix)
 
 This visualization can track city performance throughout the observed time period,
 establishing binary clusters, those cities which performed above the benchmark
@@ -77,15 +78,15 @@ The Benchmark Average, and by extension alert threshold, is modified for each ye
 
 > Year 2011 (Benchmark Average: 42)
 
-![2011](Images/2011ByCity.png)
+![2011](Images/2011.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/e926d483/37/)
+[![](Images/button.png)](https://apps.axibase.com/chartlab/e926d483/56/)
 
 > Year 2013 (Benchmark Average: 43)
 
-![2013](Images/2013ByCity.png)
+![2013](Images/2013.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/e926d483/41/)
+[![](Images/button.png)](https://apps.axibase.com/chartlab/e926d483/51/)
 
 >Even year (2012 and 2014) data can be found in the [Appendix](#Appendix)
 
@@ -103,9 +104,9 @@ Using the same data but instead focusing the layout of the visualization
 on the trend across the observed MSAs for a given year, a third configuration is
 needed:
 
-![ByYearByCity](Images/ByYearByCity2.png)
+![ByYearByCity](Images/20112015.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/e926d483/24/)
+[![](Images/button.png)](https://apps.axibase.com/chartlab/e926d483/59/#fullscreen)
 
 Although the two charts are rendered almost identically with respect to the data,
 the key difference is how they are presented. Here we see the graph organized to show
@@ -114,10 +115,10 @@ present, tracing patterns year-to-year has become much easier than it was in the
 display. Notice that because data is only available for 2015 for Baton Rouge, 
 Louisiana the remaining empty columns are still rendered for the sake of chronology.
 
-Using [`DISPLAY`](https://axibase.com/products/axibase-time-series-database/visualization/widgets/configuring-the-widgets/)
-commands, unneeded data can be masked in order to compare the best and worst performing MSAs 
+Using the [`DISPLAY`](https://axibase.com/products/axibase-time-series-database/visualization/widgets/configuring-the-widgets/)
+setting, unneeded data can be masked in order to compare the best and worst performing MSAs 
 over the observed period. Here, Oklahoma City, Oklahoma was the lowest-performing MSA and Raleigh, 
-North Carolina was the highest-performing MSA. Displayed next to one another, 
+North Carolina was the highest-performing MSA based on averaged performance. Displayed next to one another, 
 their absolute and relative differences can be underlined:
 
 ![BestAndWorst](Images/BVW.png)
@@ -127,29 +128,30 @@ their absolute and relative differences can be underlined:
 In order to make observations about the performance of one MSA over the observed time,
 a similar strategy can be used with a different method of visualization:
 
-![Miami](Images/MiamiVsBenchmark.png)
-[![](Images/button.png)](https://apps.axibase.com/chartlab/e926d483/28/)
+![Miami](Images/MVB.png)
+
+[![](Images/button.png)](https://apps.axibase.com/chartlab/e926d483/64/)
 
 Or, to compare the results of data observed within one state, additions can easily be
 made to include a third entity:
 
-![Miami](Images/FloridaAvg.png)
+![Miami](Images/FLVB.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/e926d483/29/)
+[![](Images/button.png)](https://apps.axibase.com/chartlab/e926d483/65/)
 
 The same can be done using the two Tennessee MSAs, Memphis and Nashville/Davidson,
 displayed here alongside the Benchmark Average value:
 
-![TN](Images/TNCompare.png)
+![TN](Images/TNVB.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/e926d483/30/)
+[![](Images/button.png)](https://apps.axibase.com/chartlab/e926d483/66/)
 
-Additionally, cities that serve as state capitols can be used as a microcosm
+Additionally, cities that serve as state capitals can be used as a microcosm
 for the trends of the state itself:
 
-![Capitols](Images/CapitolCompare.png)
+![capitals](Images/CVB.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/e926d483/31/)
+[![](Images/button.png)](https://apps.axibase.com/chartlab/e926d483/67/)
 
 The population of these metropolitan areas often accounts for a significant amount
 of the state's total population. In the Atlanta Metropolitan Area for example, that number
@@ -168,9 +170,9 @@ significantly below its less-populous neighbor Raleigh.
 The two highest performing MSAs, Raleigh, North Carolina and Atlanta, Georgia can
 also be displayed next to one another, and the Benchmark Average:
 
-![Best](Images/BVB2.png)
+![Best](Images/AtlRalBM.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/e926d483/44/)
+[![](Images/button.png)](https://apps.axibase.com/chartlab/e926d483/60/)
 
 ### Analysis
 
@@ -190,9 +192,9 @@ In order to simultaneously analyze the ranking of each city and its individual p
 the following [Box-and-Whisker](https://axibase.com/products/axibase-time-series-database/visualization/widgets/box-chart-widget/)
 graphic can be used:
 
-![Box](Images/TotalBox.png)
+![Box](Images/Box.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/e926d483/36/#fullscreen)
+[![](Images/button.png)](https://apps.axibase.com/chartlab/e926d483/61/#fullscreen)
 
 Here the city's individual performance can be analyzed at the same time as its relative
 performance against other cities. The average score of each city over the course of
@@ -207,12 +209,13 @@ that shows subjective performance standards, here the threshold has been set at 
 to represent the National Benchmark Average value, although this tool is also capable of handling
 active data sets and sending subscribers alerts when a certain threshold value is crossed.
 
-![AtlantaAvg](Images/Atlanta2.jpg)
+![AtlantaAvg](Images/AtlG2.png)
 
-![LouisvilleAvg](Images/Louisville2.jpg)
+[![](Images/button.png)](https://apps.axibase.com/chartlab/e926d483/62/#fullscreen)
 
-Above, when examining capitol cities, the case of the Raleigh and Charlotte Metropolitan
-Statistical Areas was observed. That is, two cities in one state with vastly different
+>Learn more about Gauge controls and explore the results of other MSAs in the [Appendix](#Appendix).
+
+Above, when examining capital cities, the case of the Raleigh MSA and Charlotte MSA was observed. That is, two cities in one state with vastly different
 population sizes and vastly different scores on the American Fitness Index rankings. 
 Is there a correlation between population size and score on the AFI?
 
@@ -221,26 +224,26 @@ included, their Metropolitan populations, and also their score and rank on the
 [2017 American Fitness Index](http://www.americanfitnessindex.org/wp-content/uploads/2014/02/ACSM-AFI-Report-2017.pdf_)
 report:
 
-| Metropolitan Statistical Area | Population | AFI Score | Rank |
-|-------------------------------|------------|-----------|------|
-| Nashville, Tennessee | 1.8 million | 36.8 | 42 |
-| Memphis, Tennessee | 1.3 million | 33.2 | 45 |
-| Sacramento, California | 2.2 million | 63.3 | 11 |
-| Los Angeles, California | 12.8 million | 55.7 | 16 |
-| San Francisco, California | 7.7 million | 73.3 | 3 |
-| Riverside, California | 3.4 million | 44.5 | 37 |
-| San Jose, California | 2.0 million | 71.6 | 5 |
-| San Diego, California | 3.1 million | 65.6 | 10 |
-| New York City, New York | 23.7 million | 54.5 | 18 |
-| Buffalo, New York | 1.1 million | 52.5 | 24 |
-| Miami, Florida | 5.0 million | 52.6 | 23 |
-| Orlando, Florida | 2.2 million | 52.3 | 25 |
-| Jacksonville, Florida | 1.5 million | 46.0 | 35 |
-| Tampa Bay, Florida | 3.0 million | 54.1 | 19 |
-| Austin, Texas | 2.0 million | 61.2 | 12 |
-| San Antonio, Texas | 2.4 million | 34.7 | 44 |
-| Houston, Texas | 6.4 million | 39.0 | 40 |
-| Dallas, Texas | 6.4 million | 43.2 | 38 |
+| State |Metropolitan Statistical Area | Population | AFI Score | Rank |
+|-------|------------------------------|------------|-----------|------|
+| California | San Francisco | 7.7 million | 73.3 | 3 |
+| California | San Jose | 2.0 million | 71.6 | 5 |
+| California | San Diego | 3.1 million | 65.6 | 10 |
+| California | Sacramento | 2.2 million | 63.3 | 11 |
+| California | Los Angeles | 12.8 million | 55.7 | 16 |
+| California | Riverside | 3.4 million | 44.5 | 37 |
+| Florida | Tampa Bay | 3.0 million | 54.1 | 19 |
+| Florida | Miami | 5.0 million | 52.6 | 23 |
+| Florida | Orlando | 2.2 million | 52.3 | 25 |
+| Florida | Jacksonville | 1.5 million | 46.0 | 35 |
+| New York | New York City | 23.7 million | 54.5 | 18 |
+| New York | Buffalo | 1.1 million | 52.5 | 24 |
+| Tennessee | Nashville | 1.8 million | 36.8 | 42 |
+| Tennessee | Memphis | 1.3 million | 33.2 | 45 |
+| Texas | Austin | 2.0 million | 61.2 | 12 |
+| Texas | Dallas | 6.4 million | 43.2 | 38 |
+| Texas | Houston | 6.4 million | 39.0 | 40 |
+| Texas | San Antonio | 2.4 million | 34.7 | 44 |
 
 Using data from the above table, the average size, score, and rank plus standard deviation 
 of those figures for each state's cities can be calculated. 
@@ -253,6 +256,9 @@ Those numbers are shown below:
 | New York | 38.1 million |21 |  53.5 | 20.4 million | 4 | 1.4 |
 | Tennessee | 1.6 million | 44 | 35.0 | 0.4 million | 2 | 2.5 |
 | Texas | 4.3 million | 36 | 44.5 | 2.4 million | 15 | 11.6 |
+
+> Average population values represent the average population of observed MSAs, not for the 
+entire state. 
 
 Averages of the above figures establish standards:
 
@@ -272,12 +278,12 @@ population sizes. Compare the Nashville MSA (population 1.8 million) to the San 
 MSA (population 2.0 million), the Orlando MSA (population 2.2 million), and the
 Austin MSA (population 2.0 million) for example:
 
-| Metropolitan Statistical Area | Population | AFI Score | Rank |
-|-------------------------------|------------|-----------|------|
-| Nashville, Tennessee | 1.8 million | 36.8 | 42 |
-| San Jose, California | 2.0 million | 71.6 | 5 |
-| Orlando, Florida | 2.2 million | 52.3 | 25 |
-| Austin, Texas | 2.0 million | 61.2 | 12 |
+| State |Metropolitan Statistical Area | Population | AFI Score | Rank |
+|-------|------------------------------|------------|-----------|------|
+| California | San Jose | 2.0 million | 71.6 | 5 |
+| Florida | Orlando | 2.2 million | 52.3 | 25 |
+| Tennessee | Nashville | 1.8 million | 36.8 | 42 |
+| Texas | Austin | 2.0 million | 61.2 | 12 |
 
 Now perform the same calculations as shown above:
 
@@ -287,12 +293,12 @@ Now perform the same calculations as shown above:
 
 Or use a larger population as the control amount:
 
-| Metropolitan Statistical Area | Population | AFI Score | Rank |
-|-------------------------------|------------|-----------|------|
-| Riverside, California | 3.4 million | 44.5 | 37 |
-| Tampa Bay, Florida | 3.0 million | 54.1 | 19 |
-| San Antonio, Texas | 2.4 million | 34.7 | 44 |
-| San Diego, California | 3.1 million | 65.6 | 10 |
+| State |Metropolitan Statistical Area | Population | AFI Score | Rank |
+|-------|------------------------------|------------|-----------|------|
+| California | San Diego | 3.1 million | 65.6 | 10 |
+| California | Riverside | 3.4 million | 44.5 | 37 |
+| Florida | Tampa Bay| 3.0 million | 54.1 | 19 |
+| Texas | San Antonio | 2.4 million | 34.7 | 44 |
 
 Following the above procedure once again:
 
@@ -301,34 +307,34 @@ Following the above procedure once again:
 | 3.0 million | 28 | 49.7 | 0.4 million | 16 | 13.2 |
 
 In both of these examples, where cities with similar population sizes were
-consciously selected to test the Raleigh/Charlotte hypothesis, the Standard deviation
+consciously selected to test the Raleigh/Charlotte hypothesis, the standard deviation
 of their rank was 16, or twice the value of the average standard deviation shown
 by cities when controlled for location. That contrast is even more vivid when comparing the raw score
 numbers, with size-controlled data showing a standard deviation of 13.2 and 14.7, both 
 more than double the average standard deviation of 6.0 for location-controlled data. 
-Uncertainty values for similarities within a given states being significant are calculated below, 
+Uncertainty values for similarities within a given state being significant are calculated below, 
 the expected value is the average value of the AFI score in the given MSA's state:
 
-| Metropolitan Statistical Area | AFI Score (O1) | State Average (E1) | X^2 |
-|-------------------------------|----------------|--------------------|-----|
-| Nashville, Tennessee | 36.8 | 35.0 | 0.0926 |
-| Memphis, Tennessee | 33.2 | 35.0 | 0.0926 |
-| Sacramento, California | 63.3 | 62.3 | 0.0003 |
-| Los Angeles, California | 55.7 | 62.3 | 0.0109 |
-| San Francisco, California | 73.3 | 62.3 | 0.0312 |
-| Riverside, California | 44.5 | 62.3 | 0.0816 |
-| San Jose, California | 71.6 | 62.3 | 0.0223 | 
-| San Diego, California | 65.6 | 62.3 | 0.0028 | 
-| New York City, New York | 54.5 | 53.5 | 0.0006 |
-| Buffalo, New York | 52.5 | 53.5 | 0.0003 |
-| Miami, Florida | 52.6 | 51.3 | 0.0006 |
-| Orlando, Florida | 52.3 | 51.3 | 0.0004 |
-| Jacksonville, Florida | 46.0 | 51.3 | 0.0107 | 
-| Tampa Bay, Florida | 54.1 | 51.3 | 0.0197 | 
-| Austin, Texas | 61.2 | 44.5 | 0.1408 |
-| San Antonio, Texas | 34.7 | 44.5 | 0.0485 |
-| Houston, Texas | 39.0 | 44.5 | 0.0153 | 
-| Dallas, Texas | 43.2 | 44.5 | 0.0009 |
+| State |  Metropolitan Statistical Area | AFI Score (O1) | State Average (E1) | X^2 |
+|-------|--------------------------------|----------------|--------------------|-----|
+| California | San Francisco | 73.3 | 62.3 | 0.0312 |
+| California | San Jose  | 71.6 | 62.3 | 0.0223 | 
+| California | San Diego  | 65.6 | 62.3 | 0.0028 | 
+| California | Sacramento | 63.3 | 62.3 | 0.0003 |
+| California | Los Angeles | 55.7 | 62.3 | 0.0109 |
+| California | Riverside | 44.5 | 62.3 | 0.0816 |
+| Florida | Tampa Bay | 54.1 | 51.3 | 0.0197 | 
+| Florida | Miami | 52.6 | 51.3 | 0.0006 |
+| Florida | Orlando | 52.3 | 51.3 | 0.0004 |
+| Florida | Jacksonville  | 46.0 | 51.3 | 0.0107 | 
+| New York | New York City | 54.5 | 53.5 | 0.0006 |
+| New York | Buffalo | 52.5 | 53.5 | 0.0003 |
+| Tennessee | Nashville | 36.8 | 35.0 | 0.0926 |
+| Tennessee | Memphis | 33.2 | 35.0 | 0.0926 |
+| Texas | Austin | 61.2 | 44.5 | 0.1408 |
+| Texas | Dallas | 34.7 | 44.5 | 0.0485 |
+| Texas | Houston | 39.0 | 44.5 | 0.0153 | 
+| Texas | San Antonio | 43.2 | 44.5 | 0.0009 |
 
 Because the rank of an MSA is relative to the performance of other MSAs, it has been excluded
 from uncertainty testing, only the city's raw AFI score is considered. 
@@ -337,10 +343,10 @@ The uncertainty value for each state is considered individually:
 
 | State | X^2 Total | DoF | P value |
 |-------|-----------|-----|---------|
-| Tennessee | 0.1851 | 1 | \> 0.10 |
 | California | 0.1491 | 5 | \< 0.001 |
-| New York | 0.0009 | 1 | 0.025 |
 | Florida | 0.0314 | 3 | \< 0.005 |
+| New York | 0.0009 | 1 | 0.025 |
+| Tennessee | 0.1851 | 1 | \> 0.10 |
 | Texas | 0.2055 | 3 | 0.025 | 
 
 The failure of Tennessee to conform to the scoring model was noticed above when comparing MSA
@@ -417,10 +423,10 @@ either present and counted, or not.
 
 >[Source](http://www.americanfitnessindex.org/methodology/): American Fitness Index
 
-### Using the `ALERT` Command
+### Using the `ALERT` Setting
 
 The [`ALERT`](https://axibase.com/products/axibase-time-series-database/visualization/widgets/bar-chart-widget/#tab-id-3)
-command has a two-part syntax:
+setting has a two-part syntax:
 
 ```sql
 alert-expression = YOUR_CONDITION_HERE 
@@ -431,39 +437,48 @@ And is shown in a ChartLab example below:
 
 ![Alert](Images/2AlertCommand.png)
 
-### Even Year (2012 and 2014) By-City Data With the `ALERT` Command
+### Even Year (2012 and 2014) By-City Data With the `ALERT` Setting
 
-Year 2012 (Benchmark Average: 38)
+>Year 2012 (Benchmark Average: 38)
 
-![2012](Images/2012ByCity2.png)
+![2012](Images/2012.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/e926d483/39/)
+[![](Images/button.png)](https://apps.axibase.com/chartlab/e926d483/57/)
 
-Year 2014 (Benchmark Average: 42)
+>Year 2014 (Benchmark Average: 42)
 
-![2014](Images/2014ByCity.png)
+![2014](Images/2014.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/e926d483/40/)
+[![](Images/button.png)](https://apps.axibase.com/chartlab/e926d483/58/)
 
 ### Alternative Display of City By Year Data
 
 It may be more desirable to separate each body of data, for a cleaner visualization 
 as shown below:
 
-![AltView](Images/ByYearByCityAlt.png)
+![AltView](Images/BYCALT.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/c43f580b/5/)
+[![](Images/button.png)](https://apps.axibase.com/chartlab/c43f580b/8/#fullscreen)
 
 The visualization show above uses the [`GROUP`](https://axibase.com/products/axibase-time-series-database/visualization/widgets/bar-chart-widget/#[widget]-settings)
-command in the `[WIDGET]` cluster, as shown below:
+setting in the `[WIDGET]` cluster, as shown below:
 
 ![Syntax1](Images/Syntax1.png)
 
-Because of the highlighted command, data is separated by its `location` tag, but in
+Because of the highlighted setting, data is separated by its `location` tag, but in
 the visualization shown in the [Data](#Data) section, the `GROUP = LOCATION` tag 
 is ignored because of the [`SORT`](https://axibase.com/products/axibase-time-series-database/visualization/widgets/bar-chart-widget/#[widget]-settings)
-command shown below:
+setting shown below:
 
 ![Syntax2](Images/Syntax2.png)
 
 > Please contact [Axibase](https://axibase.com/feedback/) with any questions.
+
+### Modifying the Gauge to Display Other Cities
+
+Locate the `LOCATION` setting at the bottom of the Editor and correct the text to the
+observed MSA that you would like to view with the Gauge, being sure to follow the
+syntax including the two-letter state abbreviation, and the `\,` comma notation.
+For a better presentation, change the `TITLE` setting as well.
+
+![Gauge](Images/Gauge2.png)
