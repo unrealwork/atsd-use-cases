@@ -211,7 +211,7 @@ active data sets and sending subscribers alerts when a certain threshold value i
 
 ![AtlantaAvg](Images/AtlG2.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/e926d483/62/#fullscreen)
+[![](Images/button.png)](https://apps.axibase.com/chartlab/e926d483/70/#fullscreen)
 
 >Learn more about Gauge controls and explore the results of other MSAs in the [Appendix](#Appendix).
 
