@@ -23,7 +23,7 @@ years in the Big Apple alone.
 [![](Images/button.png)](https://apps.axibase.com/chartlab/6402f01c/20/)
 
 Additionally, the number of working government positions in the city has increased by roughly 38,000
-and using the SQL Console from the [Axibase Time Series Database](https://axibase.com),
+and using the [SQL Console](https://github.com/axibase/atsd/tree/master/api/sql) from the [Axibase Time Series Database](https://axibase.com),
 statewide figures can be observed as well:
 
 ```sql
@@ -51,6 +51,16 @@ statewide figures can be observed as well:
 | Utilities                                                                | 37302.0   | 
 | Mining, Quarrying, and Oil and Gas Extraction                            | 4708.0    | 
 
+```
+
+>The above table was produced with the following query: 
+
+```sql
+SELECT tags.industry, sum(value) as total
+  FROM 'jobs' 
+WHERE date_format(time, 'yyyy') = '2015'
+  GROUP BY tags.industry
+ORDER BY total DESC
 ```
 
 Using Big Data tools that are designed to operate in the [Socrata](https://github.com/axibase/axibase-collector/blob/master/jobs/socrata.md) 
