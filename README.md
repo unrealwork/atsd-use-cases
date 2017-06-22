@@ -2,7 +2,7 @@
 
 Axibase Time Series Database: Usage Examples and Research Articles
 
-## Table of Contents
+## Research Articles
 
 1. [Pain at the Pump - a Closer Look at Hawaii's High Fuel Prices](/HawaiiGasPrices/hawaii_gas_prices.md)
 2. [Data Visualization with Chart Lab](/ChartLabIntro/README.md)
@@ -22,3 +22,8 @@ Axibase Time Series Database: Usage Examples and Research Articles
 16. [Climate Change: Back to the Drawing Board](/ClimateChange/README.md)
 17. [Violence Begets Violence: An Analysis of the Baltimore Police Force and Baltimore Homicide Data](/BaltimorePolice/README.md)
 18. [Quantifying Public Health: The American Fitness Index](/FitnessIndex/README.md)
+
+
+## Chart of the Day 
+
+1. [New York City's Most Crowded Industries](/ChartShorts/NY_Jobs/README.md)
