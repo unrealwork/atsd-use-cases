@@ -5,8 +5,6 @@ New York City's Most Crowded Industries
 
 [![](Images/button.png)](https://apps.axibase.com/chartlab/6402f01c/19/#fullscreen)
 
->Visualizations made using the [Axibase Time Series Database](https://axibase.com)
-
 Running New York City is a big business. In fact, according to [data](https://catalog.data.gov/dataset/jobs-by-industry)
 released by the State of New York that tracks employment figures by industry, the top two industries
 are partially staffed or entirely staffed by government employees and the third position
@@ -24,8 +22,9 @@ years in the Big Apple alone.
 
 Additionally, the number of working government positions in the city has increased by roughly 38,000
 and using the [SQL Console](https://github.com/axibase/atsd/tree/master/api/sql) from the [Axibase Time Series Database](https://axibase.com),
-statewide figures can be observed as well:
+New York City figures can be compared to New York State figures:
 
+### New York State
 ```sql
 | tags.industry                                                            | total     | 
 |--------------------------------------------------------------------------|-----------| 
@@ -63,8 +62,41 @@ WHERE date_format(time, 'yyyy') = '2015'
 ORDER BY total DESC
 ```
 
-Using Big Data tools that are designed to operate in the [Socrata](https://github.com/axibase/axibase-collector/blob/master/jobs/socrata.md) 
-environment, comprehensive and comprehensible visualizations can be made in order to process and
-analyze tremendous amounts of publicly-available data and glean otherwise missed information to 
-give your data implementation project an extra competitive edge.
 
+### New York City
+
+```sql
+| tags.industry                                                            | total    | 
+|--------------------------------------------------------------------------|----------| 
+| Health Care and Social Assistance                                        | 703232.0 | 
+| Government                                                               | 569354.0 | 
+| Professional, Scientific, and Technical Services                         | 427707.0 | 
+| Retail Trade                                                             | 361545.0 | 
+| Accommodation and Food Services                                          | 348252.0 | 
+| Finance and Insurance                                                    | 331925.0 | 
+| Other Services (except Public Administration)                            | 234622.0 | 
+| Administrative and Support and Waste Management and Remediation Services | 231492.0 | 
+| Educational Services (Private)                                           | 226112.0 | 
+| Information                                                              | 186987.0 | 
+| Construction                                                             | 176174.0 | 
+| Transportation and Warehousing                                           | 146998.0 | 
+| Wholesale Trade                                                          | 138371.0 | 
+| Real Estate and Rental and Leasing                                       | 136806.0 | 
+| Arts, Entertainment, and Recreation                                      | 109737.0 | 
+| Manufacturing                                                            | 81624.0  | 
+| Management of Companies and Enterprises                                  | 68224.0  | 
+| Unclassified Industry                                                    | 22212.0  | 
+| Utilities                                                                | 15246.0  | 
+| Agriculture, Forestry, Fishing and Hunting                               | 560.0    | 
+| Mining, Quarrying, and Oil and Gas Extraction                            | 64.0     | 
+```
+
+>The above table was produced with the following query: 
+
+```sql
+SELECT tags.industry, sum(value) as total
+  FROM 'jobs' 
+WHERE date_format(time, 'yyyy') = '2015' and tags.region = 'New York City'
+  GROUP BY tags.industry
+ORDER BY total DESC
+```
