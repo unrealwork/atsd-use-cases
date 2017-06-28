@@ -1,24 +1,23 @@
-Querying New York Insurance Asset Versus Liability Data
-==
+## New York Insurance Company Assets and Liabilities
 
-[Source Dataset](https://github.com/axibase/open-data-catalog/blob/master/datasets/xek8-zfrt.md)
+### References
 
-[SQL Console](https://github.com/axibase/atsd/tree/master/api/sql) from [Axibase](https://axibase.com)
+* [Dataset](https://github.com/axibase/open-data-catalog/blob/master/datasets/xek8-zfrt.md)
+* [SQL Syntax](https://github.com/axibase/atsd/tree/master/api/sql) from [Axibase](https://axibase.com)
+* Axibase [ChartLab](https://apps.axibase.com/)
 
-[ChartLab](https://apps.axibase.com/) from [Axibase](https://axibase.com)
+### 2015 Insurance Assets (Top 10)
 
-#### 2015 Insurance Assets (Top 10)
-
-````sql
+```sql
 SELECT tags.company_name AS 'Company', SUM(value)/1000000 AS 'Total Assets, $M'
   FROM assets
 WHERE datetime = '2015-01-01T00:00:00Z'
   GROUP BY tags.company_name
 ORDER BY 'Total Assets, $M' DESC
   LIMIT 10
-````
+```
 
-````sql
+```ls
 | Company                                        | Total Assets, $M | 
 |------------------------------------------------|------------------| 
 | Mutual of Omaha Insurance Company              | 6945             | 
@@ -31,20 +30,20 @@ ORDER BY 'Total Assets, $M' DESC
 | Health Insurance Plan of Greater New York      | 1644             | 
 | Trustmark Insurance Company                    | 1407             | 
 | UnitedHealthcare Insurance Company of New York | 1223             | 
-````
+```
 
-#### 2015 Insurance Liabilities (Top 10)
+### 2015 Insurance Liabilities (Top 10)
 
-````sql
+```sql
 SELECT tags.company_name AS 'Company', SUM(value)/1000000 AS 'Total Assets, $M'
   FROM liabilities
 WHERE datetime = '2015-01-01T00:00:00Z'
   GROUP BY tags.company_name
 ORDER BY 'Total Assets, $M' DESC
   LIMIT 10
-````
+```
 
-````sql
+```ls
 | Company                                        | Total Assets, $M | 
 |------------------------------------------------|------------------| 
 | Mutual of Omaha Insurance Company              | 4082             | 
@@ -57,20 +56,20 @@ ORDER BY 'Total Assets, $M' DESC
 | Oxford Health Insurance, Inc.                  | 938              | 
 | Sierra Health and Life Insurance Co, Inc.      | 898              | 
 | UnitedHealthcare Insurance Company of New York | 749              | 
-````
+```
 
-#### 2015 Insurance Assets Versus Liabilities (Top 10)
+### 2015 Insurance Assets Versus Liabilities (Top 10)
 
-````sql
+```sql
 SELECT a.tags.company_name AS 'Company', SUM(a.value - l.value)/1000000 AS 'Net Assets, $M'
   FROM 'Liabilities' l INNER JOIN 'Assets' a
 WHERE datetime = '2015-01-01T00:00:00Z'
   GROUP BY a.tags.company_name
 ORDER BY 'Net Assets' DESC
   LIMIT 10
-````
+```
 
-````sql
+```ls
 | Company                                   | Net Assets, $M | 
 |-------------------------------------------|----------------| 
 | Mutual of Omaha Insurance Company         | 2863           | 
@@ -83,14 +82,15 @@ ORDER BY 'Net Assets' DESC
 | SilverScript Insurance Company            | 614            | 
 | HealthNow New York Inc.                   | 544            | 
 | Oxford Health Plans (NY), Inc.            | 475            | 
-````
+```
 
 ![](Images/NY_I4.png)
 
 [![](Images/button.png)](https://apps.axibase.com/chartlab/6402f01c/78/#fullscreen)
-#### 2014 - 2015 Change in Net Insurance Assets (Top 10)
 
-````sql
+### 2014 - 2015 Change in Net Insurance Assets (Top 10)
+
+```sql
 SELECT t1.tags.company_name AS 'Company', 
   (LAST(t1.value) - FIRST(t1.value))/1000000 AS 'Change in Assets, $M',
   (LAST(t2.value) - FIRST(t2.value))/1000000 AS 'Change in Liabilities, $M',
@@ -100,9 +100,9 @@ FROM assets t1
 GROUP BY t1.tags.company_name
   ORDER BY 'Change in Net Assets, $M' DESC
 LIMIT 10
-````
+```
 
-````sql
+```ls
 | Company                                   | Change in Assets, $M | Change in Liabilities, $M | Change in Net Assets, $M | 
 |-------------------------------------------|----------------------|---------------------------|--------------------------| 
 | Sierra Health and Life Insurance Co, Inc. | 1506.6               | 803.2                     | 703.4                    | 
@@ -115,7 +115,7 @@ LIMIT 10
 | MVP Health Plan, Inc.                     | 72.5                 | 23.1                      | 49.4                     | 
 | Capital District Physicians Health Plan   | 38.0                 | -5.9                      | 43.9                     | 
 | Physicians Mutual Insurance Company       | 80.0                 | 40.0                      | 40.1                     | 
-````
+```
 
 ![](Images/NY_I2.png)
 
