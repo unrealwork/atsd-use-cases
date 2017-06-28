@@ -7,7 +7,7 @@ Querying New York Insurance Asset Versus Liability Data
 
 [ChartLab](https://apps.axibase.com/) from [Axibase](https://axibase.com)
 
-####2015 Insurance Assets (Top 10)
+#### 2015 Insurance Assets (Top 10)
 
 ````sql
 SELECT tags.company_name AS 'Company', SUM(value)/1000000 AS 'Total Assets, $M'
@@ -33,7 +33,7 @@ ORDER BY 'Total Assets, $M' DESC
 | UnitedHealthcare Insurance Company of New York | 1223             | 
 ````
 
-####2015 Insurance Liability (Top 10)
+#### 2015 Insurance Liabilities (Top 10)
 
 ````sql
 SELECT tags.company_name AS 'Company', SUM(value)/1000000 AS 'Total Assets, $M'
@@ -59,7 +59,7 @@ ORDER BY 'Total Assets, $M' DESC
 | UnitedHealthcare Insurance Company of New York | 749              | 
 ````
 
-####2015 Insurance Assets Versus Liability (Top 10)
+#### 2015 Insurance Assets Versus Liabilities (Top 10)
 
 ````sql
 SELECT a.tags.company_name AS 'Company', SUM(a.value - l.value)/1000000 AS 'Net Assets, $M'
@@ -88,7 +88,7 @@ ORDER BY 'Net Assets' DESC
 ![](Images/NY_I4.png)
 
 [![](Images/button.png)](https://apps.axibase.com/chartlab/6402f01c/78/#fullscreen)
-####2014 - 2015 Change in Net Assets (Top 10)
+#### 2014 - 2015 Change in Net Insurance Assets (Top 10)
 
 ````sql
 SELECT t1.tags.company_name AS 'Company', 
