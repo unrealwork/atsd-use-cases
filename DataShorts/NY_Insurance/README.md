@@ -84,6 +84,12 @@ ORDER BY 'Net Assets' DESC
 | Oxford Health Plans (NY), Inc.            | 475            | 
 ```
 
+![](Images/NY_I6.png)
+
+[![](Images/button.png)](https://apps.axibase.com/chartlab/3904f832/12/#fullscreen)
+
+#### 2015 New York Insurance Assets Versus Liabilities (Top 10)
+ 
 ![](Images/NY_I4.png)
 
 [![](Images/button.png)](https://apps.axibase.com/chartlab/6402f01c/78/#fullscreen)
