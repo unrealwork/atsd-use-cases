@@ -33,6 +33,10 @@ ORDER BY 'Total Assets, $M' DESC
 | UnitedHealthcare Insurance Company of New York | 1223             | 
 ````
 
+![](Images/NY_I5.png)
+
+[![](Images/button.png)](https://apps.axibase.com/chartlab/3904f832/10/#fullscreen)
+
 #### 2015 Insurance Liabilities (Top 10)
 
 ````sql
@@ -59,7 +63,11 @@ ORDER BY 'Total Assets, $M' DESC
 | UnitedHealthcare Insurance Company of New York | 749              | 
 ````
 
-#### 2015 Insurance Assets Versus Liabilities (Top 10)
+![](Images/NY_I7.png)
+
+[![](Images/button.png)](https://apps.axibase.com/chartlab/3904f832/13/#fullscreen)
+
+#### 2015 Insurance Net Assets (Top 10)
 
 ````sql
 SELECT a.tags.company_name AS 'Company', SUM(a.value - l.value)/1000000 AS 'Net Assets, $M'
@@ -85,9 +93,16 @@ ORDER BY 'Net Assets' DESC
 | Oxford Health Plans (NY), Inc.            | 475            | 
 ````
 
+![](Images/NY_I6.png)
+
+[![](Images/button.png)](https://apps.axibase.com/chartlab/3904f832/12/#fullscreen)
+
+#### 2015 New York Insurance Assets Versus Liabilities (Top 10)
+ 
 ![](Images/NY_I4.png)
 
 [![](Images/button.png)](https://apps.axibase.com/chartlab/6402f01c/78/#fullscreen)
+
 #### 2014 - 2015 Change in Net Insurance Assets (Top 10)
 
 ````sql
