@@ -28,3 +28,7 @@ Axibase Time Series Database: Usage Examples and Research Articles
 
 1. [New York City's Most Crowded Industries](/ChartShorts/NY_Jobs/README.md)
 2. [500 Cities: Local Data for Better Health](/ChartShorts/CDC_TOP25/README.md)
+
+## Data Shorts 
+
+1. [Querying New York Insurance Asset Versus Liability Data](/DataShorts/NY_Insurance/README.md)
