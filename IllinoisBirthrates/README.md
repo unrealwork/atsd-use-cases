@@ -20,7 +20,7 @@ as some of the country's icons like former presidents Abraham Lincoln and
 Barack Obama, it's not hard to understand why Illinois is considered as diverse and
 unique as the country itself.
 
-The [Illinois Center for Health Statistics](www.dph.illinois.gov/data-statistics) has released data that covers two decades of
+The [Illinois Center for Health Statistics](www.dph.illinois.gov/data-statistics) has released [data](https://github.com/axibase/open-data-catalog/blob/master/datasets/9e74-xdvk.md) that covers two decades of
 live births in the state, from 1989 to 2009. This data has been kept through some of the
 formative events of the 20th and 21st centuries: the fall of the Berlin Wall, the World Trade Center
 terrorist attacks, the Pathfinder mission to Mars, the completion of the Burj Khalifa, and 
@@ -114,6 +114,12 @@ to 2009:
 [![](Images/button.png)](https://apps.axibase.com/chartlab/e3f7c7d8/8/#fullscreen)
 
 #### SQL Queries
+
+The data is difficult to work with because of the way it is stored. Typically, time information is
+stored within a given metric, but in this case, each year is a metric in and of itself. This
+type of storage can present a number of challenges for less robust software, but using the
+[Axibase Time Series Database](https://axibase.com) and the supported [`JOIN`](https://github.com/axibase/atsd/tree/master/api/sql#joins) clause,
+working with, and analyzing even unideal data is well within the scope of possibility.
 
 Birth numbers can be gathered in five-year steps:
 
@@ -363,7 +369,7 @@ Information can also be collected on a desired county, for the entire period:
 ##### Cook County Live Births (1989 - 2009)
 
 ```sql
-SELECT DATE_FORMAT(TIME, 'yyyy') AS 'Year', tags.county_name AS 'County', VALUE/100000 AS 'Live Births (10000)'
+SELECT DATE_FORMAT(TIME, 'yyyy') AS 'Year', tags.county_name AS 'County', VALUE/100000 AS 'Live Births (100000)'
   FROM 'year.9e74-xdvk.value'
 WHERE 'County' = 'COOK'
   GROUP BY 'County', VALUE, 'Year'
@@ -371,7 +377,7 @@ ORDER BY 'Year'
 ```
 
 ```ls
-| Year | County | Live Births (10000) | 
+| Year | County | Live Births (100000) | 
 |------|--------|---------------------| 
 | 1989 | COOK   | 0.94                | 
 | 1990 | COOK   | 0.97                | 
