@@ -3,7 +3,7 @@ Modeling Falling Birthrates in the Prairie State
 
 ![](Images/ILL1.jpg)
 
-###Introduction
+### Introduction
 Long-considered to be a bellwether for trends in the rest of the country, the nation's
 21st state has grown from a tiny, sparsely-populated part of the Northwest Territory to
 the home of Chicago, the third-largest city in the country. Illinois holds the headquarters
@@ -29,13 +29,13 @@ the emergence of the Internet to name a few.
 Using the [Axibase Time Series Database](https://axibase.com) and the open source modelling software [Fityk](http://fityk.nieto.pl/),
 the ICHS data can be visualized, modeled, and analyzed to extract valuable information from free public data.
 
-###Data
+### Data
 
 Analysis of these data has been divided into three sections, the first uses visualization to capture
 the information as a whole, the second queries the data in the [SQL Console](https://github.com/axibase/atsd/tree/master/api/sql), and the third uses curve
 fitting to anticipate future birth rates.
 
-####Visualizations
+#### Visualizations
 
 Illinois contains 102 counties, the top ten most populous of which will be observed here. 
 They are:
@@ -61,11 +61,11 @@ county by birthrate, consistently out-performed by the smaller Peoria County (Po
 
 Open [ChartLab](https://apps.axibase.com/chartlab/6402f01c) to explore the number of live births in each of the counties listed above
 and navigate throughout the 20-year time period using the dropdown menu at the top of
-the display, highlighted below.
+the display.
 
-![](Images/ILL2.png)
+![](Images/ILL31.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/6402f01c/51/#fullscreen)
+[![](Images/button.png)](https://apps.axibase.com/chartlab/e3f7c7d8/2/#fullscreen)
 
 >Learn more about creating a Dropdown menu in ChartLab in the [Appendix](#appendix) below.
 
@@ -74,27 +74,27 @@ whole of Illinois' live births. Toggle between observed years using the dropdown
 
 ![](Images/ILL3.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/6402f01c/55/#fullscreen)
+[![](Images/button.png)](https://apps.axibase.com/chartlab/e3f7c7d8/3/#fullscreen)
 
 The ChartLab model below displays the same data, with those births not
 included in the top ten counties displayed in grey:
 
 ![](Images/ILL30.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/6402f01c/92/#fullscreen)
+[![](Images/button.png)](https://apps.axibase.com/chartlab/e3f7c7d8/5/#fullscreen)
 
 Removing the Illinois total numbers, and observing the live births by year from each of
 the ten largest counties:
 
 ![](Images/ILL15.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/6402f01c/69/#fullscreen)
+[![](Images/button.png)](https://apps.axibase.com/chartlab/e3f7c7d8/6/#fullscreen)
 
 Now removing Cook County figures, as they represent the majority of Illinois live births:
 
 ![](Images/ILL16.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/6402f01c/70/#fullscreen)
+[![](Images/button.png)](https://apps.axibase.com/chartlab/e3f7c7d8/9/#fullscreen)
 
 Now looking at the whole of Illinois live birth rates, not just those from the most
 populous regions, their performance can be contrasted with the performance of the
@@ -102,7 +102,7 @@ state as a whole:
 
 ![](Images/ILL18.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/6402f01c/71/#fullscreen)
+[![](Images/button.png)](https://apps.axibase.com/chartlab/e3f7c7d8/7/#fullscreen)
 
 >Illinois birthrates have been steadily declining for the past several decades.
 
@@ -111,7 +111,7 @@ to 2009:
 
 ![](Images/ILL19.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/6402f01c/72/#fullscreen)
+[![](Images/button.png)](https://apps.axibase.com/chartlab/e3f7c7d8/8/#fullscreen)
 
 #### SQL Queries
 
@@ -120,131 +120,131 @@ Birth numbers can be gathered in five-year steps:
 ##### 1989: 
 
 ````sql
-SELECT VALUE/10000 AS 'Live Births (10000)', TAGS.county_name AS 'County'
+SELECT VALUE/1000 AS 'Live Births (1000)', tags.county_name AS 'County'
   FROM 1989 WHERE 'County' NOT IN ('Chicago', 'Suburban Cook')
-GROUP BY TAGS.county_name, VALUE
-  ORDER BY VALUE DESC, TAGS.county_name
+GROUP BY tags.county_name, VALUE
+  ORDER BY VALUE DESC, tags.county_name
 LIMIT 11
 ````
 
 ````ls
-| Live Births (10000) | County         | 
-|---------------------|----------------| 
-| 19.02               | ILLINOIS TOTAL | 
-| 9.41                | COOK           | 
-| 1.32                | DUPAGE         | 
-| 0.93                | LAKE           | 
-| 0.60                | KANE           | 
-| 0.58                | WILL           | 
-| 0.47                | ST CLAIR       | 
-| 0.42                | WINNEBAGO      | 
-| 0.37                | MADISON        | 
-| 0.30                | MCHENRY        | 
-| 0.28                | PEORIA         | 
+| Live Births (1000) | County         | 
+|--------------------|----------------| 
+| 190                | ILLINOIS TOTAL | 
+| 94                 | COOK           | 
+| 13                 | DUPAGE         | 
+| 9                  | LAKE           | 
+| 6                  | KANE           | 
+| 6                  | WILL           | 
+| 5                  | ST CLAIR       | 
+| 4                  | WINNEBAGO      | 
+| 4                  | MADISON        | 
+| 3                  | MCHENRY        | 
+| 3                  | PEORIA         |  
 ````
 
 ##### 1994:
 
 ````sql
-SELECT VALUE/10000 AS 'Live Births (10000)', TAGS.county_name AS 'County'
+SELECT VALUE/1000 AS 'Live Births (1000)', tags.county_name AS 'County'
   FROM 1994 WHERE 'County' NOT IN ('Chicago', 'Suburban Cook')
-GROUP BY TAGS.county_name, VALUE
-  ORDER BY VALUE DESC, TAGS.county_name
+GROUP BY tags.county_name, VALUE
+  ORDER BY VALUE DESC, tags.county_name
 LIMIT 11
 ````
 
 ````ls
-| Live Births (10000) | County         | 
-|---------------------|----------------| 
-| 18.92               | ILLINOIS TOTAL | 
-| 9.29                | COOK           | 
-| 1.42                | DUPAGE         | 
-| 1.00                | LAKE           | 
-| 0.66                | KANE           | 
-| 0.61                | WILL           | 
-| 0.42                | ST CLAIR       | 
-| 0.39                | WINNEBAGO      | 
-| 0.37                | MCHENRY        | 
-| 0.34                | MADISON        | 
-| 0.28                | PEORIA         |  
+| Live Births (1000) | County         | 
+|--------------------|----------------| 
+| 189                | ILLINOIS TOTAL | 
+| 93                 | COOK           | 
+| 14                 | DUPAGE         | 
+| 10                 | LAKE           | 
+| 7                  | KANE           | 
+| 6                  | WILL           | 
+| 4                  | ST CLAIR       | 
+| 4                  | WINNEBAGO      | 
+| 4                  | MCHENRY        | 
+| 3                  | MADISON        | 
+| 3                  | PEORIA         | 
 ````
 
 ##### 1999:
 
 ````sql
-SELECT VALUE/10000 AS 'Live Births (10000)', TAGS.county_name AS 'County'
+SELECT VALUE/1000 AS 'Live Births (1000)', tags.county_name AS 'County'
   FROM 1999 WHERE 'County' NOT IN ('Chicago', 'Suburban Cook')
-GROUP BY TAGS.county_name, VALUE
-  ORDER BY VALUE DESC, TAGS.county_name
+GROUP BY tags.county_name, VALUE
+  ORDER BY VALUE DESC, tags.county_name
 LIMIT 11
 ````
 
 ````ls
-| Live Births (10000) | County         | 
-|---------------------|----------------| 
-| 18.20               | ILLINOIS TOTAL | 
-| 8.45                | COOK           | 
-| 1.34                | DUPAGE         | 
-| 1.06                | LAKE           | 
-| 0.78                | WILL           | 
-| 0.74                | KANE           | 
-| 0.40                | MCHENRY        | 
-| 0.40                | WINNEBAGO      | 
-| 0.37                | ST CLAIR       | 
-| 0.33                | MADISON        | 
-| 0.26                | PEORIA         | 
+| Live Births (1000) | County         | 
+|--------------------|----------------| 
+| 182                | ILLINOIS TOTAL | 
+| 85                 | COOK           | 
+| 13                 | DUPAGE         | 
+| 11                 | LAKE           | 
+| 8                  | WILL           | 
+| 7                  | KANE           | 
+| 4                  | MCHENRY        | 
+| 4                  | WINNEBAGO      | 
+| 4                  | ST CLAIR       | 
+| 3                  | MADISON        | 
+| 3                  | PEORIA         | 
 ````
 
 ##### 2004:
 
 ````sql
-SELECT VALUE/10000 AS 'Live Births (10000)', TAGS.county_name AS 'County'
+SELECT VALUE/1000 AS 'Live Births (1000)', tags.county_name AS 'County'
   FROM 2004 WHERE 'County' NOT IN ('Chicago', 'Suburban Cook')
-GROUP BY TAGS.county_name, VALUE
-  ORDER BY VALUE DESC, TAGS.county_name
+GROUP BY tags.county_name, VALUE
+  ORDER BY VALUE DESC, tags.county_name
 LIMIT 11
 ````
 
 ````ls
-| Live Births (10000) | County         | 
-|---------------------|----------------| 
-| 18.07               | ILLINOIS TOTAL | 
-| 8.00                | COOK           | 
-| 1.26                | DUPAGE         | 
-| 1.03                | LAKE           | 
-| 0.96                | WILL           | 
-| 0.86                | KANE           | 
-| 0.44                | MCHENRY        | 
-| 0.40                | WINNEBAGO      | 
-| 0.37                | ST CLAIR       | 
-| 0.34                | MADISON        | 
-| 0.27                | PEORIA         | 
+| Live Births (1000) | County         | 
+|--------------------|----------------| 
+| 181                | ILLINOIS TOTAL | 
+| 80                 | COOK           | 
+| 13                 | DUPAGE         | 
+| 10                 | LAKE           | 
+| 10                 | WILL           | 
+| 9                  | KANE           | 
+| 4                  | MCHENRY        | 
+| 4                  | WINNEBAGO      | 
+| 4                  | ST CLAIR       | 
+| 3                  | MADISON        | 
+| 3                  | PEORIA         | 
 ````
 
 ##### 2009:
 
 ````sql
-SELECT VALUE/10000 AS 'Live Births (10000)', TAGS.county_name AS 'County'
+SELECT VALUE/1000 AS 'Live Births (1000)', tags.county_name AS 'County'
   FROM 2009 WHERE 'County' NOT IN ('Chicago', 'Suburban Cook')
-GROUP BY TAGS.county_name, VALUE
-  ORDER BY VALUE DESC, TAGS.county_name
+GROUP BY tags.county_name, VALUE
+  ORDER BY VALUE DESC, tags.county_name
 LIMIT 11
 ````
 
 ````ls
-| Live Births (10000) | County         | 
-|---------------------|----------------| 
-| 17.11               | ILLINOIS TOTAL | 
-| 7.57                | COOK           | 
-| 1.08                | DUPAGE         | 
-| 0.91                | WILL           | 
-| 0.90                | LAKE           | 
-| 0.77                | KANE           | 
-| 0.40                | WINNEBAGO      | 
-| 0.37                | MCHENRY        | 
-| 0.37                | ST CLAIR       | 
-| 0.33                | MADISON        | 
-| 0.28                | PEORIA         | 
+| Live Births (1000) | County         | 
+|--------------------|----------------| 
+| 171                | ILLINOIS TOTAL | 
+| 76                 | COOK           | 
+| 11                 | DUPAGE         | 
+| 9                  | WILL           | 
+| 9                  | LAKE           | 
+| 8                  | KANE           | 
+| 4                  | WINNEBAGO      | 
+| 4                  | MCHENRY        | 
+| 4                  | ST CLAIR       | 
+| 3                  | MADISON        | 
+| 3                  | PEORIA         | 
 ````
 
 Likewise, county totals can be gathered using the same five-year steps, but evaluating for
@@ -253,109 +253,109 @@ the entire observed time and not one-year segments:
 ##### 1989 - 1993:
 
 ````sql
-SELECT (t1.VALUE + t2.VALUE + t3.VALUE + t4.VALUE + t5.VALUE)/10000 AS 'Live Births (10000)', t1.TAGS.county_name AS 'County'
+SELECT (t1.VALUE + t2.VALUE + t3.VALUE + t4.VALUE + t5.VALUE)/1000 AS 'Live Births (1000)', t1.tags.county_name AS 'County'
   FROM 1989 t1 JOIN 1990 t2 JOIN 1991 t3 JOIN 1992 t4 JOIN 1993 t5
-WHERE t1.TAGS.county_name = t2.TAGS.county_name AND t1.TAGS.county_name NOT IN ('Chicago','Suburban Cook')
-  GROUP BY t1.TAGS.county_name, t1.VALUE, t2.VALUE, t3.VALUE, t4.VALUE, t5.VALUE
-ORDER BY t1.VALUE DESC, t1.TAGS.county_name
+WHERE t1.tags.county_name = t2.tags.county_name AND t1.tags.county_name NOT IN ('Chicago','Suburban Cook')
+  GROUP BY t1.tags.county_name, t1.VALUE, t2.VALUE, t3.VALUE, t4.VALUE, t5.VALUE
+ORDER BY t1.VALUE DESC, t1.tags.county_name
   LIMIT 11
 ````
 
 ````ls
-| Live Births (10000) | County         | 
-|---------------------|----------------| 
-| 96.14               | ILLINOIS TOTAL | 
-| 47.72               | COOK           | 
-| 6.88                | DUPAGE         | 
-| 4.80                | LAKE           | 
-| 3.11                | KANE           | 
-| 2.96                | WILL           | 
-| 2.26                | ST CLAIR       | 
-| 2.05                | WINNEBAGO      | 
-| 1.81                | MADISON        | 
-| 1.65                | MCHENRY        | 
-| 1.40                | PEORIA         |  
+| Live Births (1000) | County         | 
+|--------------------|----------------| 
+| 961                | ILLINOIS TOTAL | 
+| 477                | COOK           | 
+| 69                 | DUPAGE         | 
+| 48                 | LAKE           | 
+| 31                 | KANE           | 
+| 30                 | WILL           | 
+| 23                 | ST CLAIR       | 
+| 21                 | WINNEBAGO      | 
+| 18                 | MADISON        | 
+| 16                 | MCHENRY        | 
+| 14                 | PEORIA         | 
 ````
 
 ##### 1994 - 1998:
 
 ````sql
-SELECT (t1.VALUE + t2.VALUE + t3.VALUE + t4.VALUE + t5.VALUE)/10000 AS 'Live Births (10000)', t1.TAGS.county_name AS 'County'
+SELECT (t1.VALUE + t2.VALUE + t3.VALUE + t4.VALUE + t5.VALUE)/1000 AS 'Live Births (1000)', t1.tags.county_name AS 'County'
   FROM 1994 t1 JOIN 1995 t2 JOIN 1996 t3 JOIN 1997 t4 JOIN 1998 t5
-WHERE t1.TAGS.county_name = t2.TAGS.county_name AND t1.TAGS.county_name NOT IN ('Chicago','Suburban Cook')
-  GROUP BY t1.TAGS.county_name, t1.VALUE, t2.VALUE, t3.VALUE, t4.VALUE, t5.VALUE
-ORDER BY t1.VALUE DESC, t1.TAGS.county_name
+WHERE t1.tags.county_name = t2.tags.county_name AND t1.tags.county_name NOT IN ('Chicago','Suburban Cook')
+  GROUP BY t1.tags.county_name, t1.VALUE, t2.VALUE, t3.VALUE, t4.VALUE, t5.VALUE
+ORDER BY t1.VALUE DESC, t1.tags.county_name
   LIMIT 11
 ````
 
 ````ls
-| Live Births (10000) | County         | 
-|---------------------|----------------| 
-| 92.12               | ILLINOIS TOTAL | 
-| 44.22               | COOK           | 
-| 6.85                | DUPAGE         | 
-| 5.08                | LAKE           | 
-| 3.43                | KANE           | 
-| 3.37                | WILL           | 
-| 1.96                | ST CLAIR       | 
-| 1.94                | WINNEBAGO      | 
-| 1.91                | MCHENRY        | 
-| 1.68                | MADISON        | 
-| 1.35                | PEORIA         | 
+| Live Births (1000) | County         | 
+|--------------------|----------------| 
+| 921                | ILLINOIS TOTAL | 
+| 442                | COOK           | 
+| 69                 | DUPAGE         | 
+| 51                 | LAKE           | 
+| 34                 | KANE           | 
+| 34                 | WILL           | 
+| 20                 | ST CLAIR       | 
+| 19                 | WINNEBAGO      | 
+| 19                 | MCHENRY        | 
+| 17                 | MADISON        | 
+| 13                 | PEORIA         | 
 ````
 
 ##### 1999 - 2003:
 
 ````sql
-SELECT (t1.VALUE + t2.VALUE + t3.VALUE + t4.VALUE + t5.VALUE)/10000 AS 'Live Births (10000)', t1.TAGS.county_name AS 'County'
+SELECT (t1.VALUE + t2.VALUE + t3.VALUE + t4.VALUE + t5.VALUE)/1000 AS 'Live Births (1000)', t1.tags.county_name AS 'County'
   FROM 1999 t1 JOIN 2000 t2 JOIN 2001 t3 JOIN 2002 t4 JOIN 2003 t5
-WHERE t1.TAGS.county_name = t2.TAGS.county_name AND t1.TAGS.county_name NOT IN ('Chicago','Suburban Cook')
-  GROUP BY t1.TAGS.county_name, t1.VALUE, t2.VALUE, t3.VALUE, t4.VALUE, t5.VALUE
-ORDER BY t1.VALUE DESC, t1.TAGS.county_name
+WHERE t1.tags.county_name = t2.tags.county_name AND t1.tags.county_name NOT IN ('Chicago','Suburban Cook')
+  GROUP BY t1.tags.county_name, t1.VALUE, t2.VALUE, t3.VALUE, t4.VALUE, t5.VALUE
+ORDER BY t1.VALUE DESC, t1.tags.county_name
   LIMIT 11
 ````
 
 ````ls
-| Live Births (10000) | County         | 
-|---------------------|----------------| 
-| 91.40               | ILLINOIS TOTAL | 
-| 41.79               | COOK           | 
-| 6.61                | DUPAGE         | 
-| 5.27                | LAKE           | 
-| 4.31                | WILL           | 
-| 4.00                | KANE           | 
-| 2.05                | MCHENRY        | 
-| 1.99                | WINNEBAGO      | 
-| 1.84                | ST CLAIR       | 
-| 1.67                | MADISON        | 
-| 1.31                | PEORIA         | 
+| Live Births (1000) | County         | 
+|--------------------|----------------| 
+| 914                | ILLINOIS TOTAL | 
+| 418                | COOK           | 
+| 66                 | DUPAGE         | 
+| 53                 | LAKE           | 
+| 43                 | WILL           | 
+| 40                 | KANE           | 
+| 21                 | MCHENRY        | 
+| 20                 | WINNEBAGO      | 
+| 18                 | ST CLAIR       | 
+| 17                 | MADISON        | 
+| 13                 | PEORIA         | 
 ````
 
 ##### 2004 - 2008
 
 ````sql
-SELECT (t1.VALUE + t2.VALUE + t3.VALUE + t4.VALUE + t5.VALUE)/10000 AS 'Live Births (10000)', t1.TAGS.county_name AS 'County'
+SELECT (t1.VALUE + t2.VALUE + t3.VALUE + t4.VALUE + t5.VALUE)/1000 AS 'Live Births (1000)', t1.tags.county_name AS 'County'
   FROM 2004 t1 JOIN 2005 t2 JOIN 2006 t3 JOIN 2007 t4 JOIN 2008 t5
-WHERE t1.TAGS.county_name = t2.TAGS.county_name AND t1.TAGS.county_name NOT IN ('Chicago','Suburban Cook')
-  GROUP BY t1.TAGS.county_name, t1.VALUE, t2.VALUE, t3.VALUE, t4.VALUE, t5.VALUE
-ORDER BY t1.VALUE DESC, t1.TAGS.county_name
+WHERE t1.tags.county_name = t2.tags.county_name AND t1.tags.county_name NOT IN ('Chicago','Suburban Cook')
+  GROUP BY t1.tags.county_name, t1.VALUE, t2.VALUE, t3.VALUE, t4.VALUE, t5.VALUE
+ORDER BY t1.VALUE DESC, t1.tags.county_name
   LIMIT 11
 ````
 
 ````ls
-| Live Births (10000) | County         | 
-|---------------------|----------------| 
-| 89.72               | ILLINOIS TOTAL | 
-| 39.19               | COOK           | 
-| 5.98                | DUPAGE         | 
-| 4.94                | LAKE           | 
-| 4.89                | WILL           | 
-| 4.24                | KANE           | 
-| 2.07                | MCHENRY        | 
-| 2.04                | WINNEBAGO      | 
-| 1.89                | ST CLAIR       | 
-| 1.69                | MADISON        | 
-| 1.35                | PEORIA         |  
+| Live Births (1000) | County         | 
+|--------------------|----------------| 
+| 897                | ILLINOIS TOTAL | 
+| 392                | COOK           | 
+| 60                 | DUPAGE         | 
+| 49                 | LAKE           | 
+| 49                 | WILL           | 
+| 42                 | KANE           | 
+| 21                 | MCHENRY        | 
+| 20                 | WINNEBAGO      | 
+| 19                 | ST CLAIR       | 
+| 17                 | MADISON        | 
+| 13                 | PEORIA         | 
 ````
 
 Information can also be collected on a desired county, for the entire period:
@@ -363,7 +363,7 @@ Information can also be collected on a desired county, for the entire period:
 ##### Cook County Live Births (1989 - 2009)
 
 ```sql
-SELECT DATE_FORMAT(TIME, 'yyyy') AS 'Year', TAGS.county_name AS 'County', VALUE/100000 AS 'Live Births (10000)'
+SELECT DATE_FORMAT(TIME, 'yyyy') AS 'Year', tags.county_name AS 'County', VALUE/100000 AS 'Live Births (10000)'
   FROM 'year.9e74-xdvk.value'
 WHERE 'County' = 'COOK'
   GROUP BY 'County', VALUE, 'Year'
@@ -403,7 +403,7 @@ Data points can also be collected using an SQL query.
 Illinois Total Live Births:
 
 ````
-SELECT DATE_FORMAT(TIME, 'yyyy') AS 'Year', TAGS.county_name AS 'County', VALUE/100000 AS 'Live Births (10000)'
+SELECT DATE_FORMAT(TIME, 'yyyy') AS 'Year', tags.county_name AS 'County', VALUE/1000 AS 'Live Births (1000)'
   FROM 'year.9e74-xdvk.value'
 WHERE 'County' = 'ILLINOIS TOTAL'
   GROUP BY 'County', VALUE, 'Year'
@@ -411,29 +411,29 @@ ORDER BY 'Year'
 ````
 
 ````
-| Year | County         | Live Births (10000) | 
-|------|----------------|---------------------| 
-| 1989 | ILLINOIS TOTAL | 1.90                | 
-| 1990 | ILLINOIS TOTAL | 1.95                | 
-| 1991 | ILLINOIS TOTAL | 1.94                | 
-| 1992 | ILLINOIS TOTAL | 1.91                | 
-| 1993 | ILLINOIS TOTAL | 1.91                | 
-| 1994 | ILLINOIS TOTAL | 1.89                | 
-| 1995 | ILLINOIS TOTAL | 1.86                | 
-| 1996 | ILLINOIS TOTAL | 1.83                | 
-| 1997 | ILLINOIS TOTAL | 1.81                | 
-| 1998 | ILLINOIS TOTAL | 1.83                | 
-| 1999 | ILLINOIS TOTAL | 1.82                | 
-| 2000 | ILLINOIS TOTAL | 1.85                | 
-| 2001 | ILLINOIS TOTAL | 1.84                | 
-| 2002 | ILLINOIS TOTAL | 1.81                | 
-| 2003 | ILLINOIS TOTAL | 1.82                | 
-| 2004 | ILLINOIS TOTAL | 1.81                | 
-| 2005 | ILLINOIS TOTAL | 1.79                | 
-| 2006 | ILLINOIS TOTAL | 1.81                | 
-| 2007 | ILLINOIS TOTAL | 1.81                | 
-| 2008 | ILLINOIS TOTAL | 1.77                | 
-| 2009 | ILLINOIS TOTAL | 1.71                | 
+| Year | County         | Live Births (1000) | 
+|------|----------------|--------------------| 
+| 1989 | ILLINOIS TOTAL | 190                | 
+| 1990 | ILLINOIS TOTAL | 195                | 
+| 1991 | ILLINOIS TOTAL | 194                | 
+| 1992 | ILLINOIS TOTAL | 191                | 
+| 1993 | ILLINOIS TOTAL | 191                | 
+| 1994 | ILLINOIS TOTAL | 189                | 
+| 1995 | ILLINOIS TOTAL | 186                | 
+| 1996 | ILLINOIS TOTAL | 183                | 
+| 1997 | ILLINOIS TOTAL | 181                | 
+| 1998 | ILLINOIS TOTAL | 183                | 
+| 1999 | ILLINOIS TOTAL | 182                | 
+| 2000 | ILLINOIS TOTAL | 185                | 
+| 2001 | ILLINOIS TOTAL | 184                | 
+| 2002 | ILLINOIS TOTAL | 181                | 
+| 2003 | ILLINOIS TOTAL | 182                | 
+| 2004 | ILLINOIS TOTAL | 181                | 
+| 2005 | ILLINOIS TOTAL | 179                | 
+| 2006 | ILLINOIS TOTAL | 181                | 
+| 2007 | ILLINOIS TOTAL | 181                | 
+| 2008 | ILLINOIS TOTAL | 177                | 
+| 2009 | ILLINOIS TOTAL | 171                | 
 ````
 
 The data set used for modeling is as follows:
