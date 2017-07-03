@@ -22,12 +22,14 @@ Axibase Time Series Database: Usage Examples and Research Articles
 16. [Climate Change: Back to the Drawing Board](/ClimateChange/README.md)
 17. [Violence Begets Violence: An Analysis of the Baltimore Police Force and Baltimore Homicide Data](/BaltimorePolice/README.md)
 18. [Quantifying Public Health: The American Fitness Index](/FitnessIndex/README.md)
+19. [Modeling Falling Birthrates in the Prairie State](/IllinoisBirthrates/README.md)
 
 
 ## Chart of the Day 
 
 1. [New York City's Most Crowded Industries](/ChartShorts/NY_Jobs/README.md)
 2. [500 Cities: Local Data for Better Health](/ChartShorts/CDC_TOP25/README.md)
+3. [San Francisco Air Traffic Noise Complaints by the Numbers](/ChartShorts/SFO_Complaints/README.md)
 
 ## Data Shorts 
 
