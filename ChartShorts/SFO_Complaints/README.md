@@ -14,10 +14,10 @@ using the dropdown menu at the top of the visualization:
 
 ![](Images/SFO1.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/d8b696da/2/#fullscreen)
+[![](Images/button.png)](https://apps.axibase.com/chartlab/d8b696da/6/#fullscreen)
 
-> Neighborhoods with more than ten complaints in any given month are highlighted in red, while
-those that received one or zero complaints are highlighted in blue.
+> Neighborhoods with more than 48 complaints in any given year are highlighted in red, while
+those that received 24 or less complaints are highlighted in blue.
 
 The visualization below further contracts the data, showing complaints by neighborhood received during each month and year:
 
