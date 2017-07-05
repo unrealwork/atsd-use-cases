@@ -33,4 +33,5 @@ Axibase Time Series Database: Usage Examples and Research Articles
 
 ## Data Shorts 
 
-1. [Querying New York Insurance Asset Versus Liability Data](/DataShorts/NY_Insurance/README.md)
+1. [New York Insurance Asset Versus Liability Data](/DataShorts/NY_Insurance/README.md)
+2. [Connecticut Prison Population Statistics](/DataShorts/CT_Prison/README.md)
