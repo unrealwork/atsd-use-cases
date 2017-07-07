@@ -169,6 +169,49 @@ GROUP BY date_format(time, 'E'), date_format(time, 'u')
 
 Open [ChartLab](www.axibase.com) with the button above and navigate through time using the dropdown menu.
 
+Despite consistent overall call numbers throughout the week, it is interesting to note that the number of fire-related calls
+made to the Hartford Fire Department was the highest on Sundays:
+
+```sql
+SELECT  date_format(time, 'E') AS 'Day of the Week', sum(value) AS 'Fire Calls'
+  FROM fire_calls
+GROUP BY date_format(time, 'E'), date_format(time, 'u')
+  ORDER BY date_format(time, 'u') ASC
+```
+
+```ls
+| Day of the Week | Fire Calls | 
+|-----------------|------------| 
+| Mon             | 591        | 
+| Tue             | 564        | 
+| Wed             | 562        | 
+| Thu             | 546        | 
+| Fri             | 600        | 
+| Sat             | 648        | 
+| Sun             | 696        | 
+```
+
+Additionally, the number of EMS calls was highest on Mondays:
+
+```sql
+SELECT  date_format(time, 'E') AS 'Day of the Week', sum(value)/1000 AS 'EMS Calls (Thousand)'
+  FROM ems_calls
+GROUP BY date_format(time, 'E'), date_format(time, 'u')
+  ORDER BY date_format(time, 'u') ASC
+```
+
+```ls
+| Day of the Week | EMS Calls (Thousand) | 
+|-----------------|----------------------| 
+| Mon             | 18.56                | 
+| Tue             | 15.95                | 
+| Wed             | 16.05                | 
+| Thu             | 15.82                | 
+| Fri             | 16.38                | 
+| Sat             | 15.33                | 
+| Sun             | 14.61                | 
+```
+
 #### EMS Calls by Year
 
 ```sql
