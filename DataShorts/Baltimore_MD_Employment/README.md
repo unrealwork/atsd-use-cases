@@ -239,7 +239,7 @@ WHERE entity = '5w8e-5mc3' and metric LIKE ('job_title.*') AND metric.label != '
 ORDER BY 'Average Total (Thousand)' ASC
   LIMIT 10
 ```
-
+ 
 ```ls
 | Job Field                                        | Average Total (Thousand) | 
 |--------------------------------------------------|--------------------------| 
