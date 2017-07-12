@@ -7,11 +7,11 @@ Connecticut Prison Populations
 
 [ChartLab](https://apps.axibase.com/) from [Axibase](https://axibase.com)
 
-###Total Connecticut Prison Population by Quarter (2009 - 2017)
+### Total Connecticut Prison Population by Quarter (2009 - 2017)
 
-![](../../Data_Library/CT_Prison/Images/CTP2.png)
+![](Images/CTP2.2.png)
 
-[![](../../Data_Library/CT_Prison/Images/button.png)](https://apps.axibase.com/chartlab/bff45f46/8/#fullscreen)
+[![](../../DataShorts/CT_Prison/Images/button.png)](https://apps.axibase.com/chartlab/bff45f46/8/#fullscreen)
 
 ```sql
 SELECT date_format(time, 'yyyy-MM') AS 'Time', sum(value)/1000 AS 'Total Population (1000 Persons)'
@@ -58,11 +58,11 @@ GROUP BY time
 | 2017-03 | 13.87                           | 
 ```
 
-###Average Connecticut Prison Population by Facility (2009 - 2017)
+### Average Connecticut Prison Population by Facility (2009 - 2017)
 
-![](../../Data_Library/CT_Prison/Images/CTP8.png)
+![](Images/CTP8.1.png)
 
-[![](../../Data_Library/CT_Prison/Images/button.png)](https://apps.axibase.com/chartlab/bff45f46/3/#fullscreen)
+[![](../../DataShorts/CT_Prison/Images/button.png)](https://apps.axibase.com/chartlab/bff45f46/3/#fullscreen)
 
 ```sql
 SELECT tags.facility_name AS 'Facility Name', avg(value) AS 'Population'
@@ -98,15 +98,15 @@ GROUP BY 'Facility Name'
 > \* Bergin, Gates, Niantic Annex, and Webster Prisons closed in 2011, 2011, 2016, and 2010
 respectively.
 
-![](../../Data_Library/CT_Prison/Images/CTP1.png)
+![](Images/CTP1.1.png)
 
-[![](../../Data_Library/CT_Prison/Images/button.png)](https://apps.axibase.com/chartlab/bff45f46/9/#fullscreen)
+[![](../../DataShorts/CT_Prison/Images/button.png)](https://apps.axibase.com/chartlab/bff45f46/9/#fullscreen)
 
-###Current Connecticut Prison Population by Facility (2017)
+### Current Connecticut Prison Population by Facility (2017)
 
-![](../../Data_Library/CT_Prison/Images/CTP7.png)
+![](Images/CTP7.1.png)
 
-[![](../../Data_Library/CT_Prison/Images/button.png)](https://apps.axibase.com/chartlab/bff45f46/10/#fullscreen)
+[![](../../DataShorts/CT_Prison/Images/button.png)](https://apps.axibase.com/chartlab/bff45f46/10/#fullscreen)
 
 ```sql
 SELECT tags.facility_name AS 'Facility Name', last(value) AS 'Population'
@@ -139,13 +139,13 @@ GROUP BY 'Facility Name'
 | York               | 1005       | 
 ```
 
-###Average Connecticut Prison Population Density by Facility (2009 - 2017)
+### Average Connecticut Prison Population Density by Facility (2009 - 2017)
 
 > Density is defined as [(Number of Prisonors)/(Number of Beds)]
 
-![](../../Data_Library/CT_Prison/Images/CTP4.png)
+![](Images/CTP4.1.png)
 
-[![](../../Data_Library/CT_Prison/Images/button.png)](https://apps.axibase.com/chartlab/bff45f46/11/#fullscreen)
+[![](../../DataShorts/CT_Prison/Images/button.png)](https://apps.axibase.com/chartlab/bff45f46/11/#fullscreen)
 
 ```sql
 SELECT tags.facility_name AS 'Facility Name', avg(value) AS 'Density'
@@ -177,9 +177,9 @@ ORDER BY 'Density' DESC
 
 > Non-operational prisons have been removed from this query.
 
-![](../../Data_Library/CT_Prison/Images/CTP5.png)
+![](Images/CTP5.1.png)
 
-[![](../../Data_Library/CT_Prison/Images/button.png)](https://apps.axibase.com/chartlab/bff45f46/12/#fullscreen)
+[![](../../DataShorts/CT_Prison/Images/button.png)](https://apps.axibase.com/chartlab/bff45f46/12/#fullscreen)
 
 > The five most densely-populated Connecticut prisons are shown above. 
 
