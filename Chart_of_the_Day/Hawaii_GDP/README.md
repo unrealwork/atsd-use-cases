@@ -23,21 +23,27 @@ Comprising a modest [0.45%](https://fred.stlouisfed.org/series/HINGSP) of the ov
 below average wealth production and high import deficit with percent growth that is significantly higher than the US Average, and
 decline that is significantly lower than the US Average. Compare the numbers below:
 
-| Year | Hawaii Percent Growth | United States Percent Growth | Nominal Difference (Hawaii Growth - US Growth) | Percent Difference (Nominal Difference/US Growth) |
-|------|--------------------------:|---------------------------------:|-------------------:|-----------------------:|
-| 2000 | 5.5% | 4.09% | 1.41% | +34% |
-| 2001 | 2.5% | 0.98% | 1.52% | +155% |
-| 2002 | 5.5% | 1.70% | 3.80% | +224% |
-| 2003 | 7.1% | 2.81% | 4.29% | +153% |
-| 2004 | 8.9% | 3.79% | 5.11% | +135% |
-| 2005 | 9.0% | 3.35% | 5.65% | +169% |
-| 2006 | 7.6% | 2.67% | 4.99% | +185% |
-| 2007 | 4.9% | 1.78% | 3.12% | +175% |
-| 2008 | 3.0% | -0.29% | 3.29% | +1134% |
-| 2009 | -1.0% | -2.78% | 1.78% | +64% |
-| 2010 | 2.0% | 2.53% | -0.53% | -27% |
+| Year | Hawaii Percent Growth | United States Percent Growth | Nominal Difference (Hawaii Growth - US Growth) |
+|------|--------------------------:|---------------------------------:|-------------------:|
+| 2000 | 5.5% | 4.09% | 1.41% |
+| 2001 | 2.5% | 0.98% | 1.52% |
+| 2002 | 5.5% | 1.70% | 3.80% |
+| 2003 | 7.1% | 2.81% | 4.29% |
+| 2004 | 8.9% | 3.79% | 5.11% |
+| 2005 | 9.0% | 3.35% | 5.65% |
+| 2006 | 7.6% | 2.67% | 4.99% |
+| 2007 | 4.9% | 1.78% | 3.12% |
+| 2008 | 3.0% | -0.29% | 3.29% |
+| 2009 | -1.0% | -2.78% | 1.78% |
+| 2010 | 2.0% | 2.53% | -0.53% |
 
 > Source for US GDP Data: [The World Bank](http://data.worldbank.org/indicator/NY.GDP.MKTP.KD.ZG).
+
+Measuring this growth over the entire 11-year period to compare effective annual growth, Hawaii averaged a total of 4.96% per year
+effective growth compared to the United States' effective growth rate of just 1.86% per year. This metric averages the growth of each
+entity over the observed time period to show the annual growth rate if it were to remain constant. Effective growth (or interest)
+rate is often used to judge investments with a compounding interest rate, however it can be adopted to these purposes to
+accurately provide average performance benchmarks for Hawaii and the United States.
 
 Even during the worst year of the eponymous Great Recession, the state of Hawaii actually continued
 to see growth locally, and it was not until the final observed year that the United States
