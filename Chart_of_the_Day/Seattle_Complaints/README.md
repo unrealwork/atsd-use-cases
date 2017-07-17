@@ -1,4 +1,4 @@
-What Do Seattlites Have to Complain About?
+What Do Seattelites Have to Complain About?
 ===
 
 ![](Images/SEA_COM1.png)
