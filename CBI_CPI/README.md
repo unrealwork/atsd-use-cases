@@ -22,6 +22,18 @@ liquid currency's decreasing intrinsic value over time can be observed and with 
 these changes can be tracked and interpreted to learn why simply holding your nest egg in
 a savings account is quickly becoming the modern-day equivelent of the shoebox of cash hidden underneath your bed.
 
+The [Axibase Time Series Database](https://axibase.com) is also developed for integration with a number of industry standard advanced analytics
+tools, if it is preferable to perform calculations in an interface that is already familiar to you, follow the integration
+examples in the documentation below to extract a series from ATSD, perform calculations in the interface of your choice, and
+then submit the new, derived series back in to ATSD:
+
+* [Alteryx Designer](https://github.com/axibase/atsd/blob/master/integration/alteryx/README.md#alteryx-designer)
+* [IBM SPSS Modeler](https://github.com/axibase/atsd/blob/master/integration/spss/modeler/README.md#ibm-spss-modeler)
+* [IBM SPSS Statistics](https://github.com/axibase/atsd/blob/master/integration/spss/statistics/README.md)
+* [Pentaho Data Integration](https://github.com/axibase/atsd/blob/master/integration/pentaho/data-integration/README.md)
+* [Pentaho Report Designer](https://github.com/axibase/atsd/blob/master/integration/pentaho/report-designer/README.md)
+* [MatLab](https://github.com/axibase/atsd/blob/master/integration/matlab/README.md)
+
 #### Data
 
 The following visualization will be the primary subject of analysis, it tracks the overall price levels compared to 2017
