@@ -182,5 +182,5 @@ The calculated loss in Real Yield shows that over a quarter century, cash held w
 interest, which is typical of a normal depository bank's saving options, managed to see real returns one of the four observed
 years, but otherwise suffered a similar fate to the money held as cash. Examples like this highlight the need for consumers
 to diversify their holdings, whether that be through investing in something like an index fund to see slow growth over a long
-period of time, or something higher risk like Future Securities, simply holding onto to the money you have is no longer enough
+period of time, or something higher risk like futures contracts, simply holding on to the money you have is no longer enough
 to save it.
