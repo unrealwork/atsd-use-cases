@@ -25,6 +25,7 @@ Axibase Time Series Database: Usage Examples and Research Articles
 19. [Modeling Falling Birthrates in the Prairie State](/IllinoisBirthrates/README.md)
 20. [How to Predict a Fire in Hartford](CT_Fire/README.md)
 21. [Riding the L Train in 2025](L_Train2025/README.md)
+22. [The Consumer Price Index Verus Your Savings Account (Bank of Israel)](/CBI_CPI/README.md)
 
 ## Chart of the Day 
 
@@ -39,3 +40,5 @@ Axibase Time Series Database: Usage Examples and Research Articles
 1. [New York Insurance Asset Versus Liability Data (2014-2015)](/DataShorts/NY_Insurance/README.md)
 2. [Connecticut Prison Population Statistics (2009-2017)](/DataShorts/CT_Prison/README.md)
 3. [Projected Baltimore Employment Figures (2001-2040)](/DataShorts/Baltimore_MD_Employment/README.md)
+4. [Asset Distribution of the Public's Asset Portfolio (Bank of Israel)(1998-2017)](/DataShorts/CBI/Asset_Distribution/README.md)
+5. [Bank of Israel Debt (1997-2016)](DataShorts/CBI/Debt/README.md)
