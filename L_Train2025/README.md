@@ -1,7 +1,7 @@
 Taking the Chicago 'L' Train in 2025
 ===
 
-![](Images/LT1.jpg)
+![](Images/LT8.jpg)
 
 #### Introduction
 
