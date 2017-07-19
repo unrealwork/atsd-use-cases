@@ -6,8 +6,9 @@ The Cleanest Water in Washington State
 
 [![](Images/button.png)](https://apps.axibase.com/chartlab/89c8183d/2/#fullscreen)
 
-> Use the dropdown menu to examine the Top 10 or Bottom 10 testing locations, or use the Wildcard ([`*`](https://axibase.com/products/axibase-time-series-database/visualization/widgets/configuring-the-widgets/))
-option to view all testing sites together. 
+> Use the dropdown menu to examine the Top 10 or Bottom 10 testing stations, or use the Wildcard ([`*`](https://axibase.com/products/axibase-time-series-database/visualization/widgets/configuring-the-widgets/))
+option to view all available testing sites together. 
+
 
 **Figure 1.1** above shows the ranking of the results of the latest Water Quality Index tests performed by the State of Washington.
 Washington State is known for its scenic mountain ranges, diverse climate, and crystal clear water and has 
@@ -19,18 +20,20 @@ a number of metrics for the 2015 Water Quality tests performed by the [Departmen
 | Metric Abbreviation | Abbreviation Meaning | Metric Weight |
 |---------------------|----------------------|---------------|
 | overallwqi_2015 | **Overall Water Quality Index (WQI) Score** | 1.00 |
-| wqifc | **Fecal Coliform** count (mg FC / L H2O) | 0.16 |
-| wqioxy | **Dissolved O2** (mg/L), ideally between 1-15 mg/L| 0.17 | 
-| wqiph | **Probability of Hydrogen (pH)**, ascending scale, 1-14 | 0.11 |
-| wqitemp | **Temperature Score** for regularity |  0.10 |
-| wqitp | **Total Phosphate** (mg/L), essential compound for growth of plant and animal life in freshwater | 0.10 |
-| wqitpn | **Total Persulfate Nitrogen** (mg/L), contributes to animal and plant growth. | 0.10 |
-| wqitss | **Total Suspended Solids** (mg/L) | 0.07 |
-| wqiturb | **Turbidity**, a measurement which records the cloudiness of haziness of water in Nephelometric Turbidity Units (NTU) | 0.08 |
+| wqifc | **Fecal Coliform** count (mg FC / L H2O) | .176 |
+| wqioxy | **Dissolved O2** (mg/L), ideally between 1-15 mg/L| 0.187 | 
+| wqiph | **Probability of Hydrogen (pH)**, ascending scale, 1-14 | 0.121 |
+| wqitemp | **Temperature Score** for regularity |  0.11 |
+| wqitp | **Total Phosphate** (mg/L), essential compound for growth of plant and animal life in freshwater | 0.11 |
+| wqitpn | **Total Persulfate Nitrogen** (mg/L), contributes to animal and plant growth. | 0.11 |
+| wqitss | **Total Suspended Solids** (mg/L) | 0.08 |
+| wqiturb | **Turbidity**, a measurement which records the cloudiness of haziness of water in Nephelometric Turbidity Units (NTU) | 0.09 |
 
 These metrics all have individual weights applied based on their importance in the overall make-up of a body of water's health,
 and have been converted to a 0-100 ascending scale. Such a scale can be ambiguous to the amateur viewer, and so 
-conversions to qualitative words has also been provided below.
+conversions to qualitative words have also been provided below:
+
+**Table 1.2**
 
 | Range | Quality |
 |-------|---------|
@@ -42,9 +45,10 @@ conversions to qualitative words has also been provided below.
 
 >More information about the Water Quality Index, its methodology, or metrics, can be found [here](https://www.water-research.net/)
 
-Use the ChartLab visualization below, and the dropdown menus at the top of the screen to choose the desired metric, and compare
-the Top 10, Top 20, or Top 30, Bottom 10, Bottom 20, or Bottom 30 testing sites, or use the Wildcard option to view all testing
-sites together.
+Use the [ChartLab](https://apps.axibase.com) visualization below, and the dropdown menus at the top of the screen to choose the desired metric, and compare
+the Top 10, Top 20, or Top 30, Bottom 10, Bottom 20, or Bottom 30 testing sites, or use the Wildcard option to view all 
+available testing sites together.
+
 
 **Figure 2.1**
 ![](Images/WQI_2.0.png)
@@ -53,7 +57,9 @@ sites together.
 
 The map below shows the Top 10 Overall Best WQI site locations noted in blue, and the Bottom 10 Overall Worst WQI site locations
 noted in red. The Station ID for each site is contained in the metadata, and can be summoned with the following SQL
-query in the [Axibase SQL Console](https://github.com/axibase/atsd/tree/master/api/sql#overview):
+query in the [Axibase SQL Console](https://github.com/axibase/atsd/tree/master/api/sql#overview) and then cross-referenced
+to the Deparment of Ecology's own map (linked [here](https://fortress.wa.gov/ecy/eap/riverwq/regions/state_ContTemp.asp)):
+
 
 ```sql
 SELECT tags.station_name AS 'Station Name', value AS 'WQI Overall Score', tags.station AS 'Station Code'
@@ -62,7 +68,8 @@ ORDER BY value DESC
   LIMIT 10
 ```
 
-**Table 2.1**
+**Table 2.1**: Highest Water Quality Test Sites
+
 ```ls
 | Station Name                        | WQI Overall Score | Station Code | 
 |-------------------------------------|-------------------|--------------| 
@@ -85,7 +92,8 @@ ORDER BY value ASC
   LIMIT 10
 ```
 
-**Table 2.2**
+**Table 2.2**: Lowest Water Quality Test Sites
+
 ```ls
 | Station Name                     | WQI Overall Score | Station Code | 
 |----------------------------------|-------------------|--------------| 
@@ -105,4 +113,5 @@ ORDER BY value ASC
 
 ![](Images/WQI_Map.png)
 
-Find your favorite swimming location in the data above, or discover a new one and enjoy all that Washington has to offer.
+Find your favorite waterway in the data above, or discover a new one and enjoy all the natural beauty
+that Washington has to offer.
