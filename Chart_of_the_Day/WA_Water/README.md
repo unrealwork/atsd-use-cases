@@ -9,6 +9,7 @@ The Cleanest Water in Washington State
 > Use the dropdown menu to examine the Top 10 or Bottom 10 testing stations, or use the Wildcard ([`*`](https://axibase.com/products/axibase-time-series-database/visualization/widgets/configuring-the-widgets/))
 option to view all available testing sites together. 
 
+
 **Figure 1.1** above shows the ranking of the results of the latest Water Quality Index tests performed by the State of Washington.
 Washington State is known for its scenic mountain ranges, diverse climate, and crystal clear water and has 
 published the [following dataset](https://catalog.data.gov/dataset/annual-2015-water-quality-index-data), which tracks
@@ -48,6 +49,7 @@ Use the [ChartLab](https://apps.axibase.com) visualization below, and the dropdo
 the Top 10, Top 20, or Top 30, Bottom 10, Bottom 20, or Bottom 30 testing sites, or use the Wildcard option to view all 
 available testing sites together.
 
+
 **Figure 2.1**
 ![](Images/WQI_2.0.png)
 
@@ -58,6 +60,7 @@ noted in red. The Station ID for each site is contained in the metadata, and can
 query in the [Axibase SQL Console](https://github.com/axibase/atsd/tree/master/api/sql#overview) and then cross-referenced
 to the Deparment of Ecology's own map (linked [here](https://fortress.wa.gov/ecy/eap/riverwq/regions/state_ContTemp.asp)):
 
+
 ```sql
 SELECT tags.station_name AS 'Station Name', value AS 'WQI Overall Score', tags.station AS 'Station Code'
   FROM 'overallwqi_2015'
@@ -66,6 +69,7 @@ ORDER BY value DESC
 ```
 
 **Table 2.1**: Highest Water Quality Test Sites
+
 ```ls
 | Station Name                        | WQI Overall Score | Station Code | 
 |-------------------------------------|-------------------|--------------| 
@@ -89,6 +93,7 @@ ORDER BY value ASC
 ```
 
 **Table 2.2**: Lowest Water Quality Test Sites
+
 ```ls
 | Station Name                     | WQI Overall Score | Station Code | 
 |----------------------------------|-------------------|--------------| 
