@@ -43,3 +43,4 @@ Axibase Time Series Database: Usage Examples and Research Articles
 3. [Projected Baltimore Employment Figures (2001-2040)](/DataShorts/Baltimore_MD_Employment/README.md)
 4. [Asset Distribution of the Public's Asset Portfolio (Bank of Israel)(1998-2017)](/DataShorts/CBI/Asset_Distribution/README.md)
 5. [Bank of Israel Debt (1997-2016)](DataShorts/CBI/Debt/README.md)
+6. [Tax Rate by State](/DataShorts/Taxes_By_State)
