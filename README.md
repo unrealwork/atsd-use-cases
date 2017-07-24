@@ -26,6 +26,7 @@ Axibase Time Series Database: Usage Examples and Research Articles
 20. [How to Predict a Fire in Hartford](CT_Fire/README.md)
 21. [Riding the L Train in 2025](L_Train2025/README.md)
 22. [The Consumer Price Index Verus Your Savings Account (Bank of Israel)](/CBI_CPI/README.md)
+23. [Does the Bag Tax Work?](/Bag_Tax/README.md)
 
 ## Chart of the Day 
 
@@ -44,3 +45,7 @@ Axibase Time Series Database: Usage Examples and Research Articles
 4. [Asset Distribution of the Public's Asset Portfolio (Bank of Israel)(1998-2017)](/DataShorts/CBI/Asset_Distribution/README.md)
 5. [Bank of Israel Debt (1997-2016)](DataShorts/CBI/Debt/README.md)
 6. [Tax Rate by State](/DataShorts/Taxes_By_State)
+
+## Support
+
+1. [Calculated Values With Schema-Based Parsing](/Support/Schema-Parser-Mod-Pre-Import)
