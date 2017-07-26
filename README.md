@@ -36,15 +36,16 @@ Axibase Time Series Database: Usage Examples and Research Articles
 4. [Island Living is Recession Proof](/Chart_of_the_Day/Hawaii_GDP/README.md)
 5. [What Do Seattlelites Have to Complain About?](/Chart_of_the_Day/Seattle_Complaints/README.md)
 6. [The Cleanest Water in Washington State](/Chart_of_the_Day/WA_Water)
+7. [Who is Dropping Out in the State with the Fewest Dropouts?](/Chart_of_the_Day/IA_Dropouts)
 
 ## Data Library
 
 1. [New York Insurance Asset Versus Liability Data (2014-2015)](/DataShorts/NY_Insurance/README.md)
 2. [Connecticut Prison Population Statistics (2009-2017)](/DataShorts/CT_Prison/README.md)
 3. [Projected Baltimore Employment Figures (2001-2040)](/DataShorts/Baltimore_MD_Employment/README.md)
-4. [Asset Distribution of the Public's Asset Portfolio (Bank of Israel)(1998-2017)](/DataShorts/CBI/Asset_Distribution/README.md)
+4. [Asset Distribution of the Public's Asset Portfolio - Bank of Israel (1998-2017)](/DataShorts/CBI/Asset_Distribution/README.md)
 5. [Bank of Israel Debt (1997-2016)](DataShorts/CBI/Debt/README.md)
-6. [Tax Rate by State](/DataShorts/Taxes_By_State)
+6. [Tax Rate by State (2017)](/DataShorts/Taxes_By_State)
 
 ## Support
 
