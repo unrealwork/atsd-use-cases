@@ -7,6 +7,10 @@ European Union Debt by Country (1995-2016)
 
 > **Structured Query Language**: [SQL Console](https://github.com/axibase/atsd/tree/master/api/sql) in the [Axibase Timeseries Database](https://axibase.com)
 
+## Status
+
+<span style='color: red'>**We're investigating the discrepancies between the Eurostat data and the graphical presentations here. We'll update the graphics as soon as the issues is resolved.**</span>
+
 ## Debt Total
 
 **Figure 1.1**
