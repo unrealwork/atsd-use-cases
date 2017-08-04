@@ -2,7 +2,7 @@
 
 Axibase Time Series Database: Usage Examples and Research Articles
   
-## Research Articles
+## Research Articles 
 
 1. [Pain at the Pump - a Closer Look at Hawaii's High Fuel Prices](HawaiiGasPrices/hawaii_gas_prices.md)
 2. [Data Visualization with Chart Lab](ChartLabIntro/README.md)
@@ -49,6 +49,7 @@ Axibase Time Series Database: Usage Examples and Research Articles
 5. [Bank of Israel Debt (1997-2016)](DataShorts/CBI/Debt/README.md)
 6. [Tax Rate by State (2017)](DataShorts/Taxes_By_State/README.md)
 7. [New York City Income by Adjusted Gross Income (AGI) Range (2014)](DataShorts/NY_Pay/README.md)
+8. [European Union Debt by Country (1995-2016)](DataShorts/EU_Debt/README.md)
 
 ## Support
 
