@@ -7,10 +7,6 @@ European Union Debt by Country (1995-2016)
 
 > **Structured Query Language**: [SQL Console](https://github.com/axibase/atsd/tree/master/api/sql) in the [Axibase Timeseries Database](https://axibase.com)
 
-## Status
-
-<span style='color: red'>**We're investigating the discrepancies between the Eurostat data and the graphical presentations here. We'll update the graphics as soon as the issue is resolved.**</span>
-
 ## Debt Total
 
 **Figure 1.1**
@@ -308,7 +304,6 @@ SELECT date_format(time, 'yyyy') AS 'Year', value AS 'Debt as Percent of GDP'
 | 2013 | 106.00                 | 
 | 2014 | 105.90                 | 
 | 2015 | 105.70                 | 
-
 ```
 
 Return to the **[index](#data)**
@@ -1085,27 +1080,18 @@ SELECT date_format(time, 'yyyy') AS 'Year', value/10000 AS 'Debt (Billion Euro)'
 ```ls
 | Year | Debt (Billion Euro) | 
 |------|---------------------| 
-| 1995 | 238.20              | 
-| 1996 | 304.67              | 
-| 1997 | 393.54              | 
-| 1998 | 466.99              | 
-| 1999 | 570.79              | 
-| 2000 | 746.49              | 
-| 2001 | 884.05              | 
-| 2002 | 983.64              | 
-| 2003 | 1289.40             | 
-| 2004 | 1482.85             | 
-| 2005 | 1780.23             | 
-| 2006 | 2022.32             | 
-| 2007 | 2406.46             | 
-| 2008 | 2854.74             | 
-| 2009 | 3075.68             | 
-| 2010 | 3129.19             | 
-| 2011 | 3236.93             | 
-| 2012 | 2924.80             | 
-| 2013 | 2875.53             | 
-| 2014 | 2960.70             | 
-| 2015 | 2878.66             | 
+| 2004 | 53.72               | 
+| 2005 | 62.00               | 
+| 2006 | 66.04               | 
+| 2007 | 72.63               | 
+| 2008 | 75.70               | 
+| 2009 | 78.42               | 
+| 2010 | 72.22               | 
+| 2011 | 76.68               | 
+| 2012 | 77.68               | 
+| 2013 | 77.68               | 
+| 2014 | 80.39               | 
+| 2015 | 83.66               | 
 ```
 
 #### Debt as Percent of GDP
@@ -1426,6 +1412,7 @@ SELECT date_format(time, 'yyyy') AS 'Year', value AS 'Debt as Percent of GDP'
 | 2014 | 54.00                  | 
 | 2015 | 55.00                  | 
 ```
+
 Return to the **[index](#data)**
 
 ### Luxembourg
