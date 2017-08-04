@@ -1,7 +1,7 @@
 European Union Debt by Country (1995-2016)
 ==
 
-> **Data Source**: [Eurostat](http://ec.europa.eu/eurostat)
+> **Data Source**: [Eurostat](http://ec.europa.eu/eurostat/tgm/table.do?tab=table&init=1&language=en&pcode=teina225&plugin=1)
 
 > **Visualization**: [ChartLab](https://apps.axibase.com) from [Axibase](https://axibase.com)
 
@@ -30,7 +30,6 @@ total. Use both charts to compare two countries, one country to the EU total, or
 the European Union debt as a percent of GDP, used as a baseline for reference.
 
 ## Debt as a Portion of the European Union Total
-
 
 **Figure 3.1**
 
@@ -293,18 +292,19 @@ SELECT date_format(time, 'yyyy') AS 'Year', value AS 'Debt as Percent of GDP'
 | 2001 | 113.30                 | 
 | 2002 | 112.40                 | 
 | 2003 | 117.40                 | 
-| 2004 | 120.90                 | 
-| 2005 | 120.60                 | 
-| 2006 | 122.40                 | 
-| 2007 | 134.20                 | 
-| 2008 | 162.40                 | 
-| 2009 | 165.70                 | 
-| 2010 | 162.60                 | 
-| 2011 | 174.80                 | 
-| 2012 | 186.50                 | 
-| 2013 | 162.50                 | 
-| 2014 | 170.60                 | 
-| 2015 | 178.90                 | 
+| 2004 | 91.00                  | 
+| 2005 | 87.00                  | 
+| 2006 | 92.50                  | 
+| 2007 | 99.50                  | 
+| 2008 | 99.70                  | 
+| 2009 | 102.60                 | 
+| 2010 | 104.30                 | 
+| 2011 | 105.60                 | 
+| 2012 | 106.70                 | 
+| 2013 | 106.00                 | 
+| 2014 | 105.90                 | 
+| 2015 | 105.70                 | 
+
 ```
 
 Return to the **[index](#data)**
@@ -1422,8 +1422,7 @@ SELECT date_format(time, 'yyyy') AS 'Year', value AS 'Debt as Percent of GDP'
 | 2014 | 54.00                  | 
 | 2015 | 55.00                  | 
 ```
-
-Return to the **[index](#Data)**
+Return to the **[index](#data)**
 
 ### Luxembourg
 
@@ -1487,7 +1486,7 @@ SELECT date_format(time, 'yyyy') AS 'Year', value AS 'Debt as Percent of GDP'
 | 2015 | 335.80                 | 
 ```
 
-Return to the **[index](#Data)**
+Return to the **[index](#data)**
 
 ### Malta
 
@@ -1547,7 +1546,7 @@ SELECT date_format(time, 'yyyy') AS 'Year', value AS 'Debt as Percent of GDP'
 | 2015 | 131.80                 | 
 ```
 
-Return to the **[index](#Data)**
+Return to the **[index](#data)**
 
 ### Netherlands
 
@@ -2174,7 +2173,7 @@ SELECT date_format(time, 'yyyy') AS 'Year', value/10000 AS 'Debt (Billion Euro)'
 | 2014 | 291.58              | 
 | 2015 | 295.27              | 
 ```
- 
+
 #### Debt as Percent of GDP
 
 **Script 29.2**
