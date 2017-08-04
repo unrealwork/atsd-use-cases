@@ -9,7 +9,7 @@ European Union Debt by Country (1995-2016)
 
 ## Status
 
-<span style='color: red'>**We're investigating the discrepancies between the Eurostat data and the graphical presentations here. We'll update the graphics as soon as the issues is resolved.**</span>
+<span style='color: red'>**We're investigating the discrepancies between the Eurostat data and the graphical presentations here. We'll update the graphics as soon as the issue is resolved.**</span>
 
 ## Debt Total
 
