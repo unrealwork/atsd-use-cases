@@ -35,7 +35,7 @@ the European Union debt as a percent of GDP, used as a baseline for reference.
 
 ![](Images/eud-04.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/64b4fd84/9/#fullscreen)
+[![](Images/button.png)](https://apps.axibase.com/chartlab/64b4fd84/13/#fullscreen)
 
 > Open the ChartLab visualization above and use the dropdown menu to navigate through time. 
 
