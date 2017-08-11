@@ -47,7 +47,7 @@ contributed to the currently favorable exchange rate enjoyed by the dollar.
 ```sql
 SELECT date_format(time, 'yyyy') AS 'Date', AVG(value) AS 'Average Value'
   FROM dexuseu
-GROUP BY date_format(time, 'yyyy')
+GROUP BY PERIOD(1 YEAR)
 ```
 
 **Table 1.1**
@@ -85,7 +85,7 @@ to an all-time low for the observed time period.
 ```sql
 SELECT date_format(time, 'yyyy') AS 'Date', AVG(value) AS 'Average Value'
   FROM dexszus
-GROUP BY date_format(time, 'yyyy')
+GROUP BY PERIOD(1 YEAR)
 ```
 
 **Table 1.2**
@@ -121,7 +121,7 @@ late June of 2016, which aligns perfectly with the Pound's slight depreciation i
 ```sql
 SELECT date_format(time, 'yyyy') AS 'Date', AVG(value) AS 'Average Value'
   FROM dexusuk
-GROUP BY date_format(time, 'yyyy')
+GROUP BY PERIOD(1 YEAR)
 ```
 
 **Table 1.3**
@@ -163,7 +163,7 @@ much higher rate.
 ```sql
 SELECT date_format(time, 'yyyy') AS 'Date', AVG(value) AS 'Average Value'
   FROM dexjpus
-GROUP BY date_format(time, 'yyyy')
+GROUP BY PERIOD(1 YEAR)
 ```
 
 **Table 2.1**
@@ -201,7 +201,7 @@ their own currency by maintaining positions in international currencies.
 ```sql
 SELECT date_format(time, 'yyyy') AS 'Date', AVG(value) AS 'Average Value'
   FROM dexchus
-GROUP BY date_format(time, 'yyyy')
+GROUP BY PERIOD(1 YEAR)
 ```
 
 **Table 2.2**
@@ -237,7 +237,7 @@ value is planned. The "Miracle of the Orient" continues to be one of the most do
 ```sql
 SELECT date_format(time, 'yyyy') AS 'Date', AVG(value) AS 'Average Value'
   FROM dexhkus
-GROUP BY date_format(time, 'yyyy')
+GROUP BY PERIOD(1 YEAR)
 ```
 
 **Table 2.3**
@@ -275,7 +275,7 @@ does not regulate their currency's value by adjusting interest rates, as is comm
 ```sql
 SELECT date_format(time, 'yyyy') AS 'Date', AVG(value) AS 'Average Value'
   FROM dexsius
-GROUP BY date_format(time, 'yyyy')
+GROUP BY PERIOD(1 YEAR)
 ```
 
 **Table 2.4**
@@ -314,7 +314,7 @@ economy is one of the few globally-active nations with a significant trade surpl
 ```sql
 SELECT date_format(time, 'yyyy') AS 'Date', AVG(value) AS 'Average Value'
   FROM dexcaus
-GROUP BY date_format(time, 'yyyy')
+GROUP BY PERIOD(1 YEAR)
 ```
 
 **Table 3.1**
@@ -354,7 +354,7 @@ on U.S. soil.
 ```sql
 SELECT date_format(time, 'yyyy') AS 'Date', AVG(value) AS 'Average Value'
   FROM dexmxus
-GROUP BY date_format(time, 'yyyy')
+GROUP BY PERIOD(1 YEAR)
 ```
 
 **Table 3.2**
