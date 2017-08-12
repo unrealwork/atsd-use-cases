@@ -14,7 +14,7 @@ Tax Rates by State: Corporate, Individual, Sales (2017)
 [![](Images/button.png)](https://apps.axibase.com/chartlab/d7c5125c/2/#fullscreen)
 
 ```sql
-SELECT tags.state AS 'State', value AS 'Individual Income Tax Rate (%)'
+SELECT tags.state AS "State", value AS "Individual Income Tax Rate (%)"
   FROM  state_individual_income_taxrate 
 GROUP BY 'State', value
   ORDER BY value desc
@@ -86,7 +86,7 @@ GROUP BY 'State', value
 [![](Images/button.png)](https://apps.axibase.com/chartlab/d7c5125c/3/#fullscreen)
 
 ```sql
-SELECT tags.state AS 'State', value AS 'Corporate Income Tax Rate (%)'
+SELECT tags.state AS "State", value AS "Corporate Income Tax Rate (%)"
   FROM  state_corporate_income_taxrate
 GROUP BY 'State', value
   ORDER BY value desc
@@ -159,7 +159,7 @@ GROUP BY 'State', value
 [![](Images/button.png)](https://apps.axibase.com/chartlab/d7c5125c/4/#fullscreen)
 
 ```sql
-SELECT tags.state AS 'State', value AS 'Sales Tax Rate (%)'
+SELECT tags.state AS "State", value AS "Sales Tax Rate (%)"
   FROM  state_sales_taxrate
 GROUP BY 'State', value
   ORDER BY value desc
@@ -233,7 +233,7 @@ GROUP BY 'State', value
 [![](Images/button.png)](https://apps.axibase.com/chartlab/d7c5125c/5/#fullscreen)
 
 ```sql
-SELECT tags.state AS 'State', value AS 'Total Tax Rate (%)'
+SELECT tags.state AS "State", value AS "Total Tax Rate (%)"
   FROM 	state_local_tax_revenue_perc_income
 GROUP BY 'State', value
   ORDER BY value desc

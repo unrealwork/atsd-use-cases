@@ -15,10 +15,10 @@ The Norway's central statistical agency, [SSB](https://www.ssb.no/statistikkbank
 ### Total Registered Vehicles
 
 ```sql
-SELECT date_format(time, 'yyyy') as 'Year',
-  sum(value) AS 'Vehicles',
-  sum(value) - LAG(sum(value)) AS 'Change',
-  ROUND(100*(sum(value) - LAG(sum(value)))/LAG(sum(value)), 1) AS 'Change, %'
+SELECT date_format(time, 'yyyy') AS "Year",
+  sum(value) AS "Vehicles",
+  sum(value) - LAG(sum(value)) AS "Change",
+  ROUND(100*(sum(value) - LAG(sum(value)))/LAG(sum(value)), 1) AS "Change, %"
 FROM nor.registered_vehicles
   WHERE tags.vehicle_type = 'Total'
   GROUP BY time
@@ -43,10 +43,10 @@ FROM nor.registered_vehicles
 ### Registered Electric Vehicles
 
 ```sql
-SELECT date_format(time, 'yyyy') as 'Year',
-  value AS 'Electric Vehicles',
-  value - LAG(value) AS 'Change',
-  ROUND(100*(value - LAG(value))/LAG(value), 1) AS 'Change, %'
+SELECT date_format(time, 'yyyy') AS "Year",
+  value AS "Electric Vehicles",
+  value - LAG(value) AS "Change",
+  ROUND(100*(value - LAG(value))/LAG(value), 1) AS "Change, %"
 FROM nor.registered_vehicles
   WHERE tags.fuel_type = 'Electricity'
   -- tags.fuel_type = 'Diesel'

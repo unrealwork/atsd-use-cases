@@ -85,7 +85,7 @@ Using additional [EuroStat population data](http://ec.europa.eu/eurostat/web/pop
 **Query 1.1**
 
 ```
-SELECT date_format(time, 'yyyy') AS 'Year', value/1000000 AS 'Gross Debt (Trillion Euro)'
+SELECT date_format(time, 'yyyy') AS "Year", value/1000000 AS "Gross Debt (Trillion Euro)"
   FROM government_consolidated_gross_debt WHERE tags.geo = 'European Union (28 countries)'
 ```
 
@@ -113,8 +113,8 @@ SELECT date_format(time, 'yyyy') AS 'Year', value/1000000 AS 'Gross Debt (Trilli
 **Query 1.2**
 
 ```sql
-SELECT date_format(time, 'yyyy') AS 'Year', value AS 'Debt Percent of GDP'
-  FROM '%eutotal' WHERE entity = 'eu-debt-data-2'
+SELECT date_format(time, 'yyyy') AS "Year", value AS "Debt Percent of GDP"
+  FROM "%eutotal" WHERE entity = 'eu-debt-data-2'
 ```
 
 **Table 1.2**
@@ -144,7 +144,7 @@ Return to the **[index](#data)**
 **Query 2.1**
 
 ```sql
-SELECT date_format(time, 'yyyy') AS 'Year', value/1000000 AS 'Gross Debt (Trillion Euro)'
+SELECT date_format(time, 'yyyy') AS "Year", value/1000000 AS "Gross Debt (Trillion Euro)"
   FROM government_consolidated_gross_debt WHERE tags.geo = 'Austria'
 ```
 
@@ -172,8 +172,8 @@ SELECT date_format(time, 'yyyy') AS 'Year', value/1000000 AS 'Gross Debt (Trilli
 **Query 2.2**
 
 ```sql
-SELECT date_format(time, 'yyyy') AS 'Year', value AS 'Debt Percent of GDP'
-  FROM '%austria' WHERE entity = 'eu-debt-data-2'
+SELECT date_format(time, 'yyyy') AS "Year", value AS "Debt Percent of GDP"
+  FROM "%austria" WHERE entity = 'eu-debt-data-2'
 ```
 
 **Table 2.2**
@@ -204,7 +204,7 @@ Return to the **[index](#data)**
 **Query 3.1**
 
 ```sql
-SELECT date_format(time, 'yyyy') AS 'Year', value/1000000 AS 'Gross Debt (Trillion Euro)'
+SELECT date_format(time, 'yyyy') AS "Year", value/1000000 AS "Gross Debt (Trillion Euro)"
   FROM government_consolidated_gross_debt WHERE tags.geo = 'Belgium'
 ```
 
@@ -232,8 +232,8 @@ SELECT date_format(time, 'yyyy') AS 'Year', value/1000000 AS 'Gross Debt (Trilli
 **Query 3.2**
 
 ```sql
-SELECT date_format(time, 'yyyy') AS 'Year', value AS 'Debt Percent of GDP'
-  FROM '%belgium' WHERE entity = 'eu-debt-data-2'
+SELECT date_format(time, 'yyyy') AS "Year", value AS "Debt Percent of GDP"
+  FROM "%belgium" WHERE entity = 'eu-debt-data-2'
 ```
 
 **Table 3.2**
@@ -264,7 +264,7 @@ Return to the **[index](#data)**
 **Query 4.1**
 
 ```sql
-SELECT date_format(time, 'yyyy') AS 'Year', value/1000000 AS 'Gross Debt (Trillion Euro)'
+SELECT date_format(time, 'yyyy') AS "Year", value/1000000 AS "Gross Debt (Trillion Euro)"
   FROM government_consolidated_gross_debt WHERE tags.geo = 'Bulgaria'
 ```
 
@@ -292,8 +292,8 @@ SELECT date_format(time, 'yyyy') AS 'Year', value/1000000 AS 'Gross Debt (Trilli
 **Query 4.2**
 
 ```sql
-SELECT date_format(time, 'yyyy') AS 'Year', value AS 'Debt as Percent of GDP'
-  FROM '%bulgaria'
+SELECT date_format(time, 'yyyy') AS "Year", value AS "Debt as Percent of GDP"
+  FROM "%bulgaria"
 ```
 
 **Table 4.2**
@@ -324,7 +324,7 @@ Return to the **[index](#data)**
 **Query 5.1**
 
 ```sql
-SELECT date_format(time, 'yyyy') AS 'Year', value/1000000 AS 'Gross Debt (Trillion Euro)'
+SELECT date_format(time, 'yyyy') AS "Year", value/1000000 AS "Gross Debt (Trillion Euro)"
   FROM government_consolidated_gross_debt WHERE tags.geo = 'Croatia'
 ```
 
@@ -352,8 +352,8 @@ SELECT date_format(time, 'yyyy') AS 'Year', value/1000000 AS 'Gross Debt (Trilli
 **Query 5.2**
 
 ```sql
-SELECT date_format(time, 'yyyy') AS 'Year', value AS 'Debt Percent of GDP'
-  FROM '%croatia' WHERE entity = 'eu-debt-data-2'
+SELECT date_format(time, 'yyyy') AS "Year", value AS "Debt Percent of GDP"
+  FROM "%croatia" WHERE entity = 'eu-debt-data-2'
 ```
 
 **Table 5.2**
@@ -384,7 +384,7 @@ Return to the **[index](#data)**
 **Query 6.1**
 
 ```sql
-SELECT date_format(time, 'yyyy') AS 'Year', value/1000000 AS 'Gross Debt (Trillion Euro)'
+SELECT date_format(time, 'yyyy') AS "Year", value/1000000 AS "Gross Debt (Trillion Euro)"
   FROM government_consolidated_gross_debt WHERE tags.geo = 'Cyprus'
 ```
 
@@ -412,8 +412,8 @@ SELECT date_format(time, 'yyyy') AS 'Year', value/1000000 AS 'Gross Debt (Trilli
 **Query 6.2**
 
 ```sql
-SELECT date_format(time, 'yyyy') AS 'Year', value AS 'Debt Percent of GDP'
-  FROM '%cyprus' WHERE entity = 'eu-debt-data-2'
+SELECT date_format(time, 'yyyy') AS "Year", value AS "Debt Percent of GDP"
+  FROM "%cyprus" WHERE entity = 'eu-debt-data-2'
 ```
 
 **Table 6.2**
@@ -444,7 +444,7 @@ Return to the **[index](#data)**
 **Query 7.1**
 
 ```sql
-SELECT date_format(time, 'yyyy') AS 'Year', value/1000000 AS 'Gross Debt (Trillion Euro)'
+SELECT date_format(time, 'yyyy') AS "Year", value/1000000 AS "Gross Debt (Trillion Euro)"
   FROM government_consolidated_gross_debt WHERE tags.geo = 'Czech Republic'
 ```
 
@@ -471,8 +471,8 @@ SELECT date_format(time, 'yyyy') AS 'Year', value/1000000 AS 'Gross Debt (Trilli
 
 **Query 7.2**
 ```sql
-SELECT date_format(time, 'yyyy') AS 'Year', value AS 'Debt Percent of GDP'
-  FROM '%czech_republic' WHERE entity = 'eu-debt-data-2'
+SELECT date_format(time, 'yyyy') AS "Year", value AS "Debt Percent of GDP"
+  FROM "%czech_republic" WHERE entity = 'eu-debt-data-2'
 ```
 
 **Table 7.2**
@@ -503,7 +503,7 @@ Return to the **[index](#data)**
 **Query 8.1**
 
 ```sql
-SELECT date_format(time, 'yyyy') AS 'Year', value/1000000 AS 'Gross Debt (Trillion Euro)'
+SELECT date_format(time, 'yyyy') AS "Year", value/1000000 AS "Gross Debt (Trillion Euro)"
   FROM government_consolidated_gross_debt WHERE tags.geo = 'Denmark'
 ```
 **Table 8.1**
@@ -530,8 +530,8 @@ SELECT date_format(time, 'yyyy') AS 'Year', value/1000000 AS 'Gross Debt (Trilli
 **Query 8.2**
 
 ```sql
-SELECT date_format(time, 'yyyy') AS 'Year', value AS 'Debt Percent of GDP'
-  FROM '%denmark' WHERE entity = 'eu-debt-data-2'
+SELECT date_format(time, 'yyyy') AS "Year", value AS "Debt Percent of GDP"
+  FROM "%denmark" WHERE entity = 'eu-debt-data-2'
 ```
 
 **Table 8.2**
@@ -562,7 +562,7 @@ Return to the **[index](#data)**
 **Query 9.1**
 
 ```sql
-SELECT date_format(time, 'yyyy') AS 'Year', value/1000000 AS 'Gross Debt (Trillion Euro)'
+SELECT date_format(time, 'yyyy') AS "Year", value/1000000 AS "Gross Debt (Trillion Euro)"
   FROM government_consolidated_gross_debt WHERE tags.geo = 'Estonia'
 ```
 
@@ -590,8 +590,8 @@ SELECT date_format(time, 'yyyy') AS 'Year', value/1000000 AS 'Gross Debt (Trilli
 **Query 9.2**
 
 ```sql
-SELECT date_format(time, 'yyyy') AS 'Year', value AS 'Debt Percent of GDP'
-  FROM '%estonia' WHERE entity = 'eu-debt-data-2'
+SELECT date_format(time, 'yyyy') AS "Year", value AS "Debt Percent of GDP"
+  FROM "%estonia" WHERE entity = 'eu-debt-data-2'
 ```
 
 **Table 9.2**
@@ -622,7 +622,7 @@ Return to the **[index](#data)**
 **Query 10.1**
 
 ```sql
-SELECT date_format(time, 'yyyy') AS 'Year', value/1000000 AS 'Gross Debt (Trillion Euro)'
+SELECT date_format(time, 'yyyy') AS "Year", value/1000000 AS "Gross Debt (Trillion Euro)"
   FROM government_consolidated_gross_debt WHERE tags.geo = 'Finland'
 ```
 
@@ -650,8 +650,8 @@ SELECT date_format(time, 'yyyy') AS 'Year', value/1000000 AS 'Gross Debt (Trilli
 **Query 10.2**
 
 ```sql
-SELECT date_format(time, 'yyyy') AS 'Year', value AS 'Debt Percent of GDP'
-  FROM '%finland' WHERE entity = 'eu-debt-data-2'
+SELECT date_format(time, 'yyyy') AS "Year", value AS "Debt Percent of GDP"
+  FROM "%finland" WHERE entity = 'eu-debt-data-2'
 ```
 
 **Table 10.2**
@@ -682,7 +682,7 @@ Return to the **[index](#data)**
 **Query 11.1**
 
 ```sql
-SELECT date_format(time, 'yyyy') AS 'Year', value/1000000 AS 'Gross Debt (Trillion Euro)'
+SELECT date_format(time, 'yyyy') AS "Year", value/1000000 AS "Gross Debt (Trillion Euro)"
   FROM government_consolidated_gross_debt WHERE tags.geo = 'France'
 ```
 
@@ -710,8 +710,8 @@ SELECT date_format(time, 'yyyy') AS 'Year', value/1000000 AS 'Gross Debt (Trilli
 **Query 11.2**
 
 ```sql
-SELECT date_format(time, 'yyyy') AS 'Year', value AS 'Debt Percent of GDP'
-  FROM '%france' WHERE entity = 'eu-debt-data-2'
+SELECT date_format(time, 'yyyy') AS "Year", value AS "Debt Percent of GDP"
+  FROM "%france" WHERE entity = 'eu-debt-data-2'
 ```
 
 **Table 11.2**
@@ -742,7 +742,7 @@ Return to the **[index](#data)**
 **Query 12.1**
 
 ```sql
-SELECT date_format(time, 'yyyy') AS 'Year', value/1000000 AS 'Gross Debt (Trillion Euro)'
+SELECT date_format(time, 'yyyy') AS "Year", value/1000000 AS "Gross Debt (Trillion Euro)"
   FROM government_consolidated_gross_debt WHERE tags.geo = 'Germany (until 1990 former territory of the FRG)'
 ```
 
@@ -770,8 +770,8 @@ SELECT date_format(time, 'yyyy') AS 'Year', value/1000000 AS 'Gross Debt (Trilli
 **Query 12.2**
 
 ```sql
-SELECT date_format(time, 'yyyy') AS 'Year', value AS 'Debt Percent of GDP'
-  FROM '%germany' WHERE entity = 'eu-debt-data-2'
+SELECT date_format(time, 'yyyy') AS "Year", value AS "Debt Percent of GDP"
+  FROM "%germany" WHERE entity = 'eu-debt-data-2'
 ```
 
 **Table 12.2**
@@ -802,7 +802,7 @@ Return to the **[index](#data)**
 **Query 13.1**
 
 ```sql
-SELECT date_format(time, 'yyyy') AS 'Year', value/1000000 AS 'Gross Debt (Trillion Euro)'
+SELECT date_format(time, 'yyyy') AS "Year", value/1000000 AS "Gross Debt (Trillion Euro)"
   FROM government_consolidated_gross_debt WHERE tags.geo = 'Greece'
 ```
 
@@ -830,8 +830,8 @@ SELECT date_format(time, 'yyyy') AS 'Year', value/1000000 AS 'Gross Debt (Trilli
 **Query 13.2**
 
 ```sql
-SELECT date_format(time, 'yyyy') AS 'Year', value AS 'Debt Percent of GDP'
-  FROM '%greece' WHERE entity = 'eu-debt-data-2'
+SELECT date_format(time, 'yyyy') AS "Year", value AS "Debt Percent of GDP"
+  FROM "%greece" WHERE entity = 'eu-debt-data-2'
 ```
 
 **Table 13.2**
@@ -862,7 +862,7 @@ Return to the **[index](#data)**
 **Query 14.1**
 
 ```sql
-SELECT date_format(time, 'yyyy') AS 'Year', value/1000000 AS 'Gross Debt (Trillion Euro)'
+SELECT date_format(time, 'yyyy') AS "Year", value/1000000 AS "Gross Debt (Trillion Euro)"
   FROM government_consolidated_gross_debt WHERE tags.geo = 'Hungary'
 ```
 
@@ -890,8 +890,8 @@ SELECT date_format(time, 'yyyy') AS 'Year', value/1000000 AS 'Gross Debt (Trilli
 **Query 14.2**
 
 ```sql
-SELECT date_format(time, 'yyyy') AS 'Year', value AS 'Debt Percent of GDP'
-  FROM '%hungary' WHERE entity = 'eu-debt-data-2'
+SELECT date_format(time, 'yyyy') AS "Year", value AS "Debt Percent of GDP"
+  FROM "%hungary" WHERE entity = 'eu-debt-data-2'
 ```
 
 **Table 14.2**
@@ -922,7 +922,7 @@ Return to the **[index](#data)**
 **Query 15.1**
 
 ```sql
-SELECT date_format(time, 'yyyy') AS 'Year', value/1000000 AS 'Gross Debt (Trillion Euro)'
+SELECT date_format(time, 'yyyy') AS "Year", value/1000000 AS "Gross Debt (Trillion Euro)"
   FROM government_consolidated_gross_debt WHERE tags.geo = 'Ireland'
 ```
 
@@ -950,8 +950,8 @@ SELECT date_format(time, 'yyyy') AS 'Year', value/1000000 AS 'Gross Debt (Trilli
 **Query 15.2**
 
 ```sql
-SELECT date_format(time, 'yyyy') AS 'Year', value AS 'Debt Percent of GDP'
-  FROM '%ireland' WHERE entity = 'eu-debt-data-2'
+SELECT date_format(time, 'yyyy') AS "Year", value AS "Debt Percent of GDP"
+  FROM "%ireland" WHERE entity = 'eu-debt-data-2'
 ```
 
 **Table 15.2**
@@ -982,7 +982,7 @@ Return to the **[index](#data)**
 **Query 16.1**
 
 ```sql
-SELECT date_format(time, 'yyyy') AS 'Year', value/1000000 AS 'Gross Debt (Trillion Euro)'
+SELECT date_format(time, 'yyyy') AS "Year", value/1000000 AS "Gross Debt (Trillion Euro)"
   FROM government_consolidated_gross_debt WHERE tags.geo = 'Italy'
 ```
 
@@ -1010,8 +1010,8 @@ SELECT date_format(time, 'yyyy') AS 'Year', value/1000000 AS 'Gross Debt (Trilli
 **Query 16.2**
 
 ```sql
-SELECT date_format(time, 'yyyy') AS 'Year', value AS 'Debt Percent of GDP'
-  FROM '%italy' WHERE entity = 'eu-debt-data-2'
+SELECT date_format(time, 'yyyy') AS "Year", value AS "Debt Percent of GDP"
+  FROM "%italy" WHERE entity = 'eu-debt-data-2'
 ```
 
 **Table 16.2**
@@ -1042,7 +1042,7 @@ Return to the **[index](#data)**
 **Query 17.1**
 
 ```sql
-SELECT date_format(time, 'yyyy') AS 'Year', value/1000000 AS 'Gross Debt (Trillion Euro)'
+SELECT date_format(time, 'yyyy') AS "Year", value/1000000 AS "Gross Debt (Trillion Euro)"
   FROM government_consolidated_gross_debt WHERE tags.geo = 'Latvia'
 ```
 
@@ -1070,8 +1070,8 @@ SELECT date_format(time, 'yyyy') AS 'Year', value/1000000 AS 'Gross Debt (Trilli
 **Query 17.2**
 
 ```sql
-SELECT date_format(time, 'yyyy') AS 'Year', value AS 'Debt Percent of GDP'
-  FROM '%latvia' WHERE entity = 'eu-debt-data-2'
+SELECT date_format(time, 'yyyy') AS "Year", value AS "Debt Percent of GDP"
+  FROM "%latvia" WHERE entity = 'eu-debt-data-2'
 ```
 
 **Table 17.2**
@@ -1102,7 +1102,7 @@ Return to the **[index](#data)**
 **Query 18.1**
 
 ```sql
-SELECT date_format(time, 'yyyy') AS 'Year', value/1000000 AS 'Gross Debt (Trillion Euro)'
+SELECT date_format(time, 'yyyy') AS "Year", value/1000000 AS "Gross Debt (Trillion Euro)"
   FROM government_consolidated_gross_debt WHERE tags.geo = 'Lithuania'
 ```
 
@@ -1130,8 +1130,8 @@ SELECT date_format(time, 'yyyy') AS 'Year', value/1000000 AS 'Gross Debt (Trilli
 **Query 18.2**
 
 ```sql
-SELECT date_format(time, 'yyyy') AS 'Year', value AS 'Debt Percent of GDP'
-  FROM '%lithuania' WHERE entity = 'eu-debt-data-2'
+SELECT date_format(time, 'yyyy') AS "Year", value AS "Debt Percent of GDP"
+  FROM "%lithuania" WHERE entity = 'eu-debt-data-2'
 ```
 
 **Table 18.2**
@@ -1162,7 +1162,7 @@ Return to the **[index](#data)**
 **Query 19.1**
 
 ```sql
-SELECT date_format(time, 'yyyy') AS 'Year', value/1000000 AS 'Gross Debt (Trillion Euro)'
+SELECT date_format(time, 'yyyy') AS "Year", value/1000000 AS "Gross Debt (Trillion Euro)"
   FROM government_consolidated_gross_debt WHERE tags.geo = 'Luxembourg'
 ```
 
@@ -1190,8 +1190,8 @@ SELECT date_format(time, 'yyyy') AS 'Year', value/1000000 AS 'Gross Debt (Trilli
 **Query 19.2**
 
 ```sql
-SELECT date_format(time, 'yyyy') AS 'Year', value AS 'Debt Percent of GDP'
-  FROM '%luxembourg' WHERE entity = 'eu-debt-data-2'
+SELECT date_format(time, 'yyyy') AS "Year", value AS "Debt Percent of GDP"
+  FROM "%luxembourg" WHERE entity = 'eu-debt-data-2'
 ```
 
 **Table 19.2**
@@ -1222,7 +1222,7 @@ Return to the **[index](#data)**
 **Query 20.1**
 
 ```sql
-SELECT date_format(time, 'yyyy') AS 'Year', value/1000000 AS 'Gross Debt (Trillion Euro)'
+SELECT date_format(time, 'yyyy') AS "Year", value/1000000 AS "Gross Debt (Trillion Euro)"
   FROM government_consolidated_gross_debt WHERE tags.geo = 'Malta'
 ```
 
@@ -1250,8 +1250,8 @@ SELECT date_format(time, 'yyyy') AS 'Year', value/1000000 AS 'Gross Debt (Trilli
 **Query 20.2**
 
 ```sql
-SELECT date_format(time, 'yyyy') AS 'Year', value AS 'Debt Percent of GDP'
-  FROM '%malta' WHERE entity = 'eu-debt-data-2'
+SELECT date_format(time, 'yyyy') AS "Year", value AS "Debt Percent of GDP"
+  FROM "%malta" WHERE entity = 'eu-debt-data-2'
 ```
 
 **Table 20.2**
@@ -1282,7 +1282,7 @@ Return to the **[index](#data)**
 **Query 21.1**
 
 ```sql
-SELECT date_format(time, 'yyyy') AS 'Year', value/1000000 AS 'Gross Debt (Trillion Euro)'
+SELECT date_format(time, 'yyyy') AS "Year", value/1000000 AS "Gross Debt (Trillion Euro)"
   FROM government_consolidated_gross_debt WHERE tags.geo = 'Netherlands'
 ```
 
@@ -1310,8 +1310,8 @@ SELECT date_format(time, 'yyyy') AS 'Year', value/1000000 AS 'Gross Debt (Trilli
 **Query 21.2**
 
 ```sql
-SELECT date_format(time, 'yyyy') AS 'Year', value AS 'Debt Percent of GDP'
-  FROM '%netherlands' WHERE entity = 'eu-debt-data-2'
+SELECT date_format(time, 'yyyy') AS "Year", value AS "Debt Percent of GDP"
+  FROM "%netherlands" WHERE entity = 'eu-debt-data-2'
 ```
 
 **Table 21.2**
@@ -1342,7 +1342,7 @@ Return to the **[index](#data)**
 **Query 22.1**
 
 ```sql
-SELECT date_format(time, 'yyyy') AS 'Year', value/1000000 AS 'Gross Debt (Trillion Euro)'
+SELECT date_format(time, 'yyyy') AS "Year", value/1000000 AS "Gross Debt (Trillion Euro)"
   FROM government_consolidated_gross_debt WHERE tags.geo = 'Poland'
 ```
 
@@ -1370,8 +1370,8 @@ SELECT date_format(time, 'yyyy') AS 'Year', value/1000000 AS 'Gross Debt (Trilli
 **Query 22.2**
 
 ```sql
-SELECT date_format(time, 'yyyy') AS 'Year', value AS 'Debt Percent of GDP'
-  FROM '%poland' WHERE entity = 'eu-debt-data-2'
+SELECT date_format(time, 'yyyy') AS "Year", value AS "Debt Percent of GDP"
+  FROM "%poland" WHERE entity = 'eu-debt-data-2'
 ```
 
 **Table 22.2**
@@ -1402,7 +1402,7 @@ Return to the **[index](#data)**
 **Query 23.1**
 
 ```sql
-SELECT date_format(time, 'yyyy') AS 'Year', value/1000000 AS 'Gross Debt (Trillion Euro)'
+SELECT date_format(time, 'yyyy') AS "Year", value/1000000 AS "Gross Debt (Trillion Euro)"
   FROM government_consolidated_gross_debt WHERE tags.geo = 'Portugal'
 ```
 
@@ -1430,8 +1430,8 @@ SELECT date_format(time, 'yyyy') AS 'Year', value/1000000 AS 'Gross Debt (Trilli
 **Query 23.2**
 
 ```sql
-SELECT date_format(time, 'yyyy') AS 'Year', value AS 'Debt Percent of GDP'
-  FROM '%portugal' WHERE entity = 'eu-debt-data-2'
+SELECT date_format(time, 'yyyy') AS "Year", value AS "Debt Percent of GDP"
+  FROM "%portugal" WHERE entity = 'eu-debt-data-2'
 ```
 
 **Table 23.2**
@@ -1463,7 +1463,7 @@ Return to the **[index](#data)**
 **Query 24.1**
 
 ```sql
-SELECT date_format(time, 'yyyy') AS 'Year', value/1000000 AS 'Gross Debt (Trillion Euro)'
+SELECT date_format(time, 'yyyy') AS "Year", value/1000000 AS "Gross Debt (Trillion Euro)"
   FROM government_consolidated_gross_debt WHERE tags.geo = 'Romania'
 ```
 
@@ -1491,8 +1491,8 @@ SELECT date_format(time, 'yyyy') AS 'Year', value/1000000 AS 'Gross Debt (Trilli
 **Query 24.2**
 
 ```sql
-SELECT date_format(time, 'yyyy') AS 'Year', value AS 'Debt Percent of GDP'
-  FROM '%romania' WHERE entity = 'eu-debt-data-2'
+SELECT date_format(time, 'yyyy') AS "Year", value AS "Debt Percent of GDP"
+  FROM "%romania" WHERE entity = 'eu-debt-data-2'
 ```
 
 **Table 24.2**
@@ -1523,7 +1523,7 @@ Return to the **[index](#data)**
 **Query 25.1**
 
 ```sql
-SELECT date_format(time, 'yyyy') AS 'Year', value/1000000 AS 'Gross Debt (Trillion Euro)'
+SELECT date_format(time, 'yyyy') AS "Year", value/1000000 AS "Gross Debt (Trillion Euro)"
   FROM government_consolidated_gross_debt WHERE tags.geo = 'Slovakia'
 ```
 
@@ -1551,8 +1551,8 @@ SELECT date_format(time, 'yyyy') AS 'Year', value/1000000 AS 'Gross Debt (Trilli
 **Query 25.2**
 
 ```sql
-SELECT date_format(time, 'yyyy') AS 'Year', value AS 'Debt Percent of GDP'
-  FROM '%slovakia' WHERE entity = 'eu-debt-data-2'
+SELECT date_format(time, 'yyyy') AS "Year", value AS "Debt Percent of GDP"
+  FROM "%slovakia" WHERE entity = 'eu-debt-data-2'
 ```
 
 **Table 25.2**
@@ -1583,7 +1583,7 @@ Return to the **[index](#data)**
 **Query 26.1**
 
 ```sql
-SELECT date_format(time, 'yyyy') AS 'Year', value/1000000 AS 'Gross Debt (Trillion Euro)'
+SELECT date_format(time, 'yyyy') AS "Year", value/1000000 AS "Gross Debt (Trillion Euro)"
   FROM government_consolidated_gross_debt WHERE tags.geo = 'Slovenia'
 ```
 
@@ -1611,8 +1611,8 @@ SELECT date_format(time, 'yyyy') AS 'Year', value/1000000 AS 'Gross Debt (Trilli
 **Query 26.2**
 
 ```sql
-SELECT date_format(time, 'yyyy') AS 'Year', value AS 'Debt Percent of GDP'
-  FROM '%slovenia' WHERE entity = 'eu-debt-data-2'
+SELECT date_format(time, 'yyyy') AS "Year", value AS "Debt Percent of GDP"
+  FROM "%slovenia" WHERE entity = 'eu-debt-data-2'
 ```
 
 **Table 26.2**
@@ -1643,7 +1643,7 @@ Return to the **[index](#data)**
 **Query 27.1**
 
 ```sql
-SELECT date_format(time, 'yyyy') AS 'Year', value/1000000 AS 'Gross Debt (Trillion Euro)'
+SELECT date_format(time, 'yyyy') AS "Year", value/1000000 AS "Gross Debt (Trillion Euro)"
   FROM government_consolidated_gross_debt WHERE tags.geo = 'Spain'
 ```
 
@@ -1671,8 +1671,8 @@ SELECT date_format(time, 'yyyy') AS 'Year', value/1000000 AS 'Gross Debt (Trilli
 **Query 27.2**
 
 ```sql
-SELECT date_format(time, 'yyyy') AS 'Year', value AS 'Debt Percent of GDP'
-  FROM '%spain' WHERE entity = 'eu-debt-data-2'
+SELECT date_format(time, 'yyyy') AS "Year", value AS "Debt Percent of GDP"
+  FROM "%spain" WHERE entity = 'eu-debt-data-2'
 ```
 
 **Table 27.2**
@@ -1703,7 +1703,7 @@ Return to the **[index](#data)**
 **Query 28.1**
 
 ```sql
-SELECT date_format(time, 'yyyy') AS 'Year', value/1000000 AS 'Gross Debt (Trillion Euro)'
+SELECT date_format(time, 'yyyy') AS "Year", value/1000000 AS "Gross Debt (Trillion Euro)"
   FROM government_consolidated_gross_debt WHERE tags.geo = 'Sweden'
 ```
 
@@ -1731,8 +1731,8 @@ SELECT date_format(time, 'yyyy') AS 'Year', value/1000000 AS 'Gross Debt (Trilli
 **Query 28.2**
 
 ```sql
-SELECT date_format(time, 'yyyy') AS 'Year', value AS 'Debt Percent of GDP'
-  FROM '%sweden' WHERE entity = 'eu-debt-data-2'
+SELECT date_format(time, 'yyyy') AS "Year", value AS "Debt Percent of GDP"
+  FROM "%sweden" WHERE entity = 'eu-debt-data-2'
 ```
 
 **Table 28.2**
@@ -1763,7 +1763,7 @@ Return to the **[index](#data)**
 **Query 29.1**
 
 ```sql
-SELECT date_format(time, 'yyyy') AS 'Year', value/1000000 AS 'Gross Debt (Trillion Euro)'
+SELECT date_format(time, 'yyyy') AS "Year", value/1000000 AS "Gross Debt (Trillion Euro)"
   FROM government_consolidated_gross_debt WHERE tags.geo = 'United Kingdom'
 ```
 
@@ -1791,8 +1791,8 @@ SELECT date_format(time, 'yyyy') AS 'Year', value/1000000 AS 'Gross Debt (Trilli
 **Query 29.2**
 
 ```sql
-SELECT date_format(time, 'yyyy') AS 'Year', value AS 'Debt Percent of GDP'
-  FROM '%united_kingdom' WHERE entity = 'eu-debt-data-2'
+SELECT date_format(time, 'yyyy') AS "Year", value AS "Debt Percent of GDP"
+  FROM "%united_kingdom" WHERE entity = 'eu-debt-data-2'
 ```
 
 **Table 29.2**

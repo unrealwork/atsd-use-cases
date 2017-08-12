@@ -275,7 +275,7 @@ we entered in region names for each region number. In this instance, region 1 is
 
 ```sql
 SELECT datetime, value, tags.city, tags.state,
-   LOOKUP('us-region', tags.region) AS 'region'
+   LOOKUP('us-region', tags.region) AS "region"
   FROM cdc.pneumonia_and_influenza_deaths
 WHERE tags.city = 'Boston'
   ORDER BY datetime DESC
@@ -302,7 +302,7 @@ specified in this query is **New-England**. Read more about the `GROUP BY` claus
 
 ```sql
 SELECT datetime, sum(value),  
-  LOOKUP('us-region', tags.region) AS 'region'
+  LOOKUP('us-region', tags.region) AS "region"
   FROM cdc.pneumonia_and_influenza_deaths
 WHERE tags.region = '1'
   GROUP BY tags.region, datetime
@@ -329,7 +329,7 @@ Here, monthly pneumonia and influenza death are totaled for all cities in the **
 
 ```sql
 SELECT datetime, sum(value),  
-  LOOKUP('us-region', tags.region) AS 'region'
+  LOOKUP('us-region', tags.region) AS "region"
   FROM cdc.pneumonia_and_influenza_deaths
 WHERE tags.region = '1'
   AND datetime >= '2016-01-01T00:00:00Z' AND datetime < '2016-10-01T00:00:00Z'
@@ -359,11 +359,11 @@ Let us now look at some additional examples which delve into finding out which o
 The below query examines the least deadly week for the total number of deaths by city.
 
 ```sql
-SELECT date_format(time, 'yyyy-MM-dd') AS 'date',
-  tags.city AS 'city', tags.state AS 'state',
-  ISNULL(LOOKUP('us-region', tags.region), tags.region) AS 'region',
-  value AS 'all_deaths',
-  LOOKUP('city-size', concat(tags.city, ',', tags.state)) AS 'population'
+SELECT date_format(time, 'yyyy-MM-dd') AS "date",
+  tags.city AS "city", tags.state AS "state",
+  ISNULL(LOOKUP('us-region', tags.region), tags.region) AS "region",
+  value AS "all_deaths",
+  LOOKUP('city-size', concat(tags.city, ',', tags.state)) AS "population"
 FROM cdc.all_deaths
   WHERE entity = 'mr8w-325u' and tags.city IS NOT NULL AND value > 0
   WITH row_number(tags ORDER BY value, time DESC) <= 1
@@ -401,11 +401,11 @@ Here a few noteworthy points regarding this query.
 Now, let's look at the deadliest week for the total number of deaths by city.
 
 ```sql
-SELECT date_format(time, 'yyyy-MM-dd') as 'date',
-  tags.city as 'city', tags.state as 'state',
-  ISNULL(LOOKUP('us-region', tags.region), tags.region) AS 'region',
-  value as 'all_deaths',
-  LOOKUP('city-size', concat(tags.city, ',', tags.state)) AS 'population'
+SELECT date_format(time, 'yyyy-MM-dd') AS "date",
+  tags.city AS "city", tags.state AS "state",
+  ISNULL(LOOKUP('us-region', tags.region), tags.region) AS "region",
+  value AS "all_deaths",
+  LOOKUP('city-size', concat(tags.city, ',', tags.state)) AS "population"
 FROM cdc.all_deaths
   WHERE entity = 'mr8w-325u' and tags.city IS NOT NULL
   WITH row_number(tags ORDER BY value desc, time desc) <= 1
@@ -456,11 +456,11 @@ particular dataset, we cannot say whether or not this is the highest weekly tota
 Moving on, here is the deadliest week due to pneumonia and influenza by city.
 
 ```sql
-SELECT date_format(time, 'yyyy-MM-dd') as 'date',
-  tags.city as 'city', tags.state as 'state',
-  ISNULL(LOOKUP('us-region', tags.region), tags.region) AS 'region',
-  value as 'pneumonia_influenza_deaths',
-  LOOKUP('city-size', concat(tags.city, ',', tags.state)) AS 'population'
+SELECT date_format(time, 'yyyy-MM-dd') AS "date",
+  tags.city AS "city", tags.state AS "state",
+  ISNULL(LOOKUP('us-region', tags.region), tags.region) AS "region",
+  value AS "pneumonia_influenza_deaths",
+  LOOKUP('city-size', concat(tags.city, ',', tags.state)) AS "population"
 FROM cdc.pneumonia_and_influenza_deaths t1
   WHERE entity = 'mr8w-325u' and tags.city IS NOT NULL
   WITH row_number(tags ORDER BY value desc, time desc) <= 1
@@ -483,13 +483,13 @@ This query has the same structure as for the example directly above, but has a d
 The deadliest pneumonia and influenza week as a percentage of all deaths:
 
 ```sql
-SELECT date_format(tot.time, 'yyyy-MM-dd') as 'date',
-  tot.tags.city as 'city', tot.tags.state as 'state',
-  LOOKUP('us-region', tot.tags.region) AS 'region',  
-  tot.value as 'all_deaths',
-  pni.value as 'pneumonia_influenza_deaths',
-  pni.value/tot.value*100 as 'pneumonia_influenza_deaths, %',
-  LOOKUP('city-size', CONCAT(tot.tags.city, ',', tot.tags.state)) AS 'population'
+SELECT date_format(tot.time, 'yyyy-MM-dd') AS "date",
+  tot.tags.city AS "city", tot.tags.state AS "state",
+  LOOKUP('us-region', tot.tags.region) AS "region",  
+  tot.value AS "all_deaths",
+  pni.value AS "pneumonia_influenza_deaths",
+  pni.value/tot.value*100 AS "pneumonia_influenza_deaths, %",
+  LOOKUP('city-size', CONCAT(tot.tags.city, ',', tot.tags.state)) AS "population"
 FROM cdc.all_deaths tot
   JOIN cdc.pneumonia_and_influenza_deaths pni
   WHERE tot.entity = 'mr8w-325u' AND tot.tags.city IS NOT NULL
@@ -522,8 +522,8 @@ A few noteworthy points regarding this query.
 Moving onto the next query, `OUTER JOIN` can help find all instances when a city failed to report `pneumonia_and_influenza_deaths` (no data).
 
 ```sql
-SELECT tot.datetime, tot.value AS 'total',
-  ISNULL(pni.value, 'N/A') AS 'pneumonia/influenza'
+SELECT tot.datetime, tot.value AS "total",
+  ISNULL(pni.value, 'N/A') AS "pneumonia/influenza"
 FROM cdc.all_deaths tot
   OUTER JOIN cdc.pneumonia_and_influenza_deaths pni
 WHERE tot.entity = 'mr8w-325u'
@@ -548,10 +548,10 @@ Now let us look at several queries which delve into looking at the top 10 deadli
 Here is a query for filtering for the top 10 cities by all deaths in the current year (year to date).
 
 ```sql
-SELECT tags.city as 'city', tags.state as 'state',
-  ISNULL(LOOKUP('us-region', tags.region), tags.region) AS 'region',
-  sum(value) as 'all_deaths',
-  LOOKUP('city-size', concat(tags.city, ',', tags.state)) AS 'population'
+SELECT tags.city AS "city", tags.state AS "state",
+  ISNULL(LOOKUP('us-region', tags.region), tags.region) AS "region",
+  sum(value) AS "all_deaths",
+  LOOKUP('city-size', concat(tags.city, ',', tags.state)) AS "population"
 FROM cdc.all_deaths
   WHERE entity = 'mr8w-325u' and tags.city IS NOT NULL
   AND datetime > current_year
@@ -584,10 +584,10 @@ The [`OPTION (ROW_MEMORY_THRESHOLD {n})`](https://github.com/axibase/atsd/tree/m
 This next query examines the top 10 cities by pneumonia and influenza deaths in the current year (year to date).
 
 ```sql
-SELECT tags.city as 'city', tags.state as 'state',
-  ISNULL(LOOKUP('us-region', tags.region), tags.region) AS 'region',
-  sum(value) as 'pneumonia_influenza_deaths',
-  LOOKUP('city-size', concat(tags.city, ',', tags.state)) AS 'population'
+SELECT tags.city AS "city", tags.state AS "state",
+  ISNULL(LOOKUP('us-region', tags.region), tags.region) AS "region",
+  sum(value) AS "pneumonia_influenza_deaths",
+  LOOKUP('city-size', concat(tags.city, ',', tags.state)) AS "population"
 FROM cdc.pneumonia_and_influenza_deaths
   WHERE entity = 'mr8w-325u' and tags.city IS NOT NULL
   AND datetime > current_year
@@ -616,12 +616,12 @@ This query has the same structure as for the example directly above, but has a d
 This query shows the top 10 cities with the highest percentage of deaths caused by pneumonia and influenza in the current year (year-to-date).
 
 ```sql
-SELECT tot.tags.city as 'city', tot.tags.state as 'state',
-  LOOKUP('us-region', tot.tags.region) AS 'region',  
-  sum(tot.value) AS 'all_deaths',
-  sum(pni.value) AS 'pneumonia_influenza_deaths',
-  sum(pni.value)/sum(tot.value)*100 AS 'pneumonia_influenza_deaths, %',
-  LOOKUP('city-size', CONCAT(tot.tags.city, ',', tot.tags.state)) AS 'population'
+SELECT tot.tags.city AS "city", tot.tags.state AS "state",
+  LOOKUP('us-region', tot.tags.region) AS "region",  
+  sum(tot.value) AS "all_deaths",
+  sum(pni.value) AS "pneumonia_influenza_deaths",
+  sum(pni.value)/sum(tot.value)*100 AS "pneumonia_influenza_deaths, %",
+  LOOKUP('city-size', CONCAT(tot.tags.city, ',', tot.tags.state)) AS "population"
 FROM cdc.all_deaths tot
   JOIN cdc.pneumonia_and_influenza_deaths pni
 WHERE tot.entity = 'mr8w-325u' AND tot.tags.city IS NOT NULL
@@ -631,7 +631,7 @@ GROUP BY tot.tags
   LIMIT 10
 ```
 
-In this query, we are able to calculate the percentage of pneumonia and influenza deaths using the line `sum(pni.value)/sum(tot.value)*100 AS 'pneumonia_influenza_deaths, %',`.
+In this query, we are able to calculate the percentage of pneumonia and influenza deaths using the line `sum(pni.value)/sum(tot.value)*100 AS "pneumonia_influenza_deaths, %",`.
 
 ```ls
 | city         | state  | region              | all_deaths  | pneumonia_influenza_deaths  | pneumonia_influenza_deaths, %  | population |
@@ -651,12 +651,12 @@ In this query, we are able to calculate the percentage of pneumonia and influenz
 Here is a query for the top 10 cities with the highest percentage of deaths caused by pneumonia and influenza, for the last 12 months (trailing).
 
 ```sql
-SELECT tot.tags.city as 'city', tot.tags.state as 'state',
-  LOOKUP('us-region', tot.tags.region) AS 'region',  
-  sum(tot.value) AS 'all_deaths',
-  sum(pni.value) AS 'pneumonia_influenza_deaths',
-  sum(pni.value)/sum(tot.value)*100 AS 'pneumonia_influenza_deaths, %',
-  LOOKUP('city-size', CONCAT(tot.tags.city, ',', tot.tags.state)) AS 'population'
+SELECT tot.tags.city AS "city", tot.tags.state AS "state",
+  LOOKUP('us-region', tot.tags.region) AS "region",  
+  sum(tot.value) AS "all_deaths",
+  sum(pni.value) AS "pneumonia_influenza_deaths",
+  sum(pni.value)/sum(tot.value)*100 AS "pneumonia_influenza_deaths, %",
+  LOOKUP('city-size', CONCAT(tot.tags.city, ',', tot.tags.state)) AS "population"
 FROM cdc.all_deaths tot
   JOIN cdc.pneumonia_and_influenza_deaths pni
 WHERE tot.entity = 'mr8w-325u' AND tot.tags.city IS NOT NULL
@@ -687,12 +687,12 @@ The only difference between this query and the previous one is the specified tim
 Top 10 cities with the highest percentage of deaths caused by pneumonia and influenza, but for the entire period since 1970:
 
 ```sql
-SELECT tot.tags.city as 'city', tot.tags.state as 'state',
-  LOOKUP('us-region', tot.tags.region) AS 'region',  
-  sum(tot.value) AS 'all_deaths',
-  sum(pni.value) AS 'pneumonia_influenza_deaths',
-  sum(pni.value)/sum(tot.value)*100 AS 'pneumonia_influenza_deaths, %',
-  LOOKUP('city-size', CONCAT(tot.tags.city, ',', tot.tags.state)) AS 'population'
+SELECT tot.tags.city AS "city", tot.tags.state AS "state",
+  LOOKUP('us-region', tot.tags.region) AS "region",  
+  sum(tot.value) AS "all_deaths",
+  sum(pni.value) AS "pneumonia_influenza_deaths",
+  sum(pni.value)/sum(tot.value)*100 AS "pneumonia_influenza_deaths, %",
+  LOOKUP('city-size', CONCAT(tot.tags.city, ',', tot.tags.state)) AS "population"
 FROM cdc.all_deaths tot
   JOIN cdc.pneumonia_and_influenza_deaths pni
 WHERE tot.entity = 'mr8w-325u' AND tot.tags.city IS NOT NULL
@@ -719,9 +719,9 @@ Below are a few more examples of pneumonia and influenza death queries.
 Number of pneumonia and influenza deaths per month in 2016 in the East-North-Central (`tags.region = '3'`) region:
 
 ```sql
-SELECT date_format(time, 'yyyy MMM') as 'date',
-  LOOKUP('us-region', tags.region) AS 'region',
-  sum(value) as 'pneumonia_influenza_deaths'
+SELECT date_format(time, 'yyyy MMM') AS "date",
+  LOOKUP('us-region', tags.region) AS "region",
+  sum(value) AS "pneumonia_influenza_deaths"
 FROM cdc.pneumonia_and_influenza_deaths
   WHERE entity = 'mr8w-325u' and tags.city IS NOT NULL
   AND tags.region = '3'
@@ -747,9 +747,9 @@ ORDER BY datetime desc, tags.region
 Total yearly pneumonia and influenza deaths in January for the East-North-Central region ranging back to 1970:
 
 ```sql
-SELECT date_format(time, 'yyyy MMM') as 'date',
-  LOOKUP('us-region', tags.region) AS 'region',
-  sum(value) as 'pneumonia_influenza_deaths'
+SELECT date_format(time, 'yyyy MMM') AS "date",
+  LOOKUP('us-region', tags.region) AS "region",
+  sum(value) AS "pneumonia_influenza_deaths"
 FROM cdc.pneumonia_and_influenza_deaths
   WHERE entity = 'mr8w-325u' and tags.city IS NOT NULL
   AND tags.region = '3'
@@ -777,9 +777,9 @@ ORDER BY datetime, tags.region
 Top 3 deadliest pneumonia and influenza Januaries in the East-North-Central region:
 
 ```sql
-SELECT date_format(time, 'yyyy MMM') as 'date',
-  LOOKUP('us-region', tags.region) AS 'region',
-  sum(value) as 'pneumonia_influenza_deaths'
+SELECT date_format(time, 'yyyy MMM') AS "date",
+  LOOKUP('us-region', tags.region) AS "region",
+  sum(value) AS "pneumonia_influenza_deaths"
 FROM cdc.pneumonia_and_influenza_deaths
   WHERE entity = 'mr8w-325u' and tags.city IS NOT NULL
   AND tags.region = '3'
@@ -800,9 +800,9 @@ ORDER BY sum(value) desc
 Deadliest pneumonia and influenza by month in the Pacific region:
 
 ```sql
-SELECT date_format(time, 'MMM') AS 'Month',
-  LOOKUP('us-region', tags.region) AS 'region',
-  sum(value) as 'pneumonia_influenza_deaths'
+SELECT date_format(time, 'MMM') AS "Month",
+  LOOKUP('us-region', tags.region) AS "region",
+  sum(value) AS "pneumonia_influenza_deaths"
 FROM cdc.pneumonia_and_influenza_deaths
   WHERE entity = 'mr8w-325u' and tags.city IS NOT NULL
   AND LOOKUP('us-region', tags.region) = 'Pacific'
@@ -850,11 +850,11 @@ in the step-by-step walk through for information on pulling in population statis
 Below is our SQL query for determining the cities with the highest mortality rate in 2015.
 
 ```sql
-SELECT tags.city as 'city', tags.state as 'state',
-  ISNULL(LOOKUP('us-region', tags.region), tags.region) AS 'region',
-  sum(value) as 'all_deaths',
-  cast(LOOKUP('city-size', concat(tags.city, ',', tags.state))) AS 'population',
-  sum(value)/cast(LOOKUP('city-size', concat(tags.city, ',', tags.state)))*1000 AS 'mortality_rate'
+SELECT tags.city AS "city", tags.state AS "state",
+  ISNULL(LOOKUP('us-region', tags.region), tags.region) AS "region",
+  sum(value) AS "all_deaths",
+  cast(LOOKUP('city-size', concat(tags.city, ',', tags.state))) AS "population",
+  sum(value)/cast(LOOKUP('city-size', concat(tags.city, ',', tags.state)))*1000 AS "mortality_rate"
 FROM cdc.all_deaths
   WHERE entity = 'mr8w-325u' and tags.city IS NOT NULL
   AND datetime >= '2015-01-01T00:00:00Z' AND datetime < '2016-01-01T00:00:00Z'
@@ -865,7 +865,7 @@ ORDER BY mortality_rate DESC
 Our line in the query which calculates our mortality rate:
 
 ```sql
-sum(value)/cast(LOOKUP('city-size', concat(tags.city, ',', tags.state)))*1000 AS 'mortality_rate'
+sum(value)/cast(LOOKUP('city-size', concat(tags.city, ',', tags.state)))*1000 AS "mortality_rate"
 ```
 
 Here is the output from our query looking at mortality rates in 2015.
@@ -1040,17 +1040,17 @@ Per capita income in past 12 monts (in 2015 dolloars), 2011-2015: **$15,056** vs
 Now, let us move to looking at mortality rates in New York City (fixed population size):
 
 ```sql
-SELECT tot.datetime, tot.tags.city as 'city', tot.tags.state as 'state',
-  ISNULL(LOOKUP('us-region', tot.tags.region), tot.tags.region) AS 'region',
-  sum(tot.value - t1.value - t24.value - t44.value - t64.value - t64o.value) as 'other_deaths',
-  sum(t1.value) as 'infant_deaths',
-  sum(t24.value) as '1-24_deaths',
-  sum(t44.value) as '25-44_deaths',
-  sum(t64.value) as '45-64_deaths',
-  sum(t64o.value) as '64+_deaths',
-  sum(tot.value) as 'all_deaths',
-  cast(LOOKUP('city-size', concat(tot.tags.city, ',', tot.tags.state))) AS 'population',
-  sum(tot.value)/cast(LOOKUP('city-size', concat(tot.tags.city, ',', tot.tags.state)))*1000 AS 'total_mortality_rate'
+SELECT tot.datetime, tot.tags.city AS "city", tot.tags.state AS "state",
+  ISNULL(LOOKUP('us-region', tot.tags.region), tot.tags.region) AS "region",
+  sum(tot.value - t1.value - t24.value - t44.value - t64.value - t64o.value) AS "other_deaths",
+  sum(t1.value) AS "infant_deaths",
+  sum(t24.value) AS "1-24_deaths",
+  sum(t44.value) AS "25-44_deaths",
+  sum(t64.value) AS "45-64_deaths",
+  sum(t64o.value) AS "64+_deaths",
+  sum(tot.value) AS "all_deaths",
+  cast(LOOKUP('city-size', concat(tot.tags.city, ',', tot.tags.state))) AS "population",
+  sum(tot.value)/cast(LOOKUP('city-size', concat(tot.tags.city, ',', tot.tags.state)))*1000 AS "total_mortality_rate"
 FROM cdc.all_deaths tot
   JOIN cdc._1_year t1
   JOIN cdc._1_24_years t24
@@ -1138,17 +1138,17 @@ The death rate for 2010 that was found in the report (6.4) does not match the va
 sizes.
 
 ```sql
-SELECT tot.datetime, tot.tags.city as 'city', tot.tags.state as 'state',
-  ISNULL(LOOKUP('us-region', tot.tags.region), tot.tags.region) AS 'region',
-  sum(tot.value - t1.value - t24.value - t44.value - t64.value - t64o.value) as 'other_deaths',
-  sum(t1.value) as 'infant_deaths',
-  sum(t24.value) as '1-24_deaths',
-  sum(t44.value) as '25-44_deaths',
-  sum(t64.value) as '45-64_deaths',
-  sum(t64o.value) as '64+_deaths',
-  sum(tot.value) as 'all_deaths',
-  sum(tot.value)/avg(pop.value)*1000 AS 'total_mortality_rate',
-  last(pop.value) AS 'population_end_of_year'
+SELECT tot.datetime, tot.tags.city AS "city", tot.tags.state AS "state",
+  ISNULL(LOOKUP('us-region', tot.tags.region), tot.tags.region) AS "region",
+  sum(tot.value - t1.value - t24.value - t44.value - t64.value - t64o.value) AS "other_deaths",
+  sum(t1.value) AS "infant_deaths",
+  sum(t24.value) AS "1-24_deaths",
+  sum(t44.value) AS "25-44_deaths",
+  sum(t64.value) AS "45-64_deaths",
+  sum(t64o.value) AS "64+_deaths",
+  sum(tot.value) AS "all_deaths",
+  sum(tot.value)/avg(pop.value)*1000 AS "total_mortality_rate",
+  last(pop.value) AS "population_end_of_year"
 FROM cdc.all_deaths tot
   JOIN cdc._1_year t1
   JOIN cdc._1_24_years t24
@@ -1244,19 +1244,19 @@ We can also look at determining mortality rate by age group in New York City. We
 as part of the 2010 U.S. census. The `new-york-city-2010-population` file can be found [here](https://github.com/axibase/atsd-use-cases/blob/master/USMortality/resources/new-york-city-2010-population) in this repository.
 
 ```sql
-SELECT CAST(LOOKUP('new-york-city-2010-population', 'total')) AS 'population',
-  sum(t1.value) AS 'infant_deaths',
-  sum(t24.value) AS '1-24_deaths',
-  sum(t44.value) AS '25-44_deaths',
-  sum(t64.value) AS '45-64_deaths',
-  sum(t65.value) AS '65+_deaths',
-  sum(tot.value) AS 'all_deaths',
-  sum(t1.value)/CAST(LOOKUP('new-york-city-2010-population', 'under-1'))*1000 AS 'infant_mortality_rate',
-  sum(t24.value)/CAST(LOOKUP('new-york-city-2010-population', '1-24'))*1000 AS '1-24_mortality_rate',
-  sum(t44.value)/CAST(LOOKUP('new-york-city-2010-population', '25-44'))*1000 AS '25-44_mortality_rate',
-  sum(t64.value)/CAST(LOOKUP('new-york-city-2010-population', '45-64'))*1000 AS '45-64_mortality_rate',
-  sum(t65.value)/CAST(LOOKUP('new-york-city-2010-population', '65+'))*1000 AS '65+_mortality_rate',
-  sum(tot.value)/CAST(LOOKUP('new-york-city-2010-population', 'total'))*1000 AS 'total_mortality_rate'
+SELECT CAST(LOOKUP('new-york-city-2010-population', 'total')) AS "population",
+  sum(t1.value) AS "infant_deaths",
+  sum(t24.value) AS "1-24_deaths",
+  sum(t44.value) AS "25-44_deaths",
+  sum(t64.value) AS "45-64_deaths",
+  sum(t65.value) AS "65+_deaths",
+  sum(tot.value) AS "all_deaths",
+  sum(t1.value)/CAST(LOOKUP('new-york-city-2010-population', 'under-1'))*1000 AS "infant_mortality_rate",
+  sum(t24.value)/CAST(LOOKUP('new-york-city-2010-population', '1-24'))*1000 AS "1-24_mortality_rate",
+  sum(t44.value)/CAST(LOOKUP('new-york-city-2010-population', '25-44'))*1000 AS "25-44_mortality_rate",
+  sum(t64.value)/CAST(LOOKUP('new-york-city-2010-population', '45-64'))*1000 AS "45-64_mortality_rate",
+  sum(t65.value)/CAST(LOOKUP('new-york-city-2010-population', '65+'))*1000 AS "65+_mortality_rate",
+  sum(tot.value)/CAST(LOOKUP('new-york-city-2010-population', 'total'))*1000 AS "total_mortality_rate"
 FROM cdc.all_deaths tot
   JOIN cdc._1_year t1
   JOIN cdc._1_24_years t24
@@ -1284,17 +1284,17 @@ As the final query in this article, let us take a look at mortality rates by age
 as part of the 2010 U.S. Census. The `youngstown-2010-population` file can be found [here](https://github.com/axibase/atsd-use-cases/blob/master/USMortality/resources/youngstown-2010-population).
 
 ```sql
-SELECT CAST(LOOKUP('youngstown-2010-population', 'total')) AS 'population',
-  sum(t24.value+t1.value) AS '0-24_deaths',
-  sum(t44.value) AS '25-44_deaths',
-  sum(t64.value) AS '45-64_deaths',
-  sum(t65.value) AS '65+_deaths',
-  sum(tot.value) AS 'all_deaths',
-  sum(t24.value+t1.value)/CAST(LOOKUP('youngstown-2010-population', '1-24'))*1000 AS '1-24_mortality_rate',
-  sum(t44.value)/CAST(LOOKUP('youngstown-2010-population', '25-44'))*1000 AS '25-44_mortality_rate',
-  sum(t64.value)/CAST(LOOKUP('youngstown-2010-population', '45-64'))*1000 AS '45-64_mortality_rate',
-  sum(t65.value)/CAST(LOOKUP('youngstown-2010-population', '65+'))*1000 AS '65+_mortality_rate',
-  sum(tot.value)/CAST(LOOKUP('youngstown-2010-population', 'total'))*1000 AS 'total_mortality_rate'
+SELECT CAST(LOOKUP('youngstown-2010-population', 'total')) AS "population",
+  sum(t24.value+t1.value) AS "0-24_deaths",
+  sum(t44.value) AS "25-44_deaths",
+  sum(t64.value) AS "45-64_deaths",
+  sum(t65.value) AS "65+_deaths",
+  sum(tot.value) AS "all_deaths",
+  sum(t24.value+t1.value)/CAST(LOOKUP('youngstown-2010-population', '1-24'))*1000 AS "1-24_mortality_rate",
+  sum(t44.value)/CAST(LOOKUP('youngstown-2010-population', '25-44'))*1000 AS "25-44_mortality_rate",
+  sum(t64.value)/CAST(LOOKUP('youngstown-2010-population', '45-64'))*1000 AS "45-64_mortality_rate",
+  sum(t65.value)/CAST(LOOKUP('youngstown-2010-population', '65+'))*1000 AS "65+_mortality_rate",
+  sum(tot.value)/CAST(LOOKUP('youngstown-2010-population', 'total'))*1000 AS "total_mortality_rate"
 FROM cdc.all_deaths tot
   OUTER JOIN cdc._1_year t1
   OUTER JOIN cdc._1_24_years t24

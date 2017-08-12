@@ -49,7 +49,7 @@ scandal and two modern Presidents who served after losing the popular vote, but 
 **Query 1**
 
 ```sql
-SELECT date_format(time,'yyyy') AS 'Year', value AS 'Naturalizations'
+SELECT date_format(time,'yyyy') AS "Year", value AS "Naturalizations"
  FROM Naturalized.Citizens
 ```
 
@@ -95,11 +95,11 @@ consecutive years.
 **Query 2**
 
 ```sql
-SELECT date_format(time+365*24*60*60000, 'yyyy') AS 'Year', 
-  count(value) AS 'Year Total', 
-  count(value)-lag(count(value)) AS 'Y-o-Y Change', 
-  100*(count(value)-lag(count(value)))/lag(count(value)) AS 'Y-o-Y Change, %'
-FROM 'us-expatriate-counter'
+SELECT date_format(time+365*24*60*60000, 'yyyy') AS "Year", 
+  count(value) AS "Year Total", 
+  count(value)-lag(count(value)) AS "Y-o-Y Change", 
+  100*(count(value)-lag(count(value)))/lag(count(value)) AS "Y-o-Y Change, %"
+FROM "us-expatriate-counter"
   WHERE entity = 'us.irs' AND datetime <= '2017-06-30T00:00:00Z'
 GROUP BY period(1 YEAR, END_TIME)
   ORDER BY period(1 YEAR, END_TIME)
@@ -160,9 +160,9 @@ a decline in the median familty income of [about five percent](https://web.stanf
 **Query 3**
 
 ```sql
-SELECT CEIL(CAST(date_format(time, 'M') AS NUMBER)/3) AS 'Quarter', date_format(time, 'yyyy') AS 'Year', 
-  count(value) AS 'Quarter Total'
-FROM 'us-expatriate-counter'
+SELECT CEIL(CAST(date_format(time, 'M') AS NUMBER)/3) AS "Quarter", date_format(time, 'yyyy') AS "Year", 
+  count(value) AS "Quarter Total"
+FROM "us-expatriate-counter"
   WHERE entity = 'us.irs' AND date_format(time, 'yyyy-MM') >= '2013-01' AND datetime <= now
 GROUP BY period(1 QUARTER)
   ORDER BY period(1 QUARTER)
@@ -220,9 +220,9 @@ otherwise cause harm.**
 **Query 4**
 
 ```sql
-SELECT tags.first_name AS 'First Name',
-  count(value) AS 'Expat Total'
-FROM 'us-expatriate-counter'
+SELECT tags.first_name AS "First Name",
+  count(value) AS "Expat Total"
+FROM "us-expatriate-counter"
   WHERE entity = 'us.irs' AND datetime <= now
 GROUP BY tags.first_name
   ORDER BY count(value) desc 
@@ -260,9 +260,9 @@ LIMIT 15
 **Query 5**
 
 ```sql
-SELECT tags.last_name AS 'Last Name',
-  count(value) AS 'Expat Total'
-FROM 'us-expatriate-counter'
+SELECT tags.last_name AS "Last Name",
+  count(value) AS "Expat Total"
+FROM "us-expatriate-counter"
   WHERE entity = 'us.irs' AND datetime <= now
 GROUP BY tags.last_name
   ORDER BY count(value) desc 

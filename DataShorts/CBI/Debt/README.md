@@ -11,8 +11,8 @@ ChartLab and SQL Console: [Axibase](https://axibase.com)
 [![](Images/button.png)](https://apps.axibase.com/chartlab/c6a6b0c8/7/#fullscreen)
 
 ```sql
-SELECT date_format(time, 'yyyy') AS 'Date', pd.value AS 'Public Debt', gd.value AS 'Government Debt', dd.value AS 'Domestic Debt', fd.value AS 'Foreign Debt'
-  FROM 'public_debt(nis)' AS pd JOIN 'government_debt_(nis)' AS gd JOIN 'domestic_debt_(nis)' AS dd JOIN 'foreign_debt_(nis)' AS fd
+SELECT date_format(time, 'yyyy') AS "Date", pd.value AS "Public Debt", gd.value AS "Government Debt", dd.value AS "Domestic Debt", fd.value AS "Foreign Debt"
+  FROM "public_debt(nis)" AS pd JOIN "government_debt_(nis)" AS gd JOIN "domestic_debt_(nis)" AS dd JOIN "foreign_debt_(nis)" AS fd
 GROUP BY 'Date', pd.value, gd.value, dd.value, fd.value
   ORDER BY 'Date'
 ```
@@ -49,8 +49,8 @@ GROUP BY 'Date', pd.value, gd.value, dd.value, fd.value
 [![](Images/button.png)](https://apps.axibase.com/chartlab/c6a6b0c8/6/#fullscreen)
 
 ```sql
-SELECT date_format(time, 'yyyy') AS 'Date', pd.value AS 'Public Debt Percent GDP', gd.value AS 'Government Debt Percent GDP', dd.value AS 'Domestic Debt Percent GDP', fd.value AS 'Foreign Debt Percent GDP'
-  FROM 'public_debt' AS pd JOIN 'government_debt' AS gd JOIN 'domestic_debt' AS dd JOIN 'foreign_debt' AS fd
+SELECT date_format(time, 'yyyy') AS "Date", pd.value AS "Public Debt Percent GDP", gd.value AS "Government Debt Percent GDP", dd.value AS "Domestic Debt Percent GDP", fd.value AS "Foreign Debt Percent GDP"
+  FROM "public_debt" AS pd JOIN "government_debt" AS gd JOIN "domestic_debt" AS dd JOIN "foreign_debt" AS fd
 GROUP BY 'Date', pd.value, gd.value, dd.value, fd.value
   ORDER BY 'Date'
 ```
@@ -92,8 +92,8 @@ GROUP BY 'Date', pd.value, gd.value, dd.value, fd.value
 
 
 ```sql
-SELECT date_format(time, 'yyyy') AS 'Date', cpi.value AS 'CPI-Indexed', ui1.value AS 'Unindexed, Fixed or Zero', ui2.value AS 'Inindexed, Variable', di.value AS 'Dollar-Indexed', fcd.value AS 'Foreign-Currency Denominated'
-  FROM 'cpi-indexed' AS cpi JOIN 'unindexed,_fixed_or_zero_coupon' AS ui1 JOIN 'unindexed,_variable_interest' AS ui2 JOIN 'dollar-indexed' AS di JOIN 'foreign-currency_denominated' AS fcd
+SELECT date_format(time, 'yyyy') AS "Date", cpi.value AS "CPI-Indexed", ui1.value AS "Unindexed, Fixed or Zero", ui2.value AS "Inindexed, Variable", di.value AS "Dollar-Indexed", fcd.value AS "Foreign-Currency Denominated"
+  FROM "cpi-indexed" AS cpi JOIN "unindexed,_fixed_or_zero_coupon" AS ui1 JOIN "unindexed,_variable_interest" AS ui2 JOIN "dollar-indexed" AS di JOIN "foreign-currency_denominated" AS fcd
 GROUP BY 'Date', cpi.value, ui1.value, ui2.value, di.value, fcd.value
   ORDER BY 'Date'
 ```

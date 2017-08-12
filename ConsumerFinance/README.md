@@ -8,7 +8,7 @@ Consumer Finance Protection: League Tables
 
 ```sql
 SELECT tags.product, COUNT(*)
-  FROM 'cfpb.row_number.s6ew-h6mp'
+  FROM "cfpb.row_number.s6ew-h6mp"
   GROUP BY tags.product
 ORDER BY COUNT(*) DESC
 ```
@@ -32,7 +32,7 @@ ORDER BY COUNT(*) DESC
 
 ```sql
 SELECT tags.company, COUNT(*)
-  FROM 'cfpb.row_number.s6ew-h6mp'
+  FROM "cfpb.row_number.s6ew-h6mp"
 GROUP BY tags.company
   --HAVING COUNT(*) >= 1000
 ORDER BY COUNT(*) DESC
@@ -71,8 +71,8 @@ ORDER BY COUNT(*) DESC
 ## Bank of America: Annual Complaint Counts
 
 ```sql
-SELECT date_format(time, 'yyyy') AS 'Year', COUNT(*)
-  FROM 'cfpb.row_number.s6ew-h6mp'
+SELECT date_format(time, 'yyyy') AS "Year", COUNT(*)
+  FROM "cfpb.row_number.s6ew-h6mp"
 WHERE tags.company = 'Bank of America'
   AND datetime >= '2012-01-01T00:00:00Z' AND datetime < CURRENT_YEAR
 GROUP BY PERIOD(1 YEAR)
@@ -89,9 +89,9 @@ GROUP BY PERIOD(1 YEAR)
 ## Bank of America: Quarterly Complaint Counts
 
 ```sql
-SELECT date_format(time, 'yyyy') AS 'Year',
-  CEIL(CAST(date_format(time, 'M') AS NUMBER)/3) AS 'Quarter', COUNT(*)
-  FROM 'cfpb.row_number.s6ew-h6mp'
+SELECT date_format(time, 'yyyy') AS "Year",
+  CEIL(CAST(date_format(time, 'M') AS NUMBER)/3) AS "Quarter", COUNT(*)
+  FROM "cfpb.row_number.s6ew-h6mp"
 WHERE tags.company = 'Bank of America'
   AND datetime >= '2012-01-01T00:00:00Z' AND datetime < CURRENT_QUARTER
 GROUP BY PERIOD(1 QUARTER)
@@ -125,7 +125,7 @@ GROUP BY PERIOD(1 QUARTER)
 
 ```sql
 SELECT tags.product, COUNT(*)
-  FROM 'cfpb.row_number.s6ew-h6mp'
+  FROM "cfpb.row_number.s6ew-h6mp"
 WHERE tags.company = 'Bank of America'  
   GROUP BY tags.product
 ORDER BY COUNT(*) DESC

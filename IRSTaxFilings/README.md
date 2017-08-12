@@ -49,13 +49,13 @@ Lets build the year-on-year comparisons for the following three scenarios:
 ## Case 1: File Tax on the Same Calendar Date
 
 ```sql
-SELECT date_format(time, 'yyyy') AS 'Year',
-  date_format(time, 'MMM-dd') AS 'Date',
-  value/1000000 AS 'Curr Year, Mln',
-  LAG(value)/1000000 AS 'Prev Year, Mln',
-  (value-LAG(value))/1000000 AS 'YoY Change, Mln',
-  (value/LAG(value)-1)*100 AS 'YoY Change, %'
-  FROM 'irs_season.count_year_current'
+SELECT date_format(time, 'yyyy') AS "Year",
+  date_format(time, 'MMM-dd') AS "Date",
+  value/1000000 AS "Curr Year, Mln",
+  LAG(value)/1000000 AS "Prev Year, Mln",
+  (value-LAG(value))/1000000 AS "YoY Change, Mln",
+  (value/LAG(value)-1)*100 AS "YoY Change, %"
+  FROM "irs_season.count_year_current"
 WHERE tags.section = 'Individual Income Tax Returns' AND tags.type = 'Total Returns Received'
   AND date_format(time, 'MM-dd') = '03-31'
   WITH INTERPOLATE(1 DAY)
@@ -79,14 +79,14 @@ The `WITH INTERPOLATE(1 DAY)` clause is used to fill the missing data points and
 ## Case 2: File Taxes on the Same Day in Year
 
 ```sql
-SELECT date_format(time, 'yyyy') AS 'Year',
-  date_format(time, 'MMM-dd') AS 'Date',
-  CAST(date_format(time, 'D') AS NUMBER) AS 'Day in Year',
-  value/1000000 AS 'Curr Year, Mln',
-  LAG(value)/1000000 AS 'Prev Year, Mln',
-  (value-LAG(value))/1000000 AS 'YoY Change, Mln',
-  (value/LAG(value)-1)*100 AS 'YoY Change, %'
-  FROM 'irs_season.count_year_current'
+SELECT date_format(time, 'yyyy') AS "Year",
+  date_format(time, 'MMM-dd') AS "Date",
+  CAST(date_format(time, 'D') AS NUMBER) AS "Day in Year",
+  value/1000000 AS "Curr Year, Mln",
+  LAG(value)/1000000 AS "Prev Year, Mln",
+  (value-LAG(value))/1000000 AS "YoY Change, Mln",
+  (value/LAG(value)-1)*100 AS "YoY Change, %"
+  FROM "irs_season.count_year_current"
 WHERE tags.section = 'Individual Income Tax Returns' AND tags.type = 'Total Returns Received'
   AND 'Day in Year' = CAST(date_format('2017-03-31T00:00:00Z', 'D') AS NUMBER)
   WITH INTERPOLATE(1 DAY)
@@ -109,20 +109,20 @@ The [`date_format`](https://github.com/axibase/atsd/tree/master/api/sql#date-for
 ## Case 3: File Taxes based on Days Remaining to Filing Date (Tax Day)
 
 ```sql
-SELECT date_format(time, 'yyyy') AS 'Year',
-  date_format(time, 'MMM-dd') AS 'Date',
-  CAST(date_format(time, 'D') AS NUMBER) AS 'Day in Year',
+SELECT date_format(time, 'yyyy') AS "Year",
+  date_format(time, 'MMM-dd') AS "Date",
+  CAST(date_format(time, 'D') AS NUMBER) AS "Day in Year",
   CAST(date_format(date_parse(CONCAT(date_format(time, "yyyy"), '-04-',   
     CASE date_format(time, 'yyyy')               
       WHEN '2012' OR '2018' THEN '17'
       WHEN '2016' OR '2017' THEN '18'
       ELSE '15'
-    END, "T00:00:00Z")), 'D') AS NUMBER) - CAST(date_format(time, 'D') AS NUMBER) AS 'Days to File',     
-  value/1000000 AS 'Curr Year, Mln',
-  LAG(value)/1000000 AS 'Prev Year, Mln',
-  (value-LAG(value))/1000000 AS 'YoY Change, Mln',
-  (value/LAG(value)-1)*100 AS 'YoY Change, %'
-  FROM 'irs_season.count_year_current'
+    END, "T00:00:00Z")), 'D') AS NUMBER) - CAST(date_format(time, 'D') AS NUMBER) AS "Days to File",     
+  value/1000000 AS "Curr Year, Mln",
+  LAG(value)/1000000 AS "Prev Year, Mln",
+  (value-LAG(value))/1000000 AS "YoY Change, Mln",
+  (value/LAG(value)-1)*100 AS "YoY Change, %"
+  FROM "irs_season.count_year_current"
 WHERE tags.section = 'Individual Income Tax Returns' AND tags.type = 'Total Returns Received'
   -- 18 days between 31-Mar-2017 and 18-Apr-2017  
   AND 'Days to File' = 18
@@ -162,20 +162,20 @@ We noticed however that the trends are not uniform across E-filing channels.
 | 3 | -3.3 | -1.8 |
 
 ```sql
-SELECT date_format(time, 'yyyy') AS 'Year',
-  date_format(time, 'MMM-dd') AS 'Date',
-  CAST(date_format(time, 'D') AS NUMBER) AS 'Day in Year',
+SELECT date_format(time, 'yyyy') AS "Year",
+  date_format(time, 'MMM-dd') AS "Date",
+  CAST(date_format(time, 'D') AS NUMBER) AS "Day in Year",
   CAST(date_format(date_parse(CONCAT(date_format(time, "yyyy"), '-04-',   
     CASE date_format(time, 'yyyy')               
       WHEN '2012' OR '2018' THEN '17'
       WHEN '2016' OR '2017' THEN '18'
       ELSE '15'
-    END, "T00:00:00Z")), 'D') AS NUMBER) - CAST(date_format(time, 'D') AS NUMBER) AS 'Days to File',     
-  value/1000000 AS 'Returns Received, Mln',
-  LAG(value)/1000000 AS 'Previous Year, Mln',
-  (value-LAG(value))/1000000 AS 'Y-o-Y Change, Mln',
-  (value/LAG(value)-1)*100 AS 'Y-o-Y Change, %'
-  FROM 'irs_season.count_year_current'
+    END, "T00:00:00Z")), 'D') AS NUMBER) - CAST(date_format(time, 'D') AS NUMBER) AS "Days to File",     
+  value/1000000 AS "Returns Received, Mln",
+  LAG(value)/1000000 AS "Previous Year, Mln",
+  (value-LAG(value))/1000000 AS "Y-o-Y Change, Mln",
+  (value/LAG(value)-1)*100 AS "Y-o-Y Change, %"
+  FROM "irs_season.count_year_current"
 WHERE tags.section = 'E-filing Receipts' AND tags.type = 'Self-prepared'
 --WHERE tags.section = 'E-filing Receipts' AND tags.type = 'Tax Professionals'
   AND 'Days to File' = 18

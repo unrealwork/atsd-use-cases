@@ -62,8 +62,8 @@ to the Deparment of Ecology's own map (linked [here](https://fortress.wa.gov/ecy
 
 
 ```sql
-SELECT tags.station_name AS 'Station Name', value AS 'WQI Overall Score', tags.station AS 'Station Code'
-  FROM 'overallwqi_2015'
+SELECT tags.station_name AS "Station Name", value AS "WQI Overall Score", tags.station AS "Station Code"
+  FROM "overallwqi_2015"
 ORDER BY value DESC
   LIMIT 10
 ```
@@ -86,8 +86,8 @@ ORDER BY value DESC
 ```
 
 ```sql
-SELECT tags.station_name AS 'Station Name', value AS 'WQI Overall Score', tags.station AS 'Station Code'
-  FROM 'overallwqi_2015'
+SELECT tags.station_name AS "Station Name", value AS "WQI Overall Score", tags.station AS "Station Code"
+  FROM "overallwqi_2015"
 ORDER BY value ASC
   LIMIT 10
 ```

@@ -135,11 +135,11 @@ Using the following query, we are able to obtain an estimate for the volume adde
 
 ```sql
 SELECT
-    SUM(t1.value)*3600*2.29569e-5 as 'total_inflow_in_acre_foot',
-    DELTA(t2.value) as 'total_precipitation_inches',
-    SUM(t1.value)*3600*2.29569e-5/DELTA(t2.value) as 'acre_foot_per_precipitation_inch'
-FROM 'ca.reservoir_inflow_cfs' t1
-JOIN 'ca.precipitation_accumulated_inches' t2
+    SUM(t1.value)*3600*2.29569e-5 AS "total_inflow_in_acre_foot",
+    DELTA(t2.value) AS "total_precipitation_inches",
+    SUM(t1.value)*3600*2.29569e-5/DELTA(t2.value) AS "acre_foot_per_precipitation_inch"
+FROM "ca.reservoir_inflow_cfs" t1
+JOIN "ca.precipitation_accumulated_inches" t2
 WHERE t1.datetime >= '2017-01-01T00:00:00Z'
 ```
 

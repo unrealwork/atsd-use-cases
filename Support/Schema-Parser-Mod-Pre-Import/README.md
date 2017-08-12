@@ -28,8 +28,8 @@ To start, look at the below visualization, SQL query, and result set:
 **Script 1.1**
 
 ```sql
-SELECT date_format(time, 'yyyy') AS 'Year', im.value AS 'Import Percent Change', ex.value 'Export Percent Change'
-  FROM import_total AS 'im' JOIN export_total AS 'ex'
+SELECT date_format(time, 'yyyy') AS "Year", im.value AS "Import Percent Change", ex.value 'Export Percent Change'
+  FROM import_total AS "im" JOIN export_total AS "ex"
 ```
 
 **Table 1.1**
@@ -162,8 +162,8 @@ that is exactly as needed. The enhanced SQL query and visualization are shown be
 **Script 3.1**
 
 ```sql
-SELECT date_format(time, 'yyyy') AS 'Year', ima.value AS 'Import Total', im.value AS 'Import Percent Change', exa.value AS 'Export Total', ex.value 'Export Percent Change'
-  FROM import_total AS 'im' JOIN import_total_actual AS 'ima' JOIN export_total AS 'ex' JOIN export_total_actual as 'exa'
+SELECT date_format(time, 'yyyy') AS "Year", ima.value AS "Import Total", im.value AS "Import Percent Change", exa.value AS "Export Total", ex.value 'Export Percent Change'
+  FROM import_total AS "im" JOIN import_total_actual AS "ima" JOIN export_total AS "ex" JOIN export_total_actual AS "exa"
 ```
 
 **Table 2.1**

@@ -122,7 +122,7 @@ number of visas issued in 2015 (except for the above mentioned visa types) was f
 
 ```sql
 SELECT tags.visa_type, sum(value)
-  FROM 'state.non-immigrant-visa'
+  FROM "state.non-immigrant-visa"
 WHERE tags.visa_type NOT LIKE 'A*'
   AND tags.visa_type NOT LIKE 'B*'
   AND tags.visa_type NOT LIKE 'C*'
@@ -160,7 +160,7 @@ This below query shows the top 15 largest countries by non-immigrant visas in 20
 
 ```sql
 SELECT tags.country, sum(value)
-  FROM 'state.non-immigrant-visa'
+  FROM "state.non-immigrant-visa"
 WHERE tags.visa_type NOT LIKE 'A*'
   AND tags.visa_type NOT LIKE 'B*'
   AND tags.visa_type NOT LIKE 'C*'
@@ -200,7 +200,7 @@ SELECT tags.country, first(value) AS "2005",
   last(value) AS "2015",
   (last(value)/first(value)-1)*100 AS "10 Year Change, %",
   (POWER(last(value)/first(value), 1/count(value))-1)*100 AS "CAGR, %"
-  FROM 'state.non-immigrant-visa'
+  FROM "state.non-immigrant-visa"
 WHERE tags.visa_type = 'B-1,2'
   AND tags.country NOT LIKE '*Total*'
   AND LOOKUP('us-visa-waiver-program', tags.country) IS NULL
@@ -241,7 +241,7 @@ Total revenue for travel visas (in millions of USD) for the state department at 
 
 ```sql
 SELECT date_format(time, 'yyyy') AS "year", sum(value) * 160 / power(10, 6) AS "Visa Fees, $M"
-  FROM 'state.non-immigrant-visa'
+  FROM "state.non-immigrant-visa"
 WHERE tags.visa_type = 'B-1,2'
   AND tags.country NOT LIKE '*Total*'
 GROUP BY datetime

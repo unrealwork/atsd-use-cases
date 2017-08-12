@@ -43,7 +43,7 @@ comment on the features of a specific station.
 ###### Total Passengers
 
 ```sql
-SELECT date_format(time, 'yyyy') AS 'Year', SUM(value)/1000000 AS 'Passenger Total (Million)'
+SELECT date_format(time, 'yyyy') AS "Year", SUM(value)/1000000 AS "Passenger Total (Million)"
   FROM monthtotal
 GROUP BY date_format(time, 'yyyy')
   ORDER BY 'Year' ASC
@@ -81,7 +81,7 @@ have been occassional decreases in annual ridership that are not necessarily ind
 ###### 2001
 
 ```sql
-SELECT tags.stationame AS 'Station', SUM(value)/1000000 AS 'Passenger Total (Million)'
+SELECT tags.stationame AS "Station", SUM(value)/1000000 AS "Passenger Total (Million)"
   FROM monthtotal WHERE date_format(time, 'yyyy') = '2001'
 GROUP BY 'Station', date_format(time, 'yyyy')
   ORDER BY SUM(value) DESC
@@ -118,7 +118,7 @@ Drag the window to the left or right to shows rider numbers of any given month i
 ###### 2006
 
 ```sql
-SELECT tags.stationame AS 'Station', SUM(value)/1000000 AS 'Passenger Total (Million)'
+SELECT tags.stationame AS "Station", SUM(value)/1000000 AS "Passenger Total (Million)"
   FROM monthtotal WHERE date_format(time, 'yyyy') = '2006'
 GROUP BY 'Station', date_format(time, 'yyyy')
   ORDER BY SUM(value) DESC
@@ -152,7 +152,7 @@ LIMIT 15
 ###### 2011
 
 ```sql
-SELECT tags.stationame AS 'Station', SUM(value)/1000000 AS 'Passenger Total (Million)'
+SELECT tags.stationame AS "Station", SUM(value)/1000000 AS "Passenger Total (Million)"
   FROM monthtotal WHERE date_format(time, 'yyyy') = '2011'
 GROUP BY 'Station', date_format(time, 'yyyy')
   ORDER BY SUM(value) DESC
@@ -190,7 +190,7 @@ the relative overall growth of L ridership as a whole.
 ###### 2016
 
 ```sql
-SELECT tags.stationame AS 'Station', SUM(value)/1000000 AS 'Passenger Total (Million)'
+SELECT tags.stationame AS "Station", SUM(value)/1000000 AS "Passenger Total (Million)"
   FROM monthtotal WHERE date_format(time, 'yyyy') = '2016'
 GROUP BY 'Station', date_format(time, 'yyyy')
   ORDER BY SUM(value) DESC

@@ -47,7 +47,7 @@ contributed to the currently favorable exchange rate enjoyed by the dollar.
 **Query 1.1**
 
 ```sql
-SELECT date_format(time, 'yyyy') AS 'Date', AVG(value) AS 'Average Value'
+SELECT date_format(time, 'yyyy') AS "Date", AVG(value) AS "Average Value"
   FROM dexuseu
 GROUP BY PERIOD(1 YEAR)
 ```
@@ -86,7 +86,7 @@ to an all-time low for the observed time period.
 **Query 1.2**
 
 ```sql
-SELECT date_format(time, 'yyyy') AS 'Date', AVG(value) AS 'Average Value'
+SELECT date_format(time, 'yyyy') AS "Date", AVG(value) AS "Average Value"
   FROM dexszus
 GROUP BY PERIOD(1 YEAR)
 ```
@@ -122,7 +122,7 @@ late June of 2016, which aligns perfectly with the Pound's slight depreciation i
 **Query 1.3**
 
 ```sql
-SELECT date_format(time, 'yyyy') AS 'Date', AVG(value) AS 'Average Value'
+SELECT date_format(time, 'yyyy') AS "Date", AVG(value) AS "Average Value"
   FROM dexusuk
 GROUP BY PERIOD(1 YEAR)
 ```
@@ -166,7 +166,7 @@ much higher rate.
 **Query 2.1**
 
 ```sql
-SELECT date_format(time, 'yyyy') AS 'Date', AVG(value) AS 'Average Value'
+SELECT date_format(time, 'yyyy') AS "Date", AVG(value) AS "Average Value"
   FROM dexjpus
 GROUP BY PERIOD(1 YEAR)
 ```
@@ -204,7 +204,7 @@ their own currency by maintaining positions in international currencies.
 **Query 2.2**
 
 ```sql
-SELECT date_format(time, 'yyyy') AS 'Date', AVG(value) AS 'Average Value'
+SELECT date_format(time, 'yyyy') AS "Date", AVG(value) AS "Average Value"
   FROM dexchus
 GROUP BY PERIOD(1 YEAR)
 ```
@@ -240,7 +240,7 @@ value is planned. The "Miracle of the Orient" continues to be one of the most do
 **Query 2.3**
 
 ```sql
-SELECT date_format(time, 'yyyy') AS 'Date', AVG(value) AS 'Average Value'
+SELECT date_format(time, 'yyyy') AS "Date", AVG(value) AS "Average Value"
   FROM dexhkus
 GROUP BY PERIOD(1 YEAR)
 ```
@@ -278,7 +278,7 @@ does not regulate their currency's value by adjusting interest rates, as is comm
 **Query 2.4**
 
 ```sql
-SELECT date_format(time, 'yyyy') AS 'Date', AVG(value) AS 'Average Value'
+SELECT date_format(time, 'yyyy') AS "Date", AVG(value) AS "Average Value"
   FROM dexsius
 GROUP BY PERIOD(1 YEAR)
 ```
@@ -317,7 +317,7 @@ economy is one of the few globally-active nations with a significant trade surpl
 **Query 3.1**
 
 ```sql
-SELECT date_format(time, 'yyyy') AS 'Date', AVG(value) AS 'Average Value'
+SELECT date_format(time, 'yyyy') AS "Date", AVG(value) AS "Average Value"
   FROM dexcaus
 GROUP BY PERIOD(1 YEAR)
 ```
@@ -357,7 +357,7 @@ on U.S. soil.
 **Query 3.2**
 
 ```sql
-SELECT date_format(time, 'yyyy') AS 'Date', AVG(value) AS 'Average Value'
+SELECT date_format(time, 'yyyy') AS "Date", AVG(value) AS "Average Value"
   FROM dexmxus
 GROUP BY PERIOD(1 YEAR)
 ```

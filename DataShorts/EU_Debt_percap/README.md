@@ -40,8 +40,8 @@ Per capita debt indexed by country and year from 2005 to 2016.
 **Query 1.01**
 
 ```sql
-SELECT SUBSTR(debt.tags.geo, 1, locate('(', debt.tags.geo)-1) AS 'Country', 
-  ROUND(debt.value/pop.value*1000000, -2) AS 'Per Capita Debt (Euro)'
+SELECT SUBSTR(debt.tags.geo, 1, locate('(', debt.tags.geo)-1) AS "Country", 
+  ROUND(debt.value/pop.value*1000000, -2) AS "Per Capita Debt (Euro)"
 FROM government_consolidated_gross_debt AS debt 
   JOIN "average_population_-_total" AS pop 
   ON debt.entity = pop.entity AND debt.time = pop.time AND debt.tags = pop.tags
@@ -99,8 +99,8 @@ ORDER BY debt.tags.geo
 **Query 1.02**
 
 ```sql
-SELECT SUBSTR(debt.tags.geo, 1, locate('(', debt.tags.geo)-1) AS 'Country', 
-  ROUND(debt.value/pop.value*1000000, -2) AS 'Per Capita Debt (Euro)'
+SELECT SUBSTR(debt.tags.geo, 1, locate('(', debt.tags.geo)-1) AS "Country", 
+  ROUND(debt.value/pop.value*1000000, -2) AS "Per Capita Debt (Euro)"
 FROM government_consolidated_gross_debt AS debt 
   JOIN "average_population_-_total" AS pop 
   ON debt.entity = pop.entity AND debt.time = pop.time AND debt.tags = pop.tags
@@ -158,8 +158,8 @@ ORDER BY debt.tags.geo
 **Query 1.03**
 
 ```sql
-SELECT SUBSTR(debt.tags.geo, 1, locate('(', debt.tags.geo)-1) AS 'Country', 
-  ROUND(debt.value/pop.value*1000000, -2) AS 'Per Capita Debt (Euro)'
+SELECT SUBSTR(debt.tags.geo, 1, locate('(', debt.tags.geo)-1) AS "Country", 
+  ROUND(debt.value/pop.value*1000000, -2) AS "Per Capita Debt (Euro)"
 FROM government_consolidated_gross_debt AS debt 
   JOIN "average_population_-_total" AS pop 
   ON debt.entity = pop.entity AND debt.time = pop.time AND debt.tags = pop.tags
@@ -217,8 +217,8 @@ ORDER BY debt.tags.geo
 **Query 1.04**
 
 ```sql
-SELECT SUBSTR(debt.tags.geo, 1, locate('(', debt.tags.geo)-1) AS 'Country', 
-  ROUND(debt.value/pop.value*1000000, -2) AS 'Per Capita Debt (Euro)'
+SELECT SUBSTR(debt.tags.geo, 1, locate('(', debt.tags.geo)-1) AS "Country", 
+  ROUND(debt.value/pop.value*1000000, -2) AS "Per Capita Debt (Euro)"
 FROM government_consolidated_gross_debt AS debt 
   JOIN "average_population_-_total" AS pop 
   ON debt.entity = pop.entity AND debt.time = pop.time AND debt.tags = pop.tags
@@ -276,8 +276,8 @@ ORDER BY debt.tags.geo
 **Query 1.05**
 
 ```sql
-SELECT SUBSTR(debt.tags.geo, 1, locate('(', debt.tags.geo)-1) AS 'Country', 
-  ROUND(debt.value/pop.value*1000000, -2) AS 'Per Capita Debt (Euro)'
+SELECT SUBSTR(debt.tags.geo, 1, locate('(', debt.tags.geo)-1) AS "Country", 
+  ROUND(debt.value/pop.value*1000000, -2) AS "Per Capita Debt (Euro)"
 FROM government_consolidated_gross_debt AS debt 
   JOIN "average_population_-_total" AS pop 
   ON debt.entity = pop.entity AND debt.time = pop.time AND debt.tags = pop.tags
@@ -335,8 +335,8 @@ ORDER BY debt.tags.geo
 **Query 1.06**
 
 ```sql
-SELECT SUBSTR(debt.tags.geo, 1, locate('(', debt.tags.geo)-1) AS 'Country', 
-  ROUND(debt.value/pop.value*1000000, -2) AS 'Per Capita Debt (Euro)'
+SELECT SUBSTR(debt.tags.geo, 1, locate('(', debt.tags.geo)-1) AS "Country", 
+  ROUND(debt.value/pop.value*1000000, -2) AS "Per Capita Debt (Euro)"
 FROM government_consolidated_gross_debt AS debt 
   JOIN "average_population_-_total" AS pop 
   ON debt.entity = pop.entity AND debt.time = pop.time AND debt.tags = pop.tags
@@ -394,8 +394,8 @@ ORDER BY debt.tags.geo
 **Query 1.07**
 
 ```sql
-SELECT SUBSTR(debt.tags.geo, 1, locate('(', debt.tags.geo)-1) AS 'Country', 
-  ROUND(debt.value/pop.value*1000000, -2) AS 'Per Capita Debt (Euro)'
+SELECT SUBSTR(debt.tags.geo, 1, locate('(', debt.tags.geo)-1) AS "Country", 
+  ROUND(debt.value/pop.value*1000000, -2) AS "Per Capita Debt (Euro)"
 FROM government_consolidated_gross_debt AS debt 
   JOIN "average_population_-_total" AS pop 
   ON debt.entity = pop.entity AND debt.time = pop.time AND debt.tags = pop.tags
@@ -453,8 +453,8 @@ ORDER BY debt.tags.geo
 **Query 1.08**
 
 ```sql
-SELECT SUBSTR(debt.tags.geo, 1, locate('(', debt.tags.geo)-1) AS 'Country', 
-  ROUND(debt.value/pop.value*1000000, -2) AS 'Per Capita Debt (Euro)'
+SELECT SUBSTR(debt.tags.geo, 1, locate('(', debt.tags.geo)-1) AS "Country", 
+  ROUND(debt.value/pop.value*1000000, -2) AS "Per Capita Debt (Euro)"
 FROM government_consolidated_gross_debt AS debt 
   JOIN "average_population_-_total" AS pop 
   ON debt.entity = pop.entity AND debt.time = pop.time AND debt.tags = pop.tags
@@ -512,8 +512,8 @@ ORDER BY debt.tags.geo
 **Query 1.09**
 
 ```sql
-SELECT SUBSTR(debt.tags.geo, 1, locate('(', debt.tags.geo)-1) AS 'Country', 
-  ROUND(debt.value/pop.value*1000000, -2) AS 'Per Capita Debt (Euro)'
+SELECT SUBSTR(debt.tags.geo, 1, locate('(', debt.tags.geo)-1) AS "Country", 
+  ROUND(debt.value/pop.value*1000000, -2) AS "Per Capita Debt (Euro)"
 FROM government_consolidated_gross_debt AS debt 
   JOIN "average_population_-_total" AS pop 
   ON debt.entity = pop.entity AND debt.time = pop.time AND debt.tags = pop.tags
@@ -571,8 +571,8 @@ ORDER BY debt.tags.geo
 **Query 1.10**
 
 ```sql
-SELECT SUBSTR(debt.tags.geo, 1, locate('(', debt.tags.geo)-1) AS 'Country', 
-  ROUND(debt.value/pop.value*1000000, -2) AS 'Per Capita Debt (Euro)'
+SELECT SUBSTR(debt.tags.geo, 1, locate('(', debt.tags.geo)-1) AS "Country", 
+  ROUND(debt.value/pop.value*1000000, -2) AS "Per Capita Debt (Euro)"
 FROM government_consolidated_gross_debt AS debt 
   JOIN "average_population_-_total" AS pop 
   ON debt.entity = pop.entity AND debt.time = pop.time AND debt.tags = pop.tags
@@ -630,8 +630,8 @@ ORDER BY debt.tags.geo
 **Query 1.11**
 
 ```sql
-SELECT SUBSTR(debt.tags.geo, 1, locate('(', debt.tags.geo)-1) AS 'Country', 
-  ROUND(debt.value/pop.value*1000000, -2) AS 'Per Capita Debt (Euro)'
+SELECT SUBSTR(debt.tags.geo, 1, locate('(', debt.tags.geo)-1) AS "Country", 
+  ROUND(debt.value/pop.value*1000000, -2) AS "Per Capita Debt (Euro)"
 FROM government_consolidated_gross_debt AS debt 
   JOIN "average_population_-_total" AS pop 
   ON debt.entity = pop.entity AND debt.time = pop.time AND debt.tags = pop.tags
@@ -689,8 +689,8 @@ ORDER BY debt.tags.geo
 **Query 1.12**
 
 ```sql
-SELECT SUBSTR(debt.tags.geo, 1, locate('(', debt.tags.geo)-1) AS 'Country', 
-  ROUND(debt.value/pop.value*1000000, -2) AS 'Per Capita Debt (Euro)'
+SELECT SUBSTR(debt.tags.geo, 1, locate('(', debt.tags.geo)-1) AS "Country", 
+  ROUND(debt.value/pop.value*1000000, -2) AS "Per Capita Debt (Euro)"
 FROM government_consolidated_gross_debt AS debt 
   JOIN "average_population_-_total" AS pop 
   ON debt.entity = pop.entity AND debt.time = pop.time AND debt.tags = pop.tags
@@ -751,10 +751,10 @@ Per capita debt growth indexed by country from 2006 to 2016.
 
 ```sql
 SELECT SUBSTR(debt.tags.geo, 1, locate('(', debt.tags.geo)-1) AS Country, 
-  ROUND(FIRST(debt.value)/FIRST(pop.value)*1000000, -2) AS '2006, €',
-  ROUND(LAST(debt.value)/LAST(pop.value)*1000000, -2) AS '2016, €',
-  ROUND((LAST(debt.value)/LAST(pop.value) - FIRST(debt.value)/FIRST(pop.value))*1000000, -2) AS 'New Debt, €',
-  ROUND(100*((LAST(debt.value)/LAST(pop.value))/(FIRST(debt.value)/FIRST(pop.value))-1)) AS 'New Debt, %'
+  ROUND(FIRST(debt.value)/FIRST(pop.value)*1000000, -2) AS "2006, €",
+  ROUND(LAST(debt.value)/LAST(pop.value)*1000000, -2) AS "2016, €",
+  ROUND((LAST(debt.value)/LAST(pop.value) - FIRST(debt.value)/FIRST(pop.value))*1000000, -2) AS "New Debt, €",
+  ROUND(100*((LAST(debt.value)/LAST(pop.value))/(FIRST(debt.value)/FIRST(pop.value))-1)) AS "New Debt, %"
 FROM government_consolidated_gross_debt AS debt 
   JOIN "average_population_-_total" AS pop 
   ON debt.entity = pop.entity AND debt.time = pop.time AND debt.tags = pop.tags

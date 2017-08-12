@@ -12,8 +12,8 @@ ChartLab and SQL Console: [Axibase](https://axibase.com)
 [![](Images/button.png)](https://apps.axibase.com/chartlab/24b59799/2/#fullscreen)
 
 ```sql
-SELECT date_format(time, 'yyyy-MM') AS 'Date', tv.value AS 'Total Value (NIS Billion)'
-  FROM 'total_(nis_billion)' AS tv WHERE date_format(time, 'MM') = '01'
+SELECT date_format(time, 'yyyy-MM') AS "Date", tv.value AS "Total Value (NIS Billion)"
+  FROM "total_(nis_billion)" AS tv WHERE date_format(time, 'MM') = '01'
 GROUP BY 'Date', tv.value
   ORDER BY 'Date'
 ```
@@ -50,8 +50,8 @@ GROUP BY 'Date', tv.value
 >Months with negative growth are shown in red, and months with positive growth exceeding 25 billion NIS are shown in dark blue.
 
 ```sql
-SELECT date_format(time, 'yyyy-MM') AS 'Date', ROUND(tv.value, 1) AS 'Total Value (NIS Billion)', ROUND((tv.value/3428.9)*100, 1) AS 'Percent of Current Value', ROUND(tv.value - LAG(tv.value), 1) AS 'Delta'
-  FROM 'total_(nis_billion)' AS tv WHERE date_format(time, 'MM') = '01'
+SELECT date_format(time, 'yyyy-MM') AS "Date", ROUND(tv.value, 1) AS "Total Value (NIS Billion)", ROUND((tv.value/3428.9)*100, 1) AS "Percent of Current Value", ROUND(tv.value - LAG(tv.value), 1) AS "Delta"
+  FROM "total_(nis_billion)" AS tv WHERE date_format(time, 'MM') = '01'
 GROUP BY 'Date', tv.value
   ORDER BY 'Date'
 ```
@@ -89,8 +89,8 @@ GROUP BY 'Date', tv.value
 
 
 ```sql
-SELECT date_format(time, 'MM-yyyy') AS 'Date',  cd.value AS 'Cash and Deposits', gbn.value AS 'Government Bonds (Non-Tradeable)', gbt.value AS 'Government Bonds (Tradeable)', cbn.value AS 'Corporate Bonds (Non-Tradeable)', cbt.value AS 'Corporate Bonds (Tradeable)', cm.value AS 'Cash (Makam)', i.value AS 'Shares in Israel', iad.value AS 'Investments Abroad (Deposits)', iab.value AS 'Investments Abroad (Bonds)', ias.value AS 'Investments Abroad (Shares)', iao.value AS 'Investments Abroard (Other)'
-  FROM 'cash_and_desposits' AS cd JOIN 'government_bonds_(non-tradeable)' AS gbn JOIN 'government_bonds_(tradeable)' AS gbt JOIN 'corporate_bonds_(non-tradeable)' AS cbn JOIN 'corporate_bonds_(tradeable)' AS cbt JOIN 'cash_(makam)' AS cm JOIN 'shares_in_israel' AS i JOIN 'investments_abroad_(deposits)' AS iad JOIN 'investments_abroad_(bonds)' AS iab JOIN 'investments_abroad_(shares)' AS ias JOIN 'investments_abroad_(other)' AS iao WHERE date_format(time, 'MM') = '01'
+SELECT date_format(time, 'MM-yyyy') AS "Date",  cd.value AS "Cash and Deposits", gbn.value AS "Government Bonds (Non-Tradeable)", gbt.value AS "Government Bonds (Tradeable)", cbn.value AS "Corporate Bonds (Non-Tradeable)", cbt.value AS "Corporate Bonds (Tradeable)", cm.value AS "Cash (Makam)", i.value AS "Shares in Israel", iad.value AS "Investments Abroad (Deposits)", iab.value AS "Investments Abroad (Bonds)", ias.value AS "Investments Abroad (Shares)", iao.value AS "Investments Abroard (Other)"
+  FROM "cash_and_desposits" AS cd JOIN "government_bonds_(non-tradeable)" AS gbn JOIN "government_bonds_(tradeable)" AS gbt JOIN "corporate_bonds_(non-tradeable)" AS cbn JOIN "corporate_bonds_(tradeable)" AS cbt JOIN "cash_(makam)" AS cm JOIN "shares_in_israel" AS i JOIN "investments_abroad_(deposits)" AS iad JOIN "investments_abroad_(bonds)" AS iab JOIN "investments_abroad_(shares)" AS ias JOIN "investments_abroad_(other)" AS iao WHERE date_format(time, 'MM') = '01'
 GROUP BY 'Date', cd.value, gbn.value, gbt.value, cbn.value, cbt.value, cm.value, i.value, iab.value, iad.value, ias.value, iao.value
   ORDER BY 'Date'
 ```

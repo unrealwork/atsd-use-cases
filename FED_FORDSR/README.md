@@ -75,8 +75,8 @@ The data will be aggregated annually, derived from the average value of each qua
 **Query 1.1**
 
 ```sql
-SELECT date_format(time, 'yyyy') AS 'Year', AVG(value) AS 'Average FOR'
-  FROM 'dtf%ypd.q'
+SELECT date_format(time, 'yyyy') AS "Year", AVG(value) AS "Average FOR"
+  FROM "dtf%ypd.q"
 GROUP BY date_format(time, 'yyyy')
 ```
 
@@ -146,8 +146,8 @@ of a person's gross monthly earning would still be available to them after makin
 **Query 2.1**
 
 ```sql
-SELECT date_format(time, 'yyyy') AS 'Year', AVG(value) AS 'Average FOR'
-  FROM 'dtfd%ypd.q'
+SELECT date_format(time, 'yyyy') AS "Year", AVG(value) AS "Average FOR"
+  FROM "dtfd%ypd.q"
 GROUP BY date_format(time, 'yyyy')
 ```
 
@@ -272,8 +272,8 @@ Obligation Ratio (FOR), or total debt obligations.
 **Query 3.1**
 
 ```sql
-SELECT date_format(time, 'yyyy') AS 'Year', AVG(dsrM.value) AS 'Mortgage', AVG(dsrC.value) AS 'Consumer', AVG(for.value - dsr.value) AS 'Non-Essential', AVG(for.value) AS 'Total'
-  FROM 'dtfm%ypd.q' AS dsrM JOIN 'dtfc%ypd.q' AS dsrC JOIN 'dtf%ypd.q' AS for JOIN 'dtfd%ypd.q' AS dsr
+SELECT date_format(time, 'yyyy') AS "Year", AVG(dsrM.value) AS "Mortgage", AVG(dsrC.value) AS "Consumer", AVG(for.value - dsr.value) AS "Non-Essential", AVG(for.value) AS "Total"
+  FROM "dtfm%ypd.q" AS dsrM JOIN "dtfc%ypd.q" AS dsrC JOIN "dtf%ypd.q" AS for JOIN "dtfd%ypd.q" AS dsr
 GROUP BY date_format(time, 'yyyy')
 ```
 
@@ -349,8 +349,8 @@ of quarterly values in 2015 USD for a person making the 2015 median United State
 **Query 4.3**
 
 ```sql
-SELECT date_format(time, 'yyyy') AS 'Year', AVG((56516 * (dsrM.value/100))/4) AS 'Mortgage', AVG((56516 * (dsrC.value/100))/4) AS 'Consumer', AVG((56516 *(((for.value - dsr.value)/100)))/4) AS 'Non-Essential', AVG((56516 * (for.value/100))/4) AS 'Total'
-  FROM 'dtfm%ypd.q' AS dsrM JOIN 'dtfc%ypd.q' AS dsrC JOIN 'dtf%ypd.q' AS for JOIN 'dtfd%ypd.q' AS dsr
+SELECT date_format(time, 'yyyy') AS "Year", AVG((56516 * (dsrM.value/100))/4) AS "Mortgage", AVG((56516 * (dsrC.value/100))/4) AS "Consumer", AVG((56516 *(((for.value - dsr.value)/100)))/4) AS "Non-Essential", AVG((56516 * (for.value/100))/4) AS "Total"
+  FROM "dtfm%ypd.q" AS dsrM JOIN "dtfc%ypd.q" AS dsrC JOIN "dtf%ypd.q" AS for JOIN "dtfd%ypd.q" AS dsr
 GROUP BY date_format(time, 'yyyy')
 ```
 

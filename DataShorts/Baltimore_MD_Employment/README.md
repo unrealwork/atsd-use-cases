@@ -8,7 +8,7 @@ Projected Baltimore Employment Figures (2001-2040)
 #### Total Projected Employment Numbers (2001-2040)
 
 ```sql
-SELECT datetime AS 'Year', value/1000 AS 'Total Jobs (Thousand)'
+SELECT datetime AS "Year", value/1000 AS "Total Jobs (Thousand)"
   FROM atsd_series
 WHERE entity = '5w8e-5mc3' AND metric LIKE ('job_title.total_employment')
   GROUP BY datetime, value 
@@ -47,7 +47,7 @@ ORDER BY 'Year' ASC
 #### Most Populous Industries (2001)
 
 ```sql
-SELECT metric.label AS 'Job Field', first(value)/1000 AS '2001 Total (Thousand)'
+SELECT metric.label AS "Job Field", first(value)/1000 AS "2001 Total (Thousand)"
   FROM atsd_series
 WHERE entity = '5w8e-5mc3' and metric LIKE ('job_title.*') AND metric.label != 'Total Employment'
   GROUP BY 'Job Field'
@@ -77,7 +77,7 @@ ORDER BY '2001 Total (Thousand)' DESC
 #### Most Populous Industries (2040)
 
 ```sql
-SELECT metric.label AS 'Job Field', last(value)/1000 AS '2040 Total (Thousand)'
+SELECT metric.label AS "Job Field", last(value)/1000 AS "2040 Total (Thousand)"
   FROM atsd_series
 WHERE entity = '5w8e-5mc3' and metric LIKE ('job_title.*') AND metric.label != 'Total Employment'
   GROUP BY 'Job Field'
@@ -107,7 +107,7 @@ ORDER BY '2040 Total (Thousand)' DESC
 #### Most Populous Industries (Average) (2001-2040)
 
 ```sql
-SELECT metric.label AS 'Job Field', avg(value)/1000 AS 'Average Total (Thousand)'
+SELECT metric.label AS "Job Field", avg(value)/1000 AS "Average Total (Thousand)"
   FROM atsd_series
 WHERE entity = '5w8e-5mc3' and metric LIKE ('job_title.*') AND metric.label != 'Total Employment'
   GROUP BY 'Job Field'
@@ -140,7 +140,7 @@ ORDER BY 'Average Total (Thousand)' DESC
 employment numbers over a given period of time.
 
 ```sql
-SELECT metric.label AS 'Job Field', delta(value)/1000 AS 'Average Total (Thousand)'
+SELECT metric.label AS "Job Field", delta(value)/1000 AS "Average Total (Thousand)"
   FROM atsd_series
 WHERE entity = '5w8e-5mc3' and metric LIKE ('job_title.*') AND metric.label != 'Total Employment'
   GROUP BY 'Job Field'
@@ -172,7 +172,7 @@ ORDER BY 'Average Total (Thousand)' DESC
 #### Least Populous Industries (2001)
 
 ```sql
-SELECT metric.label AS 'Job Field', first(value)/1000 AS 'Average Total (Thousand)'
+SELECT metric.label AS "Job Field", first(value)/1000 AS "Average Total (Thousand)"
   FROM atsd_series
 WHERE entity = '5w8e-5mc3' and metric LIKE ('job_title.*') AND metric.label != 'Total Employment'
   GROUP BY 'Job Field'
@@ -202,7 +202,7 @@ ORDER BY 'Average Total (Thousand)' ASC
 #### Least Populous Industries (2040)
 
 ```sql
-SELECT metric.label AS 'Job Field', last(value)/1000 AS 'Average Total (Thousand)'
+SELECT metric.label AS "Job Field", last(value)/1000 AS "Average Total (Thousand)"
   FROM atsd_series
 WHERE entity = '5w8e-5mc3' and metric LIKE ('job_title.*') AND metric.label != 'Total Employment'
   GROUP BY 'Job Field'
@@ -232,7 +232,7 @@ ORDER BY 'Average Total (Thousand)' ASC
 #### Least Populous Industries (Average) (2001-2040)
 
 ```sql
-SELECT metric.label AS 'Job Field', avg(value)/1000 AS 'Average Total (Thousand)'
+SELECT metric.label AS "Job Field", avg(value)/1000 AS "Average Total (Thousand)"
   FROM atsd_series
 WHERE entity = '5w8e-5mc3' and metric LIKE ('job_title.*') AND metric.label != 'Total Employment'
   GROUP BY 'Job Field'
@@ -262,7 +262,7 @@ ORDER BY 'Average Total (Thousand)' ASC
 #### Least Positive Job Outlook (2001-2040)
 
 ```sql
-SELECT metric.label AS 'Job Field', delta(value)/1000 AS 'Average Total (Thousand)'
+SELECT metric.label AS "Job Field", delta(value)/1000 AS "Average Total (Thousand)"
   FROM atsd_series
 WHERE entity = '5w8e-5mc3' and metric LIKE ('job_title.*') AND metric.label != 'Total Employment'
   GROUP BY 'Job Field'

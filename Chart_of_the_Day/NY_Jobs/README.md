@@ -56,7 +56,7 @@ New York City figures can be compared to New York State figures:
 
 ```sql
 SELECT tags.industry, sum(value) as total
-  FROM 'jobs' 
+  FROM "jobs" 
 WHERE date_format(time, 'yyyy') = '2015'
   GROUP BY tags.industry
 ORDER BY total DESC
@@ -95,7 +95,7 @@ ORDER BY total DESC
 
 ```sql
 SELECT tags.industry, sum(value) as total
-  FROM 'jobs' 
+  FROM "jobs" 
 WHERE date_format(time, 'yyyy') = '2015' and tags.region = 'New York City'
   GROUP BY tags.industry
 ORDER BY total DESC

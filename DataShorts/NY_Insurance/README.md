@@ -9,7 +9,7 @@
 ### 2015 Insurance Assets (Top 10)
 
 ```sql
-SELECT tags.company_name AS 'Company', SUM(value)/1000000 AS 'Total Assets, $M'
+SELECT tags.company_name AS "Company", SUM(value)/1000000 AS "Total Assets, $M"
   FROM assets
 WHERE datetime = '2015-01-01T00:00:00Z'
   GROUP BY tags.company_name
@@ -35,7 +35,7 @@ ORDER BY 'Total Assets, $M' DESC
 ### 2015 Insurance Liabilities (Top 10)
 
 ```sql
-SELECT tags.company_name AS 'Company', SUM(value)/1000000 AS 'Total Assets, $M'
+SELECT tags.company_name AS "Company", SUM(value)/1000000 AS "Total Assets, $M"
   FROM liabilities
 WHERE datetime = '2015-01-01T00:00:00Z'
   GROUP BY tags.company_name
@@ -61,8 +61,8 @@ ORDER BY 'Total Assets, $M' DESC
 ### 2015 Insurance Assets Versus Liabilities (Top 10)
 
 ```sql
-SELECT a.tags.company_name AS 'Company', SUM(a.value - l.value)/1000000 AS 'Net Assets, $M'
-  FROM 'Liabilities' l INNER JOIN 'Assets' a
+SELECT a.tags.company_name AS "Company", SUM(a.value - l.value)/1000000 AS "Net Assets, $M"
+  FROM "Liabilities" l INNER JOIN "Assets" a
 WHERE datetime = '2015-01-01T00:00:00Z'
   GROUP BY a.tags.company_name
 ORDER BY 'Net Assets' DESC
@@ -97,10 +97,10 @@ ORDER BY 'Net Assets' DESC
 ### 2014 - 2015 Change in Net Insurance Assets (Top 10)
 
 ```sql
-SELECT t1.tags.company_name AS 'Company', 
-  (LAST(t1.value) - FIRST(t1.value))/1000000 AS 'Change in Assets, $M',
-  (LAST(t2.value) - FIRST(t2.value))/1000000 AS 'Change in Liabilities, $M',
-  (LAST(t1.value) - FIRST(t1.value) - (LAST(t2.value) - FIRST(t2.value)))/1000000 AS 'Change in Net Assets, $M'
+SELECT t1.tags.company_name AS "Company", 
+  (LAST(t1.value) - FIRST(t1.value))/1000000 AS "Change in Assets, $M",
+  (LAST(t2.value) - FIRST(t2.value))/1000000 AS "Change in Liabilities, $M",
+  (LAST(t1.value) - FIRST(t1.value) - (LAST(t2.value) - FIRST(t2.value)))/1000000 AS "Change in Net Assets, $M"
 FROM assets t1
   JOIN liabilities t2
 GROUP BY t1.tags.company_name

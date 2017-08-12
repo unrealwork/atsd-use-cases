@@ -24,8 +24,8 @@ equally sized groups representing increasing 10th percentiles (called deciles he
 **Script 1.1**
 
 ```sql
-SELECT tags.income_group AS 'AGI Decile', value AS 'Total Filers', value/1000 AS 'Total Filers (1000)'
-  FROM 'number_of_filers'
+SELECT tags.income_group AS "AGI Decile", value AS "Total Filers", value/1000 AS "Total Filers (1000)"
+  FROM "number_of_filers"
 ```
 
 **Table 1.1** 
@@ -57,8 +57,8 @@ SELECT tags.income_group AS 'AGI Decile', value AS 'Total Filers', value/1000 AS
 **Script 2.1**
 
 ```sql
-SELECT tags.income_group AS 'AGI Decile', value AS 'Decile Average Income'
-  FROM 'avergae_income_per_filer'
+SELECT tags.income_group AS "AGI Decile", value AS "Decile Average Income"
+  FROM "avergae_income_per_filer"
 ```
 
 **Table 2.1**
@@ -109,8 +109,8 @@ SELECT tags.income_group AS 'AGI Decile', value AS 'Decile Average Income'
 **Script 3.1**
 
 ```sql
-SELECT tags.income_group AS 'Age Decile', value AS 'Decile Total Income (USD Million)'
-  FROM 'total_income_dollars_in_millions'
+SELECT tags.income_group AS "Age Decile", value AS "Decile Total Income (USD Million)"
+  FROM "total_income_dollars_in_millions"
 ```
 
 **Table 3.1**
@@ -142,8 +142,8 @@ SELECT tags.income_group AS 'Age Decile', value AS 'Decile Total Income (USD Mil
 **Script 4.1**
 
 ```sql
-SELECT tags.income_group AS 'Age Decile', ((value/230468)*100) AS 'Percent of Total Income'
-  FROM 'total_income_dollars_in_millions' WHERE tags.income_group != 'Total'
+SELECT tags.income_group AS "Age Decile", ((value/230468)*100) AS "Percent of Total Income"
+  FROM "total_income_dollars_in_millions" WHERE tags.income_group != 'Total'
 ```
 
 > This is a calculated metric using the `Total` figure from **Table 3.1** as the total value.

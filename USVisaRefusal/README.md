@@ -92,12 +92,12 @@ refusal rate increased by **17.1%**. Cuba, the country with the largest visa ref
 in the [last several years]( https://www.state.gov/s/d/rm/rls/perfrpt/2015/html/249702.htm).  
 
 ```sql
-SELECT tags.country AS 'Country',
-  first(value) AS 'Refusal Rate, 2006',
-  median(value) AS 'Median Rate, 2006-2016',   
-  last(value) AS 'Refusal Rate, 2016',
-  last(value)-first(value) AS 'Change, 2006-2016'
-FROM 'state.visa-refusal-rate'
+SELECT tags.country AS "Country",
+  first(value) AS "Refusal Rate, 2006",
+  median(value) AS "Median Rate, 2006-2016",   
+  last(value) AS "Refusal Rate, 2016",
+  last(value)-first(value) AS "Change, 2006-2016"
+FROM "state.visa-refusal-rate"
   GROUP BY tags.country
   HAVING COUNT(value) > 10
 ORDER BY 'Change, 2006-2016' DESC
@@ -139,12 +139,12 @@ to the [European Union](https://en.wikipedia.org/wiki/European_Union) in 2004. S
 greater than **12.4%** from 2006 to 2016.
 
 ```sql
-SELECT tags.country AS 'Country',
-  first(value) AS 'Refusal Rate, 2006',
-  median(value) AS 'Median Rate, 2006-2016',   
-  last(value) AS 'Refusal Rate, 2016',
-  last(value)-first(value) AS 'Change, 2006-2016'
-FROM 'state.visa-refusal-rate'
+SELECT tags.country AS "Country",
+  first(value) AS "Refusal Rate, 2006",
+  median(value) AS "Median Rate, 2006-2016",   
+  last(value) AS "Refusal Rate, 2016",
+  last(value)-first(value) AS "Change, 2006-2016"
+FROM "state.visa-refusal-rate"
   GROUP BY tags.country
   HAVING COUNT(value) > 10
 ORDER BY 'Change, 2006-2016'
@@ -184,12 +184,12 @@ ORDER BY 'Change, 2006-2016'
 Countries with worst refusal rates in 2016:
 
 ```sql
-SELECT tags.country AS 'Country',
-  first(value) AS 'Refusal Rate, 2006',
-  median(value) AS 'Median Rate, 2006-2016',   
-  last(value) AS 'Refusal Rate, 2016',
-  last(value)-first(value) AS 'Change, 2006-2016'
-FROM 'state.visa-refusal-rate'
+SELECT tags.country AS "Country",
+  first(value) AS "Refusal Rate, 2006",
+  median(value) AS "Median Rate, 2006-2016",   
+  last(value) AS "Refusal Rate, 2016",
+  last(value)-first(value) AS "Change, 2006-2016"
+FROM "state.visa-refusal-rate"
   GROUP BY tags.country
   HAVING COUNT(value) > 10
 ORDER BY last(value) DESC
@@ -214,12 +214,12 @@ ORDER BY last(value) DESC
 Countries with lowest refusal rates in 2016:
 
 ```sql
-SELECT tags.country AS 'Country',
-  first(value) AS 'Refusal Rate, 2006',
-  median(value) AS 'Median Rate, 2006-2016',   
-  last(value) AS 'Refusal Rate, 2016',
-  last(value)-first(value) AS 'Change, 2006-2016'
-FROM 'state.visa-refusal-rate'
+SELECT tags.country AS "Country",
+  first(value) AS "Refusal Rate, 2006",
+  median(value) AS "Median Rate, 2006-2016",   
+  last(value) AS "Refusal Rate, 2016",
+  last(value)-first(value) AS "Change, 2006-2016"
+FROM "state.visa-refusal-rate"
   GROUP BY tags.country
   HAVING COUNT(value) > 10
 ORDER BY last(value)
@@ -247,12 +247,12 @@ total dollar amount earned from visas that were denied. In 2015 Mexico topped th
 at a close second at **$47,992,945**.
 
 ```sql
-SELECT  t1.tags.country as 'Country', t1.value as 'Total Visas Issued', t2.value as 'Visa Refusal Rate',
-  ROUND(t1.value/((100-t2.value)/100)) as 'Applications',
-  ROUND(t1.value/((100-t2.value)/100))* (t2.value/100) as 'Refusals',
-  ROUND(160*(t1.value/((100-t2.value)/100))* (t2.value/100)) as 'Refusal Fees'
-  FROM 'state.non-immigrant-visa' t1
-JOIN 'state.visa-refusal-rate' t2   
+SELECT  t1.tags.country AS "Country", t1.value AS "Total Visas Issued", t2.value AS "Visa Refusal Rate",
+  ROUND(t1.value/((100-t2.value)/100)) AS "Applications",
+  ROUND(t1.value/((100-t2.value)/100))* (t2.value/100) AS "Refusals",
+  ROUND(160*(t1.value/((100-t2.value)/100))* (t2.value/100)) AS "Refusal Fees"
+  FROM "state.non-immigrant-visa" t1
+JOIN "state.visa-refusal-rate" t2   
 WHERE t1.tags.country NOT LIKE '*Total*' AND t1.tags.visa_type = 'Grand Total' AND date_format(t1.time, 'yyyy') = '2015'
 ORDER BY 'Refusal Fees' DESC
 ```
@@ -463,13 +463,13 @@ ORDER BY 'Refusal Fees' DESC
 The below query shows the total revenue for refusal fees from 2006 to 2016, as well as the number of visas issued, total applications, refusals, and refusal percentages.
 
 ```sql
-SELECT date_format(t1.time, 'yyyy') AS 'Year', sum(t1.value)/power(10, 6) AS 'Visas, Mln',
-  sum(t1.value/(100-t2.value)*100)/power(10, 6) AS 'Applications, Mln',
-  sum(t1.value/(100-t2.value)*t2.value)/power(10, 6) AS 'Refusals, Mln',
-  sum(t1.value/(100-t2.value)*t2.value)/sum(t1.value/(100-t2.value)*100)*100 AS 'Refusals, %',
-  sum(t1.value/(100-t2.value)*t2.value)*160/power(10, 6) AS 'Refusal Fees, $ Mln'
-  FROM 'state.non-immigrant-visa' t1
-JOIN 'state.visa-refusal-rate' t2   
+SELECT date_format(t1.time, 'yyyy') AS "Year", sum(t1.value)/power(10, 6) AS "Visas, Mln",
+  sum(t1.value/(100-t2.value)*100)/power(10, 6) AS "Applications, Mln",
+  sum(t1.value/(100-t2.value)*t2.value)/power(10, 6) AS "Refusals, Mln",
+  sum(t1.value/(100-t2.value)*t2.value)/sum(t1.value/(100-t2.value)*100)*100 AS "Refusals, %",
+  sum(t1.value/(100-t2.value)*t2.value)*160/power(10, 6) AS "Refusal Fees, $ Mln"
+  FROM "state.non-immigrant-visa" t1
+JOIN "state.visa-refusal-rate" t2   
 WHERE t1.tags.country NOT LIKE '*Total*' AND t1.tags.visa_type = 'Grand Total' and t2.value < 100
 group by t1.datetime
 ```

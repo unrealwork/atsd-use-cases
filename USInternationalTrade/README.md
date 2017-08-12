@@ -49,12 +49,12 @@ In addition to looking at graphical outputs, we can also perform [SQL queries](h
 to search for specific information contained in this dataset. From the following query, we can see that, within the time range of our dataset, 1991 was the year which had the least negative trade balance of **-$66.7 billion**.
 
 ```sql
-SELECT date_format(e.time, 'yyyy') AS 'year', e.tags.ctyname AS country,
+SELECT date_format(e.time, 'yyyy') AS "year", e.tags.ctyname AS country,
   SUM(e.value)/1000 AS export,
   SUM(i.value)/1000 AS import,
   (SUM(e.value)-SUM(i.value))/1000 AS trade_balance
-  FROM 'us-trade-export' e
-  JOIN 'us-trade-import' i
+  FROM "us-trade-export" e
+  JOIN "us-trade-import" i
 WHERE e.datetime >= '1970-01-01T00:00:00Z' and e.datetime < '2017-01-01T00:00:00Z'
   AND e.tags.cty_code = '0015'
 GROUP BY e.period(1 year), e.tags
@@ -87,13 +87,13 @@ Below is a SQL query and output showing the exports, imports, and trade balance
 (all in millions USD) between United States and Mexico from 1985 to 2016:   
 
 ```sql
-SELECT date_format(e.time, 'yyyy') AS 'year',
+SELECT date_format(e.time, 'yyyy') AS "year",
   e.tags.ctyname AS country,
   SUM(e.value) AS export,
   SUM(i.value) AS import,
   SUM(e.value)-SUM(i.value) AS trade_balance -- apply grouped aggregation functions to calculate trade balance
-FROM 'us-trade-export' e
-  JOIN 'us-trade-import' i -- merge export and import time series using JOIN
+FROM "us-trade-export" e
+  JOIN "us-trade-import" i -- merge export and import time series using JOIN
   -- filter records by date in ISO 8601 format
 WHERE e.datetime >= '1970-01-01T00:00:00Z' AND e.datetime < '2017-01-01T00:00:00Z'
   AND e.tags.ctyname IN ('Mexico') -- filter the data for country name = 'Mexico'
@@ -153,8 +153,8 @@ SELECT e.tags.ctyname AS region,
   SUM(e.value)/1000 AS export,
   SUM(i.value)/1000 AS import,
   (SUM(e.value)-SUM(i.value))/1000 AS trade_balance
-FROM 'us-trade-export' e
-  JOIN 'us-trade-import' i
+FROM "us-trade-export" e
+  JOIN "us-trade-import" i
 WHERE e.datetime >= '2016-01-01T00:00:00Z' AND e.datetime < '2017-01-01T00:00:00Z'
   -- include regions (code < 1000) except regional trade unions such as OPEC, NAFTA, etc.
   AND e.tags.cty_code < '1000' AND e.tags.cty_code NOT IN ('0004', '0005', '0006', '0007', '0008', '0015', '0017')
@@ -192,11 +192,11 @@ You can explore this figures, as well as trade balances for 2006 and 1997, in Ch
 Who were the U.S.'s best trading partners (imports plus exports, in millions USD) in 2016?
 
 ```sql
-SELECT date_format(e.time, 'yyyy') AS 'year', e.tags.ctyname AS country, e.tags.cty_code AS code,
+SELECT date_format(e.time, 'yyyy') AS "year", e.tags.ctyname AS country, e.tags.cty_code AS code,
   SUM(e.value) AS export, SUM(i.value) AS import,
   SUM(e.value)+SUM(i.value) AS trade_total
-  FROM 'us-trade-export' e
-  JOIN 'us-trade-import' i
+  FROM "us-trade-export" e
+  JOIN "us-trade-import" i
 WHERE e.datetime >= '2016-01-01T00:00:00Z' and e.datetime < '2017-01-01T00:00:00Z'
   -- exclude regions and non-existent/non-reporting countries/codes
   AND e.tags.cty_code > '1000'
@@ -251,13 +251,13 @@ for countries in the bottom 50% by GDP per capita (true/absolute value shown bel
 
 ```sql
 SELECT e.tags.ctyname AS country,
-  date_format(e.time, 'yyyy') AS 'year',
+  date_format(e.time, 'yyyy') AS "year",
   SUM(e.value) AS export, SUM(i.value) AS import, SUM(e.value)-SUM(i.value) AS trade_balance,
-  CAST(LOOKUP('us-trade-balance-2016', e.tags.ctyname) AS number) AS '2016_trade_balance',
-  1000000*CAST(LOOKUP('world-gdp', e.tags.ctyname) AS number)/CAST(LOOKUP('world-population', e.tags.ctyname) AS number) AS '2016_GDP_per_capita',
-  CAST(LOOKUP('us-trade-balance-rank-2016', e.tags.ctyname) as number) AS '2016_trade_balance_rank'
-FROM 'us-trade-export' e
-  JOIN 'us-trade-import' i
+  CAST(LOOKUP('us-trade-balance-2016', e.tags.ctyname) AS number) AS "2016_trade_balance",
+  1000000*CAST(LOOKUP('world-gdp', e.tags.ctyname) AS number)/CAST(LOOKUP('world-population', e.tags.ctyname) AS number) AS "2016_GDP_per_capita",
+  CAST(LOOKUP('us-trade-balance-rank-2016', e.tags.ctyname) as number) AS "2016_trade_balance_rank"
+FROM "us-trade-export" e
+  JOIN "us-trade-import" i
 WHERE e.datetime >= '1970-01-01T00:00:00Z' AND e.datetime < '2017-01-01T00:00:00Z'
   AND e.tags.cty_code > '1000' AND e.tags.cty_code NOT IN ('7740', '4350', '8500', '5080', '5160', '4790', '4610', '4799', '4802', '7320', '2771', '8220')
   AND 1000000*CAST(LOOKUP('world-gdp', e.tags.ctyname) AS number)/CAST(LOOKUP('world-population', e.tags.ctyname) AS number) <= 10273
@@ -294,13 +294,13 @@ GDP per capita (true/absolute value shown below).
 
 ```sql
 SELECT e.tags.ctyname AS country,
-  date_format(e.time, 'yyyy') AS 'year',
+  date_format(e.time, 'yyyy') AS "year",
   SUM(e.value) AS export, SUM(i.value) AS import, SUM(e.value)-SUM(i.value) AS trade_balance,
-  CAST(LOOKUP('us-trade-balance-2016', e.tags.ctyname) AS number) AS '2016_trade_balance',
-  1000000*CAST(LOOKUP('world-gdp', e.tags.ctyname) AS number)/CAST(LOOKUP('world-population', e.tags.ctyname) AS number) AS '2016_GDP_per_capita',
-  CAST(LOOKUP('us-trade-balance-rank-2016', e.tags.ctyname) as number) AS '2016_trade_balance_rank'
-FROM 'us-trade-export' e
-  JOIN 'us-trade-import' i
+  CAST(LOOKUP('us-trade-balance-2016', e.tags.ctyname) AS number) AS "2016_trade_balance",
+  1000000*CAST(LOOKUP('world-gdp', e.tags.ctyname) AS number)/CAST(LOOKUP('world-population', e.tags.ctyname) AS number) AS "2016_GDP_per_capita",
+  CAST(LOOKUP('us-trade-balance-rank-2016', e.tags.ctyname) as number) AS "2016_trade_balance_rank"
+FROM "us-trade-export" e
+  JOIN "us-trade-import" i
 WHERE e.datetime >= '1970-01-01T00:00:00Z' AND e.datetime < '2017-01-01T00:00:00Z'
   AND e.tags.cty_code > '1000' AND e.tags.cty_code NOT IN ('7740', '4350', '8500', '5080', '5160', '4790', '4610', '4799', '4802', '7320', '2771', '8220')
   AND 1000000*CAST(LOOKUP('world-gdp', e.tags.ctyname) AS number)/CAST(LOOKUP('world-population', e.tags.ctyname) AS number) > 10273
@@ -372,10 +372,10 @@ Here are some additional SQL queries (along with snippets of their outputs) whic
 Annual exports for Mexico to the United States (in millions USD).
 
 ```sql
-SELECT date_format(time, 'yyyy') AS 'year',
+SELECT date_format(time, 'yyyy') AS "year",
   tags.ctyname AS country,
   SUM(value) AS export
-FROM 'us-trade-export'
+FROM "us-trade-export"
 WHERE datetime >= '1985-01-01T00:00:00Z' AND datetime < '2017-01-01T00:00:00Z'
   AND tags.ctyname IN ('Mexico')
 GROUP BY period(1 year), tags
@@ -399,12 +399,12 @@ GROUP BY period(1 year), tags
 Year with the highest/best trade balance (in millions USD) for each country, with 2016 population estimate (absolute value) listed as well.
 
 ```sql
-SELECT date_format(e.time, 'yyyy') AS 'year', e.tags.ctyname AS country, e.tags.cty_code AS code,
+SELECT date_format(e.time, 'yyyy') AS "year", e.tags.ctyname AS country, e.tags.cty_code AS code,
   SUM(e.value) AS export, SUM(i.value) AS import,
   SUM(e.value)-SUM(i.value) AS trade_balance,
   LOOKUP('world-population', e.tags.ctyname) AS population
-  FROM 'us-trade-export' e
-  JOIN 'us-trade-import' i
+  FROM "us-trade-export" e
+  JOIN "us-trade-import" i
 WHERE e.datetime >= '1970-01-01T00:00:00Z' and e.datetime < '2017-01-01T00:00:00Z'
   AND e.tags.cty_code > '1000'
   AND e.tags.cty_code NOT IN ('7740', '4350', '8500', '5080', '5160', '4790', '4610', '4799', '4802', '7320', '2771', '8220')
@@ -452,12 +452,12 @@ GROUP BY e.period(1 year), e.tags
 Year with the highest/best trade balance for the 20 largest countries by 2016 population estimate (in millions).
 
 ```sql
-SELECT date_format(e.time, 'yyyy') AS 'year', e.tags.ctyname AS country, e.tags.cty_code AS code,
+SELECT date_format(e.time, 'yyyy') AS "year", e.tags.ctyname AS country, e.tags.cty_code AS code,
   SUM(e.value) AS export, SUM(i.value) AS import,
   SUM(e.value)-SUM(i.value) AS trade_balance,
   CAST(LOOKUP('world-population', e.tags.ctyname))/1000000 AS population
-  FROM 'us-trade-export' e
-  JOIN 'us-trade-import' i
+  FROM "us-trade-export" e
+  JOIN "us-trade-import" i
 WHERE e.datetime >= '1970-01-01T00:00:00Z' and e.datetime < '2016-12-01T00:00:00Z'
   AND e.tags.cty_code > '1000'
   AND e.tags.cty_code NOT IN ('7740', '4350', '8500', '5080', '5160', '4790', '4610', '4799', '4802', '7320', '2771', '8220')
@@ -484,11 +484,11 @@ GROUP BY e.period(1 year), e.tags
 Top 20 countries by largest trade deficit (in millions USD).
 
 ```sql
-SELECT date_format(e.time, 'yyyy') AS 'year', e.tags.ctyname AS country, e.tags.cty_code AS code,
+SELECT date_format(e.time, 'yyyy') AS "year", e.tags.ctyname AS country, e.tags.cty_code AS code,
   SUM(e.value) AS export, SUM(i.value) AS import,
   SUM(e.value)-SUM(i.value) AS trade_balance
-  FROM 'us-trade-export' e
-  JOIN 'us-trade-import' i
+  FROM "us-trade-export" e
+  JOIN "us-trade-import" i
 WHERE e.datetime >= '2016-01-01T00:00:00Z' and e.datetime < '2017-01-01T00:00:00Z'
   AND e.tags.cty_code > '1000'
   AND e.tags.cty_code NOT IN ('7740', '4350', '8500', '5080', '5160', '4790', '4610', '4799', '4802', '7320', '2771', '8220')
@@ -517,12 +517,12 @@ Year with the highest/best trade balance (in millions USD) by region.
 
 ```sql
 SELECT e.tags.ctyname AS country,
-  date_format(e.time, 'yyyy') AS 'year',
+  date_format(e.time, 'yyyy') AS "year",
   SUM(e.value)/1000 AS export,
   SUM(i.value)/1000 AS import,
   (SUM(e.value)-SUM(i.value))/1000 AS trade_balance
-FROM 'us-trade-export' e
-  JOIN 'us-trade-import' i
+FROM "us-trade-export" e
+  JOIN "us-trade-import" i
 WHERE e.datetime >= '1970-01-01T00:00:00Z' AND e.datetime < '2017-01-01T00:00:00Z'
   AND e.tags.cty_code < '1000' AND e.tags.cty_code NOT IN ('0004', '0005', '0006', '0007', '0008', '0015', '0017')
 GROUP BY e.period(1 year), e.tags

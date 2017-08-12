@@ -126,7 +126,7 @@ Birth numbers can be gathered in five-year steps:
 ##### 1989: 
 
 ````sql
-SELECT VALUE/1000 AS 'Live Births (1000)', tags.county_name AS 'County'
+SELECT VALUE/1000 AS "Live Births (1000)", tags.county_name AS "County"
   FROM 1989 WHERE 'County' NOT IN ('Chicago', 'Suburban Cook')
 GROUP BY tags.county_name, VALUE
   ORDER BY VALUE DESC, tags.county_name
@@ -152,7 +152,7 @@ LIMIT 11
 ##### 1994:
 
 ````sql
-SELECT VALUE/1000 AS 'Live Births (1000)', tags.county_name AS 'County'
+SELECT VALUE/1000 AS "Live Births (1000)", tags.county_name AS "County"
   FROM 1994 WHERE 'County' NOT IN ('Chicago', 'Suburban Cook')
 GROUP BY tags.county_name, VALUE
   ORDER BY VALUE DESC, tags.county_name
@@ -178,7 +178,7 @@ LIMIT 11
 ##### 1999:
 
 ````sql
-SELECT VALUE/1000 AS 'Live Births (1000)', tags.county_name AS 'County'
+SELECT VALUE/1000 AS "Live Births (1000)", tags.county_name AS "County"
   FROM 1999 WHERE 'County' NOT IN ('Chicago', 'Suburban Cook')
 GROUP BY tags.county_name, VALUE
   ORDER BY VALUE DESC, tags.county_name
@@ -204,7 +204,7 @@ LIMIT 11
 ##### 2004:
 
 ````sql
-SELECT VALUE/1000 AS 'Live Births (1000)', tags.county_name AS 'County'
+SELECT VALUE/1000 AS "Live Births (1000)", tags.county_name AS "County"
   FROM 2004 WHERE 'County' NOT IN ('Chicago', 'Suburban Cook')
 GROUP BY tags.county_name, VALUE
   ORDER BY VALUE DESC, tags.county_name
@@ -230,7 +230,7 @@ LIMIT 11
 ##### 2009:
 
 ````sql
-SELECT VALUE/1000 AS 'Live Births (1000)', tags.county_name AS 'County'
+SELECT VALUE/1000 AS "Live Births (1000)", tags.county_name AS "County"
   FROM 2009 WHERE 'County' NOT IN ('Chicago', 'Suburban Cook')
 GROUP BY tags.county_name, VALUE
   ORDER BY VALUE DESC, tags.county_name
@@ -259,7 +259,7 @@ the entire observed time and not one-year segments:
 ##### 1989 - 1993:
 
 ````sql
-SELECT (t1.VALUE + t2.VALUE + t3.VALUE + t4.VALUE + t5.VALUE)/1000 AS 'Live Births (1000)', t1.tags.county_name AS 'County'
+SELECT (t1.VALUE + t2.VALUE + t3.VALUE + t4.VALUE + t5.VALUE)/1000 AS "Live Births (1000)", t1.tags.county_name AS "County"
   FROM 1989 t1 JOIN 1990 t2 JOIN 1991 t3 JOIN 1992 t4 JOIN 1993 t5
 WHERE t1.tags.county_name = t2.tags.county_name AND t1.tags.county_name NOT IN ('Chicago','Suburban Cook')
   GROUP BY t1.tags.county_name, t1.VALUE, t2.VALUE, t3.VALUE, t4.VALUE, t5.VALUE
@@ -286,7 +286,7 @@ ORDER BY t1.VALUE DESC, t1.tags.county_name
 ##### 1994 - 1998:
 
 ````sql
-SELECT (t1.VALUE + t2.VALUE + t3.VALUE + t4.VALUE + t5.VALUE)/1000 AS 'Live Births (1000)', t1.tags.county_name AS 'County'
+SELECT (t1.VALUE + t2.VALUE + t3.VALUE + t4.VALUE + t5.VALUE)/1000 AS "Live Births (1000)", t1.tags.county_name AS "County"
   FROM 1994 t1 JOIN 1995 t2 JOIN 1996 t3 JOIN 1997 t4 JOIN 1998 t5
 WHERE t1.tags.county_name = t2.tags.county_name AND t1.tags.county_name NOT IN ('Chicago','Suburban Cook')
   GROUP BY t1.tags.county_name, t1.VALUE, t2.VALUE, t3.VALUE, t4.VALUE, t5.VALUE
@@ -313,7 +313,7 @@ ORDER BY t1.VALUE DESC, t1.tags.county_name
 ##### 1999 - 2003:
 
 ````sql
-SELECT (t1.VALUE + t2.VALUE + t3.VALUE + t4.VALUE + t5.VALUE)/1000 AS 'Live Births (1000)', t1.tags.county_name AS 'County'
+SELECT (t1.VALUE + t2.VALUE + t3.VALUE + t4.VALUE + t5.VALUE)/1000 AS "Live Births (1000)", t1.tags.county_name AS "County"
   FROM 1999 t1 JOIN 2000 t2 JOIN 2001 t3 JOIN 2002 t4 JOIN 2003 t5
 WHERE t1.tags.county_name = t2.tags.county_name AND t1.tags.county_name NOT IN ('Chicago','Suburban Cook')
   GROUP BY t1.tags.county_name, t1.VALUE, t2.VALUE, t3.VALUE, t4.VALUE, t5.VALUE
@@ -340,7 +340,7 @@ ORDER BY t1.VALUE DESC, t1.tags.county_name
 ##### 2004 - 2008
 
 ````sql
-SELECT (t1.VALUE + t2.VALUE + t3.VALUE + t4.VALUE + t5.VALUE)/1000 AS 'Live Births (1000)', t1.tags.county_name AS 'County'
+SELECT (t1.VALUE + t2.VALUE + t3.VALUE + t4.VALUE + t5.VALUE)/1000 AS "Live Births (1000)", t1.tags.county_name AS "County"
   FROM 2004 t1 JOIN 2005 t2 JOIN 2006 t3 JOIN 2007 t4 JOIN 2008 t5
 WHERE t1.tags.county_name = t2.tags.county_name AND t1.tags.county_name NOT IN ('Chicago','Suburban Cook')
   GROUP BY t1.tags.county_name, t1.VALUE, t2.VALUE, t3.VALUE, t4.VALUE, t5.VALUE
@@ -369,8 +369,8 @@ Information can also be collected on a desired county, for the entire period:
 ##### Cook County Live Births (1989 - 2009)
 
 ```sql
-SELECT DATE_FORMAT(TIME, 'yyyy') AS 'Year', tags.county_name AS 'County', VALUE/100000 AS 'Live Births (100000)'
-  FROM 'year.9e74-xdvk.value'
+SELECT DATE_FORMAT(TIME, 'yyyy') AS "Year", tags.county_name AS "County", VALUE/100000 AS "Live Births (100000)"
+  FROM "year.9e74-xdvk.value"
 WHERE 'County' = 'COOK'
   GROUP BY 'County', VALUE, 'Year'
 ORDER BY 'Year'
@@ -409,8 +409,8 @@ Data points can also be collected using an SQL query.
 Illinois Total Live Births:
 
 ````
-SELECT DATE_FORMAT(TIME, 'yyyy') AS 'Year', tags.county_name AS 'County', VALUE/1000 AS 'Live Births (1000)'
-  FROM 'year.9e74-xdvk.value'
+SELECT DATE_FORMAT(TIME, 'yyyy') AS "Year", tags.county_name AS "County", VALUE/1000 AS "Live Births (1000)"
+  FROM "year.9e74-xdvk.value"
 WHERE 'County' = 'ILLINOIS TOTAL'
   GROUP BY 'County', VALUE, 'Year'
 ORDER BY 'Year'

@@ -51,7 +51,7 @@ are scarce. However, tracking from 2012 until 2016 is possible and can be used t
 [SQL Console](https://github.com/axibase/atsd/tree/master/api/sql#overview):
 
 ```sql
-SELECT date_format(time, 'yyyy') AS 'Year', sum(value)/1000000 AS 'Bag Count (Million)'
+SELECT date_format(time, 'yyyy') AS "Year", sum(value)/1000000 AS "Bag Count (Million)"
   FROM bagcount WHERE date_format(time, 'yyyy') BETWEEN '2012' AND '2016'
 GROUP BY 'Year'
   ORDER BY 'Year'
@@ -110,7 +110,7 @@ The county mandates that a plastic bag cost as much as $0.05, with $0.04 paid to
 the organization selling to the plastic bag to offset the additional infrastructure needed to accurately record bag sales.
 
 ```sql
-SELECT date_format(time, 'yyyy') AS 'Year', sum(value)/1000000 AS 'Tax Revenue (Million USD)'
+SELECT date_format(time, 'yyyy') AS "Year", sum(value)/1000000 AS "Tax Revenue (Million USD)"
   FROM amountdue WHERE date_format(time, 'yyyy') BETWEEN '2012' AND '2016'
 GROUP BY 'Year'
   ORDER BY 'Year'
@@ -165,7 +165,7 @@ The Bag Tax costs each citizen roughly two and a half dollars each year, hardly 
 ###### Revenue Generated (Private Business)
 
 ```sql
-SELECT date_format(time, 'yyyy') AS 'Year', sum(value)/1000000 AS 'Revenue Generated (Million USD)'
+SELECT date_format(time, 'yyyy') AS "Year", sum(value)/1000000 AS "Revenue Generated (Million USD)"
   FROM amountretained WHERE date_format(time, 'yyyy') BETWEEN '2012' AND '2016'
 GROUP BY 'Year'
   ORDER BY 'Year'
@@ -220,7 +220,7 @@ overtime, or a little bit of all four. Even when analyzing these profits by busi
 made a significant amount from the Bag Tax:
 
 ```sql
-SELECT tags.vendorname AS 'Vendor', date_format(time, 'yyyy') AS 'Year', sum(value)/1000000 AS 'Revenue (Million USD)'
+SELECT tags.vendorname AS "Vendor", date_format(time, 'yyyy') AS "Year", sum(value)/1000000 AS "Revenue (Million USD)"
   FROM amountretained WHERE date_format(time, 'yyyy') BETWEEN '2012' AND '2016'
 GROUP BY 'Year', 'Vendor'
   ORDER BY 'Revenue (Million USD)' DESC

@@ -18,9 +18,9 @@ The IRS legal rationale of disclosing the names under the auspices of HIPPA whic
 After removing the duplicate names which are most likely associated with different SSNs in the backend systems and by calculating a rolling yearly total to smooth out the variance, the trend becomes more apparent. More people are leaving the U.S. than in previous years.
 
 ```sql
-SELECT date_format(time+365*24*60*60000, 'yyyy') AS 'Year',
-  count(value) AS 'Total'
-FROM 'us-expatriate-counter'
+SELECT date_format(time+365*24*60*60000, 'yyyy') AS "Year",
+  count(value) AS "Total"
+FROM "us-expatriate-counter"
   WHERE entity = 'us.irs' AND datetime < '2017-04-01T00:00:00Z'
 GROUP BY period(1 YEAR, END_TIME)
   ORDER BY time
@@ -62,9 +62,9 @@ The next report is due in early August. Stay tuned!
 ### Expatriated Citizens & Long-term Permanent Residents, Quarterly Totals
 
 ```sql
-SELECT date_format(time+90*24*60*60000, 'yyyy-MMM') AS 'Date',
-  count(value) AS 'Quarterly Total'
-FROM 'us-expatriate-counter'
+SELECT date_format(time+90*24*60*60000, 'yyyy-MMM') AS "Date",
+  count(value) AS "Quarterly Total"
+FROM "us-expatriate-counter"
   WHERE entity = 'us.irs' AND datetime >= '2010-01-01T00:00:00Z'
 GROUP BY period(1 QUARTER)
   ORDER BY time

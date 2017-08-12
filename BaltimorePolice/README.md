@@ -39,12 +39,12 @@ The general format for SQL queries for this dataset is:
 
 ```sql
 SELECT tags.$TAG_NAME$, count(*), datetime
-  FROM 'row_number.3w4d-kckv' 
+  FROM "row_number.3w4d-kckv" 
 GROUP BY tags.$TAG_NAME$, PERIOD(1 MONTH)
   ORDER BY tags.$TAG_NAME$, datetime
 ```
 
-The `$TAG_NAME$` represents one of the dimensions of the time series collected within the dataset, such as 'district', while  `3w4d-kckv` represents the dataset's unique identifier in the data.gov catalog.
+The `$TAG_NAME$` represents one of the dimensions of the time series collected within the dataset, such AS "district", while  `3w4d-kckv` represents the dataset's unique identifier in the data.gov catalog.
 
 The SQL syntax allows the user to ask and answer a series of relevant questions
 about both sets of data, and ChartLab allow the user to visualize and compare this data for
@@ -58,7 +58,7 @@ is used:
 
 ```sql
 SELECT tags.district, count(*)
-  FROM 'row_number.3w4d-kckv'
+  FROM "row_number.3w4d-kckv"
 GROUP BY tags.district
   ORDER BY tags.district
 ```
@@ -104,7 +104,7 @@ is used:
 
 ```sql
 SELECT tags.type, count(*)
-  FROM 'row_number.3w4d-kckv' 
+  FROM "row_number.3w4d-kckv" 
 GROUP BY tags.type
   ORDER BY count(*) DESC
 ```
@@ -144,7 +144,7 @@ used:
 
 ```sql
 SELECT datetime, count(*)
-  FROM 'row_number.3w4d-kckv' 
+  FROM "row_number.3w4d-kckv" 
 GROUP BY period(1 year)
   ORDER BY datetime
 ```
@@ -166,7 +166,7 @@ used:
 
 ```sql
 SELECT datetime, count(*)
-  FROM 'row_number.3w4d-kckv' 
+  FROM "row_number.3w4d-kckv" 
 GROUP BY period(1 month, VALUE 0)
   ORDER BY datetime
 ```
@@ -232,7 +232,7 @@ query is used:
 
 ```sql
 SELECT datetime, count(*)
-  FROM 'row_number.3w4d-kckv' 
+  FROM "row_number.3w4d-kckv" 
 GROUP BY period(1 week)
   ORDER BY datetime
 ```
@@ -248,7 +248,7 @@ query:
 
 ```sql
 SELECT date_format(time, 'u'), count(*)
-  FROM 'row_number.3w4d-kckv'
+  FROM "row_number.3w4d-kckv"
 GROUP BY date_format(time, 'u')
   ```
   
@@ -288,7 +288,7 @@ the following SQL query is used:
 
 ```sql
 SELECT tags.district, count(*)
-  FROM 'row_number.33zm-qy8h'
+  FROM "row_number.33zm-qy8h"
 GROUP BY tags.district
   ORDER BY tags.district
 ```
@@ -336,7 +336,7 @@ is used:
 
 ```sql
 SELECT tags.weapon, count(*)
-  FROM 'row_number.33zm-qy8h'
+  FROM "row_number.33zm-qy8h"
 GROUP BY tags.weapon
   ORDER BY tags.weapon
   ```
@@ -363,7 +363,7 @@ is used:
 
 ```sql
 SELECT datetime, count(*)
-  FROM 'row_number.33zm-qy8h'
+  FROM "row_number.33zm-qy8h"
 GROUP BY period (1 year)
   ORDER BY datetime
 ```
@@ -386,7 +386,7 @@ query is used:
 
 ```sql
 SELECT datetime, count(*)
-  FROM 'row_number.33zm-qy8h'
+  FROM "row_number.33zm-qy8h"
 GROUP BY period (1 month)
   ORDER BY datetime
 ```
@@ -454,7 +454,7 @@ is considered:
 
 ```sql
 SELECT date_format(time, 'u'), count(*)
-  FROM 'row_number.33zm-qy8h'
+  FROM "row_number.33zm-qy8h"
 GROUP BY date_format(time, 'u')
 ```
 
@@ -627,7 +627,7 @@ is not entered, the visualization will lack the `total-value` information.
 
 ```sql
 SELECT tags.$TAG_NAME$, count(*), datetime
-  FROM 'row_number.3w4d-kckv' 
+  FROM "row_number.3w4d-kckv" 
 GROUP BY tags.$TAG_NAME$, PERIOD(1 MONTH)
   ORDER BY tags.$TAG_NAME$, datetime
 ```
@@ -658,7 +658,7 @@ syntax is used:
 
 ```sql
 SELECT datetime, count(*)
-  FROM 'row_number.3w4d-kckv' 
+  FROM "row_number.3w4d-kckv" 
 GROUP BY period(1 day)
   ORDER BY datetime
 ```
@@ -669,7 +669,7 @@ The period of observation can be modified on the third line using a myriad of [t
 
 ```sql
 SELECT datetime, count(*)
-  FROM 'row_number.3w4d-kckv' 
+  FROM "row_number.3w4d-kckv" 
 GROUP BY period(1 month)
   ORDER BY datetime
 ```

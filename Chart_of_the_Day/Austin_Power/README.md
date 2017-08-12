@@ -26,8 +26,8 @@ it is a modern necessity, and government regulation ensures access for everyone.
 **Script 1.1**
 
 ```sql
-SELECT tags.customer_class AS 'Customer Class', AVG(value) AS 'Avg KWH (Cents)'
-  FROM 'rate_cents_per_kwh' WHERE tags.customer_class != 'Total'
+SELECT tags.customer_class AS "Customer Class", AVG(value) AS "Avg KWH (Cents)"
+  FROM "rate_cents_per_kwh" WHERE tags.customer_class != 'Total'
 GROUP BY tags.customer_class
   ORDER BY AVG(value) DESC
 ```
@@ -60,8 +60,8 @@ observed period, which is detailed in **Table 1.2** below the visualization.
 **Script 1.2**
 
 ```sql
-SELECT tags.customer_class AS 'Customer Class', AVG(value)/1000000 AS 'Revenue (Million USD)'
-  FROM 'revenue' WHERE tags.customer_class != 'Total'
+SELECT tags.customer_class AS "Customer Class", AVG(value)/1000000 AS "Revenue (Million USD)"
+  FROM "revenue" WHERE tags.customer_class != 'Total'
 GROUP BY tags.customer_class
   ORDER BY AVG(value) DESC
 ```
@@ -89,8 +89,8 @@ customers significantly out-use the industrial sector by almost double.
 **Script 1.3**
 
 ```sql
-SELECT tags.customer_class AS 'Customer Class', AVG(value)/1000000 AS 'Usage (Million MWh)'
-  FROM 'megawatt_hour' WHERE tags.customer_class != 'Total'
+SELECT tags.customer_class AS "Customer Class", AVG(value)/1000000 AS "Usage (Million MWh)"
+  FROM "megawatt_hour" WHERE tags.customer_class != 'Total'
 GROUP BY tags.customer_class
   ORDER BY AVG(value) DESC
 ```

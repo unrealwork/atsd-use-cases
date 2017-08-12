@@ -14,7 +14,7 @@ Connecticut Prison Populations
 [![](../../DataShorts/CT_Prison/Images/button.png)](https://apps.axibase.com/chartlab/bff45f46/8/#fullscreen)
 
 ```sql
-SELECT date_format(time, 'yyyy-MM') AS 'Time', sum(value)/1000 AS 'Total Population (1000 Persons)'
+SELECT date_format(time, 'yyyy-MM') AS "Time", sum(value)/1000 AS "Total Population (1000 Persons)"
   FROM average_inmate_population
 GROUP BY time
   ORDER BY time, 'Total Population (1000 Persons)'
@@ -65,7 +65,7 @@ GROUP BY time
 [![](../../DataShorts/CT_Prison/Images/button.png)](https://apps.axibase.com/chartlab/bff45f46/3/#fullscreen)
 
 ```sql
-SELECT tags.facility_name AS 'Facility Name', avg(value) AS 'Population'
+SELECT tags.facility_name AS "Facility Name", avg(value) AS "Population"
   FROM average_inmate_population
 GROUP BY 'Facility Name'
    ORDER BY 'Population' DESC, 'Facility Name'
@@ -109,7 +109,7 @@ respectively.
 [![](../../DataShorts/CT_Prison/Images/button.png)](https://apps.axibase.com/chartlab/bff45f46/10/#fullscreen)
 
 ```sql
-SELECT tags.facility_name AS 'Facility Name', last(value) AS 'Population'
+SELECT tags.facility_name AS "Facility Name", last(value) AS "Population"
   FROM average_inmate_population
 GROUP BY 'Facility Name'
    ORDER BY 'Facility Name', 'Population'
@@ -148,7 +148,7 @@ GROUP BY 'Facility Name'
 [![](../../DataShorts/CT_Prison/Images/button.png)](https://apps.axibase.com/chartlab/bff45f46/11/#fullscreen)
 
 ```sql
-SELECT tags.facility_name AS 'Facility Name', avg(value) AS 'Density'
+SELECT tags.facility_name AS "Facility Name", avg(value) AS "Density"
   FROM inmate_population_density
 WHERE tags.facility_name NOT IN ('Bergin', 'Gates', 'Niantic Annex', 'Webster')
   GROUP BY 'Facility Name'
@@ -188,7 +188,7 @@ ORDER BY 'Density' DESC
 > Density is defined as [(Number of Prisonors)/(Number of Beds)]
 
 ```sql
-SELECT tags.facility_name AS 'Facility Name', last(value) AS 'Density'
+SELECT tags.facility_name AS "Facility Name", last(value) AS "Density"
   FROM inmate_population_density
 WHERE tags.facility_name NOT IN ('Bergin', 'Gates', 'Niantic Annex', 'Webster')
   GROUP BY 'Facility Name'

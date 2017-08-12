@@ -49,7 +49,7 @@ Using the [Axibase SQL Console](https://axibase.com) to query the dataset:
 ###### 2014-2017
 
 ```sql
-SELECT  date_format(time, 'yyyy') AS 'Year', sum(value) AS 'Total Calls'
+SELECT  date_format(time, 'yyyy') AS "Year", sum(value) AS "Total Calls"
   FROM total_number_of_calls
 GROUP BY period(1 year)
   ORDER BY 'Year' ASC
@@ -80,7 +80,7 @@ of calls made to the Hartford Fire Department.
 ###### 2014-2017
 
 ```sql
-SELECT  date_format(time, 'MM, yyyy') AS 'Month, Year', sum(value) AS 'Total Calls'
+SELECT  date_format(time, 'MM, yyyy') AS "Month, Year", sum(value) AS "Total Calls"
   FROM total_number_of_calls
 GROUP BY period(1 month)
   ORDER BY time ASC
@@ -145,7 +145,7 @@ volume, which came on Sunday, did not significantly deviate from the average eit
 ###### 2014-2017
 
 ```sql
-SELECT  date_format(time, 'E') AS 'Day of the Week', sum(value)/1000 AS 'Total Calls (Thousand)'
+SELECT  date_format(time, 'E') AS "Day of the Week", sum(value)/1000 AS "Total Calls (Thousand)"
   FROM total_number_of_calls
 GROUP BY date_format(time, 'E'), date_format(time, 'u')
   ORDER BY date_format(time, 'u') ASC
@@ -173,7 +173,7 @@ Despite consistent overall call numbers throughout the week, it is interesting t
 made to the Hartford Fire Department was the highest on Sundays:
 
 ```sql
-SELECT  date_format(time, 'E') AS 'Day of the Week', sum(value) AS 'Fire Calls'
+SELECT  date_format(time, 'E') AS "Day of the Week", sum(value) AS "Fire Calls"
   FROM fire_calls
 GROUP BY date_format(time, 'E'), date_format(time, 'u')
   ORDER BY date_format(time, 'u') ASC
@@ -194,7 +194,7 @@ GROUP BY date_format(time, 'E'), date_format(time, 'u')
 Additionally, the number of EMS calls was highest on Mondays:
 
 ```sql
-SELECT  date_format(time, 'E') AS 'Day of the Week', sum(value)/1000 AS 'EMS Calls (Thousand)'
+SELECT  date_format(time, 'E') AS "Day of the Week", sum(value)/1000 AS "EMS Calls (Thousand)"
   FROM ems_calls
 GROUP BY date_format(time, 'E'), date_format(time, 'u')
   ORDER BY date_format(time, 'u') ASC
@@ -215,7 +215,7 @@ GROUP BY date_format(time, 'E'), date_format(time, 'u')
 #### EMS Calls by Year
 
 ```sql
-SELECT  date_format(time, 'yyyy') AS 'Year', sum(value) AS 'Total Calls'
+SELECT  date_format(time, 'yyyy') AS "Year", sum(value) AS "Total Calls"
   FROM 	ems_calls
 GROUP BY period(1 year)
   ORDER BY 'Year' ASC
@@ -237,7 +237,7 @@ GROUP BY period(1 year)
 #### Fire Calls by Year
 
 ```sql
-SELECT  date_format(time, 'yyyy') AS 'Year', sum(value) AS 'Total Calls'
+SELECT  date_format(time, 'yyyy') AS "Year", sum(value) AS "Total Calls"
   FROM 	fire_calls
 GROUP BY period(1 year)
   ORDER BY 'Year' ASC
@@ -259,7 +259,7 @@ GROUP BY period(1 year)
 #### EMS Calls by Month
 
 ```sql
-SELECT  date_format(time, 'MM, yyyy') AS 'Month, Year', sum(value) AS 'Total Calls'
+SELECT  date_format(time, 'MM, yyyy') AS "Month, Year", sum(value) AS "Total Calls"
   FROM ems_calls
 GROUP BY period(1 month)
   ORDER BY time ASC
@@ -315,7 +315,7 @@ GROUP BY period(1 month)
 #### Fire Calls by Month
 
 ```sql
-SELECT  date_format(time, 'MM, yyyy') AS 'Month, Year', sum(value) AS 'Total Calls'
+SELECT  date_format(time, 'MM, yyyy') AS "Month, Year", sum(value) AS "Total Calls"
   FROM fire_calls
 GROUP BY period(1 month)
   ORDER BY time ASC
@@ -429,7 +429,7 @@ the potential scalability of such modeling:
 ###### January (2014-2017)
 
 ```sql
-SELECT date_format(time, 'MM, yyyy') AS 'Month, Year', SUM(value) AS 'Total Calls'
+SELECT date_format(time, 'MM, yyyy') AS "Month, Year", SUM(value) AS "Total Calls"
   FROM total_number_of_calls WHERE date_format(time, 'MM') = '01'
 GROUP BY 'Month, Year'
 ```
@@ -477,7 +477,7 @@ Error Calculations:
 ###### February (2014-2017)
 
 ```sql
-SELECT date_format(time, 'MM, yyyy') AS 'Month, Year', SUM(value) AS 'Total Calls'
+SELECT date_format(time, 'MM, yyyy') AS "Month, Year", SUM(value) AS "Total Calls"
   FROM total_number_of_calls WHERE date_format(time, 'MM') = '02'
 GROUP BY 'Month, Year'
 ```
