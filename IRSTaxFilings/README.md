@@ -112,12 +112,12 @@ The [`date_format`](https://github.com/axibase/atsd/tree/master/api/sql#date-for
 SELECT date_format(time, 'yyyy') AS "Year",
   date_format(time, 'MMM-dd') AS "Date",
   CAST(date_format(time, 'D') AS NUMBER) AS "Day in Year",
-  CAST(date_format(date_parse(CONCAT(date_format(time, "yyyy"), '-04-',   
+  CAST(date_format(date_parse(CONCAT(date_format(time, 'yyyy'), '-04-',   
     CASE date_format(time, 'yyyy')               
       WHEN '2012' OR '2018' THEN '17'
       WHEN '2016' OR '2017' THEN '18'
       ELSE '15'
-    END, "T00:00:00Z")), 'D') AS NUMBER) - CAST(date_format(time, 'D') AS NUMBER) AS "Days to File",     
+    END, 'T00:00:00Z')), 'D') AS NUMBER) - CAST(date_format(time, 'D') AS NUMBER) AS "Days to File",     
   value/1000000 AS "Curr Year, Mln",
   LAG(value)/1000000 AS "Prev Year, Mln",
   (value-LAG(value))/1000000 AS "YoY Change, Mln",
@@ -165,12 +165,12 @@ We noticed however that the trends are not uniform across E-filing channels.
 SELECT date_format(time, 'yyyy') AS "Year",
   date_format(time, 'MMM-dd') AS "Date",
   CAST(date_format(time, 'D') AS NUMBER) AS "Day in Year",
-  CAST(date_format(date_parse(CONCAT(date_format(time, "yyyy"), '-04-',   
+  CAST(date_format(date_parse(CONCAT(date_format(time, 'yyyy'), '-04-',   
     CASE date_format(time, 'yyyy')               
       WHEN '2012' OR '2018' THEN '17'
       WHEN '2016' OR '2017' THEN '18'
       ELSE '15'
-    END, "T00:00:00Z")), 'D') AS NUMBER) - CAST(date_format(time, 'D') AS NUMBER) AS "Days to File",     
+    END, 'T00:00:00Z')), 'D') AS NUMBER) - CAST(date_format(time, 'D') AS NUMBER) AS "Days to File",     
   value/1000000 AS "Returns Received, Mln",
   LAG(value)/1000000 AS "Previous Year, Mln",
   (value-LAG(value))/1000000 AS "Y-o-Y Change, Mln",
