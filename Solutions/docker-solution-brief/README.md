@@ -12,7 +12,7 @@ Axibase Corporation is a California company that develops software solutions for
 
 ## Solution Profile
 
-Axibase Time Series Database integrates the Docker environment with a customer's existing IT management systems by consolidating usage statistics and detailed configurations in a single repository and securely exposing the Docker data to upstream tools (CMDB, monitoring, event manamgement) via the ATSD API and real-time notifications.
+Axibase Time Series Database integrates the Docker environment with a customer's existing IT management systems by consolidating usage statistics and detailed configurations in a single repository and securely exposing the Docker data to upstream tools (CMDB, monitoring, event management) via the ATSD API and real-time notifications.
 
 ## Solution Tag Line
 
@@ -42,7 +42,7 @@ We know firsthand from our experience with enterprise customers that integration
 
 * Linux Container Monitoring
   - Collect cpu, memory, I/O, volume, and network statistics from Docker hosts and containers.
-  - Correllate container utilization with OS-level usage for triage and diagnostics.
+  - Correlate container utilization with OS-level usage for triage and diagnostics.
   - Instantly visualize data with built-in, real-time host and container dashboards.
   - Automatically build service dashboards using image and container labels.
 
