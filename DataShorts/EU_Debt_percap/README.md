@@ -47,7 +47,7 @@ FROM government_consolidated_gross_debt AS debt
   ON debt.entity = pop.entity AND debt.time = pop.time AND debt.tags = pop.tags
 WHERE date_format(time, 'yyyy') = 2005
   AND debt.entity = 'eurostat'
-  AND debt.tags.geo NOT LIKE 'Euro*'
+  AND debt.tags.geo NOT LIKE 'Euro%'
 ORDER BY debt.tags.geo
 ```
 
@@ -106,7 +106,7 @@ FROM government_consolidated_gross_debt AS debt
   ON debt.entity = pop.entity AND debt.time = pop.time AND debt.tags = pop.tags
 WHERE date_format(time, 'yyyy') = 2006
   AND debt.entity = 'eurostat'
-  AND debt.tags.geo NOT LIKE 'Euro*'
+  AND debt.tags.geo NOT LIKE 'Euro%'
 ORDER BY debt.tags.geo
 ```
 
@@ -165,7 +165,7 @@ FROM government_consolidated_gross_debt AS debt
   ON debt.entity = pop.entity AND debt.time = pop.time AND debt.tags = pop.tags
 WHERE date_format(time, 'yyyy') = 2007
   AND debt.entity = 'eurostat'
-  AND debt.tags.geo NOT LIKE 'Euro*'
+  AND debt.tags.geo NOT LIKE 'Euro%'
 ORDER BY debt.tags.geo
 ```
 
@@ -224,7 +224,7 @@ FROM government_consolidated_gross_debt AS debt
   ON debt.entity = pop.entity AND debt.time = pop.time AND debt.tags = pop.tags
 WHERE date_format(time, 'yyyy') = 2008
   AND debt.entity = 'eurostat'
-  AND debt.tags.geo NOT LIKE 'Euro*'
+  AND debt.tags.geo NOT LIKE 'Euro%'
 ORDER BY debt.tags.geo
 ```
 
@@ -283,7 +283,7 @@ FROM government_consolidated_gross_debt AS debt
   ON debt.entity = pop.entity AND debt.time = pop.time AND debt.tags = pop.tags
 WHERE date_format(time, 'yyyy') = 2009
   AND debt.entity = 'eurostat'
-  AND debt.tags.geo NOT LIKE 'Euro*'
+  AND debt.tags.geo NOT LIKE 'Euro%'
 ORDER BY debt.tags.geo
 ```
 
@@ -342,7 +342,7 @@ FROM government_consolidated_gross_debt AS debt
   ON debt.entity = pop.entity AND debt.time = pop.time AND debt.tags = pop.tags
 WHERE date_format(time, 'yyyy') = 2010
   AND debt.entity = 'eurostat'
-  AND debt.tags.geo NOT LIKE 'Euro*'
+  AND debt.tags.geo NOT LIKE 'Euro%'
 ORDER BY debt.tags.geo
 ```
 
@@ -401,7 +401,7 @@ FROM government_consolidated_gross_debt AS debt
   ON debt.entity = pop.entity AND debt.time = pop.time AND debt.tags = pop.tags
 WHERE date_format(time, 'yyyy') = 2011
   AND debt.entity = 'eurostat'
-  AND debt.tags.geo NOT LIKE 'Euro*'
+  AND debt.tags.geo NOT LIKE 'Euro%'
 ORDER BY debt.tags.geo
 ```
 
@@ -460,7 +460,7 @@ FROM government_consolidated_gross_debt AS debt
   ON debt.entity = pop.entity AND debt.time = pop.time AND debt.tags = pop.tags
 WHERE date_format(time, 'yyyy') = 2012
   AND debt.entity = 'eurostat'
-  AND debt.tags.geo NOT LIKE 'Euro*'
+  AND debt.tags.geo NOT LIKE 'Euro%'
 ORDER BY debt.tags.geo
 ```
 
@@ -519,7 +519,7 @@ FROM government_consolidated_gross_debt AS debt
   ON debt.entity = pop.entity AND debt.time = pop.time AND debt.tags = pop.tags
 WHERE date_format(time, 'yyyy') = 2013
   AND debt.entity = 'eurostat'
-  AND debt.tags.geo NOT LIKE 'Euro*'
+  AND debt.tags.geo NOT LIKE 'Euro%'
 ORDER BY debt.tags.geo
 ```
 
@@ -578,7 +578,7 @@ FROM government_consolidated_gross_debt AS debt
   ON debt.entity = pop.entity AND debt.time = pop.time AND debt.tags = pop.tags
 WHERE date_format(time, 'yyyy') = 2014
   AND debt.entity = 'eurostat'
-  AND debt.tags.geo NOT LIKE 'Euro*'
+  AND debt.tags.geo NOT LIKE 'Euro%'
 ORDER BY debt.tags.geo
 ```
 
@@ -637,7 +637,7 @@ FROM government_consolidated_gross_debt AS debt
   ON debt.entity = pop.entity AND debt.time = pop.time AND debt.tags = pop.tags
 WHERE date_format(time, 'yyyy') = 2015
   AND debt.entity = 'eurostat'
-  AND debt.tags.geo NOT LIKE 'Euro*'
+  AND debt.tags.geo NOT LIKE 'Euro%'
 ORDER BY debt.tags.geo
 ```
 
@@ -696,7 +696,7 @@ FROM government_consolidated_gross_debt AS debt
   ON debt.entity = pop.entity AND debt.time = pop.time AND debt.tags = pop.tags
 WHERE date_format(time, 'yyyy') = 2016
   AND debt.entity = 'eurostat'
-  AND debt.tags.geo NOT LIKE 'Euro*'
+  AND debt.tags.geo NOT LIKE 'Euro%'
 ORDER BY debt.tags.geo
 ```
 
@@ -760,7 +760,7 @@ FROM government_consolidated_gross_debt AS debt
   ON debt.entity = pop.entity AND debt.time = pop.time AND debt.tags = pop.tags
 WHERE datetime BETWEEN '2006-01-01T00:00:00Z' AND '2016-01-01T00:00:00Z'
   AND debt.entity = 'eurostat'
-  AND Country NOT LIKE 'Euro*'
+  AND Country NOT LIKE 'Euro%'
   GROUP BY debt.entity, Country
 ORDER BY Country
 ```

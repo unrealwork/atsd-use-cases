@@ -306,7 +306,7 @@ SELECT tags.description, count(value)
 FROM "chg.row_number.ijzp-q8t2"
 WHERE datetime >= '2014-01-01T00:00:00Z' and datetime < '2015-01-01T00:00:00Z'
 AND tags.primary_type = 'NARCOTICS'
-AND tags.description LIKE 'POSS*'
+AND tags.description LIKE 'POSS%'
 GROUP BY tags.description
 --HAVING count(value)/15 >= 5
 ORDER BY 2 DESC
@@ -341,7 +341,7 @@ SELECT datetime, count(value)
 FROM "chg.row_number.ijzp-q8t2"
 WHERE datetime >= '2001-01-01T00:00:00Z' and datetime < '2017-01-01T00:00:00Z'
 AND tags.primary_type = 'NARCOTICS'
-AND tags.description LIKE 'POSS*'
+AND tags.description LIKE 'POSS%'
 GROUP BY period(1 year)
 ```
 
@@ -373,8 +373,8 @@ SELECT datetime, count(value)
 FROM "chg.row_number.ijzp-q8t2"
 WHERE datetime >= '2001-01-01T00:00:00Z' and datetime < '2017-01-01T00:00:00Z'
 AND tags.primary_type = 'NARCOTICS'
-AND tags.description LIKE 'POSS*'
-AND tags.description NOT LIKE '*CANNAB*'
+AND tags.description LIKE 'POSS%'
+AND tags.description NOT LIKE '%CANNAB%'
 GROUP BY period(1 year)
 ```
 
@@ -406,7 +406,7 @@ SELECT datetime, count(value)
 FROM "chg.row_number.ijzp-q8t2"
 WHERE datetime >= '2001-01-01T00:00:00Z' and datetime < '2017-01-01T00:00:00Z'
 AND tags.primary_type = 'NARCOTICS'
-AND tags.description LIKE 'MANU*' AND tags.description NOT LIKE '*CANNAB*'
+AND tags.description LIKE 'MANU%' AND tags.description NOT LIKE '%CANNAB%'
 GROUP BY period(1 year)
 ```
 

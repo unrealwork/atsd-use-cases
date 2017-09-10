@@ -49,7 +49,7 @@ ORDER BY 'Year' ASC
 ```sql
 SELECT metric.label AS "Job Field", first(value)/1000 AS "2001 Total (Thousand)"
   FROM atsd_series
-WHERE entity = '5w8e-5mc3' and metric LIKE ('job_title.*') AND metric.label != 'Total Employment'
+WHERE entity = '5w8e-5mc3' and metric LIKE 'job_title.%' AND metric.label != 'Total Employment'
   GROUP BY 'Job Field'
 ORDER BY '2001 Total (Thousand)' DESC
   LIMIT 10
@@ -79,7 +79,7 @@ ORDER BY '2001 Total (Thousand)' DESC
 ```sql
 SELECT metric.label AS "Job Field", last(value)/1000 AS "2040 Total (Thousand)"
   FROM atsd_series
-WHERE entity = '5w8e-5mc3' and metric LIKE ('job_title.*') AND metric.label != 'Total Employment'
+WHERE entity = '5w8e-5mc3' and metric LIKE 'job_title.%' AND metric.label != 'Total Employment'
   GROUP BY 'Job Field'
 ORDER BY '2040 Total (Thousand)' DESC
   LIMIT 10
@@ -109,7 +109,7 @@ ORDER BY '2040 Total (Thousand)' DESC
 ```sql
 SELECT metric.label AS "Job Field", avg(value)/1000 AS "Average Total (Thousand)"
   FROM atsd_series
-WHERE entity = '5w8e-5mc3' and metric LIKE ('job_title.*') AND metric.label != 'Total Employment'
+WHERE entity = '5w8e-5mc3' and metric LIKE 'job_title.%' AND metric.label != 'Total Employment'
   GROUP BY 'Job Field'
 ORDER BY 'Average Total (Thousand)' DESC
   LIMIT 10
@@ -142,7 +142,7 @@ employment numbers over a given period of time.
 ```sql
 SELECT metric.label AS "Job Field", delta(value)/1000 AS "Average Total (Thousand)"
   FROM atsd_series
-WHERE entity = '5w8e-5mc3' and metric LIKE ('job_title.*') AND metric.label != 'Total Employment'
+WHERE entity = '5w8e-5mc3' and metric LIKE 'job_title.%' AND metric.label != 'Total Employment'
   GROUP BY 'Job Field'
 ORDER BY 'Average Total (Thousand)' DESC
   LIMIT 10
@@ -174,7 +174,7 @@ ORDER BY 'Average Total (Thousand)' DESC
 ```sql
 SELECT metric.label AS "Job Field", first(value)/1000 AS "Average Total (Thousand)"
   FROM atsd_series
-WHERE entity = '5w8e-5mc3' and metric LIKE ('job_title.*') AND metric.label != 'Total Employment'
+WHERE entity = '5w8e-5mc3' and metric LIKE 'job_title.%' AND metric.label != 'Total Employment'
   GROUP BY 'Job Field'
 ORDER BY 'Average Total (Thousand)' ASC
   LIMIT 10
@@ -204,7 +204,7 @@ ORDER BY 'Average Total (Thousand)' ASC
 ```sql
 SELECT metric.label AS "Job Field", last(value)/1000 AS "Average Total (Thousand)"
   FROM atsd_series
-WHERE entity = '5w8e-5mc3' and metric LIKE ('job_title.*') AND metric.label != 'Total Employment'
+WHERE entity = '5w8e-5mc3' and metric LIKE 'job_title.%' AND metric.label != 'Total Employment'
   GROUP BY 'Job Field'
 ORDER BY 'Average Total (Thousand)' ASC
   LIMIT 10
@@ -234,7 +234,7 @@ ORDER BY 'Average Total (Thousand)' ASC
 ```sql
 SELECT metric.label AS "Job Field", avg(value)/1000 AS "Average Total (Thousand)"
   FROM atsd_series
-WHERE entity = '5w8e-5mc3' and metric LIKE ('job_title.*') AND metric.label != 'Total Employment'
+WHERE entity = '5w8e-5mc3' and metric LIKE 'job_title.%' AND metric.label != 'Total Employment'
   GROUP BY 'Job Field'
 ORDER BY 'Average Total (Thousand)' ASC
   LIMIT 10
@@ -264,7 +264,7 @@ ORDER BY 'Average Total (Thousand)' ASC
 ```sql
 SELECT metric.label AS "Job Field", delta(value)/1000 AS "Average Total (Thousand)"
   FROM atsd_series
-WHERE entity = '5w8e-5mc3' and metric LIKE ('job_title.*') AND metric.label != 'Total Employment'
+WHERE entity = '5w8e-5mc3' and metric LIKE 'job_title.%' AND metric.label != 'Total Employment'
   GROUP BY 'Job Field'
 ORDER BY 'Average Total (Thousand)' ASC
   LIMIT 10

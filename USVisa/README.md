@@ -123,11 +123,11 @@ number of visas issued in 2015 (except for the above mentioned visa types) was f
 ```sql
 SELECT tags.visa_type, sum(value)
   FROM "state.non-immigrant-visa"
-WHERE tags.visa_type NOT LIKE 'A*'
-  AND tags.visa_type NOT LIKE 'B*'
-  AND tags.visa_type NOT LIKE 'C*'
-  AND tags.visa_type NOT LIKE 'G*'
-  AND tags.visa_type NOT LIKE '*Total*' AND tags.country NOT LIKE '*Total*'
+WHERE tags.visa_type NOT LIKE 'A%'
+  AND tags.visa_type NOT LIKE 'B%'
+  AND tags.visa_type NOT LIKE 'C%'
+  AND tags.visa_type NOT LIKE 'G%'
+  AND tags.visa_type NOT LIKE '%Total%' AND tags.country NOT LIKE '%Total%'
 AND datetime = '2015-01-01T00:00:00Z'
 GROUP BY tags.visa_type
 HAVING sum(value) > 10000
@@ -161,11 +161,11 @@ This below query shows the top 15 largest countries by non-immigrant visas in 20
 ```sql
 SELECT tags.country, sum(value)
   FROM "state.non-immigrant-visa"
-WHERE tags.visa_type NOT LIKE 'A*'
-  AND tags.visa_type NOT LIKE 'B*'
-  AND tags.visa_type NOT LIKE 'C*'
-  AND tags.visa_type NOT LIKE 'G*'
-  AND tags.visa_type NOT LIKE '*Total*' AND tags.country NOT LIKE '*Total*'
+WHERE tags.visa_type NOT LIKE 'A%'
+  AND tags.visa_type NOT LIKE 'B%'
+  AND tags.visa_type NOT LIKE 'C%'
+  AND tags.visa_type NOT LIKE 'G%'
+  AND tags.visa_type NOT LIKE '%Total%' AND tags.country NOT LIKE '%Total%'
 AND datetime = '2015-01-01T00:00:00Z'
 GROUP BY tags.country
 ORDER BY 2 DESC
@@ -202,7 +202,7 @@ SELECT tags.country, first(value) AS "2005",
   (POWER(last(value)/first(value), 1/count(value))-1)*100 AS "CAGR, %"
   FROM "state.non-immigrant-visa"
 WHERE tags.visa_type = 'B-1,2'
-  AND tags.country NOT LIKE '*Total*'
+  AND tags.country NOT LIKE '%Total%'
   AND LOOKUP('us-visa-waiver-program', tags.country) IS NULL
   AND datetime >= '2005-01-01T00:00:00Z'
 GROUP BY tags.country
@@ -243,7 +243,7 @@ Total revenue for travel visas (in millions of USD) for the state department at 
 SELECT date_format(time, 'yyyy') AS "year", sum(value) * 160 / power(10, 6) AS "Visa Fees, $M"
   FROM "state.non-immigrant-visa"
 WHERE tags.visa_type = 'B-1,2'
-  AND tags.country NOT LIKE '*Total*'
+  AND tags.country NOT LIKE '%Total%'
 GROUP BY datetime
 ```
 

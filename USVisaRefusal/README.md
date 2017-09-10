@@ -253,7 +253,7 @@ SELECT  t1.tags.country AS "Country", t1.value AS "Total Visas Issued", t2.value
   ROUND(160*(t1.value/((100-t2.value)/100))* (t2.value/100)) AS "Refusal Fees"
   FROM "state.non-immigrant-visa" t1
 JOIN "state.visa-refusal-rate" t2   
-WHERE t1.tags.country NOT LIKE '*Total*' AND t1.tags.visa_type = 'Grand Total' AND date_format(t1.time, 'yyyy') = '2015'
+WHERE t1.tags.country NOT LIKE '%Total%' AND t1.tags.visa_type = 'Grand Total' AND date_format(t1.time, 'yyyy') = '2015'
 ORDER BY 'Refusal Fees' DESC
 ```
 
@@ -470,7 +470,7 @@ SELECT date_format(t1.time, 'yyyy') AS "Year", sum(t1.value)/power(10, 6) AS "Vi
   sum(t1.value/(100-t2.value)*t2.value)*160/power(10, 6) AS "Refusal Fees, $ Mln"
   FROM "state.non-immigrant-visa" t1
 JOIN "state.visa-refusal-rate" t2   
-WHERE t1.tags.country NOT LIKE '*Total*' AND t1.tags.visa_type = 'Grand Total' and t2.value < 100
+WHERE t1.tags.country NOT LIKE '%Total%' AND t1.tags.visa_type = 'Grand Total' and t2.value < 100
 group by t1.datetime
 ```
 
