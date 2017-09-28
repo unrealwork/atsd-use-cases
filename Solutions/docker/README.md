@@ -6,8 +6,13 @@ Axibase Time Series Database allows IT operations teams to monitor Linux contain
 
 ATSD continuously collects availability status, performance metrics and detailed configurations from containers in a single repository and exposes the data to upstream tools (CMDB, monitoring, alerting, event management) via the API, notifications, and scheduled reporting. It provides operations teams the necessary visibility, control, and automation into Linux containers while delivering a unified view of container performance to development and QA teams.
 
+## Integration Overview
 
-### Integration Benefits
+The data is collected by [Axibase Collector](https://github.com/axibase/axibase-collector/blob/master/jobs/docker.md) instances installed locally on each Docker host.
+
+![docker-local](images/docker-local.png)
+
+## Integration Benefits
 
 -   Seamlessly collect detailed configurations and statistics at the host, container, volume, and network level from multiple Docker hosts.
 -   Analyze incoming data with the built-in rule engine and escalate actionable data to upstream alerting and monitoring systems.
@@ -15,43 +20,37 @@ ATSD continuously collects availability status, performance metrics and detailed
 -   Provide development and operations teams a search interface to quickly locate resources as the environment grows in size and scope.
 -   Distribute scheduled reports on historical and estimated host and container utilization to prevent performance bottlenecks.
 
-### Use Case: Linux Container Monitoring
+## Use Cases
+
+### Linux Container Monitoring
 
 -   Collect cpu, memory, I/O, volume, and network statistics from Docker hosts and containers.
 -   Correlate container utilization with OS-level usage for triage and diagnostics.
 -   Instantly visualize data with built-in, real-time host and container dashboards.
 -   Automatically build service dashboards using image and container labels.
 
-
-### Use Case: Change Management
+### Change Management
 
 -   Perform detailed inventory scans of the Docker environment including hosts, images, containers, volumes, and networks.
 -   Notify applications and operations teams in case of container misplacements.
 -   Enforce labeling standards to ensure CMDB accuracy.
 
-
-### Use Case: Compliance and Security
+### Compliance and Security
 
 -   Intercept and react to life-cycle events such as new image pulls, container starts, container command executions.
 -   Identify images and containers that violate pre-approved black-lists and white-lists.
 -   Perform enterprise-wide inventory queries to identify configuration abnormalities.
 -   Scan launch parameters and variables to ensure secrets and credentials are protected.
 
-
-### Integration Overview
-
-The data is collected by [Axibase Collector][axibase collector] instances installed locally on each Docker host.
-
-![docker-local](images/docker-local.png)
-
 ## Getting Started
-
 
 ### Launch ATSD
 
-1.  Start ATSD container on one of the Docker hosts.
-2.  Replace **cuser** and **cpassword** variables with custom credentials. These credentials will be used by collectors to insert data into ATSD.
-3.  Minimum password length is 6 characters.
+Start ATSD container on one of the Docker hosts.
+
+Replace `cuser` and `cpassword` variables with custom credentials. These credentials will be used by collectors to insert data into ATSD.
+
+Minimum password length is 6 characters.
 
 ```sh
 $ docker run -d --name=atsd -p 8443:8443 -p 8081:8081 \
@@ -59,10 +58,13 @@ $ docker run -d --name=atsd -p 8443:8443 -p 8081:8081 \
   axibase/atsd:latest
 ```
 
-4.  Wait for the database to initialize.
+Wait for the database to initialize.
 
 ```sh
 $ docker logs -f atsd
+```
+
+```
 [ATSD] ATSD user interface:
 [ATSD] http://172.17.0.2:8088
 [ATSD] https://172.17.0.2:8443
@@ -72,10 +74,13 @@ $ docker logs -f atsd
 
 ### Launch Axibase Collectors
 
-1.  Launch an Axibase Collector instance on each of the Docker hosts.
-2.  Replace **cuser** and **cpassword** variables with custom credentials.
-3.  Replace **atsd_host** variable with the hostname of the Docker host where ATSD container is running.
-4.  The hostname must be resolvable from the Docker host where collector is installed.
+Launch an [Axibase Collector](https://github.com/axibase/axibase-collector/blob/master/jobs/docker.md) instance on each Docker host.
+
+Replace **cuser** and **cpassword** variables with collector credentials specified above.
+
+Replace **atsd_host** variable with the hostname of the Docker host where ATSD container is running.
+
+The hostname must be resolvable from the Docker host where collector is installed.
 
 ```sh
 $ docker run -d --name axibase-collector \
@@ -86,10 +91,13 @@ $ docker run -d --name axibase-collector \
    -job-enable=docker-socket
 ```
 
-5.  Wait for the collector to initialize.
+Wait for the collector to initialize.
 
 ```sh
 $ docker logs -f axibase-collector
+```
+
+```
 ...
 [Collector] Waiting for Collector to bind to port 9443 ...( 6 of 30 )
 [Collector] Collector web interface:
@@ -100,11 +108,17 @@ $ docker logs -f axibase-collector
 
 ### Verify Installation
 
-1.  Login into ATSD web interface at the <https://atsd_host:8443>.
-2.  Setup a built-in administrator account.
-3.  Open “Entities > Docker Hosts” and “Entities > Docker Containers” tabs and verify that records are available as displayed on the below screenshots.
-4.  Open “Configuration > Rules” and import alerting rules into the ATSD rule engine.
+Login into ATSD web interface at `https://atsd_host:8443`.
 
+Create a built-in administrator account.
+
+Open **Entities > Docker Hosts** and **Entities > Docker Containers** tabs and verify that records are available as displayed on the below screenshots.
+
+Open **Configuration > Rules** and import alerting rules into the rule engine.
+
+## Reference Information
+
+* [Axibase Collector](https://github.com/axibase/axibase-collector/blob/master/jobs/docker.md)
 
 ## Discovery
 
@@ -219,7 +233,3 @@ $ docker logs -f axibase-collector
 ### Container Actions
 
 ![docker-messages-container](images/docker-messages-container-1.png)
-
-
-<!-- Links -->
-[axibase collector]: https://github.com/axibase/axibase-collector/blob/master/jobs/docker.md#local-installation "Axibase Collector"
