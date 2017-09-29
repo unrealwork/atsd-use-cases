@@ -54,7 +54,9 @@ Minimum password length is 6 characters.
 
 ```sh
 $ docker run -d --name=atsd -p 8443:8443 -p 8081:8081 \
-  --env COLLECTOR_USER_NAME=cuser --env COLLECTOR_USER_PASSWORD=cpassword \
+  --env COLLECTOR_USER_NAME=cuser \
+  --env COLLECTOR_USER_PASSWORD=cpassword \
+  --env COLLECTOR_USER_TYPE=api-rw \
   axibase/atsd:latest
 ```
 
