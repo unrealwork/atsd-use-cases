@@ -46,6 +46,8 @@ The data is collected by [Axibase Collector](https://github.com/axibase/axibase-
 
 ### Launch ATSD
 
+> For installation on Kubernetes refer to this [guide](https://github.com/axibase/axibase-collector/blob/kubernetes/installation-on-kubernetes.md).
+
 Start ATSD container on one of the Docker hosts.
 
 Replace `cuser` and `cpassword` variables with custom credentials. These credentials will be used by collectors to insert data into ATSD.
