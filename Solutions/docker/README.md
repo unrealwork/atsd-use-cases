@@ -46,7 +46,7 @@ The data is collected by [Axibase Collector](https://github.com/axibase/axibase-
 
 ### Launch ATSD
 
-> For installation on Kubernetes refer to this [guide](https://github.com/axibase/axibase-collector/blob/kubernetes/installation-on-kubernetes.md).
+> For installation on Kubernetes refer to this [guide](https://github.com/axibase/axibase-collector/blob/master/installation-on-kubernetes.md).
 
 Start ATSD container on one of the Docker hosts.
 
