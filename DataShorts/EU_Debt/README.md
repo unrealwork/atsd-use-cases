@@ -5,7 +5,7 @@ European Union Debt by Country (2005-2016)
 
 > **Visualization**: [ChartLab](https://apps.axibase.com) from [Axibase](https://axibase.com)
 
-> **Structured Query Language**: [SQL Console](https://github.com/axibase/atsd/tree/master/api/sql) in the [Axibase Timeseries Database](https://axibase.com)
+> **Structured Query Language**: [SQL Console](https://github.com/axibase/atsd/tree/master/sql) in the [Axibase Timeseries Database](https://axibase.com)
 
 ## Debt Total
 

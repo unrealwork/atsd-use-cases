@@ -27,7 +27,7 @@ a district is found to have witnessed an above average number of murders during 
 period, the alternative hypothesis will predict that the district will have also seen an
 above average number of incidents of police use of force.
 
-Both of these datasets can be analyzed in the Axibase Time Series Database which provides a built-in support for the [Socrata](https://github.com/axibase/axibase-collector/blob/master/jobs/socrata.md) Open Data format used by the majority of government agencies in the United States. ATSD also includes graphics capabilities to analyze the data with [SQL](https://github.com/axibase/atsd/blob/master/api/sql/README.md#overview)
+Both of these datasets can be analyzed in the Axibase Time Series Database which provides a built-in support for the [Socrata](https://github.com/axibase/axibase-collector/blob/master/jobs/socrata.md) Open Data format used by the majority of government agencies in the United States. ATSD also includes graphics capabilities to analyze the data with [SQL](https://github.com/axibase/atsd/blob/master/sql/README.md#overview)
 and visualize it with graphs.
 
 > For information about performing these steps in your own ATSD instance, see the [Action Items](#Action-Items)
@@ -275,7 +275,7 @@ an increase in police use of force? Do districts that see high levels of police 
 also see high levels of homicide? Is there a correlation at all? 
 
 Similar to the first data set, [Socrata](https://github.com/axibase/axibase-collector/blob/master/jobs/socrata.md)
-should be used to compile the data in meaningful way and a [Structured Query Language](https://github.com/axibase/atsd/blob/master/api/sql/README.md#overview)
+should be used to compile the data in meaningful way and a [Structured Query Language](https://github.com/axibase/atsd/blob/master/sql/README.md#overview)
 should be used again.
 
 >For a more detailed explanation of performing SQL Queries, see the [Appendix](#Appendix)

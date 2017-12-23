@@ -5,7 +5,7 @@ Data Source: [data.gov.hk](https://data.gov.hk/en-data/dataset/hk-censtatd-table
 
 Visualization: [ChartLab](https://apps.axibase.com)
 
-Structured Query Language: [SQL Console](https://github.com/axibase/atsd/tree/master/api/sql) from [Axibase](https://axibase.com)
+Structured Query Language: [SQL Console](https://github.com/axibase/atsd/tree/master/sql) from [Axibase](https://axibase.com)
 
 The data records three types of foreign companies operating in Hong Kong: local companies with foreign parent companies,
 foreign companies with locals branches in Hong Kong, and foreign companies with regional branches in Hong Kong. The differences 
@@ -185,7 +185,7 @@ SELECT YEAR(time) AS 'Year', value as 'Businesses in Hong Kong',ROUND((value/ LA
 | 2016 | 20                      | 11.11            | 
 ```
 
-> Review [SQL Console Documentation](https://github.com/axibase/atsd/tree/master/api/sql#null) here to read about handling
+> Review [SQL Console Documentation](https://github.com/axibase/atsd/tree/master/sql#null) here to read about handling
 procedures for mathematical operations involving `0`, `null`, and `NaN`.
 
 Return to the [Country Index](#country-index)
@@ -280,7 +280,7 @@ SELECT YEAR(time) AS 'Year', value as 'Businesses in Hong Kong',ROUND((value/ LA
 | 2016 | 137                     | 3.01             | 
 ```
 
-> Review [SQL Console Documentation](https://github.com/axibase/atsd/tree/master/api/sql#null) here to read about handling
+> Review [SQL Console Documentation](https://github.com/axibase/atsd/tree/master/sql#null) here to read about handling
 procedures for mathematical operations involving `0`, `null`, and `NaN`.
 
 Return to the [Country Index](#country-index)
@@ -559,7 +559,7 @@ SELECT YEAR(time) AS 'Year', value as 'Businesses in Hong Kong',ROUND((value/ LA
 | 2016 | 40                      | -4.76            | 
 ```
 
-> Review [SQL Console Documentation](https://github.com/axibase/atsd/tree/master/api/sql#null) here to read about handling
+> Review [SQL Console Documentation](https://github.com/axibase/atsd/tree/master/sql#null) here to read about handling
 procedures for mathematical operations involving `0`, `null`, and `NaN`.
 
 Return to the [Country Index](#country-index)
@@ -700,7 +700,7 @@ SELECT YEAR(time) AS 'Year', value as 'Businesses in Hong Kong',ROUND((value/ LA
 | 2016 | 25                      | -3.85            | 
 ```
 
-> Review [SQL Console Documentation](https://github.com/axibase/atsd/tree/master/api/sql#null) here to read about handling
+> Review [SQL Console Documentation](https://github.com/axibase/atsd/tree/master/sql#null) here to read about handling
 procedures for mathematical operations involving `0`, `null`, and `NaN`.
 
 Return to the [Country Index](#country-index)
@@ -1559,7 +1559,7 @@ SELECT YEAR(time) AS 'Year', value as 'Businesses in Hong Kong',ROUND((value/ LA
 | 2016 | 174                     | -6.45            | 
 ```
 
-> Review [SQL Console Documentation](https://github.com/axibase/atsd/tree/master/api/sql#null) here to read about handling
+> Review [SQL Console Documentation](https://github.com/axibase/atsd/tree/master/sql#null) here to read about handling
 procedures for mathematical operations involving `0`, `null`, and `NaN`.
 
 Return to the [Country Index](#country-index-(regional))
@@ -1884,7 +1884,7 @@ SELECT YEAR(time) AS 'Year', value as 'Businesses in Hong Kong',ROUND((value/ LA
 | 2016 | 102                     |                  | 
 ```
 
-> Review [SQL Console Documentation](https://github.com/axibase/atsd/tree/master/api/sql#null) here to read about handling
+> Review [SQL Console Documentation](https://github.com/axibase/atsd/tree/master/sql#null) here to read about handling
 procedures for mathematical operations involving `0`, `null`, and `NaN`.
 
 Return to the [Country Index](#country-index-(regional))
@@ -2025,7 +2025,7 @@ SELECT YEAR(time) AS 'Year', value as 'Businesses in Hong Kong',ROUND((value/ LA
 | 2016 | 115                     | -5.74            | 
 ```
 
-> Review [SQL Console Documentation](https://github.com/axibase/atsd/tree/master/api/sql#null) here to read about handling
+> Review [SQL Console Documentation](https://github.com/axibase/atsd/tree/master/sql#null) here to read about handling
 procedures for mathematical operations involving `0`, `null`, and `NaN`.
 
 Return to the [Country Index](#country-index-(regional))

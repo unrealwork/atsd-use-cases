@@ -7,7 +7,7 @@ European Union Debt by Country Per Capita (2005-2016)
 
 > Visualization Tool: [ChartLab](https://apps.axibase.com)
 
-> Structured Query Language: [SQL Console](https://github.com/axibase/atsd/tree/master/api/sql) from [Axibase](https://axibase.com)
+> Structured Query Language: [SQL Console](https://github.com/axibase/atsd/tree/master/sql) from [Axibase](https://axibase.com)
 
 This entry is an expansion of an earlier entry titled [European Union Debt by Country](../EU_Debt/README.md).
 

@@ -21,7 +21,7 @@ to more than a million residents.
 circles. Opponents of city-managed utilities claim government mismanagement leads to increased prices that would be positively
 affected by introducing competitors whereas proponents of regulation say just the opposite, electricity is more than a business
 it is a modern necessity, and government regulation ensures access for everyone. Using a structured query language in the 
-[SQL Console](https://github.com/axibase/atsd/tree/master/api/sql) from [Axibase](https://axibase.com), the numerical information associated with the above visulization is shown:
+[SQL Console](https://github.com/axibase/atsd/tree/master/sql) from [Axibase](https://axibase.com), the numerical information associated with the above visulization is shown:
 
 **Script 1.1**
 

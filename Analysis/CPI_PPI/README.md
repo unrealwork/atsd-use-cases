@@ -36,7 +36,7 @@ of the Great Recession, substantial producer losses are shown by unequal changes
 
 ![](Images/pro-2.png)
 
-Using [SQL Console](https://github.com/axibase/atsd/tree/master/api/sql#overview) a structured query language from [Axibase](https://axibase.com),
+Using [SQL Console](https://github.com/axibase/atsd/tree/master/sql#overview) a structured query language from [Axibase](https://axibase.com),
 the underlying data can be explored to calculate producer losses during the worst year of the recession for American producers:
 
 **Query 1**
@@ -140,7 +140,7 @@ SELECT AVG(cpi.value) AS "Avg CPI", AVG(ppi.value) AS "Avg PPI", AVG(cpi.value -
 | 188.2   | 153.7   | 34.5                  | 
 ```
 
-Using the [moving average](https://github.com/axibase/atsd/tree/master/api/sql#aggregation-functions) function to aggregate the 
+Using the [moving average](https://github.com/axibase/atsd/tree/master/sql#aggregation-functions) function to aggregate the 
 average values in annual increments instead of across the entire observed period smooths the MPV curve and shows the effects 
 of the recession on producer profits. A detailed use case and syntax explanation of the weighted average function can be found 
 [here](Support/Moving-Avg/README.md).

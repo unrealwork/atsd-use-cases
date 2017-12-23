@@ -21,7 +21,7 @@ This dataset contains import and export statistics collected monthly from 1985 t
 world regions (such as Europe and Asia), trade unions (such as the European Union or NAFTA), as well as various other organizations (such as [OPEC](https://en.wikipedia.org/wiki/OPEC)).
 
 While Excel can provide quick answers to simple questions, when it comes to complex analysis it is much more convenient to interact with the data once it is loaded into a database. The
-[Axibase Time Series Database (ATSD)](http://axibase.com/products/axibase-time-series-database/) is a powerful tool when it comes to storing, analyzing, and visualizing datasets. We will use the following two capabilities of ATSD to look into this dataset: interactive graphs from [Chart Lab](../ChartLabIntro/README.md) and tabular outputs from analytical SQL queries with support for [partitioning](https://github.com/axibase/atsd/blob/master/api/sql/README.md#partitioning).
+[Axibase Time Series Database (ATSD)](http://axibase.com/products/axibase-time-series-database/) is a powerful tool when it comes to storing, analyzing, and visualizing datasets. We will use the following two capabilities of ATSD to look into this dataset: interactive graphs from [Chart Lab](../ChartLabIntro/README.md) and tabular outputs from analytical SQL queries with support for [partitioning](https://github.com/axibase/atsd/blob/master/sql/README.md#partitioning).
 You can load the dataset into your ATSD instance by following the steps provided at the [end of the article](#action-items).
 
 
@@ -45,7 +45,7 @@ You can explore this portal by clicking on the below button:
 
 [![](Images/button.png)](https://apps.axibase.com/chartlab/552d7a44/2/#fullscreen)
 
-In addition to looking at graphical outputs, we can also perform [SQL queries](https://github.com/axibase/atsd/blob/master/api/sql/README.md#overview), which can be used
+In addition to looking at graphical outputs, we can also perform [SQL queries](https://github.com/axibase/atsd/blob/master/sql/README.md#overview), which can be used
 to search for specific information contained in this dataset. From the following query, we can see that, within the time range of our dataset, 1991 was the year which had the least negative trade balance of **-$66.7 billion**.
 
 ```sql

@@ -53,7 +53,7 @@ SELECT date_format(time,'yyyy') AS "Year", value AS "Naturalizations"
  FROM Naturalized.Citizens
 ```
 
-> Data queried in the [SQL Console](https://github.com/axibase/atsd/tree/master/api/sql).
+> Data queried in the [SQL Console](https://github.com/axibase/atsd/tree/master/sql).
 
 **Table 1**
 
@@ -105,7 +105,7 @@ GROUP BY period(1 YEAR, END_TIME)
   ORDER BY period(1 YEAR, END_TIME)
 ```
 
-> The above query features robust syntax and calculated values. See the following [tutorials](https://github.com/axibase/atsd/tree/master/api/sql#examples)
+> The above query features robust syntax and calculated values. See the following [tutorials](https://github.com/axibase/atsd/tree/master/sql#examples)
  to understand more about SQL Console.
   
 **Table 2**
