@@ -1,0 +1,24 @@
+<list>
+  <com.axibase.collector.model.job.aws.AwsJobConfig>
+    <name>aws-route53</name>
+    <cronExpression>R 0/5 * * * ?</cronExpression>
+    <enabled>false</enabled>
+    <jobType>AWS</jobType>
+    <defaultTags/>
+    <checkLastTime>false</checkLastTime>
+    <commitInterval>10</commitInterval>
+    <errorThreshold>0</errorThreshold>
+    <configurations>
+      <com.axibase.collector.model.job.aws.AwsConfiguration>
+        <name>us-east-1</name>
+        <endpoint>US_EAST_1</endpoint>
+        <accessKeyId>AKIANNNNNNNNNNNNNNNN</accessKeyId>
+        <secretAccessKey>8Yq7NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN</secretAccessKey>
+        <collectStatus>false</collectStatus>
+        <propertyRefreshInterval>1440</propertyRefreshInterval>
+        <cacheMetrics>false</cacheMetrics>
+        <namespaces>AWS_ROUTE53</namespaces>
+      </com.axibase.collector.model.job.aws.AwsConfiguration>
+    </configurations>
+  </com.axibase.collector.model.job.aws.AwsJobConfig>
+</list>
