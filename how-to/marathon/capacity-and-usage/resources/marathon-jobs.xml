@@ -16,7 +16,7 @@
         <connectionPoolConfig>
           <name>marathon</name>
           <protocol>http</protocol>
-          <server>SERVER_ADDRESS</server>
+          <server>server_address</server>
           <port>8080</port>
           <maxTotal>2</maxTotal>
           <cookieEnabled>false</cookieEnabled>
@@ -31,8 +31,8 @@
           <connectionPoolTimeout>5</connectionPoolTimeout>
           <testPath>/</testPath>
           <authType>BASIC</authType>
-          <userName>USERNAME</userName>
-          <password>PASSWORD</password>
+          <userName>marathon-username</userName>
+          <password></password>
           <headers/>
           <parameters/>
           <keyStore>NONE</keyStore>
