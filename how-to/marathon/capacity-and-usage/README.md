@@ -91,26 +91,6 @@ $ docker run -d -p 9443:9443 --restart=always \
    -job-enable=docker-socket
 ```
 
-### Configure Marathon API Connection
-
-In the **Jobs** drop-down menu, select **JSON** jobs.
-
-> By default, the **marathon_apps** job is not enabled and therefore not visible. Be sure that the **Status** drop-down menu is displaying all jobs to proceed.
-
-Open the **JSON Job** page, then open the **JSON Configuration** page by clicking the **apps** link. On the **JSON Configuration** page, open **HTTP Pool** settings.
-
-![](images/http_pool.png)
-
-Specify 'Server', 'Username' and 'Password' for a Marathon user with API query permissions.
-
-![](images/http_pool_config_.png)
-
-Confirm connectivity by clicking the **Test** button. Click **Save**. 
-
-From the **JSON Job** page, enable the **marathon_apps** job. Click **Save**.
-
-![](images/enable_job.png)
-
 ## Results
 
 ### Marathon Applications Entity View
