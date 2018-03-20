@@ -21,6 +21,8 @@ Built-in monitoring charts provide an overview for a period of up to 2 weeks.
 
 ![](images/route53-monitoring.png)
 
+Note that CloudWatch metrics are available only in the **us-east-1** region as specified in the [Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/health-checks-monitor-view-status.html) (see section **To view Route 53 metrics on the CloudWatch console**).
+ 
 ## Service Availability Dashboards
 
 Health check statistics may be offloaded to [Axibase Time Series Database](http://axibase.com/products/axibase-time-series-database/) and used to create consolidated dashboards with custom thresholds for alerts and notifications.
@@ -68,7 +70,9 @@ In the **Jobs** drop-down menu, select **AWS** jobs.
 
 > If the **aws-route53** job is not visible, be sure that the **Status** drop-down menu is displaying all jobs.
 
-Open **us-east-1** configuration and specify AWS Access and Secret keys.
+Open **us-east-1** configuration and specify AWS Access and Secret keys. 
+
+> You only need to configure collection from the **us-east-1** region as outlined in the [Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/health-checks-monitor-view-status.html) (see section **To view Route 53 metrics on the CloudWatch console**).
 
 Confirm connectivity by clicking the **Test** button.
 
