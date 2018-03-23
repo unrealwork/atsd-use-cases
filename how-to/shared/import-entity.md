@@ -2,9 +2,9 @@
 
 ![](images/entity-group.png)
 
-An Entity Group represents a collection of entities, typically grouped by a common feature or an attribute. The groups typically consist of entities of similar type, such as 'Docker Containers', or entities collecting the same metrics, such as 'collectd' agents.
+An entity configuration describes the monitored object. The [entity record](https://github.com/axibase/atsd/blob/master/api/meta/entity/list.md#fields) includes information about the object such as the name, label, and custom tags.
 
-Follow this process to upload a new entity to your local ATSD instance.
+Follow this process to import entity records into your local ATSD instance.
 
 1. Click the **Entities** link in the toolbar on the left. 
 
@@ -18,7 +18,9 @@ Follow this process to upload a new entity to your local ATSD instance.
 
 ![](images/entity-import1.png)
 
-Your Entity Group has been uploaded to ATSD. Return to the **Entities** page where the newly imported Entity Group will be visible.
+Your entities have been imported to ATSD. 
+
+Return to the **Entities** page where the newly imported entities will be visible.
 
 ### Uploading Multiple Configuration Files
 
