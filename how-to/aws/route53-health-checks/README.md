@@ -39,6 +39,14 @@ Amazon AWS publishes a list of IP ranges used by [health checker nodes](https://
 }
 ```
 
+### Healthy Endpoint
+
+For HTTP and HTTPS checks, the endpoint is considered healthy if the TCP connection was established within **ten** seconds and the endpoint returned an HTTP status code of `2xx` or `3xx` within **two** seconds. 
+
+For TCP checks, the endpoint status is determined as healthy if the TCP connection was established within **ten** seconds.
+
+The timeouts are **hardcoded**.
+
 ### Monitoring Frequency
 
 Health checkers in multiple regions are scheduled [independently](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/health-checks-creating.html#health-checks-creating-values-request-interval) using the same monitoring interval of 30 or 10 seconds ('fast' mode).
