@@ -63,19 +63,19 @@ tags.sender.login != null</filter>
 <firstWebConfigParameters>
 <key>text</key>
 <value>New Repository Watch Notification:
-Repository: ${addLink(tags.repository.name, 'https://github.com/axibase/' + tags.repository.name)}.
+Repository: ${addLink(tags.repository.name, 'https://github.com/' + tags.repository.full_name)}.
 User: ${addLink(tags.sender.login, 'https://github.com/' + tags.sender.login)}</value>
 </firstWebConfigParameters>
 <repeatWebConfigParameters>
 <key>text</key>
 <value>New Repository Watch Notification:
-Repository: ${addLink(tags.repository.name, 'https://github.com/axibase/' + tags.repository.name)}.
+Repository: ${addLink(tags.repository.name, 'https://github.com/' + tags.repository.full_name)}.
 User: ${addLink(tags.sender.login, 'https://github.com/' + tags.sender.login)}</value>
 </repeatWebConfigParameters>
 <cancelWebConfigParameters>
 <key>text</key>
 <value>New Repository Watch Notification:
-Repository: ${addLink(tags.repository.name, 'https://github.com/axibase/' + tags.repository.name)}.
+Repository: ${addLink(tags.repository.name, 'https://github.com/' + tags.repository.full_name)}.
 User: ${addLink(tags.sender.login, 'https://github.com/' + tags.sender.login)}</value>
 </cancelWebConfigParameters>
 <first-enabled>true</first-enabled>
