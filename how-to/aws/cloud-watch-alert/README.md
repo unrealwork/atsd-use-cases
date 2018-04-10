@@ -88,7 +88,7 @@ In a new window, use the [**Webhook User Wizard**](https://github.com/axibase/at
 A sample Webhook URL is shown here:
 
 ```
-https://aws-cw:PASSWORD@atsd_hostname:8443/api/v1/messages/webhook/aws-cw?type=webhook&entity=aws-cw&command.date=Timestamp&json.parse=Message&exclude=Signature;SignatureVersion;SigningCertURL;SignatureVersion;UnsubscribeURL;MessageId;Message.detail.instance-id;Message.time;Message.id;Message.version
+https://aws-cw:PASSWORD@atsd_hostname:8443/api/v1/messages/webhook/aws-cw?command.date=Timestamp&json.parse=Message&exclude=Signature;SignatureVersion;SigningCertURL;SignatureVersion;UnsubscribeURL;MessageId;Message.detail.instance-id;Message.time;Message.id;Message.version
 ```
 
 Return to the **Create Subscription** form, and paste the Webhook URL in the **Endpoint** field. Replace the `aws-cw` and `atsd_hostname` placeholders with actual connection properties. Be sure that the **Protocol** drop-down menu is showing **HTTPS**. 
