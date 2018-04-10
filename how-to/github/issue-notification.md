@@ -39,7 +39,7 @@ Copy the newly-created GitHub webhook URL from the log output.
 
 ```
 github webhook created:
-https://github:password@atsd.company_name.com:8443/api/v1/messages/webhook/github?exclude=organization.*%3Brepository.*%3B*.signature%3B*.payload%3B*.sha%3B*.ref%3B*_at%3B*.id&include=repository.name&header.tag.event=X-GitHub-Event&excludeValues=http*&debug=true
+https://github:password@atsd.company_name.com:8443/api/v1/messages/webhook/github?exclude=organization.*;repository.*;*.signature;*.payload;*.sha;*.ref;*_at;*.id&include=repository.name;repository.full_name&header.tag.event=X-GitHub-Event&excludeValues=http*&debug=true
 ```
 
 ### Create a GitHub Webhook
