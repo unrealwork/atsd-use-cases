@@ -63,21 +63,21 @@ tags.sender.login != null</filter>
 <webNotificationConfigName>Slack</webNotificationConfigName>
 <firstWebConfigParameters>
 <key>text</key>
-<value>Repository: ${addLink(tags.repository.name, 'https://github.com/axibase/' + tags.repository.name)}.&#13;
+<value>Repository: ${addLink(tags.repository.name, 'https://github.com/' + tags.repository.full_name)}.&#13;
 User: ${addLink(tags.sender.login, 'https://github.com/' + tags.sender.login)}&#13;
-Issue: ${addLink(tags.issue.title, 'https://github.com/' + tags.repository.name + '/issues/' + tags.issue.number)}</value>
+Issue: ${addLink(tags.issue.title, 'https://github.com/' + tags.repository.full_name + '/issues/' + tags.issue.number)}</value>
 </firstWebConfigParameters>
 <repeatWebConfigParameters>
 <key>text</key>
-<value>Repository: ${addLink(tags.repository.name, 'https://github.com/axibase/' + tags.repository.name)}.&#13;
+<value>Repository: ${addLink(tags.repository.name, 'https://github.com/' + tags.repository.full_name)}.&#13;
 User: ${addLink(tags.sender.login, 'https://github.com/' + tags.sender.login)}&#13;
-Issue: ${addLink(tags.issue.title, 'https://github.com/' + tags.repository.name + '/issues/' + tags.issue.number)}</value>
+Issue: ${addLink(tags.issue.title, 'https://github.com/' + tags.repository.full_name + '/issues/' + tags.issue.number)}</value>
 </repeatWebConfigParameters>
 <cancelWebConfigParameters>
 <key>text</key>
-<value>Repository: ${addLink(tags.repository.name, 'https://github.com/axibase/' + tags.repository.name)}.&#13;
+<value>Repository: ${addLink(tags.repository.name, 'https://github.com/' + tags.repository.full_name)}.&#13;
 User: ${addLink(tags.sender.login, 'https://github.com/' + tags.sender.login)}&#13;
-Issue: ${addLink(tags.issue.title, 'https://github.com/' + tags.repository.name + '/issues/' + tags.issue.number)}</value>
+Issue: ${addLink(tags.issue.title, 'https://github.com/' + tags.repository.full_name + '/issues/' + tags.issue.number)}</value>
 </cancelWebConfigParameters>
 <first-enabled>true</first-enabled>
 <repeat-enabled>true</repeat-enabled>
