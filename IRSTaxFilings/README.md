@@ -88,9 +88,9 @@ SELECT date_format(time, 'yyyy') AS "Year",
   (value/LAG(value)-1)*100 AS "YoY Change, %"
   FROM "irs_season.count_year_current"
 WHERE tags.section = 'Individual Income Tax Returns' AND tags.type = 'Total Returns Received'
-  AND 'Day in Year' = CAST(date_format('2017-03-31T00:00:00Z', 'D') AS NUMBER)
+  AND "Day in Year" = CAST(date_format(date_parse('2017-03-31T00:00:00Z'), 'D') AS NUMBER)
   WITH INTERPOLATE(1 DAY)
-ORDER BY 'Day in Year', time
+ORDER BY "Day in Year", time
 ```
 
 The [`date_format`](https://github.com/axibase/atsd/tree/master/sql#date-formatting-functions) function can be conveniently used to perform date- and calendar-based filtering.
@@ -125,9 +125,9 @@ SELECT date_format(time, 'yyyy') AS "Year",
   FROM "irs_season.count_year_current"
 WHERE tags.section = 'Individual Income Tax Returns' AND tags.type = 'Total Returns Received'
   -- 18 days between 31-Mar-2017 and 18-Apr-2017  
-  AND 'Days to File' = 18
+  AND "Days to File" = 18
   WITH INTERPOLATE(1 DAY)
-ORDER BY 'Days to File' DESC, time
+ORDER BY "Days to File" DESC, time
 ```
 
 | Year | Date   | Day in Year | Days to File | Curr Year, Mln | Prev Year, Mln | YoY Change, Mln | YoY Change, % |
@@ -178,9 +178,9 @@ SELECT date_format(time, 'yyyy') AS "Year",
   FROM "irs_season.count_year_current"
 WHERE tags.section = 'E-filing Receipts' AND tags.type = 'Self-prepared'
 --WHERE tags.section = 'E-filing Receipts' AND tags.type = 'Tax Professionals'
-  AND 'Days to File' = 18
+  AND "Days to File" = 18
   WITH INTERPOLATE(1 DAY)
-ORDER BY 'Days to File' DESC, time
+ORDER BY "Days to File" DESC, time
 ```
 
 Given that a higher percentage (60+%) of early returns is submitted via tax preparers, the PATH Act appears to have had a disproportionate impact on tax professionals.
