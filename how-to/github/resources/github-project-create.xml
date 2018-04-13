@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><rules>
 <rule>
-<name>github-issue-open-event</name>
+<name>github-project-event</name>
 <metric>message</metric>
 <tagsGroupingStrategy>NO_TAGS</tagsGroupingStrategy>
 <expression><![CDATA[true]]></expression>
@@ -8,8 +8,8 @@
 <filter>type = 'webhook' &amp;&amp;&#13;
 source = 'github' &amp;&amp;&#13;
 entity = 'github' &amp;&amp;&#13;
-tags.event = 'pull_request' &amp;&amp;&#13;
-tags.action = 'opened' &amp;&amp;&#13;
+tags.event = 'project' &amp;&amp;&#13;
+tags.action = 'created' &amp;&amp;&#13;
 tags.sender.login != null</filter>
 <severity>WARNING</severity>
 <alertOpenMessage><![CDATA[${received_datetime}	${status}	${severity}	${rule}	${metric}	${entity.displayName}	${tags}	${value}]]></alertOpenMessage>
@@ -31,7 +31,7 @@ tags.sender.login != null</filter>
 <alertCancellationScriptAsOpen>true</alertCancellationScriptAsOpen>
 <logOutput>false</logOutput>
 <owner>Axibase</owner>
-<description><![CDATA[Message alert on open PR from github.]]></description>
+<description><![CDATA[Message alert on project creation event from github.]]></description>
 <actionStrategy>
 <type>ALL</type>
 <intervalCount>5</intervalCount>
@@ -44,7 +44,7 @@ tags.sender.login != null</filter>
 <discardPreviousValues>true</discardPreviousValues>
 <webNotification>
 <disabled>false</disabled>
-<rule-name>github-pr-event</rule-name>
+<rule-name>github-project-event</rule-name>
 <repeat-interval>
 <type>ALL</type>
 <intervalCount>6</intervalCount>
@@ -63,30 +63,34 @@ tags.sender.login != null</filter>
 <webNotificationConfigName>Slack</webNotificationConfigName>
 <firstWebConfigParameters>
 <key>text</key>
-<value>New Pull Request:
-Repository: ${addLink(tags.repository.name, 'https://github.com/' + tags.repository.full_name)}.&#13;
-User: ${addLink(tags.sender.login, 'https://github.com/' + tags.sender.login)}&#13;
-PR: ${addLink('#' + tags.number, 'https://github.com/' + tags.repository.full_name + '/pull/' + tags.number)}</value>
+<value>New Project Created!
+Repository: ${addLink(tags.repository.name, 'https://github.com/' + tags.repository.name)}.&#13;
+User: ${addLink(tags.project.creator.login, 'https://github.com/' + tags.project.creator.login)}&#13;
+Project: ${addLink(tags.project.name, 'https://github.com/' + tags.project.creator.login + '/' + tags.repository.name + '/projects/' + tags.project.number)}&#13;
+${addLink(tags.project.body, 'https://github.com/' + tags.project.creator.login + '/' + tags.repository.name + '/projects/' + tags.project.number)}</value>
 </firstWebConfigParameters>
 <repeatWebConfigParameters>
 <key>text</key>
-<value>New Pull Request:
-Repository: ${addLink(tags.repository.name, 'https://github.com/' + tags.repository.full_name)}.&#13;
-User: ${addLink(tags.sender.login, 'https://github.com/' + tags.sender.login)}&#13;
-PR: ${addLink('#' + tags.number, 'https://github.com/' + tags.repository.full_name + '/pull/' + tags.number)}</value>
+<value>New Project Created!
+Repository: ${addLink(tags.repository.name, 'https://github.com/' + tags.repository.name)}.&#13;
+User: ${addLink(tags.project.creator.login, 'https://github.com/' + tags.project.creator.login)}&#13;
+Project: ${addLink(tags.project.name, 'https://github.com/' + tags.project.creator.login + '/' + tags.repository.name + '/projects/' + tags.project.number)}&#13;
+${addLink(tags.project.body, 'https://github.com/' + tags.project.creator.login + '/' + tags.repository.name + '/projects/' + tags.project.number)}</value>
 </repeatWebConfigParameters>
 <cancelWebConfigParameters>
 <key>text</key>
-<value>New Pull Request:
-Repository: ${addLink(tags.repository.name, 'https://github.com/' + tags.repository.full_name)}.&#13;
-User: ${addLink(tags.sender.login, 'https://github.com/' + tags.sender.login)}&#13;
-PR: ${addLink('#' + tags.number, 'https://github.com/' + tags.repository.full_name + '/pull/' + tags.number)}</value>
+<value>New Project Created!
+Repository: ${addLink(tags.repository.name, 'https://github.com/' + tags.repository.name)}.&#13;
+User: ${addLink(tags.project.creator.login, 'https://github.com/' + tags.project.creator.login)}&#13;
+Project: ${addLink(tags.project.name, 'https://github.com/' + tags.project.creator.login + '/' + tags.repository.name + '/projects/' + tags.project.number)}&#13;
+${addLink(tags.project.body, 'https://github.com/' + tags.project.creator.login + '/' + tags.repository.name + '/projects/' + tags.project.number)}</value>
 </cancelWebConfigParameters>
 <first-enabled>true</first-enabled>
 <repeat-enabled>true</repeat-enabled>
 <cancel-enabled>false</cancel-enabled>
 </webNotification>
 <ruleTable/>
+<alertLoggerName>atsd.alert.default</alertLoggerName>
 <derivedCommand>series e:${entity} m:metric_123=${100 - value} ${commandTags}</derivedCommand>
 <derivedCommandEnabled>false</derivedCommandEnabled>
 <derivedCommandStrategy>
