@@ -30,6 +30,26 @@ More information about selecting series can be found [here](https://axibase.com/
 
 > Some settings may be defined at multiple levels. Settings defined at the **[configuration]** level are inhereted by nested levels: **[group]** > **[widget]** > **[series]**. Settings defined at the lower level override settings set at the upper level. For example, if you define an entity `x` at the **[configuration]** level for several widgets, and at the **[series]** level for one chart you define a different entity `y`, entity `x` will be used for all widgets **EXCEPT** for the one where you defined `entity = y`.  This is a useful setting when including an additional set of data from a unique entity.
 
+### Metrics Reference Page
+
+For a [listing](https://trends.axibase.com/public/reference.html) of available metrics stored in ATSD and accessible to **TRENDS** users, click the **Reference** button in the top toolbar as seen here.
+
+![](images/ref-button.png)
+
+On the **Reference** page, you'll see a list of all metrics that are usable in **TRENDS**.  
+
+Search available metrics in the **Search Bar**. The entire metric list is indexed and may be searched there.
+
+![](images/ref-search.png)
+
+Dictionary columns may be filtered by value. Click the **Filter** icon to open the menu of available values.
+
+![](images/ref-filter.png)
+
+Each metric may be previewed using the **Portal** button. Click the icon to open a preview of the data associated with the particular metric.
+
+![](images/ref-portal.png)
+
 ### Modifying Portals
 
 Open the **Editor** window in the **TRENDS** interface by clicking the button in the top menu.
@@ -87,6 +107,18 @@ To save the portal under an entirely new URL click **Clone**.
 
 **TRENDS** is a sandbox for everyone, we encourage users to create their own charts and share it with others.
 
+### Pre-Defined Widgets
+
+Click the **Widgets** button in the upper toolbar to copy pre-defined widget sections that may be used as a template for developing your custom widgets. 
+
+![](images/pre-def-func.png)
+
+The two pre-defined widgets are described here:
+
+* **Inflation Index**: Experimental Consumer Price Index (CPIE) is the measure of a particular basket of consumer goods. It is often used to track inflation across a given period of time or compare "today's" dollars to historic dollar values.
+
+* **Annual Inflation**: Percentile inflation for the the United States. Inflation is calculated by comparing CPI, money supply, gross domestic product (GDP), and average wages. This widget relies on calculated metrics to created a derived measurement.
+
 ### Further Reading 
 
-For more detailed information about the ATSD, underlying mechanics, or download instructions see the [ATSD Documentation](https://github.com/axibase/atsd) or reach out to us with questions, comments, or suggestions [here](mailto:hello@axibase.com) via email or [here](https://github.com/axibase/atsd-use-cases/issues) on our GitHub page. Good luck and happy data hunting!
+For more detailed information about ATSD, the underlying mechanics, or download instructions see the [ATSD Documentation](https://github.com/axibase/atsd). Reach out to us with questions, comments, or suggestions [here](mailto:hello@axibase.com) via email or [here](https://github.com/axibase/atsd-use-cases/issues) on our GitHub page. For a complete list of metrics stored in **TRENDS**, see the following [index](https://trends.axibase.com/public/reference.html). Good luck and happy data hunting!
