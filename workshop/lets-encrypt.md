@@ -10,24 +10,27 @@
   - [Applications](#application-trust-store)
 - [Trust Inheritance](#trust-chain)
 - [Certificate Issuance](#certificate-issuance)
-  - Self-Signed
-  - CA-Signed
-  - Custom CA-Signed
+  - [Self-Signed](#self-signed-certificate)
+  - [CA-Signed](#ca-signed-certificate)
+  - [Custom CA-Signed](#custom-ca-signed-certificate)
 - [Automated Certificate Issuance](#automated-certificate-issuance)
-  - ACME Protocol
-  - Let's Encrypt Process
-  - Renewal
+  - [ACME Protocol](#acme-protocol)
+  - [Let's Encrypt Process](#lets-encrypt-process)
+    - [Automation with certbot](#automation-with-certbot)
+    - [nginx Mode](#nginx-mode)
+    - [Standalone Mode](#standalone-mode)
+    - [Renewal](#renewal)
 - [ATSD Integration](#atsd-integration)
-  - Certificate Upload Endpoint
-  - Permissions
-  - Renewal Trigger
+  - [Certificate Upload Endpoint](#certificate-upload-endpoint)
+  - [Upload Permissions](#upload-permissions)
+  - [Renewal Trigger](#renewal-trigger)
 - [Public Certificate Logging](#public-certificate-logging)
   - [Certificate Transparency Logs](#certificate-transparency-logs)
   - [CRT Database Access](#crt-database-access)
   - [Certificate Issuance Monitoring](#certificate-issuance-monitoring)
 - [Custom CA](#custom-ca)
-  - Generate Custom CA Certificate
-  - Install Custom CA Certificate
+  - [Generate Custom CA Certificate](#generate-custom-ca-certificate)
+  - [Install Custom CA Certificate](#install-custom-ca-certificate)
 - [Custom CA Examples](#custom-ca-examples)
   - [ATSD Validated by Custom CA](#atsd-validated-by-custom-ca)
   - [`www.uber.com` Validated by Custom CA](#www-uber-com-validated-by-custom-ca)
@@ -1249,7 +1252,7 @@ Creating a custom CA and signing 'end entity' certificates is possible but is of
 
 Because any CA can sign **any** certificate it exposes clients to security risks (man-in-the-middle attack).
 
-![](images/sberbank_ok.png)
+![](images/uber_chrome_ok.png)
 
 See [Appendix](#root-ca-installation) on how to create custom CA and sign any certificate.
 
@@ -1382,7 +1385,7 @@ The ATSD will validate the certificate and install it without restarting the ser
 
 We had to upgrade Jetty to version **9.4** to support SSLContent reloading without reboot.
 
-### Permissions
+### Upload Permissions
 
 The `/admin/certificates/import/atsd` endpoint can be used by a user account with limited permissions:
 
