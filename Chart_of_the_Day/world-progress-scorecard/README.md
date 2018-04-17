@@ -18,3 +18,12 @@ Open the **TRENDS** visualization above and use the drop-down menus to navigate 
 |infant_mortality_rate_by_country| Recorded deaths of infants under 1 year old per 1000 live births|
 |life_expectancy_at_birth_by_country|Number of years a newborn is predicted to live given constant mortality figures|
 |population_total_by_country| Recorded number of people living in a given country|
+
+For detailed information about using the **TRENDS** service, read this [guide](/../master/how-to/shared/trends.md).
+
+### Visualization
+
+The visualizations in the chart above use [user-defined features](/../master/how-to/shared/trends.md#user-defined-functions) to set the year 1990 as the a baseline. Using the `PercentChangeFromYearAgo` function creates the following visualization. Open the **TRENDS** interface and explore the data using the same drop-down menus to navigate between countries and metrics.
+
+![](wps-1.png)
+[![](images/button-new.png)](https://trends.axibase.com/5ce2f40e#)
