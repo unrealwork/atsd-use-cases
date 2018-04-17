@@ -119,6 +119,59 @@ The two pre-defined widgets are described here:
 
 * **Annual Inflation**: Percentile inflation for the the United States. Inflation is calculated by comparing CPI, money supply, gross domestic product (GDP), and average wages. This widget relies on calculated metrics to created a derived measurement.
 
+### User-Defined Functions
+
+The Charts API supports user-defined functions, enabling users to store and re-use statistical functions which they apply on a regular basis.
+
+![](images/fred-lib-demo.png)
+[![](images/button-new.png)](https://trends.axibase.com/3a3b1c01#fullscreen)
+
+The above visualization applies user-defined functions for each of the series. An abbreviated version of the configuration is shown here:
+
+```sql
+### On the [configuration] level, the 'import' command is used to load functions from the `fred.js` file 
+### The library is assigned the name 'fred'.
+### Multiple function libraries may be imported into the same portal.
+
+[configuration]
+  import fred = fred.js
+
+  offset-right = 50
+  height-units = 2
+  width-units = 1
+  start-time = 1980
+  
+  entity = fred.stlouisfed.org
+  metric = unrate  
+
+[series]
+  alias = base
+  display = false
+    
+[series]      
+  value = fred.MonthlyChange('base')
+```
+
+Using two series, the monthly change is calculated as a new series with a `value` expression which applies `MonthlyChange` function from the `fred` library to the series identified with alias `base`. 
+
+The `fred.js` library is available to any **TRENDS** user and contains the following functions:
+
+| Function Name                      | Arguments       | Description |
+|------------------------------------|-----------------|-------------|
+| [MonthlyChange](https://trends.axibase.com/c5e043b5)                      | alias           | Month-on-month change |
+| [ChangeFromYearAgo](https://trends.axibase.com/34165ff1)                  | alias           | Year-on-year change |
+| [ChangeByOffset](https://trends.axibase.com/90cfadae)                     | alias, [interval](https://axibase.com/products/axibase-time-series-database/visualization/end-time/) | Customizable interval-on-interval change |
+| [MonthlyPercentChange](https://trends.axibase.com/7bca24b2)               | alias           | Month-on-month percent change |
+| [PercentChangeFromYearAgo](https://trends.axibase.com/44627e1d)           | alias           | Year-on-year percent change |
+| [PercentChangeByOffset](https://trends.axibase.com/b0deb565)              | alias, [interval](https://axibase.com/products/axibase-time-series-database/visualization/end-time/) | Customizable interval-on-interval change |
+| [CompoundedAnnualRateOfChange](https://trends.axibase.com/f04b65fc)       | alias           | Geometric-progression ratio which compounds change annually
+| [ContinuouslyCompoundedRateOfChange](https://trends.axibase.com/16ea90bf) | alias           | Geometric-progression ratio which continuously compounds change over an infinitesimally small interval
+| [NaturalLog](https://trends.axibase.com/897f53e1)                         | alias           | Natural Logarithm (`LOG` base constant `e`) 
+| [IndexMax](https://trends.axibase.com/3db3bfa7)                           | alias           | Maximum series value is used as index value
+| [Index](https://trends.axibase.com/964a4b97)                              | alias, [time](https://axibase.com/products/axibase-time-series-database/visualization/end-time/)     | User-selected value is used as index value
+
+Open any of the visualizations above to see syntax and visual demonstrations of each function.
+
 ### Further Reading 
 
 For more detailed information about ATSD, the underlying mechanics, or download instructions see the [ATSD Documentation](https://github.com/axibase/atsd). Reach out to us with questions, comments, or suggestions [here](mailto:hello@axibase.com) via email or [here](https://github.com/axibase/atsd-use-cases/issues) on our GitHub page. For a complete list of metrics stored in **TRENDS**, see the following [index](https://trends.axibase.com/public/reference.html). Good luck and happy data hunting!
