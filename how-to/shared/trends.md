@@ -2,7 +2,7 @@
 
 ![](images/portal.png)
 
-### Overview
+## Overview
 
 [**TRENDS**](https://trends.axibase.com/) is a data visualization sandbox based on the [Axibase Charts](https://axibase.com/products/axibase-time-series-database/visualization/) library and the [Axibase Time Series Database](https://axibase.com/products/axibase-time-series-database/) which provides essential data storage and processing tasks. 
 
@@ -10,7 +10,7 @@ The **TRENDS** service enables users to interact with the data that they are rea
 
 **TRENDS** doesn't require readers to be proficient in any programming language however a certain familiarity with key concepts and general schema is recommended.
 
-### Syntax
+## Syntax
 
 **TRENDS** uses a convenient [syntax](https://axibase.com/products/axibase-time-series-database/visualization/widgets/) for creating graphs that will be briefly discussed in this guide. Feel free to ask questions or suggest datasets or topics by raising an issues on our [GitHub](https://github.com/axibase/atsd-use-cases/issues) page.
 
@@ -30,7 +30,7 @@ More information about selecting series can be found [here](https://axibase.com/
 
 > Some settings may be defined at multiple levels. Settings defined at the **[configuration]** level are inhereted by nested levels: **[group]** > **[widget]** > **[series]**. Settings defined at the lower level override settings set at the upper level. For example, if you define an entity `x` at the **[configuration]** level for several widgets, and at the **[series]** level for one chart you define a different entity `y`, entity `x` will be used for all widgets **EXCEPT** for the one where you defined `entity = y`.  This is a useful setting when including an additional set of data from a unique entity.
 
-### Metrics Reference Page
+## Metrics Reference Page
 
 For a [listing](https://trends.axibase.com/public/reference.html) of available metrics stored in ATSD and accessible to **TRENDS** users, click the **Reference** button in the top toolbar as seen here.
 
@@ -50,7 +50,7 @@ Each metric may be previewed using the **Portal** button. Click the icon to open
 
 ![](images/ref-portal.png)
 
-### Modifying Portals
+## Modifying Portals
 
 Open the **Editor** window in the **TRENDS** interface by clicking the button in the top menu.
 
@@ -107,7 +107,7 @@ To save the portal under an entirely new URL click **Clone**.
 
 **TRENDS** is a sandbox for everyone, we encourage users to create their own charts and share it with others.
 
-### Pre-Defined Widgets
+## Pre-Defined Widgets
 
 Click the **Widgets** button in the upper toolbar to copy pre-defined widget sections that may be used as a template for developing your custom widgets. 
 
@@ -119,7 +119,7 @@ The two pre-defined widgets are described here:
 
 * **Annual Inflation**: Percentile inflation for the the United States. Inflation is calculated by comparing CPI, money supply, gross domestic product (GDP), and average wages. This widget relies on calculated metrics to created a derived measurement.
 
-### User-Defined Functions
+## User-Defined Functions
 
 The Charts API supports user-defined functions, enabling users to store and re-use statistical functions which they apply on a regular basis.
 
@@ -172,6 +172,10 @@ The `fred.js` library is available to any **TRENDS** user and contains the follo
 
 Open any of the visualizations above to see syntax and visual demonstrations of each function.
 
-### Further Reading 
+## Further Reading 
 
-For more detailed information about ATSD, the underlying mechanics, or download instructions see the [ATSD Documentation](https://github.com/axibase/atsd). Reach out to us with questions, comments, or suggestions [here](mailto:hello@axibase.com) via email or [here](https://github.com/axibase/atsd-use-cases/issues) on our GitHub page. For a complete list of metrics stored in **TRENDS**, see the following [index](https://trends.axibase.com/public/reference.html). Good luck and happy data hunting!
+For more detailed information about ATSD, the underlying mechanics, or download instructions see the [ATSD Documentation](https://github.com/axibase/atsd). 
+
+Reach out to us with questions, comments, or suggestions [here](mailto:hello@axibase.com) via email or [here](https://github.com/axibase/atsd-use-cases/issues) on our GitHub page. 
+
+For a complete list of metrics stored in **TRENDS**, see the following [index](https://trends.axibase.com/public/reference.html). Good luck and happy data hunting!
