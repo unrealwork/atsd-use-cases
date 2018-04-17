@@ -53,10 +53,10 @@ Walkthrough guides for ATSD integration that offers programmatic solutions to op
 
 Sometimes data tell their own story and ChartLab visualizations can grab reader attention to make a statement. The Chart of the Day is reproduced in a variety of publications.
 
-1. [The World Progress Scorecard: In-Depth Visualization with SQL and User-Defined Functions](Chart_of_the_Day/world-progress-scorecard/README.md)
 1. [Using Thresholds to Track United States Inflation](Chart_of_the_Day/us-inflation)
 1. [The Creeping Overnight Fund Rate](Chart_of_the_Day/overnight-fund-rate/README.md)
 1. [The Fall of Facebook](Chart_of_the_Day/facebook/README.md)
+1. [500 Cities: Local Data for Better Health](Chart_of_the_Day/CDC_TOP25/README.md)
 1. [Credit Card Loan Delinquency at 25 Year Low](Chart_of_the_Day/Credit_Delinquency/README.md)
 1. [Outstanding Students Loan Debt Continues to Exceed One Trillion Dollars](Chart_of_the_Day/Student_Loan/README.md)
 1. [United States Voter Turnout Since 1970](Chart_of_the_Day/voter-turnout/README.md)
@@ -68,6 +68,7 @@ Sometimes data tell their own story and ChartLab visualizations can grab reader 
 
 Detailed use cases that feature in-depth data exploration and complex functionality used to solve the world's modern data problems.
 
+1. [The World Progress Scorecard: In-Depth Visualization with SQL and User-Defined Functions](Chart_of_the_Day/world-progress-scorecard/README.md)
 1. [United States Federal Reserve: The Economic Policy Uncertainty Index](Analysis/Economic_Policy_Uncertainty/README.md)
 1. [The New Bubble: Fed Rates Stay Low While Debt Value Remains High](Analysis/The_New_Bubble/README.md)
 1. [Realtime Analysis of the Oroville Dam Disaster](OrovilleDam/README.md)
@@ -111,7 +112,6 @@ Older ATSD functionality and features applied to real-world public data to solve
 1. [Food Insecurity in America (2009-2013)](Chart_of_the_Day/Food_Insecurity/README.md)
 1. [Citywide LED Streetlight Savings (Los Angeles, CA)](Chart_of_the_Day/LA_Lights/README.md)
 1. [New York City's Most Crowded Industries](Chart_of_the_Day/NY_Jobs/README.md)
-1. [500 Cities: Local Data for Better Health](Chart_of_the_Day/CDC_TOP25/README.md)
 1. [San Francisco Air Traffic Noise Complaints by the Numbers](Chart_of_the_Day/SFO_Complaints/README.md)
 1. [Island Living is Recession Proof](Chart_of_the_Day/Hawaii_GDP/README.md)
 1. [Modeling Falling Birthrates in the Prairie State](IllinoisBirthrates/README.md)
