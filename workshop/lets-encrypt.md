@@ -1136,7 +1136,7 @@ public class CertTrust {
 	            System.out.println("Certificate chain validated OK");
 
 			} catch (NoSuchAlgorithmException | InvalidAlgorithmParameterException | KeyStoreException | CertPathValidatorException e) {
-				System.err.println("Certificate chain validatation failed: " + e + " : " + e.getCause());
+				System.err.println("Certificate chain validation failed: " + e + " : " + e.getCause());
 			}
 
 			try {
@@ -1144,7 +1144,7 @@ public class CertTrust {
 				defaultTrustManager.checkServerTrusted(chain, authType);
 				System.out.println("Default trust manager: certificate chain validated OK");
 			} catch (CertificateException ce){
-				System.err.println("Default trust manager: certificate chain validatation failed: " + ce + " : " + ce.getCause());
+				System.err.println("Default trust manager: certificate chain validation failed: " + ce + " : " + ce.getCause());
 			}
 
 		}
@@ -1162,9 +1162,9 @@ public class CertTrust {
 Validation results for Expired Certificate:
 
 ```css
-Certificate chain validatation failed: java.security.cert.CertPathValidatorException: timestamp check failed :
+Certificate chain validation failed: java.security.cert.CertPathValidatorException: timestamp check failed :
   java.security.cert.CertificateExpiredException: NotAfter: Sat Mar 17 02:59:59 MSK 2018
-Default trust manager: certificate chain validatation failed:
+Default trust manager: certificate chain validation failed:
   sun.security.validator.ValidatorException: PKIX path validation failed:
   java.security.cert.CertPathValidatorException: timestamp check failed :
   java.security.cert.CertPathValidatorException: timestamp check failed
@@ -1173,9 +1173,9 @@ Default trust manager: certificate chain validatation failed:
 Validation Results for Self-Signed Certificate:
 
 ```css
-Certificate chain validatation failed: java.security.cert.CertPathValidatorException: Path does not chain with any of the trust anchors : null
+Certificate chain validation failed: java.security.cert.CertPathValidatorException: Path does not chain with any of the trust anchors : null
 
-Default trust manager: certificate chain validatation failed: sun.security.validator.ValidatorException: PKIX path building failed:
+Default trust manager: certificate chain validation failed: sun.security.validator.ValidatorException: PKIX path building failed:
   sun.security.provider.certpath.SunCertPathBuilderException: unable to find valid certification path to requested target
 
 No TRUSTED root certificate found for CN=atsd.axibase.com, OU=Unknown, O=Unknown, L=Unknown, ST=Unknown, C=Unknown
@@ -1368,6 +1368,28 @@ PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 
 ## ATSD Integration
 
+### Initial Implementation
+
+The initial integration of the ACME protocol in ATSD contained essentially the same functionality as certbot using [acme4j](https://github.com/shred/acme4j) client.
+
+![](images/atsd-acme4j.png)
+
+We implemented HTTP and TLS challenges. The TLS challenge was then discontinued.
+
+We estimate that most of our enterprise customers will adopt a centralized approach to automated certificate issuance using DNS challenge. The deployment of certbot on end nodes (hosts) will not be necessary.
+
+![](images/certbot-workflow.png)
+
+The certbot workflow in a centralized environment:
+
+- (1) certbot initiates a new certificate challenge for atsd subdomain with Let's Encrypt servers
+- (2) Let's Encrypt server responds with a prepared DNS challenge
+- (3) certbot invokes DNS provider API to add a temporary `TXT` record
+- (4) Let's Encrypt servers validate the presence of `TXT` record within a timeout
+- (5) certbot requests the new certificate from Let's Encrypt servers
+- (6) Let's Encrypt servers reply with new certificates based on completed DNS challenge
+- (7) certbot invokes deploy-hook to upload new certificates into ATSD
+
 ### Certificate Upload Endpoint
 
 To install new certificates into ATSD at runtime, upload the chained certificate and the private key into `/admin/certificates/import/atsd` endpoint in ATSD using `curl`.
@@ -1395,14 +1417,19 @@ The `/admin/certificates/import/atsd` endpoint can be used by a user account wit
 
 Administrative permissions are not necessary.
 
-The certificates can be replaced only in the following cases:
+### Upload Restrictions
 
-* Signed certificate replaces the current self-signed certificate
-* Signed certificate replaces the current signed certificate with the same common name or matching wildcard.
+A non-trusted certificate **can not** replace the currently installed trusted certificate.
+
+For instance, a self-signed certificate cannot be uploaded via the endpoint if the currently installed certificate is trusted by the default trust manager. Such a replacement must be performed manually and requires access to the local file system.
+
+A new trusted certificate can replace the currently installed trusted certificate even if it involves a change in the common name.
 
 ### Renewal Trigger
 
 To automate the certificate upload after certbot renewal, create `deploy.sh` script.
+
+> The certbot can be installed on the same machine as ATSD or on a remote machine in which case its IP address must be included in the ['Allow Access'](#upload-permissions) list.
 
 ```
 #!/bin/bash
