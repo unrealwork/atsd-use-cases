@@ -53,6 +53,7 @@ Walkthrough guides for ATSD integration that offers programmatic solutions to op
 
 Sometimes data tell their own story and ChartLab visualizations can grab reader attention to make a statement. The Chart of the Day is reproduced in a variety of publications.
 
+1. [The World Progress Scorecard: In-Depth Visualization with SQL and User-Defined Functions](Chart_of_the_Day/world-progress-scorecard/README.md)
 1. [Using Thresholds to Track United States Inflation](Chart_of_the_Day/us-inflation)
 1. [The Creeping Overnight Fund Rate](Chart_of_the_Day/overnight-fund-rate/README.md)
 1. [The Fall of Facebook](Chart_of_the_Day/facebook/README.md)
@@ -62,15 +63,6 @@ Sometimes data tell their own story and ChartLab visualizations can grab reader 
 1. [International Students in America by Country of Origin](Chart_of_the_Day/International_Students/README.md)
 1. [European Union Per Capita Debt by Country](Chart_of_the_Day/EU_Debt_percap/README.md)
 1. [Who is Dropping Out in the State with the Fewest Dropouts?](Chart_of_the_Day/IA_Dropouts/README.md)
-1. [The Cleanest Water in Washington State](Chart_of_the_Day/WA_Water/README.md)
-1. [Public Utilities and Private Industry in Austin](Chart_of_the_Day/Austin_Power/README.md)
-1. [What Do Seattlelites Have to Complain About?](Chart_of_the_Day/Seattle_Complaints/README.md)
-1. [Food Insecurity in America (2009-2013)](Chart_of_the_Day/Food_Insecurity/README.md)
-1. [Citywide LED Streetlight Savings (Los Angeles, CA)](Chart_of_the_Day/LA_Lights/README.md)
-1. [New York City's Most Crowded Industries](Chart_of_the_Day/NY_Jobs/README.md)
-1. [500 Cities: Local Data for Better Health](Chart_of_the_Day/CDC_TOP25/README.md)
-1. [San Francisco Air Traffic Noise Complaints by the Numbers](Chart_of_the_Day/SFO_Complaints/README.md)
-1. [Island Living is Recession Proof](Chart_of_the_Day/Hawaii_GDP/README.md)
 
 ## Analysis
 
@@ -106,13 +98,22 @@ Visualizations and SQL queries that are indexed by topic to form the Axibase Dat
 
 ## Archive
 
-Older ATSD functionality and features applied to real-world public data to solve common data problems and demonstrate use cases with meaningful information. Some features may have been updated or function differently, see our latest features and functionality used in more recent [Research Articles](#research-articles).
+Older ATSD functionality and features applied to real-world public data to solve common data problems and demonstrate use cases with meaningful information. Some features may have been updated or function differently, see our latest features and functionality used in more recent [Research Articles](#research-articles) or the [Chart of the Day](#chart-of-the-day).
 
 1. [Calls May Be Recorded or Monitored for Training Purposes: Using Call Abandonment Rates to Establish Thresholds](SF_Phone/README.md)
 1. [Does the Bag Tax Work?](Bag_Tax/README.md)
 1. [The Consumer Price Index Verus Your Savings Account (Bank of Israel)](CBI_CPI/README.md)
 1. [Riding the L Train in 2025](L_Train2025/README.md)
 1. [How to Predict a Fire in Hartford](CT_Fire/README.md)
+1. [The Cleanest Water in Washington State](Chart_of_the_Day/WA_Water/README.md)
+1. [Public Utilities and Private Industry in Austin](Chart_of_the_Day/Austin_Power/README.md)
+1. [What Do Seattlelites Have to Complain About?](Chart_of_the_Day/Seattle_Complaints/README.md)
+1. [Food Insecurity in America (2009-2013)](Chart_of_the_Day/Food_Insecurity/README.md)
+1. [Citywide LED Streetlight Savings (Los Angeles, CA)](Chart_of_the_Day/LA_Lights/README.md)
+1. [New York City's Most Crowded Industries](Chart_of_the_Day/NY_Jobs/README.md)
+1. [500 Cities: Local Data for Better Health](Chart_of_the_Day/CDC_TOP25/README.md)
+1. [San Francisco Air Traffic Noise Complaints by the Numbers](Chart_of_the_Day/SFO_Complaints/README.md)
+1. [Island Living is Recession Proof](Chart_of_the_Day/Hawaii_GDP/README.md)
 1. [Modeling Falling Birthrates in the Prairie State](IllinoisBirthrates/README.md)
 1. [Quantifying Public Health: The American Fitness Index](FitnessIndex/README.md)
 1. [Violence Begets Violence: An Analysis of the Baltimore Police Force and Baltimore Homicide Data](BaltimorePolice/README.md)
