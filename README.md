@@ -8,7 +8,7 @@ The **Use Cases** repository contains [Research Articles](#research-articles) de
 
 ATSD functionality and features applied to real-world public data to solve common data problems and demonstrate use cases with meaningful information. See older articles in the [Archive](#archive).
 
-1. [Let's Encrypt Workshop](workshop/lets-encrypt.md)
+1. [Let's Encrypt SSL Certificates for Java Developers](workshop/lets-encrypt.md)
 1. [U.S. Approaching 3-Year Mark for Full Employment](Chart_of_the_Day/unemployment/README.md)
 1. [Tax Day 2018: Americans Reverse the Late-Filing Trend](IRSTaxFilings_2018/README.md)
 1. [Analyzing Econometric Datasets with Calculated Series](Solutions/calculated-values/README.md)
