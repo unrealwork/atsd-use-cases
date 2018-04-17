@@ -154,6 +154,8 @@ The above visualization applies user-defined functions for each of the series. A
 
 Using two series, the monthly change is calculated as a new series with a `value` expression which applies `MonthlyChange` function from the `fred` library to the series identified with alias `base`. 
 
+#### `fred` Library
+
 The `fred.js` library is available to any **TRENDS** user and contains the following functions:
 
 | Function Name                      | Arguments       | Description |
