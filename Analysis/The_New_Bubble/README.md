@@ -117,7 +117,7 @@ mean diminishing returns on their savings especially in the face of the consumer
 
 _Source_: [Federal Reserve Economic Data](#sources)
 
-While the government is able to make payments at a lower interest rate, consumers are seeing whats left of their savings accounts
+While the government is able to make payments at a lower interest rate, consumers are seeing what's left of their savings accounts
 slowly drained as the Consumer Price Index continues to affect the value of their personal wealth via inflation ([6](#sources)).
 Increased market activity surrounding Fed announcements ([7](#sources)), shows how ready investors are for a decision from
 the Fed to cave to public pressure, hike interest rates, and potentially trigger a huge sell-off and devaluation of American
@@ -187,7 +187,7 @@ age of Neo-liberalism.
 
 5. [Axibase Research](../Solutions/calculated-values/README.md); 2017; Hamilton, Kenneth
 
-6. [Axibase Reseatch](../CBI-CPI/README.md); 2017; Hamilton, Kenneth
+6. [Axibase Research](../CBI-CPI/README.md); 2017; Hamilton, Kenneth
 
 7. [Bloomberg Markets](https://www.bloomberg.com/news/articles/2017-08-25/gold-shaken-out-of-slumber-by-a-mysterious-2-million-ounce-trade); 2017; Barton, Susanne and Javiar, Luzi-Ann
 
