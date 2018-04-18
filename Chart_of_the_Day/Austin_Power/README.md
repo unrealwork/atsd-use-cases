@@ -12,7 +12,7 @@ of Texas at Austin, which produces thousands of well-qualified computer science 
 the city's largest employers. Dubbed "the Silicon Hills" for the high concentration of post-dot-com-boom and other newer
 high-tech companies that populate the city, Austin is seen as an all-around business friendly city.
 
-One of the tenets of good business is healthy competition but currently, Austin residents only have one choice for an electricty
+One of the tenets of good business is healthy competition but currently, Austin residents only have one choice for an electricity
 provider: [Austin Energy](https://austinenergy.com/wps/portal/ae/home/!ut/p/a1/jY_NCsIwEISfxUOOmk2rUr3F-tOqWPBQay6SSqyVmoQ0VXx7o-BFFF3YwzLfzuxihjPMJL-UBbelkrx6zKy_I1GvS0ZA5sGUDIBGq266DmN_RogDtg6AL0Xh1_4GsycCXuBFIXhxMknGEKdJSpNFCLPQfwHfI-Z_HEll7gcFZkYchBGm0xj33NFaXQ8RIOBNbUsppDDFrbNXZwRXXSPQylheOVm4zlVjEThRc3lra6MOZSU-eR9VbXH2bon1OYNTr7osaat1B4vV0aY!/dl5/d5/L2dBISEvZ0FBIS9nQSEh/).
 The company, formed in 1895, has almost half a million client accounts and through its public infrastructure, gives lighting 
 to more than a million residents.
@@ -21,7 +21,7 @@ to more than a million residents.
 circles. Opponents of city-managed utilities claim government mismanagement leads to increased prices that would be positively
 affected by introducing competitors whereas proponents of regulation say just the opposite, electricity is more than a business
 it is a modern necessity, and government regulation ensures access for everyone. Using a structured query language in the 
-[SQL Console](https://github.com/axibase/atsd/tree/master/sql) from [Axibase](https://axibase.com), the numerical information associated with the above visulization is shown:
+[SQL Console](https://github.com/axibase/atsd/tree/master/sql) from [Axibase](https://axibase.com), the numerical information associated with the above visualization is shown:
 
 **Script 1.1**
 
@@ -48,7 +48,7 @@ clients.
 
 While four cents an hour certainly doesn't seem like much, **Figure 1.2** below shows the amount of revenue generated from each class of customer. Typically, business and industry 
 pays the lion's share of utility costs because of the nature of their usage: large-scale power grids and 24/7 operation, but
-in Austin, the exact oppoosite is true. In fact, the industrial class paid an average 35% of the residential class over the
+in Austin, the exact opposite is true. In fact, the industrial class paid an average 35% of the residential class over the
 observed period, which is detailed in **Table 1.2** below the visualization.
 
 **Figure 1.2**
