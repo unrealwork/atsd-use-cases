@@ -15,12 +15,12 @@
 
 Published in 2015 by the [National Bureau of Economic Research](http://www.nber.org/) in Cambridge, Massachusetts, a paper entitled [Measuring Economic Policy Uncertainty](http://www.policyuncertainty.com/media/BakerBloomDavis.pdf) seeks to establish a set of clear guidelines for quantifying economic policy uncertainty with the following questions: 
 
-* **Who** is responsible for making economic policy descisions? 
+* **Who** is responsible for making economic policy decisions? 
 * **What** economic policy will be enacted? 
 * What **effects** will that policy have on the local economy?
 
 According to the authors (Baker, Bloom, and Davis), their EPU (Economic Policy Uncertainty) metric is able to accurately
-predict economic growth and investment by tracking geopolitical events such as international treaties, public information like newpapers and policy position releases, and actual actions undertaken by government bodies such as a central bank raising interest rates.
+predict economic growth and investment by tracking geopolitical events such as international treaties, public information like newspapers and policy position releases, and actual actions undertaken by government bodies such as a central bank raising interest rates.
 
 ## Visualization
 
@@ -31,7 +31,7 @@ This box chart shows the range of the EPU index for each of the 4 regions. A wid
 
 *Fig 2*: Use the drop-down menus in the ChartLab sandbox to change the date range of the visualization. Open the Editor window to modify percentile range with a `percentile = X%/Y%` expression where `X` and `Y` are the values of the percentile range you would like to display.
 
-Tracking the EPU Index for the People's Republic of China alongside more concrete metrics can be used to examine the validity of the EPU Index. Shown below, the EPU is placed alongside real PRC Treasury Securities rates for the last decade and a half. The quarterly and bi-annual averages are compared in the same environment and a `wtavg` expression is used to smooth the occasionally volitile movement of both indices. Treasury Securities are a good tool for tracking economic potential and growth because they show the interest rates that businesses borrowing money are paying to to their lenders. Historically speaking, a lower interest rate usually encourages business to borrow money and expand their operations.
+Tracking the EPU Index for the People's Republic of China alongside more concrete metrics can be used to examine the validity of the EPU Index. Shown below, the EPU is placed alongside real PRC Treasury Securities rates for the last decade and a half. The quarterly and bi-annual averages are compared in the same environment and a `wtavg` expression is used to smooth the occasionally volatile movement of both indices. Treasury Securities are a good tool for tracking economic potential and growth because they show the interest rates that businesses borrowing money are paying to to their lenders. Historically speaking, a lower interest rate usually encourages business to borrow money and expand their operations.
 
 ![](images/epu-rates.png)
 [![](images/button.png)](https://apps.axibase.com/chartlab/661d387e/#fullscreen)
@@ -71,7 +71,7 @@ The above query returns the following results:
 |2004|156.17|
 |2000|80.38|
 
-Using [public data](https://www.britannica.com/topic/United-States-Presidential-Election-Results-1788863) from [Encyclopaedia Britannica](https://www.britannica.com/) to track election results for the same period of time produces the following visulization.
+Using [public data](https://www.britannica.com/topic/United-States-Presidential-Election-Results-1788863) from [Encyclopaedia Britannica](https://www.britannica.com/) to track election results for the same period of time produces the following visualization.
 
 ![](images/election-results.png)
 [![](images/button.png)](https://apps.axibase.com/chartlab/73ab0050/2/#fullscreen)
@@ -80,7 +80,7 @@ Using [public data](https://www.britannica.com/topic/United-States-Presidential-
 
 Although the 2016 election was one of the more contentious in recent U.S. history, the EPU index immediately before the election was lower than the previous four elections.
 
-The European debt crisis was a financial debacle that was enflamed by the so called P.I.G.S. countries (Portugal, Ireland, Greece, and Spain) coming dangerously close to defaulting on their outrageously high goverment debts. Tracking several events alongside the EPU index reflects the panic and uncertainty of the multi-year crisis, bailout, and recovery process. Using the following 7 events to chronicle the timeline:
+The European debt crisis was a financial debacle that was inflamed by the so called P.I.G.S. countries (Portugal, Ireland, Greece, and Spain) coming dangerously close to defaulting on their outrageously high government debts. Tracking several events alongside the EPU index reflects the panic and uncertainty of the multi-year crisis, bailout, and recovery process. Using the following 7 events to chronicle the timeline:
 
 1. Jan 1, 2002: Euro banknotes and coins begin circulation.
 2. Nov 27, 2008: European Union stimulus package totalling 200 billion Euro is proposed and eventually approved.
@@ -88,7 +88,7 @@ The European debt crisis was a financial debacle that was enflamed by the so cal
 4. May 2, 2010: European Union announces a 110 billion Euro bailout for Greece.
 5. Nov 28, 2010: European Union announces an 85 billion Euro bailout for the Republic of Ireland.
 6. Mar 13, 2012: A second bailout for Greece is proposed and approved for and additional 130 billion Euro after further 
-inspection of government financial records reveal the depth and severity of the problem is even worse than orginially 
+inspection of government financial records reveal the depth and severity of the problem is even worse than originially 
 understood.
 7. July 1, 2014: The end of the EU bailout policy, and completion of funds distribution.
 
@@ -114,11 +114,11 @@ SELECT datetime, ROUND(value,0) FROM EUEPUINDXM_
   WHERE datetime  IN ('2002-01','2008-11','2010-02','2010-05','2010-11','2012-03','2014-07')
 ```
 
-Multiple `datetime` values can be convenienty enumerated as a list using an [`IN`](https://github.com/axibase/atsd/tree/master/sql#in-expression) expression. The above query returns the following values for each of the targeted months:
+Multiple `datetime` values can be conveniently enumerated as a list using an [`IN`](https://github.com/axibase/atsd/tree/master/sql#in-expression) expression. The above query returns the following values for each of the targeted months:
 
 |Event|EPU Index Value|
 |---|:-:|
-|Euro banknotes begin curculation|106|
+|Euro banknotes begin circulation|106|
 |EU stimulus package|157|
 |Greek austerity rollout|137|
 |Greek bailout #1|203|
