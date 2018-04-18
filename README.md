@@ -21,17 +21,7 @@ ATSD functionality and features applied to real-world public data to solve commo
 
 ## How-To
 
-Walkthrough guides for ATSD integration that offers programmatic solutions to optimize business performance.
-
-### ATSD
-- [Calculated Values With Schema-Based Parsing](Support/Schema-Parser-Mod-Pre-Import/README.md)
-- [Curve Smoothing Using Moving Averages](Support/Moving-Avg/README.md)
-- [Creating Calculated Metrics in ChartLab and SQL Console](Support/Add-Calculated-Value/README.md)
-- [Using TRENDS](how-to/shared/trends.md)
-- [Essential ATSD Operations](how-to/shared)
-
-### Marathon
-- [How to Monitor Marathon Applications as Services](how-to/marathon/capacity-and-usage)
+Walkthrough guides for ATSD integration with various IT infrastructure systems and services.
 
 ### Amazon Web Services
 - [Build Availability Report for AWS Route53](how-to/aws/route53-health-checks)
@@ -47,6 +37,15 @@ Walkthrough guides for ATSD integration that offers programmatic solutions to op
 - [Notifications for New GitHub Project Releases](how-to/github/project-release-notification.md)
 - [Notifications for New GitHub Pull Requests](how-to/github/pr-notification.md)
 - [Notifications for New GitHub Repository Subscriptions](how-to/github/watch-notification.md)
+
+### Marathon
+- [How to Monitor Marathon Applications as Services](how-to/marathon/capacity-and-usage)
+
+### ATSD
+- [Calculated Values With Schema-Based Parsing](Support/Schema-Parser-Mod-Pre-Import/README.md)
+- [Curve Smoothing Using Moving Averages](Support/Moving-Avg/README.md)
+- [Creating Calculated Metrics in ChartLab and SQL Console](Support/Add-Calculated-Value/README.md)
+- [Using TRENDS](how-to/shared/trends.md)
 
 ## Chart of the Day 
 
