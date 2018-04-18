@@ -62,7 +62,7 @@ SELECT tags.district, count(*)
 GROUP BY tags.district
   ORDER BY tags.district
 ```
-Notice the time period is not set to calculate the break-down of police use of force indidents for the entire timespan.
+Notice the time period is not set to calculate the break-down of police use of force incidents for the entire timespan.
 
 This results of this query are as follows:
 

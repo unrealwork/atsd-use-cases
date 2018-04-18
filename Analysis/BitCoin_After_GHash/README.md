@@ -20,12 +20,12 @@ the large-scale nature of certain operations gave rise to better results.
 
 _Source_: [CoinDesk](https://www.coindesk.com/price/)
 
-> Open the ChartLab visualization above and navigate through time using the dropdown menus at the top of the screen.
+> Open the ChartLab visualization above and navigate through time using the drop-down menus at the top of the screen.
 
 In July 2014, a BitCoin mining pool known as [GHash.IO](http://ghash.io/) breached an unspoken BitCoin convention by achieving 51% 
 of the total hash power for the first time in BitCoin's short history, which established what became the first BitCoin trust. 
 In the months leading to GHash.IO gaining control of the 51% majority of the total hash rate the BitCoin market was rattled and huge 
-sell-offs occured, causing the value of BitCoin to plummet at the beginning of the year when speculation began to occur about 
+sell-offs occurred, causing the value of BitCoin to plummet at the beginning of the year when speculation began to occur about 
 when GHash.IO would reach the dreaded 51% mark. Though the number of transactions remained consistent, the value of those 
 transactions also decreased as shown below.
 
@@ -37,7 +37,7 @@ transactions also decreased as shown below.
 
 _Source_: Quandl - [Market Capitalization](https://www.quandl.com/data/BCHAIN/MKTCP-Bitcoin-Market-Capitalization), [Estimated Transaction Value](https://www.quandl.com/data/BCHAIN/ETRVU-Bitcoin-Estimated-Transaction-Volume-USD)
 
-> Open the ChartLab visualization above and navigate through time using the dropdown menus at the top of the screen.
+> Open the ChartLab visualization above and navigate through time using the drop-down menus at the top of the screen.
 
 For those unfamiliar with BitCoin mining technique and terminology, the currency operates using a blockchain protocol, that is,
 all BitCoin are inseparably linked though a combination of numbers designating all previous BitCoin transactions. Miners
@@ -80,7 +80,7 @@ _Source_: Quandl - [Market Capitalization](https://www.quandl.com/data/BCHAIN/MK
 
 ### The Future of CryptoCurrency
 
-The number of transactions occuring each day using BitCoin has reached impressive levels since its emergence in 2009 and despite
+The number of transactions occurring each day using BitCoin has reached impressive levels since its emergence in 2009 and despite
 a contraction in recent months, the figure remains strong with over 200,000 unique transactions occuring each day. Additionally,
 the number of unique BitCoin addresses has also continued to increase, showing that even today new users are opening BitCoin
 wallets and beginning to invest themselves.
@@ -107,7 +107,7 @@ resulting in the lifetime imprisonment of Silk Road founder along with several m
 was said and done, the FBI became the [single largest holder of BitCoin in a wallet](https://www.wired.com/2013/12/fbi_wallet/).
 
 Additionally, one of the hallmarks of the early years of BitCoin was volatility, huge surges and plunges in value were the
-norm as the currency sought some kind of root in the real world. Using [econometric analysis]() in the [ChartLab](https://apps.axibse.com) 
+norm as the currency sought some kind of root in the real world. Using econometric analysis in the [ChartLab](https://apps.axibse.com) 
 interface, BitCoin's traded value can be normalized using log returns to track how the currency has stabilized of late.
 
 **Figure 5**: BitCoin Closing Value Log Returns
@@ -119,7 +119,7 @@ interface, BitCoin's traded value can be normalized using log returns to track h
 Logarithmic, or log, returns are a simple methodology used by traders to normalize the value of a given stock. The same principle
 can be applied here to BitCoin's traded value because it's volatility more closely resembles that of a stock, than that of
 a currency in normal circulation. Log returns here demonstrate that the volatility present in the early days of BitCoin are
-not as common in its current incarnation. Fluctuations in price of several hundred percent occuring in a matter of a few days
+not as common in its current incarnation. Fluctuations in price of several hundred percent occurring in a matter of a few days
 were common in BitCoin's early years, though they appear quite insignificant when seen alongside the jumps in value that BitCoin
 has showed of late, in fact they happened much less predictably that current BitCoin fluctuations.
 

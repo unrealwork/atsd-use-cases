@@ -18,7 +18,7 @@ The United States Government currently bears $19.8 trillion dollars of gross deb
 
 _Source_: [Federal Reserve Economic Data (FRED)](https://fred.stlouisfed.org/series/FYGFD)
 
-The debt is divided into two categories, intergovernmental debt and public debt. Intergovernmental debt holdings are securites
+The debt is divided into two categories, intergovernmental debt and public debt. Intergovernmental debt holdings are securities
 that are held in federal government trusts while public debt can be purchased by virtually anyone:
 
 **Figure 2**: _Ownership of United States Debt_
@@ -201,7 +201,7 @@ closely follow the trends set by the total foreign-held debt line than the China
 [![](Images/button.png)](https://apps.axibase.com/chartlab/c281e549/2/#fullscreen)
 
 Further, when considering the Federal Fund Rate, which is the daily lending rate set by the Federal
-Reserve each evening, the relevence of Chinese-held debt movements, which accounts for 5.56% of total U.S. treasuries is shown to be
+Reserve each evening, the relevance of Chinese-held debt movements, which accounts for 5.56% of total U.S. treasuries is shown to be
 more reactionary than causal:
 
 **Figure 15**: _Federal Fund Rate vs. China-Held Treasuries_

@@ -20,7 +20,7 @@ independently and its current Governor is considered among [the best central ban
 Using [data](http://www.boi.org.il/en/DataAndStatistics/Pages/Default.aspx) from the Bank of Israel, the phenomenon of 
 liquid currency's decreasing intrinsic value over time can be observed and with analytics tools from [Axibase](https://axibase.com),
 these changes can be tracked and interpreted to learn why simply holding your nest egg in
-a savings account is quickly becoming the modern-day equivelent of the shoebox of cash hidden underneath your bed.
+a savings account is quickly becoming the modern-day equivalent of the shoebox of cash hidden underneath your bed.
 
 The [Axibase Time Series Database](https://axibase.com) is also developed for integration with a number of industry standard advanced analytics
 tools, if it is preferable to perform calculations in an interface that is already familiar to you, follow the integration
@@ -93,10 +93,10 @@ parameter in the brackets, with the first indicating the alias to be averaged. T
 
 [![](Images/button.png)](https://apps.axibase.com/chartlab/f322562c/8/#fullscreen)
 
-Inflation and deflation have a number of tanglibe effects, the most obvious of which is the increase and decrease in the prices
+Inflation and deflation have a number of tangible effects, the most obvious of which is the increase and decrease in the prices
 of everyday purchases, measured by CPI as shown above. Additionally, gross yield of cash can be measured to track the appreciation
 or depreciation of the value of liquid currency. In a country experiencing serious hyperinflation, such as the Weimar Republic 
-in the twenties, Japan in the fourties, Israel in the eighties, or Russia in the nineties, the value of liquid currency can
+in the twenties, Japan in the forties, Israel in the eighties, or Russia in the nineties, the value of liquid currency can
 depreciate to the point of worthlessness very quickly. But this phenomenon is simply an accelerated version of the natural 
 inflation that occurs in even the most dynamic and robust economies. 
 
@@ -116,7 +116,7 @@ some exceptions. To simplify, a cash gross yield of 0 (no slope) shows that the 
 or decreasing in parallel with inflation, not that the value of the cash is stagnant (unless of course there was also zero percent inflation
 in the observed year). 
 
-Using the derived series `CPI (Smoothed)` in a new function, the value of cash's Real Yield can be calculted by adding the
+Using the derived series `CPI (Smoothed)` in a new function, the value of cash's Real Yield can be calculated by adding the
 following script in the Editor window:
 
 ```sql
@@ -126,7 +126,7 @@ following script in the Editor window:
 ```
 
 Here, an entirely new series is calculated by subtracting the value of the CPI (Smoothed) function from the value of Cash's
-Annual Nominal Yield and the series is named Real Yield to reflect that it has been adjusted to include caluclated CPI values.
+Annual Nominal Yield and the series is named Real Yield to reflect that it has been adjusted to include calculated CPI values.
 
 **Figure 3.1**
 ![](Images/CPI_6.1.png)
@@ -134,7 +134,7 @@ Annual Nominal Yield and the series is named Real Yield to reflect that it has b
 [![](Images/button.png)](https://apps.axibase.com/chartlab/f322562c/12/#fullscreen)
 
 Although similar to the **Figure 2.1**, the above visualization details the real yield of cash (makam) and not just the absolute,
-or gross, yield. Looking closely from 2010 to present day highlights the differences in visulization:
+or gross, yield. Looking closely from 2010 to present day highlights the differences in visualization:
 
 **Figure 2.2**
 
@@ -154,7 +154,7 @@ Comparing **Figures 2.2** and **3.2** above, the difference in cash's absolute g
 compared to the percent change in Consumer Price Index (**2.2**) and calculated average Consumer Price Index (**3.2**).
 Judging from the line in **Figure 2.2**, the slope of the line of gross yield is approaching zero. As noted above,
 a true zero-slope gross yield line would represent cash value that is not inflating or deflating each year. However, the value of CPI
-shows that in fact, inflation and deflation is occuring, and the prices of consumer goods are affected by that.
+shows that in fact, inflation and deflation is occurring, and the prices of consumer goods are affected by that.
 
 Using **Figure 3.2**, more detailed conclusions can be drawn, for example, the interaction between CPI (Smoothed) and the Real Yield
 of cash is shown to be closely related in recent years. In fact, the cyclical nature of CPI is shown to be occurring in parallel

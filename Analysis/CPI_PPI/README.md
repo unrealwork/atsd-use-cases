@@ -276,6 +276,6 @@ Ultimately, the overall cost of various consumer goods in a given basket is heav
 the need to transport a given good to the needed location and with the nature of the globalized goods market, often that means
 a great deal of traveling required before a product reaches its consumer base.
 
-Regardless of this condition, there is definitive growth between the difference in CPI and PPI, whether or not the volitile
+Regardless of this condition, there is definitive growth between the difference in CPI and PPI, whether or not the volatile
 energy or food sectors are considered, indicating the growing gap between the amount that customers are paying to purchase
 something and the amount that producers are paying to create it.
