@@ -42,10 +42,11 @@ Walkthrough guides for ATSD integration with various IT infrastructure systems a
 - [How to Monitor Marathon Applications as Services](how-to/marathon/capacity-and-usage)
 
 ### ATSD
+- [Historizing Metrics Stored in Database](how-to/database/historize)
+- [Using TRENDS](how-to/shared/trends.md)
 - [Calculated Values With Schema-Based Parsing](Support/Schema-Parser-Mod-Pre-Import/README.md)
 - [Curve Smoothing Using Moving Averages](Support/Moving-Avg/README.md)
 - [Creating Calculated Metrics in ChartLab and SQL Console](Support/Add-Calculated-Value/README.md)
-- [Using TRENDS](how-to/shared/trends.md)
 
 ## Chart of the Day 
 
