@@ -55,7 +55,6 @@ SELECT date_format(time, 'yyyy') AS "Year", sum(value)/1000000 AS "Bag Count (Mi
   FROM bagcount WHERE date_format(time, 'yyyy') BETWEEN '2012' AND '2016'
 GROUP BY 'Year'
   ORDER BY 'Year'
-
 ```
 
 **Table 1.2**
@@ -89,7 +88,7 @@ GROUP BY 'Year'
 | 2016 | 58 |
 
 **Table 1.3** shows that after the initial drop in plastic bag usage, the average person continued to use the same number of bags
-until 2016 when another drop was detected. For clairification, per capita bag use divides the number of people living in Montgomery
+until 2016 when another drop was detected. For clarification, per capita bag use divides the number of people living in Montgomery
 County by the number of reported bags used per year to arrive at an estimated value of the number of plastic bags used by
 the average person in a given year. Though the population of Montogomery County, Maryland is growing the number of bags used
 is decreasing.
@@ -277,7 +276,7 @@ came from another revenue source and still perform its goals of removing garbage
 or group seeing a steep increase in their personal tax payments.
 
 Many detractors of the Bag Tax make claims that businesses will be able to illicitly profit from the sale of plastic bags,
-but according to the data, most retailers and wholesalers saw an insignificant amount of money retained as a result of implementaion. 
+but according to the data, most retailers and wholesalers saw an insignificant amount of money retained as a result of implementation. 
 Additionally, the amount of money that the tax generates for the government itself is most likely not even enough to totally 
 offset the cost of their already operating waterway clean-up programs.
 
