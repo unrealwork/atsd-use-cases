@@ -6,13 +6,13 @@ The following article describes the process of calculating and historizing opera
 
 ## Scenario
 
-Consider a scenario where we have a relational database where one of the tables contains a list of customer orders. The number of daily records is very high and for performance reasons the records from this table are moved to a warehouse database as part of the pruning procedure. Lets assume now that the operations analysts would like to monitor incoming orders to spot deviations from a baseline as quickly as possible. The hourly baseline is calculated by averaging the number of orders received from customers during the same hour on the same weekday 1, 2, and 4 weeks ago.
+Consider a scenario where we have a relational database where one of the tables contains a list of customer orders. The number of daily records is very high and for performance reasons the records from this table are moved to a warehouse database as part of the pruning procedure. Let's assume now that the operations analysts would like to monitor incoming orders to spot deviations from a baseline as quickly as possible. The hourly baseline is calculated by averaging the number of orders received from customers during the same hour on the same weekday 1, 2, and 4 weeks ago.
 
-Since the intraday records and historical records are stored in different databases it's not possible to run a single query that would return the number of orders spanning several weeks. Moreover, the query against the warehouse table maybe too expensive to run on a continuous basis. In addition, if the operations table were to be queried by multiple monitoring tools this may introduce an overhead that the operations team is not willing to introduce.
+Since the intraday records and historical records are stored in different databases it's not possible to run a single query that would return the number of orders spanning several weeks. Moreover, the query against the warehouse table may be too expensive to run on a continuous basis. In addition, if the operations table were to be queried by multiple monitoring tools this may introduce overhead that the operations team is not willing to allow.
 
 ## Solution
 
-This challenge can be addressed by scheduling execution of an analytical query (the one that calculates aggregate statistics) and persisting its results in a separate table. Operational databases are often locked down to serve only primary applications and storing hourly order statistics in the same database may not be advisable or allowed. For added protection, it is recommended that the analytical query is executed under a read-only user account with a permission to SELECT data from a specific view encapsulating the query business logic.
+This challenge can be addressed by scheduling the execution of an analytical query (one that calculates aggregate statistics) and persisting its results in a separate table. Operational databases are often locked down to serve only primary applications and therefore storing hourly order statistics in the same database may not be advisable or allowed. For added protection, it is recommended that the analytical query is executed under a read-only user account with a permission to SELECT data from a specific view encapsulating the query business logic.
 
 The steps below describe how this type of monitoring can be enabled in Axibase Time Series Database.
 
@@ -64,7 +64,7 @@ SELECT * FROM daily_orders
 
 ### Calculate Statistics with Analytical Queries
 
-The operations analysts are not interested in the specific orders, instead they need to know the total number and the dollar amount of orders received during the last hour.
+The operations analysts are not interested in specific orders, instead they need to know the total number and dollar amount of orders received during the last hour.
 
 ```sql
 SELECT SUM(amount), COUNT(amount)
@@ -95,7 +95,7 @@ WHERE received > NOW() - INTERVAL 1 HOUR
 
 ### Preparing Queries for Historical Retention
 
-To differentiate collected metrics by name, we need to assign aliases to each column.
+To differentiate between collected metrics by name, we need to assign aliases to each column.
 
 For the summary statistics (without `GROUP BY` customer clause) we will adopt the `total_` prefix.
 
@@ -116,7 +116,7 @@ WHERE received > NOW() - INTERVAL 1 HOUR
 
 ## Creating Views and Granting Permissions
 
-Creating views is an optional step and is recommended to prevent the monitoring account under which the queries will be executed from customizing the query text and thus inadvertently retrieving more data than necessary for monitoring purposes.
+Creating views is an optional step but recommended to prevent the monitoring account under which the queries will be executed from customizing the query text, thus inadvertently retrieving more data than necessary for monitoring purposes.
 
 ```sql
 CREATE VIEW stat_orders_hourly_total AS
@@ -195,15 +195,15 @@ Each query requires a separate configuration in the `JDBC` job. The configuratio
 
 The configuration determines rules for mapping results of the query to ATSD schema.
 
-The ATSD schema requires that each time series has an entity name, a metric name, time, value. Series tags are optional and are set for series with extra dimensions.
+The ATSD schema requires that each series has an entity name, a metric name, time, and value. Series tags are optional and are set for series with extra dimensions.
 
-Both of the below queries will be storing data under the manually specified 'ops_db' value.
+Both of the below queries will store data under the manually specified 'ops_db' value.
 
 A common 'orders.' metric prefix is set so that these series can be distinguished from other similarly named metrics (avoid naming collision).
 
 > The same result can be accomplished by modifying column aliases which is less convenient in case of `SELECT *` queries.
 
-* Configuration for `stat_orders_hourly_total` view
+* Configuration for `stat_orders_hourly_total` view:
 
 This query doesn't have any text columns and as such doesn't require any series tags.
 
@@ -213,7 +213,7 @@ series e:ops_db d:2018-04-18T10:24:08.493Z m:orders.total_amount=920 m:orders.to
 
 ![](images/jdbc-total-test.png)
 
-* Configuration for `stat_orders_hourly_detail` view
+* Configuration for `stat_orders_hourly_detail` view:
 
 This query extracts customer name as an extra dimension which is captured with the `customer` tag in the configuration.
 
@@ -233,7 +233,7 @@ Click **Run** to execute the job manually for the first time.
 
 ## Locate Metrics in ATSD
 
-The series collected by Collector can be located in ATSD in various ways: series search, metrics for entity, metrics by name, etc.
+The series collected by Collector can be located within ATSD in various ways: series search, metrics for entity, metrics by name, etc.
 
 Open the **Metrics** tab and search metrics by name or prefix.
 
