@@ -1,0 +1,11 @@
+{
+  "lang": "en",
+  "ignoreCapitalization": true,
+  "fileExtensions": [
+    ".md"
+  ],
+  "dictionary": [
+    "axibase",
+    "ATSD"
+  ]
+}
