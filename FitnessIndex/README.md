@@ -392,7 +392,7 @@ to a wide range of data science problems, a handful of which were demonstrated h
 ### Action Items
 
 1. Download [Docker](https://docs.docker.com/engine/installation/linux/ubuntu/).
-2. Download the [docker-compose.yml](Resources/docker-compose.yml) file to launch the ATSD container bundle.
+2. Download the [`docker-compose.yml`](Resources/docker-compose.yml) file to launch the ATSD container bundle.
 3. Launch containers by specifying the built-in collector account credentials that will be used by Axibase Collector to insert data into ATSD.
 
 ```sh

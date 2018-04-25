@@ -1717,7 +1717,7 @@ The database is **slow** for analytical queries (`GROUP BY`). Analytical queries
 
 ![](images/dbvis_crt.png)
 
-Chartlab [crt.sh]()https://apps.axibase.com/chartlab/0ffbd30b/6#fullscreen) Portal.
+ChartLab [crt.sh]()https://apps.axibase.com/chartlab/0ffbd30b/6#fullscreen) Portal.
 
 ![](images/crt-chartlab.png)
 

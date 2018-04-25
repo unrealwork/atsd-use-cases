@@ -8,7 +8,7 @@ While the Docker Hub provides a capability to trigger [outgoing webhooks](https:
 
 ![](images/docker-hub-notifications.png)
 
-While the email option can serve as a workaround, it's difficult to rely on it for programmable integration with alerting and CI systems.
+While the email option can serve as a work-around, it's difficult to rely on it for programmable integration with alerting and CI systems.
 
 ![](images/docker-email.png)
 

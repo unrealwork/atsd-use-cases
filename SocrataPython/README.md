@@ -76,9 +76,14 @@ Replace `localhost` with the actual Docker hostname, if necessary.
 
 ```sh
 python
+```
+
+```python
 import atsd_client
 from atsd_client.services import SQLService
+```
 
+```python
 conn = atsd_client.connect_url('http://localhost:8088', 'myuser', 'mypassword')
 sql = SQLService(conn)
 q = """SELECT p.tags.contractor AS contractor,
@@ -92,8 +97,13 @@ q = """SELECT p.tags.contractor AS contractor,
         GROUP BY p.tags.contractor
        ORDER BY total_gwh_annual_production DESC
         LIMIT 10"""
-df = sql.query(q)
+```
 
+```python
+df = sql.query(q)
+```
+
+```python
 from tabulate import tabulate
 print(tabulate(df, headers='keys', tablefmt='psql'))
 ```

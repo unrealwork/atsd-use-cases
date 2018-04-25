@@ -165,7 +165,7 @@ The [JDBC](https://github.com/axibase/axibase-collector/blob/master/jobs/jdbc.md
 
 ### Create Data Source
 
-To connect the Collector to a database, create a new data source connection on the **DataSources > Databases** page.
+To connect the Collector to a database, create a new data source connection on the `DataSources > Databases` page.
 
 ![](images/data-source-mysql.png)
 
