@@ -34,7 +34,7 @@ or contributing cause of death by age group. Deaths in this dataset are split in
 
 You can find a complete list of the cities (with their corresponding state) in our [city-list](https://github.com/axibase/atsd-use-cases/blob/master/USMortality/city-list.md) file.
 
-Additionally, these cities are be grouped by their [United States Census Bureau regions](http://www.census.gov/econ/census/help/geography/regions_and_divisions.html).
+Additionally, these cities are be grouped by United States Census Bureau regions.
 You can find a table of these regions in our [region-table](https://github.com/axibase/atsd-use-cases/blob/master/USMortality/region-table.md) file.
 
 While you can manually analyze this information in a spreadsheet program, it is much more convenient to interact with the data once it is loaded into a database.  
@@ -1125,7 +1125,7 @@ Here are a few noteworthy points regarding this query:
 | 2015-01-01T00:00:00.000Z  | New York  | NY     | Middle-Atlantic  | 11.0          | 517.0          | 727.0        | 2619.0        | 11118.0       | 39309.0     | 54301.0     | 8550405.0   | 6.4                  |
 ```
 
-We can see that the mortality rate in the city has declined considerably since the 1970's. According to their [report](http://www.nyc.gov/html/records/pdf/govpub/6551as_2010_final_population_&_mortality.pdf) on Population
+We can see that the mortality rate in the city has declined considerably since the 1970's. According to their (since-removed) report on Population
 and Mortality in 2010, the City of New York had the following key findings:
 
 * The 2010 New York City death rate reached a historic low of 6.4 deaths per 1,000 people in the population, a 14.7% decline from 2001.

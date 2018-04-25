@@ -15,7 +15,7 @@ Data is aggregated daily in visualizations, and annually in SQL queries. Favorab
 while less favorable exchange rates are shown in red, based on the overall 5-year average exchange rate. Each section is accompanied
 by a brief analysis to give the data context. Using computed [value settings](https://axibase.com/products/axibase-time-series-database/visualization/widgets/configuring-the-widgets/)
 thresholds have been calculated using the underlying data, the upper 25th percentile of a given exchange rate is considered
-favorable while the lower 25th percentile is considered less than favorable. The data is coded with an ID which is provided in the index as well. Open any [ChartLab](https://apps.axibse.com) display below to navigate through time, or change the metric to reflect the desired exchange rate.
+favorable while the lower 25th percentile is considered less than favorable. The data is coded with an ID which is provided in the index as well. Open any [ChartLab](https://apps.axibase.com) display below to navigate through time, or change the metric to reflect the desired exchange rate.
 
 [Europe](#europe)
 
@@ -77,7 +77,7 @@ GROUP BY PERIOD(1 YEAR)
 
 #### USD v. Swiss Franc
 
-During the worst of the [European Debt Crisis](/DataShorts/EU_Debt/README.md) which saw [European Union per capita debt](/DataShorts/EU_percap_Debt/README.md)
+During the worst of the [European Debt Crisis](../EU_Debt/README.md) which saw [European Union per capita debt](../EU_Debt_percap/README.md)
 grow at unprecedented rates across the continent, EU investors sought refuge in the stability of the Swiss Franc, backed by the
 world-renowned Swiss banking system. Further, the Swiss National Bank removed the peg to the Euro unexpectedly in 2015 causing a huge
 surge in 2015, clearly visible in the visualization below as a sudden change from a favorable exchange rate for dollar holders
