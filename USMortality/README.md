@@ -32,10 +32,10 @@ or contributing cause of death by age group. Deaths in this dataset are split in
 * All deaths
 * Pneumonia and influenza deaths
 
-You can find a complete list of the cities (with their corresponding state) in our [city-list](https://github.com/axibase/atsd-use-cases/blob/master/USMortality/city-list.md) file.
+You can find a complete list of the cities (with their corresponding state) in our [city-list](city-list.md) file.
 
 Additionally, these cities are be grouped by United States Census Bureau regions.
-You can find a table of these regions in our [region-table](https://github.com/axibase/atsd-use-cases/blob/master/USMortality/region-table.md) file.
+You can find a table of these regions in our [region-table](region-table.md) file.
 
 While you can manually analyze this information in a spreadsheet program, it is much more convenient to interact with the data once it is loaded into a database.  
 
@@ -193,7 +193,7 @@ ORDER BY datetime
 This final example filters records for a particular city and time. Weekly samples are aggregated into months and the sum and count of samples in each month are calculated. With the line
 `HAVING count(value) >= 4`, months with less than 4 weekly samples are excluded (October 2016 has only 1 row).
 
-You can take a look at various other [SQL queries examples on our GitHub page](https://github.com/axibase/atsd/blob/master/sql/README.md/examples).
+You can take a look at various other [SQL queries examples on our GitHub page](https://github.com/axibase/atsd/blob/master/sql/README.md#examples).
 
 ### Detailed SQL Example 1 - Pneumonia and Influenza Deaths in Boston
 ------------------------------------------------------------
@@ -1240,7 +1240,7 @@ LIMIT 5
 ```
 
 We can also look at determining mortality rate by age group in New York City. We grabbed age group population statistics from [nyc1.gov](http://www1.nyc.gov/site/planning/data-maps/nyc-population/census-2010.page)
-as part of the 2010 U.S. census. The `new-york-city-2010-population` file can be found [here](https://github.com/axibase/atsd-use-cases/blob/master/USMortality/resources/new-york-city-2010-population) in this repository.
+as part of the 2010 U.S. census. The `new-york-city-2010-population` file can be found [here](resources/new-york-city-2010-population) in this repository.
 
 ```sql
 SELECT CAST(LOOKUP('new-york-city-2010-population', 'total')) AS "population",
@@ -1279,8 +1279,8 @@ There are two noteworthy points regarding this query:
 1) All metrics with death numbers are joined (grouped by year) using the `SUM` aggregation.<br />
 2) `SUM` aggregation is divided by the size of the corresponding age group, retrieved with a lookup function, and multiplied by 1000 since mortality is measured in deaths per 1000 people.<br />
 
-As the final query in this article, let us take a look at mortality rates by age group in Youngstown. We determined population figures with help from [http://places.mooseroots.com](http://places.mooseroots.com/l/332116/Youngstown-OH)
-as part of the 2010 U.S. Census. The `youngstown-2010-population` file can be found [here](https://github.com/axibase/atsd-use-cases/blob/master/USMortality/resources/youngstown-2010-population).
+As the final query in this article, let us take a look at mortality rates by age group in Youngstown. We determined population figures with help from `places.mooseroots.com`
+as part of the 2010 U.S. Census. The `youngstown-2010-population` file can be found [here](resources/youngstown-2010-population).
 
 ```sql
 SELECT CAST(LOOKUP('youngstown-2010-population', 'total')) AS "population",

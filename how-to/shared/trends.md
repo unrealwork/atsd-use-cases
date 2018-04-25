@@ -89,9 +89,9 @@ Using the chart above as a configuration example:
         style = stroke-width: 2
 ```
 
-Each of these settings may be modified and new settings may be added based on Charts syntax. Additionally, complex transformations may be performed according to this [guide](https://github.com/axibase/atsd-use-cases/tree/master/Solutions/calculated-values), which details common transformations. For more information about advanced portal configuration, use this [guide](https://axibase.com/products/axibase-time-series-database/visualization/widgets/portal-settings/).
+Each of these settings may be modified and new settings may be added based on Charts syntax. Additionally, complex transformations may be performed according to this [guide](../../Solutions/calculated-values), which details common transformations. For more information about advanced portal configuration, use this [guide](https://axibase.com/products/axibase-time-series-database/visualization/widgets/portal-settings/).
 
-Likewise, series may be derived from existing data according to this [guide](https://github.com/axibase/atsd-use-cases/tree/master/Support/Add-Calculated-Value), which shows each step from one series to another.
+Likewise, series may be derived from existing data according to this [guide](../../Support/Add-Calculated-Value), which shows each step from one series to another.
 
 For baselines and thresholds, data may be manually input using the `value = x` setting at the **[series]** level, where `x` is the constant value.
 

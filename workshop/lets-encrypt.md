@@ -1719,7 +1719,7 @@ ChartLab [crt.sh]()https://apps.axibase.com/chartlab/0ffbd30b/6#fullscreen) Port
 
 ## Certificate Issuance Monitoring
 
-* [bank of america phishing sites](https://crt.sh/?q=bankofamerica%25)
+* Bank of america phishing sites: `https://crt.sh/?q=bankofamerica%25`
 
 * Sample phishing domains:
 

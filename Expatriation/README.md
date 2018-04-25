@@ -14,7 +14,7 @@ A covered expatriate must meet any one of the following criteria:
 
 [IRS Form 8854](https://www.irs.gov/pub/irs-pdf/f8854.pdf) is a statement that confirms that up to the date of your expatriation, you have complied with United States Federal Tax Code to the letter of the law. Failing to correctly complete this document means that you are obligated to pay the Expatriation Tax, even if you do not meet either of the previous criteria.
 
-As observed [last year](/../master/Expatriation_Q2), citizens from the United States were leaving the country at previously unseen levels against the backdrop of one of the more contentious recent presidential elections.
+As observed [last year](2017-2.md), citizens from the United States were leaving the country at previously unseen levels against the backdrop of one of the more contentious recent presidential elections.
 
 ![](Images/expat-title-2.png)
 [![](Images/button.png)](https://apps.axibase.com/chartlab/61a855b0/3/#fullscreen)
@@ -25,7 +25,7 @@ As observed [last year](/../master/Expatriation_Q2), citizens from the United St
 
 Both of the above graphs were prepared with Axibase ChartLab which is a visualization sandbox that features convenient syntax with different types of charts. The above visualizations may be modified to produce several projections of the same dataset stored in Axibase Time Series Database (ATSD).
 
-A number of built-in [statistical functions](https://github.com/axibase/atsd/blob/master/rule-engine/functions-statistical.md) are already supported by ChartLab, and [user-defined functions](https://github.com/axibase/atsd-use-cases/blob/master/how-to/shared/trends.md#user-defined-functions) may be added to a local ATSD instance. You can follow these [instructions](https://github.com/axibase/charts/blob/master/syntax/udf.md#deploying-function-files) to upload a user-defined function as a JavaScript file.
+A number of built-in [statistical functions](https://github.com/axibase/atsd/blob/master/rule-engine/functions-statistical.md) are already supported by ChartLab, and [user-defined functions](../how-to/shared/trends.md#user-defined-functions) may be added to a local ATSD instance. You can follow these [instructions](https://github.com/axibase/charts/blob/master/syntax/udf.md#deploying-function-files) to upload a user-defined function as a JavaScript file.
 
 ![](Images/previous-year.png)
 [![](Images/button.png)](https://apps.axibase.com/chartlab/a14a69a4#fullscreen)
@@ -44,7 +44,7 @@ The syntax required in the ChartLab configuration is simple:
 value = fred.PercentChangeFromYearAgo('raw')
 ```
 
-> View the complete [`fred.js`](https://github.com/axibase/atsd-use-cases/blob/master/how-to/shared/trends.md#fred-library) UDF library here.
+> View the complete [`fred.js`](../how-to/shared/trends.md#fred-library) UDF library here.
 
 Customized data monitoring in ATSD is possible using [`alert-expressions`](https://axibase.com/products/axibase-time-series-database/visualization/widgets/time-chart/#tab-id-14) whereby user-specified parameters may be defined to trigger alarms based on incoming data.
 

@@ -38,7 +38,7 @@ Tracking the EPU Index for the People's Republic of China alongside more concret
 
 *Fig. 3*: Economic Policy Uncertainty Index and PRC Treasury Securities Rates (2000-2017), bi-annually and quarterly.
 
-The above figure was creating using the [`weighted average`](https://axibase.com/products/axibase-time-series-database/visualization/widgets/configuring-the-widgets/aggregators/) statistical tool. This tool may be used to creating a rolling average value for a specific time period. For more information about using this statistical tool, see the following [walkthrough](https://github.com/axibase/atsd-use-cases/blob/master/Support/Moving-Avg/README.md). 
+The above figure was creating using the [`weighted average`](https://axibase.com/products/axibase-time-series-database/visualization/widgets/configuring-the-widgets/aggregators/) statistical tool. This tool may be used to creating a rolling average value for a specific time period. For more information about using this statistical tool, see the following [guide](../../Support/Moving-Avg/README.md).
 
 ### Dual Axis
 

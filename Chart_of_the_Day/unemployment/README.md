@@ -115,7 +115,7 @@ The **TRENDS** service relies on [Axibase Time Series Database](https://axibase.
 
 To create your own chart using the existing data, open an empty **TRENDS** [instance](https://trends.axibase.com/).
 
-For questions, technical support, or to suggest a dataset that you would like to see visualized, visit our [GitHub repository](https://github.com/axibase/atsd-use-cases) and [raise an issue](https://github.com/axibase/atsd-use-cases/issues).
+For questions, technical support, or to suggest a dataset that you would like to see visualized, visit our repository and [raise an issue](https://github.com/axibase/atsd-use-cases/issues).
 
 Source data used for this article is linked here:
 
