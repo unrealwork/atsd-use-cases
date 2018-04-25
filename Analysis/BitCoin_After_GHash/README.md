@@ -24,8 +24,7 @@ _Source_: [CoinDesk](https://www.coindesk.com/price/)
 
 In July 2014, a Bitcoin mining pool known as [GHash.IO](http://ghash.io/) breached an unspoken Bitcoin convention by achieving 51% 
 of the total hash power for the first time in Bitcoin's short history, which established what became the first Bitcoin trust. 
-In the months leading to GHash.IO gaining control of the 51% majority of the total hash rate the Bitcoin market was rattled and huge 
-sell-offs occurred, causing the value of Bitcoin to plummet at the beginning of the year when speculation began to occur about 
+In the months leading to GHash.IO gaining control of the 51% majority of the total hash rate the Bitcoin market was rattled and owners began to dump what they had, causing the value of Bitcoin to plummet at the beginning of the year when speculation began to occur about 
 when GHash.IO would reach the dreaded 51% mark. Though the number of transactions remained consistent, the value of those 
 transactions also decreased as shown below.
 
@@ -107,7 +106,7 @@ resulting in the lifetime imprisonment of Silk Road founder along with several m
 was said and done, the FBI became the [single largest holder of Bitcoin in a wallet](https://www.wired.com/2013/12/fbi_wallet/).
 
 Additionally, one of the hallmarks of the early years of Bitcoin was volatility, huge surges and plunges in value were the
-norm as the currency sought some kind of root in the real world. Using econometric analysis in the [ChartLab](https://apps.axibse.com) 
+norm as the currency sought some kind of root in the real world. Using econometric analysis in the [ChartLab](https://apps.axibase.com) 
 interface, Bitcoin's traded value can be normalized using log returns to track how the currency has stabilized of late.
 
 **Figure 5**: Bitcoin Closing Value Log Returns
