@@ -5,7 +5,7 @@ Data Source: [Federal Reserve Economic Data (FRED)](https://fred.stlouisfed.org/
 
 Visualizations: [ChartLab](https://apps.axibase.com)
 
-Structured Query Language: [SQL Console](https://github.com/axibase/atsd/tree/master/sql) from [Axibase](https://axibase.com)
+Structured Query Language: [SQL Console](https://github.com/axibase/atsd/blob/master/sql/README.md) from [Axibase](https://axibase.com)
 
 Download the Community Edition of [Axibase Time Series Database](https://axibase.com/products/axibase-time-series-database/) [here](https://github.com/axibase/atsd/blob/master/installation/README.md#installation)
 

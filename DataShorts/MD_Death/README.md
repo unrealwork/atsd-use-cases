@@ -3,7 +3,7 @@ Maryland Death Statistics (1993-2015)
 
 [Source Dataset](https://github.com/axibase/open-data-catalog/blob/master/datasets/i4x2-3kc7.md)
 
-[SQL Console](https://github.com/axibase/atsd/tree/master/sql) from [Axibase](https://axibase.com)
+[SQL Console](https://github.com/axibase/atsd/blob/master/sql/README.md) from [Axibase](https://axibase.com)
 
 [ChartLab](https://apps.axibase.com/) from [Axibase](https://axibase.com)
  

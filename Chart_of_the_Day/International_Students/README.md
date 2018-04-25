@@ -3,7 +3,7 @@ Where Do International Students in the United States Come From?
 
 > Visualization: [ChartLab](https://apps.axibase.com) from **[Axibase](https://axibase.com)**
 
-> Structured Query Language: [SQL Console](https://github.com/axibase/atsd/tree/master/sql)
+> Structured Query Language: [SQL Console](https://github.com/axibase/atsd/blob/master/sql/README.md)
 
 **Figure 1.1**
 

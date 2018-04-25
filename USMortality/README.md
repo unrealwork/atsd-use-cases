@@ -193,7 +193,7 @@ ORDER BY datetime
 This final example filters records for a particular city and time. Weekly samples are aggregated into months and the sum and count of samples in each month are calculated. With the line
 `HAVING count(value) >= 4`, months with less than 4 weekly samples are excluded (October 2016 has only 1 row).
 
-You can take a look at various other [SQL queries examples on our GitHub page](https://github.com/axibase/atsd/tree/master/sql/examples).
+You can take a look at various other [SQL queries examples on our GitHub page](https://github.com/axibase/atsd/blob/master/sql/README.md/examples).
 
 ### Detailed SQL Example 1 - Pneumonia and Influenza Deaths in Boston
 ------------------------------------------------------------
@@ -258,7 +258,7 @@ LIMIT 10
 | mr8w-325u   | 2016-07-30T00:00:00.000Z  | 12.0       | Boston         | 1                | MA              | mr8w-325u   | 2016-07-30T00:00:00.000Z  | 120.0      | Boston         | 1                | MA             |
 ```
 
-The below query is the same as the first one we looked at, with the only difference being tags here are explicitly specified. Read more about [series tags here](https://github.com/axibase/atsd/tree/master/sql#series-tag-columns).
+The below query is the same as the first one we looked at, with the only difference being tags here are explicitly specified. Read more about [series tags here](https://github.com/axibase/atsd/blob/master/sql/README.md#series-tag-columns).
 
 ```sql
 SELECT datetime, value, tags.city, tags.state, tags.region
@@ -270,7 +270,7 @@ LIMIT 10
 
 This next query is again for latest pneumonia and influenza and total readings for Boston, but with region code translated to region name using one of our Replacement Tables (as mentioned in the [step-by-step walk through](../USMortality/configuration.md)]). As a default, each region is listed
 by their corresponding number. In the case of Boston, it falls in region 1, which includes the states of Connecticut, Maine, Massachusetts, New Hampshire, Rhode Island, and Vermont. Recall that we created a replacement table in ATSD where
-we entered in region names for each region number. In this instance, region 1 is named **New-England**. Read more about [replacement tables here](https://github.com/axibase/atsd/tree/master/sql#lookup).
+we entered in region names for each region number. In this instance, region 1 is named **New-England**. Read more about [replacement tables here](https://github.com/axibase/atsd/blob/master/sql/README.md#lookup).
 
 ```sql
 SELECT datetime, value, tags.city, tags.state,
@@ -297,7 +297,7 @@ LIMIT 10
 ```
 
 This next query looks at total pneumonia and influenza deaths for all cities in a given region using the `GROUP BY` clause, which combines rows having common values into a single row. The region
-specified in this query is **New-England**. Read more about the `GROUP BY` clause [here](https://github.com/axibase/atsd/tree/master/sql#grouping).
+specified in this query is **New-England**. Read more about the `GROUP BY` clause [here](https://github.com/axibase/atsd/blob/master/sql/README.md#grouping).
 
 ```sql
 SELECT datetime, sum(value),  
@@ -514,7 +514,7 @@ FROM cdc.all_deaths tot
 A few noteworthy points regarding this query.
 
 1) This query has the same structure as for the query directly above, but 2 metrics are specified: `cdc.pneumonia_and_influenza_deaths` **AND** `cdc.all_deaths`.<br />
-2) `JOIN` merges records with the same entity, tags, and time. Read more about the `JOIN` clause [here](https://github.com/axibase/atsd/tree/master/sql#joins).<br />
+2) `JOIN` merges records with the same entity, tags, and time. Read more about the `JOIN` clause [here](https://github.com/axibase/atsd/blob/master/sql/README.md#joins).<br />
 3) A derived metric, `pni.value/tot.value`, is calculated to show a percentage of the part to the total number of deaths.<br />
 4) Only weeks with more than 1 pneumonia and influenza deaths are selected with the `AND pni.value > 1` condition.<br />
 
@@ -577,7 +577,7 @@ ORDER BY 'all_deaths' DESC
 This query has a similar structure to some of the examples we have already looked at. In this example, the `LIMIT` clause caps the number of rows that can be returned,
 which in this case is 10. The line `AND datetime > current_year` returns values from 2016-01-01T00:00:00.000Z to 2016-10-01T00:00:00.000Z.
 
-The [`OPTION (ROW_MEMORY_THRESHOLD {n})`](https://github.com/axibase/atsd/tree/master/sql#row_memory_threshold-option) instructs the database to perform processing in memory as opposed to a temporary table if the number of rows is within the specified threshold {n}. If
+The [`OPTION (ROW_MEMORY_THRESHOLD {n})`](https://github.com/axibase/atsd/blob/master/sql/README.md#row_memory_threshold-option) instructs the database to perform processing in memory as opposed to a temporary table if the number of rows is within the specified threshold {n}. If
 {n} is zero or negative, the results are processed using the temporary table.
 
 This next query examines the top 10 cities by pneumonia and influenza deaths in the current year (year to date).
@@ -1219,7 +1219,7 @@ Using our interpolated population numbers, we can see that our death rate value 
 
 Since numbers for `us.population` and the CDC metrics are collected at different frequencies (10 year vs 1 week), they have different collection periods. Therefore, it is necessary to
 calculate intermediate (weekly) population values to match the frequency of the CDC metrics. The `WITH INTERPOLATE` clause is set to 1 week to match the population periods to those of the
-CDC metrics. Read more about interpolation [here](https://github.com/axibase/atsd/tree/master/sql#interpolation).
+CDC metrics. Read more about interpolation [here](https://github.com/axibase/atsd/blob/master/sql/README.md#interpolation).
 
 ```sql
 SELECT datetime, value

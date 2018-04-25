@@ -44,7 +44,7 @@ Open the **TRENDS** visualization and use any of the supported user-defined func
 
 ### SQL Queries
 
-Although a non-relational database, ATSD supports an SQL-like feature called [SQL Console](https://github.com/axibase/atsd/tree/master/sql#overview), a convenient interface which lets users quickly query data.
+Although a non-relational database, ATSD supports an SQL-like feature called [SQL Console](https://github.com/axibase/atsd/blob/master/sql/README.md#overview), a convenient interface which lets users quickly query data.
 
 #### Greatest Life Expectancy for Year 2015
 
@@ -58,11 +58,11 @@ ORDER BY "Life Expectancy" DESC
 ```
 
 Query uses the following clauses:
-* [`FROM`](https://github.com/axibase/atsd/tree/master/sql#virtual-table)
-* [Alias / `AS`](https://github.com/axibase/atsd/tree/master/sql#aliases)
-* [`WHERE`](https://github.com/axibase/atsd/tree/master/sql#where-clause)
-* [`LIMIT`](https://github.com/axibase/atsd/tree/master/sql#limiting)
-* [`ORDER BY`](https://github.com/axibase/atsd/tree/master/sql#ordering)
+* [`FROM`](https://github.com/axibase/atsd/blob/master/sql/README.md#virtual-table)
+* [Alias / `AS`](https://github.com/axibase/atsd/blob/master/sql/README.md#aliases)
+* [`WHERE`](https://github.com/axibase/atsd/blob/master/sql/README.md#where-clause)
+* [`LIMIT`](https://github.com/axibase/atsd/blob/master/sql/README.md#limiting)
+* [`ORDER BY`](https://github.com/axibase/atsd/blob/master/sql/README.md#ordering)
 
 | Country           | Life Expectancy | 
 |-------------------|-----------------|
@@ -181,7 +181,7 @@ FROM "population_total_by_country"
 ```
 
 Clauses used in this query:
-* [`ROUND`](https://github.com/axibase/atsd/tree/master/sql#mathematical-functions)
+* [`ROUND`](https://github.com/axibase/atsd/blob/master/sql/README.md#mathematical-functions)
 
 | Country       | Change in Population (Million) | 
 |---------------|-----------------------------| 

@@ -9,7 +9,7 @@
 
 **Visualization Tool**: [Axibase ChartLab](https://axibase.com/)
 
-**Structured Query Language (SQL)**: [Axibase SQL Console](https://github.com/axibase/atsd/tree/master/sql#overview)
+**Structured Query Language (SQL)**: [Axibase SQL Console](https://github.com/axibase/atsd/blob/master/sql/README.md#overview)
 
 ## Introduction
 
@@ -92,7 +92,7 @@ inspection of government financial records reveal the depth and severity of the 
 understood.
 7. July 1, 2014: The end of the EU bailout policy, and completion of funds distribution.
 
-The following SQL query will return the [average value](https://github.com/axibase/atsd/tree/master/sql#aggregation-functions) of the EPU index for the Eurozone for the period from 2002 until 2018 and will consolidate the information using a [`round` expression](https://github.com/axibase/atsd/tree/master/sql#mathematical-functions).
+The following SQL query will return the [average value](https://github.com/axibase/atsd/blob/master/sql/README.md#aggregation-functions) of the EPU index for the Eurozone for the period from 2002 until 2018 and will consolidate the information using a [`round` expression](https://github.com/axibase/atsd/blob/master/sql/README.md#mathematical-functions).
 
 ```
 SELECT ROUND(AVG(value), 0) AS "average-epu" FROM EUEPUINDXM_
@@ -114,7 +114,7 @@ SELECT datetime, ROUND(value,0) FROM EUEPUINDXM_
   WHERE datetime  IN ('2002-01','2008-11','2010-02','2010-05','2010-11','2012-03','2014-07')
 ```
 
-Multiple `datetime` values can be conveniently enumerated as a list using an [`IN`](https://github.com/axibase/atsd/tree/master/sql#in-expression) expression. The above query returns the following values for each of the targeted months:
+Multiple `datetime` values can be conveniently enumerated as a list using an [`IN`](https://github.com/axibase/atsd/blob/master/sql/README.md#in-expression) expression. The above query returns the following values for each of the targeted months:
 
 |Event|EPU Index Value|
 |---|:-:|
@@ -135,7 +135,7 @@ SELECT datetime, ROUND(value, 0) AS "top-epu" FROM EUEPUINDXM_
   --ORDER BY value desc LIMIT 7
 ```
 
-This query shows that none of the expected entries appear among the greatest EPU index values during the examined time period in descending order using an [`ORDER BY`](https://github.com/axibase/atsd/tree/master/sql#where-clause) expression in the `WHERE` clause.
+This query shows that none of the expected entries appear among the greatest EPU index values during the examined time period in descending order using an [`ORDER BY`](https://github.com/axibase/atsd/blob/master/sql/README.md#where-clause) expression in the `WHERE` clause.
 
 |Date|EPU Index Value|
 |---|:-:|

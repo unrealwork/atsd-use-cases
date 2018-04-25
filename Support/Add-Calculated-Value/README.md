@@ -17,7 +17,7 @@ When trying to beat the market each year, investment firms track their fund's pe
 as supporting evidence. Percent growth is much more broadly applicable when comparing company performance because it disregards 
 the differences in overall company worth and currency value in favor of relative rates of change.
 
-Thanks to the [`replace-value`](https://axibase.com/products/axibase-time-series-database/visualization/widgets/configuring-the-widgets/) setting in [ChartLab](https://apps.axibase.com) and support for on-the-fly value modification in [SQL Console](https://github.com/axibase/atsd/tree/master/sql)
+Thanks to the [`replace-value`](https://axibase.com/products/axibase-time-series-database/visualization/widgets/configuring-the-widgets/) setting in [ChartLab](https://apps.axibase.com) and support for on-the-fly value modification in [SQL Console](https://github.com/axibase/atsd/blob/master/sql/README.md)
 from [Axibase](https://axibase.com), calculations derived from underlying data do not require a secondary support program. 
 Calculating a derived value and returning the results can be handled completely from within the ATSD or ChartLab user interface,
 and even exported for further use elsewhere.
@@ -87,9 +87,9 @@ SELECT date_format(time, 'yyyy') AS "Year", value AS "Debt (Million Euro)", 100*
 ORDER BY datetime
 ```
 
-This query makes use of the [`LAG`](https://github.com/axibase/atsd/tree/master/sql#lag) function, which lets the user
+This query makes use of the [`LAG`](https://github.com/axibase/atsd/blob/master/sql/README.md#lag) function, which lets the user
 access the previous row of the same result set without robust syntax. When used with the first row in a given dataset, the `LAG` function returns
-a [`NULL`](https://github.com/axibase/atsd/tree/master/sql#null) value.
+a [`NULL`](https://github.com/axibase/atsd/blob/master/sql/README.md#null) value.
 
 The underlying formula in this query is simple: 
 

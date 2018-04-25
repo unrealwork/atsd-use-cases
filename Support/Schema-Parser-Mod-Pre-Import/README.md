@@ -8,7 +8,7 @@ in a given file, or maybe calculations must be done with the given data in order
 your current needs.
 
 With [Axibase Schema-Based Parsing](https://axibase.com/products/axibase-time-series-database/writing-data/csv/csv-schema/)
-data can be modified upon import so that working with it in the [SQL Console](https://github.com/axibase/atsd/tree/master/sql) 
+data can be modified upon import so that working with it in the [SQL Console](https://github.com/axibase/atsd/blob/master/sql/README.md) 
 or [ChartLab](https://apps.axibase.com) is more useful.
 
 #### Data

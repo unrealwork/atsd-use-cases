@@ -105,7 +105,7 @@ GROUP BY period(1 YEAR, END_TIME)
 
 *Fig 4.* The table above shows the results of a query which tracks absolute and percentile year-on-year change in expatriate numbers, similar to the *Fig 2* and *Fig 3* above.
 
-The above query uses the [`LAG`](https://github.com/axibase/atsd/tree/master/sql#lag) function to select the previous value, offset by one index position, when creating comparative tables like the one shown here.
+The above query uses the [`LAG`](https://github.com/axibase/atsd/blob/master/sql/README.md#lag) function to select the previous value, offset by one index position, when creating comparative tables like the one shown here.
 
 Likewise, data may be tracked by quarter using the query below:
 
@@ -143,7 +143,7 @@ GROUP BY period(1 QUARTER)
 
 *Fig 5.* Tracked by quarter, expatriation data since 2013 is shown in the table above.
 
-The above query uses a [`CAST`](https://github.com/axibase/atsd/tree/master/sql#cast) clause and [`CEIL`](https://github.com/axibase/atsd/tree/master/sql#mathematical-functions) function to rename each quarter.
+The above query uses a [`CAST`](https://github.com/axibase/atsd/blob/master/sql/README.md#cast) clause and [`CEIL`](https://github.com/axibase/atsd/blob/master/sql/README.md#mathematical-functions) function to rename each quarter.
 
 ### Web Crawler
 

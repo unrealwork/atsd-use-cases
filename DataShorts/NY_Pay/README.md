@@ -5,7 +5,7 @@ New York City Income by Adjusted Gross Income (AGI) Range (2014)
 
 > Visualizations: [ChartLab](https://apps.axibase.com) from [Axibase](https://axibase.com)
 
-> Structured Query Language (SQL): [SQL Console](https://github.com/axibase/atsd/tree/master/sql#overview) from [Axibase](https://axibase.com)
+> Structured Query Language (SQL): [SQL Console](https://github.com/axibase/atsd/blob/master/sql/README.md#overview) from [Axibase](https://axibase.com)
 
 All data is stored in the [Axibase Time Series Database](https://axibase.com). Download the Community Version [here](https://github.com/axibase/atsd/blob/master/installation/README.md#installation).
 
