@@ -12,7 +12,7 @@ Do you want to explore different graphical outputs **all in one place**?
 
 Chart Lab is a versatile online tool which allows users to test drive Axibase Time Series Database (ATSD) visualization capabilities. Chart Lab doesn't require any kind of
 registration and allows you to experiment with different layouts and widget settings prior to deploying it in your own ATSD instance. For front-end developers familiar with
-[jsfiddle.net](http://jsfiddle.net/da1rosy8/), Chart Lab shares many of the same properties and characteristics.
+[`jsfiddle.net`](http://jsfiddle.net/da1rosy8/), Chart Lab shares many of the same properties and characteristics.
 
 The purpose of this article is to walk the new user through the whole process and showcase all of the different features of ChartLab.
 

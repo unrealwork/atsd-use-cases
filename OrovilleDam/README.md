@@ -178,7 +178,7 @@ Below are the summarized steps to follow to install local configurations of ATSD
 
 3. In Terminal, launch containers with the following command:
 
-   ```sql   
+   ```txt
    export C_USER=myuser; export C_PASSWORD=mypassword; docker-compose pull && docker-compose up -d
    ```
 
