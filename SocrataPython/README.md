@@ -23,10 +23,13 @@ The [`docker-compose.yml`](docker-compose.yml) file configures Axibase Time Seri
 ### Launch containers
 
 ```sh
-export C_USER=myuser; export C_PASSWORD=mypassword; export S_PATH=https://data.ny.gov/api/views/3pzs-2zsk; docker-compose pull && docker-compose up -d
+export C_USER=myuser; \
+export C_PASSWORD=mypassword; \
+export S_PATH=https://data.ny.gov/api/views/3pzs-2zsk; \
+docker-compose pull && docker-compose up -d
 ```
 
-```sh
+```txt
 Pulling atsd (axibase/atsd:latest)...
 latest: Pulling from axibase/atsd
 ...
@@ -42,7 +45,7 @@ docker logs -f atsd
 
 An 'ATSD start completed' message means that the setup completed successfully.
 
-```
+```txt
 ...
  * [ATSD] Starting ATSD ...
  * [ATSD] ATSD not running.
@@ -55,8 +58,8 @@ An 'ATSD start completed' message means that the setup completed successfully.
 ...
  * [ATSD] http://172.17.0.2:8088
  * [ATSD] https://172.17.0.2:8443
- * [ATSD] ATSD start completed.  
- ```
+ * [ATSD] ATSD start completed.
+```
 
 ### Install `atsd_client`, `pandas` and `tabulate` python modules
 
@@ -85,7 +88,13 @@ from atsd_client.services import SQLService
 
 ```python
 conn = atsd_client.connect_url('http://localhost:8088', 'myuser', 'mypassword')
+```
+
+```python
 sql = SQLService(conn)
+```
+
+```python
 q = """SELECT p.tags.contractor AS contractor,
         COUNT(p.value) AS project_count,
         ROUND(SUM(p.value)/1000, 0) AS total_gwh_annual_production,
