@@ -143,7 +143,7 @@ GRANT SELECT ON mysql.stat_orders_hourly_total TO 'axibase-readonly'@'%';
 GRANT SELECT ON mysql.stat_orders_hourly_detail TO 'axibase-readonly'@'%';
 ```
 
-* `stat_orders_hourly_total` results
+* `stat_orders_hourly_total` results.
 
 ```ls
 | total_amount | total_count |
@@ -151,7 +151,7 @@ GRANT SELECT ON mysql.stat_orders_hourly_detail TO 'axibase-readonly'@'%';
 | 920          | 1           |
 ```
 
-* `stat_orders_hourly_detail` results
+* `stat_orders_hourly_detail` results.
 
 ```ls
 | customer | customer_amount | customer_count |

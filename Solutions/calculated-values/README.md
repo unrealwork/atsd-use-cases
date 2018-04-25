@@ -43,8 +43,8 @@ data from 1947 onward, small scale differences are expected in the outputs of ea
 #### Index
 
 * [Consumer Price Index](#consumer-price-index)
-* [CPI Calculated from a Variable Baseline](#cpi-calculated-from-a-variable-baseline)
 * [Monthly Change](#monthly-change)
+* [CPI Calculated from a Variable Baseline](#cpi-calculated-from-a-variable-baseline)
 * [Change from a Year Ago](#change-from-a-year-ago)
 * [Monthly Percent Change](#monthly-percent-change)
 * [Monthly Percent Change from a Year Ago](#monthly-percent-change-from-a-year-ago)
