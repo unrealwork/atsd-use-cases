@@ -51,24 +51,6 @@
 <intervalCount>6</intervalCount>
 <intervalUnit>MINUTE</intervalUnit>
 </repeat-interval>
-<name>Web Service Notification id=663</name>
-<use-in-threshold-only>false</use-in-threshold-only>
-<first-details>false</first-details>
-<repeat-details>false</repeat-details>
-<cancel-details>false</cancel-details>
-<first-screenshot>false</first-screenshot>
-<repeat-screenshot>false</repeat-screenshot>
-<cancel-screenshot>false</cancel-screenshot>
-<repeat-as-open>true</repeat-as-open>
-<cancel-as-open>true</cancel-as-open>
-<webNotification>
-<disabled>false</disabled>
-<rule-name>dockerhub-build-fail</rule-name>
-<repeat-interval>
-<type>ALL</type>
-<intervalCount>6</intervalCount>
-<intervalUnit>MINUTE</intervalUnit>
-</repeat-interval>
 <name>Web Service Notification id=664</name>
 <use-in-threshold-only>false</use-in-threshold-only>
 <first-details>false</first-details>
