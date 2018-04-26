@@ -9,7 +9,7 @@ Visualization Tool: [ChartLab](https://apps.axibase.com)
 
 ![](Images/eudpc-003.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/e92a4f6c/10/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/e92a4f6c/10/#fullscreen)
 
 > Use the dropdown menus at the top of the visualization to navigate through time by selecting the desired start and end
 years for the observation period.
@@ -26,7 +26,7 @@ sorted by member country and below that same information is displayed in one yea
 
 ![](Images/eudpc-002.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/d38e750e/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/d38e750e/#fullscreen)
 
 > Open the visualization above and navigate through time with the dropdown menu.
 
@@ -41,7 +41,7 @@ The following visualization tracks debt growth by country from 2006 to 2016:
 
 ![](Images/eudpc-013.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/d38e750e/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/d38e750e/#fullscreen)
 
 This dataset is queried further and indexed in the [Data Library](https://axibase.com/blog/data-library/) using the [SQL Console](https://github.com/axibase/atsd/blob/master/sql/README.md).
 See the complete entry [here](../../DataShorts/EU_Debt_percap/README.md).

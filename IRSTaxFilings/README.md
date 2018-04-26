@@ -24,7 +24,7 @@ _Source: [IRS Filing Season Statistics](https://www.irs.gov/uac/2017-and-prior-y
 
 ![](Images/total_receipts.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/626f6fb9/3/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/626f6fb9/3/#fullscreen)
 
 One of the possible reasons is refund delays introduced by the [Protecting Americans From Tax Hikes Act of 2015](https://www.irs.gov/uac/newsroom/path-act-tax-related-provisions) (**PATH**). While some news reports have speculated that the slack is caused by the misguided expectations of a possible [tax relief](http://www.reuters.com/article/us-money-taxes-delays-idUSKBN16L18C) in the aftermath of the 2017 presidential election, the PATH Act appears to be the most credible explanation for the drop in filings. The Act mandates the IRS to put a hold on refunds claiming the Earned Income Tax Credit or the Additional Child Tax Credit until mid-February. It removes incentives for the early filers to submit the returns as soon as possible. To its credit the PATH act attempts to fight a major loophole that allowed identity fraudsters to submit **5 million** fake returns and steal **[$30 billion](https://www.justice.gov/tax/stolen-identity-refund-fraud)** from tax payers in 2013 of which only **$24 billion** was recovered.
 
@@ -187,7 +187,7 @@ Given that a higher percentage (60+%) of early returns is submitted via tax prep
 
 ![](Images/e_filings.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/fc79b852/2/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/fc79b852/2/#fullscreen)
 
 
 ## Querying Data

@@ -3,7 +3,7 @@ United States Voter Turnout Since 1970
 
 ![](Images/vote1.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/499e5c3b/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/499e5c3b/#fullscreen)
 
 > Data Source: [The Institute for Democracy and Electoral Assistance](http://www.idea.int/data-tools/question-countries-view/521/295/ctr)
 

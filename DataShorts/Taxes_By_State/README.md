@@ -11,7 +11,7 @@ Tax Rates by State: Corporate, Individual, Sales (2017)
 
 ![](Images/Taxes_1.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/d7c5125c/2/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/d7c5125c/2/#fullscreen)
 
 ```sql
 SELECT tags.state AS "State", value AS "Individual Income Tax Rate (%)"
@@ -83,7 +83,7 @@ GROUP BY 'State', value
 
 ![](Images/Taxes_2.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/d7c5125c/3/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/d7c5125c/3/#fullscreen)
 
 ```sql
 SELECT tags.state AS "State", value AS "Corporate Income Tax Rate (%)"
@@ -156,7 +156,7 @@ GROUP BY 'State', value
 
 ![](Images/Taxes_3.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/d7c5125c/4/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/d7c5125c/4/#fullscreen)
 
 ```sql
 SELECT tags.state AS "State", value AS "Sales Tax Rate (%)"
@@ -230,7 +230,7 @@ GROUP BY 'State', value
 
 ![](Images/Taxes_4.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/d7c5125c/5/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/d7c5125c/5/#fullscreen)
 
 ```sql
 SELECT tags.state AS "State", value AS "Total Tax Rate (%)"

@@ -16,7 +16,7 @@ a final product. Both are shown below from 1990 to 2017:
 
 ![](Images/pro-one.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/0b791490/#fullscreen)
+[![View ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/0b791490/#fullscreen)
 
 > Open any ChartLab visualization to navigate through time using the dropdown menus at the top of the screen.
 
@@ -121,7 +121,7 @@ As shown in the table above and figure below, the Potential Profitability Value 
 
 ![](Images/pro-4.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/bbd570f0/#fullscreen)
+[![View ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/bbd570f0/#fullscreen)
 
 The red line shows the average Potential Profitability Value over the entire observed period.
 
@@ -149,7 +149,7 @@ of the recession on producer profits. A detailed use case and syntax explanation
 
 ![](Images/pro-5.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/9fe50f95/#fullscreen)
+[![View ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/9fe50f95/#fullscreen)
 
 ### Analysis
 
@@ -172,7 +172,7 @@ The calculations shown above can be repeated with core CPI and PPI to account fo
 
 ![](Images/pro-6.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/f3c7eefe/#fullscreen)
+[![View ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/f3c7eefe/#fullscreen)
 
 Immediately visible is the lack of fluctuation in both CPI and PPI surrounding the years of the recession. The underlying data
 is shown below from 1990 to present:
@@ -224,7 +224,7 @@ GROUP BY YEAR(time)
 
 ![](Images/pro-7.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/bae30175/#fullscreen)
+[![View ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/bae30175/#fullscreen)
 
 > Open any ChartLab visualization to navigate through time using the dropdown menus at the top of the screen.
 
@@ -237,7 +237,7 @@ sector is shown below alongside the calculated both Potential Profitability Valu
 
 ![](Images/pro-8.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/037a04f9/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/037a04f9/#fullscreen)
 
 In fact, when the energy food sectors are not excluded from CPI and PPI values and compared with the per barrel price of crude
 oil they are shown to be intimately tied to one another. Inverting the axes of the black line representing Potential Profitability Value
@@ -247,7 +247,7 @@ highlights this relationship further:
 
 ![](Images/pro-9.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/037a04f9/2/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/037a04f9/2/#fullscreen)
 
 Using an ad-hoc modification to align the origin of the two metrics shows the growing gap between oil prices and marginal profit
 indicating that while related to one another, high oil prices do not guarantee a high marginal profit. In fact, because of 
@@ -259,7 +259,7 @@ the reflection across the x-axis, as oil prices increase, the value of marginal 
 
 ![](Images/pro-10.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/037a04f9/3/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/037a04f9/3/#fullscreen)
 
 Despite a significant decrease in marginal profit levels during the late 2000s, when including the energy sector and food
 sectors, it appears that businesses have mostly picked up where they left off pre-downturn. Indeed, when these industries are
@@ -270,7 +270,7 @@ delayed, effect indicating the true power of the oil market over the American ec
 
 ![](Images/pro-12.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/037a04f9/4/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/037a04f9/4/#fullscreen)
 
 Ultimately, the overall cost of various consumer goods in a given basket is heavily impacted by the cost of oil because of
 the need to transport a given good to the needed location and with the nature of the globalized goods market, often that means

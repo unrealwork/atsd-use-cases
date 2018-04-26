@@ -3,7 +3,7 @@ Credit Card Loan Delinquency at 25 Year Low
 
 ![](Images/ccl1.png) 
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/ffe5d3fe/2/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/ffe5d3fe/2/#fullscreen)
 
 > Open the ChartLab visualization above to modify the years of observation in any of the three graphs.
 

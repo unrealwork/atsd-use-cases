@@ -50,7 +50,7 @@ by country by clicking on the dropdown button. Here are a few more countries wit
 
 You can explore this portal by clicking on the below button:
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/8c9bb9cc/4/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/8c9bb9cc/4/#fullscreen)
 
 The below image shows how refusal rates have changed over time for Afghanistan, Canada, China - mainland, India, Mexico, Norway, Russia, and Vatican City.
 
@@ -58,7 +58,7 @@ The below image shows how refusal rates have changed over time for Afghanistan, 
 
 You can explore this portal by clicking on the below button:
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/8c9bb9cc/5/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/8c9bb9cc/5/#fullscreen)
 
 The below figure shows the countries with the highest and lowest refusal rates in 2015. Cuba topped the list with the highest refusal rate at **82%**, while Liechtenstein, Monaco, and
 San Marino all had refusal rates of **0%**.
@@ -67,7 +67,7 @@ San Marino all had refusal rates of **0%**.
 
 You can explore this portal by clicking on the below button:
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/b8675093/2/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/b8675093/2/#fullscreen)
 
 The below figure shows the distribution over time of the lowest (top figure) and highest (bottom figure) refusal rates from 2015. By scrolling over of the distributions, you
 can see the maximum and minimum refusal rates for the country from 2006 through 2016, as well as values for the 25th, 50th, and 75th percentiles. We can see that the visa refusal rates
@@ -78,7 +78,7 @@ refusal from 2006 to 2014 being 20.5%.
 
 You can explore this portal by clicking on the below button:
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/b8675093#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/b8675093#fullscreen)
 
 ### SQL Queries
 ---------------

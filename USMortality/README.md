@@ -53,7 +53,7 @@ Below is an output of the default configuration with all 122 U.S. cities parsed 
 
 Here you can explore the complete dataset for U.S. death totals:
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/3d07088c)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/3d07088c)
 
 ### Creating Local Configurations for ATSD and Axibase Collector using Docker
 -----------------------------------------------------------------------------
@@ -446,7 +446,7 @@ Since the hurricane occurred on August 29th, 2005, these sky high death totals d
 
 You can explore the death totals for New Orleans in the Chart Lab instance below.
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/3d07088c/2/)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/3d07088c/2/)
 
 Another example of a city stopping data collection is Philadelphia, Pennsylvania. Looking at a [filtered output for Philadelphia](https://apps.axibase.com/chartlab/3d07088c/3/), we can see that the
 city has recently experienced a significant increase in deaths. The city recorded a death total of 1,063 on February 4th, 2012; however data collection was stopped on November 24th, 2012. So, using this

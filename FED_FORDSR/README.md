@@ -66,7 +66,7 @@ releases this number each quarter.
 
 ![](Images/fed-001.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/842f1dd9/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/842f1dd9/#fullscreen)
 
 > Use the dropdown menus at the top of the visualization screen to navigate through time, selecting the `starttime` and `endtime` values
 to observe a desired period.
@@ -143,7 +143,7 @@ of a person's gross monthly earning would still be available to them after makin
 
 ![](Images/fed-002.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/85522dd3/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/85522dd3/#fullscreen)
 
 **Query 2.1**
 
@@ -231,7 +231,7 @@ the last three decades.
 
 ![](Images/fed-003.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/f25de723/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/f25de723/#fullscreen)
 
 The visualization can also be organized to show the amount of each type of debt as it relates to the others:
 
@@ -239,7 +239,7 @@ The visualization can also be organized to show the amount of each type of debt 
 
 ![](Images/fed-004.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/f25de723/3/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/f25de723/3/#fullscreen)
 
 Additionally, these values can be compared on an annual basis as shown in the visualization below:
 
@@ -247,7 +247,7 @@ Additionally, these values can be compared on an annual basis as shown in the vi
 
 ![](Images/fed-005.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/81ea0ea0/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/81ea0ea0/#fullscreen)
 
 To view the distribution of these values across time, a histogram is shown below:
 
@@ -255,7 +255,7 @@ To view the distribution of these values across time, a histogram is shown below
 
 ![](Images/fed-006.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/9f74c179/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/9f74c179/#fullscreen)
 
 In the following box diagram, explore time with the dropdown menus at the top of the visualization screen. The visualization
 shows the distribution of debt values as a percentage of total income, with the initial time period set to include the
@@ -265,7 +265,7 @@ entire data set:
 
 ![](Images/fed-007.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/20ff0ade/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/20ff0ade/#fullscreen)
 
 The following SQL query will detail the above visualizations in one table, displaying averaged annual values of each component
 described above: non-essential credit payments, mortgage credit payments, and consumer credit payments, as well as the Financial
@@ -339,7 +339,7 @@ to create more comprehensive data.
 
 ![](Images/fed-008.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/da132e01/11/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/da132e01/11/#fullscreen)
 
 The above visualization aggregates the values from **Table 3.1** based on a time period of the user's selection. Use the drop-down
 menu at the top of the screen to select the aggregation period. The initial visualization shows the average values for each

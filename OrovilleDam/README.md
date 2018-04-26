@@ -39,7 +39,7 @@ Below is an image showing these CDWR metrics in ATSD. You can toggle between the
 
 You can explore the basic CDWR portal (loaded into ATSD) by clicking the button below:
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/dee79515/11/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/dee79515/11/#fullscreen)
 
 **You do not need to install ATSD to look the realtime Oroville dam analysis in this article**.
 
@@ -60,7 +60,7 @@ of 3,578,686 af on Sunday February 12th at 3:00 am.
 
 You can explore this portal by clicking the button below:
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/dee79515#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/dee79515#fullscreen)
 
 ### Reservoir Storage Levels
 ----------------------------
@@ -81,7 +81,7 @@ for February 9th (237,689 af), 10th (39,522 af), and 11th (53,896 af), which was
 
 You can explore this portal by clicking on the button below:
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/dee79515/2#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/dee79515/2#fullscreen)
 
 ### Reservoir Inflow, Outflows, and Precipitation
 -------------------------------------------------
@@ -98,7 +98,7 @@ Below are three outputs for the Oroville dam:
 
 You can explore this portal by clicking on the button below:
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/dee79515/10/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/dee79515/10/#fullscreen)
 
 ### The Next Several Days
 -------------------------
@@ -121,7 +121,7 @@ levels. Periods with rainfall accumulation less than 4 inches experienced much l
 
 You can explore this portal by clicking on the button below:
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/dee79515/7/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/dee79515/7/#fullscreen)
 
 Below is an image of the situation at the time this article was published. As of 5:00 am PT on February 15th, the reservoir storage level was at 3,230,432 af, which is 307,145 af
 less than the dam threshold. We can also see that for the last several days, the storage level has been decreasing. However, rain has been [forecast](https://weather.com/en/weather/tenday/l/95966:4:US)

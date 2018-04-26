@@ -5,7 +5,7 @@ Public Utilities and Private Industry in Austin
 
 ![](Images/AP-001.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/efc684ff/2/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/efc684ff/2/#fullscreen)
 
 Austin, Texas is the Lone Star State's capital city and one of the fastest growing cities in America. Home to the University
 of Texas at Austin, which produces thousands of well-qualified computer science graduates each year and funnels new talent into
@@ -55,7 +55,7 @@ observed period, which is detailed in **Table 1.2** below the visualization.
 
 ![](Images/AP-002.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/efc684ff/3/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/efc684ff/3/#fullscreen)
 
 **Script 1.2**
 
@@ -84,7 +84,7 @@ customers significantly out-use the industrial sector by almost double.
 
 ![](Images/AP-003.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/efc684ff/4/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/efc684ff/4/#fullscreen)
 
 **Script 1.3**
 

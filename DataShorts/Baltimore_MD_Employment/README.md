@@ -42,7 +42,7 @@ ORDER BY 'Year' ASC
 
 ![](Images/BMD_1.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/19d89e95/2/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/19d89e95/2/#fullscreen)
 
 #### Most Populous Industries (2001)
 
@@ -72,7 +72,7 @@ ORDER BY '2001 Total (Thousand)' DESC
 
 ![](Images/BMD_9.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/fa80759c/7/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/fa80759c/7/#fullscreen)
 
 #### Most Populous Industries (2040)
 
@@ -102,7 +102,7 @@ ORDER BY '2040 Total (Thousand)' DESC
 
 ![](Images/BMD_10.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/fa80759c/8/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/fa80759c/8/#fullscreen)
 
 #### Most Populous Industries (Average) (2001-2040)
 
@@ -132,7 +132,7 @@ ORDER BY 'Average Total (Thousand)' DESC
 
 ![](Images/BMD_4.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/56ce84ce/5/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/56ce84ce/5/#fullscreen)
 
 #### Most Positive Job Outlook (2001-2040)
 
@@ -165,7 +165,7 @@ ORDER BY 'Average Total (Thousand)' DESC
 
 ![](Images/BMD_3.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/56ce84ce/4/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/56ce84ce/4/#fullscreen)
 
 > The delta value is shown for each of the ten fields above
 
@@ -253,7 +253,7 @@ ORDER BY 'Average Total (Thousand)' ASC
 
 ![](Images/BMD_6.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/56ce84ce/7/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/56ce84ce/7/#fullscreen)
 
 #### Least Positive Job Outlook (2001-2040)
 
@@ -283,4 +283,4 @@ ORDER BY 'Average Total (Thousand)' ASC
 
 ![](Images/BMD_5.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/56ce84ce/6/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/56ce84ce/6/#fullscreen)

@@ -13,7 +13,7 @@ European Union Debt by Country (2005-2016)
 
 ![](Images/eud-01.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/e4e290d2/9/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/e4e290d2/9/#fullscreen)
 
 > Open the ChartLab visualization above and use the drop-down menus to navigate between countries or select the European Union
 total. Use both charts to compare two countries, one country to the EU total, or any other desired combination.
@@ -24,7 +24,7 @@ total. Use both charts to compare two countries, one country to the EU total, or
 
 ![](Images/eud-03.png) 
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/5d6d6252/5/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/5d6d6252/5/#fullscreen)
 
 > Open the ChartLab visualization above and use the drop-down menu to navigate between countries. The red line represents
 the European Union debt as a percent of GDP, used as a baseline for reference.
@@ -35,7 +35,7 @@ the European Union debt as a percent of GDP, used as a baseline for reference.
 
 ![](Images/eud-04.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/64b4fd84/13/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/64b4fd84/13/#fullscreen)
 
 > Open the ChartLab visualization above and use the drop-down menu to navigate through time. 
 

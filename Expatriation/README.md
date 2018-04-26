@@ -2,7 +2,7 @@
 
 ![](Images/expat-title.png)
 
-### Introduction
+## Introduction
 
 Each year the Internal Revenue Service of the United States releases expatriation information about American citizens who have decided to renounce their citizenship via the [Federal Register](https://www.federalregister.gov/), the government's official journal. The reason the IRS publishes this information is to levy the [Expatriation Tax](https://www.irs.gov/individuals/international-taxpayers/expatriation-tax) upon those citizens with enough wealth to incur the tax at the time of their renunciation. The tax doesn't apply to just anyone who decides to leave the country for good, only to those soon-to-be-former citizens who qualify as "covered expatriates".
 
@@ -17,18 +17,18 @@ A covered expatriate must meet any one of the following criteria:
 As observed [last year](2017-2.md), citizens from the United States were leaving the country at previously unseen levels against the backdrop of one of the more contentious recent presidential elections.
 
 ![](Images/expat-title-2.png)
-[![](Images/button.png)](https://apps.axibase.com/chartlab/61a855b0/3/#fullscreen)
+[![](Images/btn.png)](https://apps.axibase.com/chartlab/61a855b0/3/#fullscreen)
 
 *Fig 1.* The top chart uses a [`time-offset`](https://axibase.com/products/axibase-time-series-database/visualization/widgets/time-chart/) setting to show a quarter-on-quarter comparison, while the annual totals are shown in the bottom chart.
 
-### ChartLab
+## ChartLab
 
 Both of the above graphs were prepared with Axibase ChartLab which is a visualization sandbox that features convenient syntax with different types of charts. The above visualizations may be modified to produce several projections of the same dataset stored in Axibase Time Series Database (ATSD).
 
 A number of built-in [statistical functions](https://github.com/axibase/atsd/blob/master/rule-engine/functions-statistical.md) are already supported by ChartLab, and [user-defined functions](../how-to/shared/trends.md#user-defined-functions) may be added to a local ATSD instance. You can follow these [instructions](https://github.com/axibase/charts/blob/master/syntax/udf.md#deploying-function-files) to upload a user-defined function as a JavaScript file.
 
 ![](Images/previous-year.png)
-[![](Images/button.png)](https://apps.axibase.com/chartlab/a14a69a4#fullscreen)
+[![](Images/btn.png)](https://apps.axibase.com/chartlab/a14a69a4#fullscreen)
 
 *Fig 2.* The above visualization uses the `ChangeFromPreviousYear` user-defined function. While the absolute value of U.S. expatriates was the greatest during 2016-2017, the greatest relative change was actually observed several years ago.
 
@@ -51,7 +51,7 @@ Customized data monitoring in ATSD is possible using [`alert-expressions`](https
 Here, alert expressions are applied to static data, but they may be easily applied to dynamic data and used for systems monitoring as seen in this [example](https://apps.axibase.com/chartlab/67aa3b61) which is monitoring one of the Axibase servers right now.
 
 ![](Images/percent-change.png)
-[![](Images/button.png)](https://apps.axibase.com/chartlab/95617f2b)
+[![](Images/btn.png)](https://apps.axibase.com/chartlab/95617f2b)
 
 *Fig 3.* The `alert-expression` used here highlights quarters where the percent change from the previous year was greater than 50% in red, and quarters where it was less than -10% in green.
 
@@ -67,7 +67,7 @@ When using a two-parameter `alert-expression`, three arguments are needed: an up
 
 For more information about ChartLab syntax or to explore other features which may be used in the example above, see the complete [ChartLab documentation](https://axibase.com/products/axibase-time-series-database/visualization/widgets/).
 
-### SQL
+## SQL
 
 In addition to ChartLab, the Axibase Time Series Database includes a web-based [SQL Console](https://github.com/axibase/atsd/blob/master/sql/README.md) which can be used for ad-hoc data exploration.
 
@@ -145,7 +145,7 @@ GROUP BY period(1 QUARTER)
 
 The above query uses a [`CAST`](https://github.com/axibase/atsd/blob/master/sql/README.md#cast) clause and [`CEIL`](https://github.com/axibase/atsd/blob/master/sql/README.md#mathematical-functions) function to rename each quarter.
 
-### Web Crawler
+## Web Crawler
 
 The data published by the Federal Register requires an intermediate ETL step in order to be available for analysis. This extraction-transformation-loading procedure is implemented by a [web crawler](https://github.com/axibase/atsd-data-crawlers/tree/irs-expatriation-data-crawler#irs-expatriation-statistics-data-crawler) built specifically for the task of tracking Federal Register publications for new expatriation data releases.
 
@@ -163,7 +163,7 @@ Once the data is stored in the database, the date (`d:`) parameter may be refere
 
 The complete list and operation instructions of other supported Axibase data crawlers is hosted [here](https://github.com/axibase/atsd-data-crawlers).
 
-### Conclusion
+## Conclusion
 
 An unusually large number of expatriates renouncing their United States citizenship was observed during the last half-decade, with an exceptionally high number leaving the country during 2016-2107. While the most recent figures show that this number has markedly decreased, it still remains higher than it ever was pre-2010. There's probably not a very simple answer to the question of 'Why?' but BBC recently wrote a brief [exposé](http://www.bbc.com/capital/story/20170123-meet-the-people-leaving-trumps-america) discussing the Americans who chose to leave the country in response to the recent presidential elections.
 

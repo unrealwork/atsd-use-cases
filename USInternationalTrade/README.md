@@ -43,7 +43,7 @@ The top image shows exports (in blue) over imports (in pink). In 2016, imports i
 
 You can explore this portal by clicking on the below button:
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/552d7a44/2/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/552d7a44/2/#fullscreen)
 
 In addition to looking at graphical outputs, we can also perform [SQL queries](https://github.com/axibase/atsd/blob/master/sql/README.md#overview), which can be used
 to search for specific information contained in this dataset. From the following query, we can see that, within the time range of our dataset, 1991 was the year which had the least negative trade balance of **-$66.7 billion**.
@@ -81,7 +81,7 @@ By clicking on the below button, you can explore the trade by any country includ
 as well as between continents or organizations. **Note**: there are separate filters for the top and bottom graphs. You need to select your desired location from the
 `US Import/Export` drop down, as well from `US Trade Balance` in order to filter.
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/552d7a44#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/552d7a44#fullscreen)
 
 Below is a SQL query and output showing the exports, imports, and trade balance
 (all in millions USD) between United States and Mexico from 1985 to 2016:   
@@ -143,7 +143,7 @@ respectively.
 
 You can explore this portal by clicking the button below:
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/53e42403#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/53e42403#fullscreen)
 
 How did 2016 look for the United States for trade balance (in billions USD) with regions of the world as a whole:
 
@@ -187,7 +187,7 @@ heaviest lines were between the U.S. and Asia, indicating that these two have th
 
 You can explore this figures, as well as trade balances for 2006 and 1997, in Chart Lab by clicking on the button below:
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/b9f27b14/2/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/b9f27b14/2/#fullscreen)
 
 Who were the U.S.'s best trading partners (imports plus exports, in millions USD) in 2016?
 

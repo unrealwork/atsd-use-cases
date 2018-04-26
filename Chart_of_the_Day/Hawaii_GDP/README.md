@@ -3,7 +3,7 @@ Island Living is Recession Proof
   
 ![](Images/HI_GDP_1.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/b06a7576/4/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/b06a7576/4/#fullscreen)
 
 Hawaii is not often considered among the economic powerhouses of the United States, but it
 seems the tiny archipelago two-and-a-half thousand miles from the California coastline 

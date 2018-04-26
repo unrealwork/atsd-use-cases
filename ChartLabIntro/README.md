@@ -21,7 +21,7 @@ The purpose of this article is to walk the new user through the whole process an
 
 A blank, customizable ChartLab portal for can be found here:
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/)
 
 The ChartLab menu contains the following items:
 

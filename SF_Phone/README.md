@@ -33,7 +33,7 @@ and concrete wait times that are likely to result in an abandoned call will be c
 
 ![](Images/sfc-002.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/b91c1140/2/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/b91c1140/2/#fullscreen)
 
 **Figure 1.1** above shows the total number of calls received by the Health Service System over the entire observed period, 
 which began in January 2011 and continues until June 2017. Abandoned calls are shown in orange. The numbers associated with 
@@ -139,7 +139,7 @@ the calculated percent of total calls that were abandoned, is shown to be incorr
 
 ![](Images/sfc-003.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/9c6c37ac/3/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/9c6c37ac/3/#fullscreen)
 
 **Scale Modifications**:
 
@@ -156,7 +156,7 @@ call wait time to call abandonment rate.
 
 ![](Images/sfc-004.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/9c6c37ac/2/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/9c6c37ac/2/#fullscreen)
 
 > The scale of this visualization has been intentionally modified to exclude the 2013 absolute maxima so as not to distort
 the perspective of the rest of the data.
@@ -269,7 +269,7 @@ modification.
 
 ![](Images/sfc-005.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/9c6c37ac/4/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/9c6c37ac/4/#fullscreen)
 
 **Scale Modification**:
 
@@ -279,7 +279,7 @@ modification.
 
 ![](Images/sfc-007.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/9c6c37ac/7/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/9c6c37ac/7/#fullscreen)
 
 The relatively small deviation in wait times is highlighted by the tight concentration of bars on the lower graph. That data, along with
 call abandonment rate, will be further analyzed below.
@@ -396,7 +396,7 @@ included to highlight those months where the call abandonment rate exceeded 1.56
 
 ![](Images/sfc-009.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/b91c1140/4/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/b91c1140/4/#fullscreen)
 
 The adjusted average wait time value will act as the threshold by which the 1.56% call abandonment rate may be successfully
 maintained and will be tested below in the [Validation](#validation) section.
@@ -457,7 +457,7 @@ included to highlight those months where the call abandonment rate did not excee
 
 ![](Images/sfc-010.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/b91c1140/5/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/b91c1140/5/#fullscreen)
 
 The adjusted average wait time value will act as the threshold by which the 1.00% call abandonment rate may be successfully
 achieved and will be tested below in the [Validation](#validation) section.

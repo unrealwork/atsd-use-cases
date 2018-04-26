@@ -5,7 +5,7 @@ City-wide LED Street Light Savings (Los Angeles, CA)
 
 ![](Images/lal-001.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/748691f3/2/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/748691f3/2/#fullscreen)
 
 The City of Los Angeles is keenly aware of the negative effects of greenhouse gas pollution and is often in the process
 of working to counteract the effects of mass individual car ownership by reducing greenhouse gas emissions in other spheres of life. 

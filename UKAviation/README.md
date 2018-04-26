@@ -80,7 +80,7 @@ This figure shows total freight (in tons) for 2015 for all 55 airports from Janu
 
 Here, you can explore the complete dataset for CAA aviation statistics by clicking below on the default portal:
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/972babb9)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/972babb9)
 
 ### Creating Custom Portals
 ---------------------------
@@ -150,7 +150,7 @@ Once you've installed ATSD, navigate to the metric list to see the corresponding
 
 Here you can explore this configuration in Chart Lab:
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/cca64be9)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/cca64be9)
 
 ### Example 2
 -------------
@@ -159,7 +159,7 @@ Now that we are familiar with the CAA entity and different available metrics, as
 
 The default ChartLab portal can be found here:
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab)
 
 1.  Press the ChartLab link above.
 2.  Change the source to **ATSD** and select **calendar** from the Widget dropdown.
@@ -206,7 +206,7 @@ Additionally, we can see observe outliers for Scatsta and Wick John O Groats for
 
 You can explore this portal by clicking on the link below.
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/8dc941e3)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/8dc941e3)
 
 `[widget]`-level settings may be used for overall modification of any ChartLab visualization.
 
@@ -226,7 +226,7 @@ Your new figure should look like the image below.
 
 You can explore this portal by clicking on the link below.
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/1f9f05a1/4)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/1f9f05a1/4)
 
 ### Example 3
 -------------
@@ -247,7 +247,7 @@ Let's `var baseAirport` to `MANCHESTER`. Below is an image with passenger traffi
 
 You can explore this portal by clicking on the link below.     
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/e6822a69/5/)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/e6822a69/5/)
 
 ### Action Items
 ----------------

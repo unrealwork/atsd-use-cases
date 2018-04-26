@@ -109,7 +109,7 @@ comparing fuel types at Hilo and Diesel prices by location, respectively.
 
 Here, you can explore the complete dataset for Hawaiian fuel prices using our portal:
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/ee379926)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/ee379926)
 
 ### Creating Custom Portals
 ---------------------------
@@ -161,7 +161,7 @@ Your customized graph should look something like this:
 
 Here, you can explore the this graph:
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/06a95d7c)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/06a95d7c)
 
 Now, we will quickly walk through creating a histogram to display the fuel price differences for Diesel fuel between Hilo and the US.
 
@@ -206,7 +206,7 @@ Your customized graph should look something like this:
 
 Here, you can explore the this graph:
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/aff8779b)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/aff8779b)
 
 Various additional settings may be applied to create outputs that fit your needs. Below is a link to settings that may be applied to create custom data.gov charts:
 
@@ -233,7 +233,7 @@ In turn, each island had it's electricity broken into the following  sectors:
 
 Here, you can explore the portal for this dataset:
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/9e548f6b)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/9e548f6b)
 
 Next, let us look at which areas we can compare.
 
@@ -256,7 +256,7 @@ the possibilities of combining and comparing multiple datasets.
 
 Here you can explore the portal of this comparison:
 
-[![](Images/button.png)](http://apps.axibase.com/chartlab/b1046948)
+[![View in ChartLab](Images/button.png)](http://apps.axibase.com/chartlab/b1046948)
 
 ### Additional Examples
 -----------------------

@@ -32,7 +32,7 @@ option to see all 145.
 
 ![](Images/LT2.2.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/b6a1a2cc/7/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/b6a1a2cc/7/#fullscreen)
 
 To establish annual ridership averages, passenger totals for the fifteen busiest stations will be used. Although these stations
 make up just 10% of the L's total stations, the passenger traffic between them accounted for a third of the total annual
@@ -72,7 +72,7 @@ GROUP BY date_format(time, 'yyyy')
 
 ![](Images/LT7.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/4e2ef3cc/2/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/4e2ef3cc/2/#fullscreen)
 
 While it is certainly possible that L ridership has peaked and will begin to decline in the future, a total of three such
 periods of stagnation were seen throughout the observation period of sixteen years leading to the conclusion that there are and always
@@ -110,7 +110,7 @@ LIMIT 15
 
 ![](Images/LT3.1.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/2c9f96cf/7/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/2c9f96cf/7/#fullscreen)
 
 Similar increases and decreases in L ridership can be seen when the scale of the observation period is reduced to one year.
 Drag the window to the left or right to shows rider numbers of any given month in the legend at the top of the screen.
@@ -147,7 +147,7 @@ LIMIT 15
 
 ![](Images/LT4.1.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/2c9f96cf/8/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/2c9f96cf/8/#fullscreen)
 
 ###### 2011
 
@@ -181,7 +181,7 @@ LIMIT 15
 
 ![](Images/LT5.1.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/2c9f96cf/9/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/2c9f96cf/9/#fullscreen)
 
 Here the month of February is the only month where ridership fell below four million people among the top fifteen stations
 while in 2001 four million riders among the top fifteen stations would have ranked as one of the busiest months of the year, showing
@@ -219,7 +219,7 @@ LIMIT 15
 
 ![](Images/LT6.1.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/2c9f96cf/10/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/2c9f96cf/10/#fullscreen)
 
 ###### Calculation
 

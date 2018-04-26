@@ -93,7 +93,7 @@ With ATSD, the user is able to display the dataset in an easily understandable m
 
 Here, you can explore the complete dataset for employee compensation by industry in Iowa:
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/f5eae012)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/f5eae012)
   
 Using the ATSD default portal for this particular data.gov dataset, the user has the ability to filter the data to their liking. 
 
@@ -112,7 +112,7 @@ given year.
 
 You can explore the filtered **farm** industry portal here: 
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/131b7670)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/131b7670)
  
 The next figure shows the output when **government and government enterprises** is selected as the **[industry_type]** from the third filter. We can see that the compensation for
 **federal, civilian** and **military** appears to be slightly increasing over time and that **state and local** is experiencing steady growth. Unlike with the farming industry, we can see that 
@@ -128,7 +128,7 @@ that the **federal, civilian** and **military** series actually experienced pret
 
 You can explore the filtered **government and government enterprises** industry portal here: 
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/cb62aab7)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/cb62aab7)
 
 The below figure shows the output when the **private non-farm** is selected as the **[industry_type]** from the third filter. 
 
@@ -136,7 +136,7 @@ The below figure shows the output when the **private non-farm** is selected as t
 
 You can explore the filtered **private non-farm** industry portal here: 
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/0c459d5f)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/0c459d5f)
 
 It appears that most of these metrics are on an upward trend, but there is a lot of information displayed, so it is somewhat difficult to tell. Let us sort for the metrics **Construction** and **Manufacturing**. The images 
 for these 2 outputs are shown below, respectively. We can see that both metrics were generally experiencing steady, upward growth until the late 2000's, when each metric experienced a 
@@ -154,7 +154,7 @@ where you can explore various widget and portal configurations.
 
 You can explore this portal here:
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/8323be2f/5/)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/8323be2f/5/)
 
 ### Additional Iowa Datasets - State of Iowa Employment by Month and Industry
 -----------------------------------------------------------------------------
@@ -215,7 +215,7 @@ The following three filters are applied to the default portal:
 
 Here, you can explore the complete dataset for employment by industry in Iowa:
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/1ac33603)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/1ac33603)
 
 Let us now take a look at specific metrics in the **Iowa Seasonally Adjusted Non-Farm Employment by Month and Industry** dataset. As with the total statewide employee compensation dataset that
 we looked at earlier, let us filter for the **Construction** and **Manufacturing** metrics and see how the behaviors of the 2 datasets compare. Below are images of the
@@ -290,7 +290,7 @@ benefits increased for 2008 versus the overlaid data from 2007.
 
 You can explore this portal here:
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/08e6e6f0)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/08e6e6f0)
 
 To summarize, the **Great Recession** seems to have had the following effects on each of the datasets:
 
@@ -316,7 +316,7 @@ years, we can see that as a whole over this time period the growth has been quit
  
 You can explore the year-over-year growth for the **government and government enterprises** industry in Iowa in the below portal:
  
-[![](Images/button.png)](https://apps.axibase.com/chartlab/f5eae012/3/)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/f5eae012/3/)
 
 What does this tremendous growth mean for your average government worker in Iowa? Are wages increasing for the average government employee? Are the elites in this industry only getting richer? Or is 
 there another factor at play? For the government industry in Iowa, we will now walk through adding total employee compensation, the total number of employees, and compute an average
@@ -354,7 +354,7 @@ per the second part of the equation. Below is an image of the average employee c
 
 Based off of our output, the unadjusted average salary for a federal government employee in the state increased from $50,211 in March of 1998 to $92,078 in September of 2016. You can explore this portal here:
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/202133dd)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/202133dd)
 
 Below is another example exploring average government salary in the state of Iowa. This instance shows the average salary for local and state government employees in Iowa. Based off of our output, the unadjusted average salary increased 
 from $32,711 in March 1998 to $59,196 in September 2016. In this time frame, the number of employees in Iowa for local and state government increased from 155,000 to 174,000 and 61,000 to 66,000 persons,
@@ -372,7 +372,7 @@ value = (value('comp')/(value('emps')+value('empl')))==0 ? null : (value('comp')
 
 You can explore this portal here:
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/1ac33603/3/)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/1ac33603/3/)
 
 ### Consumer Price Index (CPI) Dataset  
 --------------------------------------
@@ -415,7 +415,7 @@ portal for the federal government dataset.
 
 You can explore this portal here:
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/1ac33603/6/)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/1ac33603/6/)
 
 Below is a screen shot of the complete portal for the local and state government dataset.
  
@@ -423,7 +423,7 @@ Below is a screen shot of the complete portal for the local and state government
 
 You can explore this portal here:
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/6019ae9c)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/6019ae9c)
 
 In conclusion, we can draw the following from our outputs: 
 

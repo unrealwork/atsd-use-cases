@@ -35,7 +35,7 @@ Per capita debt indexed by country and year from 2005 to 2016.
 
 ![](Images/eudpc-001.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/f78f99c7/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/f78f99c7/#fullscreen)
 
 **Query 1.01**
 
@@ -94,7 +94,7 @@ ORDER BY debt.tags.geo
 
 ![](Images/eudpc-002.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/f78f99c7/2/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/f78f99c7/2/#fullscreen)
 
 **Query 1.02**
 
@@ -153,7 +153,7 @@ ORDER BY debt.tags.geo
 
 ![](Images/eudpc-003.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/f78f99c7/3/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/f78f99c7/3/#fullscreen)
 
 **Query 1.03**
 
@@ -212,7 +212,7 @@ ORDER BY debt.tags.geo
 
 ![](Images/eudpc-004.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/f78f99c7/4/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/f78f99c7/4/#fullscreen)
 
 **Query 1.04**
 
@@ -271,7 +271,7 @@ ORDER BY debt.tags.geo
 
 ![](Images/eudpc-005.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/f78f99c7/5/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/f78f99c7/5/#fullscreen)
 
 **Query 1.05**
 
@@ -330,7 +330,7 @@ ORDER BY debt.tags.geo
 
 ![](Images/eudpc-006.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/f78f99c7/6/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/f78f99c7/6/#fullscreen)
 
 **Query 1.06**
 
@@ -389,7 +389,7 @@ ORDER BY debt.tags.geo
 
 ![](Images/eudpc-007.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/f78f99c7/7/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/f78f99c7/7/#fullscreen)
 
 **Query 1.07**
 
@@ -448,7 +448,7 @@ ORDER BY debt.tags.geo
 
 ![](Images/eudpc-008.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/f78f99c7/8/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/f78f99c7/8/#fullscreen)
 
 **Query 1.08**
 
@@ -507,7 +507,7 @@ ORDER BY debt.tags.geo
 
 ![](Images/eudpc-009.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/f78f99c7/9/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/f78f99c7/9/#fullscreen)
 
 **Query 1.09**
 
@@ -566,7 +566,7 @@ ORDER BY debt.tags.geo
 
 ![](Images/eudpc-010.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/f78f99c7/10/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/f78f99c7/10/#fullscreen)
 
 **Query 1.10**
 
@@ -625,7 +625,7 @@ ORDER BY debt.tags.geo
 
 ![](Images/eudpc-011.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/f78f99c7/11/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/f78f99c7/11/#fullscreen)
 
 **Query 1.11**
 
@@ -743,7 +743,7 @@ Per capita debt growth indexed by country from 2006 to 2016.
 
 ![](Images/eudpc-013.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/d38e750e/6/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/d38e750e/6/#fullscreen)
 
 **Query 2.01**
 

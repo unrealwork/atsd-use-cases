@@ -69,7 +69,7 @@ GROUP BY PERIOD(1 YEAR)
 
 ![](Images/de-01.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/424eb6b2/5/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/424eb6b2/5/#fullscreen)
 
 > Open the ChartLab visualization above to navigate through time or select a different country's currency.
 
@@ -108,7 +108,7 @@ GROUP BY PERIOD(1 YEAR)
 
 ![](Images/de-02.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/424eb6b2/9/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/424eb6b2/9/#fullscreen)
 
 > Open the ChartLab visualization above to navigate through time or select a different country's currency.
 
@@ -146,7 +146,7 @@ GROUP BY PERIOD(1 YEAR)
 
 ![](Images/de-03.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/424eb6b2/6/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/424eb6b2/6/#fullscreen)
 
 > Open the ChartLab visualization above to navigate through time or select a different country's currency.
 
@@ -188,7 +188,7 @@ GROUP BY PERIOD(1 YEAR)
 
 ![](Images/de-041.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/424eb6b2/4/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/424eb6b2/4/#fullscreen)
 
 > Open the ChartLab visualization above to navigate through time or select a different country's currency.
 
@@ -226,7 +226,7 @@ GROUP BY PERIOD(1 YEAR)
 
 ![](Images/de-05.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/424eb6b2/2/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/424eb6b2/2/#fullscreen)
 
 > Open the ChartLab visualization above to navigate through time or select a different country's currency.
 
@@ -262,7 +262,7 @@ GROUP BY PERIOD(1 YEAR)
 
 ![](Images/de-06.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/424eb6b2/3/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/424eb6b2/3/#fullscreen)
 
 > Open the ChartLab visualization above to navigate through time or select a different country's currency.
 
@@ -300,7 +300,7 @@ GROUP BY PERIOD(1 YEAR)
 
 ![](Images/de-07.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/424eb6b2/8/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/424eb6b2/8/#fullscreen)
 
 > Open the ChartLab visualization above to navigate through time or select a different country's currency.
 
@@ -339,7 +339,7 @@ GROUP BY PERIOD(1 YEAR)
 
 ![](Images/de-08.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/424eb6b2/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/424eb6b2/#fullscreen)
 
 > Open the ChartLab visualization above to navigate through time or select a different country's currency.
 
@@ -379,7 +379,7 @@ GROUP BY PERIOD(1 YEAR)
 
 ![](Images/de-09.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/424eb6b2/7/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/424eb6b2/7/#fullscreen)
 
 > Open the ChartLab visualization above to navigate through time or select a different country's currency.
 

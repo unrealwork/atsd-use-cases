@@ -40,7 +40,7 @@ to Indian nationals from 1997 to 2015, which increased from **31,684** in 1997 t
 
 You can explore this portal by clicking on the below button:
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/8c9bb9cc#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/8c9bb9cc#fullscreen)
 
 This next portal allows you to sort between continents and visa types. You can toggle between different continents in the first dropdown, and by visa type in the second dropdown.
 The below images is an output for H-1B visas issued to the continent of Asia as a whole. We can see that the number of visas issued increased from **47,726** in 1997 to **149,788**
@@ -51,7 +51,7 @@ to the rest of Asia as a whole.
 
 You can explore this portal by right-clicking on the below button:
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/3c55ada0#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/3c55ada0#fullscreen)
 
 ### Delving Further into U.S. Visas
 ------------------------------------
@@ -67,7 +67,7 @@ to our first Chart Lab portal, we can see that the total number of visas for the
 
 You can explore this portal by clicking on the below button:
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/3a320d35#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/3a320d35#fullscreen)
 
 Below is an image for the total visas issued for the countries included in Trump administration's revised [travel ban](https://www.washingtonpost.com/graphics/national/immigration-order-explainer/)
 (which has since been lifted). These countries included Iran, Libya, Somalia, Sudan, Syria, and Yemen. After the September 11th terrorist attacks, the number of visas issued
@@ -78,7 +78,7 @@ which amounted to **$10 million** in revenue in 2015.
 
 You can explore this portal by clicking on the below button:
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/16c6e667/3/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/16c6e667/3/#fullscreen)
 
 According to a recent article published by [Reuters](http://www.reuters.com/article/us-eu-usa-visa-idUSKBN1691Q9), the [European Union](https://en.wikipedia.org/wiki/European_Union) (EU) becoming increasingly insistent on requiring American citizens to
 obtain travel visas to visit Europe (currently, Americans do not need visas). This is in response to Washington refusing to grant visa-free access to 5 EU countries: Poland, Croatia,
@@ -94,7 +94,7 @@ At $160 per visa, this would have come to about **$2.24 and $2.239 billion**, a 
 
 You can explore this portal by clicking on the below button:
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/82d4e825#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/82d4e825#fullscreen)
 
 This below figure shows how many dependents come with each primary visa holder. Saudi Arabian visa holders are currently bringing in the most dependents. Below are some ratios (in %)
 for Saudi nationals showing the number of dependent travelers coming to the United States per primary visa holder.
@@ -108,7 +108,7 @@ for Saudi nationals showing the number of dependent travelers coming to the Unit
 
 You can explore this portal by clicking on the below button:
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/1bc51064/2/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/1bc51064/2/#fullscreen)
 
 ### SQL Queries
 ---------------

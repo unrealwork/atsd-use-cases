@@ -3,7 +3,7 @@ New York City's Most Crowded Industries
 
 ![NY1](Images/NY_Jobs1.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/6402f01c/19/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/6402f01c/19/#fullscreen)
 
 Running New York City is a big business. In fact, according to [data](https://catalog.data.gov/dataset/jobs-by-industry)
 released by the State of New York that tracks employment figures by industry, the top two industries
@@ -18,7 +18,7 @@ years in the Big Apple alone.
 
 ![NY2](Images/NY_Jobs3.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/6402f01c/20/)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/6402f01c/20/)
 
 Additionally, the number of working government positions in the city has increased by roughly 38,000
 and using the [SQL Console](https://github.com/axibase/atsd/blob/master/sql/README.md) from the [Axibase Time Series Database](https://axibase.com),

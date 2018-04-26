@@ -14,7 +14,7 @@ using the drop-down menu at the top of the visualization:
 
 ![](Images/SFO1.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/d8b696da/6/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/d8b696da/6/#fullscreen)
 
 > Neighborhoods with more than 48 complaints in any given year are highlighted in red, while
 those that received 24 or less complaints are highlighted in blue.
@@ -23,14 +23,14 @@ The visualization below further contracts the data, showing complaints by neighb
 
 ![](Images/SFO4.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/d8b696da/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/d8b696da/#fullscreen)
 
 Follow SFO's seasonal passenger ebb and flow trends to spot patterns in complaint traffic, using additional [city data](https://github.com/axibase/open-data-catalog/blob/master/datasets/rkru-6vcg.md). It's no
 surprise that during peak travel months, the number of complaints received increases as well:
 
 ![](Images/SFO2.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/d8b696da/3/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/d8b696da/3/#fullscreen)
 
 The map below has been modified to highlight neighborhoods with a low number of complaints in blue and a
 high number of complaints in red, as well as an arrow pointing to the location of the airport itself:

@@ -9,7 +9,7 @@ Where Do International Students in the United States Come From?
 
 ![](Images/is-001.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/69decfcc/2/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/69decfcc/2/#fullscreen)
 
 America has always been a country that thrived on immigration, and American universities are regarded among the best in
 the world. International students find the middle ground of these two metrics and come to the country to experience American
@@ -53,6 +53,6 @@ The visualization below arranges the data by continent for an additional perspec
 
 ![](Images/is-002.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/de703084/2/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/de703084/2/#fullscreen)
 
 If you would like to see your data analyzed with Axibase tools [contact us](https://axibase.com/feedback/).

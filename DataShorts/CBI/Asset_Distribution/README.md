@@ -9,7 +9,7 @@ ChartLab and SQL Console: [Axibase](https://axibase.com)
 
 ![](Images/AD-1.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/24b59799/2/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/24b59799/2/#fullscreen)
 
 ```sql
 SELECT date_format(time, 'yyyy-MM') AS "Date", tv.value AS "Total Value (NIS Billion)"
@@ -45,7 +45,7 @@ GROUP BY 'Date', tv.value
 
 ![](Images/AD-5.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/24b59799/6/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/24b59799/6/#fullscreen)
 
 >Months with negative growth are shown in red, and months with positive growth exceeding 25 billion NIS are shown in dark blue.
 
@@ -85,7 +85,7 @@ GROUP BY 'Date', tv.value
 
 ![](Images/AD-3.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/040c4e03/5/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/040c4e03/5/#fullscreen)
 
 
 ```sql
@@ -122,4 +122,4 @@ GROUP BY 'Date', cd.value, gbn.value, gbt.value, cbn.value, cbt.value, cm.value,
 
 ![](Images/AD-4.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/040c4e03/8/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/040c4e03/8/#fullscreen)

@@ -11,7 +11,7 @@ Maryland Death Statistics (1993-2015)
 
 ![MD2](Images/MD_DEATH3.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/bb18ecdc/5/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/bb18ecdc/5/#fullscreen)
 
 ```sql
 SELECT date_format(time, 'yyyy') AS 'Year', value as 'Total Deaths per 100,000 Persons'
@@ -56,7 +56,7 @@ ORDER BY date_format(time, 'yyyy')
 
 ![MD](Images/MD_DEATH4.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/bb18ecdc/6/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/bb18ecdc/6/#fullscreen)
 
 ```sql
 SELECT metric.label AS 'Cause of Death', sum(value) AS 'Total'
@@ -97,7 +97,7 @@ Querying these data for death information by cause and year is shown below.
 
 ![MD](Images/MD_DEATH1.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/bb18ecdc/7/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/bb18ecdc/7/#fullscreen)
 
 ##### Total Deaths Per 100,000 Persons (1992)
 

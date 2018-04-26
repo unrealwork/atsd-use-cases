@@ -51,7 +51,7 @@ alike and even damage buildings.
 
 ![](Images/LAP_8.1.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/0f8b70ab/13/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/0f8b70ab/13/#fullscreen)
 
 The annual average value of each of the observed metrics is shown above. The annual average can be helpful when looking at
 overall emission totals because it establishes perspective for the following visualizations. Additionally, it shows relative
@@ -64,7 +64,7 @@ of Diesel Particulate Matter relatively, is more than doubly achieved in `NOx` e
 
 ![](Images/LAP_1.1.1.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/0f8b70ab/6/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/0f8b70ab/6/#fullscreen)
 
 The numbers associated with **Figure 2.1** are shown below:
 
@@ -114,7 +114,7 @@ Using the previous year as a baseline, the percent change for each year is shown
 
 ![](Images/LAP_2.1.1.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/0f8b70ab/7/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/0f8b70ab/7/#fullscreen)
 
 The SQL query for this metric returns the following values:
 
@@ -162,7 +162,7 @@ consumer automobiles.
 
 ![](Images/LAP_3.1.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/0f8b70ab/8/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/0f8b70ab/8/#fullscreen)
 
 The numerical values associated with the above visualization are shown below:
 
@@ -207,7 +207,7 @@ below details those changes, showing the frequency of various percentile changes
 
 ![](Images/LAP_4.1.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/0f8b70ab/9/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/0f8b70ab/9/#fullscreen)
 
 The above chart details the frequency and severity of the Port of Los Angeles' efforts to reduce various observed pollution
 metrics. The large central red bar shows that the majority of the reduction for diesel particulate matter was consistent
@@ -218,7 +218,7 @@ better reduction results, detailed in the legend at the top of the screen.
 
 ![](Images/LAP_7.1.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/0f8b70ab/12/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/0f8b70ab/12/#fullscreen)
 
 The same data regarding average percent change can be visualized differently to highlight the deviation in percent change 
 value. Here the taller green box (representing percent change in `NOx` emissions) has a broader area, indicating a wider range
@@ -229,7 +229,7 @@ range of values.
 
 ![](Images/LAP_5.1.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/0f8b70ab/10/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/0f8b70ab/10/#fullscreen)
 
 > Open the diagram in ChartLab and use the drop-down menu at the top of the screen to see the changing total values of each
 metric relative to one another throughout the entire observed period.
@@ -242,7 +242,7 @@ heavily contribute to the reddish-brown smog layer that hangs over Los Angeles a
 
 ![](Images/LAP_6.1.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/0f8b70ab/11/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/0f8b70ab/11/#fullscreen)
 
 **Figure 5.4** above shows the combined total tons per year emitted by the Port of Los Angeles, further classified by type
 of pollution within each column. 2012 emission levels are about one third of what they were in 2005, demonstrating the Port's

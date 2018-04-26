@@ -45,7 +45,7 @@ half of the [New York State energy market](https://www.eia.gov/state/analysis.ph
 
 ![NYTotal](Images/NYTotal.png) 
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/14f22d6e/8/)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/14f22d6e/8/)
 
 
 Total emissions from each sector can be analyzed together to get a clearer 
@@ -68,7 +68,7 @@ Advanced charting can be done for side-by-side comparison of relevant data:
 
 ![ResidentialIndustrial](Images/ResidentialIndustrial.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/14f22d6e/4/)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/14f22d6e/4/)
 
 
 When analyzing the emissions from two sectors of the New York State energy market,
@@ -77,7 +77,7 @@ shortcomings of the residential sector.
 
 ![CommercialTransportation](Images/CommercialTransportation.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/14f22d6e/7/)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/14f22d6e/7/)
 
 
 Although similar when comparing percent change, a stacked comparison shows
@@ -85,7 +85,7 @@ the stark difference in absolute change of two similarly performing sectors.
 
 ![NYTotalHisto](Images/NYTotalHisto.png) 
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/14f22d6e/9/)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/14f22d6e/9/)
 
 
 A histogram that displays all sectors together can highlight trends that may be otherwise

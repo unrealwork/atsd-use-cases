@@ -25,7 +25,7 @@ shown below in **Figure 1** using [data](https://ourworldindata.org/nuclear-weap
 
 ![](Images/nuke-01.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/62a380f8/2/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/62a380f8/2/#fullscreen)
 
 > Open the ChartLab visualization above and use the dropdown menu to navigate through time and observe the changing inventories
 of nuclear weapons among observed nations.
@@ -39,7 +39,7 @@ the last fifty years.
 
 ![](Images/nuke-02.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/62a380f8/3/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/62a380f8/3/#fullscreen)
 
 > Open the ChartLab visualization above and navigate through time using the dropdown menu to change to change the observation
 period.
@@ -60,7 +60,7 @@ World War Two.
 
 ![](Images/nuke-03.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/62a380f8/5/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/62a380f8/5/#fullscreen)
 
 > Open the ChartLab visualization to toggle between nations and navigate through time using the dropdown menus.
 
@@ -71,7 +71,7 @@ military engagements as recently as 2016. Their nuclear arsenals are detailed be
 
 ![](Images/nuke-04.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/62a380f8/6/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/62a380f8/6/#fullscreen)
 
 ### Conclusions
 

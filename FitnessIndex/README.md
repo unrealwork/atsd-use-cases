@@ -53,7 +53,7 @@ and calculations were done using the computational knowledge engine [WolframAlph
 
 ![AllCity](Images/MainGraph.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/e926d483/47/)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/e926d483/47/)
 
 Looking at an entire set of data at once is often unhelpful and overwhelming, but
 this visualization can be used to offer a wide lens through which to view what amounts
@@ -63,7 +63,7 @@ who may be otherwise unfamiliar with the scoring system.
 
 ![2015](Images/2015.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/e926d483/55/)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/e926d483/55/)
 
 This visualization looks at Year 2015 data and highlights those cities performing 
 below the National Benchmark Average.
@@ -80,13 +80,13 @@ The Benchmark Average, and by extension alert threshold, is modified for each ye
 
 ![2011](Images/2011.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/e926d483/56/)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/e926d483/56/)
 
 > Year 2013 (Benchmark Average: 43)
 
 ![2013](Images/2013.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/e926d483/51/)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/e926d483/51/)
 
 >Even year (2012 and 2014) data can be found in the [Appendix](#Appendix)
 
@@ -96,7 +96,7 @@ that were not as obvious in the first visualization:
 
 ![ByCityByYear](Images/ByCityByYear.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/c43f580b)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/c43f580b)
 
 >See [Appendix](#Appendix) for an alternative display of the above data
 
@@ -106,7 +106,7 @@ needed:
 
 ![ByYearByCity](Images/20112015.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/e926d483/59/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/e926d483/59/#fullscreen)
 
 Although the two charts are rendered almost identically with respect to the data,
 the key difference is how they are presented. Here we see the graph organized to show
@@ -123,35 +123,35 @@ their absolute and relative differences can be underlined:
 
 ![BestAndWorst](Images/BVW.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/c43f580b/7/)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/c43f580b/7/)
 
 In order to make observations about the performance of one MSA over the observed time,
 a similar strategy can be used with a different method of visualization:
 
 ![Miami](Images/MVB.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/e926d483/64/)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/e926d483/64/)
 
 Or, to compare the results of data observed within one state, additions can easily be
 made to include a third entity:
 
 ![Miami](Images/FLVB.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/e926d483/65/)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/e926d483/65/)
 
 The same can be done using the two Tennessee MSAs, Memphis and Nashville/Davidson,
 displayed here alongside the Benchmark Average value:
 
 ![TN](Images/TNVB.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/e926d483/66/)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/e926d483/66/)
 
 Additionally, cities that serve as state capitals can be used as a microcosm
 for the trends of the state itself:
 
 ![capitals](Images/CVB.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/e926d483/67/)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/e926d483/67/)
 
 The population of these metropolitan areas often accounts for a significant amount
 of the state's total population. In the Atlanta Metropolitan Area for example, that number
@@ -172,7 +172,7 @@ also be displayed next to one another, and the Benchmark Average:
 
 ![Best](Images/AtlRalBM.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/e926d483/60/)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/e926d483/60/)
 
 ### Analysis
 
@@ -194,7 +194,7 @@ graphic can be used:
 
 ![Box](Images/Box.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/e926d483/61/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/e926d483/61/#fullscreen)
 
 Here the city's individual performance can be analyzed at the same time as its relative
 performance against other cities. The average score of each city over the course of
@@ -211,7 +211,7 @@ active data sets and sending subscribers alerts when a certain threshold value i
 
 ![AtlantaAvg](Images/AtlG2.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/e926d483/70/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/e926d483/70/#fullscreen)
 
 >Learn more about Gauge controls and explore the results of other MSAs in the [Appendix](#Appendix).
 
@@ -443,13 +443,13 @@ And is shown in a ChartLab example below:
 
 ![2012](Images/2012.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/e926d483/57/)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/e926d483/57/)
 
 >Year 2014 (Benchmark Average: 42)
 
 ![2014](Images/2014.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/e926d483/58/)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/e926d483/58/)
 
 ### Alternative Display of City By Year Data
 
@@ -458,7 +458,7 @@ as shown below:
 
 ![AltView](Images/BYCALT.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/c43f580b/8/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/c43f580b/8/#fullscreen)
 
 The visualization show above uses the [`GROUP`](https://axibase.com/products/axibase-time-series-database/visualization/widgets/bar-chart-widget/#[widget]-settings)
 setting in the `[WIDGET]` cluster, as shown below:

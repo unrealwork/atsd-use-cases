@@ -67,7 +67,7 @@ SELECT date_format(time, 'yyyy') AS "Year", value AS "Debt (Million Euro)"
 
 ![](Images/acv-001.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/82713e8a/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/82713e8a/#fullscreen)
 
 #### Implementation
 
@@ -133,7 +133,7 @@ The `replace-value` setting visible in the Editor window in ChartLab produces th
 
 ![](Images/acv-002.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/82713e8a/2/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/82713e8a/2/#fullscreen)
 
 > Open the Editor window in ChartLab and see the script reproduced below on line 16.
 
@@ -149,7 +149,7 @@ Additionally, this visualization can be modified with an [`alert-expression`](ht
 
 ![](Images/acv-003.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/82713e8a/5/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/82713e8a/5/#fullscreen)
 
 > The alert expression used here is visible in the Editor window on lines 17 and 18.
 
@@ -224,13 +224,13 @@ ORDER BY datetime
 
 ![](Images/acv-005.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/82713e8a/3/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/82713e8a/3/#fullscreen)
 
 **Figure 5**
 
 ![](Images/acv-004.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/82713e8a/4/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/82713e8a/4/#fullscreen)
 
 > The `alert-expression` used here is the same as above in **Figure 2.1.3** (see **Script 1.1.3**) but now shows years with
 debt value below the calculated AVB in green and years with debt value above the AVB in red.
@@ -297,13 +297,13 @@ GROUP BY datetime, value
 
 ![](Images/acv-007.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/82713e8a/7/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/82713e8a/7/#fullscreen)
 
 **Figure 7**
 
 ![](Images/acv-006.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/82713e8a/6/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/82713e8a/6/#fullscreen)
 
 > The `alert-expression` used here is the same as above in **Figure 5** (see **Query 4**) but now shows years with
 debt value below the calculated FYB in green and years with debt value above the FYB in red.

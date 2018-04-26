@@ -92,7 +92,7 @@ ORDER BY time
 
 ![](Images/chart-total.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/bbc5e671/5/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/bbc5e671/5/#fullscreen)
 
 ---
 
@@ -100,7 +100,7 @@ ORDER BY time
 
 ![](Images/chart-winner-losers.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/bbc5e671/6/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/bbc5e671/6/#fullscreen)
 
 ---
 
@@ -109,7 +109,7 @@ ORDER BY time
 
 ![](Images/chart-tesla.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/bbc5e671/7/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/bbc5e671/7/#fullscreen)
 
 ---
 

@@ -7,7 +7,7 @@ Food Insecurity in America (2009-2013)
 
 ![](Images/fi1.png)
 
-[![](Images/button.png)](https://apps.axibase.com/chartlab/c8492399/2/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/c8492399/2/#fullscreen)
 
 > Use the dropdown menus to navigate through time or observe a specific county. 
 
