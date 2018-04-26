@@ -1,7 +1,7 @@
 {
   "lang": "en",
   "ignoreCapitalization": true,
-  "findRepeatWords": false,
+  "findRepeatWords": true,
   "ignoreDigits": true,
   "ignoreUppercase": true,
   "ignoreUrls": true,
