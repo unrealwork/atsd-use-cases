@@ -502,17 +502,17 @@ Below are the summarized steps to follow to install local configurations of ATSD
 
 1. Install the ATSD database on your local configuration using the following command.
 
-   ```sql
-    docker run \
-      --detach \
-      --name=atsd \
-      --restart=always \
-      --publish 8088:8088 \
-      --publish 8443:8443 \
-      --publish 8081:8081 \
-      --publish 8082:8082/udp \
-      axibase/atsd:latest
-   ```
+```sh
+docker run \
+  --detach \
+  --name=atsd \
+  --restart=always \
+  --publish 8088:8088 \
+  --publish 8443:8443 \
+  --publish 8081:8081 \
+  --publish 8082:8082/udp \
+  axibase/atsd:latest
+```
 
 2. Log in to ATSD and configure the pre-defined administrator account.
 3. Import the [`travel_visas.xml`](Resources/travel_visas.xml) and [`visa-refusal-rates-csv-parser.xml`](Resources/visa-refusal-rates-csv-parser.xml) files into ATSD. For a more detailed description, refer to step 9 from the following [step-by-step walkthrough](../USMortality/configuration.md) from our article on [U.S. mortality statistics](../USMortality/README.md).

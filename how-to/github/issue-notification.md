@@ -16,7 +16,7 @@ While the default email notifications delivered by GitHub provide a convenient w
 
 Launch an [ATSD Sandbox](https://github.com/axibase/dockers/tree/atsd-sandbox) container on Docker:
 
-```
+```dh
 docker run -d -p 8443:8443 -p 9443:9443 \
   --name=atsd-sandbox \
   --env SERVER_URL=https://atsd.company_name.com:8443 \
@@ -29,20 +29,20 @@ Replace the `SERVER_URL` parameter in the command above with the public DNS name
 
 If you would like to automatically configure Slack Messaging Service at runtime, use the following ATSD Sandbox launch command:
 
-```
+```dh
 docker run -d -p 8443:8443 -p 9443:9443 \
   --name=atsd-sandbox \
   --env SERVER_URL=https://atsd.company_name.com:8443 \
   --env WEBHOOK=github \
-  --env SLACK_CONFIG="slack.properties \  
-  --volume /home/user/slack.properties.xml:/slack.properties.xml \
+  --env SLACK_CONFIG="slack.properties \
+  --volume /home/user/slack.properties:/slack.properties \
   --env ATSD_IMPORT_PATH='https://raw.githubusercontent.com/axibase/atsd-use-cases/master/how-to/github/resources/github-issue-open.xml' \
   axibase/atsd-sandbox:latest
 ```
 
 The bound volume should at least contain at least the required parameters seen below and be stored as a plaintext file at the defined location on your local machine or URL.
 
-```
+```txt
 token=xoxb-************-************************
 channels=general
 ```
@@ -51,13 +51,13 @@ For advanced launch settings refer to the following [guide](https://github.com/a
 
 Watch the sandbox container logs for `All applications started` line.
 
-```
+```sh
 docker logs -f atsd-sandbox
 ```
 
 Copy the newly-created GitHub webhook URL from the log output once all applications have successfully started.
 
-```
+```txt
 All applications started
 Webhooks created:
 Webhook user: github

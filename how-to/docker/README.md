@@ -2,17 +2,21 @@
 
 ## Overview
 
-If you have images hosted on the [Docker Hub](https://hub.docker.com)  registry, you need to monitor build jobs on Docker Hub to make sure that the images are successfully published and your CI pipeline remains healthy.
+```
+hello
+```
 
-While the Docker Hub provides the capability to trigger [outgoing webhooks](https://docs.docker.com/docker-hub/webhooks/), they're only executed when the build completes **successfully**. If the job fails or when it's stuck in Queued status, webhooks are **not** fired and your team remains unaware of broken builds. This limitation is [known](https://forums.docker.com/t/docker-hub-webhook-on-build-failure/1166). The fix is currently not available.
+If you have images hosted on the [Docker Hub](https://hub.docker.com)  registry, you need to monitor automated build jobs on Docker Hub to make sure that the images are successfully published and your CI pipeline remains healthy.
+
+While the Docker Hub provides the capability to trigger [outgoing webhooks](https://docs.docker.com/docker-hub/webhooks/), they're only executed when the automated build completes **successfully**. If the job fails or if it is stuck in `Queued` status, webhooks are **not** fired and your team remains unaware of broken builds. This limitation is [known](https://forums.docker.com/t/docker-hub-webhook-on-build-failure/1166). The fix is currently not available.
 
 ![](images/docker-hub-notifications.png)
 
-While the email option can serve as a work-around for build failures, it's difficult to rely on it for programmable integration with alerting and CI systems. Also, an email alert is not dispatched when the build is queued for an abnormal period of time.
+While the email option can serve as a work-around for build failures, it's difficult to rely on it for programmable integration with alerting and CI systems. Also, an email alert is not dispatched when the build is queued for a long period of time.
 
 ![](images/docker-email.png)
 
-This document describes a solution, based on the rule engine implemented in [Axibase Time Series Database](https://github.com/axibase/atsd/tree/master/rule-engine#rule-engine), which polls the Docker Hub build history using the Docker Hub v2 API and generates missing webhooks in case of **build failures** or if the build is queued for more than 1 hour (this threshold is configurable).
+This guide describes a solution, based on the rule engine implemented in [Axibase Time Series Database](https://github.com/axibase/atsd/tree/master/rule-engine#rule-engine), which polls the Docker Hub build history using the Docker Hub v2 API and generates missing webhooks in case of **build failures** or if the build is queued for more than 1 hour (this threshold is configurable).
 
 ## Build Failures
 

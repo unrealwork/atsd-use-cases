@@ -7,7 +7,7 @@
     <ignoreSslErrors>true</ignoreSslErrors>
     <method>POST</method>
     <contentType>application/json</contentType>
-    <url>https://${ENV.NOTIFY_URL}:8443</url>
+    <url>${ENV.NOTIFY_URL}</url>
     <headers></headers>
     <body>{&#xd;
   &quot;build_history&quot;: {&#xd;

@@ -23,7 +23,7 @@ In the above figure, latency spikes indicated by green arrows show regional conn
 
 ### Prerequisites
 
-* Install ATSD [sandbox](README.md). 
+* Install ATSD [sandbox](README.md).
 
 ## Import Latency Portal
 

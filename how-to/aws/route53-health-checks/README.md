@@ -98,14 +98,14 @@ This directory will be mounted into the Docker container in order to pass AWS cr
 
 Create an `aws.propeties` file in the `import` directory and replace `KEY` and `SECRET` with AWS Access Key ID and Secret Access Key respectively.
 
-```
+```sh
 accessKeyId=KEY
 secretAccessKey=SECRET
 ```
 
 Launch [ATSD sandbox](https://github.com/axibase/dockers/tree/atsd-sandbox) container on a Docker host:
 
-```
+```sh
 docker run -d -p 8443:8443 -p 9443:9443 -p 8081:8081 \
   --name=atsd-sandbox \
   --volume=$(pwd)/import:/import \
@@ -125,7 +125,7 @@ Wait until the sandbox is initialized and 'All applications started.' message is
 docker logs -f atsd-sandbox
 ```
 
-```
+```sh
 [Collector] 2018-03-29 17:47:40,329 Job 'aws-route53' completed.
 [Collector] 2018-03-29 17:47:40,330 All jobs completed.
 [Collector] Checking Collector web-interface port 9443 ...

@@ -168,26 +168,26 @@ ATSD email notifications contain context-aware links to the newly launched AWS r
 
 Configure your local ATSD instance to send messages to **Slack Messenger** by following [this procedure](https://github.com/axibase/atsd/blob/master/rule-engine/notifications/slack.md) or adding the following environment variable to the atsd-sandbox image above:
 
-```
-   --env SLACK_CONFIG="slack.properties.xml"
+```txt
+   --env SLACK_CONFIG="slack.properties"
 ```
 
-Bind the `slack.properties.xml` file to the sandbox image with the following:
+Bind the `slack.properties` file to the sandbox image with the following:
 
-```
-   --volume /home/user/slack.properties.xml:/slack.properties.xml
+```txt
+   --volume /home/user/slack.properties:/slack.properties
 ```
 
 The bound volume should at least contain the following required parameters:
 
-```
+```txt
 token=xoxb-************-************************
 channels=general
 ```
 
 Now, your status change notifications will be sent via Slack messages as well as email.
 
-A sample status change Slack message is shown here. 
+A sample status change Slack message is shown here.
 
 ![](images/-slack-notification.png)
 
@@ -195,19 +195,19 @@ A sample status change Slack message is shown here.
 
 Configure your local ATSD instance to send messages to **Telegram Messenger** by following [this procedure](https://github.com/axibase/atsd/blob/master/rule-engine/notifications/telegram.md) or adding the following environment variable to the atsd-sandbox image above:
 
-```
-   --env TELEGRAM_CONFIG="telegram.properties.xml"
+```txt
+   --env TELEGRAM_CONFIG="telegram.properties"
 ```
 
 Bind the `telegram.properties` file to the sandbox image with the following:
 
-```
-   --volume /home/user/telegram.properties.xml:/telegram.properties.xml
+```txt
+   --volume /home/user/telegram.properties:/telegram.properties
 ```
 
 The bound volume should at least contain the following required parameters:
 
-```
+```txt
 token=xoxb-************-************************
 channels=general
 ```

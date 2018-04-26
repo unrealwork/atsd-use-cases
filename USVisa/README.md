@@ -277,7 +277,6 @@ SQL queries are a great tool for searching for and displaying specific informati
 not able to show these tables as some kind graphical output. Axibase is partnered with [Redash](https://redash.io/), an open-source data visualization tool.
 You can plug your query results into Redash, and with a few simple steps, create graphical outputs from your SQL queries. Begin by walking through [setting up Redash through ATSD](https://redash.io/help/data-sources/axibase_tsd.html). The setup should take you about 10 minutes.
 
-
 Let's begin by preparing a visualization for our last SQL query looking at worldwide visa issuances.
 
 1. After completing the walkthrough, from the 'Queries' dropdown select 'New Queries', as shown in the image below.
@@ -333,28 +332,28 @@ Below are the summarized steps to follow to install local configurations of ATSD
 1. Install [Docker](https://docs.docker.com/engine/installation/linux/ubuntulinux/).
 2. Install Redash using the following command.
 
-   ```sh
-      git clone https://github.com/getredash/redash
-      cd redash
-      docker-compose -f docker-compose.production.yml run --rm server create_db to setup the database
-      docker-compose -f docker-compose.production.yml up -d
-   ```
+```sh
+  git clone https://github.com/getredash/redash
+  cd redash
+  docker-compose -f docker-compose.production.yml run --rm server create_db to setup the database
+  docker-compose -f docker-compose.production.yml up -d
+```
 
    For more details on Redash click [here](https://redash.io/help-onpremise/setup/setting-up-redash-instance.html).
 
 3. Install the ATSD database on your local configuration using the following command.
 
-   ```sql
-    docker run \
-      --detach \
-      --name=atsd \
-      --restart=always \
-      --publish 8088:8088 \
-      --publish 8443:8443 \
-      --publish 8081:8081 \
-      --publish 8082:8082/udp \
-      axibase/atsd:latest
-   ```
+```sh
+docker run \
+  --detach \
+  --name=atsd \
+  --restart=always \
+  --publish 8088:8088 \
+  --publish 8443:8443 \
+  --publish 8081:8081 \
+  --publish 8082:8082/udp \
+  axibase/atsd:latest
+```
 
 4. Log in to ATSD and configure the pre-defined administrator account.
 5. Import the [`travel_visas.xml`](../USVisaRefusal/Resources/travel_visas.xml) file into ATSD. For a more detailed description, refer to step 9 from the following [step-by-step walkthrough](../USMortality/configuration.md) from our article on [U.S. mortality statistics](../USMortality/README.md).

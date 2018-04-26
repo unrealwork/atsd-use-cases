@@ -30,13 +30,13 @@ The visualizations in the chart above demonstrate a [user-defined function](../.
 
 Axibase [Charts API](https://axibase.com/products/axibase-time-series-database/visualization/widgets/) uses a simple syntax with robust functionality. The underlying mechanics of the `PercentChangeFromYearAgo` function are shown here:
 
-```
+```javascript
 value = var v = value('cpi'); var p = value('prev_cpi'); if(p!=null && v!=null) return (v / p - 1) * 100
 ```
 
 To implement this function, the following syntax is used:
 
-```sql
+```javascript
 value = fred.PercentChangeFromYearAgo('raw')
 ```
 
@@ -117,6 +117,7 @@ FROM "life_expectancy_at_birth_by_country"
   ORDER BY "Change in Life Expectancy" DESC
   LIMIT 10
 ```
+
 Clauses used in this query:
 * [`FIRST`](https://github.com/axibase/atsd/blob/master/sql/examples/aggregate-first-last.md#aggregate-functions-first-and-last)
 * [`LAST`](https://github.com/axibase/atsd/blob/master/sql/examples/aggregate-first-last.md#aggregate-functions-first-and-last)
@@ -200,7 +201,7 @@ Clauses used in this query:
 
 #### Greatest Population Growth Percent Across Observed Period (1970-2015)
 
-```
+```sql
 SELECT tags.country AS "Country",
   FIRST(value)/1000000 AS "Population 1971 (Million)",
   LAST(value)/1000000 AS "Population 2015 (Million)",
@@ -271,7 +272,7 @@ Open the **TRENDS** visualization above to track the same pattern in other forme
 
 #### Greatest Population Decline Percent Across Observed Period (1970-2015)
 
-```
+```sql
 SELECT tags.country AS "Country",
   FIRST(value)/1000000 AS "Population 1971 (Million)",
   LAST(value)/1000000 AS "Population 2015 (Million)",

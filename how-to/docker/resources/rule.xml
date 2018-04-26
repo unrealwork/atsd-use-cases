@@ -68,7 +68,7 @@
 </firstWebConfigParameters>
 <firstWebConfigParameters>
 <key>cause</key>
-<value>${tags.cause}</value>
+<value>${coalesce([tags.cause, 'N/A'])}</value>
 </firstWebConfigParameters>
 <firstWebConfigParameters>
 <key>created_date</key>
@@ -80,7 +80,7 @@
 </firstWebConfigParameters>
 <firstWebConfigParameters>
 <key>dockertag_name</key>
-<value>${tags.dockertag_name}</value>
+<value>${coalesce([tags.dockertag_name, 'N/A'])}</value>
 </firstWebConfigParameters>
 <firstWebConfigParameters>
 <key>id</key>
