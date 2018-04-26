@@ -42,7 +42,7 @@ While you can manually analyze this information in a spreadsheet program, it is 
 ### Axibase Time Series Database
 --------------------------------
 
-The [Axibase Time Series Database](http://axibase.com/products/axibase-time-series-database/) (ATSD) is a powerful tool when it comes to storing, analyzing, and visualizing datasets. This article will not focus on creating graphs and figures using ATSD, but
+The [Axibase Time Series Database](https://axibase.com/products/axibase-time-series-database/) (ATSD) is a powerful tool when it comes to storing, analyzing, and visualizing datasets. This article will not focus on creating graphs and figures using ATSD, but
 rather on writing and running SQL queries. If you are interested in reading more on the visual presentation capabilities of ATSD, check out our articles on
 [employee compensation numbers in Iowa](../SocrataIowaCompensation/README.md) and
 [aviation statistics in the United Kingdom](../UKAviation/README.md).
@@ -66,7 +66,7 @@ It should take you about 15 minutes.
 ### ATSD Schema
 ---------------
 
-Before we get in to creating SQL queries, let us begin by running through the [data schema and models](http://axibase.com/products/axibase-time-series-database/data-model/) of ATSD.
+Before we get in to creating SQL queries, let us begin by running through the [data schema and models](https://axibase.com/products/axibase-time-series-database/data-model/) of ATSD.
 
 Below is a list and brief descriptions of some dataset schema terminology we will be using.
 

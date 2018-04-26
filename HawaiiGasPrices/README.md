@@ -256,7 +256,7 @@ the possibilities of combining and comparing multiple datasets.
 
 Here you can explore the portal of this comparison:
 
-[![View in ChartLab](Images/button.png)](http://apps.axibase.com/chartlab/b1046948)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/b1046948)
 
 ### Additional Examples
 -----------------------

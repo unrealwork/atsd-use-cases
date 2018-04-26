@@ -131,7 +131,7 @@ GROUP BY period(1 month)
 
 ![](Images/CT_Fire3.png)
 
-[![View in ChartLab](Images/button.png)](http://apps.axibase.com/chartlab/83d2a616/3/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/83d2a616/3/#fullscreen)
 
 While this visualization shows that despite an overall increase in calls to the department has been observed throughout the
 entire observation period, recently, the data shows a certain amount of stability and even decline. 
@@ -165,7 +165,7 @@ GROUP BY date_format(time, 'E'), date_format(time, 'u')
 
 ![](Images/CT_Fire10.png)
 
-[![View in ChartLab](Images/button.png)](http://apps.axibase.com/chartlab/83d2a616/9/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/83d2a616/9/#fullscreen)
 
 Open [ChartLab](https://www.axibase.com) with the button above and navigate through time using the dropdown menu.
 
@@ -310,7 +310,7 @@ GROUP BY period(1 month)
 
 ![](Images/CT_Fire7.png)
 
-[![View in ChartLab](Images/button.png)](http://apps.axibase.com/chartlab/83d2a616/4/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/83d2a616/4/#fullscreen)
 
 #### Fire Calls by Month
 
@@ -366,7 +366,7 @@ GROUP BY period(1 month)
 
 ![](Images/CT_Fire8.png)
 
-[![View in ChartLab](Images/button.png)](http://apps.axibase.com/chartlab/83d2a616/5/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/83d2a616/5/#fullscreen)
 
 ### Analysis
 
@@ -576,4 +576,4 @@ or even an entirely different dataset should the need arise.
 > Forecast settings used here are contained in the [Resources](Resources/forecastSettingsList.xml) folder. Launch the Forecast
  feature with the .xml file contained there by opening your instance of ATSD and following the path Configuration > Forecasts.
  At the bottom of the screen click `import` and launch the Forecast feature with the provided .xml file.
- Contact [Axibase](http://axibase.com) with any questions.
+ Contact [Axibase](https://axibase.com) with any questions.

@@ -85,7 +85,7 @@ sources as well as mixed and matched across different datasets. Once you install
 * Write programs to parse and digest these types of files.
 
 Rather, you can configure a scheduled job to retrieve the file from the specified endpoint and have ATSD parse it according to pre-defined rules. Once you
-have raw data in ATSD, creating and sharing reports with built-in widgets is fairly trivial using examples from [axibase.com](http://axibase.com/products/axibase-time-series-database/visualization/widgets/). The reports will be continuously updated as new data is published by the state of Iowa.
+have raw data in ATSD, creating and sharing reports with built-in widgets is fairly trivial using examples from [axibase.com](https://axibase.com/products/axibase-time-series-database/visualization/widgets/). The reports will be continuously updated as new data is published by the state of Iowa.
 
 With ATSD, the user is able to display the dataset in an easily understandable manner. The below figure shows total statewide employee compensation for each of the above mentioned 23 industries.
 

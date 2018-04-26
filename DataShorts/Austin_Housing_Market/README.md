@@ -57,7 +57,7 @@ The following ChartLab visualization displays information related to the changin
 
 ![](Images/hma-001.png)
  
-[![View in ChartLab](Images/button.png)](http://apps.axibase.com/chartlab/69d313b9/3/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/69d313b9/3/#fullscreen)
 
 > Use the drop-down menu to toggle between metrics
 
@@ -77,7 +77,7 @@ The following ChartLab visualization displays information related to transportat
 
 ![](Images/hma-002.png)
 
-[![View in ChartLab](Images/button.png)](http://apps.axibase.com/chartlab/0964c838/2/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/0964c838/2/#fullscreen)
 
 > Use the drop-down menu to toggle between metrics
 
@@ -100,7 +100,7 @@ The following ChartLab visualization displays information related to the socioec
 
 ![](Images/hma-0031.png)
 
-[![View in ChartLab](Images/button.png)](http://apps.axibase.com/chartlab/ac220ab9/4/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/ac220ab9/4/#fullscreen)
 
 > Use the drop-down menu to toggle between metrics
 
@@ -130,7 +130,7 @@ _Figure 4.2_
 
 ![](Images/hma-0041.png)
 
-[![View in ChartLab](Images/button.png)](http://apps.axibase.com/chartlab/ac220ab9/2/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/ac220ab9/2/#fullscreen)
 
 > Use the dropdown menu to toggle between metrics
 
@@ -138,7 +138,7 @@ _Figure 4.2_
 
 ![](Images/hma-0042.png)
 
-[![View in ChartLab](Images/button.png)](http://apps.axibase.com/chartlab/ac220ab9/3/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/ac220ab9/3/#fullscreen)
 
 > Use the dropdown menu to toggle between metrics
 
@@ -159,7 +159,7 @@ The following ChartLab visualization displays information related to the quality
 
 ![](Images/hma-005.png)
 
-[![View in ChartLab](Images/button.png)](http://apps.axibase.com/chartlab/ac220ab9/5/#fullscreen)
+[![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/ac220ab9/5/#fullscreen)
 
 > Use the dropdown menu to toggle between metrics
 

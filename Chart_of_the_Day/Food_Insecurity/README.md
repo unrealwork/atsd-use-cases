@@ -17,6 +17,6 @@ Department of Agriculture (USDA)([1](http://www.worldhunger.org/hunger-in-americ
 not necessarily starving. A full explanation of the definition of food insecurity can be found on the [USDA's website](https://www.ers.usda.gov/topics/food-nutrition-assistance/food-security-in-the-us/definitions-of-food-security/).
 
 The City of New Orleans tracks public health statistics such as this one, and releases the data through [data.gov](https://catalog.data.gov/dataset/food-insecurity-rates-2009-present),
-which is the source of the above dataset. Open the visualization in [ChartLab](http://apps.axibase.com) to see which counties included in the dataset
-from [Axibase](http://axibase.com) have above average rates of food insecurity for the observed period (2009-2013) and contact [Feeding America](http://www.feedingamerica.org/take-action/volunteer/)
+which is the source of the above dataset. Open the visualization in [ChartLab](https://apps.axibase.com/chartlab) to see which counties included in the dataset
+from Axibase have above average rates of food insecurity for the observed period (2009-2013) and contact [Feeding America](http://www.feedingamerica.org/take-action/volunteer/)
 or another charity if you want to lend a hand.

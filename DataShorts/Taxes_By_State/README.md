@@ -1,7 +1,7 @@
 Tax Rates by State: Corporate, Individual, Sales (2017)
 ==
 
->Visualization and analysis tools from [Axibase](http://axibase.com)
+>Visualization and analysis tools from [Axibase](https://axibase.com)
 
 >Source: [State of Maryland](https://github.com/axibase/open-data-catalog/blob/master/datasets/t833-r94z.md)
 
