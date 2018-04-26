@@ -2,10 +2,6 @@
 
 ## Overview
 
-```
-hello
-```
-
 If you have images hosted on the [Docker Hub](https://hub.docker.com)  registry, you need to monitor automated build jobs on Docker Hub to make sure that the images are successfully published and your CI pipeline remains healthy.
 
 While the Docker Hub provides the capability to trigger [outgoing webhooks](https://docs.docker.com/docker-hub/webhooks/), they're only executed when the automated build completes **successfully**. If the job fails or if it is stuck in `Queued` status, webhooks are **not** fired and your team remains unaware of broken builds. This limitation is [known](https://forums.docker.com/t/docker-hub-webhook-on-build-failure/1166). The fix is currently not available.
