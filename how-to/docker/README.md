@@ -14,7 +14,7 @@ While the email option can serve as a work-around for build failures, it's diffi
 
 This guide describes a solution, based on the rule engine implemented in [Axibase Time Series Database](https://github.com/axibase/atsd/tree/master/rule-engine#rule-engine), which polls the Docker Hub build history using the Docker Hub v2 API and generates missing webhooks in case of **build failures** or if the build is queued for more than 1 hour (this threshold is configurable).
 
-Please note that this solution applies only to automated builds which are executed by Docker Hub itself. 
+Please note that this solution applies only to automated builds which are executed by Docker Hub itself.
 
 ## Build Failures
 
@@ -34,9 +34,7 @@ The build history, containing success and failure statuses, is accessible under 
 
 ![](images/job-fail.png)
 
-The history is also available via the **Docker Hub v2 API**.
-
-https://hub.docker.com/v2/repositories/axibase/cadvisor/buildhistory/?page=1&page_size=5
+The history is also available via the [Docker Hub v2 API](https://hub.docker.com/v2/repositories/axibase/cadvisor/buildhistory/?page=1&page_size=5).
 
 The build has failed if its status is not 0 (`queued`), 3 (`pending`), or 10 (`completed`).
 
@@ -139,17 +137,15 @@ Set `NOTIFY_URL` variable to a request URL where `on-error` webhook notification
   --env NOTIFY_URL='https://host01:10443/jenkins/plugin?token=123' \
 ```
 
-> By default, SSL certificate validation is disabled (configurable).
-
-> The `NOTIFY_URL` may include user credentials for BASIC authorization.
+The notification URL may include user credentials for `Basic` authorization. SSL certificate validation is disabled by default.
 
 Execute the command below to launch an [ATSD Sandbox](https://github.com/axibase/dockers/tree/atsd-sandbox) container.
 
 ```sh
 docker run -d -p 8443:8443 -p 9443:9443 \
   --name=atsd-sandbox \
-  --env NAMESPACE='my_hub_namespace' \
-  --env NOTIFY_URL='https://my_host:10443/path?query=string' \
+  --env NAMESPACE='google' \
+  --env NOTIFY_URL='https://webhook.site/71fd9feb-8751-4afd-9e13-16072a34b259' \
   --env ATSD_IMPORT_PATH='https://raw.githubusercontent.com/axibase/atsd-use-cases/master/how-to/docker/resources/rule.xml,https://raw.githubusercontent.com/axibase/atsd-use-cases/master/how-to/docker/resources/notify.xml' \
   --env COLLECTOR_IMPORT_PATH='https://raw.githubusercontent.com/axibase/atsd-use-cases/master/how-to/docker/resources/job.xml' \
   axibase/atsd-sandbox:latest
@@ -199,7 +195,7 @@ Open **Alerts > Web Notifications** page. Open `dockerhub-webhook-sender` notifi
 Open **Data > Data Entry** page in the main menu. Submit the following command to emulate a build failure detected by Axibase Collector.
 
 ```ls
-message e:docker.hub t:build_code=abc t:last_updated=2018-04-24T13:36:39.537606Z t:dockertag_name=latest t:name=my-image t:cause=TRIGGERED_VIA_API t:id=23028946 t:created_date=2018-04-24T13:34:33.654759Z t:source=docker.hub t:repository=test/my-image t:type=build t:user=test t:status=-1
+message e:docker.hub t:build_code=abc t:last_updated=2019-01-01T00:00:00Z t:dockertag_name=latest t:name=my-image t:cause=TRIGGERED_VIA_API t:id=11111111 t:created_date=2019-01-01T00:00:00Z t:source=docker.hub t:repository=test/my-image t:type=build t:user=test t:status=-1
 ```
 
 ![](images/data-entry.png)
