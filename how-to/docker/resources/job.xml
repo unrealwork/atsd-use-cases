@@ -2,7 +2,7 @@
   <com.axibase.collector.model.job.json.JsonJobConfig>
     <name>dockerhub-poller-cloned</name>
     <cronExpression>R 0/5 * * * ?</cronExpression>
-    <enabled>false</enabled>
+    <enabled>true</enabled>
     <jobType>JSON</jobType>
     <defaultTags/>
     <checkLastTime>false</checkLastTime>
