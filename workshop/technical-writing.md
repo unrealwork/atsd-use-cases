@@ -1,7 +1,5 @@
 # Technical Writing for Software Developers
 
-![](images/axibase-logo.png.png) 
-
 * [Key Parameters](#key-parameters)
 * [Tips and Tricks](#the-global-audience-and-international-writer)
 * [Corporate Blogging](#corporate-blogging)
@@ -184,6 +182,8 @@ Other corporations separate the two publications, as with [Apple Newsroom](https
 
 *Additional Corporate Blogs for Consideration*
 
+* [GitHub Developer Blog](https://developer.github.com/changes/)
+
 * [Kali Linux Blog](https://www.kali.org/blog/)
 
 * [Microsoft Windows Blog](https://blogs.windows.com/)
@@ -204,7 +204,7 @@ Hosting a corporate blog has the ability to waste a lot of time, or accomplish a
 
 **Purdue OWL:** The [Online Writing Lab](https://owl.english.purdue.edu/owl/section/4/16/) from Purdue University is a valuable resource for writers of all kinds. It features specific templates for every variety of technical writing, so that any piece is able to meet post-university level publication standards.
 
-**Duke University ESL / EFL Resources:** The Thompson Writing Program publishes a [public catalog](https://twp.duke.edu/twp-writing-studio/resources-students/esl) of technical writing resources for non-native speakers of English.
+**Duke University ESL / EFL Resources:** The Thompson Writing Program publishes a public catalog at `https://twp.duke.edu/twp-writing-studio/resources-students/esl` of technical writing resources for non-native speakers of English.
 
 **Harvard Business Review:** An online [publication](https://hbr.org/) which releases articles on everything from employee management to technical writing strategy.
 
