@@ -5,7 +5,7 @@
 <tags>type, source, repository, tags.dockertag_name</tags>
 <tagsGroupingStrategy>DEFINED_TAGS</tagsGroupingStrategy>
 <expression><![CDATA[elapsedTime(update_ms) < 24*60*60000
-&& ( tags.status NOT IN ('0', '3', '10') 
+&& ( tags.status NOT IN ('0', '2', '3', '10') 
   || tags.status = '0' && (now.getMillis() - create_ms) > 60*60000 )]]></expression>
 <window>length(1)</window>
 <filter>type = 'build' &amp;&amp; source = 'docker.hub'</filter>
