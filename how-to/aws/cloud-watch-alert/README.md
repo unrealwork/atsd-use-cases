@@ -70,7 +70,7 @@ Follow the procedure below to send AWS CloudWatch events into ATSD to enrich sta
 
 * Launch an [ATSD sandbox](https://github.com/axibase/dockers/tree/atsd-sandbox) using the following command:
 
-```elm
+```sh
 docker run -d -p 8443:8443 \
   --name=atsd-sandbox \
   --env ATSD_IMPORT_PATH='https://raw.githubusercontent.com/axibase/atsd-use-cases/master/how-to/aws/cloud-watch-alert/resources/rule_aws-cloudwatch-events.xml' \
