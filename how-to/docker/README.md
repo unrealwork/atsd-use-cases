@@ -36,7 +36,7 @@ Build history, containing success and failure statuses, is accessible under the 
 
 The history is also available via [Docker Hub v2 API](https://hub.docker.com/v2/repositories/axibase/cadvisor/buildhistory/?page=1&page_size=5).
 
-The build has failed if its status is not 0 (`queued`), 3 (`pending`), or 10 (`completed`).
+The build has failed if its status is not 0 (`Queued`), 2 or 3 (`Building`), or 10 (`Success`).
 
 In the example below, the status is `-1` which is reported as `! Error` on Docker Hub.
 
@@ -54,7 +54,7 @@ In the example below, the status is `-1` which is reported as `! Error` on Docke
 
 ## Webhook Solution
 
-The proposed solution retrieves the most recent record from the Docker Hub build history for all projects in the specified namespace and sends an HTTP notification to the consuming web service that you specify if the build status is not `3` or `10`, as well as when the status remains at `0` (Queued) for more than one hour.
+The proposed solution retrieves the most recent record from the Docker Hub build history for all projects in the specified namespace and sends an HTTP notification to the consuming web service that you specify if the build status is not `2`, `3` or `10`, as well as when the status remains at `0` (Queued) for more than one hour.
 
 ### Webhook Payload `on-success`
 
