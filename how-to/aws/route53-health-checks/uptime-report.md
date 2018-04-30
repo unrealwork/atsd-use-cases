@@ -85,7 +85,6 @@ The 'Sample Count' column is present for data quality control purposes. Since ch
 
 You can adjust the start and end date of the reporting interval using convenient [calendar](https://github.com/axibase/atsd/blob/master/shared/calendar.md) syntax. For example, to view availability for the previous quarter, specify the date condition as follows:
 
-
 * Last 24-hours:
 
 ```sql
@@ -213,11 +212,9 @@ GROUP BY entity
 
 ![](images/route53-conditional-email.png)
 
-
 ### Calendar Filtering
 
 The database provides a convenient syntax to filter data via calendar. This is convenient, if the availability objectives vary by  peak/off-peak hours. This filtering condition calculates average uptime for specific hours of the day such as 8 AM to 6 PM during weekdays (Monday to Friday).
-
 
 ```sql
 SELECT entity.tags.url AS URL,

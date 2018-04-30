@@ -2,7 +2,7 @@
 
 To perform this process using a single command, see the following [abbreviated walkthrough](../capacity-and-usage/README.md).
 
-### Launch Axibase Sandbox
+## Launch Axibase Sandbox
 
 Use the following command to launch ATSD and Axibase Collector instances. The default username and password will be `axibase`.
 
@@ -37,7 +37,7 @@ Specify 'Server', 'Username' and 'Password' for a Marathon user with API query p
 
 ![](images/http_pool_config_.png)
 
-Confirm connectivity by clicking the **Test** button. Click **Save**. 
+Confirm connectivity by clicking the **Test** button. Click **Save**.
 
 From the **JSON Job** page, enable the **marathon_apps** job. Click **Save**.
 

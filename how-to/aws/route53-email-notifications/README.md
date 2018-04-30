@@ -8,37 +8,37 @@ This guide described how to configure email alerts when a url monitored with Rou
 
 1. In the Amazon Web Services interface, navigate to Route53 by opening the **Services** drop-down menu in the upper toolbar and clicking **Route53** under the **Networking and Content Delivery** section.
 
-![](images/route53-locate.png)
+    ![](images/route53-locate.png)
 
 2. Select **Health Checks** from the toolbar on the left and click **Create Health Check**. Note that if you have not yet set up Route53 services with your AWS account, you will need to click through an introductory screen before completing this step.
 
-![](images/route53-menu.png)
+    ![](images/route53-menu.png)
 
 3. Configure a new endpoint health check on the form shown below. Specify the **Domain Name** to monitor the status of a specific website and define the path you would like to monitor. Click **Next**.
 
-![](images/route53-config.png)
+    ![](images/route53-config.png)
 
 4. On the following page, configure an alarm based on the newly created health check.
 
-![](images/route53-alert.png)
+    ![](images/route53-alert.png)
 
 5. Once you have configured the new health check and alarm, the email address you indicated will be sent a confirmation email. The health check will not be executed until you confirm the new alert. Once the health check begins to execute, be sure that the monitored site is showing 100% health under the **Monitoring** tab.
 
-![](images/route53-githup-api.png)
+    ![](images/route53-githup-api.png)
 
 6. Under the **Health Checkers** tab, review information in the **Status** column for each of the **Health Checker Regions** and resolve any issues.
 
-![](images/route53-region-error.png)
+    ![](images/route53-region-error.png)
 
 7. If you haven't already done so, configure the new alarm's notification target by navigating to the **Alarms** tab and clicking the **Edit** button in the **Actions** column. Select the appropriate **Notification Target** from the drop-down menu and existing targets.
 
-![](images/route53-alarm.png)
+    ![](images/route53-alarm.png)
 
 8. Should the endpoint become unhealthy and the alarm be triggered, the specified email address will receive an email notification from AWS similar to the one shown below.
 
-![](images/route53-alarm-github.png)
+    ![](images/route53-alarm-github.png)
 
-Your health checks and alarms are now fully functioning. 
+Your health checks and alarms are now fully functioning.
 
 Complete the process below to enhance Route53 alarms with your local ATSD instance.
 
@@ -89,7 +89,7 @@ Complete the process below to enhance Route53 alarms with your local ATSD instan
 
     ![](images/app-integration-sns.png)
 
-4. Open the **Topics** page from toolbar on the left, and click the Amazon Resource Name (ARN) link of the alert which you would like to integrate with ATSD. 
+4. Open the **Topics** page from toolbar on the left, and click the Amazon Resource Name (ARN) link of the alert which you would like to integrate with ATSD.
 
     ![](images/route53-slack-subscription.png)
 

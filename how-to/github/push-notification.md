@@ -1,18 +1,18 @@
 # Configure Slack/Telegram Notifications for a New GitHub Push
 
-### Overview
+## Overview
 
 This guide shows how to configure GitHub to alert you when someone pushes to your repository. This feature allows you to monitor the dataflow in your repository. Follow the instructions to configure the notifications to be sent to you directly through a third-party messenger service with [Axibase Time Series Database](https://axibase.com/products/axibase-time-series-database/).
 
 ![](images/workflow-5.png)
 
-### Purpose
+## Purpose
 
 Repositories with collaborators working across the globe are difficult to monitor. Before it's time to squash a PR and merge two branches, the input of several team members is usually needed and when these operators are working from a third-party GUI client, most of their commits are appended in the form of a repository push.
 
 While the default email notifications delivered by GitHub provide a convenient way to stay on track, the flexibility of being able to track new pushes can be better accomplished using programmatic integration leveraging GitHub webhook functionality.
 
-### Launch ATSD Sandbox
+## Launch ATSD Sandbox
 
 Launch a local ATSD instance using the following sandbox image:
 
@@ -77,17 +77,17 @@ On the **Add Webhook** page, configure the following settings:
 * **Payload URL**: Copy the GitHub webhook URL from the Docker log.
 * **Content Type**: Make sure you select `application/json`.
 * Click **Disable SSL Verification** and confirm the setting.
-* Select 'Send me everything', under **Which events would you like to trigger this webhook?** and select **Watches**. 
+* Select 'Send me everything', under **Which events would you like to trigger this webhook?** and select **Watches**.
 
 ![](images/webhook-config.png)
 
-Be sure that your server is reachable by GitHub servers. For more information about configuring GitHub webhooks use the [developer guide](https://developer.github.com/webhooks/configuring/). 
+Be sure that your server is reachable by GitHub servers. For more information about configuring GitHub webhooks use the [developer guide](https://developer.github.com/webhooks/configuring/).
 
 Once your server and webhook have been properly configured, confirm connectivity at the bottom of the **Manage Webhook** page.
 
 ![](images/recent-delivery.png)
 
-### Confirm Connectivity
+## Confirm Connectivity
 
 In the ATSD environment, open the left-side **Settings** menu, navigate to **Diagnostics** and click **Webhook Requests**.
 
@@ -99,9 +99,9 @@ On the **Webhook Requests** page, you will see your newly-configured webhook. Un
 
 If you launched ATSD with the pre-configured `SLACK_CONFIG` variable, the setup process is complete. You're ready to begin receiving notifications to the defined Slack Workspace.
 
-### Configure Web Notification
+## Configure Web Notification
 
-#### Detailed Slack Notifications from ATSD
+### Detailed Slack Notifications from ATSD
 
 Configure your local ATSD instance to send messages to **Slack Messenger** by following [this procedure](https://github.com/axibase/atsd/blob/master/rule-engine/notifications/slack.md) or adding the following environment variable to the atsd-sandbox container above:
 
@@ -124,7 +124,7 @@ channels=general
 
 Now, your status change notifications will be sent via Slack messages as well as email.
 
-#### Detailed Telegram Notifications from ATSD 
+### Detailed Telegram Notifications from ATSD
 
 Configure your local ATSD instance to send messages to **Telegram Messenger** by following [this procedure](https://github.com/axibase/atsd/blob/master/rule-engine/notifications/telegram.md) or adding the following environment variable to the atsd-sandbox container above:
 
@@ -145,7 +145,7 @@ token=xoxb-************-************************
 channels=general
 ```
 
-### Configure Alert Rule to Process GitHub Webhook Requests
+## Configure Alert Rule to Process GitHub Webhook Requests
 
 Navigate to the **Rules** page as shown here.
 

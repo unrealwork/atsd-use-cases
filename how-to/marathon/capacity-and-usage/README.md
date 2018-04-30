@@ -55,9 +55,9 @@ docker run -d -p 8443:8443 -p 9443:9443 -p 8081:8081 \
   axibase/atsd-sandbox:latest
 ```
 
-The sandbox container includes both ATSD and [Axibase Collector](https://github.com/axibase/axibase-collector/blob/master/jobs/docker.md) instances, and the command will upload the needed xml files to ATSD and Axibase Collector. 
+The sandbox container includes both ATSD and [Axibase Collector](https://github.com/axibase/axibase-collector/blob/master/jobs/docker.md) instances, and the command will upload the needed xml files to ATSD and Axibase Collector.
 
-> If you would like to import files manually, follow these instructions for [manual upload](MANUAL-UPLOAD-README.md). 
+> If you would like to import files manually, follow these instructions for [manual upload](MANUAL-UPLOAD-README.md).
 
 The Collector instance installed in the sandbox container will automatically start historizing statistics from the local Docker engine.
 
@@ -75,11 +75,11 @@ https://atsd_hostname:8443/
 
 ### Launch Axibase Collectors containers
 
-Launch Collector instances on the other Docker hosts in the environment. The remote Collector instances will send Docker statistics into the centralized ATSD database running in the sandbox container that we previously launched. 
+Launch Collector instances on the other Docker hosts in the environment. The remote Collector instances will send Docker statistics into the centralized ATSD database running in the sandbox container that we previously launched.
 
 ![](images/marathon.png)
 
-Replace `atsd_hostname` in the command below with the hostname or IP address where ATSD is running. 
+Replace `atsd_hostname` in the command below with the hostname or IP address where ATSD is running.
 
 ```sh
 $ docker run -d -p 9443:9443 --restart=always \
@@ -98,7 +98,6 @@ $ docker run -d -p 9443:9443 --restart=always \
 Click **Marathon Applications** on the menu to access the Entity View. This view displays all Marathon applications, the number of healthy tasks for each application, as well as aggregate resource utilization with breakdown by CPU, memory, and disk.
 
 ![](images/marathon-applications.png)
-
 
 ### Resource Utilization Portal
 

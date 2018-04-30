@@ -4,7 +4,6 @@
 
 [AWS Route53](https://aws.amazon.com/route53) provides tools to automate DNS configuration in order to reliably connect external user requests to infrastructure running in AWS. In addition to domain registration, it provides dynamic routing services, including latency-based routing, GeoDNS, Geoproximity, and Weighted Round Robin (WRR).
 
-
 A core Route53 functionality is the ability to configure [health checks](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/welcome-health-checks.html) which monitor the health of an application and can route incoming traffic to its healthy endpoints.
 
 ![](images/route53-1.png)
@@ -41,7 +40,7 @@ Amazon AWS publishes a list of IP ranges used by [health checker nodes](https://
 
 ### Healthy Endpoint
 
-For HTTP and HTTPS checks, the endpoint is considered healthy if the TCP connection was established within **ten** seconds and the endpoint returned an HTTP status code of `2xx` or `3xx` within **two** seconds. 
+For HTTP and HTTPS checks, the endpoint is considered healthy if the TCP connection was established within **ten** seconds and the endpoint returned an HTTP status code of `2xx` or `3xx` within **two** seconds.
 
 For TCP checks, the endpoint status is determined as healthy if the TCP connection was established within **ten** seconds.
 

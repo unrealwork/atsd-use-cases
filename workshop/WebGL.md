@@ -1,26 +1,29 @@
 # WebGL: Web-based Graphics Library
-### 3D Image Design Without Plugins
+
+## 3D Image Design Without Plugins
 
 > Examples in this article use ES6 syntax and Fetch API, which are not supported in Internet Explorer.
 
 ## Introduction
+
 Drawing in Web:
+
 * Adobe Flash / MS Silverlight
-  + Requires plugin
+  * Requires plugin
 
 * SVG:
-  + Creates DOM elements, which handles events;
-  + Declarative creation and styling;
-  + May be slow;
-  + Not designed for 3D graphics;
-  + As HTML, works fine with fonts, but cannot manage text layout.
+  * Creates DOM elements, which handles events;
+  * Declarative creation and styling;
+  * May be slow;
+  * Not designed for 3D graphics;
+  * As HTML, works fine with fonts, but cannot manage text layout.
 
 * Canvas 2D API:
-  + Imperative 2D rendering;
-  + Rendering does not affect DOM;
-  + Can provide raw frame buffer;
-  + Can draw text like SVG, but text drawing must be controlled by user (e.g. to replace one text line with another, you need manually clean the old line space and put the new one in its place, or redraw the whole scene);
-  + User interaction (mouse events etc.) must be implemented manually or with some framework.
+  * Imperative 2D rendering;
+  * Rendering does not affect DOM;
+  * Can provide raw frame buffer;
+  * Can draw text like SVG, but text drawing must be controlled by user (e.g. to replace one text line with another, you need manually clean the old line space and put the new one in its place, or redraw the whole scene);
+  * User interaction (mouse events etc.) must be implemented manually or with some framework.
 
 * WebGL
 
@@ -33,14 +36,15 @@ Drawing in Web:
 Pipeline (simplified):
 
 ![](https://kaidu1982.github.io/2013-jco-webgl/reveal.js-master/img/webgl_rendering_pipeline.png)
-> https://kaidu1982.github.io/2013-jco-webgl/reveal.js-master/img/webgl_rendering_pipeline.png
 
 Simplicity causes a reduced number of primitives to be rendered: WebGL can draw lines, points and triangles (polygons), but it can't draw cubes, spheres, circles etc.). To display other figures, they must be represented as a polygonal model.
 
 ![Utah teapot](images/utah_teapot.jpg)
-> http://caig.cs.nctu.edu.tw/course/CG2007/images/ex1_wireframe.jpg
 
-To display this teapot, we need to: 
+![](http://caig.cs.nctu.edu.tw/course/CG2007/images/ex1_wireframe.jpg)
+
+To display this teapot, we need to:
+
 1. Initialize WebGL context;
 2. Create array of vertices for the teapot model;
 3. Create array of indices for the vertices of each polygon;
@@ -49,9 +53,10 @@ To display this teapot, we need to:
 6. Create array buffer and pass it vertex data;
 7. Create index buffer and pass it indices;
 8. Connect shader attribute variables with data representation;
-9. Draw! 
+9. Draw!
 
 ## Limitations
+
 1. Hard to learn (especially at low-level).
 2. Very hard to render text.
 3. Can not render Web content (DOM elements, iframes, etc.).
@@ -61,6 +66,7 @@ To display this teapot, we need to:
 ## Browser Support
 
 ### WebGL
+
 * IE 11+
 * Edge
 * Chrome 8+
@@ -68,16 +74,16 @@ To display this teapot, we need to:
 * Opera 12.1+
 * Safari 5.1+
 
-### WebGL2 
+### WebGL2
+
 * Chrome 56+
 * Firefox 51+
 * Opera 43+
 * _Safari 10.1+ (with flag)_
 
-
 ## Hello World
 
-A traditional triangle example. 
+A traditional triangle example.
 [Open in Playground](https://stackblitz.com/edit/axibase-workshop-webgl-triangle)
 
 [View on apps.axibase.com](https://apps.axibase.com/webgl/triangle)
@@ -85,21 +91,27 @@ A traditional triangle example.
 ![WebGL triangle](images/triangle.png)
 
 ### Context initialization
-_index.html_
+
+`index.html`
+
 ```html
 <body>
     <canvas width="400" height="300"></canvas>
     <script src="triangle.js"></script>
 </body>
 ```
-_triangle.js_
+
+`triangle.js`
+
 ```javascript
 let canvas = document.querySelector("canvas");
 let gl = canvas.getContext("webgl");
 ```
 
 ### Fill background
-_triangle.js_
+
+`triangle.js`
+
 ```javascript
 gl.clearColor(0.99, 0.84, 0.20, 1.0); // Orange
 gl.clear(gl.COLOR_BUFFER_BIT);
@@ -134,11 +146,12 @@ Fragment shaders calculate the color for each vertex. We just pass the argument 
 precision mediump float;
 varying vec3 vcolor;
 void main() {
-  gl_FragColor = vec4(vcolor, 1.0);  
+  gl_FragColor = vec4(vcolor, 1.0);
 }
 ```
 
 ### Shader compilation and program linkage
+
 > Error handling is skipped
 
 ```js
@@ -160,7 +173,8 @@ gl.deleteShader(fragmentShader);
 ```
 
 ### Buffer Initialization
-Passing data to and from the GPU is expensive, so we need to pass as much data as we can in as few trips as possible. We pass position and color info as a plaintext array through the _buffer object_ `vbo`. To tell the GPU which attribute is located at buffer, we call `gl.vertexAttribPointer`, passing the attribute location index from program, count, and type of attribute type vector (position is `vec2` and color is `vec3`), normalization flag, size of structure and field offset. 
+
+Passing data to and from the GPU is expensive, so we need to pass as much data as we can in as few trips as possible. We pass position and color info as a plaintext array through the _buffer object_ `vbo`. To tell the GPU which attribute is located at buffer, we call `gl.vertexAttribPointer`, passing the attribute location index from program, count, and type of attribute type vector (position is `vec2` and color is `vec3`), normalization flag, size of structure and field offset.
 
 We are drawing a single triangle, so we don't need index buffer.
 
@@ -188,6 +202,7 @@ gl.vertexAttribPointer(colorLoc, 3, gl.FLOAT, false, 5 * f32Size, 2 * f32Size);
 ```
 
 ### Draw
+
 ```js
 gl.useProgram(prog);
 gl.drawArrays(gl.TRIANGLES, 0, 3);
@@ -195,13 +210,15 @@ gl.drawArrays(gl.TRIANGLES, 0, 3);
 
 ### Full code
 
-_index.html_
+`index.html`
+
 ```html
 <canvas width="400" height="300"></canvas>
 <script src="index.js"></script>
 ```
 
-_index.js_
+`index.js`
+
 ```js
 let canvas = document.querySelector("canvas");
 let gl = canvas.getContext("webgl");
@@ -220,7 +237,7 @@ void main()
 let fragmentShaderSrc = `
 precision mediump float;
 void main() {
-  gl_FragColor = vec4(0.0, 0.0, 0.0, 1.0);  
+  gl_FragColor = vec4(0.0, 0.0, 0.0, 1.0);
 }`;
 
 
@@ -240,7 +257,7 @@ gl.deleteShader(vertexShader);
 gl.deleteShader(fragmentShader);
 
 let vertices = new Float32Array([
-  //  x     y  
+  //  x     y
   -0.5, -0.5,
   0.5,  -0.5,
   0,    0.5,
@@ -261,8 +278,6 @@ gl.drawArrays(gl.TRIANGLES, 0, 3);
 gl.deleteBuffer(vbo);
 gl.deleteProgram(prog)
 ```
-
-
 
 ## THREE.js
 
@@ -370,7 +385,7 @@ draw();
 </html>
 ```
 
-4. Create `barchart.js` file.
+Create `barchart.js` file.
 
 ```javascript
 // Get CPU busy data from ATSD
@@ -388,7 +403,7 @@ let loadAtsdCpuBusyData = fetch("https://apps.axibase.com/api/v1/series/query", 
 })
 // ... read it as json file
 .then(resp => resp.json())
-// ... and select required fields 
+// ... and select required fields
 .then(resp => resp.map(series => ({
     // Select entity name and last value
     entity: series.entity,
@@ -459,7 +474,6 @@ loadAtsdCpuBusyData.then(data => {
 
 ### Portal gallery with THREE.js CSS3DRenderer
 
-
 [View on apps.axibase.com](https://apps.axibase.com/webgl/threegl_gallery)
 
 ![](images/threejs_gallery.png)
@@ -527,6 +541,7 @@ document.addEventListener("keyup", (e) => {
 ```
 
 ## Cesium
+
 [https://cesiumjs.org/](https://cesiumjs.org/)
 
 Provides interactive globe for data visualization. Supports time-based data rendering, different surface map systems (Bing, OpenStreetMap), data based 2D and 3D entity rendering.

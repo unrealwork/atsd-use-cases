@@ -1,18 +1,18 @@
 # Configure Slack/Telegram Notifications for New GitHub Issues
 
-### Overview
+## Overview
 
 This guide shows how to configure GitHub to alert you when someone raises an issue in your repository. This feature allows you to monitor your repository and receive notifications the moment an issue is raised. Follow the instructions to configure the notifications to be sent directly to your repository collaborators through a third-party messenger service with [Axibase Time Series Database](https://axibase.com/products/axibase-time-series-database/).
 
 ![](images/workflow-1.png)
 
-### Purpose
+## Purpose
 
-The issue functionality in GitHub has evolved recently to resemble a lightweight support system. Many GitHub repositories contain thousands of lines of code and need to handle an increasing number of issues raised both by repository collaborators as well as by community members. 
+The issue functionality in GitHub has evolved recently to resemble a lightweight support system. Many GitHub repositories contain thousands of lines of code and need to handle an increasing number of issues raised both by repository collaborators as well as by community members.
 
 While the default email notifications delivered by GitHub provide a convenient way to stay on track, the flexibility of being able to match new issues to specific collaborators can be better accomplished using programmatic integration leveraging GitHub webhook functionality.
 
-### Launch ATSD Sandbox
+## Launch ATSD Sandbox
 
 Launch an [ATSD Sandbox](https://github.com/axibase/dockers/tree/atsd-sandbox) container on Docker:
 
@@ -34,7 +34,7 @@ docker run -d -p 8443:8443 -p 9443:9443 \
   --name=atsd-sandbox \
   --env SERVER_URL=https://atsd.company_name.com:8443 \
   --env WEBHOOK=github \
-  --env SLACK_CONFIG="slack.properties" \  
+  --env SLACK_CONFIG="slack.properties" \
   --volume /home/user/slack.properties:/slack.properties \
   --env ATSD_IMPORT_PATH='https://raw.githubusercontent.com/axibase/atsd-use-cases/master/how-to/github/resources/github-issue-open.xml' \
   axibase/atsd-sandbox:latest
@@ -74,14 +74,14 @@ Select the **Webhooks** tab from the left-side menu and click **Add Webhook**.
 
 On the **Add Webhook** page, configure the following settings:
 
-* **Payload URL**: Copy the GitHub webhook URL from the Docker log. 
+* **Payload URL**: Copy the GitHub webhook URL from the Docker log.
 * **Content Type**: Make sure you select `application/json`.
 * Click **Disable SSL Verification** and confirm the setting.
 * Select 'Send me everything', under **Which events would you like to trigger this webhook?**.
 
 ![](images/webhook-config.png)
 
-Be sure that your server is reachable by GitHub servers. For more information about configuring GitHub webhooks use the [developer guide](https://developer.github.com/webhooks/configuring/). 
+Be sure that your server is reachable by GitHub servers. For more information about configuring GitHub webhooks use the [developer guide](https://developer.github.com/webhooks/configuring/).
 
 Once your ATSD server and webhook have been properly configured, confirm connectivity at the bottom of the **Manage Webhook** page.
 
@@ -122,7 +122,7 @@ token=xoxb-************-************************
 channels=general
 ```
 
-#### Detailed Telegram Notifications from ATSD 
+#### Detailed Telegram Notifications from ATSD
 
 Configure your local ATSD instance to send messages to **Telegram Messenger** by following [this procedure](https://github.com/axibase/atsd/blob/master/rule-engine/notifications/telegram.md) or adding the following environment variable to the atsd-sandbox container above:
 

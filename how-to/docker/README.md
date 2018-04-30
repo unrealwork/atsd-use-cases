@@ -184,15 +184,15 @@ In addition to sending build error notifications, the `dockerhub-build-fail` rul
 
 1. Create a new trigger token for a project on Docker Hub (projects with intermittent failures are good candidates for this).
 
-![](images/docker-hub-build-trigger.png)
+    ![](images/docker-hub-build-trigger.png)
 
 2. Create a CUSTOM web notification to launch an automated build on Docker Hub.
 
-![](images/docker-hub-trigger-notify.png)
+    ![](images/docker-hub-trigger-notify.png)
 
 3. Add a corresponding web notification action in the `dockerhub-build-fail` rule.
 
-![](images/docker-hub-trigger-rule.png)
+    ![](images/docker-hub-trigger-rule.png)
 
 For a more robust implementation, create a [lookup table](https://github.com/axibase/atsd/blob/master/rule-engine/functions-lookup.md#lookup) to associate images in incoming failure events with trigger tokens.
 

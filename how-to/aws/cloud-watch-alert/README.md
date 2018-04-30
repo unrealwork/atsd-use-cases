@@ -46,7 +46,7 @@ Define the email address to which you would like AWS status change notifications
 
 ![](images/email-subscription.png)
 
-Once you have completed creating a new subscription, click **Confirm Subscription** and AWS will send the new subscriber an email similar to the one shown here. 
+Once you have completed creating a new subscription, click **Confirm Subscription** and AWS will send the new subscriber an email similar to the one shown here.
 
 ![](images/confirm-email.png)
 
@@ -136,7 +136,7 @@ https://aws-cw:PASSWORD@atsd_hostname:8443/api/v1/messages/webhook/aws-cw?comman
 
 Navigate to the **Topics** section of the **Simple Notification Service** page once again. On the same **Topic Details** page that you used to create the AWS email subscription, click **Create Subscription** to add a second subscription to the topic.
 
-Return to the **Create Subscription** form, and paste the Webhook URL in the **Endpoint** field. Be sure that the **Protocol** drop-down menu is showing **HTTPS**. 
+Return to the **Create Subscription** form, and paste the Webhook URL in the **Endpoint** field. Be sure that the **Protocol** drop-down menu is showing **HTTPS**.
 
 AWS SNS notifications over HTTPS protocol do not support destination endpoints with self-signed SSL certificates. If your ATSD instance is running on a self-signed certificate, switch to the HTTP protocol or install a [CA-signed SSL certificate](https://github.com/axibase/atsd/blob/master/administration/ssl-ca-signed.md) into ATSD.
 
@@ -146,7 +146,7 @@ Confirm that your new subscription is active by checking that the **Subscriber**
 
 ![](images/sns-6.png)
 
-ATSD is ready to be configured to notify you via [**Slack Team Messaging**](https://slack.com/), [**Telegram Messenger**](https://telegram.org/). 
+ATSD is ready to be configured to notify you via [**Slack Team Messaging**](https://slack.com/), [**Telegram Messenger**](https://telegram.org/).
 
 ### Email Notifications from ATSD
 
@@ -187,11 +187,11 @@ channels=general
 
 Now, your status change notifications will be sent via Slack messages as well as email.
 
-A sample status change Slack message is shown here. 
+A sample status change Slack message is shown here.
 
 ![](images/-slack-notification.png)
 
-### Detailed Telegram Notifications from ATSD 
+### Detailed Telegram Notifications from ATSD
 
 Configure your local ATSD instance to send messages to **Telegram Messenger** by following [this procedure](https://github.com/axibase/atsd/blob/master/rule-engine/notifications/telegram.md) or adding the following environment variable to the atsd-sandbox container above:
 
