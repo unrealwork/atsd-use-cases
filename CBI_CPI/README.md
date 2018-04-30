@@ -5,19 +5,19 @@ The Consumer Price Index Versus Your Savings Account
 
 #### Introduction
 
-The [Consumer Price Index](https://www.bls.gov/cpi/home.htm) (CPI) is a weighted measurement of the average price for various types of consumer goods and services. 
-The CPI of a given set of goods like transportation, food costs, or medical care is a strong indicator of inflation and deflation 
-because it tracks the amount that consumers are paying for various products as well as how that value is changing 
+The [Consumer Price Index](https://www.bls.gov/cpi/home.htm) (CPI) is a weighted measurement of the average price for various types of consumer goods and services.
+The CPI of a given set of goods like transportation, food costs, or medical care is a strong indicator of inflation and deflation
+because it tracks the amount that consumers are paying for various products as well as how that value is changing
 over time. Government and Central Bank officials all over the globe use the Consumer Price Index to create effective fiscal policy that
 will be beneficial to their people and attempt to control internal inflation with information gleaned from CPI values.
- 
-The [Bank of Israel](http://www.boi.org.il/en/Pages/Default.aspx) is no stranger to managing inflation, after the 1983 Israeli bank stock crisis following a decade of economic stagnation, 
+
+The [Bank of Israel](http://www.boi.org.il/en/Pages/Default.aspx) is no stranger to managing inflation, after the 1983 Israeli bank stock crisis following a decade of economic stagnation,
 Israel's four largest banks were nationalized, following massive devaluation of their stock, to offset public investment
 losses. New, stricter banking regulations were eventually put in place as a result of the crisis, many of which afforded Israel relative
 stability during the worldwide recession of the late 2000's. The bank itself creates solutions and manages fiscal policy
 independently and its current Governor is considered among [the best central bankers in the world](https://d2tyltutevw8th.cloudfront.net/media/document/central-bankers-2016-1472776973.pdf).
 
-Using [data](http://www.boi.org.il/en/DataAndStatistics/Pages/Default.aspx) from the Bank of Israel, the phenomenon of 
+Using [data](http://www.boi.org.il/en/DataAndStatistics/Pages/Default.aspx) from the Bank of Israel, the phenomenon of
 liquid currency's decreasing intrinsic value over time can be observed and with analytics tools in [Axibase Time Series Database](https://axibase.com/products/axibase-time-series-database/),
 these changes can be tracked and interpreted to learn why simply holding your nest egg in
 a savings account is quickly becoming the modern-day equivalent of the shoebox of cash hidden underneath your bed.
@@ -58,7 +58,7 @@ local CPI values.
 [![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/f322562c/7/#fullscreen)
 
 Shown above is **Figure 1.2**, the percent change of almost half of century's worth of CPI data tracked by the Bank of Israel. The hyperinflation that resulted
-in the establishment of Israel's contemporary currency, the New Israeli Shekel (NIS), in 1985 is detailed by the absolute maxima 
+in the establishment of Israel's contemporary currency, the New Israeli Shekel (NIS), in 1985 is detailed by the absolute maxima
 seen here. The value shown is a calculated percentile based on the following script, which is visible in
 the Editor window:
 
@@ -79,11 +79,11 @@ change in CPI. In order to smooth the variance of the curve, the following scrip
 [series]
   label = CPI (Adjusted)
   value = movavg ('cpi', 4)
-  alias = cpi_smoothed 
+  alias = cpi_smoothed
 ```
 
 The `label` tag describes the visualization and is used in the legend at the top of the screen, the `value` tag here contains
-the [`movavg`](https://axibase.com/products/axibase-time-series-database/visualization/widgets/time-chart/) or moving average 
+the [`movavg`](https://axibase.com/products/axibase-time-series-database/visualization/widgets/time-chart/) or moving average
 method, built in to ChartLab. Moving average is an aggregation of a variable number of years, set by the user as the second
 parameter in the brackets, with the first indicating the alias to be averaged. The resulting graph is shown below:
 
@@ -95,10 +95,10 @@ parameter in the brackets, with the first indicating the alias to be averaged. T
 
 Inflation and deflation have a number of tangible effects, the most obvious of which is the increase and decrease in the prices
 of everyday purchases, measured by CPI as shown above. Additionally, gross yield of cash can be measured to track the appreciation
-or depreciation of the value of liquid currency. In a country experiencing serious hyperinflation, such as the Weimar Republic 
+or depreciation of the value of liquid currency. In a country experiencing serious hyperinflation, such as the Weimar Republic
 in the twenties, Japan in the forties, Israel in the eighties, or Russia in the nineties, the value of liquid currency can
-depreciate to the point of worthlessness very quickly. But this phenomenon is simply an accelerated version of the natural 
-inflation that occurs in even the most dynamic and robust economies. 
+depreciate to the point of worthlessness very quickly. But this phenomenon is simply an accelerated version of the natural
+inflation that occurs in even the most dynamic and robust economies.
 
 Since its first printing in the eighties, the NIS has grown to become a stable, and freely-tradeable currency but that doesn't
 mean that it has become immune to the effects of inflation. Shown below is the Gross Yield of cash holdings in shekels since
@@ -111,10 +111,10 @@ the early nineties to present day, contrasted against the percent change of the 
 [![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/f322562c/13/#fullscreen)
 
 The decreasing difference in absolute value of the two lines here, representing the Gross Yield of cash in blue, and the change
-in CPI value in gold, shows that over the observed period of time the gross yield of cash (or makam) is decreasing, with 
+in CPI value in gold, shows that over the observed period of time the gross yield of cash (or makam) is decreasing, with
 some exceptions. To simplify, a cash gross yield of 0 (no slope) shows that the value of a given amount of cash is increasing
 or decreasing in parallel with inflation, not that the value of the cash is stagnant (unless of course there was also zero percent inflation
-in the observed year). 
+in the observed year).
 
 Using the derived series `CPI (Smoothed)` in a new function, the value of cash's Real Yield can be calculated by adding the
 following script in the Editor window:
@@ -159,7 +159,7 @@ shows that in fact, inflation and deflation is occurring, and the prices of cons
 Using **Figure 3.2**, more detailed conclusions can be drawn, for example, the interaction between CPI (Smoothed) and the Real Yield
 of cash is shown to be closely related in recent years. In fact, the cyclical nature of CPI is shown to be occurring in parallel
 to the now-cyclical real yield in cash value. The stability of Israel's economy during recent years is highlighted by low inflation and deflation
-and stable CPI. 
+and stable CPI.
 
 **Figure 4.1**
 

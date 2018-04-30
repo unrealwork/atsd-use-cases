@@ -3,7 +3,7 @@ Air Traffic Noise Complaints in San Francisco by the Numbers
 
 > Visualization tools in [Axibase Time Series Database](https://axibase.com/products/axibase-time-series-database/).
 
-Thinking of moving to San Francisco anytime soon? Check out [data](https://github.com/axibase/open-data-catalog/blob/master/datasets/q3xd-hfi8.md) 
+Thinking of moving to San Francisco anytime soon? Check out [data](https://github.com/axibase/open-data-catalog/blob/master/datasets/q3xd-hfi8.md)
 released by the [City of San Francisco](https://catalog.data.gov/organization/city-of-san-francisco) that covers
 complaints of air traffic noise from various locations in the San Francisco metropolitan area. Not only
 is 'Frisco home to the Golden Gate Bridge, one of the wonders of the modern world, but also San

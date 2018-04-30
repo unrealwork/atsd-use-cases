@@ -56,14 +56,14 @@ The following ChartLab visualization displays information related to the changin
 **Figure 1.1**
 
 ![](Images/hma-001.png)
- 
+
 [![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/69d313b9/3/#fullscreen)
 
 > Use the drop-down menu to toggle between metrics
 
 Return to the [Index](#Index)
 
-#### Transportation Statistics: 
+#### Transportation Statistics:
 
 The following ChartLab visualization displays information related to transportation cost in the city of Austin.
 

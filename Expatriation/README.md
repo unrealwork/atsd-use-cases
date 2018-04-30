@@ -72,9 +72,9 @@ For more information about ChartLab syntax or to explore other features which ma
 In addition to ChartLab, the Axibase Time Series Database includes a web-based [SQL Console](https://github.com/axibase/atsd/blob/master/sql/README.md) which can be used for ad-hoc data exploration.
 
 ```sql
-SELECT date_format(time, 'yyyy') AS "Year", 
-  count(value) AS "Year Total", 
-  count(value)-lag(count(value)) AS "Y-o-Y Change", 
+SELECT date_format(time, 'yyyy') AS "Year",
+  count(value) AS "Year Total",
+  count(value)-lag(count(value)) AS "Y-o-Y Change",
   100*(count(value)-lag(count(value)))/lag(count(value)) AS "Y-o-Y Change, %"
 FROM "us-expatriate-counter"
   WHERE entity = 'us.irs' AND datetime <= '2018-01-01T00:00:00Z'
@@ -82,26 +82,26 @@ GROUP BY period(1 YEAR, END_TIME)
   ORDER BY period(1 YEAR, END_TIME)
 ```
 
-| Year | Year Total | Y-o-Y Change | Y-o-Y Change, % | 
-|------|-----------:|-------------:|----------------:| 
-| 2000 | 430        | null         | null            | 
-| 2001 | 488        | 58.00        | 13.49           | 
-| 2002 | 503        | 15.00        | 3.07            | 
-| 2003 | 550        | 47.00        | 9.34            | 
-| 2004 | 631        | 81.00        | 14.73           | 
-| 2005 | 745        | 114.00       | 18.07           | 
-| 2006 | 279        | -466.00      | -62.55          | 
-| 2007 | 470        | 191.00       | 68.46           | 
-| 2008 | 229        | -241.00      | -51.28          | 
-| 2009 | 741        | 512.00       | 223.58          | 
-| 2010 | 1531       | 790.00       | 106.61          | 
-| 2011 | 1780       | 249.00       | 16.26           | 
-| 2012 | 932        | -848.00      | -47.64          | 
-| 2013 | 2999       | 2067.00      | 221.78          | 
-| 2014 | 3411       | 412.00       | 13.74           | 
-| 2015 | 4273       | 862.00       | 25.27           | 
-| 2016 | 5398       | 1125.00      | 26.33           | 
-| 2017 | 5128       | -270.00      | -5.00           | 
+| Year | Year Total | Y-o-Y Change | Y-o-Y Change, % |
+|------|-----------:|-------------:|----------------:|
+| 2000 | 430        | null         | null            |
+| 2001 | 488        | 58.00        | 13.49           |
+| 2002 | 503        | 15.00        | 3.07            |
+| 2003 | 550        | 47.00        | 9.34            |
+| 2004 | 631        | 81.00        | 14.73           |
+| 2005 | 745        | 114.00       | 18.07           |
+| 2006 | 279        | -466.00      | -62.55          |
+| 2007 | 470        | 191.00       | 68.46           |
+| 2008 | 229        | -241.00      | -51.28          |
+| 2009 | 741        | 512.00       | 223.58          |
+| 2010 | 1531       | 790.00       | 106.61          |
+| 2011 | 1780       | 249.00       | 16.26           |
+| 2012 | 932        | -848.00      | -47.64          |
+| 2013 | 2999       | 2067.00      | 221.78          |
+| 2014 | 3411       | 412.00       | 13.74           |
+| 2015 | 4273       | 862.00       | 25.27           |
+| 2016 | 5398       | 1125.00      | 26.33           |
+| 2017 | 5128       | -270.00      | -5.00           |
 
 *Fig 4.* The table above shows the results of a query which tracks absolute and percentile year-on-year change in expatriate numbers, similar to the *Fig 2* and *Fig 3* above.
 
@@ -110,7 +110,7 @@ The above query uses the [`LAG`](https://github.com/axibase/atsd/blob/master/sql
 Likewise, data may be tracked by quarter using the query below:
 
 ```sql
-SELECT CEIL(CAST(date_format(time, 'M') AS NUMBER)/3) AS "Quarter", date_format(time, 'yyyy') AS "Year", 
+SELECT CEIL(CAST(date_format(time, 'M') AS NUMBER)/3) AS "Quarter", date_format(time, 'yyyy') AS "Year",
   count(value) AS "Quarter Total"
 FROM "us-expatriate-counter"
   WHERE entity = 'us.irs' AND date_format(time, 'yyyy-MM') >= '2013-01' AND datetime <= now
@@ -118,28 +118,28 @@ GROUP BY period(1 QUARTER)
   ORDER BY period(1 QUARTER)
 ```
 
-| Quarter | Year | Quarter Total | 
-|---------|------|--------------:| 
-| 1       | 2013 | 679           | 
-| 2       | 2013 | 1129          | 
-| 3       | 2013 | 560           | 
-| 4       | 2013 | 631           | 
-| 1       | 2014 | 999           | 
-| 2       | 2014 | 576           | 
-| 3       | 2014 | 775           | 
-| 4       | 2014 | 1061          | 
-| 1       | 2015 | 1331          | 
-| 2       | 2015 | 459           | 
-| 3       | 2015 | 1426          | 
-| 4       | 2015 | 1057          | 
-| 1       | 2016 | 1154          | 
-| 2       | 2016 | 506           | 
-| 3       | 2016 | 1379          | 
-| 4       | 2016 | 2359          | 
-| 1       | 2017 | 1313          | 
-| 2       | 2017 | 1756          | 
-| 3       | 2017 | 1374          | 
-| 4       | 2017 | 685           | 
+| Quarter | Year | Quarter Total |
+|---------|------|--------------:|
+| 1       | 2013 | 679           |
+| 2       | 2013 | 1129          |
+| 3       | 2013 | 560           |
+| 4       | 2013 | 631           |
+| 1       | 2014 | 999           |
+| 2       | 2014 | 576           |
+| 3       | 2014 | 775           |
+| 4       | 2014 | 1061          |
+| 1       | 2015 | 1331          |
+| 2       | 2015 | 459           |
+| 3       | 2015 | 1426          |
+| 4       | 2015 | 1057          |
+| 1       | 2016 | 1154          |
+| 2       | 2016 | 506           |
+| 3       | 2016 | 1379          |
+| 4       | 2016 | 2359          |
+| 1       | 2017 | 1313          |
+| 2       | 2017 | 1756          |
+| 3       | 2017 | 1374          |
+| 4       | 2017 | 685           |
 
 *Fig 5.* Tracked by quarter, expatriation data since 2013 is shown in the table above.
 
@@ -159,7 +159,7 @@ The Web Crawler reads incoming data from the Federal Register and parses it into
 series d:{iso-date} e:{entity} t:{tag-1}={val-1} m:{metric-1}={number}
 ```
 
-Once the data is stored in the database, the date (`d:`) parameter may be referenced in ISO format, or modified to output human-readable date information such as that seen in the [SQL](#sql) section of this article. Tags (`t:`), metrics (`m:`), and entities (`e:`) are identifying features of a particular set of data. In the case of expatriation data here, the entity is the publishing body, the IRS and the metric is the number of expatriates. The raw data does not feature tag-level differentiation, but it could be something like `us-born-citizens` versus `naturalized-citizens`, if the data were tracked that specifically. 
+Once the data is stored in the database, the date (`d:`) parameter may be referenced in ISO format, or modified to output human-readable date information such as that seen in the [SQL](#sql) section of this article. Tags (`t:`), metrics (`m:`), and entities (`e:`) are identifying features of a particular set of data. In the case of expatriation data here, the entity is the publishing body, the IRS and the metric is the number of expatriates. The raw data does not feature tag-level differentiation, but it could be something like `us-born-citizens` versus `naturalized-citizens`, if the data were tracked that specifically.
 
 The complete list and operation instructions of other supported Axibase data crawlers is hosted [here](https://github.com/axibase/atsd-data-crawlers).
 

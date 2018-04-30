@@ -3,8 +3,8 @@
 Axibase Time Series Database is a Hadoop-based time series database with SQL, rule-engine, and visualization.
 
 The **Use Cases** repository contains [Research Articles](#research-articles) demonstrating solutions to real-world data problems using ATSD, [How-To](#how-to) guides for programmatic integration instructions with some of the most commonly-used enterprise softwares and services, our [Chart of the Day](#chart-of-the-day) publications, a [Data Library](#data-library) with in-depth SQL guides, and [Analysis](#analysis) of complex data problems faced on the modern data science landscape.
-  
-## Research Articles 
+
+## Research Articles
 
 ATSD functionality and features applied to real-world public data to solve common data problems and demonstrate use cases with meaningful information. See older articles in the [Archive](#archive).
 
@@ -49,7 +49,7 @@ Walkthrough guides for ATSD integration with various IT infrastructure systems a
 - [Curve Smoothing Using Moving Averages](Support/Moving-Avg/README.md)
 - [Creating Calculated Metrics in ChartLab and SQL Console](Support/Add-Calculated-Value/README.md)
 
-## Chart of the Day 
+## Chart of the Day
 
 Sometimes data tell their own story and ChartLab visualizations can grab reader attention to make a statement. The Chart of the Day is reproduced in a variety of publications.
 

@@ -64,7 +64,7 @@ ORDER BY date_format(time, 'MM-dd')
 
 In this query example, the `LAG(column_name)` function provides a convenient syntax to access columns in the previous row within the current result set.
 
-The `WITH INTERPOLATE(1 DAY)` clause is used to fill the missing data points and make the series regular.  
+The `WITH INTERPOLATE(1 DAY)` clause is used to fill the missing data points and make the series regular.
 
 | Year | Date   | Curr Year, Mln | Prev Year, Mln | Year-on-Year Change, Mln | Year-on-Year Change, % |
 |------|--------|----------------:|----------------:|------------------:|----------------:|
@@ -112,19 +112,19 @@ The [`date_format`](https://github.com/axibase/atsd/blob/master/sql/README.md#da
 SELECT date_format(time, 'yyyy') AS "Year",
   date_format(time, 'MMM-dd') AS "Date",
   CAST(date_format(time, 'D') AS NUMBER) AS "Day in Year",
-  CAST(date_format(date_parse(CONCAT(date_format(time, 'yyyy'), '-04-',   
-    CASE date_format(time, 'yyyy')               
+  CAST(date_format(date_parse(CONCAT(date_format(time, 'yyyy'), '-04-',
+    CASE date_format(time, 'yyyy')
       WHEN '2012' OR '2018' THEN '17'
       WHEN '2016' OR '2017' THEN '18'
       ELSE '15'
-    END, 'T00:00:00Z')), 'D') AS NUMBER) - CAST(date_format(time, 'D') AS NUMBER) AS "Days to File",     
+    END, 'T00:00:00Z')), 'D') AS NUMBER) - CAST(date_format(time, 'D') AS NUMBER) AS "Days to File",
   value/1000000 AS "Curr Year, Mln",
   LAG(value)/1000000 AS "Prev Year, Mln",
   (value-LAG(value))/1000000 AS "YoY Change, Mln",
   (value/LAG(value)-1)*100 AS "YoY Change, %"
   FROM "irs_season.count_year_current"
 WHERE tags.section = 'Individual Income Tax Returns' AND tags.type = 'Total Returns Received'
-  -- 18 days between 31-Mar-2017 and 18-Apr-2017  
+  -- 18 days between 31-Mar-2017 and 18-Apr-2017
   AND "Days to File" = 18
   WITH INTERPOLATE(1 DAY)
 ORDER BY "Days to File" DESC, time
@@ -165,12 +165,12 @@ We noticed however that the trends are not uniform across E-filing channels.
 SELECT date_format(time, 'yyyy') AS "Year",
   date_format(time, 'MMM-dd') AS "Date",
   CAST(date_format(time, 'D') AS NUMBER) AS "Day in Year",
-  CAST(date_format(date_parse(CONCAT(date_format(time, 'yyyy'), '-04-',   
-    CASE date_format(time, 'yyyy')               
+  CAST(date_format(date_parse(CONCAT(date_format(time, 'yyyy'), '-04-',
+    CASE date_format(time, 'yyyy')
       WHEN '2012' OR '2018' THEN '17'
       WHEN '2016' OR '2017' THEN '18'
       ELSE '15'
-    END, 'T00:00:00Z')), 'D') AS NUMBER) - CAST(date_format(time, 'D') AS NUMBER) AS "Days to File",     
+    END, 'T00:00:00Z')), 'D') AS NUMBER) - CAST(date_format(time, 'D') AS NUMBER) AS "Days to File",
   value/1000000 AS "Returns Received, Mln",
   LAG(value)/1000000 AS "Previous Year, Mln",
   (value-LAG(value))/1000000 AS "Y-o-Y Change, Mln",

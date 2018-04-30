@@ -11,11 +11,11 @@ year,CTY_CODE,CTYNAME,IJAN,...,IDEC,IYR,EJAN,...,EDEC,EYR
 
 Below is the table structure that is represented. The first line is used for column headers:
 
-| year | `CTY_CODE` | `CTYNAME` | `IJAN` | ... | `IDEC` | `IYR`   | `EJAN` | ... | `EDEC` | `EYR`   | 
-|------|----------|---------|------|-----|------|-------|------|-----|------|-------| 
-| 1985 | 0001     | OPEC    | 1733 | ... | 2426 | 22801 | 1033 | ... | 1186 | 12478 | 
-| 1986 | 0001     | OPEC    | 2631 | ... | 1327 | 19751 | 947  | ... | 813  | 10844 | 
-| 2016 | 0001     | OPEC    | 1344 | ... | 1883 | 23952 | 739  | ... | 1146 | 11057 | 
+| year | `CTY_CODE` | `CTYNAME` | `IJAN` | ... | `IDEC` | `IYR`   | `EJAN` | ... | `EDEC` | `EYR`   |
+|------|----------|---------|------|-----|------|-------|------|-----|------|-------|
+| 1985 | 0001     | OPEC    | 1733 | ... | 2426 | 22801 | 1033 | ... | 1186 | 12478 |
+| 1986 | 0001     | OPEC    | 2631 | ... | 1327 | 19751 | 947  | ... | 813  | 10844 |
+| 2016 | 0001     | OPEC    | 1344 | ... | 1883 | 23952 | 739  | ... | 1146 | 11057 |
 
 Here is our CSV parser schema:
 
@@ -43,10 +43,10 @@ In this case, `'#row=2-*'`  means that we want to select all rows starting with 
 
 After execution, we will work with the following table's cells:
 
-|  Index | 1   | 2    | 3    | 4    |5-14 | 15   | 16    | 17   |18-27|   28|  29   | 
-|------|------|------|------|------|-----|------|-------|------|-----|------|-------| 
-| **2** | 1985 | 0001 | OPEC | 1733 | ... | 2426 | 22801 | 1033 | ... | 1186 | 12478 | 
-| **3** | 1986 | 0001 | OPEC | 2631 | ... | 1327 | 19751 | 947  | ... | 813  | 10844 | 
+|  Index | 1   | 2    | 3    | 4    |5-14 | 15   | 16    | 17   |18-27|   28|  29   |
+|------|------|------|------|------|-----|------|-------|------|-----|------|-------|
+| **2** | 1985 | 0001 | OPEC | 1733 | ... | 2426 | 22801 | 1033 | ... | 1186 | 12478 |
+| **3** | 1986 | 0001 | OPEC | 2631 | ... | 1327 | 19751 | 947  | ... | 813  | 10844 |
 | **4** | 1987 | 0001 | OPEC | 1344 | ... | 1883 | 23952 | 739  | ... | 1146 | 11057 |
 
 ## Select Columns
@@ -59,8 +59,8 @@ This expression `'#col=4-28''` means that we want select all columns with indexe
 
 |  Index | 4    |5-14 | 15   | 16    | 17   |18-27|   28 |
 |-------|-------|-----|------|-------|------|-----|------|
-| **2** |  1733 | ... | 2426 | 22801 | 1033 | ... | 1186 | 
-| **3** |  2631 | ... | 1327 | 19751 | 947  | ... | 813  |  
+| **2** |  1733 | ... | 2426 | 22801 | 1033 | ... | 1186 |
+| **3** |  2631 | ... | 1327 | 19751 | 947  | ... | 813  |
 | **4** |  1344 | ... | 1883 | 23952 | 739  | ... | 1146 |
 
 ## Filter Cells
@@ -73,7 +73,7 @@ We don't want to select columns that are contained in a column which describes s
 
 For filtering cells, we can use the `filter` command that takes a boolean condition as a parameter. The method goes through every cell and checks it for this condition.
 
-Let us consider our instance. 
+Let us consider our instance.
 
 ## Current Indexes: `row` and `col`
 
@@ -94,10 +94,10 @@ We will use the [endsWith](https://developer.mozilla.org/en-US/docs/Web/JavaScri
 
 We discard the column with the header `IYR` from our cells and we will work with following cells:
 
-|  Index | 1   | 2    | 3    | 4    |5-14 | 15  | 17   |18-27|   28  | 
+|  Index | 1   | 2    | 3    | 4    |5-14 | 15  | 17   |18-27|   28  |
 |------|------|------|------|------|-----|------|------|-----|-------|
-| **2** | 1985 | 0001 | OPEC | 1733 | ... | 2426 | 1033 | ... | 1186 | 
-| **3** | 1986 | 0001 | OPEC | 2631 | ... | 1327 | 947  | ... | 813  | 
+| **2** | 1985 | 0001 | OPEC | 1733 | ... | 2426 | 1033 | ... | 1186 |
+| **3** | 1986 | 0001 | OPEC | 2631 | ... | 1327 | 947  | ... | 813  |
 | **4** | 1987 | 0001 | OPEC | 1344 | ... | 1883 | 739  | ... | 1146 |
 
 ## Filter Last Missing Data
@@ -108,7 +108,7 @@ We want to discard data for December 2016. We will use the following filter to d
 filter(cell(row,1) != 2016 || cell(1,col).substring(1) != 'DEC')
 ```
 
-For example, in the first iteration we will check when the following condition equates to true: 
+For example, in the first iteration we will check when the following condition equates to true:
 
 ```javascript
 filter((1985 != 2016) || ('JAN' != 'DEC'))
@@ -128,7 +128,7 @@ After filtering our cells, we will iterate through the cells and use the cell va
 
 ## 1.  Entity
 
-   We should specify the entity with the `entity` method that takes the entity name as the string parameter. 
+   We should specify the entity with the `entity` method that takes the entity name as the string parameter.
 
 ```javascript
     entity('usa')
@@ -171,6 +171,6 @@ In our case, we can pass a string that is the result of concatenated values of t
 
 For example, for our first iteration we get a series with the following fields:
 
-| Date                 | Metric          | Entity | Tags                             | Value | 
-|----------------------|-----------------|--------|----------------------------------|-------| 
-| 1985-01-01T00:00:00Z | us-trade-import | usa    | cty_code = 0001, ctyname = OPEC  | 1,733 | 
+| Date                 | Metric          | Entity | Tags                             | Value |
+|----------------------|-----------------|--------|----------------------------------|-------|
+| 1985-01-01T00:00:00Z | us-trade-import | usa    | cty_code = 0001, ctyname = OPEC  | 1,733 |

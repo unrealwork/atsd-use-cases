@@ -263,7 +263,7 @@ Here you can explore the portal of this comparison:
 
 Here is a table of additional datasets from data.gov that you can explore using Axibase's portal:
 
-|State		|data.gov dataset		|Axibase Portal			|		  
+|State		|data.gov dataset		|Axibase Portal			|		
 |-----------|-----------------------|-----------------------|
 |Illinois 	|[Abortion Demographics, 1995-2012](http://catalog.data.gov/dataset/abortion-demographics-1995-2012-8f496)|[Portal](https://apps.axibase.com/chartlab/55eb27ce)|
 |Maryland 	|[Anne Arundel County Crime Rate By Type](http://catalog.data.gov/dataset/anne-arundel-county-crime-rate-by-type-e5923)|[Portal](https://apps.axibase.com/chartlab/a85c4f60)|

@@ -37,7 +37,7 @@ favorable while the lower 25th percentile is considered less than favorable. The
 
 #### USD v. Euro
 
-As the amount of debt carried by various EU member countries grew to increasingly worrisome heights, the Euro plunged in 2015 
+As the amount of debt carried by various EU member countries grew to increasingly worrisome heights, the Euro plunged in 2015
 losing ground against the dollar. Further, as oil prices slumped the European Central Bank began to compensate by launching a
 program of government bond purchases. The combination of these factors and the growth of the dollar post-recession have all
 contributed to the currently favorable exchange rate enjoyed by the dollar.
@@ -53,14 +53,14 @@ GROUP BY PERIOD(1 YEAR)
 **Table 1.1**
 
 ```ls
-| Date | Average Value | 
-|------|---------------| 
-| 2012 | 1.28          | 
-| 2013 | 1.33          | 
-| 2014 | 1.33          | 
-| 2015 | 1.11          | 
-| 2016 | 1.11          | 
-| 2017 | 1.09          | 
+| Date | Average Value |
+|------|---------------|
+| 2012 | 1.28          |
+| 2013 | 1.33          |
+| 2014 | 1.33          |
+| 2015 | 1.11          |
+| 2016 | 1.11          |
+| 2017 | 1.09          |
 ```
 
 **Figure 1.1**
@@ -92,14 +92,14 @@ GROUP BY PERIOD(1 YEAR)
 **Table 1.2**
 
 ```ls
-| Date | Average Value | 
-|------|---------------| 
-| 2012 | 0.94          | 
-| 2013 | 0.93          | 
-| 2014 | 0.91          | 
-| 2015 | 0.96          | 
-| 2016 | 0.98          | 
-| 2017 | 0.99          | 
+| Date | Average Value |
+|------|---------------|
+| 2012 | 0.94          |
+| 2013 | 0.93          |
+| 2014 | 0.91          |
+| 2015 | 0.96          |
+| 2016 | 0.98          |
+| 2017 | 0.99          |
 ```
 
 **Figure 1.2**
@@ -128,14 +128,14 @@ GROUP BY PERIOD(1 YEAR)
 **Table 1.3**
 
 ```ls
-| Date | Average Value | 
-|------|---------------| 
-| 2012 | 1.60          | 
-| 2013 | 1.56          | 
-| 2014 | 1.65          | 
-| 2015 | 1.53          | 
-| 2016 | 1.36          | 
-| 2017 | 1.27          | 
+| Date | Average Value |
+|------|---------------|
+| 2012 | 1.60          |
+| 2013 | 1.56          |
+| 2014 | 1.65          |
+| 2015 | 1.53          |
+| 2016 | 1.36          |
+| 2017 | 1.27          |
 ```
 
 > Average Exchange Rate: 1.50
@@ -172,14 +172,14 @@ GROUP BY PERIOD(1 YEAR)
 **Table 2.1**
 
 ```ls
-| Date | Average Value | 
-|------|---------------| 
-| 2012 | 80.05         | 
-| 2013 | 97.60         | 
-| 2014 | 105.74        | 
-| 2015 | 121.05        | 
-| 2016 | 108.66        | 
-| 2017 | 112.33        | 
+| Date | Average Value |
+|------|---------------|
+| 2012 | 80.05         |
+| 2013 | 97.60         |
+| 2014 | 105.74        |
+| 2015 | 121.05        |
+| 2016 | 108.66        |
+| 2017 | 112.33        |
 ```
 
 **Figure 2.1**
@@ -210,14 +210,14 @@ GROUP BY PERIOD(1 YEAR)
 **Table 2.2**
 
 ```ls
-| Date | Average Value | 
-|------|---------------| 
-| 2012 | 6.28          | 
-| 2013 | 6.15          | 
-| 2014 | 6.16          | 
-| 2015 | 6.28          | 
-| 2016 | 6.64          | 
-| 2017 | 6.86          | 
+| Date | Average Value |
+|------|---------------|
+| 2012 | 6.28          |
+| 2013 | 6.15          |
+| 2014 | 6.16          |
+| 2015 | 6.28          |
+| 2016 | 6.64          |
+| 2017 | 6.86          |
 ```
 
 **Figure 2.2**
@@ -232,7 +232,7 @@ GROUP BY PERIOD(1 YEAR)
 
 #### USD v. Hong Kong Dollar
 
-The Hong Kong Dollar is officially pegged to the value of the United States Dollar so any change in relative 
+The Hong Kong Dollar is officially pegged to the value of the United States Dollar so any change in relative
 value is planned. The "Miracle of the Orient" continues to be one of the most dominant financial markets in the world.
 
 **Query 2.3**
@@ -246,14 +246,14 @@ GROUP BY PERIOD(1 YEAR)
 **Table 2.3**
 
 ```ls
-| Date | Average Value | 
-|------|---------------| 
-| 2012 | 7.75          | 
-| 2013 | 7.76          | 
-| 2014 | 7.75          | 
-| 2015 | 7.75          | 
-| 2016 | 7.76          | 
-| 2017 | 7.78          | 
+| Date | Average Value |
+|------|---------------|
+| 2012 | 7.75          |
+| 2013 | 7.76          |
+| 2014 | 7.75          |
+| 2015 | 7.75          |
+| 2016 | 7.76          |
+| 2017 | 7.78          |
 ```
 
 **Figure 2.3**
@@ -284,14 +284,14 @@ GROUP BY PERIOD(1 YEAR)
 **Table 2.4**
 
 ```ls
-| Date | Average Value | 
-|------|---------------| 
-| 2012 | 1.23          | 
-| 2013 | 1.25          | 
-| 2014 | 1.27          | 
-| 2015 | 1.37          | 
-| 2016 | 1.38          | 
-| 2017 | 1.40          | 
+| Date | Average Value |
+|------|---------------|
+| 2012 | 1.23          |
+| 2013 | 1.25          |
+| 2014 | 1.27          |
+| 2015 | 1.37          |
+| 2016 | 1.38          |
+| 2017 | 1.40          |
 ```
 
 **Figure 2.4**
@@ -323,14 +323,14 @@ GROUP BY PERIOD(1 YEAR)
 **Table 3.1**
 
 ```ls
-| Date | Average Value | 
-|------|---------------| 
-| 2012 | 0.99          | 
-| 2013 | 1.03          | 
-| 2014 | 1.10          | 
-| 2015 | 1.28          | 
-| 2016 | 1.32          | 
-| 2017 | 1.33          | 
+| Date | Average Value |
+|------|---------------|
+| 2012 | 0.99          |
+| 2013 | 1.03          |
+| 2014 | 1.10          |
+| 2015 | 1.28          |
+| 2016 | 1.32          |
+| 2017 | 1.33          |
 ```
 
 **Figure 3.1**
@@ -348,8 +348,8 @@ GROUP BY PERIOD(1 YEAR)
 Boasting the highest per capita income of Latin America, the Mexican economy has continued to demonstrate healthy growth over
 the last several decades. North America's number one producer of automobiles also enjoys a $46 billion trade surplus with the
 United States, and is the 9th ranked owner of United States government debt. This dependence on America affords Mexico the
-ability to spur dramatic internal growth that has led to the creation of a booming electronics sector, but at the cost of a 
-certain amount of reliance on the United States as roughly half of the country's imports and exports originate or end up 
+ability to spur dramatic internal growth that has led to the creation of a booming electronics sector, but at the cost of a
+certain amount of reliance on the United States as roughly half of the country's imports and exports originate or end up
 on U.S. soil.
 
 **Query 3.2**
@@ -363,14 +363,14 @@ GROUP BY PERIOD(1 YEAR)
 **Table 3.2**
 
 ```ls
-| Date | Average Value | 
-|------|---------------| 
-| 2012 | 13.00         | 
-| 2013 | 12.76         | 
-| 2014 | 13.30         | 
-| 2015 | 15.87         | 
-| 2016 | 18.67         | 
-| 2017 | 19.18         | 
+| Date | Average Value |
+|------|---------------|
+| 2012 | 13.00         |
+| 2013 | 12.76         |
+| 2014 | 13.30         |
+| 2015 | 15.87         |
+| 2016 | 18.67         |
+| 2017 | 19.18         |
 ```
 
 **Figure 3.2**

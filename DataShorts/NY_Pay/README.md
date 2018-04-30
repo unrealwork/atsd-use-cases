@@ -13,7 +13,7 @@ All data is stored in the [Axibase Time Series Database](https://axibase.com). D
 
 "Adjusted Gross Income is defined as gross income minus adjustments to income." (Source: [Internal Revenue Service](https://www.irs.gov/uac/definition-of-adjusted-gross-income))
 
-A person's AGI reflects the total amount of money that they earned in a given fiscal year minus whatever deductions that 
+A person's AGI reflects the total amount of money that they earned in a given fiscal year minus whatever deductions that
 filer will be making. The City of New York has collected information for all local tax filers, and aggregated them into ten
 equally sized groups representing increasing 10th percentiles (called deciles here). The first decile represents the bottom
 10% of New York City wage earners by AGI while the tenth decile represents the top 10% of New York City wage earners by AGI.
@@ -28,22 +28,22 @@ SELECT tags.income_group AS "AGI Decile", value AS "Total Filers", value/1000 AS
   FROM "number_of_filers"
 ```
 
-**Table 1.1** 
+**Table 1.1**
 
 ```ls
-| AGI Decile  | Total Filers | Total Filers (1000) | 
-|-------------|--------------|---------------------| 
-| Total       | 3461521      | 3462                | 
-| 1st Decile  | 346320       | 346                 | 
-| 2nd Decile  | 346026       | 346                 | 
-| 3rd Decile  | 346159       | 346                 | 
-| 4th Decile  | 346193       | 346                 | 
-| 5th Decile  | 246213       | 246                 | 
-| 6th Decile  | 346021       | 346                 | 
-| 7th Decile  | 346268       | 346                 | 
-| 8th Decile  | 346132       | 346                 | 
-| 9th Decile  | 346068       | 346                 | 
-| 10th Decile | 346121       | 346                 | 
+| AGI Decile  | Total Filers | Total Filers (1000) |
+|-------------|--------------|---------------------|
+| Total       | 3461521      | 3462                |
+| 1st Decile  | 346320       | 346                 |
+| 2nd Decile  | 346026       | 346                 |
+| 3rd Decile  | 346159       | 346                 |
+| 4th Decile  | 346193       | 346                 |
+| 5th Decile  | 246213       | 246                 |
+| 6th Decile  | 346021       | 346                 |
+| 7th Decile  | 346268       | 346                 |
+| 8th Decile  | 346132       | 346                 |
+| 9th Decile  | 346068       | 346                 |
+| 10th Decile | 346121       | 346                 |
 ```
 
 **Figure 1.1**
@@ -64,19 +64,19 @@ SELECT tags.income_group AS "AGI Decile", value AS "Decile Average Income"
 **Table 2.1**
 
 ```ls
-| AGI Decile  | Decile Average Income | 
-|-------------|-----------------------| 
-| Total       | 66580                 | 
-| 1st Decile  | 988                   | 
-| 2nd Decile  | 6587                  | 
-| 3rd Decile  | 11543                 | 
-| 4th Decile  | 17270                 | 
-| 5th Decile  | 24353                 | 
-| 6th Decile  | 32804                 | 
-| 7th Decile  | 43377                 | 
-| 8th Decile  | 57881                 | 
-| 9th Decile  | 83790                 | 
-| 10th Decile | 387259                | 
+| AGI Decile  | Decile Average Income |
+|-------------|-----------------------|
+| Total       | 66580                 |
+| 1st Decile  | 988                   |
+| 2nd Decile  | 6587                  |
+| 3rd Decile  | 11543                 |
+| 4th Decile  | 17270                 |
+| 5th Decile  | 24353                 |
+| 6th Decile  | 32804                 |
+| 7th Decile  | 43377                 |
+| 8th Decile  | 57881                 |
+| 9th Decile  | 83790                 |
+| 10th Decile | 387259                |
 ```
 
 **Figure 2.1**
@@ -94,7 +94,7 @@ SELECT tags.income_group AS "AGI Decile", value AS "Decile Average Income"
 | 1st Decile | 1.48% |
 | 2nd Decile | 9.89% |
 | 3rd Decile | 17.34% |
-| 4th Decile | 25.94% | 
+| 4th Decile | 25.94% |
 | 5th Decile | 36.58% |
 | 6th Decile | 49.27% |
 | 7th Decile | 65.15% |
@@ -116,19 +116,19 @@ SELECT tags.income_group AS "Age Decile", value AS "Decile Total Income (USD Mil
 **Table 3.1**
 
 ```ls
-| Age Decile  | Decile Total Income (USD Million) | 
-|-------------|-----------------------------------| 
-| Total       | 230468                            | 
-| 1st Decile  | 342                               | 
-| 2nd Decile  | 2279                              | 
-| 3rd Decile  | 3996                              | 
-| 4th Decile  | 5979                              | 
-| 5th Decile  | 8431                              | 
-| 6th Decile  | 11351                             | 
-| 7th Decile  | 15020                             | 
-| 8th Decile  | 20034                             | 
-| 9th Decile  | 28997                             | 
-| 10th Decile | 134038                            | 
+| Age Decile  | Decile Total Income (USD Million) |
+|-------------|-----------------------------------|
+| Total       | 230468                            |
+| 1st Decile  | 342                               |
+| 2nd Decile  | 2279                              |
+| 3rd Decile  | 3996                              |
+| 4th Decile  | 5979                              |
+| 5th Decile  | 8431                              |
+| 6th Decile  | 11351                             |
+| 7th Decile  | 15020                             |
+| 8th Decile  | 20034                             |
+| 9th Decile  | 28997                             |
+| 10th Decile | 134038                            |
 ```
 
 **Figure 3.1**
@@ -151,18 +151,18 @@ SELECT tags.income_group AS "Age Decile", ((value/230468)*100) AS "Percent of To
 **Table 4.1**
 
 ```ls
-| Age Decile  | Percent of Total Income | 
-|-------------|-------------------------| 
-| 1st Decile  | 0.15                    | 
-| 2nd Decile  | 0.99                    | 
-| 3rd Decile  | 1.73                    | 
-| 4th Decile  | 2.59                    | 
-| 5th Decile  | 3.66                    | 
-| 6th Decile  | 4.93                    | 
-| 7th Decile  | 6.52                    | 
-| 8th Decile  | 8.69                    | 
-| 9th Decile  | 12.58                   | 
-| 10th Decile | 58.16                   | 
+| Age Decile  | Percent of Total Income |
+|-------------|-------------------------|
+| 1st Decile  | 0.15                    |
+| 2nd Decile  | 0.99                    |
+| 3rd Decile  | 1.73                    |
+| 4th Decile  | 2.59                    |
+| 5th Decile  | 3.66                    |
+| 6th Decile  | 4.93                    |
+| 7th Decile  | 6.52                    |
+| 8th Decile  | 8.69                    |
+| 9th Decile  | 12.58                   |
+| 10th Decile | 58.16                   |
 ```
 
 >The top 10th percentile of earners in New York City earned almost 60% of the adjusted gross income in 2014.

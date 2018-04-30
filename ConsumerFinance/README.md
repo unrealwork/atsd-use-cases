@@ -126,7 +126,7 @@ GROUP BY PERIOD(1 QUARTER)
 ```sql
 SELECT tags.product, COUNT(*)
   FROM "cfpb.row_number.s6ew-h6mp"
-WHERE tags.company = 'Bank of America'  
+WHERE tags.company = 'Bank of America'
   GROUP BY tags.product
 ORDER BY COUNT(*) DESC
 ```

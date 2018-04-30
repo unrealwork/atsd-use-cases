@@ -67,18 +67,18 @@ ORDER BY last(value) DESC
 **Table 1**: _Foreign Bearers of United States Public Debt_
 
 ```ls
-| Country         | US Debt (Billion USD) | 
-|-----------------|-----------------------| 
-| Japan           | 1090.8                | 
-| China, Mainland | 1058.4                | 
-| Ireland         | 288.2                 | 
-| Cayman Islands  | 263.7                 | 
-| Brazil          | 259.2                 | 
-| Switzerland     | 230.0                 | 
-| Luxembourg      | 224.3                 | 
-| United Kingdom  | 217.2                 | 
-| Hong Kong       | 191.4                 | 
-| Taiwan          | 189.3                 | 
+| Country         | US Debt (Billion USD) |
+|-----------------|-----------------------|
+| Japan           | 1090.8                |
+| China, Mainland | 1058.4                |
+| Ireland         | 288.2                 |
+| Cayman Islands  | 263.7                 |
+| Brazil          | 259.2                 |
+| Switzerland     | 230.0                 |
+| Luxembourg      | 224.3                 |
+| United Kingdom  | 217.2                 |
+| Hong Kong       | 191.4                 |
+| Taiwan          | 189.3                 |
 ```
 
 **Figure 6**: _The Largest Foreign Bearers of United States Public Debt_
@@ -106,7 +106,7 @@ _Source_: [Department of the Treasury](https://www.treasury.gov/resource-center/
 Because U.S. Treasuries are considered one of the safest investments in the world, even countries sometimes considered at
 odds with United States policy maintain positions in such securities to ensure future returns from the United States
 economy. The Russian Federation for example, sold a large number of its securities after the downturn
-in oil prices catalyzed devaluation of the rouble. As the economy stabilized and liquid capital become available, Russia 
+in oil prices catalyzed devaluation of the rouble. As the economy stabilized and liquid capital become available, Russia
 began to reacquire a great deal of U.S. treasuries, shown below:
 
 **Figure 7**: _Russian Holdings of U.S. Public Debt_
@@ -119,7 +119,7 @@ _Source_: [Department of the Treasury](https://www.treasury.gov/resource-center/
 
 There are a number of financial havens in the world that have lax financial regulation or certain non-disclosure laws that
 make the true identity of investors impossible to know; examples are Switzerland, the Cayman Islands, Hong Kong, and Luxembourg, all of whom
-appear in **Table 1**, they are shown below, alongside Singapore and Taiwan. 
+appear in **Table 1**, they are shown below, alongside Singapore and Taiwan.
 
 **Figure 8**: _U.S. Treasuries Held in Worldwide Financial Centers_
 
@@ -159,7 +159,7 @@ dollar accompanied by increased Federal Reserve interest rates, needed to counte
 on the public marketplace.
 
 **Figure 11** below tracks Federal Reserve interest rates by 1-year, 10-year, and 30-year averages and includes the daily
-Federal Fund rate. For further explanation of these metrics, see the following [analysis](../FedFund_FedInterest/README.md). 
+Federal Fund rate. For further explanation of these metrics, see the following [analysis](../FedFund_FedInterest/README.md).
 
 **Figure 11**: _Federal Reserve Interest Rates_
 
@@ -215,8 +215,8 @@ more reactionary than causal:
 Although China possesses a significant position in American treasuries, the likelihood that the American economy is beholden
 to Chinese financial machinations is an oversimplification of an complex issue. Due to the global nature of the modern world,
 it is reasonable that a super-power such as the PRC would have some level of influence over American policymakers because of
-their invaluable position in the global supply chain, however the assertion that China is capable of completely devaluing 
-U.S. treasuries is shown here to be false. Even upon large-scale sale, or no movement, the total number of U.S. treasury 
+their invaluable position in the global supply chain, however the assertion that China is capable of completely devaluing
+U.S. treasuries is shown here to be false. Even upon large-scale sale, or no movement, the total number of U.S. treasury
 positions operates independently of Chinese treasury positions showing once again, the lack of significant influence that
 Chinese bankers are able to wield.
 

@@ -17,13 +17,13 @@ the [New York Department of Transportation](https://www.dot.ny.gov/index) is agg
 
 The analyst knows that the data must be modified somehow, but using a schema based parser to aggregate the Port Authority Cargo data
 would destroy the fine granularization that was created by monthly collection over the entire observation period and using an
-average baseline calculated over the entire observation period would return results that neglected current trends because 
+average baseline calculated over the entire observation period would return results that neglected current trends because
 four decades worth of data would be regarded equally.
 
 Enter [Axibase Time Series Database](https://axibase.com/products/axibase-time-series-database/) and the [Moving Average](https://axibase.com/products/axibase-time-series-database/visualization/widgets/configuring-the-widgets/aggregators/)
 setting.
 
-### Data 
+### Data
 
 The tonnage dataset is visualized below. Because of the differences in the ranges of the data, it has been split into two charts so that the high level
 of variance is visible for each metric:
@@ -68,10 +68,10 @@ series.
   period = 1 year
 ```
 
-The `period` feature of the setting is user-assigned and can be set as low as millisecond granularity and as high as any 
+The `period` feature of the setting is user-assigned and can be set as low as millisecond granularity and as high as any
 number of years. This two line syntax calculates the average of each year's inputs and aggregates them to return one value
 per selected period. Additionally, this type of ad-hoc modification does nothing to the underlying data, so it may be returned
-to at any time. Read detailed documentation about the `wtavg` setting as well as other supported aggregation functions 
+to at any time. Read detailed documentation about the `wtavg` setting as well as other supported aggregation functions
 [here](https://axibase.com/products/axibase-time-series-database/visualization/widgets/configuring-the-widgets/aggregators/).
 
 ### Implementation
@@ -92,8 +92,8 @@ Applying the moving, or weighted, average to **Figures 1.1** and **1.2** is show
 
 > Open the ChartLab visualizations above to inspect the newly-inserted syntax on lines 17 and 18
 
-The analyst is now able to more accurately judge the relationship between the two datasets because of the equal rate of 
-granularization. Combining the JFK and LGA elements from each of the two datasets, and using the `mode = column` setting, 
+The analyst is now able to more accurately judge the relationship between the two datasets because of the equal rate of
+granularization. Combining the JFK and LGA elements from each of the two datasets, and using the `mode = column` setting,
 produces the following:
 
 **Figure 2.3**: JFK Cargo Tonnage vs. Passenger Enplanement (1997-2015)

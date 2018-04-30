@@ -14,19 +14,19 @@ Technical writing is one of the four primary expressions of written language, th
 * **Academic / Scientific Writing:** Non-fictional writing meant to define and defend a thesis / hypothesis for the intellectual community.
 * **Technical / Expository Writing:** Non-fictional writing meant to explain a process or product, the advantages therein, and its usage for an unfamiliar audience.
 
-Technical writing comes in many different flavors for many different fields, each has their own idosyncracies and norms. Even though software development is one of the most widely-known and frequently talked-about fields in the modern age, it remains one of the least-understood on a technical level. When writing for others, especially end users and non-technical personnel, it's important to communicate effectively and concisely so that the meaning of the writing isn't drowned out by white noise or excessive verbosity. 
+Technical writing comes in many different flavors for many different fields, each has their own idosyncracies and norms. Even though software development is one of the most widely-known and frequently talked-about fields in the modern age, it remains one of the least-understood on a technical level. When writing for others, especially end users and non-technical personnel, it's important to communicate effectively and concisely so that the meaning of the writing isn't drowned out by white noise or excessive verbosity.
 
 ### Key Parameters
 
-The easiest way to assess and analyze meaningful technical writing is to use quantifiable metrics which may be judged impartially. These parameters are broad enough that they may be applied to any piece of technical writing, but specific enough as to be informative and useful. 
+The easiest way to assess and analyze meaningful technical writing is to use quantifiable metrics which may be judged impartially. These parameters are broad enough that they may be applied to any piece of technical writing, but specific enough as to be informative and useful.
 
-Just remember your ABCs: 
+Just remember your ABCs:
 
 * **Accuracy:** Although seemingly obvious, an astounding amount of technical writing contains factural errors, careless mistakes, or otherwise thoughtless omissions that discourage users from advancing their understanding of a product or pursuing its implementation in their working environment. Unused software is no software at all.
 
 * **Brevity:** When attempting to use a new feature or sample a new product, no audience has unlimited time. Make sure that technical writing is produced with the understanding that readers have places to be and people to see. Make a point before losing their attention.
 
-* **Clarity:** The average reader will spend roughly one percent of the amount of time working with the final product that you spend developing it, probably less. The subtle features of the product or process may largely escape them. Acknowledge this fact and adjust technical pieces to respect it. 
+* **Clarity:** The average reader will spend roughly one percent of the amount of time working with the final product that you spend developing it, probably less. The subtle features of the product or process may largely escape them. Acknowledge this fact and adjust technical pieces to respect it.
 
 > [GitHub Issue: Terrible Documentation](https://github.com/search?q=terrible+documentation&type=Issues)
 
@@ -44,7 +44,7 @@ Modern technical writing tends to resemble the spoken dialect more closely:
 
 * "The container *where* the new instance was launched *will* begin logging information immediately."
 
-Like with almost everything else, good technical writing will find the balance between these two schools of thought: 
+Like with almost everything else, good technical writing will find the balance between these two schools of thought:
 
 * "The container *in which* the new instance was launched *will* begin logging information immediately."
 
@@ -58,7 +58,7 @@ Picture the operating instructions for the most widely-used or popular programma
 
 ### In Style
 
-The presentation of writing is nearly as important as the writing itself. A great document published with an oppressive design forces readers to pre-suppose an overly-complex and esoteric document which may discourage a thorough reading of the piece. A technical document of any length should be well-indexed and annotated but presenting a first-time reader with a multi-paged list of every feature available to end users will often serve only to frustrate. Don't let a well-written piece go un-read because it looks like a legal document. 
+The presentation of writing is nearly as important as the writing itself. A great document published with an oppressive design forces readers to pre-suppose an overly-complex and esoteric document which may discourage a thorough reading of the piece. A technical document of any length should be well-indexed and annotated but presenting a first-time reader with a multi-paged list of every feature available to end users will often serve only to frustrate. Don't let a well-written piece go un-read because it looks like a legal document.
 
 *Empowering Presentation*
 
@@ -70,7 +70,7 @@ The presentation of writing is nearly as important as the writing itself. A grea
 
 ![](images/bad-tech.png)
 
-> A lack of organization or obvious inability to easily navigate throughout documentation destroys the primary advantage of online documentation. 
+> A lack of organization or obvious inability to easily navigate throughout documentation destroys the primary advantage of online documentation.
 
 ## The Global Audience and International Writer
 
@@ -82,7 +82,7 @@ Write technical documentation with the world in mind. Whether this means simplif
 
 * "Leveraging programmatic resolutions to prosaic botherations in the legacy API must be pondered before combing for a new elucidation entirely."
 
-**Thesaurus Syndrome:** Avoid overuse of the thesaurus. Demonstrating a well-ranged vocabulary is important, but conveying clear information is even more important. Don't be afraid of using the same word several times if it applies to several situations. Common words are the place to use the thesaurus. Using too many variations of a word can easily create a confusing sentence that neither proposes a solution nor offers an explanation. 
+**Thesaurus Syndrome:** Avoid overuse of the thesaurus. Demonstrating a well-ranged vocabulary is important, but conveying clear information is even more important. Don't be afraid of using the same word several times if it applies to several situations. Common words are the place to use the thesaurus. Using too many variations of a word can easily create a confusing sentence that neither proposes a solution nor offers an explanation.
 
 *Good Thesaurus Usage*
 
@@ -104,7 +104,7 @@ No technical writing guide would be complete without a technical explanation of 
 
 * "One lunch per student. No student may have two lunches."
 
-* "One lunch per student? No! Student may have two lunches." 
+* "One lunch per student? No! Student may have two lunches."
 
 **The Third Person:** When writing technical documents, it's usually best to avoid personal pronouns such as I, you, and we unless it is explicitly required. Often this means restructuring sentences to use different registers or tenses.
 
@@ -148,7 +148,7 @@ sudo apt-get update && sudo apt-get install atsd
 
 > It's worth noting here, that "the following [anything]" must always include the definite article.
 
-**The Dangling Modifier:** A modifier is a word that changes another word, typically a present or past participle, or an adjective. Make sure its clear what these types of words are referencing. 
+**The Dangling Modifier:** A modifier is a word that changes another word, typically a present or past participle, or an adjective. Make sure its clear what these types of words are referencing.
 
 * "Executable at runtime, the database contains many Docker Jobs by default."
 * "The many Docker Jobs contained in the database are executable at runtime by default."
@@ -160,7 +160,7 @@ sudo apt-get update && sudo apt-get install atsd
 
 ## Corporate Blogging
 
-Many large corporations operate a blog or journal of their activities. Sometimes this is one publication, as is the case with the [IBM Analytics Community](https://www.ibm.com/communities/analytics/cognos-analytics/blog/) or [Redmine Blog](http://www.redmineblog.com/), who document software updates and changes in the same place as use cases and research articles. 
+Many large corporations operate a blog or journal of their activities. Sometimes this is one publication, as is the case with the [IBM Analytics Community](https://www.ibm.com/communities/analytics/cognos-analytics/blog/) or [Redmine Blog](http://www.redmineblog.com/), who document software updates and changes in the same place as use cases and research articles.
 
 *Strengths of the Unified Resource*
 
@@ -196,9 +196,9 @@ Hosting a corporate blog has the ability to waste a lot of time, or accomplish a
 
 * **Make Your Time Count**: Writing can create huge outlays when performed improperly and in a disorganized manner. Make sure your writing is efficient, effective, and engaging. Compose pieces which generate interest, inspire conversation, and create opportunity.
 
-* **Represent Your Product:** An article that touches on a hot-button issue or topical theme is only as good a blog post as it is able to relate to the underlying software. Inspiring thought in a reader's cognitive space is no use if it doesn't demonstrate the way the technology facilitated that discovery. 
+* **Represent Your Product:** An article that touches on a hot-button issue or topical theme is only as good a blog post as it is able to relate to the underlying software. Inspiring thought in a reader's cognitive space is no use if it doesn't demonstrate the way the technology facilitated that discovery.
 
-* **Engage Your Audience:** At the other extreme, a densely-worded write-up on the paticularities of the latest version of some tool doesn't accomplish the task of engagement. Readers should come to your space to see a tool or service in action. Link to the technical writing if the opportunity presents itself, but don't force it on unwitting civilians. 
+* **Engage Your Audience:** At the other extreme, a densely-worded write-up on the paticularities of the latest version of some tool doesn't accomplish the task of engagement. Readers should come to your space to see a tool or service in action. Link to the technical writing if the opportunity presents itself, but don't force it on unwitting civilians.
 
 ## Resources
 
@@ -210,4 +210,4 @@ Hosting a corporate blog has the ability to waste a lot of time, or accomplish a
 
 **Society for Technical Communication:** [Technical Communication Online](https://www.stc.org/techcomm/) is a quarterly industry journal written by professional technical writers and speakers which publishes several free articles with each edition.
 
-**Google Developer Documentation Guide:** Publicly-accessible and internally-mandatory, [Developer Guides](https://developers.google.com/style/) from Google demonstrate the beauty of simple documentation in action. 
+**Google Developer Documentation Guide:** Publicly-accessible and internally-mandatory, [Developer Guides](https://developers.google.com/style/) from Google demonstrate the beauty of simple documentation in action.

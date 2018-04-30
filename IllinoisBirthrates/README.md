@@ -12,7 +12,7 @@ Boots Alliance, McDonald's, Sears Holdings, and United Continental. The Universi
 Chicago has contributed countless innovations to the fields of business, economics, law,
 political science, and physics, among others, and is consistently ranked among the
 ten best universities in the country. Occasionally marred by political corruption, five state governors have been found
-guilty of misuse of power since the 1920's and a number of other state officials have 
+guilty of misuse of power since the 1920's and a number of other state officials have
 also served time in prison as a result of their actions in office.
 
 Home to some of America's favorite anti-heroes like Charlie Birger and Al Capone as well
@@ -23,7 +23,7 @@ unique as the country itself.
 The Illinois Center for Health Statistics has released [data](https://github.com/axibase/open-data-catalog/blob/master/datasets/9e74-xdvk.md) that covers two decades of
 live births in the state, from 1989 to 2009. This data has been kept through some of the
 formative events of the 20th and 21st centuries: the fall of the Berlin Wall, the World Trade Center
-terrorist attacks, the Pathfinder mission to Mars, the completion of the Burj Khalifa, and 
+terrorist attacks, the Pathfinder mission to Mars, the completion of the Burj Khalifa, and
 the emergence of the Internet to name a few.
 
 Using the [Axibase Time Series Database](https://axibase.com/products/axibase-time-series-database/) and the open source modelling software [Fityk](http://fityk.nieto.pl/),
@@ -37,7 +37,7 @@ fitting to anticipate future birth rates.
 
 #### Visualizations
 
-Illinois contains 102 counties, the top ten most populous of which will be observed here. 
+Illinois contains 102 counties, the top ten most populous of which will be observed here.
 They are:
 
 
@@ -123,7 +123,7 @@ working with, and analyzing even unideal data is well within the scope of possib
 
 Birth numbers can be gathered in five-year steps:
 
-##### 1989: 
+##### 1989:
 
 ````sql
 SELECT VALUE/1000 AS "Live Births (1000)", tags.county_name AS "County"
@@ -133,19 +133,19 @@ GROUP BY tags.county_name, VALUE
 LIMIT 11
 ````
 
-| Live Births (1000) | County         | 
-|--------------------|----------------| 
-| 190                | ILLINOIS TOTAL | 
-| 94                 | COOK           | 
-| 13                 | DUPAGE         | 
-| 9                  | LAKE           | 
-| 6                  | KANE           | 
-| 6                  | WILL           | 
-| 5                  | ST CLAIR       | 
-| 4                  | WINNEBAGO      | 
-| 4                  | MADISON        | 
-| 3                  | MCHENRY        | 
-| 3                  | PEORIA         |  
+| Live Births (1000) | County         |
+|--------------------|----------------|
+| 190                | ILLINOIS TOTAL |
+| 94                 | COOK           |
+| 13                 | DUPAGE         |
+| 9                  | LAKE           |
+| 6                  | KANE           |
+| 6                  | WILL           |
+| 5                  | ST CLAIR       |
+| 4                  | WINNEBAGO      |
+| 4                  | MADISON        |
+| 3                  | MCHENRY        |
+| 3                  | PEORIA         |
 
 ##### 1994:
 
@@ -157,19 +157,19 @@ GROUP BY tags.county_name, VALUE
 LIMIT 11
 ````
 
-| Live Births (1000) | County         | 
-|--------------------|----------------| 
-| 189                | ILLINOIS TOTAL | 
-| 93                 | COOK           | 
-| 14                 | DUPAGE         | 
-| 10                 | LAKE           | 
-| 7                  | KANE           | 
-| 6                  | WILL           | 
-| 4                  | ST CLAIR       | 
-| 4                  | WINNEBAGO      | 
-| 4                  | MCHENRY        | 
-| 3                  | MADISON        | 
-| 3                  | PEORIA         | 
+| Live Births (1000) | County         |
+|--------------------|----------------|
+| 189                | ILLINOIS TOTAL |
+| 93                 | COOK           |
+| 14                 | DUPAGE         |
+| 10                 | LAKE           |
+| 7                  | KANE           |
+| 6                  | WILL           |
+| 4                  | ST CLAIR       |
+| 4                  | WINNEBAGO      |
+| 4                  | MCHENRY        |
+| 3                  | MADISON        |
+| 3                  | PEORIA         |
 
 ##### 1999:
 
@@ -181,19 +181,19 @@ GROUP BY tags.county_name, VALUE
 LIMIT 11
 ````
 
-| Live Births (1000) | County         | 
-|--------------------|----------------| 
-| 182                | ILLINOIS TOTAL | 
-| 85                 | COOK           | 
-| 13                 | DUPAGE         | 
-| 11                 | LAKE           | 
-| 8                  | WILL           | 
-| 7                  | KANE           | 
-| 4                  | MCHENRY        | 
-| 4                  | WINNEBAGO      | 
-| 4                  | ST CLAIR       | 
-| 3                  | MADISON        | 
-| 3                  | PEORIA         | 
+| Live Births (1000) | County         |
+|--------------------|----------------|
+| 182                | ILLINOIS TOTAL |
+| 85                 | COOK           |
+| 13                 | DUPAGE         |
+| 11                 | LAKE           |
+| 8                  | WILL           |
+| 7                  | KANE           |
+| 4                  | MCHENRY        |
+| 4                  | WINNEBAGO      |
+| 4                  | ST CLAIR       |
+| 3                  | MADISON        |
+| 3                  | PEORIA         |
 
 
 ##### 2004:
@@ -207,19 +207,19 @@ LIMIT 11
 ````
 
 
-| Live Births (1000) | County         | 
-|--------------------|----------------| 
-| 181                | ILLINOIS TOTAL | 
-| 80                 | COOK           | 
-| 13                 | DUPAGE         | 
-| 10                 | LAKE           | 
-| 10                 | WILL           | 
-| 9                  | KANE           | 
-| 4                  | MCHENRY        | 
-| 4                  | WINNEBAGO      | 
-| 4                  | ST CLAIR       | 
-| 3                  | MADISON        | 
-| 3                  | PEORIA         | 
+| Live Births (1000) | County         |
+|--------------------|----------------|
+| 181                | ILLINOIS TOTAL |
+| 80                 | COOK           |
+| 13                 | DUPAGE         |
+| 10                 | LAKE           |
+| 10                 | WILL           |
+| 9                  | KANE           |
+| 4                  | MCHENRY        |
+| 4                  | WINNEBAGO      |
+| 4                  | ST CLAIR       |
+| 3                  | MADISON        |
+| 3                  | PEORIA         |
 
 
 ##### 2009:
@@ -233,23 +233,23 @@ LIMIT 11
 ```
 
 
-| Live Births (1000) | County         | 
-|--------------------|----------------| 
-| 171                | ILLINOIS TOTAL | 
-| 76                 | COOK           | 
-| 11                 | DUPAGE         | 
-| 9                  | WILL           | 
-| 9                  | LAKE           | 
-| 8                  | KANE           | 
-| 4                  | WINNEBAGO      | 
-| 4                  | MCHENRY        | 
-| 4                  | ST CLAIR       | 
-| 3                  | MADISON        | 
-| 3                  | PEORIA         | 
+| Live Births (1000) | County         |
+|--------------------|----------------|
+| 171                | ILLINOIS TOTAL |
+| 76                 | COOK           |
+| 11                 | DUPAGE         |
+| 9                  | WILL           |
+| 9                  | LAKE           |
+| 8                  | KANE           |
+| 4                  | WINNEBAGO      |
+| 4                  | MCHENRY        |
+| 4                  | ST CLAIR       |
+| 3                  | MADISON        |
+| 3                  | PEORIA         |
 
 
 Likewise, county totals can be gathered using the same five-year steps, but evaluating for
-the entire observed time and not one-year segments: 
+the entire observed time and not one-year segments:
 
 ##### 1989 - 1993:
 
@@ -263,19 +263,19 @@ ORDER BY t1.VALUE DESC, t1.tags.county_name
 ````
 
 
-| Live Births (1000) | County         | 
-|--------------------|----------------| 
-| 961                | ILLINOIS TOTAL | 
-| 477                | COOK           | 
-| 69                 | DUPAGE         | 
-| 48                 | LAKE           | 
-| 31                 | KANE           | 
-| 30                 | WILL           | 
-| 23                 | ST CLAIR       | 
-| 21                 | WINNEBAGO      | 
-| 18                 | MADISON        | 
-| 16                 | MCHENRY        | 
-| 14                 | PEORIA         | 
+| Live Births (1000) | County         |
+|--------------------|----------------|
+| 961                | ILLINOIS TOTAL |
+| 477                | COOK           |
+| 69                 | DUPAGE         |
+| 48                 | LAKE           |
+| 31                 | KANE           |
+| 30                 | WILL           |
+| 23                 | ST CLAIR       |
+| 21                 | WINNEBAGO      |
+| 18                 | MADISON        |
+| 16                 | MCHENRY        |
+| 14                 | PEORIA         |
 
 
 ##### 1994 - 1998:
@@ -289,19 +289,19 @@ ORDER BY t1.VALUE DESC, t1.tags.county_name
   LIMIT 11
 ```
 
-| Live Births (1000) | County         | 
-|--------------------|----------------| 
-| 921                | ILLINOIS TOTAL | 
-| 442                | COOK           | 
-| 69                 | DUPAGE         | 
-| 51                 | LAKE           | 
-| 34                 | KANE           | 
-| 34                 | WILL           | 
-| 20                 | ST CLAIR       | 
-| 19                 | WINNEBAGO      | 
-| 19                 | MCHENRY        | 
-| 17                 | MADISON        | 
-| 13                 | PEORIA         | 
+| Live Births (1000) | County         |
+|--------------------|----------------|
+| 921                | ILLINOIS TOTAL |
+| 442                | COOK           |
+| 69                 | DUPAGE         |
+| 51                 | LAKE           |
+| 34                 | KANE           |
+| 34                 | WILL           |
+| 20                 | ST CLAIR       |
+| 19                 | WINNEBAGO      |
+| 19                 | MCHENRY        |
+| 17                 | MADISON        |
+| 13                 | PEORIA         |
 
 ##### 1999 - 2003:
 
@@ -315,19 +315,19 @@ ORDER BY t1.VALUE DESC, t1.tags.county_name
 ````
 
 
-| Live Births (1000) | County         | 
-|--------------------|----------------| 
-| 914                | ILLINOIS TOTAL | 
-| 418                | COOK           | 
-| 66                 | DUPAGE         | 
-| 53                 | LAKE           | 
-| 43                 | WILL           | 
-| 40                 | KANE           | 
-| 21                 | MCHENRY        | 
-| 20                 | WINNEBAGO      | 
-| 18                 | ST CLAIR       | 
-| 17                 | MADISON        | 
-| 13                 | PEORIA         | 
+| Live Births (1000) | County         |
+|--------------------|----------------|
+| 914                | ILLINOIS TOTAL |
+| 418                | COOK           |
+| 66                 | DUPAGE         |
+| 53                 | LAKE           |
+| 43                 | WILL           |
+| 40                 | KANE           |
+| 21                 | MCHENRY        |
+| 20                 | WINNEBAGO      |
+| 18                 | ST CLAIR       |
+| 17                 | MADISON        |
+| 13                 | PEORIA         |
 
 
 ##### 2004 - 2008
@@ -342,19 +342,19 @@ ORDER BY t1.VALUE DESC, t1.tags.county_name
 ```
 
 
-| Live Births (1000) | County         | 
-|--------------------|----------------| 
-| 897                | ILLINOIS TOTAL | 
-| 392                | COOK           | 
-| 60                 | DUPAGE         | 
-| 49                 | LAKE           | 
-| 49                 | WILL           | 
-| 42                 | KANE           | 
-| 21                 | MCHENRY        | 
-| 20                 | WINNEBAGO      | 
-| 19                 | ST CLAIR       | 
-| 17                 | MADISON        | 
-| 13                 | PEORIA         | 
+| Live Births (1000) | County         |
+|--------------------|----------------|
+| 897                | ILLINOIS TOTAL |
+| 392                | COOK           |
+| 60                 | DUPAGE         |
+| 49                 | LAKE           |
+| 49                 | WILL           |
+| 42                 | KANE           |
+| 21                 | MCHENRY        |
+| 20                 | WINNEBAGO      |
+| 19                 | ST CLAIR       |
+| 17                 | MADISON        |
+| 13                 | PEORIA         |
 
 
 Information can also be collected on a desired county, for the entire period:
@@ -370,29 +370,29 @@ ORDER BY 'Year'
 ```
 
 
-| Year | County | Live Births (100000) | 
-|------|--------|---------------------| 
-| 1989 | COOK   | 0.94                | 
-| 1990 | COOK   | 0.97                | 
-| 1991 | COOK   | 0.96                | 
-| 1992 | COOK   | 0.95                | 
-| 1993 | COOK   | 0.95                | 
-| 1994 | COOK   | 0.93                | 
-| 1995 | COOK   | 0.90                | 
-| 1996 | COOK   | 0.88                | 
-| 1997 | COOK   | 0.86                | 
-| 1998 | COOK   | 0.86                | 
-| 1999 | COOK   | 0.85                | 
-| 2000 | COOK   | 0.86                | 
-| 2001 | COOK   | 0.84                | 
-| 2002 | COOK   | 0.82                | 
-| 2003 | COOK   | 0.82                | 
-| 2004 | COOK   | 0.80                | 
-| 2005 | COOK   | 0.76                | 
-| 2006 | COOK   | 0.79                | 
-| 2007 | COOK   | 0.79                | 
-| 2008 | COOK   | 0.78                | 
-| 2009 | COOK   | 0.76                | 
+| Year | County | Live Births (100000) |
+|------|--------|---------------------|
+| 1989 | COOK   | 0.94                |
+| 1990 | COOK   | 0.97                |
+| 1991 | COOK   | 0.96                |
+| 1992 | COOK   | 0.95                |
+| 1993 | COOK   | 0.95                |
+| 1994 | COOK   | 0.93                |
+| 1995 | COOK   | 0.90                |
+| 1996 | COOK   | 0.88                |
+| 1997 | COOK   | 0.86                |
+| 1998 | COOK   | 0.86                |
+| 1999 | COOK   | 0.85                |
+| 2000 | COOK   | 0.86                |
+| 2001 | COOK   | 0.84                |
+| 2002 | COOK   | 0.82                |
+| 2003 | COOK   | 0.82                |
+| 2004 | COOK   | 0.80                |
+| 2005 | COOK   | 0.76                |
+| 2006 | COOK   | 0.79                |
+| 2007 | COOK   | 0.79                |
+| 2008 | COOK   | 0.78                |
+| 2009 | COOK   | 0.76                |
 
 
 #### Curve Fitting
@@ -410,29 +410,29 @@ ORDER BY 'Year'
 ```
 
 
-| Year | County         | Live Births (1000) | 
-|------|----------------|--------------------| 
-| 1989 | ILLINOIS TOTAL | 190                | 
-| 1990 | ILLINOIS TOTAL | 195                | 
-| 1991 | ILLINOIS TOTAL | 194                | 
-| 1992 | ILLINOIS TOTAL | 191                | 
-| 1993 | ILLINOIS TOTAL | 191                | 
-| 1994 | ILLINOIS TOTAL | 189                | 
-| 1995 | ILLINOIS TOTAL | 186                | 
-| 1996 | ILLINOIS TOTAL | 183                | 
-| 1997 | ILLINOIS TOTAL | 181                | 
-| 1998 | ILLINOIS TOTAL | 183                | 
-| 1999 | ILLINOIS TOTAL | 182                | 
-| 2000 | ILLINOIS TOTAL | 185                | 
-| 2001 | ILLINOIS TOTAL | 184                | 
-| 2002 | ILLINOIS TOTAL | 181                | 
-| 2003 | ILLINOIS TOTAL | 182                | 
-| 2004 | ILLINOIS TOTAL | 181                | 
-| 2005 | ILLINOIS TOTAL | 179                | 
-| 2006 | ILLINOIS TOTAL | 181                | 
-| 2007 | ILLINOIS TOTAL | 181                | 
-| 2008 | ILLINOIS TOTAL | 177                | 
-| 2009 | ILLINOIS TOTAL | 171                | 
+| Year | County         | Live Births (1000) |
+|------|----------------|--------------------|
+| 1989 | ILLINOIS TOTAL | 190                |
+| 1990 | ILLINOIS TOTAL | 195                |
+| 1991 | ILLINOIS TOTAL | 194                |
+| 1992 | ILLINOIS TOTAL | 191                |
+| 1993 | ILLINOIS TOTAL | 191                |
+| 1994 | ILLINOIS TOTAL | 189                |
+| 1995 | ILLINOIS TOTAL | 186                |
+| 1996 | ILLINOIS TOTAL | 183                |
+| 1997 | ILLINOIS TOTAL | 181                |
+| 1998 | ILLINOIS TOTAL | 183                |
+| 1999 | ILLINOIS TOTAL | 182                |
+| 2000 | ILLINOIS TOTAL | 185                |
+| 2001 | ILLINOIS TOTAL | 184                |
+| 2002 | ILLINOIS TOTAL | 181                |
+| 2003 | ILLINOIS TOTAL | 182                |
+| 2004 | ILLINOIS TOTAL | 181                |
+| 2005 | ILLINOIS TOTAL | 179                |
+| 2006 | ILLINOIS TOTAL | 181                |
+| 2007 | ILLINOIS TOTAL | 181                |
+| 2008 | ILLINOIS TOTAL | 177                |
+| 2009 | ILLINOIS TOTAL | 171                |
 
 
 The data set used for modeling is as follows:
@@ -495,28 +495,28 @@ And the same forward-shift of the viewing window:
 
 To test the accuracy of each model, live birth figures from years not included in the data set but
 available from the Illinois Department of Public Health can be used,
-and [WolframAlpha](https://www.wolframalpha.com/) can manage the computations.  
+and [WolframAlpha](https://www.wolframalpha.com/) can manage the computations.
 
 | Year | Live Births (Estimated) Model 1, Model 2 (Hundred Thousand) | Live Births (Actual) (Hundred Thousand) | % Error Model 1, Model 2 |
 |------|------------------------------------------|----------------------|--------------------------|
-| 2010* | 172, 179 | 165 | 4.06%, 7.82% | 
+| 2010* | 172, 179 | 165 | 4.06%, 7.82% |
 | 2011 | 169, 178 | 161 | 4.96%, 10.56% |
 | 2012 | 167, 178 | 159 | 5.03%, 11.95% |
 | 2013 | 164, 178 | 157 | 4.46%, 13.37% |
 | 2014 | 160, 178 | 159 | 6.29%, 11.95% |
 
-> \* Indicates a year in which the US Census was performed. 
+> \* Indicates a year in which the US Census was performed.
 
-Model 1 more accurately predicts the results of recent live birth numbers, and the variance is reasonable, 0.7085. 
+Model 1 more accurately predicts the results of recent live birth numbers, and the variance is reasonable, 0.7085.
 Model 2 less accurately predicts the results of recent live birth numbers and its variance is quite high, 4.4109. These numbers show the stability of the model
 over the course of a given period of time.
 
 Despite its stability for the given data and relative accuracy in predicting birthrates outside of the
-training data, Model 1 begins to lose effectiveness about fifteen years outside of the originally observed period, 
+training data, Model 1 begins to lose effectiveness about fifteen years outside of the originally observed period,
 underlining the importance of constantly updating and maintaining such models with new information.
 
 When updated to include the latest figures, the model looks like this:
-##### Model 3 
+##### Model 3
 
 ![](Images/ILL25.png)
 
@@ -532,7 +532,7 @@ The forward-shift is shown below:
 
 Intuitively, this model appears flawed as it shows Illinois live births dropping to zero around the
 year 2038, but some of the older data can now be excluded, in order to reflect the trends of the
-last decade while excluding data that is two decades old and reflects the trends of a society 
+last decade while excluding data that is two decades old and reflects the trends of a society
 that has experienced a wide array of dramatic changes:
 
 ##### Model 4
@@ -559,23 +559,23 @@ Using model 4 to predict United States Census numbers for the next two Censuses 
 | 2020 | 149 |
 | 2030 | 212 |
 
-The instability that afflicted Model 1 too far outside the training data, appears to be at work 
+The instability that afflicted Model 1 too far outside the training data, appears to be at work
 here as well.
 
 ### Conclusions
 
-The falling Illinois birthrates have been noted by [policy groups](https://www.illinoispolicy.org/illinois-losing-1-resident-every-4-6-minutes-could-fall-behind-pennsylvania-in-population/) 
+The falling Illinois birthrates have been noted by [policy groups](https://www.illinoispolicy.org/illinois-losing-1-resident-every-4-6-minutes-could-fall-behind-pennsylvania-in-population/)
 and [investment firms](https://www.illinoispolicy.org/heres-why-moodys-is-warning-of-an-illinois-death-spiral/) that have
 expressed concern for the future of the Land of Lincoln. Some have noted the continued inability of
 Illinois residents to reproduce at replacement rates and pointed to formerly decadent American
-cities like Detroit as the likely outcome of the continuation of such trends, while others including the [Center for Disease Control](https://www.cdc.gov/) (CDC) 
-have released [predictions](https://wonder.cdc.gov/population-projections.html) that claim that by the time of the 2020 Census, 
-birthrates will have stabilized or even seen a surge similar to the one in the early 90's. 
+cities like Detroit as the likely outcome of the continuation of such trends, while others including the [Center for Disease Control](https://www.cdc.gov/) (CDC)
+have released [predictions](https://wonder.cdc.gov/population-projections.html) that claim that by the time of the 2020 Census,
+birthrates will have stabilized or even seen a surge similar to the one in the early 90's.
 The fourth model produced here predicted similar growth as well, showing a local minima during the year 2019
-followed by growth in the number of live births the following year. 
+followed by growth in the number of live births the following year.
 
-The only true certainty is that any such modeling should be taken with a grain of salt and interpreted 
-with the understanding that such predictions are based on the continuation of current trends 
+The only true certainty is that any such modeling should be taken with a grain of salt and interpreted
+with the understanding that such predictions are based on the continuation of current trends
 which can change quite quickly and sometimes unpredictably.
 
 ### Appendix
@@ -592,7 +592,7 @@ And looking at lines 22 - 48 in the Editor:
 
 The `LIST` Setting is used to declare the desired list, in this case, the various
 years of included in the data and the [`[DROPDOWN]`](https://axibase.com/products/axibase-time-series-database/visualization/widgets/dropdown/)
-clause is used to declare the functionality of the menu itself. 
+clause is used to declare the functionality of the menu itself.
 
 ### Action Items
 

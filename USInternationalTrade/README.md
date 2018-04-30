@@ -70,10 +70,10 @@ GROUP BY e.period(1 year), e.tags
 Trade by Country
 --------------------
 
-Let's now look at trade balance between the U.S. and individual countries.  
+Let's now look at trade balance between the U.S. and individual countries.
 
 Below is an image showing import, export, and trade balance values between the U.S. and its largest trading partner, China. In 2016, exports and imports to/from China totaled **$104 billion** and **$423 billion**, respectively.
-As marked in the figure below, we can see that the trade balance deficit between the U.S. and China grew from **-$6 million** in 1985 to **-$319 billion** in 2016.  
+As marked in the figure below, we can see that the trade balance deficit between the U.S. and China grew from **-$6 million** in 1985 to **-$319 billion** in 2016.
 
 ![Figure 4](Images/Figure4.png)
 
@@ -84,7 +84,7 @@ as well as between continents or organizations. **Note**: there are separate fil
 [![View in ChartLab](Images/button.png)](https://apps.axibase.com/chartlab/552d7a44#fullscreen)
 
 Below is a SQL query and output showing the exports, imports, and trade balance
-(all in millions USD) between United States and Mexico from 1985 to 2016:   
+(all in millions USD) between United States and Mexico from 1985 to 2016:
 
 ```sql
 SELECT date_format(e.time, 'yyyy') AS "year",
@@ -137,7 +137,7 @@ trade balance, with the highest negative trade balances showing at the top. You 
 on the column headers.
 
 In 2016, the locations with which the United States had the highest negative and positive trade balances were China / Hong Kong at **-$319 billion** and **$25.1 billion**,
-respectively.   
+respectively.
 
 ![Figure 2](Images/Figure2.png)
 
@@ -498,7 +498,7 @@ GROUP BY e.period(1 year), e.tags
   LIMIT 20
 ```
 
-```ls     
+```ls
 | year  | country       | code  | export    | import    | trade_balance |
 |-------|---------------|-------|-----------|-----------|---------------|
 | 2016  | China         | 5700  | 104149.1  | 423431.2  | -319282.1     |

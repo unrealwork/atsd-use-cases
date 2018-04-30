@@ -151,7 +151,7 @@ look at the statistics by following the below steps to install your own [Axibase
 
 1. Registered motor vehicles, by type of transport and type of fuel (M).
   - Configuration Form: [link](https://www.ssb.no/statistikkbanken/selectvarval/Define.asp?subjectcode=&ProductId=&MainTable=RegKjoretoy2&nvl=&PLanguage=1&nyTmpVar=true&CMSSubjectArea=transport-og-reiseliv&KortNavnWeb=bilreg&StatVariant=&checked=true)
-  - Format: Matrix TSV  
+  - Format: Matrix TSV
   - Summation: by Contents
 
   ![TitlePhoto](Images/table-total.png)

@@ -9,14 +9,14 @@ what are their reasons for coming to the United States?
 In this article we will analyze a dataset from [travel.state.gov](https://travel.state.gov) looking at non-immigrant visa figures from 1997 through 2015. This research article illustrates
 how publicly available data collected by government organizations can be easily loaded into the non-relational [Axibase Time Series Database](https://axibase.com/products/axibase-time-series-database/)
 for interactive analysis. Additionally, this article illustrates some of the capabilities of [Redash](https://redash.io/), an open-source data visualization tool that is integrated with ATSD. We’ll walk through how to make SQL queries in ATSD and create visualizations in Redash. Additionally,
-this article contains instructions on how to install your own ATSD instance and populate it with the raw data.  
+this article contains instructions on how to install your own ATSD instance and populate it with the raw data.
 
 ### U.S. Visa Dataset
 ---------------------
 
 Let's take a look at the dataset from travel.state.gov, which can be accessed via our archive located in the [Resources](../USVisaRefusal/Resources/visas.tar.gz) folder in this repository. Alternatively, you can
 download the Excel file from the [travel.state.gov](https://travel.state.gov) website and save each year as its
-own separate CSV file. The title of the Excel file on the travel.state.gov website is **Nonimmigrant Visa Issuances by Visa Class and by Nationality FY1997-2015 NIV Detail Table**.    
+own separate CSV file. The title of the Excel file on the travel.state.gov website is **Nonimmigrant Visa Issuances by Visa Class and by Nationality FY1997-2015 NIV Detail Table**.
 
 This dataset contains yearly totals for non-immigrant visas issued from 1997 through 2015. Totals were collected for 84 different visa
 types. You can find the complete list of all the visa types included in this dataset [here](../USVisaRefusal/Resources/visalist.txt). You can find descriptions of all visa types on
@@ -72,7 +72,7 @@ You can explore this portal by clicking on the below button:
 Below is an image for the total visas issued for the countries included in Trump administration's revised [travel ban](https://www.washingtonpost.com/graphics/national/immigration-order-explainer/)
 (which has since been lifted). These countries included Iran, Libya, Somalia, Sudan, Syria, and Yemen. After the September 11th terrorist attacks, the number of visas issued
 to these countries dropped to only **16,076** in 2003 but climbed back up to **62,464** in 2015. Visas to the United States are generally priced at [$160](https://travel.state.gov),
-which amounted to **$10 million** in revenue in 2015.    
+which amounted to **$10 million** in revenue in 2015.
 
 ![Figure4](Images/Figure4.png)
 
@@ -84,7 +84,7 @@ According to a recent article published by [Reuters](http://www.reuters.com/arti
 obtain travel visas to visit Europe (currently, Americans do not need visas). This is in response to Washington refusing to grant visa-free access to 5 EU countries: Poland, Croatia,
 Bulgaria, Romania, and Cyprus. All EU countries except for these 5 may travel to the US without needing to obtain a travel visa. The following image shows the number of B-1 and B-2 visas
 from these countries between 1997 and 2015. The early to mid 2000's saw the peak of the total number of B-1 and B-2 visas issued to these countries, but in recent years
-these numbers has dropped off, falling to 9,977 in 2015 ($1,596,320 in revenue at $160 per visa).  
+these numbers has dropped off, falling to 9,977 in 2015 ($1,596,320 in revenue at $160 per visa).
 
 ![Figure15](Images/Figure15.png)
 
@@ -236,7 +236,7 @@ ORDER BY 3 DESC
 ```
 
 Total revenue for travel visas (in millions of USD) for the state department at $160 per visa from 1997 to 2015. Revenues from visas in this time period has more than doubled, from
-**$491.3 million** in 1997 to **$1.152 billion** in 2015.  
+**$491.3 million** in 1997 to **$1.152 billion** in 2015.
 
 ```sql
 SELECT date_format(time, 'yyyy') AS "year", sum(value) * 160 / power(10, 6) AS "Visa Fees, $M"
@@ -305,7 +305,7 @@ Let's begin by preparing a visualization for our last SQL query looking at world
 
 Below is the output from our query. You can toggle over any column to see what the visa issuances were for that particular visa type in 2015. By selecting the 'Save' button,
 you can save the configuration and come back to it anytime. By selecting the 'Publish' button, you can make this configuration available to anybody else who shares the same
-system credentials with you. As opposed to looking only at a tabular output from an SQL query, we can quickly see the scale of things looking at this output.  
+system credentials with you. As opposed to looking only at a tabular output from an SQL query, we can quickly see the scale of things looking at this output.
 
 ![Figure14](Images/Figure14.png)
 
@@ -322,12 +322,12 @@ rate in this 10-years period was **30.2%**, which came in 2nd only behind Brazil
 
 Travellers have come to America from all over the world. With over 200 countries and 84 visa types included in this dataset, the possibilities for travel documents seem endless.
 Using ATSD can help you make sense of all this information. You can use Chart Lab to create interactive graphs which allow you to gain a general view of the situation, SQL queries
-to search for specific information contained within the dataset, and Redash to display this specifically searched for information in a clear and concise manner.  
+to search for specific information contained within the dataset, and Redash to display this specifically searched for information in a clear and concise manner.
 
 ### Action Items
 ----------------
 
-Below are the summarized steps to follow to install local configurations of ATSD for analyzing United States visa statistics:   
+Below are the summarized steps to follow to install local configurations of ATSD for analyzing United States visa statistics:
 
 1. Install [Docker](https://docs.docker.com/engine/installation/linux/ubuntulinux/).
 2. Install Redash using the following command.
