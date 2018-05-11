@@ -3,11 +3,11 @@
 ![](images/wps-title.png)
 [![](images/button-new.png)](https://trends.axibase.com/ecb8def7#fullscreen)
 
-### Introduction
+## Introduction
 
 The **World Progress Explorer** is an aggregation of many statistics that are collected by various international agencies including the [World Bank](http://www.worldbank.org/) and [United Nations Statistical Division](https://unstats.un.org/home/) and retrieved from the [Federal Reserve Economic Research](https://fred.stlouisfed.org/) API.
 
-Open the **TRENDS** visualization above and use the drop-down menus to navigate between all countries which have recorded data, grouped in alphabetically ascending order. The observed metric may be changed using the right-most drop-down menu. The metrics tracked in the visualization are described in the table below:
+Open the **Trends** visualization above and use the drop-down menus to navigate between all countries which have recorded data, grouped in alphabetically ascending order. The observed metric may be changed using the right-most drop-down menu. The metrics tracked in the visualization are described in the table below:
 
 |Metric Name |Description |
 |------------|------------|
@@ -19,11 +19,11 @@ Open the **TRENDS** visualization above and use the drop-down menus to navigate 
 |life_expectancy_at_birth_by_country|Number of years a newborn is predicted to live given constant mortality figures|
 |population_total_by_country| Recorded number of people living in a given country|
 
-For detailed information about using the **TRENDS** service, read this [guide](../../how-to/shared/trends.md).
+For detailed information about using the **Trends** service, read this [guide](../../how-to/shared/trends.md).
 
-### Visualization
+## Visualization
 
-The visualizations in the chart above demonstrate a [user-defined function](../../how-to/shared/trends.md#user-defined-functions) which sets the year 1990 as the baseline using the [`fred.js`](https://apps-chartlab.axibase.com/portal/resource/scripts/fred.js) library. Using the `PercentChangeFromYearAgo` function instead creates the visualization below. Open the **TRENDS** interface and explore the data using the same drop-down menus to navigate between countries and metrics.
+The visualizations in the chart above demonstrate a [user-defined function](../../how-to/shared/trends.md#user-defined-functions) which sets the year 1990 as the baseline using the [`fred.js`](https://apps-chartlab.axibase.com/portal/resource/scripts/fred.js) library. Using the `PercentChangeFromYearAgo` function instead creates the visualization below. Open the **Trends** interface and explore the data using the same drop-down menus to navigate between countries and metrics.
 
 ![](images/wps-1.png)
 [![](images/button-new.png)](https://trends.axibase.com/5d0563d2/2#fullscreen)
@@ -34,19 +34,19 @@ Axibase [Charts API](https://axibase.com/products/axibase-time-series-database/v
 value = var v = value('cpi'); var p = value('prev_cpi'); if(p!=null && v!=null) return (v / p - 1) * 100
 ```
 
-To implement this function, the following syntax is used:
+To implement this function, the this setting is used:
 
 ```javascript
 value = fred.PercentChangeFromYearAgo('raw')
 ```
 
-Open the **TRENDS** visualization and use any of the supported user-defined functions from the [`fred.js` library](../../how-to/shared/trends.md#fred-library).
+Open the **Trends** visualization and use any of the supported user-defined functions from the [`fred.js` library](../../how-to/shared/trends.md#fred-library).
 
-### SQL Queries
+## SQL Queries
 
 Although a non-relational database, ATSD supports an SQL-like feature called [SQL Console](https://github.com/axibase/atsd/blob/master/sql/README.md#overview), a convenient interface which lets users quickly query data.
 
-#### Greatest Life Expectancy for Year 2015
+### Greatest Life Expectancy for Year 2015
 
 ```sql
 SELECT tags.country AS "Country",
@@ -57,7 +57,8 @@ ORDER BY "Life Expectancy" DESC
   LIMIT 10
 ```
 
-Query uses the following clauses:
+Query uses these clauses:
+
 * [`FROM`](https://github.com/axibase/atsd/blob/master/sql/README.md#virtual-table)
 * [Alias / `AS`](https://github.com/axibase/atsd/blob/master/sql/README.md#aliases)
 * [`WHERE`](https://github.com/axibase/atsd/blob/master/sql/README.md#where-clause)
@@ -79,7 +80,7 @@ Query uses the following clauses:
 
 **Notes:** Japan and the various semi-autonomous regions of the People's Republic of China are often celebrated for their high life expectancies, generally ascribed to the high average income, healthy diet, and focus on basic exercise.
 
-#### Lowest Life Expectancy at Birth for Year 2015
+### Lowest Life Expectancy at Birth for Year 2015
 
 ```sql
 SELECT tags.country AS "Country",
@@ -105,7 +106,7 @@ ORDER BY "Life Expectancy" ASC
 
 **Notes:** Unsurprisingly, many of the African nations featured on this list of lowest life expectancy have been ravaged by some internal or external conflict in the past decade. Swaziland is brutally affected by HIV/AIDS, Somalia was involved in a 6-year internal military conflict from 2006-2012, and Sierra Leone was struck by the dreaded Ebola epidemic in 2014. In recent years, a focus on infrastructure development in Africa may help to ease some of these phenomena and help increase the life expectancy in these countries.
 
-#### Greatest Growth in Life Expectancy Across Observed Period (1970-2015)
+### Greatest Growth in Life Expectancy Across Observed Period (1970-2015)
 
 ```sql
 SELECT tags.country AS "Country",
@@ -119,6 +120,7 @@ FROM "life_expectancy_at_birth_by_country"
 ```
 
 Clauses used in this query:
+
 * [`FIRST`](https://github.com/axibase/atsd/blob/master/sql/examples/aggregate-first-last.md#aggregate-functions-first-and-last)
 * [`LAST`](https://github.com/axibase/atsd/blob/master/sql/examples/aggregate-first-last.md#aggregate-functions-first-and-last)
 
@@ -137,7 +139,7 @@ Clauses used in this query:
 
 **Notes:** East Timor, officially the Democratic Republic of Timor-Leste is an interesting appearance on this table of overall highest improvement in life expectancy. Colonized by the Portuguese until 1975, during the last three decades the small East-Indian Ocean island community has been one of the few nations that has fared better after the end of their colonization.
 
-#### Least Growth in Life Expectancy Across Observed Period (1970-2015)
+### Least Growth in Life Expectancy Across Observed Period (1970-2015)
 
 ```sql
 SELECT tags.country AS "Country",
@@ -168,9 +170,9 @@ FROM "life_expectancy_at_birth_by_country"
 ![](images/life-exp-post-cccp.png)
 [![](images/button-new.png)](https://trends.axibase.com/bf59e818)
 
-Open the **TRENDS** visualization and remove unwanted data by clicking colored indicator labels along the top of the screen to toggle visible countries.
+Open the **Trends** visualization and remove unwanted data by clicking colored indicator labels along the top of the screen to toggle visible countries.
 
-#### Greatest Population Growth Across Observed Period (1970-2015)
+### Greatest Population Growth Across Observed Period (1970-2015)
 
 ```sql
 SELECT tags.country AS "Country",
@@ -182,6 +184,7 @@ FROM "population_total_by_country"
 ```
 
 Clauses used in this query:
+
 * [`ROUND`](https://github.com/axibase/atsd/blob/master/sql/README.md#mathematical-functions)
 
 | Country       | Change in Population (Million) |
@@ -199,7 +202,7 @@ Clauses used in this query:
 
 **Notes:** It's unsurprising that the five largest countries by population (China, India, the United States, Indonesia, and Pakistan) also saw the largest growth in population during the observed period.
 
-#### Greatest Population Growth Percent Across Observed Period (1970-2015)
+### Greatest Population Growth Percent Across Observed Period (1970-2015)
 
 ```sql
 SELECT tags.country AS "Country",
@@ -239,7 +242,7 @@ The table below shows the percent of foreigners in selected countries above wher
 |Jordan | 31 |
 |Cayman Islands | 25 |
 
-#### Greatest Population Decline Across Observed Period (1970-2015)
+### Greatest Population Decline Across Observed Period (1970-2015)
 
 ```sql
 SELECT tags.country AS "Country",
@@ -268,9 +271,9 @@ FROM "population_total_by_country"
 ![](images/pop-loss-post-ussr.png)
 [![](images/button-new.png)](https://trends.axibase.com/fcb79db7)
 
-Open the **TRENDS** visualization above to track the same pattern in other former Warsaw Pact countries by using the drop-down menus to navigate through the data.
+Open the **Trends** visualization above to track the same pattern in other former Warsaw Pact countries by using the drop-down menus to navigate through the data.
 
-#### Greatest Population Decline Percent Across Observed Period (1970-2015)
+### Greatest Population Decline Percent Across Observed Period (1970-2015)
 
 ```sql
 SELECT tags.country AS "Country",
@@ -298,7 +301,7 @@ FROM "population_total_by_country"
 
 **Notes:** As with other population / life-expectancy decline data, former Soviet Socialist Republics showed the greatest tendencies to see a decline in population growth. In the case of the Baltic States (Estonia, Lithuania, and Latvia) and the former Yugoslavia (Serbia, Bosnia and Herzegovina, and Croatia), all of whom have since joined the EU,these figures have been especially pronounced.
 
-#### Greatest Fertility Rate (2015)
+### Greatest Fertility Rate (2015)
 
 ```sql
 SELECT tags.country AS "Country",
@@ -324,7 +327,7 @@ FROM "fertility_rate_total_by_country"
 
 **Notes:** African nations have a markedly-high fertility rate, as all of the countries on this list are on the continent of Africa.
 
-#### Lowest Fertility Rate (2015)
+### Lowest Fertility Rate (2015)
 
 ```sql
 SELECT tags.country AS "Country",

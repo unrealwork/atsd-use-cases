@@ -3,7 +3,7 @@
 ![](images/inflation-title.png)
 [![](images/button-new.png)](https://trends.axibase.com/5bb4621e#fullscreen)
 
-### Overview
+## Overview
 
 Inflation is an oft-debated topic which many experts claim is a necessary part of a growing economy. At its core, inflation is a measure of the change in the cost of goods and services. High-inflation economies see steep and sometimes untenable increases in their cost of living and money supply without corresponding growth in gross domestic product (GDP) and wages. Prolonged or unmanageable inflation sometimes results in a trend known as hyperinflation, whereby the money supply is increased to such a degree that the use of the country's currency becomes impractical due to the outrageous costs associated with even simple, everyday purchases. The wholesale price index (WPI), which is a measure of the cost of a representative basket of wholesale goods in a particular economic system, for Germany's Weimar Republic is shown in the years after German defeat in World War I.
 
@@ -20,7 +20,7 @@ Conversely, too little inflation has been known to create what John Maynard Keyn
 
 Naturally, the ideal level of inflation is somewhere between these two extremes; high enough to encourage growth and consumption but low enough to keep the cost of living manageable. As the Fed has announced plans to raise the interest rate as many as three time in 2018, with a target inflation of 2%, the current generation of economic policy makers certainly have their work cut out for them as United States public debt continues to exceed $20 trillion.
 
-### US Inflation
+## US Inflation
 
 The chart above tracks inflation for the United States for a two-decade period beginning in 2000 and uses `alert-expression` and `threshold` settings to highlight periods outside of the user-defined range as well as to overlay percentile statistics.
 
@@ -32,13 +32,13 @@ The chart is created using the declarative [graphics syntax](https://axibase.com
 
 Currently, the Federal Reserve's stated target inflation level is around 2%. Fed Chairman Jerome Powell [has claimed](https://www.bloomberg.com/news/articles/2018-04-06/who-needs-an-economics-ph-d-as-powell-unravels-inflation-riddle) that online-only retailers like Amazon and others have contributed to keeping inflation levels down because of their ability to completely streamline their business models. Not exactly a criticism, but certainly not the kind of glowing praise Jeff Bezos et al are used to receiving from Obama-era policy makers.
 
-### Configuration
+## Configuration
 
-This section of the article discusses the underlying settings used for the chart above. For introductory information on using **TRENDS**, see this [guide](../../how-to/shared/trends.md).
+This section of the article discusses the underlying settings used for the chart above. For introductory information on using **Trends**, see this [guide](../../how-to/shared/trends.md).
 
 The configuration for the above chart is shown here:
 
-```sql
+```ls
 [configuration]
   import fred = fred.js
 
@@ -99,7 +99,7 @@ There are five series in this configuration, defined by their `alias` setting:
 
 * **s-1**: United States Experimental CPI value for all items, sourced from the United States Federal Reserve [FRED API](https://fred.stlouisfed.org/series/CPIEALL). This series has a `display = false` expression so that it will not be shown in the final version of the visualization but may still be used for deriving a new series. When displayed, the series will be placed on the right axis using a [dual-axis](https://axibase.com/products/axibase-time-series-database/visualization/widgets/time-chart/#tab-id-2) setting, which is helpful when visualizing series with dramatically different orders of magnitude.
 
-* **s-2**: A derived series which uses a collection of functions implemented in the `fred.js` library to calculate percent change from a year ago. This is a set of [user-defined functions](https://github.com/axibase/charts/blob/master/syntax/udf.md) and must be imported using the `import fred = fred.js` expression at the **[configuration]** level. This functionality may be extended with built-in JavaScript [`Math`](../../Solutions/calculated-values/README.md) functions, which are supported in **TRENDS** charts. An `alert-expression` is defined for this series. Wherever the condition is satisfied, the bar corresponding to the date of the alert is modified with `alert-style`, in this case, a specific color.
+* **s-2**: A derived series which uses a collection of functions implemented in the `fred.js` library to calculate percent change from a year ago. This is a set of [user-defined functions](https://github.com/axibase/charts/blob/master/syntax/udf.md) and must be imported using the `import fred = fred.js` expression at the **[configuration]** level. This functionality may be extended with built-in JavaScript [`Math`](../../Solutions/calculated-values/README.md) functions, which are supported in **Trends** charts. An `alert-expression` is defined for this series. Wherever the condition is satisfied, the bar corresponding to the date of the alert is modified with `alert-style`, in this case, a specific color.
 
 * **t-1**: The upper-limit threshold is defined with a `value` setting, `value = percentile(90, 's-2', '10 year')`, where the first argument is the desired percentile, the second argument is the series from which the value should be calculated, and the third is the time period for applying the statistic.
 

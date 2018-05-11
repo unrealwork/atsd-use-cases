@@ -38,7 +38,7 @@ Tracking the EPU Index for the People's Republic of China alongside more concret
 
 *Fig. 3*: Economic Policy Uncertainty Index and PRC Treasury Securities Rates (2000-2017), bi-annually and quarterly.
 
-The above figure was creating using the [`weighted average`](https://axibase.com/products/axibase-time-series-database/visualization/widgets/configuring-the-widgets/aggregators/) statistical tool. This tool may be used to creating a rolling average value for a specific time period. For more information about using this statistical tool, see the following [guide](../../Support/Moving-Avg/README.md).
+The above figure was creating using the [`weighted average`](https://axibase.com/products/axibase-time-series-database/visualization/widgets/configuring-the-widgets/aggregators/) statistical tool. This tool may be used to creating a rolling average value for a specific time period. For more information about using this statistical tool, see this [guide](../../Support/Moving-Avg/README.md).
 
 ### Dual Axis
 
@@ -53,7 +53,7 @@ Dual axis visualizations are helpful for comparing data of different orders of m
 
 ## SQL Queries
 
-Election season is a notoriously uncertain economic time period for the United States, as elections have been known to represent dramatic changes in policy and personnel that reshape the face of American policy. Using the following SQL query to track the EPU Index during election years only, and comparing that data to the election results, it is expected that more contested elections should generate a higher EPU Index.
+Election season is a notoriously uncertain economic time period for the United States, as elections have been known to represent dramatic changes in policy and personnel that reshape the face of American policy. Using the below SQL query to track the EPU Index during election years only, and comparing that data to the election results, it is expected that more contested elections should generate a higher EPU Index.
 
 ```sql
 SELECT year(time) AS Election, value AS EPU_Index
@@ -61,7 +61,7 @@ FROM usepuindxd_
 WHERE year(time) % 4 = 0 AND month(time) = 1
 ```
 
-The above query returns the following results:
+The above query returns this result set:
 
 | Year | EPU Index |
 |---|:--:|
@@ -71,7 +71,7 @@ The above query returns the following results:
 |2004|156.17|
 |2000|80.38|
 
-Using [public data](https://www.britannica.com/topic/United-States-Presidential-Election-Results-1788863) from [Encyclopaedia Britannica](https://www.britannica.com/) to track election results for the same period of time produces the following visualization.
+Using [public data](https://www.britannica.com/topic/United-States-Presidential-Election-Results-1788863) from [Encyclopaedia Britannica](https://www.britannica.com/) to track election results for the same period of time produces this visualization.
 
 ![](images/election-results.png)
 [![](images/button.png)](https://apps.axibase.com/chartlab/73ab0050/2/#fullscreen)
@@ -82,15 +82,13 @@ Although the 2016 election was one of the more contentious in recent U.S. histor
 
 The European debt crisis was a financial debacle that was inflamed by the so called P.I.G.S. countries (Portugal, Ireland, Greece, and Spain) coming dangerously close to defaulting on their outrageously high government debts. Tracking several events alongside the EPU index reflects the panic and uncertainty of the multi-year crisis, bailout, and recovery process. Using the following 7 events to chronicle the timeline:
 
-1. Jan 1, 2002: Euro banknotes and coins begin circulation.
-2. Nov 27, 2008: European Union stimulus package totalling 200 billion Euro is proposed and eventually approved.
-3. Feb 9, 2010: The first of three austerity packages are introduced to combat out of control debt growth in Greece.
-4. May 2, 2010: European Union announces a 110 billion Euro bailout for Greece.
-5. Nov 28, 2010: European Union announces an 85 billion Euro bailout for the Republic of Ireland.
-6. Mar 13, 2012: A second bailout for Greece is proposed and approved for and additional 130 billion Euro after further
-inspection of government financial records reveal the depth and severity of the problem is even worse than originally
-understood.
-7. July 1, 2014: The end of the EU bailout policy, and completion of funds distribution.
+* Jan 1, 2002: Euro banknotes and coins begin circulation.
+* Nov 27, 2008: European Union stimulus package totalling 200 billion Euro is proposed and eventually approved.
+* Feb 9, 2010: The first of three austerity packages are introduced to combat out of control debt growth in Greece.
+* May 2, 2010: European Union announces a 110 billion Euro bailout for Greece.
+* Nov 28, 2010: European Union announces an 85 billion Euro bailout for the Republic of Ireland.
+* Mar 13, 2012: A second bailout for Greece is proposed and approved for and additional 130 billion Euro after further inspection of government financial records reveal the depth and severity of the problem is even worse than originally understood.
+* July 1, 2014: The end of the EU bailout policy, and completion of funds distribution.
 
 The following SQL query will return the [average value](https://github.com/axibase/atsd/blob/master/sql/README.md#aggregation-functions) of the EPU index for the Eurozone for the period from 2002 until 2018 and will consolidate the information using a [`round` expression](https://github.com/axibase/atsd/blob/master/sql/README.md#mathematical-functions).
 
@@ -101,7 +99,7 @@ SELECT ROUND(AVG(value), 0) AS "average-epu" FROM EUEPUINDXM_
 
 > The `datetime` column can be compared with literal dates specified in [various date formats](https://github.com/axibase/atsd/blob/master/sql/README.md#interval-condition) including ISO 8601 and short dates such as `yyyy-MM`.
 
-This query returns the following:
+This query returns a single-entry table:
 
 |average-epu|
 |:-:|
@@ -114,7 +112,7 @@ SELECT datetime, ROUND(value,0) FROM EUEPUINDXM_
   WHERE datetime  IN ('2002-01','2008-11','2010-02','2010-05','2010-11','2012-03','2014-07')
 ```
 
-Multiple `datetime` values can be conveniently enumerated as a list using an [`IN`](https://github.com/axibase/atsd/blob/master/sql/README.md#in-expression) expression. The above query returns the following values for each of the targeted months:
+Multiple `datetime` values can be conveniently enumerated as a list using an [`IN`](https://github.com/axibase/atsd/blob/master/sql/README.md#in-expression) expression. The above query returns these values for each of the targeted months:
 
 |Event|EPU Index Value|
 |---|:-:|
@@ -126,7 +124,7 @@ Multiple `datetime` values can be conveniently enumerated as a list using an [`I
 |Greek bailout #2|177|
 |Bailout period concludes|120|
 
-Further querying the data to show the top seven entries for the period from January 2002 to July 2014 using the following:
+Further querying the data to show the top seven entries for the period from January 2002 to July 2014 using this query:
 
 ```sql
 SELECT datetime, ROUND(value, 0) AS "top-epu" FROM EUEPUINDXM_
@@ -166,4 +164,4 @@ Use the following tools to recreate any of the visualizations seen here.
 * Install an ATSD instance on your local Linux system [here](https://github.com/axibase/atsd/blob/master/installation/README.md).
 * Visit [FRED](https://fred.stlouisfed.org/) for any of the data used in this article.
 * Access the ChartLab sandbox, and other Axibase applications, [here](https://apps.axibase.com/) and comprehensive documentation [here](https://axibase.com/products/axibase-time-series-database/visualization/widgets/).
-* Download the following [parser job file](resources/csv-parser-epu-demo.xml) which contains the settings that you can use to configure the CSV Document parser in the ATSD interface. Use the following [walkthrough](../../how-to/shared/import-csv-parser.md) for help uploading the XML file to ATSD.
+* Download this [parser job file](resources/csv-parser-epu-demo.xml) which contains the settings that you can use to configure the CSV Document parser in the ATSD interface. Use this [walkthrough](../../how-to/shared/import-csv-parser.md) for help uploading the XML file to ATSD.

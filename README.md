@@ -24,15 +24,18 @@ ATSD functionality and features applied to real-world public data to solve commo
 Walkthrough guides for ATSD integration with various IT infrastructure systems and services.
 
 ### Amazon Web Services
+
 - [Build Availability Report for AWS Route53](how-to/aws/route53-health-checks)
 - [Configure Launch Notifications for AWS Resources](how-to/aws/cloud-watch-alert)
 - [Route53 Health Status Alarms](how-to/aws/route53-email-notifications)
 
 ### Apache Kafka
+
 - [Monitoring Kafka Brokers](how-to/kafka/brokers-monitoring)
 - [Monitoring Kafka Consumer Lag](how-to/kafka/consumers-monitoring)
 
 ### GitHub
+
 - [Notifications for New GitHub Issues](how-to/github/issue-notification.md)
 - [Notifications for New GitHub Project Releases](how-to/github/project-release-notification.md)
 - [Notifications for New GitHub Pull Requests](how-to/github/pr-notification.md)
@@ -40,11 +43,13 @@ Walkthrough guides for ATSD integration with various IT infrastructure systems a
 - [Notifications for a New GitHub Repository Push](how-to/github/push-notification.md)
 
 ### Marathon
+
 - [How to Monitor Marathon Applications as Services](how-to/marathon/capacity-and-usage)
 
 ### ATSD
+
 - [Historizing Metrics Stored in Database](how-to/database/historize)
-- [Using TRENDS](how-to/shared/trends.md)
+- [Using Trends](how-to/shared/trends.md)
 - [Calculated Values With Schema-Based Parsing](Support/Schema-Parser-Mod-Pre-Import/README.md)
 - [Curve Smoothing Using Moving Averages](Support/Moving-Avg/README.md)
 - [Creating Calculated Metrics in ChartLab and SQL Console](Support/Add-Calculated-Value/README.md)
@@ -53,7 +58,8 @@ Walkthrough guides for ATSD integration with various IT infrastructure systems a
 
 Sometimes data tell their own story and ChartLab visualizations can grab reader attention to make a statement. The Chart of the Day is reproduced in a variety of publications.
 
-1. [Using Thresholds to Track United States Inflation](Chart_of_the_Day/us-inflation)
+1. [Profit Margin by Industry Explorer](Chart_of_the_Day/profit-margin/README.md)
+1. [Using Thresholds to Track United States Inflation](Chart_of_the_Day/us-inflation/README.md)
 1. [The Creeping Overnight Fund Rate](Chart_of_the_Day/overnight-fund-rate/README.md)
 1. [The Fall of Facebook](Chart_of_the_Day/facebook/README.md)
 1. [500 Cities: Local Data for Better Health](Chart_of_the_Day/CDC_TOP25/README.md)
@@ -62,7 +68,6 @@ Sometimes data tell their own story and ChartLab visualizations can grab reader 
 1. [United States Voter Turnout Since 1970](Chart_of_the_Day/voter-turnout/README.md)
 1. [International Students in America by Country of Origin](Chart_of_the_Day/International_Students/README.md)
 1. [European Union Per Capita Debt by Country](Chart_of_the_Day/EU_Debt_percap/README.md)
-1. [Who is Dropping Out in the State with the Fewest Dropouts?](Chart_of_the_Day/IA_Dropouts/README.md)
 
 ## Analysis
 
@@ -101,6 +106,7 @@ Visualizations and SQL queries that are indexed by topic to form the Axibase Dat
 
 Older ATSD functionality and features applied to real-world public data to solve common data problems and demonstrate use cases with meaningful information. Some features may have been updated or function differently, see our latest features and functionality used in more recent [Research Articles](#research-articles) or the [Chart of the Day](#chart-of-the-day).
 
+1. [Who is Dropping Out in the State with the Fewest Dropouts?](Chart_of_the_Day/IA_Dropouts/README.md)
 1. [The Port of Los Angeles: Sustainable Progress for the Future of the City](LA_Port/README.md)
 1. [Debt Profile of the Average American](FED_FORDSR/README.md)
 1. [U.S. Expatriation Statistics (Quarter 2 Update)](Expatriation/2017-2.md)

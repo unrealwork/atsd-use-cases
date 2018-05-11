@@ -2,7 +2,7 @@
 
 ## Overview
 
-This guide described how to configure email alerts when a url monitored with Route53 health checks becomes inaccessible. It also provides information on how to enhance the alerts with availability portals and outage details using Axibase Time Series Database [rule engine](https://github.com/axibase/atsd/tree/master/rule-engine#rule-engine).
+This guide described how to configure email alerts when a URL monitored by Route53 health checks becomes inaccessible. It also provides information on how to enhance the alerts with availability portals and outage details using Axibase Time Series Database [rule engine](https://github.com/axibase/atsd/tree/master/rule-engine#rule-engine).
 
 ## Initial Configuration
 
@@ -83,7 +83,7 @@ Complete the process below to enhance Route53 alarms with your local ATSD instan
     Webhook URL: https://aws-cw:PASSWORD@atsd_hostname:8443/api/v1/messages/webhook/aws-cw?command.date=Timestamp&json.parse=Message&exclude=Signature;SignatureVersion;SigningCertURL;SignatureVersion;UnsubscribeURL;MessageId;Message.detail.instance-id;Message.time;Message.id;Message.version
     ```
 
-2. Configure ATSD to accept HTTPS requests from AWS infrastructure servers with a [**CA-signed**](https://github.com/axibase/atsd/blob/master/administration/ssl-ca-signed.md) SSL certificate. Alternatively, use the HTTP protocol when configuring the SNS subscription URL below.
+2. Configure ATSD to accept HTTPS requests from AWS infrastructure servers with a [**CA-signed**](https://github.com/axibase/atsd/blob/master/administration/ssl-ca-signed.md) SSL certificate. Alternatively, use the HTTP protocol when configuring the SNS subscription URL.
 
 3. Open the **Services** drop-down menu and navigate to the **Simple Notification Service** page in the **Application Integration** section of the menu.
 
@@ -93,7 +93,7 @@ Complete the process below to enhance Route53 alarms with your local ATSD instan
 
     ![](images/route53-slack-subscription.png)
 
-5. In the **Subscriptions** section of the **Topic Details** page, click **Create Subscription** to enable enriched emails with contextual information. Click **Create Subscription** and use the following webhook URL in the **endpoint** field:
+5. In the **Subscriptions** section of the **Topic Details** page, click **Create Subscription** to enable enriched emails with contextual information. Click **Create Subscription** and use the webhook URL in the **endpoint** field:
 
     ```elm
     https://aws-cw:PASSWORD@atsd_hostname:8443/api/v1/messages/webhook/aws-cw?command.date=Timestamp&json.parse=Message&exclude=Signature;SignatureVersion;SigningCertURL;SignatureVersion;UnsubscribeURL;MessageId;Message.detail.instance-id;Message.time;Message.id;Message.version

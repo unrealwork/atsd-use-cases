@@ -34,13 +34,13 @@ A number of built-in [statistical functions](https://github.com/axibase/atsd/blo
 
 While the underlying function may be quite verbose:
 
-```sql
+```ls
 value = var v = value('cpi'); var p = value('prev_cpi'); if(p!=null && v!=null) return (v / p - 1) * 100
 ```
 
 The syntax required in the ChartLab configuration is simple:
 
-```sql
+```ls
 value = fred.PercentChangeFromYearAgo('raw')
 ```
 
@@ -57,7 +57,7 @@ Here, alert expressions are applied to static data, but they may be easily appli
 
 The syntax for the `alert-expression` above is shown here:
 
-```sql
+```ls
     alert-expression = value > 50 ? 4000 : value < -10 ? -100 : 0
     alert-style = if (alert > 50) return 'color:red'
     alert-style = if (alert < -10) return 'color:green'
@@ -149,13 +149,13 @@ The above query uses a [`CAST`](https://github.com/axibase/atsd/blob/master/sql/
 
 The data published by the Federal Register requires an intermediate ETL step in order to be available for analysis. This extraction-transformation-loading procedure is implemented by a [web crawler](https://github.com/axibase/atsd-data-crawlers/tree/irs-expatriation-data-crawler#irs-expatriation-statistics-data-crawler) built specifically for the task of tracking Federal Register publications for new expatriation data releases.
 
-The Web Crawler operates according to the following workflow:
+The Web Crawler operates according to this workflow:
 
 ![](Images/crawler-flow.png)
 
 The Web Crawler reads incoming data from the Federal Register and parses it into [`series` commands](https://github.com/axibase/atsd/blob/master/api/network/series.md), readable by [ATSD](https://axibase.com/products/axibase-time-series-database/), the database which hosts all the data used in this article and supports the background operations of SQL Console. A `series` command template is shown below:
 
-```sql
+```ls
 series d:{iso-date} e:{entity} t:{tag-1}={val-1} m:{metric-1}={number}
 ```
 
