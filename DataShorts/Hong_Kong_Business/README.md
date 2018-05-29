@@ -4,7 +4,7 @@ Data Source: [data.gov.hk](https://data.gov.hk/en-data/dataset/hk-censtatd-table
 
 Visualization: [ChartLab](https://apps.axibase.com/chartlab)
 
-Structured Query Language: [SQL Console](https://axibase.com/docs/atsd/sql/) in [Axibase Time Series Database](https://axibase.com/products/axibase-time-series-database/)
+Structured Query Language: [SQL Console](https://axibase.com/docs/atsd/sql/) in [Axibase Time Series Database](https://axibase.com/docs/atsd/)
 
 The data records three types of foreign companies operating in Hong Kong: local companies with foreign parent companies,
 foreign companies with locals branches in Hong Kong, and foreign companies with regional branches in Hong Kong. The differences
@@ -1735,7 +1735,8 @@ SELECT YEAR(time) AS 'Year', value as 'Businesses in Hong Kong',ROUND((value/ LA
 | 2015 | 122                     | -15.28           |
 | 2016 | 115                     | -5.74            |
 
-> Review [SQL Console Documentation](https://axibase.com/docs/atsd/sql/#null) here to read about handling procedures for mathematical operations involving `0`, `null`, and `NaN`.
+> Review [SQL Console Documentation](https://axibase.com/docs/atsd/sql/#null) here to read about handling
+procedures for mathematical operations involving `0`, `null`, and `NaN`.
 
 Return to the [Country Index](#country-index-(regional))
 
