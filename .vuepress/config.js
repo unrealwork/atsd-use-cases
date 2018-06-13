@@ -7,7 +7,9 @@ const githubSettings = {
 const topNavMenu = [
     { text: 'Research', link: '/research/' },
     { text: 'Chart of the Day', link: '/chart-of-the-day/' },
-    { text: 'Examples', link: '/how-to/' }
+    { text: 'Trends', link: '/trends/' },
+    { text: 'Integrations', link: '/integrations/' },
+    { text: 'Tutorials', link: '/tutorials/' },
 ]
 
 const landingPageMenu = [
@@ -33,12 +35,12 @@ const researchMenu = [
     },
 ];
 
-const examplesMenu = [
+const integrationsMenu = [
     {
-        title: "Examples", children: [
+        title: "Integration", children: [
             ['activemq/', 'ActiveMQ'],
-            ['database/', 'ATSD'],
             ['aws/', 'AWS'],
+            ['cadvisor/', 'cAdvisor'],
             ['docker/', 'Docker'],
             ['github/', 'GitHub'],
             ['itm/', 'IBM Tivoli Monitoring'],
@@ -46,6 +48,18 @@ const examplesMenu = [
             ['marathon/capacity-and-usage/', 'Marathon'],
             ['socrata/', 'Socrata Open Data'],
             ['zookeeper/', 'Zookeeper'],
+        ]
+    },
+];
+
+const tutorialsMenu = [
+    '',
+];
+
+const trendsMenu = [
+    {
+        title: "Trends", children: [
+            ['2018.md', '2018'],
         ]
     },
 ];
@@ -64,9 +78,11 @@ module.exports = {
 
         sidebarDepth: 1,
         sidebar: {
+            '/chart-of-the-day/trends/' :trendsMenu,
             '/chart-of-the-day/': chartofthedayMenu,
             '/research/': researchMenu,
-            '/how-to/': examplesMenu,
+            '/tutorials/': tutorialsMenu,
+            '/integrations/': integrationsMenu,
             // Keep it last
             '/': landingPageMenu,
             '': [],
