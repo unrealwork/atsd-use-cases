@@ -65,7 +65,7 @@ const trendsMenu = [
 ];
 
 module.exports = {
-    base: '/docs/atsd-use-cases/',
+    base: '/use-cases/',
     title: 'ATSD Use Cases',
     description: "Use Cases and Walkthrough Guides for Axibase® Time Series Database",
     head: [
