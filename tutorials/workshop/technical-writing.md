@@ -1,211 +1,170 @@
-# Technical Writing for Software Developers
+# Axibase Developer Documentation Style Guide
 
-* [Key Parameters](#key-parameters)
-* [Tips and Tricks](#the-global-audience-and-international-writer)
-* [Corporate Blogging](#corporate-blogging)
-* [Additional Resources](#resources)
+Refer to [Google Developer Documentation Style Guide](https://developers.google.com/style/) (GDG) for more details.
 
-## Introduction
+## Abbreviations
 
-Technical writing is one of the four primary expressions of written language, these forms are known as different things to different people but the general concept is usually the same across languages and nations:
+* Follow [GDG: abbreviations](https://developers.google.com/style/abbreviations).
+* Abbreviate if the acronym is known to the target audience.
+* Do not backtick acronyms.
+* Replace "i.e." or "e.g." with "for example".
+* Always abbreviate:
+  * ATSD (if used in our docs repositories).
+  * Common data formats: CSV, JSON, XLS, XML, XLS.
+  * Widely known terms: SSH, SQL, API, HTTP, REST, JVM.
+* If an acronym is new, introduce it in the beginning and re-use thereafter.
+  * "Axibase Time Series Database (ATSD) is a non-relational database."
 
-* **Creative / Narrative Writing:** Fictional or non-fictional writing meant to serve an entertaining or informative purpose by telling a story or recounting an event.
-* **Persuasive Writing:** Fictional or non-fictional writing meant to convince the reader of an opinion, or at least consider a new viewpoint.
-* **Academic / Scientific Writing:** Non-fictional writing meant to define and defend a thesis / hypothesis for the intellectual community.
-* **Technical / Expository Writing:** Non-fictional writing meant to explain a process or product, the advantages therein, and its usage for an unfamiliar audience.
+## Active Voice
 
-Technical writing comes in many different flavors for many different fields, each has their own idosyncracies and norms. Even though software development is one of the most widely-known and frequently talked-about fields in the modern age, it remains one of the least-understood on a technical level. When writing for others, especially end users and non-technical personnel, it's important to communicate effectively and concisely so that the meaning of the writing isn't drowned out by white noise or excessive verbosity.
+* Follow [GDG: active voice](https://developers.google.com/style/voice)
+* Maintain active voice for technical documentation.
+* Describe both the actor and the action, or use the imperative to instruct a user.
 
-### Key Parameters
+## Capitalization
 
-The easiest way to assess and analyze meaningful technical writing is to use quantifiable metrics which may be judged impartially. These parameters are broad enough that they may be applied to any piece of technical writing, but specific enough as to be informative and useful.
+* Follow [GDG: capitalization](https://developers.google.com/style/capitalization).
+* Do not capitalize program names such as `curl`.
+* Use title case in headers, except prepositions, articles, and program names.
+  * "### Import Data from Archive using curl"
+* Do not capitalize the first word after the colon in a list.
+  * Step 3: unzip files.
+* Do not capitalize file extensions.
+  * ".png", ".xml", ".jar"  
 
-Just remember your ABCs:
+## Contractions
 
-* **Accuracy:** Although seemingly obvious, an astounding amount of technical writing contains factural errors, careless mistakes, or otherwise thoughtless omissions that discourage users from advancing their understanding of a product or pursuing its implementation in their working environment. Unused software is no software at all.
+* Do not use contractions.
+  * "don't", "can't", "hasn't", "isn't", "didn't"
 
-* **Brevity:** When attempting to use a new feature or sample a new product, no audience has unlimited time. Make sure that technical writing is produced with the understanding that readers have places to be and people to see. Make a point before losing their attention.
+## Possessives
 
-* **Clarity:** The average reader will spend roughly one percent of the amount of time working with the final product that you spend developing it, probably less. The subtle features of the product or process may largely escape them. Acknowledge this fact and adjust technical pieces to respect it.
+* Do not use possessives.
+  * Modify server properties, not modify the server's properties.
+  * The contents of the file, not the file's contents.
 
-> [GitHub Issue: Terrible Documentation](https://github.com/search?q=terrible+documentation&type=Issues)
+## Punctuation
 
-![](./images/rails-img.png)
+### Colons
 
-## Schools of Thought: Classicism versus Modernism
+* Follow [GDG: colons](https://developers.google.com/style/colons)
+* Begin lists with colons (:), but use the appropriate formatting.
+* Separate list titles from their content with a colon.
 
-Like software development itself, technical writing has evolved throughout its existence. Although the descerning reader may point to many subcategories within the two most general: classical and modern, ostensibly each new iteration of technical writing practice is either a continuation of what was, or an attempt at something new.
+### Commas
 
-Classical technical writing tends to use more formal language, and constructions that are rarely spoken:
+* Do not use a comma to separate two clauses with multiple actors. Instead create two separate sentences.
+* Add commas to numbers greater than 1,000.
 
-* "The container *in which* the new instance was launched *shall* begin logging information immediately."
+### Hyphens
 
-Modern technical writing tends to resemble the spoken dialect more closely:
+* Follow [GDG: hyphens](https://developers.google.com/style/hyphens)
+* Hyphenate compound adjectives that do not have a component which ends in "-ly" (adverb-adjective compounds).
+* hyphenate compound adjectives that begin with "self."
+* hyphenate words a reader may otherwise confuse without a hyphen.
+* Do not use a hyphen to separate title from meaning, use a [colon](#colons).
 
-* "The container *where* the new instance was launched *will* begin logging information immediately."
+### Parentheses
 
-Like with almost everything else, good technical writing will find the balance between these two schools of thought:
+Do not use parentheses. If you need to make a parenthetical note, use the [Notes](#notes) guidelines.
 
-* "The container *in which* the new instance was launched *will* begin logging information immediately."
+### Quotation Marks
 
-### In Practice
+* Do not use quotation marks. To designate user [interface elements](#interface-elements), machine output, or features use **Bolding**.
 
-When applied to real-world scenarios, a balanced technical writing style is often apparent to any reader regardless of their technical knowledge. Try to read a technical piece from the position of someone who has inferior and superior knowledge to the theme as they will most likely be reading the document before publication as a member of your team, and after publication as a member of the general public.
+## Formatting and Organization
 
-Delegating technical writing to one person is dangerous. A person with a general understanding of many parts of a system but lacking a thorough knowledge of any one part will never be able to produce the level of user required to make any software a truly global solution. Cooperatively-generated technical documentation and instruction means an in-depth result that provides the answers to questions a reader didn't even know they had.
+### Backticks
 
-Picture the operating instructions for the most widely-used or popular programmatic solutions in the world, chances are their operation is supported by technical documentation that is easy to interact with.
+Apply single backticks to the following:
 
-### In Style
+* File names: `atsd.log`
+* Directory and file paths: `/opt/atsd/atsd/conf/server.properties`
+* File extensions: `.png`, `.xml`
+* Program names: `curl`, `wget`
+* HTTP Methods: `POST`, `GET.`
+* URI paths and query strings: `/api/v1/{entity}/metrics`
+* Header names and values.
+  * Set `Content-Type` header to `application/json`.
+* Function and procedure names.
+* Reserved SQL keywords and clauses.
+  * Add condition to the `HAVING` clause.
+* Parameter, field, and variable names.
+  * "Reset `queue.policy` to `BLOCK`"
+  * "Local the `github-notify` rule on the **Alerts** page"
+* Parameter, field, and variable values, including boolean values and numbers.
+  * "Set `limit` field to `16`"
+* Usernames.
+  * "Switch to `axibase` user"
+* Port numbers.
+  * "Make sure ATSD is listening on port `8443`"
 
-The presentation of writing is nearly as important as the writing itself. A great document published with an oppressive design forces readers to pre-suppose an overly-complex and esoteric document which may discourage a thorough reading of the piece. A technical document of any length should be well-indexed and annotated but presenting a first-time reader with a multi-paged list of every feature available to end users will often serve only to frustrate. Don't let a well-written piece go un-read because it looks like a legal document.
+Exceptions:
 
-Empowering Presentation
+* Do not use backticks in headings.
 
-![](./images/good-tech.png)
+### Headers
 
-> Links, formatting, and visibility are all features of cohesive technical writing.
+* Use title case in headers. Anything prefixed with markdown hash is a header.
+  * "Import Data from File"
+* For bullet points with sub-units, indent the sub-unit using two spaces, not with four spaces, not with a tab.
 
-Oppressive Presentation
+### Notes
 
-![](./images/bad-tech.png)
+* Include notes when needed but separate the note so as not to lead a reader to believe the note is critical to the process.
+* General notes that do not refer to a specific part of a process but are relevant nonetheless should be appended to the end of a document by the author.
 
-> A lack of organization or obvious inability to easily navigate throughout documentation destroys the primary advantage of online documentation.
+### Numbers
 
-## The Global Audience and International Writer
+* Backtick version numbers and HTTP status codes.
+* When describing amounts of memory, write literal numbers and separate the number from the unit.
+  * 8 GB, 128 MB, etc.
+* Write out numbers one through ten, unless they pertain to amounts of memory:
+  * There are three ways to perform this calculation
+* Write out ordinal numbers:
+  * First, second, third, etc.
+* For numbers greater than 1,000 use commas where appropriates.
+  * Do not use commas for machine output such as Unix epoch time: `1529074796`
 
-Write technical documentation with the world in mind. Whether this means simplifying the language in a technical document or using industry-standard terminology, be sure that the writing may be read by anyone with access to a translator, or a basic understanding of the language of the document. In the field of software development and computer science, the common and widely-understood lexicon should be used to properly name and describe operations and features. See the [Resources](#resources) section of this document for helpful links regarding composition.
+## Computer Interfaces
 
-**Literary Language:** Avoid the desire to use words based on length or complexity. Words should be chosen for their ability to properly convey the required information.
+### Code in Text
 
-* "Leveraging programmatic solutions to common problems in the legacy API should be considered before seeking a new solution entirely."
+* Follow [GDG: code in text](https://developers.google.com/style/code-in-text)
+* Fence code in documentation.
+* Use the correct heading such as `javascript`, or `python`
 
-* "Leveraging programmatic resolutions to prosaic botherations in the legacy API must be pondered before combing for a new elucidation entirely."
+### Interface Elements
 
-**Thesaurus Syndrome:** Avoid overuse of the thesaurus. Demonstrating a well-ranged vocabulary is important, but conveying clear information is even more important. Don't be afraid of using the same word several times if it applies to several situations. Common words are the place to use the thesaurus. Using too many variations of a word can easily create a confusing sentence that neither proposes a solution nor offers an explanation.
+* Interface elements should be **bold**.
+* When describing interface elements include the type of element, unless that element is a button.
+* Axibase products have drop-down lists.
+* Dialogs are windows which open within a page.
+* The **Top Menu** appears along the top of the user interface while the **Left Menu** appears on the left side of the page.
 
-Good Thesaurus Usage
+## Names and Meaning
 
-* "After the user has done the installation process, they need to do the set-up procedure, then do the operation."
+### Files Names
 
-* "After the user has executed the installation process, they need to perform the set-up procedure, then complete the operation."
+* Document names should be lowercase and contain no whitespace
 
-Bad Thesaurus Usage
+### Product Names
 
-* "A device operating on a secure network is able to easily connect with other devices using the network as well. Network traffic among devices may be monitored and throttled using IPv6 protocol."
+* Shorten Axibase product names after you introduce the abbreviation.
+* The product name should remain capitalized unless you refer to a general concept in place of the product name.
+* Articles may be omitted in most cases.
 
-* "A device operating on a secure network is able to easily connect with other equipment using the structure as well. System traffic among apparatus may be monitored and throttled using IPv6 protocol."
+### Documentation Names
 
-## Technical Points
+* Axibase Documentation is a proper noun, capitalize Axibase Documentation every time.
+* When referring to a specific document or guide, you may leave the type of document lowercase.
 
-No technical writing guide would be complete without a technical explanation of the finer points of writing accurately, briefly, and clearly. The inarguable features of writing of any kind are explored here.
+### Issue Names
 
-**Grammar:** One of the most important parts of any written document is the attention to grammar and punctuation. A misplaced comma or improperly emphasized clause is able to change the entire meaning of the sentence.
-
-* "One lunch per student. No student may have two lunches."
-
-* "One lunch per student? No! Student may have two lunches."
-
-**The Third Person:** When writing technical documents, it's usually best to avoid personal pronouns such as I, you, and we unless it is explicitly required. Often this means restructuring sentences to use different registers or tenses.
-
-* "We have been developing the rule engine since 2004."
-
-* "The rule engine has been in development since 2004."
-
-**Contractions:** Using contractions is part of the choice between classicism and modernism. Classical knowledge is that the use of contractions should be avoided in any technical document whereas modern documents often feature at least a few. Use common sense or refer to other technical documents when faced with a difficult decision.
-
-* "Let's move on to the next topic, it'll have several components, they're not difficult to explain."
-
-* "Let us move on to the next topic, it will have several components, they are not difficult to explain."
-
-**The Passive Voice:** It is generally recommended to avoid the passive voice in technical writing other than using it to soften the accusatory tone of a particular expression. Some situations require the passive voice, in which case, its use is perfectly acceptable for example to include the mention of an activity or process in which the reader has no part.
-
-Accusation
-
-* "If launch fails to initiate, the *user did not* complete the installation process correctly."
-
-* "If launch fails to initate, the *installation was not* completed correctly."
-
-Non-Participation
-
-* " *SQL Console is used* to query data stored in ATSD using a convenient syntax."
-
-* " *A user uses* SQL Console to query data stored in ATSD using a convenient syntax."
-
-**Articles:** More often than in traditional English writing, some articles may be omitted in places they would otherwise register as required. This is especially true of short, imperative sentences. Both examples below are correct, but because ATSD is a well-known product, and the sentence is written in the imperative, omitting the article sounds more professional.
-
-* "Launch *the* Axibase Time Series Database:
-
-```sh
-sudo apt-get update && sudo apt-get install atsd
-```
-
-* Launch Axibase Time Series Database using:
-
-```sh
-sudo apt-get update && sudo apt-get install atsd
-```
-
-> It's worth noting here, that "the following [anything]" must always include the definite article.
-
-**The Dangling Modifier:** A modifier is a word that changes another word, typically a present or past participle, or an adjective. Make sure its clear what these types of words are referencing.
-
-* "Executable at runtime, the database contains many Docker Jobs by default."
-* "The many Docker Jobs contained in the database are executable at runtime by default."
-
-**The Oxford Comma:** Either use it, or don't use it. You can't do both.
-
-* "Technical writing is about accuracy, brevity, and clarity."
-* "Technical writing is about accuracy, brevity and clarity."
-
-## Corporate Blogging
-
-Many large corporations operate a blog or journal of their activities. Sometimes this is one publication, as is the case with the [IBM Analytics Community](https://www.ibm.com/communities/analytics/cognos-analytics/blog/) or [Redmine Blog](http://www.redmineblog.com/), who document software updates and changes in the same place as use cases and research articles.
-
-Strengths of the Unified Resource
-
-* Ease-of-Access
-
-* Crossover Appeal
-
-* Integrated Advertising
-
-Other corporations separate the two publications, as with [Apple Newsroom](https://www.apple.com/newsroom/) and [Apple Support](https://support.apple.com/en-us/HT208067)
-
-Strengths of Separate Resources
-
-* Ease-of-Navigation
-
-* Specific Audience
-
-* Lack of Advertising
-
-Additional Corporate Blogs for Consideration
-
-* [GitHub Developer Blog](https://developer.github.com/changes/)
-
-* [Microsoft Windows Blog](https://blogs.windows.com/)
-
-* [Oracle Blog](https://blogs.oracle.com/) and [Oracle Developer's Blog](https://blogs.oracle.com/developers/)
-
-### Targeted Outcomes
-
-Hosting a corporate blog has the ability to waste a lot of time, or accomplish a lot of things. When writing analytic documents such as use cases or solution briefs, remember your purpose:
-
-* **Make Your Time Count**: Writing can create huge outlays when performed improperly and in a disorganized manner. Make sure your writing is efficient, effective, and engaging. Compose pieces which generate interest, inspire conversation, and create opportunity.
-
-* **Represent Your Product:** An article that touches on a hot-button issue or topical theme is only as good a blog post as it is able to relate to the underlying software. Inspiring thought in a reader's cognitive space is no use if it doesn't demonstrate the way the technology facilitated that discovery.
-
-* **Engage Your Audience:** At the other extreme, a densely-worded write-up on the paticularities of the latest version of some tool doesn't accomplish the task of engagement. Readers should come to your space to see a tool or service in action. Link to the technical writing if the opportunity presents itself, but don't force it on unwitting civilians.
-
-## Resources
-
-**Purdue OWL:** The [Online Writing Lab](https://owl.english.purdue.edu/owl/section/4/16/) from Purdue University is a valuable resource for writers of all kinds. It features specific templates for every variety of technical writing, so that any piece is able to meet post-university level publication standards.
-
-**Duke University ESL / EFL Resources:** The Thompson Writing Program publishes a public catalog at `https://twp.duke.edu/twp-writing-studio/resources-students/esl` of technical writing resources for non-native speakers of English.
-
-**Harvard Business Review:** An online [publication](https://hbr.org/) which releases articles on everything from employee management to technical writing strategy.
-
-**Society for Technical Communication:** [Technical Communication Online](https://www.stc.org/techcomm/) is a quarterly industry journal written by professional technical writers and speakers which publishes several free articles with each edition.
-
-**Google Developer Documentation Guide:** Publicly-accessible and internally-mandatory, [Developer Guides](https://developers.google.com/style/) from Google demonstrate the beauty of simple documentation in action.
+* Use prefixes for specific ticket subjects. If `rest-api` is too general a category, add **Python API Client** prefix to the issue subject.
+  * "UI: SQL Query Statistics page error."
+* Use the imperative for new features.
+  * "Implement Data Consistency page."
+* Use descriptive sentences for describing bugs.
+  * "`nmon` property record is not updated."
+* Link to the relevant documentation.
