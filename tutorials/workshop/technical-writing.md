@@ -4,77 +4,66 @@ Refer to [Google Developer Documentation Style Guide](https://developers.google.
 
 ## Abbreviations
 
-* Follow [GDG: abbreviations](https://developers.google.com/style/abbreviations).
+* [GDG: abbreviations](https://developers.google.com/style/abbreviations).
 * Abbreviate if the acronym is known to the target audience.
 * Do not backtick acronyms.
-* Replace "i.e." or "e.g." with "for example".
 * Always abbreviate:
   * ATSD (if used in our docs repositories).
   * Common data formats: CSV, JSON, XLS, XML, XLS.
   * Widely known terms: SSH, SQL, API, HTTP, REST, JVM.
 * If an acronym is new, introduce it in the beginning and re-use thereafter.
-  * "Axibase Time Series Database (ATSD) is a non-relational database."
+  * "Axibase Time Series Database (ATSD) is a non-relational database. ATSD is fast."
+  
+## Contractions
 
-## Active Voice
-
-* Follow [GDG: active voice](https://developers.google.com/style/voice)
-* Maintain active voice for technical documentation.
-* Describe both the actor and the action, or use the imperative to instruct a user.
+* Replace "i.e." or "e.g." with "for example".
+* Replace "don't", "can't", "hasn't", "isn't", "didn't" with full forms: "do not", "cannot", etc.  
 
 ## Capitalization
 
-* Follow [GDG: capitalization](https://developers.google.com/style/capitalization).
+* [GDG: capitalization](https://developers.google.com/style/capitalization).
 * Do not capitalize program names such as `curl`.
 * Use title case in headers, except prepositions, articles, and program names.
   * "### Import Data from Archive using curl"
 * Do not capitalize the first word after the colon in a list.
   * Step 3: unzip files.
 * Do not capitalize file extensions.
-  * ".png", ".xml", ".jar"  
+  * ".png", ".xml", ".jar"
+  
+## Parentheses
 
-## Contractions
+* Do not use parentheses.
+  * "Execute a sample query (such as `SELECT 1`) to test the connection" - remove text in parentheses here.
+* If you need to make a note, use the [Notes](#notes) guidelines.  
 
-* Do not use contractions.
-  * "don't", "can't", "hasn't", "isn't", "didn't"
+## Colons
 
-## Possessives
-
-* Do not use possessives.
-  * Modify server properties, not modify the server's properties.
-  * The contents of the file, not the file's contents.
-
-## Punctuation
-
-### Colons
-
-* Follow [GDG: colons](https://developers.google.com/style/colons)
-* Begin lists with colons (:), but use the appropriate formatting.
+* [GDG: colons](https://developers.google.com/style/colons)
+* Begin lists with colons (:).
+  * "Execute the following commands to stop the database:"
 * Separate list titles from their content with a colon.
+  * "Step 1: stop ATSD process."
 
-### Commas
+## Quotation Marks
+
+* Do not use quotation marks.
+* To designate [UI elements](#interface-elements), machine output, or features use **bold** text.
+
+## Commas
 
 * Do not use a comma to separate two clauses with multiple actors. Instead create two separate sentences.
-* Add commas to numbers greater than 1,000.
+  * Re-write "Submit the query, the result is displayed." as "Submit the query. Review the results."
 
-### Hyphens
+## Hyphens
 
-* Follow [GDG: hyphens](https://developers.google.com/style/hyphens)
-* Hyphenate compound adjectives that do not have a component which ends in "-ly" (adverb-adjective compounds).
-* hyphenate compound adjectives that begin with "self."
-* hyphenate words a reader may otherwise confuse without a hyphen.
+* [GDG: hyphens](https://developers.google.com/style/hyphens)
+* Hyphenate compound adjectives.
+  * "Cancel a long-running query"
+* Do not hyphenate adverb adjectives that end with "ly".
+  * "Review frequently used queries"
 * Do not use a hyphen to separate title from meaning, use a [colon](#colons).
 
-### Parentheses
-
-Do not use parentheses. If you need to make a parenthetical note, use the [Notes](#notes) guidelines.
-
-### Quotation Marks
-
-* Do not use quotation marks. To designate user [interface elements](#interface-elements), machine output, or features use **Bolding**.
-
-## Formatting and Organization
-
-### Backticks
+## Backticks
 
 Apply single backticks to the following:
 
@@ -82,7 +71,8 @@ Apply single backticks to the following:
 * Directory and file paths: `/opt/atsd/atsd/conf/server.properties`
 * File extensions: `.png`, `.xml`
 * Program names: `curl`, `wget`
-* HTTP Methods: `POST`, `GET.`
+* HTTP methods: `POST`, `GET.`
+* HTTP status codes: `200 OK`, `404`.
 * URI paths and query strings: `/api/v1/{entity}/metrics`
 * Header names and values.
   * Set `Content-Type` header to `application/json`.
@@ -98,10 +88,50 @@ Apply single backticks to the following:
   * "Switch to `axibase` user"
 * Port numbers.
   * "Make sure ATSD is listening on port `8443`"
+* Version numbers.
+  * "Python `v3.7.8` is required"
 
 Exceptions:
 
 * Do not use backticks in headings.
+
+## Numbers
+
+* Write out numbers one through ten, unless they have units.
+  * "There are three ways to perform this calculation"
+* Write out ordinal numbers.
+  * "The first query causes the database to lock the table"  
+* Add thousands separator except for milliseconds and machine output.
+  * "Stop the query if the row count exceeds 1,000"
+* When describing amounts of resource, write numeric value and space between the number and the unit.
+  * 8 GB, 128 MB, 2 CPUs.
+  
+  
+  
+## Possessives
+
+* Do not use possessives.
+  * Modify server properties, not modify the server's properties.
+  * The contents of the file, not the file's contents.
+  
+
+  
+## Active Voice
+
+* [GDG: active voice](https://developers.google.com/style/voice)
+* Maintain active voice for technical documentation.
+* Describe both the actor and the action, or use the imperative to instruct a user.  
+
+## Punctuation
+
+
+
+
+
+
+
+
+## Formatting and Organization
 
 ### Headers
 
@@ -113,18 +143,6 @@ Exceptions:
 
 * Include notes when needed but separate the note so as not to lead a reader to believe the note is critical to the process.
 * General notes that do not refer to a specific part of a process but are relevant nonetheless should be appended to the end of a document by the author.
-
-### Numbers
-
-* Backtick version numbers and HTTP status codes.
-* When describing amounts of memory, write literal numbers and separate the number from the unit.
-  * 8 GB, 128 MB, etc.
-* Write out numbers one through ten, unless they pertain to amounts of memory:
-  * There are three ways to perform this calculation
-* Write out ordinal numbers:
-  * First, second, third, etc.
-* For numbers greater than 1,000 use commas where appropriates.
-  * Do not use commas for machine output such as Unix epoch time: `1529074796`
 
 ## Computer Interfaces
 
