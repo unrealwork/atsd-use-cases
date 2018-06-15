@@ -1,16 +1,18 @@
 # Axibase Developer Documentation Style Guide
 
-Refer to [Google Developer Documentation Style Guide](https://developers.google.com/style/) (GDG) for more details.
+Refer to [Google Developer Documentation Style Guide](https://developers.google.com/style/) (GDG) for in-depth reviews of each section.
 
 ## Abbreviations
 
-* [GDG: abbreviations](https://developers.google.com/style/abbreviations).
+> [GDG: abbreviations](https://developers.google.com/style/abbreviations).
+
 * Abbreviate if the acronym is known to the target audience.
 * Do not backtick acronyms.
 * Always abbreviate:
-  * ATSD (if used in our docs repositories).
   * Common data formats: CSV, JSON, XLS, XML, XLS.
-  * Widely known terms: SSH, SQL, API, HTTP, REST, JVM.
+  * Protocols: HTTP, HTTPS, TCP, UDP, SSH.
+  * Widely known terms: SQL, API, REST, JVM.
+  * ATSD when used in our docs repositories: atsd, atsd-use-cases, axibase-collector.
 * If an acronym is new, introduce it in the beginning and re-use thereafter.
   * "Axibase Time Series Database (ATSD) is a non-relational database. ATSD is fast."
   
@@ -21,8 +23,9 @@ Refer to [Google Developer Documentation Style Guide](https://developers.google.
 
 ## Capitalization
 
-* [GDG: capitalization](https://developers.google.com/style/capitalization).
-* Do not capitalize program names such as `curl`.
+> [GDG: capitalization](https://developers.google.com/style/capitalization).
+
+* Do not capitalize program names such as `curl`, `cron`.
 * Use title case in headers, except prepositions, articles, and program names.
   * "### Import Data from Archive using curl"
 * Do not capitalize the first word after the colon in a list.
@@ -31,6 +34,9 @@ Refer to [Google Developer Documentation Style Guide](https://developers.google.
   * ".png", ".xml", ".jar"
 * Capitalize product names.
   * "SQL Server Database"
+* Preferred for consistency:
+  * Unix, not UNIX
+  * bash, not Bash
   
 ## Parentheses
 
@@ -42,7 +48,8 @@ Refer to [Google Developer Documentation Style Guide](https://developers.google.
 
 ## Colons
 
-* [GDG: colons](https://developers.google.com/style/colons)
+> [GDG: colons](https://developers.google.com/style/colons)
+
 * Begin lists with colons (:).
   * "Execute the following commands to stop the database:"
 * Separate list titles from their content with a colon.
@@ -60,7 +67,8 @@ Refer to [Google Developer Documentation Style Guide](https://developers.google.
 
 ## Hyphens
 
-* [GDG: hyphens](https://developers.google.com/style/hyphens)
+> [GDG: hyphens](https://developers.google.com/style/hyphens)
+
 * Hyphenate compound adjectives.
   * "Cancel a long-running query"
 * Do not hyphenate adverb adjectives that end with "ly".
@@ -102,7 +110,8 @@ Exceptions:
   
 ### Code Block
 
-* [GDG: code in text](https://developers.google.com/style/code-in-text)
+> [GDG: code in text](https://developers.google.com/style/code-in-text)
+
 * Fence code block with triple backticks.
 * Apply the correct dialect such as `javascript` or `python`.
   * Use `txt` for ASCII tables.
@@ -139,7 +148,8 @@ Exceptions:
 
 ## Active Voice
 
-* [GDG: active voice](https://developers.google.com/style/voice)
+> [GDG: active voice](https://developers.google.com/style/voice)
+
 * Maintain active voice for technical documentation.
 * Describe both the actor and the action, or use the imperative to instruct a user.  
 
@@ -149,7 +159,7 @@ Exceptions:
 
 ## Blacklisted Words
 
-* [GDG: words](https://developers.google.com/style/word-list)
+> [GDG: words](https://developers.google.com/style/word-list)
 
 word | alternatives
 ---|---
@@ -167,6 +177,7 @@ ingest | load, import
 lets | -
 please | -
 regex | regular expression
+Epoch time | Unix time
 
 ## Notes
 
