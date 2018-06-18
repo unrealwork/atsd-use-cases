@@ -203,6 +203,15 @@ Epoch time | Unix time
   * top menu
 * In ATSD, the **top menu** appears along the top of the user interface while the **left menu** or the **main menu** appears on the left side of the page.
 
+## Links
+
+* Use relative paths when linking markdown files in the same repository.
+  * :white_check_mark: `Perform [ATSD restart](../../administration/restarting.md)`
+  * :no_entry: `Perform [ATSD restart](/administration/restarting.md)`  
+* When linking to documents in the same repository, link to markdown files, and not to `https://axibase.com/` URLs.
+  * :white_check_mark: `Perform [ATSD restart](../../administration/restarting.md)`
+  * :no_entry: `Perform [ATSD restart](https://axibase.com/docs/atsd/administration/restarting.html)`
+
 ## Product Names
 
 * Shorten product names after you introduce the abbreviation.
