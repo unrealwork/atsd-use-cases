@@ -35,7 +35,7 @@ health using this data?
 
 Publicly-available data allows for anyone with access to the correct analytics tools to pursue answers
 to their own questions and convey that information to any audience. The [Axibase Time Series Database](https://axibase.com/docs/atsd/)
-is developed to work within the [Socrata](https://github.com/axibase/axibase-collector/blob/master/jobs/socrata.md)
+is developed to work within the [Socrata](https://axibase.com/docs/axibase-collector/jobs/socrata.html)
 framework used by government agencies to publish data, so it was selected as the main tool for this project
 and calculations were done using the computational knowledge engine [WolframAlpha](https://www.wolframalpha.com/).
 

@@ -170,11 +170,11 @@ Go to Docker Hub and open **Build Settings** for one of the projects (images). T
 
 ![](./images/docker-hub-trigger.png)
 
-The webhook should arrive in less than 5 minutes, which is the collector polling interval.
+The webhook arrives in less than 5 minutes, which is the collector polling interval.
 
 If you do not have a good failure candidate handy, send a test `message` command for `test/my-image` project as described below.
 
-Adjust the frequency in Collector web interface at `https://docker_host:8443`. Open `dockerhub-poller` job and set the **Cron Expression** to `0 * * * * ?` in order to run the data collection every minute.
+Adjust the frequency in Collector web interface at `https://docker_host:8443`. Open `dockerhub-poller` job and set the **`cron` Expression** to `0 * * * * ?` in order to run the data collection every minute.
 
 ## Automation
 
@@ -230,7 +230,7 @@ Check that the `dockerhub-webhook-sender` status is **OK**.
 
 ![](./images/sender-status.png)
 
-The target service should now receive the JSON payload:
+The target service now receives the JSON payload:
 
 ```json
 {
@@ -263,5 +263,5 @@ The target service should now receive the JSON payload:
 ## References
 
 * Axibase Time Series Database [Rule Engine Documentation](https://axibase.com/docs/atsd/rule-engine/).
-* Axibase Collector [JSON Job Documentation](https://github.com/axibase/axibase-collector/blob/master/jobs/json.md).
+* Axibase Collector [JSON Job Documentation](https://axibase.com/docs/axibase-collector/jobs/json.html).
 * Questions? Problems? Contact us by raising an [issue](https://github.com/axibase/atsd-use-cases/issues/new).

@@ -182,11 +182,11 @@ Epoch time | Unix time
 ## Notes
 
 * Include notes when needed but separate the note so as not to lead a reader to believe the note is critical to the process.
-* Notes that are not important but are relevant nonetheless should be appended to the end of a document.
+* Notes that are not important but are relevant nonetheless must be appended to the end of a document.
 
 ## Interface Elements
 
-* Interface elements should be **bold**.
+* Interface elements are **bold**.
 * When describing interface elements include the type of element, except for button. Use the defined article "the".
   * "Click **Next**"
   * "Open the **Alerts** page"
