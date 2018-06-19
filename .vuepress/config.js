@@ -18,6 +18,7 @@ const landingPageMenu = [
     [ '/trends/',  'Trends' ],
     [ '/integrations/', 'Integrations' ],
     [ '/tutorials/', 'Tutorials' ],
+    ['https://axibase.com/datasets/', 'Datasets'],
 ];
 
 const chartofthedayMenu = [
