@@ -159,11 +159,6 @@ Exceptions:
 * Insert a space between a number and multiple-letter unit. Omit space for one-letter units.
   * :white_check_mark: `8 GB`, `128 MB`, `2 CPUs`, `10%`.
 
-## Time
-
-* Write time 24-hour format.
-* When needed, use Unix Time.
-
 ## Possessives
 
 * Do not use possessives.
@@ -212,7 +207,7 @@ Exceptions:
 * SSN: `000-00-0000`.
 * File path: `/path/to/new-dir`, `/path/to/new-file`. Replace `new-dir` and `new-file` to indicate the purpose, for example, `/path/to/backup-dir`.
 
-## Dates
+## Date and Time
 
 * Spell out month if the format is ambiguous:
   * :white_check_mark: `01/Jun/2018`.
@@ -222,7 +217,10 @@ Exceptions:
   * :no_entry: `April 15th`.
 * Use commas with full dates.
   * :white_check_mark: `The report was published on December 13, 2017`.
-
+* Write time in 24-hour format.
+  * :white_check_mark: `April 15, 2018 at 20:30`.
+  * :no_entry: `April 15, 2018 at 8:30 pm`.
+  
 ## Active Voice
 
 * Maintain active voice for technical documentation.
@@ -230,7 +228,7 @@ Exceptions:
 
 ## Present Tense
 
-* Do not use "will" and "was". Write in the present tense.
+* Do not use "will", "was", "were", "had". Write in the present tense.
 
 ## Blacklisted Words
 
@@ -241,7 +239,9 @@ word | alternatives
 `would` | -
 `may` | `can`
 `will` | use present tense
-`was` | use present tens
+`was` | use present tense
+`were` | use present tense
+`had` | use present tense
 `abort` | `stop`, `cancel`
 `kill` | `stop`, `cancel`
 `terminate` | `stop`, `cancel`
@@ -310,68 +310,6 @@ word | alternatives
 
 * Use original product names unless you introduce an abbreviation.
 * Articles may be omitted from product names in most cases.
-
-## Quotation Marks
-
-* Do not use quotation marks.
-* To designate [UI elements](#interface-elements) use bold text.
-  * :white_check_mark: `Click **View** to proceed`.
-  * :no_entry: `Click on 'View' to proceed`.
-* To designate single-line machine output use bold text or backticks.
-  * :white_check_mark: `Watch the log file for **Start completed** message.`
-  * :white_check_mark: ``Watch the log file for `Start completed` message.``
-  * :no_entry: `Watch the log file for "Start completed" message.`  
-* To designate multiple-line machine output use code blocks with `txt` dialect.
-
-## Time
-
-* Write time 24-hour format.
-* When needed, use Unix Time.
-
-## Variables
-
-* Use curly brackets (`{}`) to designate a variable in URI path or query string:
-  * :white_check_mark: `/api/{entity}/metrics`
-  * :white_check_mark: `/api/metrics?id={metricId}`
-* Use camelCase for compound variable names in REST API:
-  * :white_check_mark: `entityGroup`
-  * :no_entry: `entity-group`
-* Add "the" article before the variables with types.
-  * :white_check_mark: ``Open the `atsd.log` file.``
-  * :no_entry: ``Open the file `atsd.log`.``
-
-----
-
-## Blacklisted Words
-
-word | alternatives
----|---
-`should` | use `must` or remove
-`could` | -
-`would` | -
-`may` | `can`
-`will` | use present tense
-`was` | use present tens
-`abort` | `stop`, `cancel`
-`kill` | `stop`, `cancel`
-`terminate` | `stop`, `cancel`
-`admin` | `administrator`
-`so, a lot` | use formal style
-`deselect` | `clear`
-`uncheck` | `clear`
-`flag` | `option`, `setting`
-`ingest` | `load`, `import`
-`lets` | -
-`please` | -
-`regex` | `regular expression`
-`Epoch time` | `Unix time`
-`datacenter` | `data center`
-`and/or` | clarify the meaning
-`in order to` | `to`
-`make sure` | `ensure`
-`end-point` | `endpoint`
-`click on` | `click`
-`robust` | avoid trite words
 
 ----
 
