@@ -8,7 +8,7 @@ According to [infoplease.com](http://www.infoplease.com/ipa/A0005148.html), life
 As reported by the [Center for Disease Control and Prevention (CDC)](http://www.cdc.gov/nchs/data/databriefs/db88.htm#x2013;2010%3C/a%3E>), the crude death rate in the United States fell from
 10.9 to 7.9 deaths per 1,000 people from 1935 to 2010, translating to a **27% decrease**. Mortality rates, however, are vastly different across different U.S. cities and age groups.
 In this article we will analyze a data.gov dataset looking at [death statistics for 122 U.S. cities](https://catalog.data.gov/dataset/deaths-in-122-u-s-cities-1962-2016-122-cities-mortality-reporting-system).
-This article will focus on Axibase Time Series Database (ATSD) [SQL query language capabilities](https://axibase.com/docs/atsd/sql/), which we will use to search for specific information contained in this dataset.
+This article will focus on ATSD [SQL query language capabilities](https://axibase.com/docs/atsd/sql/), which we will use to search for specific information contained in this dataset.
 
 ## Death Statistics for 122 U.S. Cities
 
@@ -38,7 +38,7 @@ While you can manually analyze this information in a spreadsheet program, it is 
 
 ## Axibase Time Series Database
 
-The [Axibase Time Series Database](https://axibase.com/docs/atsd/) is a powerful tool when it comes to storing, analyzing, and visualizing datasets. This article will not focus on creating graphs and figures using ATSD, but
+The ATSD is a powerful tool when it comes to storing, analyzing, and visualizing datasets. This article will not focus on creating graphs and figures using ATSD, but
 rather on writing and running SQL queries. If you are interested in reading more on the visual presentation capabilities of ATSD, check out our articles on
 [employee compensation numbers in Iowa](../../integrations/socrata/iowa-compensation/README.md) and
 [aviation statistics in the United Kingdom](../uk-aviation/README.md).
@@ -1230,7 +1230,7 @@ LIMIT 5
 ```
 
 We can also look at determining mortality rate by age group in New York City. We grabbed age group population statistics from [nyc1.gov](http://www1.nyc.gov/site/planning/data-maps/nyc-population/census-2010.page)
-as part of the 2010 U.S. census. The `new-york-city-2010-population` file can be found [here](resources/new-york-city-2010-population) in this repository.
+as part of the 2010 U.S. census. The `new-york-city-2010-population` file can be found on [GitHub](./resources/new-york-city-2010-population.txt).
 
 ```sql
 SELECT CAST(LOOKUP('new-york-city-2010-population', 'total')) AS "population",
@@ -1270,7 +1270,7 @@ There are two noteworthy points regarding this query:
 2) `SUM` aggregation is divided by the size of the corresponding age group, retrieved with a lookup function, and multiplied by 1000 since mortality is measured in deaths per 1000 people.<br />
 
 As the final query in this article, let us take a look at mortality rates by age group in Youngstown. We determined population figures with help from `places.mooseroots.com`
-as part of the 2010 U.S. Census. The `youngstown-2010-population` file can be found [here](resources/youngstown-2010-population).
+as part of the 2010 U.S. Census. The `youngstown-2010-population` file can be found on [GitHub](./resources/youngstown-2010-population.txt).
 
 ```sql
 SELECT CAST(LOOKUP('youngstown-2010-population', 'total')) AS "population",
@@ -1340,7 +1340,7 @@ wrote our own SQL queries, and were able to compute our own mortality statistics
 
 Below are the summarized steps to follow to install local configurations of ATSD and Axibase Collector and create SQL queries for analyzing CDC death statistics:
 
-1. Install Docker. A link for how to install Docker can be found [here](https://docs.docker.com/engine/installation/linux/ubuntulinux/).
+1. Install Docker. A link for how to install Docker can be found on the [Docker website](https://docs.docker.com/engine/installation/linux/ubuntulinux/).
 2. Download the `docker-compose.yml` file to launch the ATSD Collector container bundle.
 
    ```sh
@@ -1358,7 +1358,7 @@ Below are the summarized steps to follow to install local configurations of ATSD
 6. Import the `city-size`, `us-regions`, `new-york-city-2010-population`, and `youngstown-2010-population` replacement tables into ATSD.
 7. Navigate to the SQL tab in ATSD and begin writing your queries!
 
-The full guide for setting up can be found [here](../us-mortality/configuration.md).
+Read the complete [Configuration Guide](../us-mortality/configuration.md).
 
 If you require assistance in installing this software or have any questions, please feel free to [contact us](https://axibase.com/feedback/) and we would be happy to be of assistance!
 

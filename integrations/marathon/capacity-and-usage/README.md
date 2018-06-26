@@ -28,7 +28,7 @@ Both the API and the user interface provide a way to view allocated capacity alo
 
 ### Capacity Usage
 
-Integration with [Axibase Time Series Database](https://axibase.com/docs/atsd/) adds an additional level of visibility by collecting and aggregating CPU, memory, and disk usage at the **Application** level which allows the user to achieve higher capacity utilization by correlating resource allocations with actual usage.
+Integration with ATSD adds an additional level of visibility by collecting and aggregating CPU, memory, and disk usage at the **Application** level which allows the user to achieve higher capacity utilization by correlating resource allocations with actual usage.
 
 ![](./images/marathon-applications-label.png)
 
@@ -55,7 +55,7 @@ docker run -d -p 8443:8443 -p 9443:9443 -p 8081:8081 \
   axibase/atsd-sandbox:latest
 ```
 
-The sandbox container includes both ATSD and [Axibase Collector](https://github.com/axibase/axibase-collector/blob/master/jobs/docker.md) instances. The command uploads the needed XML files to ATSD and Axibase Collector.
+The sandbox container includes both ATSD and [Axibase Collector](https://axibase.com/docs/axibase-collector/jobs/docker.html) instances. The command uploads the needed XML files to ATSD and Axibase Collector.
 
 > If you would like to import files manually, follow the instructions for [manual upload](manual-upload.md).
 

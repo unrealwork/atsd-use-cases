@@ -2,14 +2,14 @@
 
 ## Introduction
 
-Raw data alone rarely contains enough information to answer meaningful questions. [ATSD](https://axibase.com/docs/atsd/) supports on the fly calculatation in [**SQL Console**](https://axibase.com/docs/atsd/sql/) and [Charts](https://github.com/axibase/charts) services.
+Raw data alone rarely contains enough information to answer meaningful questions. ATSD supports on the fly calculation in [**SQL Console**](https://axibase.com/docs/atsd/sql/) and [Charts](https://github.com/axibase/charts) services.
 
 This article describes using the [`replace-value`](https://axibase.com/products/axibase-time-series-database/visualization/widgets/configuring-the-widgets/) in [**ChartLab**](../shared/chartlab.md) and [`LAG`](https://axibase.com/docs/atsd/sql/#lag) function in **SQL Console** to calculate percent change for a given dataset.
 
 ## Data
 
 Data in this article was collected by entity [Eurostat](http://ec.europa.eu/eurostat) tracking [European Union Debt by Country](../../research/data-lib/eu-debt/README.md),
-recorded in the [Axibase Data Library](https://axibase.com/data-library).
+recorded in the [Axibase Data Library](https://axibase.com/use-cases/research/#data-library).
 
 ```sql
 SELECT date_format(time, 'yyyy') AS "Year", value AS "Debt (Million Euro)"

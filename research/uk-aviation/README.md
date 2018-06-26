@@ -46,9 +46,9 @@ The data is presented for scheduled and chartered flights for passengers from wi
 
 While the Aviation Trend PDF files can be helpful, they are not interactive and do not allow the user to easily move through different metrics and datasets. To gain a meaningful understanding of the data and trends over time, end users need to open multiple files at a time and compare data without visualization, which can be difficult and time consuming to work though.
 
-## Axibase Time Series Database (ATSD)
+## Axibase Time Series Database
 
-Processing of CAA datasets using Axibase Time Series Database (ATSD) is much simpler. Parsing the same data with ATSD is less time consuming because the user has the ability to easily toggle between different datasets and years, and filter for a specific airport location or metric. ATSD stores the data in the user's own database so that this public data can be combined with internal data sources as well as mixed and matched across different datasets. For example, you could combine the CAA datasets with weather patterns to see if there is any correlation between poor weather and flight delays; or with another country's aviation statistics to see how they compare to UK trends.
+Processing CAA datasets using ATSD is much simpler. Parsing the same data with ATSD is less time consuming because the user has the ability to easily toggle between different datasets and years, and filter for a specific airport location or metric. ATSD stores the data in the user's own database so that this public data can be combined with internal data sources as well as mixed and matched across different datasets. For example, you could combine the CAA datasets with weather patterns to see if there is any correlation between poor weather and flight delays; or with another country's aviation statistics to see how they compare to UK trends.
 
 Once you install ATSD, you **do not** have to:
 
@@ -243,11 +243,11 @@ You can explore this portal by clicking on the link below.
 Below are the steps to follow to install ATSD and create figures for CAA metrics:
 
 1. [Install the database](https://axibase.com/docs/atsd/installation/) on a virtual machine or Linux container.
-2. [Install Axibase Collector](https://github.com/axibase/axibase-collector/blob/master/installation.md#axibase-collector-installation) and configure it to write data into your ATSD instance.
+2. [Install Axibase Collector](https://axibase.com/docs/axibase-collector/#installation) and configure Collector to write data into your ATSD instance.
 3. Import the [csv-configs.xml](csv-configs.xml) into Axibase Collector.
 4. Import the [jobs.xml](jobs.xml) into Axibase Collector.
 5. Log in to your ATSD instance.
-6. Select your desired CAA metric and begin building your visualizations on the **Configuration: Portals** page!
+6. Select your desired CAA metric and begin building your visualizations on the **Portals** page.
 
 After installing ATSD and scrolling though the list of CAA metrics, create your own example and send it over to us.
 

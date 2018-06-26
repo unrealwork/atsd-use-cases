@@ -10,6 +10,7 @@ const topNavMenu = [
     { text: 'Trends', link: '/trends/' },
     { text: 'Integrations', link: '/integrations/' },
     { text: 'Tutorials', link: '/tutorials/' },
+    { text: 'Docs', link: 'https://axibase.com/docs/atsd/' },
 ]
 
 const landingPageMenu = [
@@ -18,6 +19,7 @@ const landingPageMenu = [
     [ '/trends/',  'Trends' ],
     [ '/integrations/', 'Integrations' ],
     [ '/tutorials/', 'Tutorials' ],
+    ['https://axibase.com/datasets/', 'Datasets'],
 ];
 
 const chartofthedayMenu = [
@@ -25,6 +27,7 @@ const chartofthedayMenu = [
         title: "Chart of the Day", children: [
             ['2018.md', '2018'],
             ['2017.md', '2017'],
+            ['2015.md', '2015'],
         ]
     },
 ];
@@ -71,11 +74,12 @@ const trendsMenu = [
 module.exports = {
     base: '/use-cases/',
     title: 'Axibase Time Series Database Use Cases',
+    titleNote: 'ATSD',
     description: "Use Cases and Walkthrough Guides for Axibase® Time Series Database",
     head: [
         ['link', { rel: 'shortcut icon', href: '/favicon.ico' }]
     ],
-    staticFilesExtensionsTest: /(?:tcollector|\.(?:pdf|xlsx?|xml|txt|csv|str|java|json|sql|sps|yxmd|htm|prpt|do|tdc|jsonld|ktr|service))$/,
+    staticFilesExtensionsTest: /(?:tcollector|\.(?:pdf|xlsx?|xml|txt|csv|str|java|json|sql|sps|yxmd|htm|prpt|do|tdc|jsonld|ktr|service|sh|ya?ml))$/,
     themeConfig: {
         nav: topNavMenu,
         logo: '/images/axibase_logo_site.png',

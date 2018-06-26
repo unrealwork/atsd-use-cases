@@ -11,7 +11,7 @@ The United States provides retirement security for the elderly and disabled in a
 
 ## Objectives
 
-Using [**Forecasting**](https://axibase.com/docs/atsd/forecasting/) functionality from [Axibase Time Series Database](https://axibase.com/docs/atsd/), current population figures and birth data, models may be created to predict trends in America's potential population crisis.
+Using [**Forecasting**](https://axibase.com/docs/atsd/forecasting/) functionality from ATSD, current population figures and birth data, models may be created to predict trends in America's potential population crisis.
 
 ## Data
 
@@ -124,5 +124,5 @@ Using forecasting, the continuation of mathematical trends may be readily observ
 The following tools may be used to replicate these results in a local instance of ATSD:
 
 * For information about modifying data visualizations in the **Trends** interface, see the [Trends Guide](../../integrations/shared/trends.md);
-* [Forecast Configuration](resources/forecast-settings.xml);
+* [Forecast Configuration](./resources/forecast-settings.xml);
 * For detailed information about configuring the Forecasting tool, see this [guide](../../integrations/shared/import-forecast.md).

@@ -1,6 +1,6 @@
- <img src="images/TitlePhoto.png" width="650" >
-
 # Analyzing Chicago Crime Statistics
+
+![](./images/TitlePhoto.png)
 
 ## Introduction
 
@@ -10,7 +10,7 @@ than New York City and Los Angeles **combined**. In 2016, there were 753 murders
 in 2015. From 2004 to 2015, the peak number of murders in the city was under 500. From 2011 to 2015, the city recorded less than 3,000 shooting victims per year. So what is the reason for this alarming
 increase in violence in Chicago? Was there an increase in all kinds of crime, or was the rise in murders and shootings an exception? In this article we will analyze a dataset from [data.gov](https://www.data.gov/)
 looking at [Chicago crime statistics](https://catalog.data.gov/dataset/crimes-2001-to-present-398a4) from 2001 to the present time. This research article illustrates how publicly available data
-from data.gov can be easily loaded into the non-relational [Axibase Time Series Database](https://axibase.com/docs/atsd/) for interactive analysis and graphical
+from data.gov can be easily loaded into the non-relational ATSD for interactive analysis and graphical
 representation of raw data collected by government and private organizations. The article provides both sample queries and charts, as well as instructions on how to install your own ATSD instance
 and populate it with the raw data.
 
@@ -18,7 +18,7 @@ and populate it with the raw data.
 
 Let's take a look at the dataset titled **Crimes - 2001 to present** from [data.gov](https://www.data.gov/).
 
-This dataset can be found [here](https://catalog.data.gov/dataset/crimes-2001-to-present-398a4). On the data.gov website, this dataset can be downloaded as a CSV (1.4 GB), RDF, JSON (**2.8 GB**), or a
+This dataset can be found on [data.gov](https://catalog.data.gov/dataset/crimes-2001-to-present-398a4). On the data.gov website, this dataset can be downloaded as a CSV (1.4 GB), RDF, JSON (**2.8 GB**), or a
 XML file. This dataset can easily be parsed using the JSON job in Axibase Collector.
 
 This dataset contains crime statistics collected daily from 2001 to the present time. This dataset is continuously updated with a time lag of 7 days. Statistics are available for **32 different crime types**. Furthermore, these crimes may be filtered by the location
@@ -26,7 +26,7 @@ where the crime occurred, and by the specific crime type. For example, for the c
 of cocaine, manufacturing and delivering heroin, soliciting narcotics etc). Each crime type has its own number of locations and specific violations that it may be sorted for.
 
 Given the size of the dataset, you cannot load it in Excel. It is much more convenient to interact with the data once it is loaded into a database. The
-[Axibase Time Series Database](https://axibase.com/docs/atsd/) is a powerful tool when it comes to storing, analyzing, and visualizing datasets. We will use two capabilities of ATSD to explore this dataset:
+ATSD is a powerful tool when it comes to storing, analyzing, and visualizing datasets. We will use two capabilities of ATSD to explore this dataset:
 
 * Interactive graphs from [**ChartLab**](../../integrations/shared/chartlab.md);
 
@@ -219,7 +219,7 @@ Click here to explore this **ChartLab** portal:
 Below are the summarized steps to follow to install local configurations of ATSD and Axibase Collector and create SQL queries for analyzing Chicago crime statistics:
 
 1. Install [Docker](https://docs.docker.com/engine/installation/linux/ubuntulinux/).
-2. Download the `docker-compose.yml` file to launch the ATSD / Axibase Collector container bundle.
+2. Download the [`docker-compose.yml`](./resources/docker-compose.yml) file to launch the ATSD / Axibase Collector container bundle.
 
    ```bash
    curl -o docker-compose.yml https://raw.githubusercontent.com/axibase/atsd-use-cases/master/research/chicago-crime-stats/resources/docker-compose.yml

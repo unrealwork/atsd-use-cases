@@ -74,9 +74,9 @@ data in plotly is static, that is every time the data is updated, everything wil
 
 ![Figure 4](./images/Figure4.png)
 
-## Axibase Time Series Database (ATSD)
+## Axibase Time Series Database
 
-The processing of datasets using Axibase Time Series Database (ATSD) is much less cumbersome.  Processing the same data with ATSD is less time consuming
+Processing datasets using ATSD is much less cumbersome.  Processing the same data with ATSD is less time consuming
 because its collection tool has built-in heuristics to handle the format in which data.gov datasets are published, namely the Socrata Open Data Format.
 When loading data for a particular dataset the collector uses Socrata metadata to understand the meaning of columns and automatically extract dates, times,
 and categories from the data files. Besides, ATSD stores the data in the user's own database so that this public data can be combined with internal data
@@ -273,9 +273,9 @@ If you would like to view a data.gov dataset without installing the ATSD softwar
 Below are the steps to follow to install ATSD:
 
 1. [Install the database](https://axibase.com/docs/atsd/installation/) on a virtual machine or in a Linux container.
-2. [Install Axibase Collector](https://github.com/axibase/axibase-collector/blob/master/installation.md#axibase-collector-installation) and configure it to write data into your ATSD instance.
-3. Import [SOCRATA Job](hawaii_gas_prices.xml) into Axibase Collector.
-4. Add your desired data.gov dataset to the job to enable data collection. Click on [Run] to collect data for the first time.
+2. [Install Axibase Collector](https://axibase.com/docs/axibase-collector/#installation) and configure Collector to write data into your ATSD instance.
+3. Import [SOCRATA Job](./hawaii_gas_prices.xml) into Axibase Collector.
+4. Add your desired data.gov dataset to the job to enable data collection. Click **Run** to collect data for the first time.
 5. Log in to ATSD and open a sample Socrata portal to explore the data.
 
-If you require assistance in installing this software or have any questions, please feel free to [contact us](https://axibase.com/feedback/) and we would be happy to be of assistance!
+If you require assistance in installing this software or have any questions, please feel free to [contact us](https://axibase.com/feedback/) and we would be happy to help!

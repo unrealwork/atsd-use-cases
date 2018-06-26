@@ -54,7 +54,7 @@ docker run -d -p 8443:8443 \
   axibase/atsd-sandbox:latest
 ```
 
-Mail configuration has several required parameters, passing these parameters into the container via mounted file is the simplest solution. The `volume` variable should point to the absolute path to a file containing the following parameters:
+Mail configuration has several required parameters, passing these parameters into the container via mounted file is the simplest solution. The `volume` variable must point to the absolute path to a file containing the following parameters:
 
 ```ls
 server=smtp.example.org
@@ -110,7 +110,7 @@ Modify delivery time by opening the `github-daily-pr-status` rule from the **Rul
 now.getHourOfDay() == 5
 ```
 
-Change the value of this expression to the integer 24-hour time when ATSD should deliver the report.
+Change the value of this expression to the integer 24-hour time when ATSD must deliver the report.
 
 ```java
 now.getHourOfDay() == 18
@@ -516,7 +516,7 @@ Each of these `JSONPaths` correspond to a JSON list which **Rule Engine** conver
 
 ATSD [Rule Engine](https://axibase.com/docs/atsd/rule-engine/) receives incoming JSON results and converts the information into human-readable HTML reports. Rule Engine generates reports based on [Conditions](https://axibase.com/docs/atsd/rule-engine/#condition-checking), in this case, immediately after the first sandbox launch and then daily at 5:00 AM server local time. The report is created by [Email Action](https://axibase.com/docs/atsd/rule-engine/email.html) which convert the JSON output into HTML table via [`jsonToLists`](https://axibase.com/docs/atsd/rule-engine/functions-table.html#jsontolists) function.
 
-The above JSON result sets will be converted to two outgoing email reports, sent to the defined subscriber list.
+The above JSON result sets are be converted to two outgoing email reports, sent to the defined subscriber list.
 
 Sample Apache Report for `MERGEABLE` Pull Requests with `SUCCESS` State:
 
