@@ -423,6 +423,9 @@ Cadvisor
 udp
 Litecoin
 camelCase
+SCOM
+vSphere
+vCenter
 TSDBs
 WebSphere MQ
 MapReduce
