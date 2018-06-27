@@ -21,4 +21,5 @@ Interactive visualizations tracking interesting datasets from a variety of sourc
 1. [500 Cities: Local Data for Better Health](cdc-top25/README.md) (June 2017)
 1. [New York City's Most Crowded Industries](ny-employment/README.md) (June 2017)
 1. [DuckDuckGo Search Statistics](duck-duck-go/README.md) (July 2015)
+1. [Tracking Programming Language Popularity on Stack Overflow](stack-exchange/README.md) (June 2015)
 1. [AWS EC2 T2 Instances: 700 seconds of Fame](700-seconds/README.md) (May 2015)
