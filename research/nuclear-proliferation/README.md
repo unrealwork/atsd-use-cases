@@ -3,7 +3,7 @@
 ## Introduction
 
 Since taking effect in 1970, the [Non-Proliferation Treaty](https://www.iaea.org/publications/documents/infcircs/treaty-non-proliferation-nuclear-weapons)
-(NPT) has required that the world's foremost nuclear powers take dramatic steps to reduce their inventory of atomic bombs and has
+(NPT) has required that the foremost nuclear powers of the world take dramatic steps to reduce their inventory of atomic bombs and has
 sought to prevent the spread of weaponized nuclear technology to countries who lack it. Signed as the Cold War began to reach its peak in 1968,
 less than a decade after the Cuban Missile Crisis but almost twenty years before the fall of the Berlin Wall, the NPT has
 served an important role in international cooperation over the last 47 years.
@@ -24,7 +24,7 @@ shown below using [data](https://ourworldindata.org/nuclear-weapons/) from a 201
 
 [![View in ChartLab](./images/button.png)](https://apps.axibase.com/chartlab/62a380f8/2/#fullscreen)
 
-> Open the ChartLab visualization above and use the dropdown menu to navigate through time and observe the changing inventories
+> Open the ChartLab visualization above and use the drop-down list to navigate through time and observe the changing inventories
 of nuclear weapons among observed nations.
 
 Despite this however, the former Cold War rivals have also been the most proactive about self-disarmament and as permanent
@@ -47,14 +47,14 @@ which saw an estimated 300 kilograms of enriched uranium disappear, allegedly ha
 
 The following visualization roughly estimates the expansion of the Israeli nuclear program over the last decades using [data](http://thebulletin.org/nuclear-notebook-multimedia)
 sourced from the [Bulletin of the Atomic Scientists](http://thebulletin.org/), a nuclear think tank formed by the members
-of the Manhattan Project, who created the original atomic bomb used to force Japanese surrender after Germany's defeat in
+of the Manhattan Project, who created the original atomic bomb used to force Japanese surrender after German defeat in
 World War Two.
 
 ![](./images/nuke-03.png)
 
 [![View in ChartLab](./images/button.png)](https://apps.axibase.com/chartlab/62a380f8/5/#fullscreen)
 
-> Open the ChartLab visualization to toggle between nations and navigate through time using the dropdown menus.
+> Open the ChartLab visualization to toggle between nations and navigate through time using the drop-down lists.
 
 Additionally, neighbors and on-again off-again rivals India and Pakistan maintain a contested border that has triggered armed
 military engagements as recently as 2016. Their nuclear arsenals are detailed below:

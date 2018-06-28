@@ -173,7 +173,7 @@ Exceptions:
 * Do not use backticks in headers.
   * :white_check_mark: `## Configure cron`.
   * :no_entry: ``## Configure `cron` schedule``.
-* Do not terminate sentences in headers with dot.
+* Do not end sentences in headers with dot.
   * :no_entry: `## Import data from file.`
 * Avoid punctuation symbols in headers except colon (`:`).
   * :no_entry: `## Import Data from File (Directory)`.
@@ -212,7 +212,7 @@ Exceptions:
 * Spell out month if the format is ambiguous:
   * :white_check_mark: `01/Jun/2018`.
   * :no_entry: `06/01/2018`.
-* Don't use ordinal numbers in dates.
+* Do not use ordinal numbers in dates.
   * :white_check_mark: `April 15`.
   * :no_entry: `April 15th`.
 * Use commas with full dates.
@@ -257,7 +257,7 @@ word | alternatives
 `Epoch time` | `Unix time`
 `datacenter` | `data center`
 `and/or` | clarify the meaning
-`in order to` | `to`
+`to` | `to`
 `make sure` | `ensure`
 `end-point` | `endpoint`
 `click on` | `click`
@@ -331,7 +331,7 @@ word | alternatives
   * :white_check_mark: ``Remove the ephemeral `/hbase` directory from Zookeeper cache.``  
   * :no_entry: ``Execute the command to remove the ephemeral `/hbase` directory from Zookeeper cache.``
   * :white_check_mark: `Add nmon to crontab to collect the data constantly.`
-  * :no_entry: `Setup crontab with the following commands so that nmon will collect the data constantly.`
+  * :no_entry: `Setup crontab with the following commands to enable nmon to collect data constantly.`
 * Describe what the command does.
   * :white_check_mark: ``Launch the `inotify` script to watch for file changes.``
   * :no_entry: `Run the script with the following command:`

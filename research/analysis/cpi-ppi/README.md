@@ -17,12 +17,12 @@ a final product. Both are shown below from 1990 to 2017:
 
 [![View ChartLab](./images/button.png)](https://apps.axibase.com/chartlab/0b791490/#fullscreen)
 
-> Open any ChartLab visualization to navigate through time using the dropdown menus at the top of the screen.
+> Open any ChartLab visualization to navigate through time using the drop-down lists at the top of the screen.
 
 _Sources_: [Federal Reserve Economic Data (CPI)](https://fred.stlouisfed.org/series/CPIAUCSL), [Federal Reserve Economic Data (PPI)](https://fred.stlouisfed.org/series/PPIACO)
 
 Both of the above metrics are indexed using the CPI and PPI value from the year 1982 as a baseline. This choice is somewhat
-arbitrary as such a decision simply sets that year's value at 100 and all other data points represent some proportion of that
+arbitrary as such a decision simply sets the value of the index year to 100 and all other data points represent some proportion of that
 value. A value of 50 would indicate proportionally half of the 1982 value, while a value of 150 would indicate a value
 1.5 times greater than the 1982 value. Because CPI and PPI have been converted to unitless values, they can be directly compared.
 
@@ -65,7 +65,7 @@ of the CPI less the value of the PPI.
 | 12-2008 | 211.4 | 170.9 | 40.5                  |
 ```
 
-In order to effectively contextualize this data, average Potential Profitability Values are shown below by year:
+to effectively contextualize this data, average Potential Profitability Values are shown below by year:
 
 ```sql
 SELECT YEAR(time) AS "Date", AVG(cpi.value) AS "Avg CPI", AVG(ppi.value) AS "Avg PPI", AVG(cpi.value - ppi.value) AS "Potential Profitability Value"
@@ -217,7 +217,7 @@ GROUP BY YEAR(time)
 
 [![View ChartLab](./images/button.png)](https://apps.axibase.com/chartlab/bae30175/#fullscreen)
 
-> Open any ChartLab visualization to navigate through time using the dropdown menus at the top of the screen.
+> Open any ChartLab visualization to navigate through time using the drop-down lists at the top of the screen.
 
 When the data is controlled to exclude volatile metrics such as energy and food production and consumption,
 a more accurate representation of the difference between production costs and consumer costs can be seen. To further
@@ -242,7 +242,7 @@ highlights this relationship further:
 
 Using an ad-hoc modification to align the origin of the two metrics shows the growing gap between oil prices and marginal profit
 indicating that while related to one another, high oil prices do not guarantee a high marginal profit. In fact, because of
-the reflection across the x-axis, as oil prices increase, the value of marginal profit actually decreases.
+the reflection across the x-axis, as oil prices increase, the value of marginal profit decreases.
 
 ## Conclusion
 

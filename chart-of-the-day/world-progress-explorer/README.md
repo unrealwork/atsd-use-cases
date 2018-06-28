@@ -28,7 +28,7 @@ The visualizations in the chart above demonstrate a [user-defined function](../.
 ![](./images/wps-1.png)
 [![](./images/button-new.png)](https://trends.axibase.com/5d0563d2/2#fullscreen)
 
-Axibase [Charts API](https://axibase.com/products/axibase-time-series-database/visualization/widgets/) uses a simple syntax with robust functionality. The underlying mechanics of the `PercentChangeFromYearAgo` function are shown here:
+Axibase [Charts API](https://axibase.com/products/axibase-time-series-database/visualization/widgets/) uses a simple syntax to perform advanced calculations on the client. The underlying mechanics of the `PercentChangeFromYearAgo` function are shown here:
 
 ```javascript
 value = var v = value('cpi'); var p = value('prev_cpi'); if(p!=null && v!=null) return (v / p - 1) * 100
@@ -200,7 +200,7 @@ Clauses used in this query:
 | Mexico        | 75                          |
 | Ethiopia      | 73                          |
 
-**Notes:** It's unsurprising that the five largest countries by population (China, India, the United States, Indonesia, and Pakistan) also saw the largest growth in population during the observed period.
+**Notes:** It is unsurprising that the five largest countries by population (China, India, the United States, Indonesia, and Pakistan) also saw the largest growth in population during the observed period.
 
 ### Greatest Population Growth Percent Across Observed Period (1970-2015)
 
@@ -228,7 +228,7 @@ FROM "population_total_by_country"
 | Saudi Arabia                 | 5.84                      | 32.28                     | 453.01                   |
 | Jordan                       | 1.72                      | 9.46                      | 450.10                   |
 
-**Notes:** Many of these oil-rich countries discovered their vast supplies of natural resources earlier than the 1970s but were unable to achieve independence to fully control them until 1971. Qatar, Bahrain, the UAE, and Oman achieved independence in 1971 and have since then vastly expanded their oil production capabilities including inviting large numbers of foreign national into the country to either develop or oversee the continued expansion of an industry which is responsible for the overwhelming majority of each country's GDP.
+> Many of these oil-rich countries discovered their vast supplies of natural resources earlier than the 1970s but did not achieve independence to fully control them until 1971. Qatar, Bahrain, the UAE, and Oman achieved independence in 1971 and have since then vastly expanded their oil production capabilities including inviting large numbers of foreign national into the country to either develop or oversee the continued expansion of an industry which is responsible for the overwhelming majority of the GDP of each country.
 
 The table below shows the percent of foreigners in selected countries above where the figure is significant:
 

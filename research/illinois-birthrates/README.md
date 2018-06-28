@@ -4,8 +4,8 @@
 
 ## Introduction
 
-Long-considered to be a bellwether for trends in the rest of the country, the nation's
-21st state has grown from a tiny, sparsely-populated part of the Northwest Territory to
+Long-considered to be a bellwether for trends in the rest of the country, the
+ 21st state has grown from a tiny, sparsely-populated part of the Northwest Territory to
 the home of Chicago, the third-largest city in the country. Illinois holds the headquarters
 to some of the largest and most successful corporations in the United States including Boeing, Walgreens
 Boots Alliance, McDonald's, Sears Holdings, and United Continental. The University of
@@ -16,12 +16,11 @@ guilty of misuse of power since the 1920's and a number of other state officials
 also served time in prison as a result of their actions in office.
 
 Home to some of America's favorite anti-heroes like Charlie Birger and Al Capone as well
-as some of the country's icons like former presidents Abraham Lincoln and
-Barack Obama, it's not hard to understand why Illinois is considered as diverse and
+as icons like former presidents Abraham Lincoln and
+Barack Obama, it is not hard to understand why Illinois is considered as diverse and
 unique as the country itself.
 
-The Illinois Center for Health Statistics has released [data](https://github.com/axibase/open-data-catalog/blob/master/datasets/9e74-xdvk.md) that covers two decades of
-live births in the state, from 1989 to 2009. This data has been kept through some of the
+Using data stored in [Axibase Dataset Catalog](https://axibase.com/datasets/socrata/9e74-xdvk.html) released by Illinois Center for Health Statistics that covers two decades of live births in the state, from 1989 to 2009. This data has been kept through some of the
 formative events of the 20th and 21st centuries: the fall of the Berlin Wall, the World Trade Center
 terrorist attacks, the Pathfinder mission to Mars, the completion of the Burj Khalifa, and
 the emergence of the Internet to name a few.
@@ -37,7 +36,7 @@ fitting to anticipate future birth rates.
 
 ### Visualizations
 
-Illinois contains 102 counties, the top ten most populous of which will be observed here.
+Illinois contains 102 counties, the top ten most populous of which are observed here.
 They are:
 
 | Rank | County | County Seat | Population (Million) |
@@ -53,7 +52,7 @@ They are:
 | 9 | Madison County | Edwardsville | 0.27 |
 | 10 | Champaign County* | Urbana | 0.20 |
 
-> \* Champaign County was the only top ten county by population to not appear as a top ten
+> \* Champaign County is the only top ten county by population not to appear as a top ten
 county by birthrate, consistently out-performed by the smaller Peoria County (Population: 0.19 million).
 
 ![](./images/ILL29.png)
@@ -69,7 +68,7 @@ the display.
 >Learn more about creating a drop-down menu in ChartLab in the [Appendix](#appendix) below.
 
 Use the ChartLab model below to compare the Top 10 counties' live births against the
-whole of Illinois' live births. Toggle between observed years using the dropdown menu:
+whole of Illinois' live births. Toggle between observed years using the drop-down list:
 
 ![](./images/ILL3.png)
 
@@ -116,7 +115,7 @@ to 2009:
 
 The data is difficult to work with because of the way it is stored. Typically, time information is
 stored within a given metric, but in this case, each year is a metric in and of itself. This
-type of storage can present a number of challenges for less robust software, but using the
+type of storage can present a number of challenges for less detail-oriented software, but using the
 ATSD and the supported [`JOIN`](https://axibase.com/docs/atsd/sql/#joins) clause,
 working with, and analyzing even unideal data is well within the scope of possibility.
 
@@ -467,7 +466,7 @@ Excluding the final data point from the series, which deviated significantly, cr
 
 ![](./images/ILL23.png)
 
-This model's formula is:
+The formula is shown here:
 
 ```javascript
 F(x) = 196 + -1.7*x + 0.0587*x^2 + -0.000794*x^3
@@ -489,7 +488,7 @@ and [WolframAlpha](https://www.wolframalpha.com/) can manage the computations.
 | 2013 | 164, 178 | 157 | 4.46%, 13.37% |
 | 2014 | 160, 178 | 159 | 6.29%, 11.95% |
 
-> \* Indicates a year in which the US Census was performed.
+> \* Indicates a year in which the US Census is performed.
 
 Model 1 more accurately predicts the results of recent live birth numbers, and the variance is reasonable, 0.7085.
 Model 2 less accurately predicts the results of recent live birth numbers and its variance is quite high, 4.4109. These numbers show the stability of the model
@@ -505,7 +504,7 @@ When updated to include the latest figures, the model looks like this:
 
 ![](./images/ILL25.png)
 
-This updated model's formula is shown here:
+The updated formula is shown here:
 
 ```javascript
 F(x) = 197 + -2.53*x + 0.189*x^2 + -0.006*x^3
@@ -516,7 +515,7 @@ The forward-shift is shown below:
 ![](./images/ILL26.png)
 
 Intuitively, this model appears flawed as it shows Illinois live births dropping to zero around the
-year 2038, but some of the older data can now be excluded, in order to reflect the trends of the
+year 2038, but some of the older data can now be excluded, to reflect the trends of the
 last decade while excluding data that is two decades old and reflects the trends of a society
 that has experienced a wide array of dramatic changes:
 
@@ -524,7 +523,7 @@ that has experienced a wide array of dramatic changes:
 
 ![](./images/ILL27.png)
 
-This newly updated model's formula is shown here:
+The newly updated formula is shown here:
 
 ```javascript
 F(x) = 81.9 + 17.6*x + -0.929*x^2 + 0.0139*x^3
@@ -565,7 +564,7 @@ which can change quite quickly and sometimes unpredictably.
 
 ## Appendix
 
-### Creating a [Dropdown Menu](https://axibase.com/products/axibase-time-series-database/visualization/widgets/dropdown/) in [ChartLab](https://apps.axibase.com/chartlab/6402f01c)
+### Creating a [drop-down list](https://axibase.com/products/axibase-time-series-database/visualization/widgets/dropdown/) in [ChartLab](https://apps.axibase.com/chartlab/6402f01c)
 
 Using the below chart as an example:
 
@@ -583,7 +582,7 @@ clause is used to declare the functionality of the menu itself.
 
 1. Download [Docker](https://docs.docker.com/engine/installation/linux/ubuntu/).
 2. Download the [`docker-compose.yml`](./resources/docker-compose.yml) file to launch the ATSD container bundle.
-3. Launch containers by specifying the built-in collector account credentials that will be used by Axibase Collector to insert data into ATSD.
+3. Launch containers by specifying the built-in collector account credentials used by Axibase Collector to insert data into ATSD.
 
 ```sh
    export C_USER=myuser; export C_PASSWORD=mypassword; docker-compose pull && docker-compose up -d

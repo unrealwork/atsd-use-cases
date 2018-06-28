@@ -19,7 +19,7 @@ The default list of regions where tests are performed is as follows:
 The test frequency is set to 30 second intervals, which may be reduced to 10 seconds for operation in **Fast** mode.
 In addition to connection parameters, which specify the DNS name or IP address, the port and the path for HTTP/S tests, you can specify retry logic to test the endpoint again if the connection fails. The specified number of retry attempts, executed by the service at the same frequency as the base test, determine how many successive failures Route 53 allows before the service determines an endpoint is unavailable.
 
-The intervals of time when the endpoint is unavailable are captured by the `HealthCheckPercentageHealthy` metric. This metric measures the percentage of time in the given period when the endpoint was available from 0% to 100%. For example, if the value of the average statistic for the `HealthCheckPercentageHealthy` metric is 90% for the 10 minute period, the target was reachable for 9 minutes (`10 * 60 * 90% = 540 seconds`).  AWS CloudWatch stores these statistics  for a period of up two weeks.
+The intervals of time when the endpoint is unavailable are captured by the `HealthCheckPercentageHealthy` metric. This metric measures the percentage of time in the given period when the endpoint is available from 0% to 100%. For example, if the value of the average statistic for the `HealthCheckPercentageHealthy` metric is 90% for the ten-minute period, the target is reachable for nine minutes (`10 * 60 * 90% = 540 seconds`).  AWS CloudWatch stores these statistics  for a period of up two weeks.
 
 ![](./images/route53-sla.png)
 
@@ -32,7 +32,7 @@ While [How to Build Availability Report for AWS Route53](README.md) describes ho
 ## Preparation
 
 * Setup an [IAM account](https://axibase.com/docs/axibase-collector/jobs/aws-iam.html)
-* Configure [Route53 & ATSD](README.md) integration. Make sure to copy health check attributes as described by the [ATSD Integration Documentation](https://github.com/axibase/atsd-integration/tree/aws-route53)
+* Configure [Route53 & ATSD](README.md) integration. Copy health check attributes as described by the [ATSD Integration Documentation](https://github.com/axibase/atsd-integration/tree/aws-route53)
 
 Log in to ATSD user interface using `axibase` username and `axibase` password.
 
@@ -234,7 +234,7 @@ GROUP BY entity
 | http://api.example.org:80/v1.12/srv-ping  | 63.636            |
 ```
 
-Similarly, calculate the availability for specific days of the week in order to locate patterns that might lead to enhanced change control, such as instituting a change freeze on Fridays.
+Similarly, calculate the availability for specific days of the week to locate patterns that might lead to enhanced change control, such as instituting a change freeze on Fridays.
 
 ```sql
 SELECT substr(date_format(time, 'u-EEE'), 3) AS day_of_week,

@@ -2,7 +2,7 @@
 
 ## Overview
 
-If you have images hosted on the [Docker Hub](https://hub.docker.com) registry, you need to monitor automated build jobs on Docker Hub to make sure that the images you successfully publish new images and your CI pipeline remains healthy.
+If you have images hosted on the [Docker Hub](https://hub.docker.com) registry, you need to monitor automated build jobs on Docker Hub to ensure that the images you successfully publish new images and your CI pipeline remains healthy.
 
 While the Docker Hub provides the capability to trigger [outgoing webhooks](https://docs.docker.com/docker-hub/webhooks/), the webhooks only execute when the automated build completes **successfully**. If the job fails or becomes stuck at **Queued** status, Docker Hub does not fire webhooks and your team remains unaware of broken builds. This limitation is [known](https://forums.docker.com/t/docker-hub-webhook-on-build-failure/1166) but a fix is not yet available.
 
@@ -174,7 +174,7 @@ The webhook arrives in less than 5 minutes, which is the collector polling inter
 
 If you do not have a good failure candidate handy, send a test `message` command for `test/my-image` project as described below.
 
-Adjust the frequency in Collector web interface at `https://docker_host:8443`. Open `dockerhub-poller` job and set the **`cron` Expression** to `0 * * * * ?` in order to run the data collection every minute.
+Adjust the frequency in Collector web interface at `https://docker_host:8443`. Open `dockerhub-poller` job and set the **`cron` Expression** to `0 * * * * ?` to run the data collection every minute.
 
 ## Automation
 
@@ -194,7 +194,7 @@ In addition to sending build error notifications, you can program the `dockerhub
 
     ![](./images/docker-hub-trigger-rule.png)
 
-For a more robust implementation, create a [lookup table](https://axibase.com/docs/atsd/rule-engine/functions.html#lookup) to associate images in incoming failure events with trigger tokens.
+For a more advanced implementation, create a [lookup table](https://axibase.com/docs/atsd/rule-engine/functions.html#lookup) to associate images in incoming failure events with trigger tokens.
 
 ### Send Alerts
 
