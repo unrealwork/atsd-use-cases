@@ -1,3 +1,6 @@
+<!-- markdownlint-disable MD101 -->
+<!-- markdownlint-disable MD105 -->
+
 # Axibase Documentation Guide
 
 The guide contains a compilation of grammar and punctuation rules for software developers. The formatting rules are targeted at markdown. To comply with general markdown syntax, use [markdownlint](https://www.npmjs.com/package/markdownlint).

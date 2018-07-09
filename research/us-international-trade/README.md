@@ -68,7 +68,7 @@ As shown in the figure below, the trade balance deficit between the U.S. and Chi
 
 [![View in ChartLab](./images/button.png)](https://apps.axibase.com/chartlab/552d7a44#fullscreen)
 
-Explore the trade between the United States and any other country included in this dataset by opening the **ChartLab** visualization. Open the drop-down lists to navigate between countries, as well as entire continents or specific organizations. 
+Explore the trade between the United States and any other country included in this dataset by opening the **ChartLab** visualization. Open the drop-down lists to navigate between countries, as well as entire continents or specific organizations.
 
 > There are separate filters for the upper and lower graphs.Select the desired location from the `US Import/Export` drop-down list, as well from **US Trade Balance** to perform filtering.
 
