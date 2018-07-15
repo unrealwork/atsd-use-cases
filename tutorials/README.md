@@ -2,6 +2,7 @@
 
 ## Data
 
+* [Parsing Irregular Timestamps](irregular-timestamp/README.md)
 * [Data Flow Control in Time Series Database](data-flow-control/README.md)
 * [Calculated Values With Schema-Based Parsing](schema-based-parser-mod/README.md)
 * [Creating Calculated Metrics in ChartLab and SQL Console](add-calculated-value/README.md)
@@ -9,8 +10,11 @@
 * [Historizing Metrics Stored in Database](historize/README.md)
 * [Allocating Resources to Containers](allocating-resources/README.md)
 * [Calculating the Difference Between Consecutive Series Values](subtract-subsequent-values/README.md)
+* [Composite Interval Queries in Axibase Enterprise Reporter](composite-intervals/README.md)
 * [Monitoring Docker Containers](docker-monitoring/README.md)
+* [Combining Periodic and Sliding Windows](combining-windows/README.md)
 * [The Time Series Database is about Reducing Complexity](time-series-database/README.md)
+* [Environmental Monitoring Using Big Data](environmental-monitoring/README.md)
 
 ## Configuration Import
 
@@ -33,5 +37,5 @@
 ## Workshops
 
 1. [Technical Writing for Software Developers](workshop/technical-writing.md) (May 2018)
-1. [Let's Encrypt SSL Certificates for Java Developers](workshop/lets-encrypt.md) (May 2018)
+1. [`Let's Encrypt` SSL Certificates for Java Developers](workshop/lets-encrypt.md) (May 2018)
 1. [WebGL: Hello, World and Integration Examples](workshop/webgl.md) (April 2018)

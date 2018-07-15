@@ -2,6 +2,7 @@
 
 Interactive visualizations tracking interesting datasets from a variety of sources.
 
+1. [California Water Portals](water-portal/README.md) (July 2018)
 1. [Tracking 2018 Cryptocurrency Value](crypto/README.md) (June 2018)
 1. [Hetzner May 2018 Outage](hetzner-outage/README.md) (May 2018)
 1. [The Creeping Overnight Fund Rate](overnight-fund-rate/README.md) (March 2018)
@@ -19,5 +20,7 @@ Interactive visualizations tracking interesting datasets from a variety of sourc
 1. [San Francisco Air Traffic Noise Complaints by the Numbers](sfo-noise/README.md) (July 2017)
 1. [Island Living is Recession Proof](hawaii-gdp/README.md) (July 2017)
 1. [500 Cities: Local Data for Better Health](cdc-top25/README.md) (June 2017)
-1. [New York City's Most Crowded Industries](ny-employment/README.md) (June 2017)
+1. [The Most Crowded Industries in New York City](ny-employment/README.md) (June 2017)
 1. [DuckDuckGo Search Statistics](duck-duck-go/README.md) (July 2015)
+1. [Tracking Programming Language Popularity on Stack Overflow](stack-exchange/README.md) (June 2015)
+1. [AWS EC2 T2 Instances: 700 seconds of Fame](700-seconds/README.md) (May 2015)

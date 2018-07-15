@@ -2,7 +2,7 @@
 
 ## Overview
 
-This guide describes how to configure email alerts when a URL monitored by Route53 health checks becomes inaccessible. It also provides information on how to enhance the alerts with availability portals and outage details using Axibase Time Series Database [Rule Engine](https://axibase.com/docs/atsd/rule-engine/).
+This guide describes how to configure email alerts when a URL monitored by Route53 health checks becomes inaccessible. It also provides information on how to enhance the alerts with availability portals and outage details using Axibase Time Series Database (ATSD) [Rule Engine](https://axibase.com/docs/atsd/rule-engine/).
 
 ## Initial Configuration
 
@@ -30,7 +30,7 @@ This guide describes how to configure email alerts when a URL monitored by Route
 
     ![](./images/route53-region-error.png)
 
-7. If you have not already done so, configure the new alarm notification target by navigating to the **Alarms** tab and clicking the **Edit** button in the **Actions** column. Select the appropriate **Notification Target** from the drop-down list of existing targets.
+7. If you have not already, configure the new alarm notification target by navigating to the **Alarms** tab and clicking the **Edit** button in the **Actions** column. Select the appropriate **Notification Target** from the drop-down list of existing targets.
 
     ![](./images/route53-alarm.png)
 
@@ -53,7 +53,7 @@ Complete the process below to enhance Route 53 alarms with your local ATSD insta
     ```txt
     server=mail.example.org
     port=587
-    user=myuser@example.org
+    user=user@example.org
     password=secret
     ```
 
@@ -80,7 +80,7 @@ Complete the process below to enhance Route 53 alarms with your local ATSD insta
     ```txt
     Webhooks created:
     Webhook user: aws-cw
-    Webhook URL: https://aws-cw:PASSWORD@atsd_hostname:8443/api/v1/messages/webhook/aws-cw?command.date=Timestamp&json.parse=Message&exclude=Signature;SignatureVersion;SigningCertURL;SignatureVersion;UnsubscribeURL;MessageId;Message.detail.instance-id;Message.time;Message.id;Message.version
+    Webhook URL: https://aws-cw:password@atsd_hostname:8443/api/v1/messages/webhook/aws-cw?command.date=Timestamp&json.parse=Message&exclude=Signature;SignatureVersion;SigningCertURL;SignatureVersion;UnsubscribeURL;MessageId;Message.detail.instance-id;Message.time;Message.id;Message.version
     ```
 
 2. Configure ATSD to accept HTTPS requests from AWS infrastructure servers with a [**CA-signed**](https://axibase.com/docs/atsd/administration/ssl-self-signed.html) SSL certificate. Alternatively, use the HTTP protocol when configuring the SNS subscription URL.
@@ -96,7 +96,7 @@ Complete the process below to enhance Route 53 alarms with your local ATSD insta
 5. In the **Subscriptions** section of the **Topic Details** page, click **Create Subscription** to enable enriched emails with contextual information. Click **Create Subscription** and use the webhook URL in the **Endpoint** field:
 
     ```elm
-    https://aws-cw:PASSWORD@atsd_hostname:8443/api/v1/messages/webhook/aws-cw?command.date=Timestamp&json.parse=Message&exclude=Signature;SignatureVersion;SigningCertURL;SignatureVersion;UnsubscribeURL;MessageId;Message.detail.instance-id;Message.time;Message.id;Message.version
+    https://aws-cw:password@atsd_hostname:8443/api/v1/messages/webhook/aws-cw?command.date=Timestamp&json.parse=Message&exclude=Signature;SignatureVersion;SigningCertURL;SignatureVersion;UnsubscribeURL;MessageId;Message.detail.instance-id;Message.time;Message.id;Message.version
     ```
 
     Switch to HTTP protocol and modify the port number (default is `8088`) if the ATSD is running on a self-signed SSL certificate.

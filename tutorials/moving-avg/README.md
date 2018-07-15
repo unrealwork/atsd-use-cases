@@ -2,14 +2,14 @@
 
 ## Problem Overview
 
-An operations analyst has with two possibly-related datasets, [cargo tonnage data](https://github.com/axibase/open-data-catalog/blob/master/datasets/nthh-fhwt.md) from the two largest airports in the New York City Metropolitan Area and [passenger enplanement data](https://github.com/axibase/open-data-catalog/blob/master/datasets/vpv5-zd4k.md)
-from the same airports. The analyst must create a relational model between the two datasets for a major airline looking to expand their presence
-at either LaGuardia or John F. Kennedy Airport in order to facilitate the maximum number of passengers and cargo.
+An operations analyst has with two possibly related datasets, [cargo tonnage data](https://axibase.com/datasets/socrata/nthh-fhwt.html) from the two largest airports in the New York City Metropolitan Area and [passenger enplanement data](https://axibase.com/datasets/socrata/vpv5-zd4k.html)
+from the same airports both available in [Axibase Dataset Catalog](https://axibase.com/datasets/). The analyst must create a relational model between the two datasets for a major airline looking to expand their presence
+at either LaGuardia or John F. Kennedy Airport to facilitate the maximum number of passengers and cargo.
 
-The first dataset, collected by the [Port Authority of New York and New Jersey](http://www.panynj.gov/) is aggregated monthly while the second dataset from
+The first dataset, collected by the [Port Authority of New York and New Jersey](https://www.panynj.gov/) is aggregated monthly while the second dataset from
 the [New York Department of Transportation](https://www.dot.ny.gov/index) is aggregated annually.
 
-* Annually aggregating the Port Authority Cargo data would destroy the granularization that was created by monthly collection over the observation period.
+* Annually aggregating the Port Authority Cargo data would destroy the granularization that created by monthly collection over the observation period.
 * Using an average baseline calculated over the entire observation period would return results that neglected current trends because four decades worth of data would be regarded equally.
 
 With ATSD and the [Moving Average](https://axibase.com/products/axibase-time-series-database/visualization/widgets/configuring-the-widgets/aggregators/)
@@ -17,8 +17,7 @@ setting, data with differing granularization is easily comparable.
 
 ## Data
 
-The tonnage dataset is visualized below. Because of the differences in the ranges of the data, there are two charts so that the high level
-of variance is visible for each metric:
+The tonnage dataset is visualized below. Because of the differences in the ranges of the data, there are two charts to show the high variance for each of the metrics:
 
 **Figure 1.1**: JFK Cargo Tonnage (1977-2015)
 
@@ -48,8 +47,8 @@ the `[widget]` field to modify all available series, or placed under an individu
 series.
 
 ```sql
-  statistic = wtavg
-  period = 1 year
+statistic = wtavg
+period = 1 year
 ```
 
 The `period` is set by the user and able to be as low as millisecond granularity and as high as any
@@ -107,7 +106,7 @@ enplanements = value/10000
 Once the comparison is complete, remove the `statistic` setting from the **Editor** window to return the data to the original
 state.
 
-Alternatively, it may be helpful to compare the modified chart with the original to calculate concrete monthly baselines. Airport traffic and use is seasonal, so comparing values month to month may be misleading.
+Alternatively, it may be helpful to compare the modified chart with the original to calculate concrete monthly baselines. Airport traffic and use is seasonal, as such comparing values month to month may be misleading.
 
 With the moving average calculation included year-on-year monthly data is calculated.
 

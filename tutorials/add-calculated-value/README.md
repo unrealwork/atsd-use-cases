@@ -8,7 +8,7 @@ This article describes using the [`replace-value`](https://axibase.com/products/
 
 ## Data
 
-Data in this article was collected by entity [Eurostat](http://ec.europa.eu/eurostat) tracking [European Union Debt by Country](../../research/data-lib/eu-debt/README.md),
+Data in this article is collected by entity [Eurostat](https://ec.europa.eu/eurostat) tracking [European Union Debt by Country](../../research/data-lib/eu-debt/README.md),
 recorded in the [Axibase Data Library](https://axibase.com/use-cases/research/#data-library).
 
 ```sql
@@ -66,6 +66,7 @@ Where,
 
 `x = current year debt amount, and y = previous year debt amount`
 
+```ls
 | Year | Debt (Million Euro) | Percent Change (PYB) |
 |------|---------------------|----------------------|
 | 1995 | 1632.00             | null                 |
@@ -89,6 +90,7 @@ Where,
 | 2013 | 19715.70            | -3.27                |
 | 2014 | 19748.30            | 0.17                 |
 | 2015 | 20525.20            | 3.93                 |
+```
 
 `LAG` function returns a [`NULL`](https://axibase.com/docs/atsd/sql/#null) value when no  data sample is found.
 
@@ -171,7 +173,7 @@ Apply an `alert-expression` to track years by percent deviation from the calcula
 
 ### Final Year Baseline
 
-In order to calculate debt growth using a FYB, the following queries are used:
+to calculate debt growth using a FYB, the following queries are used:
 
 ```sql
 SELECT last(value) AS "Final Year Baseline"

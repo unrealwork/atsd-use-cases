@@ -1,6 +1,6 @@
 # Kafka Integration
 
-This document describes how to monitor availability and performance of [Apache Kafka](https://kafka.apache.org/) using ATSD.
+This document describes how to monitor availability and performance of [Apache Kafka](https://kafka.apache.org/) using Axibase Time Series Database (ATSD).
 
 ## Step 1: Configure Axibase Collector
 
@@ -8,7 +8,7 @@ This document describes how to monitor availability and performance of [Apache K
 2. From the **Jobs** page select **Import** by opening the split button below the table.
 3. Import the [`kafka-jmx`](./resources/job_jmx_kafka-jmx.xml) job.
 4. Locate the newly-imported `kafka-jmx` job on the **Jobs** page.
-5. On the **JMX Job** page, enable the job status by setting the flag in the **Enabled** checkbox.
+5. On the **JMX Job** page, enable the job status with the **Enabled** checkbox.
 6. Adjust the `cron` expression if required. For more information on `cron` expressions, see [Scheduling](https://axibase.com/docs/axibase-collector/scheduling.html).
 7. Select a target ATSD database for storing data.
 8. Click **Save**.
@@ -43,7 +43,7 @@ This document describes how to monitor availability and performance of [Apache K
 
 ## Step 2: Configure Kafka in ATSD
 
-1. Log in to the target Axibase Time Series Database instance at `https://atsd_hostname:8443`.
+1. Log in to the target ATSD instance at `https://atsd_hostname:8443`.
 2. Go to the **Metrics** page and verify that `jmx.kafka.*` metrics are available.
 3. Go to the **Entities** page and verify that `jmx.kafka.*` properties are available for entities from `kafka-properties` configuration.
 4. Open the **Settings** menu, select **Entity Groups** and import [Kafka](./resources/groups.xml) entity group.

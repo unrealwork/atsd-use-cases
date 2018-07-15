@@ -44,21 +44,23 @@ docker run \
   axibase/atsd:latest
 ```
 
-Whether or not you manually assign container labels using deployment scripts or through orchestration frameworks such as [Kubernetes](http://kubernetes.io/) or [Mesos](http://mesos.apache.org/documentation/latest/docker-containerizer/) that manage containers on a large fleet of machines is an implementation detail that is specific to each organization.
+Whether or not you manually assign container labels using deployment scripts or through orchestration frameworks such as [Kubernetes](https://kubernetes.io/) or [Mesos](https://mesos.apache.org/documentation/latest/docker-containerizer/) that manage containers on a large fleet of machines is an implementation detail that is specific to each organization.
 
 Once you have container labeling in place, you can create roll-up dashboards and configure alerting without referring to hostnames or container ids and aliases.
 
 Instead, containers can be grouped and filtered based on labels using expressions.
 
 ```sh
-tags['com.axibase.service'] == 'metrics' &amp;&amp; tags['com.axibase.environment'] == 'production'
+tags['com.axibase.service'] == 'metrics' && tags['com.axibase.environment'] == 'production'
 ```
 
 > Tags contain [ATSD](https://axibase.com/docs/atsd/) terms.
 
-This expression groups all containers that support `metrics` service in production. New containers are automatically added to the roll-up. When a container is terminated, it is not removed from the group, allowing you to see detailed historical data for the selected service.
+This expression groups all containers that support `metrics` service in production. New containers are automatically added to the roll-up. When a container is stopped, it is not removed from the group, allowing you to see detailed historical data for the selected service.
 
 Grouping based on metadata allows you to build roll-up portals. Below is an example of a portal for `API` service containers running in the `SVL` data center. You can see the API service broken down by container, which gives insight into the overall service performance and the performance of individual microservices.
+
+![](./images/api_service_portal_atsd1.png)
 
 See [Writing Docker Data](https://axibase.com/products/axibase-time-series-database/writing-data/docker/) for deployment instructions.
 
@@ -70,20 +72,24 @@ Resource isolation features of the Linux kernel, such as `cgroups`, namespaces, 
 
 When comparing Linux containers with virtual machines, VMs require more resources but provide better isolation since VM Hypervisors emulate the full operating system stack including virtual hardware. Containers, on the other hand, run on a shared operating system. Containers leave most of the VM bulk behind, VM sizes can often reach tens of gigabytes, in favor of a miniature package that contains the application and dependencies. As a result, a Docker host can run many more applications on identical hardware.
 
+![](./images/docker_introduction.png)
+
 ## Linux Containers
 
 Containers are wrapped-up applications and pieces of software that include all dependencies but use a shared kernel with other containers. Essentially, containers are isolated sets of processes in the userspace on the host operating system. While Hypervisors abstract the entire device, containers just abstract the operating system kernel. One important limitation is the fact that all containers running on a single machine must use the same kernel, Host OS, whereas with Hypervisors each VM can run its own Guest OS with different kernels.
 
 Another key difference between containers and VMs is execution speed. Launching a VM can take several minutes and is often very resource intensive. As such, launching several VMs requires some planning and scheduling. You can launch multiple containers within seconds, as they are very lightweight. This kind of performance and scalability leads to a new type, or even a new generation, of distributed applications where containers are automatically launching and stopping depending on various factors like user traffic, events, queries, scheduled tasks, etc.
 
+![](./images/microservices_docker2.png)
+
 ### Micro-services and the Right Approach to Collecting Docker Performance Data
 
 Executing containers on Docker enables decomposition of applications into microservices which improves fault tolerance and manageability. However, the side effect is more challenging performance monitoring, since microservice life cycles are often very short. The lifespan of containers can be as short as just a few minutes – in some cases even seconds – while Virtual Machines can have lifespans measured in years. Treating containers like VMs might seem convenient, it is a misleading analogy.
 
-Container statistics are often gathered for a short timespan, meaning that traditional ways of monitoring are not applicable. Once the container is terminated, the data becomes obsolete for the purpose of troubleshooting, since the workload has been taken over by a new container. Instead of chasing individual container identifiers, consider monitoring applications and services based on labels: application name, type, role, function, etc. This can be accomplished by leveraging container labels to encode type, role, or function groups. To provide a meaningful amount of metadata about each micro-service, container labels needs to include:
+Container statistics are often gathered for a short timespan, meaning that traditional ways of monitoring are not applicable. Once the container is stopped, the data becomes obsolete for the purpose of troubleshooting, since the workload has been taken over by a new container. Instead of chasing individual container identifiers, consider monitoring applications and services based on labels: application name, type, role, function, etc. This can be accomplished by leveraging container labels to encode type, role, or function groups. To provide a meaningful amount of metadata about each micro-service, container labels needs to include:
 
 * Service or application name.
-* Function such as database, message-broker, http-server.
+* Function such as database, message-broker, HTTP server.
 * Environment such as testing, staging, production.
 * Data center topology: dc name, region, availability zone.
 
@@ -93,7 +99,7 @@ When such a naming conventions are enforced, monitoring and alerting tools can v
 * Number of logins for micro-services that execute the authentication function for web applications.
 * Total memory allocated and used by containers that are part of API applications hosted in a particular data center.
 
-The more metadata you have about each container, the easier to aggregate relevant information. With this approach you are not looking at statistics from terminated containers. Moreover, you see exactly what is happening at the microservice, service, and application level. You can look at the big picture or drilldown to the smallest details.
+The more metadata you have about each container, the easier to aggregate relevant information. With this approach you are not looking at statistics from stopped containers. Moreover, you see exactly what is happening at the microservice, service, and application level. You can look at the big picture or drilldown to the smallest details.
 
 ## Allocating Resources
 
@@ -196,9 +202,9 @@ avg(value) / avg(value(time: '1 hour')) > 1.25
 
 This rule raises an alert if the 15-minute average exceeds the 1-hour average by more than 25%.
 
-These rules adapt to events and change over time. If your daily number of users is growing, the load on your infrastructure is growing as well. This rule takes that fact into account when calculating thresholds. This is where daily recalculation of forecasts in ATSD shows its strengths – it allows the database to determine new periods and new trends continuously. New forecasts are generated every night, taking into account all the recent developments and trends that have occurred. This kind of approach results in improved forecast accuracy and dynamic response to abnormal events and new trends.
+These rules adapt to events and change over time. If your daily number of users is growing, the load on your infrastructure is growing as well. This rule takes that fact into account when calculating thresholds. This is where daily recalculation of forecasts shows its strengths – it allows the database to determine new periods and new trends continuously. New forecasts are generated every night, taking into account all the recent developments and trends that have occurred. This kind of approach results in improved forecast accuracy and dynamic response to abnormal events and new trends.
 
-As a result of smart rules and advanced forecasting techniques, you can leave alerting and monitoring tasks in the capable hands of ATSD. Axibase Time Series Database informs you of critical events and negative forecasts. In addition, the database eliminates the need to revisit and adapt thresholds manually, which can be a time-consuming task itself. In short, automated thresholding is the future of performance monitoring.
+As a result of advanced forecasting techniques, you can delegate alerting and monitoring to Axibase Time Series Database (ATSD) which informs you of critical events and forecast deviations. In addition, the database eliminates the need to revisit and adapt thresholds manually, which can be a time-consuming task itself. In short, automated thresholding is the future of performance monitoring.
 
 ## Monitoring Linux Containers with the Axibase Time Series Database
 
@@ -216,11 +222,15 @@ Axibase is focused on three crucial points with respect to performance monitorin
 * Control
 * Automation
 
-The Axibase Time Series Database collects Docker metrics for long-term retention, analytics, and visualization. A single ATSD instance can collect metrics from many Docker hosts.
+ATSD collects Docker metrics for long-term retention, analytics, and visualization. A single ATSD instance can collect metrics from many Docker hosts.
+
+![](./images/basic_arch2.png)
 
 ATSD stores metrics from local and remote Docker hosts for consolidated monitoring and analytics. This way, ATSD serves as a single point of access for performance monitoring and capacity planning.
 
 To enhance the data that ATSD retrieves from Docker, install `scollector`, `tcollector`, `collectd`, or `nmon` for a more in-depth look into system performance.
+
+![](./images/distributed_arch.png)
 
 To get started with Docker monitoring, continue reading ATSD setup and usage guide [Writing Docker Data](https://axibase.com/products/axibase-time-series-database/writing-data/docker/).
 

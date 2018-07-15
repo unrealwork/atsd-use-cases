@@ -99,7 +99,7 @@ To configure an email client in the ATSD sandbox container:
 
   ```txt
   server=mail.example.org
-  user=myuser@example.org
+  user=user@example.org
   password=secret
   ```
 
@@ -140,7 +140,7 @@ Copy the incoming `aws-cw` webhook URL from the start log.
 [ATSD] Importing '/tmp/import/rule_aws-cloudwatch-events.xml' configuration
 [ATSD] Successfully imported '/tmp/import/rule_aws-cloudwatch-events.xml'
 aws-cw webhook created:
-https://aws-cw:PASSWORD@atsd_hostname:8443/api/v1/messages/webhook/aws-cw?command.date=Timestamp&json.parse=Message&exclude=Signature;SignatureVersion;SigningCertURL;SignatureVersion;UnsubscribeURL;MessageId;Message.detail.instance-id;Message.time;Message.id;Message.version
+https://aws-cw:password@atsd_hostname:8443/api/v1/messages/webhook/aws-cw?command.date=Timestamp&json.parse=Message&exclude=Signature;SignatureVersion;SigningCertURL;SignatureVersion;UnsubscribeURL;MessageId;Message.detail.instance-id;Message.time;Message.id;Message.version
 ```
 
 Navigate to the **Topics** section of the **Simple Notification Service** page once again. On the same **Topic Details** page that establishes the AWS email subscription, click **Create Subscription** to add a second subscription to the topic.
@@ -182,13 +182,13 @@ ATSD email notifications contain context-aware links to the newly-launched AWS r
 Configure your local ATSD instance to send messages to Slack Messenger by following the [Slack Notifications](https://axibase.com/docs/atsd/rule-engine/notifications/slack.html) procedure or adding the following environment variable to the atsd-sandbox container above:
 
 ```sh
-   --env SLACK_CONFIG="slack.properties"
+--env SLACK_CONFIG="slack.properties"
 ```
 
 Bind the `slack.properties` file to the sandbox container:
 
 ```sh
-   --volume /home/user/slack.properties:/slack.properties
+--volume /home/user/slack.properties:/slack.properties
 ```
 
 The bound volume must contain these required parameters in plaintext:
@@ -209,13 +209,13 @@ A sample status change Slack message is shown here:
 Configure your local ATSD instance to send messages to Telegram Messenger by following the [Telegram Notifications](https://axibase.com/docs/atsd/rule-engine/notifications/telegram.html) procedure or adding the following environment variable to the atsd-sandbox container above:
 
 ```sh
-   --env TELEGRAM_CONFIG="telegram.properties"
+--env TELEGRAM_CONFIG="telegram.properties"
 ```
 
 Bind the `telegram.properties` file to the sandbox container:
 
 ```sh
-   --volume /home/user/telegram.properties:/telegram.properties
+--volume /home/user/telegram.properties:/telegram.properties
 ```
 
 The bound volume contains the required parameters in plaintext:

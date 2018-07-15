@@ -24,7 +24,11 @@ Click **Generate New Token** and enter the account password when prompted.
 
 ![](./images/read:org.png)
 
+<!-- markdownlint-disable MD105 -->
+
 Configure the token to grant **read:org** permissions in the **admin:org** section by checking the appropriate box. This scope grants read-only organization access to any user with this token, keep the contents confidential.
+
+<!-- markdownlint-enable MD105 -->
 
 Copy the token to the `TOKEN` parameter of the [sandbox launch command](#launch-atsd-sandbox).
 
@@ -47,7 +51,7 @@ docker run -d -p 8443:8443 \
   --env START_COLLECTOR=off \
   --env ORGANIZATION=MyOrganization \
   --env TOKEN=**************************************** \
-  --env SUBSCRIBERS=myuser@example.org \
+  --env SUBSCRIBERS=user@example.org \
   --env EMAIL_CONFIG=mail.properties \
   --env ATSD_IMPORT_PATH=https://raw.githubusercontent.com/axibase/atsd-use-cases/master/integrations/github/resources/github-daily-pr-status.xml,https://raw.githubusercontent.com/axibase/atsd-use-cases/master/integrations/github/resources/github-graphql-table.xml,https://raw.githubusercontent.com/axibase/atsd-use-cases/master/integrations/github/resources/graphql-queries.xml \
   --volume /home/user/mail.properties:/mail.properties \
@@ -58,7 +62,7 @@ Mail configuration has several required parameters, passing these parameters int
 
 ```ls
 server=smtp.example.org
-user=myuser@example.org
+user=user@example.org
 password=secret
 ```
 

@@ -1,6 +1,6 @@
 # Zookeeper Integration
 
-This guide describes how to monitor availability and performance of an [Apache Zookeeper](https://zookeeper.apache.org/) cluster (3 nodes) using ATSD.
+This guide describes how to monitor availability and performance of an [Apache Zookeeper](https://zookeeper.apache.org/) cluster (3 nodes) using Axibase Time Series Database (ATSD).
 
 ## Step 1: Configure Axibase Collector
 
@@ -60,7 +60,7 @@ On the **JMX Job** page set the **Enabled** checkbox and save the job.
 
 ### Check data collection
 
-Log in to the target Axibase Time Series Database instance at `https://atsd_hostname:8443`.
+Log in to the target ATSD instance at `https://atsd_hostname:8443`.
 
 Open the **Metrics** tab and verify that `jmx.zookeeper.*` metrics are available.
 
@@ -84,14 +84,14 @@ Open the **Metrics** tab and verify that `jmx.zookeeper.*` metrics are available
 
 ### Import portals
 
-1. Open the **Portals** menu, select **Configure** and import [portals](./resources/portal-configs.xml) (set the flag in the **Auto-enable New Portals** check box).
+1. Open the **Portals** menu, select **Configure** and import [portals](./resources/portal-configs.xml) (Enable the **Auto-enable New Portals** check box).
 2. Verify that new portals are displayed by opening the **Portals** menu and searching for the newly-configured portal named **Zookeeper Cluster**.
 
 ![](./images/test_portals.png)
 
 ### Import rules
 
-Open the **Alerts** menu, select **Rules** and import [rules](./resources/rules.xml) (set the flag in the **Auto-enable New Rules** check box).
+Open the **Alerts** menu, select **Rules** and import [rules](./resources/rules.xml) (Enable the **Auto-enable New Rules** check box).
 
 Confirm the database imported the desired rules
 
@@ -99,10 +99,10 @@ Confirm the database imported the desired rules
 
 * **Zookeeper cluster high latency**: alert opens when more than 50% of the nodes in a cluster have average latency greater than 100 ms in 3 minutes.
 * **Zookeeper cluster not serving requests**: alert opens when node status is `leaderelection`, which means that nodes cannot choose leader.
-* **Zookeeper dead cluster**: opens when no data was collected from cluster in 2 minutes.
-* **Zookeeper dead node**: opens when no data was collected from a single node in 2 minutes.
+* **Zookeeper dead cluster**: opens when no data is collected from cluster in two minutes.
+* **Zookeeper dead node**: opens when no data is collected from a single node in two minutes.
 * **Zookeeper dead nodes list**: same as single dead node, but checks all nodes by timer.
-* **Zookeeper node high latency**: opens when node average latency is above 100 in 3 consecutive measurements.
+* **Zookeeper node high latency**: opens when node average latency is above 100 in three consecutive measurements.
 * **Zookeeper rate metrics**: always open. Used for transform `packetsreceived` and `packetssent` metrics from cumulative to difference (packets per minute) metrics. Uses derived commands.
 
 Verify rule functionality. Stop one node and check that **Zookeeper dead node** and **Zookeeper dead nodes list** rule opens (allow up to two minutes). Open the **Alerts** menu and select **Open Alerts** to view all open rules.

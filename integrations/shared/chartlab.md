@@ -4,7 +4,7 @@
 
 ## Introduction
 
-**ChartLab** is a versatile online tool which allows users to test drive ATSD visualization capabilities. **ChartLab** does not require any registration and allows you to experiment with different layouts and widget settings prior to deploying it in your own ATSD instance. For front-end developers familiar with [jsfiddle](http://jsfiddle.net/da1rosy8/), **ChartLab** shares many of the same properties and characteristics.
+**ChartLab** is a versatile online tool which allows users to test drive ATSD visualization capabilities. **ChartLab** does not require any registration and allows you to experiment with different layouts and widget settings prior to deploying it in your own ATSD instance. For front-end developers familiar with [jsfiddle](https://jsfiddle.net/da1rosy8/6/), **ChartLab** shares many of the same properties and characteristics.
 
 This article shows basic features and functionality of the **ChartLab** service.
 
@@ -36,9 +36,9 @@ The Random Data Generator is a non-existent dataset which invokes the `math.rand
 
 This function returns a floating-point, pseudo-random number in the range `[0,1]`, which includes all number from zero up to, but not including, 1. These numbers have no meaning, the functions generates a new random number every 60 seconds.
 
-Use the Randon Data Generator to explore different widgets and layouts available in **ChartLab**
+Use the Random Data Generator to explore different widgets and layouts available in **ChartLab**
 
-ATSD data is data stored in ATSD from a variety of sources including server equipment, network devices, and online resources. Use **ChartLab** to access public data stored by ATSD and [install](https://axibase.com/docs/atsd/installation/) the databast to begin uploading your own.
+ATSD data is data stored in ATSD from a variety of sources including server equipment, network devices, and online resources. Use **ChartLab** to access public data stored by ATSD and [install](https://axibase.com/docs/atsd/installation/) the database to begin uploading your own.
 
 ## Widget
 
@@ -91,7 +91,7 @@ To save the portal under an entirely new URL click **Clone**.
 
 ![Figure 12](./images/Figure12.png)
 
-The cloned portal is identical to the original with a unique URL. Use this feature to publish a final addition so that earlier versions remain hidden.
+The cloned portal is identical to the original with a unique URL. Use this feature to publish a final edition and earlier versions remain hidden.
 
 ## Editor
 

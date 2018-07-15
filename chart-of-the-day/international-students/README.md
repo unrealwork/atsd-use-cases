@@ -10,7 +10,7 @@
 
 America has always been a country that thrived on immigration, and American universities are regarded among the best in
 the world. International students find the middle ground of these two metrics and come to the country to experience American
-life and study at some of our best universities, sometimes returning home after they complete their education
+life and study at some of the best American universities, sometimes returning home after they complete their education
 and sometimes accepting work and joining the millions who have done the same throughout history.
 
 But where do they come from?
@@ -43,5 +43,3 @@ The visualization below arranges the data by continent for an additional perspec
 ![](./images/is-002.png)
 
 [![View in ChartLab](./images/button.png)](https://apps.axibase.com/chartlab/de703084/2/#fullscreen)
-
-If you would like to see your data analyzed with Axibase tools [contact us](https://axibase.com/feedback/).
