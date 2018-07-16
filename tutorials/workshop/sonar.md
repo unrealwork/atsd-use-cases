@@ -78,6 +78,10 @@ The integration code analysis into your CI process calls
 
 SonarQube is an open source platform, designed for continuous analysis and measurement of code quality.
 
+The main difference between SonarQube and the other tools is that the code analysis **runs externally** in your CI server and the result is sent to SonarQube. Then, this analysis is processed by SonarQube and stored in a database in order to be served. That means an extra effort in configuring your CI server.
+
+![Scheme](./images/sonar-scheme.png)
+
 ### Capabilites
 
 * The support of many languages:
