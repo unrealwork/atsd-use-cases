@@ -6,7 +6,7 @@
 
 - [Static code analysis with SonarQube](#static-code-analysis-with-sonarqube)
   - [Overview](#overview)
-  - [What is static analysis of code](#what-is-static-analysis-of-code)
+  - [What is a static analysis of a code](#what-is-a-static-analysis-of-a-code)
     - [Benefits](#benefits)
     - [Solutions](#solutions)
   - [Continious Code Inspection](#continious-code-inspection)
@@ -36,11 +36,11 @@
 
 [SonarQube](https://www.sonarsource.com/products/sonarqube/) (formerly Sonar) is an open source platform developed by [SonarSource](https://www.sonarsource.com/) for continuous inspection of code quality to perform automatic reviews with `static analysis` of code to detect bugs, code smells, and security vulnerabilities on 20+ programming languages.
 
-## What is static analysis of code
+## What is a static analysis of a code
 
 `Static program analysis` is the analysis of computer software that is performed without actually executing programs, in contrast with dynamic analysis, which is analysis performed on programs while they are executing.
 
-There are two main ways to analyse the code without execution:
+There are two main ways to analyze the code without execution:
 
 * Analysis of `source code`
 
@@ -50,9 +50,9 @@ There are two main ways to analyse the code without execution:
 
 * Static Analysis Tools are generally used by developers as part of the development and component testing process
 
-* Static Code Analysis helps identify potential software quality issues during development phase before the software goes into production.
+* Static Code Analysis helps identify potential software quality issues during the development phase before the software goes into production.
 
-* It detects areas in code that needs re-factoring / simplification
+* It detects areas in the code that needs refactoring/simplification
 
 * The analysis detects programming errors or flaws and shows them to you
 
@@ -62,17 +62,17 @@ There are two main ways to analyse the code without execution:
 
 * [Checkstyle](http://checkstyle.sourceforge.net/) is a tool for checking Java source code for adherence to a Code Standard or set of validation rules (best practices).
 
-* [SpotBugs](https://spotbugs.github.io/) is a program which uses static analysis to look for bugs in `Java` code. SpotBugs is the spiritual successor of [FindBugs](http://findbugs.sourceforge.net/), carrying on from the point where it left off with support of its community.
+* [SpotBugs](https://spotbugs.github.io/) is a program which uses static analysis to look for bugs in `Java` code. SpotBugs is the spiritual successor of [FindBugs](http://findbugs.sourceforge.net/), carrying on from the point where it left off with the support of its community.
 
 * [ESLint](https://eslint.org/) is a tool for identifying and reporting on patterns found in ECMAScript/JavaScript code.
 
 ## Continious Code Inspection
 
-Third major benefit of static code analysis is they can find the bug early in development cycle, which means less cost to fix them.
-All these advantage of static code analyser can be best utilized only if they are part of build process.
+The major benefit of static code analysis is they can find the bug early in the development cycle, which means less cost to fix them.
+All these advantages of static code analyzer can be best utilized only if they are part of the build process.
 
 The integration code analysis into your CI process calls
-`continious code inspection`.
+`continuous code inspection`.
 
 ## Sonarqube
 
@@ -123,7 +123,7 @@ SonarQube is an open source platform, designed for continuous analysis and measu
   * `Fortify`
   and so on.
 
-* You can extend the existing functionality using third-party plugins. For example, add intgreation with Github for automatic code review of Pull Requests.
+* You can extend the existing functionality using third-party plugins. For example, add integration with Github for automatic code review of Pull Requests.
 
 * It implements the `SQALE` methodology to evaluate the technical debt.
 
@@ -190,15 +190,15 @@ The SonarQube platform is designed to help fight these sins.
 
 ### Installation
 
-The Sonarqube Platform is Java Web Server that use database to store history, settings etc. Several database engines are supported.
+The Sonarqube Platform is Java Web Server that uses a database to store history, settings etc. Several database engines are supported.
 
 #### General scheme of installation
 
-* Install prefered database.
-* Create an empty schema and a sonarqube user
-* Grant this sonarqube user permissions to create, update and delete objects for this schema.
-* Copy webapp files.
-* Run the platform using provided script.
+* Install preferred database.
+* Create an empty schema and a `sonarqube` user
+* Grant this  `sonarqube` user permissions to create, update and delete objects for this schema.
+* Copy web app files.
+* Run the platform using the provided script.
 
 Visit SonarQube [documentation](https://docs.sonarqube.org/display/SONAR/Installing+the+Server#InstallingtheServer-installingDatabaseInstallingtheDatabase) site for details.
 
@@ -212,7 +212,7 @@ The foll## Requirements
 
 ## Compose file
 
-The docker-compose file allows to run SonarQube with a PostgreSQL database.
+The docker-compose file allows running SonarQube with a PostgreSQL database.
 
 Create this `docker-compose.yml` file:
 
@@ -284,7 +284,7 @@ Let’s have a look at the main features of SonarQube in more detail.
 
 #### Home page
 
-On the home page of SonarQube you can see a list of projects added to the system with brief statistics for each project: the version of the build, number of lines in the code, number of bugs, vulnerabilities, and code smells, date of the last analysis:
+On the home page of SonarQube, you can see a list of projects added to the system with brief statistics for each project: the version of the build, number of lines in the code, number of bugs, vulnerabilities, and code smells, date of the last analysis:
 
 ![Sonar Home Page](./images/sonar-home-page.png)
 
@@ -292,7 +292,7 @@ The content of the home page can be customized for your goals by using a large n
 
 #### Project metrics
 
-To get more detail information about project status go to **Project > Measures**.
+To get more detail information about project status goes to **Project > Measures**.
 
 ![Project Measures](./images/sonar-project-measures.png)
 
@@ -316,13 +316,13 @@ Here you can find information about the following code metrics:
 
 #### Navigating the code and the bugs
 
-To see how SonarQube allows to work with problems found in the code navigat to **Issues** section.
+To see how SonarQube allows working with problems found in the code navigate to **Issues** section.
 
 ![Issues Section](./images/sonar-project-issues.png)
 
 Here we see all the problems found in the code with vast filtering options, which allows focusing on the most important issues. It should be noted that SonarQube allows you to save filter settings to use them later again.
 
-By double clicking on the error message, you can go to the code, in which the problem was found. Besides that you can find a detailed description of an error and recommendations of how it can be fixed:
+By double-clicking on the error message, you can go to the code, in which the problem was found. Besides that you can find a detailed description of an error and recommendations of how it can be fixed:
 
 ![Sonar Issue Review](./images/sonar-issue-review.png)
 
@@ -336,7 +336,7 @@ Also note that, thanks to the integration with version control systems, you can 
 
 Each plugin for SonarQube that performs static code analysis, contains a repository with the description of diagnostic `rules` that this plugin performs.
 
-Violations of these rules are used to determine the technical debt in your code and evaluate the time to fix these issues. For ease-of-use the rules are grouped as Quality Profiles. By default, SonarQube creates a default `quality profile` for each supported language, but you can create your own quality profiles containing those diagnostic rules, that would be useful for you.
+Violations of these rules are used to determine the technical debt in your code and evaluate the time to fix these issues. For ease-of-use, the rules are grouped as Quality Profiles. By default, SonarQube creates a default `quality profile` for each supported language, but you can create your own quality profiles containing those diagnostic rules, that would be useful for you.
 
 For example, for the analysis of critically important projects, which have the highest quality requirements, you can define a quality profile that will contain all the available diagnostics; for less critical projects you can define a less critical quality profile, that will contain only serious bugs, so that you don’t get distracted by minor code smells.
 
@@ -356,7 +356,7 @@ Based on your own requirements for the quality of the source code, you can chang
 [SonarLint](https://www.sonarlint.org/) is an IDE extension that helps you detect and fix quality issues as you write code.
 Like a spell checker, SonarLint squiggles flaws so that they can be fixed before committing code.
 
-It easily connects to your SonarQube platform and provide real-time analysis of the code.
+It easily connects to your SonarQube platform and provides real-time analysis of the code.
 
 #### Supported IDEs
 
@@ -364,7 +364,7 @@ It easily connects to your SonarQube platform and provide real-time analysis of 
 
 ### Github Integration
 
-The [GitHub Plugin](https://docs.sonarqube.org/display/PLUG/GitHub+Plugin) serves only one purpose: analyse GitHub pull requests without pushing results to SonarQube. Any issues that are found are published as comments on the pull request.
+The [GitHub Plugin](https://docs.sonarqube.org/display/PLUG/GitHub+Plugin) serves only one purpose: analyze GitHub pull requests without pushing results to SonarQube. Any issues that are found are published as comments on the pull request.
 
 The plugin performs the following operations:
 
@@ -386,7 +386,7 @@ The plugin performs the following operations:
   * You have a dedicated technical GitHub user which will be used to insert comments when there are issues and update the status of the pull request.
   
   * To insert comments, you just need to generate a token (for that user) that has only the "public_repo" scope (or "repo" for private repositories)
-  ![sonar github permission](./images/sonar-github-permissions.png)
+  ![sonar GitHub permission](./images/sonar-github-permissions.png)
 
 #### Running Sonar analysis in CI
 
